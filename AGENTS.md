@@ -30,3 +30,5 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 ## Notes
 - Yarn is the expected package manager.
 - Styling single source of truth lives in `src/index.css` via shadcn tokens + custom theme tokens (`--page-background`, `--hero-title-color`, `--footer-background`).
+- Tailwind utilities consume these tokens via `tailwind.config.js`; shadcn components live in `src/components/ui/`.
+- SCSS is still present for legacy/component styling (e.g. `src/App.scss` and component SCSS files), so both Tailwind and SCSS currently affect UI.

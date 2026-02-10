@@ -170,6 +170,10 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Switched the Info panel icon to Lucide's `Info` (`lucide-react`) and removed the custom SVG mask.
 - Updated the Lucide info icon styling to render as a filled black circle with a white "i".
 
+## 22) Favicon
+- Added `public/favicon.svg` using the eLearning logo from the footer and updated `index.html` to reference it.
+- Generated PNG favicon assets (16/32), Apple touch icon, Android icons, and `public/site.webmanifest`.
+
 
 # Files Deleted (partial but comprehensive)
 

@@ -58,6 +58,8 @@ Typography is also normalized: root tokens (`--body-font-size`, `--body-line-hei
 - Inline audio icons are normalized via CSS variables in `src/components/AudioClip/AudioClip.scss` to keep size and baseline alignment consistent across paragraph text.
 - The Introduction `HeroSection` can opt out of the default card styling via `transparentCard`, so it can sit directly on the page background (no white card or border) while other sections remain carded.
 - The Info panel now uses the Lucide `Info` icon (via `lucide-react`) instead of a custom masked SVG.
+- The favicon now uses the eLearning logo SVG (from the footer) via `public/favicon.svg`.
+- Added PNG favicon assets (16/32) plus Apple/Android icons and a `site.webmanifest` for broader device support.
 
 ## TODO
 
