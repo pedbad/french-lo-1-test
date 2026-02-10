@@ -1,0 +1,53 @@
+// SequenceAudioController.scss
+.sequence-audio-controller {
+	position: relative;
+	width: 100%;
+
+	padding: 0.5rem;
+	border: 1px solid var(--border);
+	border-radius: 0.6rem;
+	background: var(--muted); //#f9f9f9;
+	margin-top: 1rem;
+
+	.controls {
+		// display: flex;
+		// align-items: center;
+		// gap: 0.5rem;
+		min-width: 0;
+
+		display: grid;
+		grid-template-columns: 0.1fr 2fr 0.1fr 1fr;
+		grid-template-rows: 1fr;
+		gap: 0px 0.5rem;
+		grid-auto-flow: row;
+		grid-template-areas: "iconScrub inputScrub iconVolume inputVolume";
+
+		color: var(--foreground);
+
+		button {
+			font-size: 1rem;
+			cursor: pointer;
+			&.play-pause {
+				grid-area: iconScrub;
+				justify-self: right;
+			}
+		}
+
+		svg.volume-icon {
+			grid-area: iconVolume;
+			justify-self: right;
+		}
+
+		input[type="range"] {
+			flex: 1;
+			min-width: 0;
+			// cursor: ew-resize;
+			&.play-scrubber {
+				grid-area: inputScrub;
+			}
+			&.volume-slider {
+				grid-area: inputVolume;
+			}
+		}
+	}
+}

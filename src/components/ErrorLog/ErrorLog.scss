@@ -1,0 +1,142 @@
+/*
+ErrorLog.scss
+*/
+@use "../../styles/variables.module" as *;
+
+$border-width: 2px;
+$button-dimension: 30px;
+$header-height: $button-dimension;
+$header-colour: var(--muted-foreground);
+$height: 156px;
+$transition-speed: 0.5s;
+$error-log-width: 700px;
+#errorLog {
+	display: block;
+	position: fixed;
+	max-height: $height;
+	width: $error-log-width;
+	right: 0;
+	top: -$height - 4px;
+	background: var(--card);
+	overflow-y: hidden;
+	z-index: 999;
+	box-shadow: 0 0 4px color-mix(in oklab, var(--border) 70%, transparent);
+	max-width: $error-log-width;
+	transition:
+		top calc($transition-speed / 2),
+		max-height $transition-speed,
+		max-width $transition-speed,
+		left $transition-speed,
+		margin-left $transition-speed;
+	overflow-x: hidden;
+	#tableContainer {
+		overflow-y: auto;
+		max-height: $height - $button-dimension;
+		transition: height 2s;
+	}
+	&.show {
+		top: 0;
+		transition:
+			top calc($transition-speed / 2),
+			max-height $transition-speed,
+			max-width $transition-speed,
+			left $transition-speed,
+			margin-left $transition-speed;
+	}
+	&.collapse {
+		max-height: $header-height;
+		transition:
+			max-height $transition-speed,
+			max-width $transition-speed,
+			left $transition-speed,
+			margin-left $transition-speed;
+		max-width: 140px;
+		header {
+			.header-buttons-left {
+				button {
+					&#collapse {
+						transition: transform calc($transition-speed / 2);
+						transform: rotateZ(180deg);
+					}
+				}
+			}
+			.header-buttons-right {
+				display: none;
+			}
+		}
+	}
+
+	button {
+		width: $button-dimension;
+		height: $button-dimension;
+		border: none;
+		padding: 0;
+		mask-repeat: no-repeat;
+		mask-position: center center;
+		text-indent: -9999px;
+		&.clear-error {
+			background: var(--destructive);
+			mask-size: 40%;
+			mask-image: url("whiteCross.svg"); // Too hacky, need better solution so these graphical assets can be shared
+		}
+	}
+
+	header {
+		width: 100%;
+		text-align: center;
+		padding: 8px;
+		font-weight: bold;
+		font-size: 0.8rem;
+		background-color: var(--muted);
+		color: $header-colour;
+		overflow: hidden;
+		.header-buttons-left,
+		.header-buttons-right {
+			position: absolute;
+			display: flex;
+			top: 0;
+			right: 0;
+			overflow: hidden;
+			button {
+				background: $header-colour;
+				&#copyAll {
+					mask-size: 40%;
+					mask-image: url("copy.svg"); // Too hacky, need better solution so these graphical assets can be shared
+				}
+			}
+		}
+		.header-buttons-left {
+			position: absolute;
+			display: flex;
+			top: 0;
+			left: 0;
+			button {
+				&#collapse {
+					transition: transform calc($transition-speed / 2);
+					mask-size: 60%;
+					mask-image: url("upArrow.svg"); // Too hacky, need better solution so these graphical assets can be shared
+				}
+			}
+		}
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.8rem;
+		tr {
+			background-color: var(--card); // rgba(255, 0, 0, 0.05);
+			&:nth-of-type(even) {
+				background-color: color-mix(in oklab, var(--destructive) 4%, var(--card));
+			}
+		}
+		td {
+			vertical-align: top;
+			padding: 8px;
+			&.button {
+				width: 30px;
+				padding: 0;
+			}
+		}
+	}
+}

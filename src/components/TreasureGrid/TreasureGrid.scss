@@ -1,0 +1,48 @@
+// TreasureGrid.scss
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/mixins.module" as *;
+@use "../../styles/variables.module" as *;
+
+.treasure-grid {
+	font-family: sans-serif;
+	text-align: center;
+	padding: 1rem;
+	max-width: 600px;
+	margin: auto;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 0.5rem;
+	margin: 1rem auto;
+}
+
+.cell {
+	background-color: var(--muted);
+	border: 2px solid var(--border);
+	padding: 0.8rem;
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.2s ease;
+	border-radius: 6px;
+}
+
+.cell:hover {
+	background-color: var(--accent);
+}
+
+.cell.selected {
+	background-color: color-mix(in oklab, var(--chart-2) 25%, var(--card));
+	border-color: var(--chart-2);
+	font-weight: bold;
+}
+
+.message {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-top: 1rem;
+	color: var(--foreground);
+}

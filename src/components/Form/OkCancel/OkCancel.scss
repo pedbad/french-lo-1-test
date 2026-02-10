@@ -1,0 +1,19 @@
+/*
+OkCancel.scss
+*/
+@use "../../../styles/colours.module" as *;
+
+.btn-group {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+
+	button {
+		max-width: 100px;
+		margin: 8px;
+		&:last-child {
+			margin: 8px 0px 8px 8px;
+		}
+	}
+}

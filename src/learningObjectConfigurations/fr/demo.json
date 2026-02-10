@@ -1,0 +1,2146 @@
+{
+	"settings": {
+		"class": "lo-demo",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR"
+	},
+	"group1": {
+		"component": "Group",
+		"htmlContent": "<p>This <b>Jigsaw</b> component presents 2 sets of jigsaw pieces. The student needs to read / listen to the phrase that describes a picture. This should enable the student to choose the correct pieces to place into a simple jigsaw picture.</p><p>Two or more errors reveal some help options.</p>",
+		"content": [
+			{
+				"jigsaw1": {
+					"cheatText": "Show answer",
+					"component": "Jigsaw",
+					"congratulationsText": "Well done! You solved the puzzle!",
+					"correctImage": "/images/cyclist-horse.jpg",
+					"descriptionText": "Un jeune homme, portant un t-shirt rouge, passe à vélo devant un cheval dans un champ par une journée ensoleillée.",
+					"descriptionTextComment": "Foreign language description of picture with nouns, verbs and lots of adjectives.'",
+					"id": "jigsaw1",
+					"incorrectImage": "/images/parrot-jaguar.jpg",
+					"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+					"listenDescriptionText": "Listen to the description",
+					"showHintsText": "Show hints when moving",
+					"soundFile": "sounds/fr/cyclist-horse.mp3",
+					"titleText": "Boy Horse"
+				}
+			},
+			{
+				"jigsaw2": {
+					"component": "Jigsaw",
+					"correctImage": "/images/parrot-jaguar.jpg",
+					"id": "jigsaw2",
+					"incorrectImage": "/images/cyclist-horse.jpg",
+					"congratulationsText": "Squawk! You solved the puzzle!",
+					"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+					"descriptionText": "Un beau perroquet dans une forêt luxuriante mangeant une noix du Brésil tout en regardant un jaguar au sol.",
+					"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+					"showHintsText": "Show hints when moving",
+					"soundFile": "sounds/fr/parrot-jaguar.mp3",
+					"cheatText": "Show answer",
+					"listenDescriptionText": "Listen to the description",
+					"titleText": "Parrot Jaguar"
+				}
+			},
+			{
+				"jigsaw3": {
+					"component": "Jigsaw",
+					"correctImage": "/images/car-windmill.jpg",
+					"id": "jigsaw3",
+					"incorrectImage": "/images/car-cliff-lift.jpg",
+					"congratulationsText": "Vroom! You solved the puzzle!",
+					"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+					"descriptionText": "Une voiture bleue garée devant un moulin à vent.",
+					"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+					"showHintsText": "Show hints when moving",
+					"soundFile": "sounds/fr/car-windmill.mp3",
+					"cheatText": "Show answer",
+					"listenDescriptionText": "Listen to the description",
+					"titleText": "Car Windmill"
+				}
+			},
+			{
+				"jigsaw4": {
+					"component": "Jigsaw",
+					"correctImage": "/images/car-cliff-lift.jpg",
+					"id": "jigsaw4",
+					"incorrectImage": "/images/car-windmill.jpg",
+					"congratulationsText": "You solved the puzzle!",
+					"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+					"descriptionText": "Une voiture bleue garée devant une station de remontée mécanique au Pays de Galles par une journée brumeuse.",
+					"COMMENTalternativeDescriptionEnglish": "A beautiful parrot in a lush forest eating a Brazil nut while looking at a jaguar on the ground",
+					"showHintsText": "Show hints when moving",
+					"soundFile": "sounds/fr/car-cliff-lift.mp3",
+					"cheatText": "Show answer",
+					"listenDescriptionText": "Listen to the description",
+					"titleText": "Car Station"
+				}
+			},
+			{
+				"jigsaw5": {
+					"component": "Jigsaw",
+					"correctImage": "/images/river-bank.jpg",
+					"id": "jigsaw5",
+					"incorrectImage": "/images/hay-wain.jpg",
+					"congratulationsText": "You solved the puzzle!",
+					"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+					"descriptionText": "La scène se déroule au bord d'une rivière où les gens sont au soleil ou à l'ombre. Certains ont des parasols. Il y a des enfants et des chiens. Sur la rivière, on trouve une barque, des voiliers et deux bateaux à vapeur.",
+					"descriptionTextEnglish": "The scene is a river bank where people are in sun or in shade. Some have parasols. There are children and dogs. On the reiver thereis a rowing boat, some sailboats and two steamboats.",
+					"showHintsText": "Show hints when moving",
+					"soundFile": "sounds/fr/river-bank.mp3",
+					"cheatText": "Show answer",
+					"listenDescriptionText": "Listen to the description",
+					"titleText": "River Bank"
+				}
+			},
+			{
+				"jigsaw6": {
+					"component": "Jigsaw",
+					"correctImage": "/images/hay-wain.jpg",
+					"id": "jigsaw6",
+					"incorrectImage": "/images/river-bank.jpg",
+					"congratulationsText": "You solved the puzzle!",
+					"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
+					"descriptionText": "La scène se déroule au bord d'une rivière, dans les eaux peu profondes. Trois chevaux sont attelés à une charrette à foin, en train de se rafraîchir. À gauche, une maison où une femme lave du linge. Un chien court au bord de l'eau et, sur la rive opposée, un homme pêche à côté d'une barque.",
+					"descriptionTextEnglish": "The scene is a river bank, in the shallows, three horses are standing, cooling, harnessed to a hay wain. On the left is a cottage where a woman is washing clothes. A dog runs along by the water and on the opposite bank a man is fishing next to a rowing boat.",
+					"showHintsText": "Show hints when moving",
+					"soundFile": "sounds/fr/hay-wain.mp3",
+					"cheatText": "Show answer",
+					"listenDescriptionText": "Listen to the description",
+					"titleText": "Hay Wain"
+				}
+			}
+		],
+		"id": "group1",
+		"titleText": "Jigsaws"
+	},
+	"group2": {
+		"component": "Group",
+		"content": [
+			{
+				"wordGrid1": {
+					"cheatText": "Show answer",
+					"component": "WordGrid",
+					"congratulationsText": "Well done, you found them all!",
+					"id": "WordGrid1",
+					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"words": [
+						[
+							"épicerie",
+							"grocers",
+							"sounds/fr/épicerie.mp3"
+						],
+						[
+							"supermarché",
+							"supermarket",
+							"sounds/fr/supermarché.mp3"
+						],
+						[
+							"boucherie",
+							"butcher shop",
+							"sounds/fr/boucherie.mp3"
+						],
+						[
+							"boulangerie",
+							"bakery",
+							"sounds/fr/boulangerie.mp3"
+						],
+						[
+							"pâtisserie",
+							"pastry shop",
+							"sounds/fr/pâtisserie.mp3"
+						],
+						[
+							"poissonnerie",
+							"fish shop",
+							"sounds/fr/poissonnerie.mp3"
+						],
+						[
+							"bistro",
+							"café",
+							"sounds/fr/bistro.mp3"
+						],
+						[
+							"pharmacie",
+							"pharmacy",
+							"sounds/fr/pharmacie.mp3"
+						],
+						[
+							"poste",
+							"post office",
+							"sounds/fr/poste.mp3"
+						],
+						[
+							"tabac",
+							"tobacco shop",
+							"sounds/fr/tabac.mp3"
+						]
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Shops"
+				}
+			},
+			{
+				"wordGrid2": {
+					"cheatText": "Show answer",
+					"component": "WordGrid",
+					"congratulationsText": "That was a roaring success!",
+					"htmlContent": "<p>This <b>WordGrid</b> component takes a number of words, their translations and sound files and arranges them into a word grid puzzle.</p><p>The student must know the target language version of the word and drag the mouse from the first letter to the last to highlight the word. The word is then sounded.</p>",
+					"id": "WordGrid2",
+					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"words": [
+						[
+							"éléphant",
+							"elephant",
+							"sounds/fr/elephant.mp3"
+						],
+						[
+							"girafe",
+							"giraffe",
+							"sounds/fr/girafe.mp3"
+						],
+						[
+							"tigre",
+							"tiger",
+							"sounds/fr/tigre.mp3"
+						],
+						[
+							"wombat",
+							"wombat",
+							"sounds/fr/wombat.mp3"
+						],
+						[
+							"lemming",
+							"lemming",
+							"sounds/fr/lemming.mp3"
+						],
+						[
+							"chimpanzé",
+							"chimpanzee",
+							"sounds/fr/chimpanze.mp3"
+						]
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Animals"
+				}
+			},
+			{
+				"wordGrid3": {
+					"cheatText": "Show answer",
+					"component": "WordGrid",
+					"congratulationsText": "Well done, you found them all!",
+					"id": "WordGrid3",
+					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"words": [
+						[
+							"étudiant",
+							"student",
+							"sounds/fr/étudiant.mp3"
+						],
+						[
+							"élève",
+							"pupil",
+							"sounds/fr/élève.mp3"
+						],
+						[
+							"professeur",
+							"teacher",
+							"sounds/fr/professeur.mp3"
+						],
+						[
+							"médecin",
+							"doctor",
+							"sounds/fr/médecin.mp3"
+						],
+						[
+							"pilote",
+							"pilot",
+							"sounds/fr/médecin.mp3"
+						],
+						[
+							"archiviste",
+							"archivist",
+							"sounds/fr/archiviste.mp3"
+						],
+						[
+							"bibliothécaire",
+							"librarian",
+							"sounds/fr/bibliothécaire.mp3"
+						],
+						[
+							"administrateur",
+							"administrator",
+							"sounds/fr/administrateur.mp3"
+						],
+						[
+							"avocat",
+							"lawyer",
+							"sounds/fr/avocat.mp3"
+						]
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Occupations"
+				}
+			},
+			{
+				"wordGrid4": {
+					"cheatText": "Show answer",
+					"component": "WordGrid",
+					"congratulationsText": "Well done, you found them all!",
+					"id": "WordGrid4",
+					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"words": [
+						[
+							"pomme",
+							"apple",
+							"sounds/fr/une pomme.mp3"
+						],
+						[
+							"bacon",
+							"bacon",
+							"sounds/fr/du bacon.mp3"
+						],
+						[
+							"banane",
+							"banana",
+							"sounds/fr/une banane.mp3"
+						],
+						[
+							"bière",
+							"beer",
+							"sounds/fr/une bière.mp3"
+						],
+						[
+							"pain",
+							"bread",
+							"sounds/fr/du pain.mp3"
+						],
+						[
+							"beurre",
+							"butter",
+							"sounds/fr/du beurre.mp3"
+						],
+						[
+							"tomates",
+							"tomatoes",
+							"sounds/fr/tomates.mp3"
+						],
+						[
+							"carotte",
+							"carrot",
+							"sounds/fr/une carotte.mp3"
+						],
+						[
+							"fromage",
+							"cheese",
+							"sounds/fr/du fromage.mp3"
+						],
+						[
+							"cheesecake",
+							"cheesecake",
+							"sounds/fr/du cheesecake.mp3"
+						],
+						[
+							"poulet",
+							"chicken",
+							"sounds/fr/un poulet.mp3"
+						],
+						[
+							"chocolat",
+							"chocolate",
+							"sounds/fr/du chocolat.mp3"
+						],
+						[
+							"croissant",
+							"croissant",
+							"sounds/fr/un croissant.mp3"
+						],
+						[
+							"œuf",
+							"egg",
+							"sounds/fr/un œuf.mp3"
+						],
+						[
+							"poisson",
+							"fish",
+							"sounds/fr/un poisson.mp3"
+						],
+						[
+							"glace",
+							"ice cream",
+							"sounds/fr/une glace.mp3"
+						],
+						[
+							"lasagne",
+							"lasagne",
+							"sounds/fr/une lasagne.mp3"
+						],
+						[
+							"limonade",
+							"lemonade",
+							"sounds/fr/de la limonade.mp3"
+						],
+						[
+							"lait",
+							"milk",
+							"sounds/fr/du lait.mp3"
+						],
+						[
+							"oignon",
+							"onion",
+							"sounds/fr/des oignons.mp3"
+						],
+						[
+							"pâtes",
+							"pasta",
+							"sounds/fr/des pâtes.mp3"
+						],
+						[
+							"pizza",
+							"pizza",
+							"sounds/fr/une pizza.mp3"
+						],
+						[
+							"riz",
+							"rice",
+							"sounds/fr/du riz.mp3"
+						],
+						[
+							"salade",
+							"salad",
+							"sounds/fr/une salade.mp3"
+						],
+						[
+							"champagne",
+							"champagne",
+							"sounds/fr/champagne.mp3"
+						],
+						[
+							"fraise",
+							"strawberry",
+							"sounds/fr/des fraises.mp3"
+						],
+						[
+							"sucre",
+							"sugar",
+							"sounds/fr/du sucre.mp3"
+						],
+						[
+							"maïs",
+							"sweetcorn",
+							"sounds/fr/du maïs.mp3"
+						]
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Food"
+				}
+			},
+			{
+				"wordGrid5": {
+					"cheatText": "Show answer",
+					"component": "WordGrid",
+					"congratulationsText": "Well done, you found them all!",
+					"id": "WordGrid5",
+					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"words": [
+						[
+							"avion",
+							"aeroplane",
+							"sounds/fr/L'avion.mp3"
+						],
+						[
+							"gyrocoptère",
+							"gyrocopter",
+							"sounds/fr/le gyrocoptère.mp3"
+						],
+						[
+							"dirigeable",
+							"airship",
+							"sounds/fr/Le dirigeable.mp3"
+						],
+						[
+							"ballon",
+							"balloon",
+							"sounds/fr/Le ballon.mp3"
+						],
+						[
+							"vélo",
+							"bicycle",
+							"sounds/fr/Le vélo.mp3"
+						],
+						[
+							"bateau",
+							"boat",
+							"sounds/fr/Le bateau.mp3"
+						],
+						[
+							"bus",
+							"bus",
+							"sounds/fr/Le bus.mp3"
+						],
+						[
+							"téléphérique",
+							"cablecar",
+							"sounds/fr/Le téléphérique.mp3"
+						],
+						[
+							"voiture",
+							"car",
+							"sounds/fr/La voiture.mp3"
+						],
+						[
+							"planeur",
+							"glider",
+							"sounds/fr/Le planeur.mp3"
+						],
+						[
+							"deltaplane",
+							"hang-glider",
+							"sounds/fr/Le deltaplane.mp3"
+						],
+						[
+							"hélicoptère",
+							"helicopter",
+							"sounds/fr/L'hélicoptère.mp3"
+						],
+						[
+							"paquebot",
+							"liner",
+							"sounds/fr/Le paquebot.mp3"
+						],
+						[
+							"monorail",
+							"monorail",
+							"sounds/fr/Le monorail.mp3"
+						],
+						[
+							"moto",
+							"motorcycle",
+							"sounds/fr/La moto.mp3"
+						],
+						[
+							"péniche",
+							"narrowboat",
+							"sounds/fr/La péniche.mp3"
+						],
+						[
+							"fusée",
+							"rocket",
+							"sounds/fr/La fusée.mp3"
+						],
+						[
+							"scooter",
+							"scooter",
+							"sounds/fr/Le scooter.mp3"
+						],
+						[
+							"train",
+							"train",
+							"sounds/fr/Le train.mp3"
+						],
+						[
+							"aéroglisseur",
+							"hovercraft",
+							"sounds/fr/L'aéroglisseur.mp3"
+						],
+						[
+							"tramway",
+							"tram",
+							"sounds/fr/Le tramway.mp3"
+						],
+						[
+							"camion",
+							"truck",
+							"sounds/fr/Le camion.mp3"
+						]
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Transport"
+				}
+			},
+			{
+				"wordGrid6": {
+					"cheatText": "Show answer",
+					"component": "WordGrid",
+					"congratulationsText": "Well done, you found them all!",
+					"id": "WordGrid6",
+					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"words": [
+						[
+							"église",
+							"church",
+							"sounds/fr/l'église.mp3"
+						],
+						[
+							"école",
+							"school",
+							"sounds/fr/l'école.mp3"
+						],
+						[
+							"théâtre",
+							"theatre",
+							"sounds/fr/le théâtre.mp3"
+						],
+						[
+							"cinéma",
+							"cinema",
+							"sounds/fr/le cinéma.mp3"
+						],
+						[
+							"piscine",
+							"swimming pool",
+							"sounds/fr/la piscine.mp3"
+						],
+						[
+							"gare",
+							"station",
+							"sounds/fr/la gare.mp3"
+						],
+						[
+							"aéroport",
+							"airport",
+							"sounds/fr/l'aéroport.mp3"
+						],
+						[
+							"usine",
+							"factory",
+							"sounds/fr/l'usine.mp3"
+						],
+						[
+							"magasin",
+							"shop",
+							"sounds/fr/le magasin.mp3"
+						],
+						[
+							"stade",
+							"stadium",
+							"sounds/fr/le stade.mp3"
+						],
+						[
+							"bowling",
+							"bowling alley",
+							"sounds/fr/le bowling.mp3"
+						],
+						[
+							"bibliothèque",
+							"library",
+							"sounds/fr/la bibliothèque.mp3"
+						],
+						[
+							"mairie",
+							"town hall",
+							"sounds/fr/la mairie.mp3"
+						],
+						[
+							"hôpital",
+							"hospital",
+							"sounds/fr/l'hôpital.mp3"
+						],
+						[
+							"université",
+							"university",
+							"sounds/fr/l'université.mp3"
+						],
+						[
+							"hôtel",
+							"hotel",
+							"sounds/fr/l'hôtel.mp3"
+						],
+						[
+							"musée",
+							"museum",
+							"sounds/fr/le musée.mp3"
+						],
+						[
+							"palais",
+							"palace",
+							"sounds/fr/le palais.mp3"
+						],
+						[
+							"château",
+							"castle",
+							"sounds/fr/le château.mp3"
+						],
+						[
+							"phare",
+							"lighthouse",
+							"sounds/fr/le phare.mp3"
+						]
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Buildings"
+				}
+			}
+		],
+		"id": "group2",
+		"titleText": "Word Grids"
+	},
+	"group3": {
+		"component": "Group",
+		"content": [
+			{
+				"memorycards1": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Congratulations! You have a good memory!",
+					"htmlContent": "<p>This <b>MemoryMatchGame</b> component presents <i>nPairsToPlay</i> pairs of cards face dwon. The student can turn over two at a time. If either are word cards the student can play the audio of the word. If there is one word card and one picture card and they match, the audio is read out once more and the pair added to a collection of matches on the right.</p>",
+					"id": "MemoryMatchGame1",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 6,
+					"cards": [
+						{
+							"audio": "sounds/fr/la lampe à lave.mp3",
+							"localLanguage": "lava lamp",
+							"foreignLanguage": "la lampe à lave",
+							"image": "images/memory/lava-lamp.jpg"
+						},
+						{
+							"audio": "sounds/fr/le télescope.mp3",
+							"localLanguage": "telescope",
+							"foreignLanguage": "le télescope",
+							"image": "images/memory/telescope.webp"
+						},
+						{
+							"audio": "sounds/fr/le pinceau.mp3",
+							"localLanguage": "paintbrush",
+							"foreignLanguage": "le pinceau",
+							"image": "images/memory/paint-brush.webp"
+						},
+						{
+							"audio": "sounds/fr/l'arrosoir.mp3",
+							"localLanguage": "watering can",
+							"foreignLanguage": "l'arrosoir",
+							"image": "images/memory/watering-can.jpg"
+						},
+						{
+							"audio": "sounds/fr/la fermeture éclair.mp3",
+							"localLanguage": "zipper",
+							"foreignLanguage": "la fermeture éclair",
+							"image": "images/memory/zip.jpg"
+						},
+						{
+							"audio": "sounds/fr/l'échiquier.mp3",
+							"localLanguage": "chessboard",
+							"foreignLanguage": "l'échiquier",
+							"image": "images/memory/chess-board.jpg"
+						},
+						{
+							"audio": "sounds/fr/le coquillage.mp3",
+							"localLanguage": "seashell",
+							"foreignLanguage": "le coquillage",
+							"image": "images/memory/seashell.webp"
+						},
+						{
+							"audio": "sounds/fr/la tasse.mp3",
+							"localLanguage": "mug",
+							"foreignLanguage": "la tasse",
+							"image": "images/memory/mug.webp"
+						},
+						{
+							"audio": "sounds/fr/le sac à dos.mp3",
+							"localLanguage": "backpack",
+							"foreignLanguage": "le sac à dos",
+							"image": "images/memory/backpack.webp"
+						},
+						{
+							"audio": "sounds/fr/le parapluie.mp3",
+							"localLanguage": "umbrella",
+							"foreignLanguage": "le parapluie",
+							"image": "images/memory/umbrella.jpg"
+						},
+						{
+							"audio": "sounds/fr/l'agrafeuse.mp3",
+							"localLanguage": "stapler",
+							"foreignLanguage": "l'agrafeuse",
+							"image": "images/memory/stapler.png"
+						},
+						{
+							"audio": "sounds/fr/les lunettes.mp3",
+							"localLanguage": "spectacles",
+							"foreignLanguage": "les lunettes",
+							"image": "images/memory/spectacles.png"
+						},
+						{
+							"audio": "sounds/fr/la brosse à cheveux.mp3",
+							"localLanguage": "hair brush",
+							"foreignLanguage": "la brosse à cheveux",
+							"image": "images/memory/hairbrush.jpg"
+						},
+						{
+							"audio": "sounds/fr/la carte postale.mp3",
+							"localLanguage": "postcard",
+							"foreignLanguage": "la carte postale",
+							"image": "images/memory/postcard.jpg"
+						}
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Objects"
+				}
+			},
+			{
+				"memorycards2": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Congratulations! You know your way around the house!",
+					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
+					"id": "MemoryMatchGame2",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 12,
+					"cards": [
+						{
+							"audio": "sounds/fr/la salle de bains.mp3",
+							"localLanguage": "bathroom",
+							"foreignLanguage": "salle de bains",
+							"image": "images/memory-rooms/bathroom.jpg"
+						},
+						{
+							"audio": "sounds/fr/la chambre.mp3",
+							"localLanguage": "bedroom",
+							"foreignLanguage": "chambre",
+							"image": "images/memory-rooms/bedroom.jpg"
+						},
+						{
+							"audio": "sounds/fr/la cave.mp3",
+							"localLanguage": "wine cellar",
+							"foreignLanguage": "cave",
+							"image": "images/memory-rooms/cellar.jpg"
+						},
+						{
+							"audio": "sounds/fr/douche.mp3",
+							"localLanguage": "shower room",
+							"foreignLanguage": "douche",
+							"image": "images/memory-rooms/shower-room.jpg"
+						},
+						{
+							"audio": "sounds/fr/la salle à manger.mp3",
+							"localLanguage": "dining room",
+							"foreignLanguage": "salle à manger",
+							"image": "images/memory-rooms/dining-room.jpg"
+						},
+						{
+							"audio": "sounds/fr/la buanderie.mp3",
+							"localLanguage": "utility room",
+							"foreignLanguage": "buanderie",
+							"image": "images/memory-rooms/utility-room.jpg"
+						},
+						{
+							"audio": "sounds/fr/le salon.mp3",
+							"localLanguage": "lounge",
+							"foreignLanguage": "salon",
+							"image": "images/memory-rooms/lounge.jpg"
+						},
+						{
+							"audio": "sounds/fr/les toilettes.mp3",
+							"localLanguage": "toilet",
+							"foreignLanguage": "toilettes",
+							"image": "images/memory-rooms/toilet.jpg"
+						},
+						{
+							"audio": "sounds/fr/le grenier.mp3",
+							"localLanguage": "loft/attic",
+							"foreignLanguage": "grenier",
+							"image": "images/memory-rooms/attic.jpg"
+						},
+						{
+							"audio": "sounds/fr/le balcon.mp3",
+							"localLanguage": "balcony",
+							"foreignLanguage": "balcon",
+							"image": "images/memory-rooms/balcony.jpg"
+						},
+						{
+							"audio": "sounds/fr/la cuisine.mp3",
+							"localLanguage": "kitchen",
+							"foreignLanguage": "cuisine",
+							"image": "images/memory-rooms/kitchen.jpg"
+						},
+						{
+							"audio": "sounds/fr/le bureau.mp3",
+							"localLanguage": "study",
+							"foreignLanguage": "bureau",
+							"image": "images/memory-rooms/study.jpg"
+						}
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Rooms of a House"
+				}
+			},
+			{
+				"memorycards3": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Congratulations!",
+					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
+					"id": "MemoryMatchGame3",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 20,
+					"cards": [
+						{
+							"audio": "sounds/fr/le chat.mp3",
+							"localLanguage": "cat",
+							"foreignLanguage": "le chat",
+							"image": "images/memory-animals/cat.jpg"
+						},
+						{
+							"audio": "sounds/fr/le chien.mp3",
+							"localLanguage": "dog",
+							"foreignLanguage": "le chien",
+							"image": "images/memory-animals/dog.jpg"
+						},
+						{
+							"audio": "sounds/fr/le lapin.mp3",
+							"localLanguage": "rabbit",
+							"foreignLanguage": "le lapin",
+							"image": "images/memory-animals/rabbit.jpg"
+						},
+						{
+							"audio": "sounds/fr/le cheval.mp3",
+							"localLanguage": "horse",
+							"foreignLanguage": "le cheval",
+							"image": "images/memory-animals/horse.jpg"
+						},
+						{
+							"audio": "sounds/fr/la vache.mp3",
+							"localLanguage": "cow",
+							"foreignLanguage": "la vache",
+							"image": "images/memory-animals/cow.jpg"
+						},
+						{
+							"audio": "sounds/fr/le mouton.mp3",
+							"localLanguage": "sheep",
+							"foreignLanguage": "le mouton",
+							"image": "images/memory-animals/sheep.jpg"
+						},
+						{
+							"audio": "sounds/fr/la chèvre.mp3",
+							"localLanguage": "goat",
+							"foreignLanguage": "la chèvre",
+							"image": "images/memory-animals/goat.jpg"
+						},
+						{
+							"audio": "sounds/fr/le cochon.mp3",
+							"localLanguage": "pig",
+							"foreignLanguage": "le cochon",
+							"image": "images/memory-animals/pig.jpg"
+						},
+						{
+							"audio": "sounds/fr/la poule.mp3",
+							"localLanguage": "chicken",
+							"foreignLanguage": "la poule",
+							"image": "images/memory-animals/chicken.jpg"
+						},
+						{
+							"audio": "sounds/fr/le canard.mp3",
+							"localLanguage": "duck",
+							"foreignLanguage": "le canard",
+							"image": "images/memory-animals/duck.jpg"
+						},
+						{
+							"audio": "sounds/fr/l'éléphant.mp3",
+							"localLanguage": "elephant",
+							"foreignLanguage": "l'éléphant",
+							"image": "images/memory-animals/elephant.jpg"
+						},
+						{
+							"audio": "sounds/fr/la girafe.mp3",
+							"localLanguage": "giraffe",
+							"foreignLanguage": "la girafe",
+							"image": "images/memory-animals/giraffe.jpg"
+						},
+						{
+							"audio": "sounds/fr/le lion.mp3",
+							"localLanguage": "lion",
+							"foreignLanguage": "le lion",
+							"image": "images/memory-animals/lion.jpg"
+						},
+						{
+							"audio": "sounds/fr/le tigre.mp3",
+							"localLanguage": "tiger",
+							"foreignLanguage": "le tigre",
+							"image": "images/memory-animals/tiger.jpg"
+						},
+						{
+							"audio": "sounds/fr/l'ours.mp3",
+							"localLanguage": "bear",
+							"foreignLanguage": "l'ours",
+							"image": "images/memory-animals/bear.jpg"
+						},
+						{
+							"audio": "sounds/fr/le singe.mp3",
+							"localLanguage": "monkey",
+							"foreignLanguage": "le singe",
+							"image": "images/memory-animals/monkey.jpg"
+						},
+						{
+							"audio": "sounds/fr/le renard.mp3",
+							"localLanguage": "fox",
+							"foreignLanguage": "le renard",
+							"image": "images/memory-animals/fox.jpg"
+						},
+						{
+							"audio": "sounds/fr/le loup.mp3",
+							"localLanguage": "wolf",
+							"foreignLanguage": "le loup",
+							"image": "images/memory-animals/wolf.jpg"
+						},
+						{
+							"audio": "sounds/fr/la souris.mp3",
+							"localLanguage": "mouse",
+							"foreignLanguage": "la souris",
+							"image": "images/memory-animals/mouse.jpg"
+						},
+						{
+							"audio": "sounds/fr/la grenouille.mp3",
+							"localLanguage": "frog",
+							"foreignLanguage": "la grenouille",
+							"image": "images/memory-animals/frog.jpg"
+						}
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Animals"
+				}
+			},
+			{
+				"memorycards4": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Congratulations!",
+					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 26 pairs from the stock pairs. It's a bit OTT, but challenging. Suggest reducing to 20 or less for acual incorporation.</p>",
+					"id": "MemoryMatchGame4",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 26,
+					"cards": [
+						{
+							"audio": "sounds/fr/L'avion.mp3",
+							"foreignLanguage": "L'avion",
+							"localLanguage": "aeroplane",
+							"image": "images/memory-transport/aeroplane.png"
+						},
+						{
+							"audio": "sounds/fr/le gyrocoptère.mp3",
+							"foreignLanguage": "le gyrocoptère",
+							"localLanguage": "gyrocopter",
+							"image": "images/memory-transport/gyrocopter.png"
+						},
+						{
+							"audio": "sounds/fr/Le dirigeable.mp3",
+							"foreignLanguage": "Le dirigeable",
+							"localLanguage": "airship",
+							"image": "images/memory-transport/airship.png"
+						},
+						{
+							"audio": "sounds/fr/Le ballon.mp3",
+							"foreignLanguage": "Le ballon",
+							"localLanguage": "balloon",
+							"image": "images/memory-transport/balloon.png"
+						},
+						{
+							"audio": "sounds/fr/Le vélo.mp3",
+							"foreignLanguage": "Le vélo",
+							"localLanguage": "bicycle",
+							"image": "images/memory-transport/bicycle.png"
+						},
+						{
+							"audio": "sounds/fr/Le bateau.mp3",
+							"foreignLanguage": "Le bateau",
+							"localLanguage": "boat",
+							"image": "images/memory-transport/boat.png"
+						},
+						{
+							"audio": "sounds/fr/Le bus.mp3",
+							"foreignLanguage": "Le bus",
+							"localLanguage": "bus",
+							"image": "images/memory-transport/bus.png"
+						},
+						{
+							"audio": "sounds/fr/Le téléphérique.mp3",
+							"foreignLanguage": "Le téléphérique",
+							"localLanguage": "cablecar",
+							"image": "images/memory-transport/cablecar.png"
+						},
+						{
+							"audio": "sounds/fr/Le camping-car.mp3",
+							"foreignLanguage": "Le camping-car",
+							"localLanguage": "campervan",
+							"image": "images/memory-transport/campervan.png"
+						},
+						{
+							"audio": "sounds/fr/La voiture.mp3",
+							"foreignLanguage": "La voiture",
+							"localLanguage": "car",
+							"image": "images/memory-transport/car.png"
+						},
+						{
+							"audio": "sounds/fr/Le planeur.mp3",
+							"foreignLanguage": "Le planeur",
+							"localLanguage": "glider",
+							"image": "images/memory-transport/glider.png"
+						},
+						{
+							"audio": "sounds/fr/Le deltaplane.mp3",
+							"foreignLanguage": "Le deltaplane",
+							"localLanguage": "hang-glider",
+							"image": "images/memory-transport/hang-glider.png"
+						},
+						{
+							"audio": "sounds/fr/L'hélicoptère.mp3",
+							"foreignLanguage": "L'hélicoptère",
+							"localLanguage": "helicopter",
+							"image": "images/memory-transport/helicopter.png"
+						},
+						{
+							"audio": "sounds/fr/Le jet-ski.mp3",
+							"foreignLanguage": "Le jet-ski",
+							"localLanguage": "jetski",
+							"image": "images/memory-transport/jetski.png"
+						},
+						{
+							"audio": "sounds/fr/Le paquebot.mp3",
+							"foreignLanguage": "Le paquebot",
+							"localLanguage": "liner",
+							"image": "images/memory-transport/liner.png"
+						},
+						{
+							"audio": "sounds/fr/Le monorail.mp3",
+							"foreignLanguage": "Le monorail",
+							"localLanguage": "monorail",
+							"image": "images/memory-transport/monorail.png"
+						},
+						{
+							"audio": "sounds/fr/La moto.mp3",
+							"foreignLanguage": "La moto",
+							"localLanguage": "motorcycle",
+							"image": "images/memory-transport/motorcycle.png"
+						},
+						{
+							"audio": "sounds/fr/La péniche.mp3",
+							"foreignLanguage": "La péniche",
+							"localLanguage": "narrowboat",
+							"image": "images/memory-transport/narrowboat.png"
+						},
+						{
+							"audio": "sounds/fr/La fusée.mp3",
+							"foreignLanguage": "La fusée",
+							"localLanguage": "rocket",
+							"image": "images/memory-transport/rocket.png"
+						},
+						{
+							"audio": "sounds/fr/Le scooter.mp3",
+							"foreignLanguage": "Le scooter",
+							"localLanguage": "scooter",
+							"image": "images/memory-transport/scooter.png"
+						},
+						{
+							"audio": "sounds/fr/L'hydravion.mp3",
+							"foreignLanguage": "L'hydravion",
+							"localLanguage": "seaplane",
+							"image": "images/memory-transport/seaplane.png"
+						},
+						{
+							"audio": "sounds/fr/Le sous-marin.mp3",
+							"foreignLanguage": "Le sous-marin",
+							"localLanguage": "submarine",
+							"image": "images/memory-transport/submarine.png"
+						},
+						{
+							"audio": "sounds/fr/Le train.mp3",
+							"foreignLanguage": "Le train",
+							"localLanguage": "train",
+							"image": "images/memory-transport/train.png"
+						},
+						{
+							"audio": "sounds/fr/L'aéroglisseur.mp3",
+							"foreignLanguage": "L'aéroglisseur",
+							"localLanguage": "hovercraft",
+							"image": "images/memory-transport/hovercraft.png"
+						},
+						{
+							"audio": "sounds/fr/Le tramway.mp3",
+							"foreignLanguage": "Le tramway",
+							"localLanguage": "tram",
+							"image": "images/memory-transport/tram.png"
+						},
+						{
+							"audio": "sounds/fr/Le camion.mp3",
+							"foreignLanguage": "Le camion",
+							"localLanguage": "truck",
+							"image": "images/memory-transport/truck.png"
+						}
+					],
+					"showHintsText": "Show hints",
+					"titleText": "Transport"
+				}
+			},
+			{
+				"memorycards5": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Congratulations!",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 12,
+					"cards": [
+						{
+							"foreignLanguage": "une pomme",
+							"localLanguage": "apple",
+							"image": "images/memory-food/apple.png",
+							"audio": "sounds/fr/une pomme.mp3"
+						},
+						{
+							"foreignLanguage": "raisins",
+							"localLanguage": "grapes",
+							"image": "images/memory-food/grapes.png",
+							"audio": "sounds/fr/raisins.mp3"
+						},
+						{
+							"foreignLanguage": "oranges",
+							"localLanguage": "oranges",
+							"image": "images/memory-food/oranges.png",
+							"audio": "sounds/fr/oranges.mp3"
+						},
+						{
+							"foreignLanguage": "tomates",
+							"localLanguage": "tomatoes",
+							"image": "images/memory-food/tomatoes.png",
+							"audio": "sounds/fr/tomates.mp3"
+						},
+						{
+							"foreignLanguage": "champagne",
+							"localLanguage": "champagne",
+							"image": "images/memory-food/champagne.png",
+							"audio": "sounds/fr/champagne.mp3"
+						},
+						{
+							"foreignLanguage": "du bacon",
+							"localLanguage": "bacon",
+							"image": "images/memory-food/bacon.png",
+							"audio": "sounds/fr/du bacon.mp3"
+						},
+						{
+							"foreignLanguage": "une banane",
+							"localLanguage": "banana",
+							"image": "images/memory-food/banana.png",
+							"audio": "sounds/fr/une banane.mp3"
+						},
+						{
+							"foreignLanguage": "du bœuf",
+							"localLanguage": "beef",
+							"image": "images/memory-food/beef.png",
+							"audio": "sounds/fr/du bœuf.mp3"
+						},
+						{
+							"foreignLanguage": "une bière",
+							"localLanguage": "beer",
+							"image": "images/memory-food/beer.png",
+							"audio": "sounds/fr/une bière.mp3"
+						},
+						{
+							"foreignLanguage": "du pain",
+							"localLanguage": "bread",
+							"image": "images/memory-food/bread.png",
+							"audio": "sounds/fr/du pain.mp3"
+						},
+						{
+							"foreignLanguage": "du beurre",
+							"localLanguage": "butter",
+							"image": "images/memory-food/butter.png",
+							"audio": "sounds/fr/du beurre.mp3"
+						},
+						{
+							"foreignLanguage": "une carotte",
+							"localLanguage": "carrot",
+							"image": "images/memory-food/carrot.png",
+							"audio": "sounds/fr/une carotte.mp3"
+						},
+						{
+							"foreignLanguage": "un chou-fleur",
+							"localLanguage": "cauliflower",
+							"image": "images/memory-food/cauliflower.png",
+							"audio": "sounds/fr/un chou-fleur.mp3"
+						},
+						{
+							"foreignLanguage": "du fromage",
+							"localLanguage": "cheese",
+							"image": "images/memory-food/cheese.png",
+							"audio": "sounds/fr/du fromage.mp3"
+						},
+						{
+							"foreignLanguage": "du cheesecake",
+							"localLanguage": "cheesecake",
+							"image": "images/memory-food/cheesecake.png",
+							"audio": "sounds/fr/du cheesecake.mp3"
+						},
+						{
+							"foreignLanguage": "un poulet",
+							"localLanguage": "chicken",
+							"image": "images/memory-food/chicken.png",
+							"audio": "sounds/fr/un poulet.mp3"
+						},
+						{
+							"foreignLanguage": "du chocolat",
+							"localLanguage": "chocolate",
+							"image": "images/memory-food/chocolate.png",
+							"audio": "sounds/fr/du chocolat.mp3"
+						},
+						{
+							"foreignLanguage": "un croissant",
+							"localLanguage": "croissant",
+							"image": "images/memory-food/croissant.png",
+							"audio": "sounds/fr/un croissant.mp3"
+						},
+						{
+							"foreignLanguage": "un œuf",
+							"localLanguage": "egg",
+							"image": "images/memory-food/egg.png",
+							"audio": "sounds/fr/un œuf.mp3"
+						},
+						{
+							"foreignLanguage": "un poisson",
+							"localLanguage": "fish",
+							"image": "images/memory-food/fish.png",
+							"audio": "sounds/fr/un poisson.mp3"
+						},
+						{
+							"foreignLanguage": "de l'ail",
+							"localLanguage": "garlic",
+							"image": "images/memory-food/garlic.png",
+							"audio": "sounds/fr/de l'ail.mp3"
+						},
+						{
+							"foreignLanguage": "une glace",
+							"localLanguage": "ice cream",
+							"image": "images/memory-food/ice-cream.png",
+							"audio": "sounds/fr/une glace.mp3"
+						},
+						{
+							"foreignLanguage": "une lasagne",
+							"localLanguage": "lasagne",
+							"image": "images/memory-food/lasagne.png",
+							"audio": "sounds/fr/une lasagne.mp3"
+						},
+						{
+							"foreignLanguage": "de la limonade",
+							"localLanguage": "lemonade",
+							"image": "images/memory-food/lemonade.png",
+							"audio": "sounds/fr/de la limonade.mp3"
+						},
+						{
+							"foreignLanguage": "du lait",
+							"localLanguage": "milk",
+							"image": "images/memory-food/milk.png",
+							"audio": "sounds/fr/du lait.mp3"
+						},
+						{
+							"foreignLanguage": "des oignons",
+							"localLanguage": "onions",
+							"image": "images/memory-food/onions.png",
+							"audio": "sounds/fr/des oignons.mp3"
+						},
+						{
+							"foreignLanguage": "des pâtes",
+							"localLanguage": "pasta",
+							"image": "images/memory-food/pasta.png",
+							"audio": "sounds/fr/des pâtes.mp3"
+						},
+						{
+							"foreignLanguage": "des petits pois",
+							"localLanguage": "peas",
+							"image": "images/memory-food/peas.png",
+							"audio": "sounds/fr/des petits pois.mp3"
+						},
+						{
+							"foreignLanguage": "des poivrons",
+							"localLanguage": "peppers",
+							"image": "images/memory-food/peppers.png",
+							"audio": "sounds/fr/des poivrons.mp3"
+						},
+						{
+							"foreignLanguage": "une pizza",
+							"localLanguage": "pizza",
+							"image": "images/memory-food/pizza.png",
+							"audio": "sounds/fr/une pizza.mp3"
+						},
+						{
+							"foreignLanguage": "une pomme de terre",
+							"localLanguage": "potato",
+							"image": "images/memory-food/potato.png",
+							"audio": "sounds/fr/une pomme de terre.mp3"
+						},
+						{
+							"foreignLanguage": "un vin rouge",
+							"localLanguage": "red wine",
+							"image": "images/memory-food/red-wine.png",
+							"audio": "sounds/fr/un vin rouge.mp3"
+						},
+						{
+							"foreignLanguage": "du riz",
+							"localLanguage": "rice",
+							"image": "images/memory-food/rice.png",
+							"audio": "sounds/fr/du riz.mp3"
+						},
+						{
+							"foreignLanguage": "une salade",
+							"localLanguage": "salad",
+							"image": "images/memory-food/salad.png",
+							"audio": "sounds/fr/une salade.mp3"
+						},
+						{
+							"foreignLanguage": "des fraises",
+							"localLanguage": "strawberries",
+							"image": "images/memory-food/strawberries.png",
+							"audio": "sounds/fr/des fraises.mp3"
+						},
+						{
+							"foreignLanguage": "du sucre",
+							"localLanguage": "sugar",
+							"image": "images/memory-food/sugar.png",
+							"audio": "sounds/fr/du sucre.mp3"
+						},
+						{
+							"foreignLanguage": "du maïs",
+							"localLanguage": "sweetcorn",
+							"image": "images/memory-food/sweetcorn.png",
+							"audio": "sounds/fr/du maïs.mp3"
+						}
+					],
+					"id": "MemoryMatchGame5",
+					"titleText": "Food"
+				}
+			}
+		],
+		"id": "group3",
+		"titleText": "Memory Cards"
+	},
+	"explanation1": {
+		"component": "Explanation",
+		"content": [
+			"<b>.speak</b></p><p>If you add a pair of tags around part of a phrase, for example &lt;span class(Name)='speak'&gt;&lt;/span&gt; or &lt;b class='speak'&gt;&lt;b&gt;, the system will recognise the content and turn it into a virtual anchor tag, which when clicked, will be heard by the student. <span class='speak'>Par example ici</span>. The code will also add a title tag so that when the 'link' is hovered, contect help balloon displays 'Click to play sound'.</p><p>You can also have other braces of tags within, for example &lt;span class='speak'&gt;The &lt;b&gt;<b>click</b>&lt;b&gt; event will bubble up to the owner of the .speak class&lt;/span&gt; e.g. <span class='speak'>Text and <b>bold</b> text.</span></span>. Try clicking on <b>bold</b> and normal parts of the string. Note 'class' for html in a string, 'className' in JSX.</p><p>Unfortunately, apart from Chrome, you need to have the correct Windows language packs installed (via settings). Also, Opera doesn't handle voice recognition correctly.</p>"
+		],
+		"id": "explanation1",
+		"titleText": "The .speak class"
+	},
+	"audioClip": {
+		"component": "AudioClipSamples",
+		"id": "AudioClip1",
+		"titleText": "AudioClip Types and Samples"
+	},
+	"readaloud1": {
+		"component": "ReadAloud",
+		"id": "ReadAloud1",
+		"htmlContent": "<p>This <b>ReadAloud</b> component presents a phrase for the student to read out loud.</p><p>The browser listens and then uses the  'Monologue' component to compare what it thinks it hears against the target phrase and displays the differences.</p>",
+		"instructionsText": "Press the Record button and read the phrase please.",
+		"phrase": "Un jeune homme, portant un t-shirt rouge, passe à vélo devant un cheval dans un champ par une journée ensoleillée.",
+		"titleText": "ReadAloud"
+	},
+	"readaloud2": {
+		"component": "ReadAloud",
+		"id": "readAloud2",
+		"htmlContent": "<p>This <b>ReadAloud</b> component presents a phrase for the student to read out loud.</p><p>The browser listens and then uses the  'Monologue' component to compare what it thinks it hears against the target phrase and displays the differences.</p>",
+		"instructionsText": "Press the Record button and read the phrase please.",
+		"phrase": "Bonjour, je suis anglaise et je suis mariée.",
+		"titleText": "ReadAloud"
+	},
+	"monologue1": {
+		"component": "Monologue",
+		"id": "monologue1",
+		"content": "Je suis marié avec Lucie. Je suis canadien et je viens de Montréal. Lucie est anglaise. Elle vient de Bristol. Elle parle anglais et un petit peu français. Je suis bilingue. Je parle anglais et français. Je suis professeur de maths et Lucie est avocate.",
+		"instructionsText": "Listen to the sound sample and type what you hear, then press the \"Check\" button.",
+		"soundFile": "sounds/fr/max-monologue.mp3",
+		"titleText": "Monologue"
+	},
+	"phraseTable1": {
+		"component": "PhraseTable",
+		"htmlContent": "<p>This <b>PhraseTable</b> component presents a simple table of phrases, translations and audio in a columnar table.</p>",
+		"id": "PhraseTable1",
+		"instructionsText": "",
+		"phrases": [
+			[
+				"sounds/fr/Salut, ça va.mp3",
+				"Salut, ça va ?",
+				"Hi, are you well?"
+			],
+			[
+				"sounds/fr/Salut ! Ça va ! Et toi.mp3",
+				"Salut ! Ça va ! Et toi ?",
+				"Hi, I'm fine and you?"
+			],
+			[
+				"sounds/fr/Très bien, merci !.mp3",
+				"Très bien, merci !",
+				"Very well, thank you!"
+			],
+			[
+				"sounds/fr/Bonjour, Madame Foucher ! Comment ça va.mp3",
+				"Bonjour, Madame Foucher ! Comment ça va ?",
+				"lo, Mme Foucher! How are you?"
+			],
+			[
+				"sounds/fr/Bonjour Monsieur Letort ! Ça va très bien. Et vous.mp3",
+				"Bonjour Monsieur Letort ! Ça va très bien. Et vous* ?",
+				"lo M Letort, I'm very well, thank you. And you?"
+			],
+			[
+				"sounds/fr/Ça va, merci !.mp3",
+				"Ça va, merci !",
+				"I'm fine, thank you!"
+			],
+			[
+				""
+			],
+			[
+				"sounds/fr/Comment t'appelles-tu.mp3",
+				"Comment t'appelles-tu* ?",
+				"What's your name?"
+			],
+			[
+				"sounds/fr/Je m'appelle Max, et toi.mp3",
+				"Je m'appelle Max, et toi* ?",
+				"My name is Max. And you're….?"
+			],
+			[
+				"sounds/fr/Je m'appelle Camille.mp3",
+				"Je m'appelle Camille.",
+				"My name's Camille."
+			],
+			[
+				""
+			],
+			[
+				"sounds/fr/Comment vous appelez-vous.mp3",
+				"Comment vous* appelez-vous ?",
+				"What's your name?"
+			],
+			[
+				"sounds/fr/Je m'appelle Isabelle Martin.mp3",
+				"Je m'appelle Isabelle Martin.",
+				"My name is Isabelle Martin."
+			]
+		],
+		"titleText": "PhraseTable"
+	},
+	"explanation4": {
+		"component": "Explanation",
+		"content": [
+			"<p>1 Silent letters at the end of a word <img src='/images/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh' title='lady with finger to lips. Shh'/></p><p>The consonants <b>d</b>, <b>g</b>, <b>p</b>, <b>s</b>, <b>t</b>, <b>x</b>, <b>z</b> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<b>d</b></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<b>d</b></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<b>g</b></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<b>p</b></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<b>s</b></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<b>s</b></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<b>x</b></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<b>z</b></span></p><p>The letter <b>e</b> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&#39appelle.mp3' alt='Je m''appelle'>Je m&#39appell<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<b>e</b></span></p><p><b>NB</b> 2-letter words ending in <b>e</b> are exceptions:</p><p><span class='speak'>ce</span>, <span class='speak'>de</span>, <span class='speak'>je</span>,  <span class='speak'>le</span>, <span class='speak'>me</span>, <span class='speak'>ne</span>, <span class='speak'>se</span>, <span class='speak'>te</span></p><hr/><p>2 <b>Th</b></p><p>In French the letters <b>th</b> are pronounced <b>t</b>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><b>Thomas</b></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><b>thé</b></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><b>théologie</b></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><b>maths</b></span></p>"
+		],
+		"htmlContent": "<p>This <b>Explanation</b> component is for introducing passages of explanatory text. I'm not hugely happy with it as it involves putting HTML into strings which are then injected into divs.</p><p>So if you have a more complicated piece of content, I suggest you use a <b>CustomComponent</b>. The following Grammar section is an example of a <b>CustomComponent</b>.</p><p>If there is more than one string, more than one panel is presented.</p>",
+		"id": "explanation4",
+		"titleText": "Explanation"
+	},
+	"custom1": {
+		"component": "LO9Grammar",
+		"id": "LO9Grammar",
+		"titleText": "Regional map example"
+	},
+	"group4": {
+		"component": "Group",
+		"content": [
+			{
+				"wordparts1": {
+					"cheatText": "Show answer",
+					"component": "WordParts",
+					"congratulationsText": "Superb!",
+					"htmlContent": "<p>The <b>WordParts</b> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase matches the question set. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p><p>After two mistakes, a cheat option is revealled.</p>",
+					"id": "wordparts1",
+					"instructionsText": "Listen to the following phrases. Each phrase contains at least 2 of the following:  on, oi, r, h. Can you identify them? Click on them to reveal them.",
+					"showHintsText": "Show hints when moving",
+					"items": [
+						{
+							"text": "b[on]jou[r] m[on] ché[r]i",
+							"audio": "sounds/fr/bonjour mon chéri.mp3"
+						},
+						{
+							"text": "b[on]s[oi][r] m[on] amou[r]",
+							"audio": "sounds/fr/bonsoir mon amour.mp3"
+						},
+						{
+							"text": "au [r]ev[oi][r] ma ché[r]ie",
+							"audio": "sounds/fr/au revoir ma chérie.mp3"
+						},
+						{
+							"text": "quelle [h]o[rr]eu[r] Valé[r]ie !",
+							"audio": "sounds/fr/quelle horreur valérie !.mp3"
+						}
+					],
+					"titleText": "WordParts"
+				}
+			},
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Well done!",
+					"htmlContent": "<p>The <b>DropDowns</b> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase should be replaced by a 'dropdown' or 'select'. The verttical bar '|' separated phrases or words are used to populate the options of the select. The one preceded by the asterisk indicates the correct answer. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p>",
+					"instructionsText": "Listen to the speakers and select the correct adjective of nationality.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Je suis [marocain|*marocaine|africain|africaine].",
+							"audio": "sounds/fr/je suis marocaine.mp3"
+						},
+						{
+							"text": "Je suis [américain|américaine|mexicain|*mexicaine].",
+							"audio": "sounds/fr/je suis mexicaine.mp3"
+						},
+						{
+							"text": "Je suis [*canadien|canadienne|ghanéen|ghanéenne].",
+							"audio": "sounds/fr/je suis canadien.mp3"
+						},
+						{
+							"text": "Je suis [français|*française|anglais|anglaise].",
+							"audio": "sounds/fr/je suis française.mp3"
+						},
+						{
+							"text": "Je suis [*chinois|chinoise|gallois|galloise].",
+							"audio": "sounds/fr/je suis chinois.mp3"
+						},
+						{
+							"text": "Je suis [anglais|anglaise|sénégalais|*sénégalaise].",
+							"audio": "sounds/fr/je suis sénégalaise.mp3"
+						}
+					],
+					"titleText": "DropDowns"
+				}
+			},
+			{
+				"answerTable1": {
+					"component": "AnswerTable",
+					"congratulationsText": "Well done!",
+					"htmlContent": "<p>The <b>AnswerTable</b> component, uses phrases to populate the left column of a table. The second of each phrase is the correct answer to the question. The user must type  the correct answer into the input in the right hand column and press the 'Check'. Button. The text box is a compact <b>Monologue</b> component, see below.</p>",
+					"id": "AnswerTable1",
+					"instructionsText": "Supply the feminine form of the adjectives and nouns listed below. If the forms are different, compare the Pronunciation Write the feminine form in the empty cells, then click the check button.",
+					"header": [
+						"Masculine",
+						"Feminine"
+					],
+					"phrases": [
+						[
+							"américain",
+							"[américaine]"
+						],
+						[
+							"asiatique",
+							"[asiatique]"
+						],
+						[
+							"brésilien",
+							"[brésilienne]"
+						],
+						[
+							"croate",
+							"[croate]"
+						],
+						[
+							"danois",
+							"[danoise]"
+						],
+						[
+							"italien",
+							"[italienne]"
+						],
+						[
+							"portugais",
+							"[portugaise]"
+						],
+						[
+							"russe",
+							"[russe]"
+						],
+						[
+							"ukrainien",
+							"[ukrainien]"
+						],
+						[
+							"célibataire",
+							"[célibataire]"
+						],
+						[
+							"fatigué",
+							"[fatiguée]"
+						],
+						[
+							"malade",
+							"[malade]"
+						],
+						[
+							"marié",
+							"[mariée]"
+						],
+						[
+							"dentiste",
+							"[dentiste]"
+						],
+						[
+							"doctorant",
+							"[doctorante]"
+						],
+						[
+							"étudiant",
+							"[étudiante]"
+						],
+						[
+							"informaticien",
+							"[informaticienne]"
+						],
+						[
+							"journaliste",
+							"[journaliste]"
+						],
+						[
+							"mécanicien",
+							"[mécanicienne]"
+						],
+						[
+							"médecin",
+							"[médecin]"
+						],
+						[
+							"pharmacien",
+							"[pharmacienne]"
+						]
+					],
+					"titleText": "AnswerTable"
+				}
+			}
+		],
+		"htmlContent": "<p>This <b>Group</b> component is for grouping a number of other components together. I have generally used it for grouping Exercises in the real learning objects.</p>",
+		"id": "group4",
+		"titleText": "Group"
+	},
+	"group5": {
+		"component": "Group",
+		"content": [
+			{
+				"wordsIntoSlots1": {
+					"component": "Blanks",
+					"htmlContent": "<p>The <b>'blanksType': 'table'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"id": "wordsIntoSlots1",
+					"congratulationsText": "Well done!",
+					"instructionsText": "You will hear words containing on / om or oi or h as described in the pronunciation section. Drop each word into the boxes below as you hear it.",
+					"listenDescriptionText": "Speech",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "table",
+					"words": [
+						"moi",
+						"roi",
+						"homme",
+						"hôtel",
+						"hôpital",
+						"bonjour",
+						"bonbon",
+						"au revoir",
+						"mon",
+						"trois",
+						"horrible",
+						"toi",
+						"quoi",
+						"froid",
+						"ton",
+						"non",
+						"bon",
+						"son",
+						"nom"
+					],
+					"soundFile": "sounds/fr/non-existant.mp3",
+					"titleText": "Blanks blanksType='table'"
+				}
+			},
+			{
+				"wordsIntoSlots2": {
+					"component": "Blanks",
+					"congratulationsText": "Well done!",
+					"htmlContent": "<p>The <b>'blanksType': 'questions-answers'</b> configuration of the <b>Blanks</b> component, uses the answers to make tiles which can be dropped into the second column of a 2 column table, where the questions are used to populate the left column.</p><p>Sound files are in the third column.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"id": "wordsIntoSlots2",
+					"instructionsText": "Match the questions and answers",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "questions-answers",
+					"questions": [
+						"Salut les enfants ! Tout va bien ?",
+						"Tu es archiviste ?",
+						"Monsieur Tondereau est journaliste ?",
+						"Que faites-vous dans la vie ?"
+					],
+					"answers": [
+						"Moi, oui, ça va … mais Jo est malade depuis hier.",
+						"Ah non ! je suis étudiante en histoire.",
+						"Non, il est bibliothécaire.",
+						"Je suis professeur de géographie."
+					],
+					"soundFiles": [
+						"sounds/fr/salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-jo-est-malade-depuis-hier.mp3",
+						"sounds/fr/tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3",
+						"sounds/fr/monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3",
+						"sounds/fr/que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
+					],
+					"titleText": "Blanks blanksType='questions-answers'"
+				}
+			},
+			{
+				"pictureTable1": {
+					"component": "Blanks",
+					"congratulationsText": "Très bien !",
+					"id": "picturesAndWords1",
+					"instructionsText": "Match the pictures and words",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "pictures-answers",
+					"pictures": [
+						"images/memory-rooms/bathroom.jpg",
+						"images/memory-rooms/bedroom.jpg",
+						"images/memory-rooms/cellar.jpg",
+						"images/memory-rooms/shower-room.jpg",
+						"images/memory-rooms/dining-room.jpg",
+						"images/memory-rooms/utility-room.jpg",
+						"images/memory-rooms/lounge.jpg",
+						"images/memory-rooms/toilet.jpg",
+						"images/memory-rooms/attic.jpg",
+						"images/memory-rooms/balcony.jpg",
+						"images/memory-rooms/kitchen.jpg",
+						"images/memory-rooms/study.jpg"
+					],
+					"answers": [
+						"salle de bains",
+						"chambre",
+						"cave",
+						"douche",
+						"salle à manger",
+						"buanderie",
+						"salon",
+						"toilettes",
+						"grenier",
+						"balcon",
+						"cuisine",
+						"bureau"
+					],
+					"soundFiles": [
+						"sounds/fr/la salle de bains.mp3",
+						"sounds/fr/la chambre.mp3",
+						"sounds/fr/la cave.mp3",
+						"sounds/fr/la douche.mp3",
+						"sounds/fr/la salle à manger.mp3",
+						"sounds/fr/la buanderie.mp3",
+						"sounds/fr/le salon.mp3",
+						"sounds/fr/les toilettes.mp3",
+						"sounds/fr/le grenier.mp3",
+						"sounds/fr/le balcon.mp3",
+						"sounds/fr/la cuisine.mp3",
+						"sounds/fr/le bureau.mp3"
+					],
+					"titleText": "Blanks blanksType='pictures-answers"
+				}
+			},
+			{
+				"phrases3": {
+					"blanksType": "phrases",
+					"cheatText": "Show answer",
+					"component": "Blanks",
+					"congratulationsText": "Very good!",
+					"htmlContent": "<p>The <b>'blanksType': 'phrases'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into the set of phrases. The set of phrases contains square brackets to show where the words must be dropped, the word is hidden in the phrase. On the right hand side there are audio samples to assist the student if needed. Note: the blank spaces are all the same width even for small words, so they don't give an extra clue!</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"id": "phrases3",
+					"instructionsText": "Drag the words to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"items": [
+						{
+							"text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
+							"audio": "sounds/fr/Bonjour les enfants. Comment vous appelez-vous.mp3"
+						},
+						{
+							"text": "Bonjour Madame ! Je m' [appelle] Annie.",
+							"audio": "sounds/fr/Bonjour Madame ! Je m' appelle Annie.mp3"
+						},
+						{
+							"text": "Et [moi], je m'appelle David.",
+							"audio": "sounds/fr/Et moi, je m'appelle David.mp3"
+						},
+						{
+							"text": "D'accord. Très bien !",
+							"audio": "sounds/fr/D'accord. Très bien !.mp3"
+						},
+						{
+							"text": "Merci Madame ! Bonne journée !",
+							"audio": "sounds/fr/Merci Madame ! Bonne journée !.mp3"
+						},
+						{
+							"text": "Au [revoir] les enfants !  Bonne journée !",
+							"audio": "sounds/fr/Au revoir les enfants !  Bonne journée !.mp3"
+						}
+					],
+					"titleText": "Blanks blanksType='phrases'"
+				}
+			},
+			{
+				"groupTable1": {
+					"component": "Blanks",
+					"id": "groupTable1",
+					"congratulationsText": "Well done!",
+					"htmlContent": "<p>The <b>'blanksType': 'group-table'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>The tile should be dropped in the left column or the right column based on the question and in the order heard from the sound file.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"instructionsTextHTML": "You will hear a series of words containing either the sound <b>u</b> or the sound <b>ou</b>. Drag the words below into the correct box as you hear them.",
+					"listenDescriptionText": "Speech",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "group-table",
+					"header": [
+						"u",
+						"ou"
+					],
+					"answers": [
+						[
+							"du",
+							"doux"
+						],
+						[
+							"pur",
+							"chou"
+						],
+						[
+							"légume",
+							"tout"
+						],
+						[
+							"tu",
+							"pour"
+						],
+						[
+							"rue",
+							"nous"
+						],
+						[
+							"nu",
+							"vous"
+						],
+						[
+							"bu",
+							"poule"
+						],
+						[
+							"vue",
+							"bout"
+						],
+						[
+							"pull",
+							"couteau"
+						],
+						[
+							"jus",
+							"roue"
+						]
+					],
+					"words": [
+						"du",
+						"doux",
+						"pur",
+						"chou",
+						"légume",
+						"tu",
+						"tout",
+						"pour",
+						"rue",
+						"nous",
+						"vous",
+						"poule",
+						"nu",
+						"bu",
+						"vue",
+						"pull",
+						"bout",
+						"couteau",
+						"roue",
+						"jus"
+					],
+					"soundFile": "sounds/fr/LO12EX4.mp3",
+					"titleTextHTML": "Blanks blanksType='group-table"
+				}
+			}
+		],
+		"id": "group5",
+		"titleText": "Blanks"
+	},
+	"custom2": {
+		"component": "L13ASummersDay",
+		"id": "L13ASummersDay",
+		"titleText": "A summer's day"
+	},
+	"RQConfig": {
+		"component": "RadioQuiz",
+		"congratulationsText": "Well done!",
+		"id": "L13SummersDayRadioQuiz",
+		"options": [
+			"Vrai",
+			"Faux"
+		],
+		"phrases": [
+			[
+				"Véronique se lève vers 7 heures le week-end.",
+				1,
+				"Véronique se lève vers 6 heures le week-end.",
+				""
+			],
+			[
+				"Elle se promène en ville.",
+				1,
+				"Elle se promène dans le village.",
+				""
+			],
+			[
+				"Elle aime être dehors quand il fait beau.",
+				0,
+				"",
+				""
+			],
+			[
+				"Après sa promenade, Véronique prend un bain.",
+				1,
+				"Elle prend une douche rapide.",
+				""
+			],
+			[
+				"Elle prend un bol de yaourt.",
+				1,
+				"Elle prend un bol de céréales.",
+				""
+			],
+			[
+				"Elle boit du café-crème.",
+				0,
+				"",
+				""
+			],
+			[
+				"Dans le jardin il y a deux arbres.",
+				1,
+				"Dans le jardin il y a trois arbres.",
+				""
+			],
+			[
+				"Véronique passe une heure dans le jardin.",
+				1,
+				"Véronique passe la matinée entière dans le jardin.",
+				""
+			],
+			[
+				"Elle passe l'après-midi avec ses parents.",
+				1,
+				"Elle passe l'après-midi avec ses amis.",
+				""
+			],
+			[
+				"Parfois, ils vont en ville.",
+				0,
+				"",
+				""
+			],
+			[
+				"Elle dîne dans la salle à manger.",
+				1,
+				"Elle dîne dans le jardin ou sur le balcon.",
+				""
+			],
+			[
+				"Le soir, elle se détend.",
+				0,
+				"",
+				""
+			]
+		],
+		"titleText": "RadioQuiz TEST!",
+		"menuText": "RQT"
+	},
+	"connectFour1": {
+		"cheatText": "Show answer",
+		"component": "HIDE_ConnectFour",
+		"congratulationsText": "Congratulations!",
+		"htmlContentXXX": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
+		"id": "ConnectFour1",
+		"instructionsText": "Simple Connect Four",
+		"showHintsText": "Show hints",
+		"titleText": "C4"
+	},
+	"mockney1": {
+		"cheatText": "Show answer",
+		"component": "HIDE_Mockney",
+		"congratulationsText": "Congratulations!",
+		"id": "Mockney1",
+		"instructionsText": "Type text to translate to mockney",
+		"showHintsText": "Show hints",
+		"titleText": "M"
+	},
+	"crossword1": {
+		"cheatText": "Show answer",
+		"component": "HIDE_CrossWord",
+		"congratulationsText": "Well done!",
+		"htmlContent": "<p>The <b>CrossWord</b> component is very experimental and incomplete.",
+		"id": "CrossWord1",
+		"instructionsText": "Simply type the letters for the answers into the grid.",
+		"words": [
+			[
+				"épicerie",
+				"grocers"
+			],
+			[
+				"supermarché",
+				"supermarket"
+			],
+			[
+				"boucherie",
+				"butcher shop"
+			],
+			[
+				"boulangerie",
+				"bakery"
+			],
+			[
+				"pâtisserie",
+				"pastry shop"
+			],
+			[
+				"poissonnerie",
+				"fish shop"
+			],
+			[
+				"bistro",
+				"café"
+			],
+			[
+				"pharmacie",
+				"pharmacy"
+			],
+			[
+				"poste",
+				"post office"
+			],
+			[
+				"tabac",
+				"tobacco shop"
+			]
+		],
+		"showHintsText": "Show hints",
+		"titleText": "Crossword"
+	},
+	"sortable1": {
+		"component": "Sortable",
+		"id": "sortable1",
+		"titleText": "Sortable",
+		"proinstructionsTextmpt": "Put the sentences in a natural order to form a short dialogue.",
+		"shuffleOnLoad": true,
+		"phrases": [
+			[
+				"grenouille",
+				"frog",
+				"sounds/fr/grenouille.mp3"
+			],
+			[
+				"chat",
+				"cat",
+				"sounds/fr/chat.mp3"
+			],
+			[
+				"chien",
+				"dog",
+				"sounds/fr/chien.mp3"
+			]
+		]
+	}
+}

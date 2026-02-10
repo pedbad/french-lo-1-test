@@ -1,0 +1,72 @@
+@use "_media-queries.scss" as *;
+$tab-size: 31;
+$tile-size: 181;
+$pieces-per-board: 20;
+$total-pieces: $pieces-per-board * 2;
+$board-width: 5;
+$board-height: 4;
+$border-width: 14;
+$form-common-height: 38px;
+$info-diameter: 28px;
+$jigsaw-border-width: 14;
+$memory-card-transition-time: 1s;
+$progress-indicator-width: 200px;
+$progress-indicator-height: 26px;
+$transition-time: 1s;
+$word-transition-time: $transition-time;
+$card-size: 300px;
+$main-menu-height: 80px;
+
+// Use of :root is a runtime feature, so in JS you can use such as:
+// const root = getComputedStyle(document.documentElement);
+// const cellDimension = parseInt(root.getPropertyValue('--cell-dimension').trim());
+// Note you will need to refresh if you change dimensions using programmers tools.
+//
+// and in scss such as:
+// width: var(--cell-dimension);
+// height: var(--cell-dimension);
+
+:root {
+	--cell-dimension: 24px;
+}
+@include respond-above(m) {
+	:root {
+		--cell-dimension: 36px;
+	}
+}
+
+// :export on the other hand is a preprocessor function.
+:export {
+	borderWidth: $border-width;
+	jigsawBorderWidth: $border-width;
+	mainMenuHeight: $main-menu-height;
+	tabSize: $tab-size;
+	tileSize: $tile-size;
+	piecesPerBoard: $pieces-per-board;
+	totalPieces: $total-pieces;
+	boardWidth: $board-width;
+	boardHeight: $board-height;
+	memoryCardTransitionTime: $memory-card-transition-time;
+	wordTransitionTime: $word-transition-time;
+}
+
+$button-border-radius: 4px;
+$button-height: 36px;
+$button-space: 2px;
+$colour-transition-time: 2s;
+$common-grid-gap: 16px;
+$common-left-margin: 2.2em;
+$footer-height: 26px;
+$form-common-height: 38px;
+$form-max-width: 800px;
+$header-footer-font-size: 0.8rem;
+$header-height: 64px;
+$nav-tabs-border-radius: 6px;
+$nav-tabs-height: 32px;
+$page-control-margin: 10px;
+$page-margin: 5vh;
+$progress-indicator-width: 200px;
+$progress-indicator-height: 26px;
+$table-horizontal-margin: 40px;
+$toolbar-small-dimension: 36px;
+$tile-border-radius: 16px;

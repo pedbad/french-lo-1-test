@@ -1,0 +1,122 @@
+// Jigsaw.scss
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/mixins.module.scss" as *;
+@use "../../styles/variables.module" as *;
+
+.jigsaw-container {
+	max-height: 790px;
+	.jigsaw,
+	.target {
+		touch-action: none;
+		display: block;
+		z-index: 1;
+	}
+
+	.jigsaw {
+		// 629 x 508
+		line-height: 1.4em;
+		position: relative;
+		overflow: visible;
+		width: $tile-size * 10px;
+		height: $tile-size * 8px;
+		max-height: 1300px;
+		&::before {
+			content: "";
+			width: $tile-size * 10px;
+			height: $tile-size * 4px;
+			background: var(--muted);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		transform: scale(0.2);
+		transform-origin: left top;
+		margin-bottom: $tile-size * -2.4px;
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	p.clue {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	.help {
+		// padding: 1rem;
+		// display: flex;
+		// justify-content: space-evenly;
+		// width: 600px;
+		@include help();
+	}
+
+	.hidden-help {
+		opacity: 0;
+		transition: opacity 4s;
+		&.show {
+			opacity: 1;
+			transition: opacity 4s;
+		}
+	}
+
+	.audio-clip {
+		display: flex;
+		align-items: center;
+	}
+
+	.target {
+		// border-radius: 16px;
+		width: $tile-size * 4px - $tab-size * 3 - 10;
+		height: $tile-size * 3px - $tab-size - 8;
+		background: var(--muted);
+		border: ($border-width * 1px) var(--border) ridge;
+		box-sizing: border-box;
+	}
+	.target,
+	.time-taken {
+		position: absolute;
+		top: $tile-size * 4px + $border-width * 3;
+	}
+	.time-taken {
+		right: 0;
+		font-size: 2rem;
+	}
+}
+@include respond-above(m) {
+	.jigsaw-container {
+		max-height: 870px;
+		.jigsaw {
+			transform: scale(0.4);
+		}
+	}
+}
+@include respond-above(l) {
+	.jigsaw-container {
+		max-height: 990px;
+		.jigsaw {
+			transform: scale(0.45);
+		}
+	}
+}
+@include respond-above(xl) {
+	.jigsaw-container {
+		max-height: 990px;
+		.jigsaw {
+			transform: scale(0.45);
+		}
+	}
+}
+@include respond-above(xxl) {
+	.jigsaw-container {
+		max-height: 1100px;
+
+		.jigsaw {
+			transform: scale(0.6);
+		}
+	}
+}

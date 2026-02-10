@@ -1,0 +1,39 @@
+// Social.scss
+
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/mixins.module" as *;
+
+#social {
+	display: none;
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	h2 {
+		font-family: "OpenSans Regular", sans-serif;
+		text-align: left;
+	}
+	&-icons-section {
+		margin-top: 16px;
+		margin-bottom: 8px;
+	}
+	ul {
+		display: flex;
+		li {
+			margin: 4px;
+			a {
+				color: var(--foreground);
+				transition: color 0.2s ease;
+				&:hover,
+				&:focus-visible {
+					color: var(--primary);
+				}
+			}
+			.social-icon {
+				width: 32px;
+				height: 32px;
+				display: block;
+				fill: currentColor;
+			}
+		}
+	}
+}

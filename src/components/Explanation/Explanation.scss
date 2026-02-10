@@ -1,0 +1,15 @@
+// Explanation.scss
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/mixins.module" as *;
+@use "sass:color";
+
+.explanation-container .panel {
+	@include standard-table();
+
+	// .speak {
+	// 	color: blue;
+	// 	text-decoration: underline;
+	// 	cursor: pointer;
+	// }
+}

@@ -1,0 +1,57 @@
+/*
+Select.scss
+*/
+@use "../../../styles/variables.module" as *;
+.select-row {
+	.select-editable,
+	.select-multiple {
+		width: 100%;
+		height: $form-common-height;
+		align-self: flex-end;
+		display: block;
+		grid-area: device;
+		background: var(--background);
+		padding: 0;
+		position: relative;
+		border: 1px solid var(--border);
+		select {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border: none;
+			margin: 0;
+			&.hidden {
+				display: none;
+			}
+		}
+	}
+	.select-editable {
+		overflow: hidden;
+	}
+	.select-multiple {
+		height: calc($form-common-height * 3);
+	}
+	select,
+	input {
+		outline: none;
+	}
+	select {
+		width: 100%;
+		height: 100%;
+		font-size: 1rem;
+	}
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 87%;
+		width: -webkit-calc(100% - 18px);
+		width: -moz-calc(100% - 18px);
+		width: calc(100% - 18px);
+		z-index: 2;
+		padding: 8px 0 8px 4px;
+		font-size: 1rem;
+		border: none;
+	}
+}

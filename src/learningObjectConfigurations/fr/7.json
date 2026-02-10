@@ -1,0 +1,588 @@
+{
+	"settings": {
+		"class": "lo-7",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"intro": "This lesson teaches learners how to express likes, dislikes, and preferences in French using verbs such as aimer, adorer, détester, and préférer. It introduces sentence patterns for talking about activities, sports, and favourite things, and shows how to use definite articles with general nouns (j’aime le football, je n’aime pas la natation). Learners also practise interrogative adjectives (quel, quelle, quels, quelles) to ask questions, and work on pronunciation of borrowed English words like le tennis, le foot, and le week-end."
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"content": [
+			{
+				"dialogues1": {
+					"component": "PhraseTable",
+					"id": "dialogues1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Vous aimez le rugby, Guillaume.mp3",
+							"Vous aimez le rugby, Guillaume  ?",
+							"Do you like rugby, Guillaume?"
+						],
+						[
+							"sounds/fr/Le rugby Ah non ! Je déteste le rugby ! Et vous, qu'est-ce que vous aimez comme sports.mp3",
+							"Le rugby ? Ah non ! Je déteste le rugby ! Et vous, qu'est-ce que vous aimez comme sports ?",
+							"Rugby? Oh no! I hate rugby! What about you, what sports do you like?"
+						],
+						[
+							"sounds/fr/Je suis très sportif ! J'aime beaucoup le rugby et le foot. J'aime aussi le squash et le badminton.mp3",
+							"Je suis très sportif ! J'aime beaucoup le rugby et le foot. J'aime aussi le squash et le badminton.",
+							"I like rugby and football very much. I also like squash and badminton."
+						]
+					],
+					"titleText": "Dialogues 1"
+				}
+			},
+			{
+				"dialogues2": {
+					"component": "PhraseTable",
+					"id": "dialogues2",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Tu aimes le karaté.mp3",
+							"Tu aimes le karaté ?",
+							"Do you like karate?"
+						],
+						[
+							"sounds/fr/Je n'aime pas du tout le karaté.  C'est dangereux ! Je préfère le yoga. C'est relaxant.mp3",
+							"Je n'aime pas du tout le karaté.  C'est dangereux ! Je préfère le yoga. C'est relaxant.",
+							"I don't like karate at all. It's dangerous! I prefer yoga. It's relaxing."
+						]
+					],
+					"titleText": "Dialogues2"
+				}
+			},
+			{
+				"dialogues3": {
+					"component": "PhraseTable",
+					"id": "dialogues3",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Qu'est-ce que tu aimes faire pendant ton temps libre.mp3",
+							"Qu'est-ce que tu aimes faire pendant ton temps libre ?",
+							"What do you like to do in your spare time?"
+						],
+						[
+							"sounds/fr/J'aime danser et j'aime voir mes amis. J'aime regarder la télé aussi. Et toi, tu aimes danser.mp3",
+							"J'aime danser et j'aime voir mes amis. J'aime regarder la télé aussi. Et toi, tu aimes danser ?",
+							"I like to dance, and I like to see my friends. I like to watch the tv too. And what about you, do you like to dance?"
+						],
+						[
+							"sounds/fr/Non, je n'aime pas danser. Je préfère chanter. Je chante dans une chorale.mp3",
+							"Non, je n'aime pas danser. Je préfère chanter. Je chante dans une chorale.",
+							"No, I don't like to dance. I prefer to sing. I sing in a choir."
+						]
+					],
+					"titleText": "Dialogues 3"
+				}
+			},
+			{
+				"dialogues4": {
+					"component": "PhraseTable",
+					"id": "dialogues4",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Quel est ton pays préféré.mp3",
+							"Quel est ton pays préféré ?",
+							"Which is your favourite country?"
+						],
+						[
+							"sounds/fr/Mon pays préféré, c'est la Suisse. C'est mon pays d'origine.mp3",
+							"Mon pays préféré, c'est la Suisse. C'est mon pays d'origine.",
+							"My favourite country is Switzerland. It's my country of origin."
+						]
+					],
+					"titleText": "Dialogues 4"
+				}
+			},
+			{
+				"dialogues5": {
+					"component": "PhraseTable",
+					"id": "dialogues5",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Quelle est ta couleur préférée.mp3",
+							"Quelle est ta couleur préférée ?",
+							"Which is your favourite colour?"
+						],
+						[
+							"sounds/fr/J'aime le rose et le violet et le rouge aussi, mais je n'ai pas de couleur préférée. Et toi.mp3",
+							"J'aime le rose et le violet et le rouge aussi, mais je n'ai pas de couleur préférée. Et toi ?",
+							"I like pink and purple and red as well, but I don't have a favourite colour. What about you?"
+						],
+						[
+							"sounds/fr/Je ne sais pas Je n'aime pas le vert. Je n'aime pas le jaune Ma couleur préférée, c'est le bleu.mp3",
+							"Je ne sais pas… Je n'aime pas le vert. Je n'aime pas le jaune… Ma couleur préférée, c'est le bleu.",
+							"I don't know… I don't like green. I don't like yellow… My favourite colour is blue."
+						]
+					],
+					"titleText": "Dialogues 5"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"sounds/fr/adorer.mp3",
+				"adorer",
+				"to adore"
+			],
+			[
+				"sounds/fr/aimer.mp3",
+				"aimer",
+				"to like, to love"
+			],
+			[
+				"sounds/fr/détester.mp3",
+				"détester",
+				"to hate"
+			],
+			[
+				"sounds/fr/préférer.mp3",
+				"préférer",
+				"to prefer"
+			],
+			[
+				"sounds/fr/chanter.mp3",
+				"chanter",
+				"to sing"
+			],
+			[
+				"sounds/fr/danser.mp3",
+				"danser",
+				"to dance"
+			],
+			[
+				"sounds/fr/dormir.mp3",
+				"dormir",
+				"to sleep"
+			],
+			[
+				"sounds/fr/écouter.mp3",
+				"écouter",
+				"to listen"
+			],
+			[
+				"sounds/fr/faire.mp3",
+				"faire",
+				"to make, to do"
+			],
+			[
+				"sounds/fr/regarder.mp3",
+				"regarder",
+				"to watch"
+			],
+			[
+				"sounds/fr/tricoter.mp3",
+				"tricoter",
+				"to knit"
+			],
+			[
+				"sounds/fr/athlétisme.mp3",
+				"athlétisme (m)",
+				"athletics"
+			],
+			[
+				"sounds/fr/baby-foot.mp3",
+				"baby-foot (m)",
+				"table football"
+			],
+			[
+				"sounds/fr/basket, basketball.mp3",
+				"basket, basketball (m)",
+				"basketball"
+			],
+			[
+				"sounds/fr/cricket.mp3",
+				"cricket (m)",
+				"cricket"
+			],
+			[
+				"sounds/fr/foot, football.mp3",
+				"foot, football (m)",
+				"football"
+			],
+			[
+				"sounds/fr/karaté.mp3",
+				"karaté (m)",
+				"karate"
+			],
+			[
+				"sounds/fr/musculation.mp3",
+				"musculation (f)",
+				"weight training"
+			],
+			[
+				"sounds/fr/tennis.mp3",
+				"tennis (m)",
+				"tennis"
+			],
+			[
+				"sounds/fr/tae-kwondo.mp3",
+				"tae-kwondo (m)",
+				"taekwondo"
+			],
+			[
+				"sounds/fr/volley, volleyball.mp3",
+				"volley, volleyball (m)",
+				"volleyball"
+			],
+			[
+				"sounds/fr/yoga.mp3",
+				"yoga (m)",
+				"yoga"
+			],
+			[
+				"sounds/fr/animal, animaux.mp3",
+				"animal (m) animaux (mpl)",
+				"animal (s)"
+			],
+			[
+				"sounds/fr/arbre.mp3",
+				"arbre (m)",
+				"tree"
+			],
+			[
+				"sounds/fr/chaleur.mp3",
+				"chaleur (f)",
+				"heat"
+			],
+			[
+				"sounds/fr/cinéma.mp3",
+				"cinéma (m)",
+				"cinema"
+			],
+			[
+				"sounds/fr/fleur.mp3",
+				"fleur (f)",
+				"flower"
+			],
+			[
+				"sounds/fr/forêt.mp3",
+				"forêt (f)",
+				"forest"
+			],
+			[
+				"sounds/fr/froid.mp3",
+				"froid m)",
+				"cold"
+			],
+			[
+				"sounds/fr/neige.mp3",
+				"neige (f)",
+				"snow"
+			],
+			[
+				"sounds/fr/pluie.mp3",
+				"pluie (f)",
+				"rain"
+			],
+			[
+				"sounds/fr/soleil.mp3",
+				"soleil (m)",
+				"sun"
+			],
+			[
+				"sounds/fr/théâtre.mp3",
+				"théâtre",
+				"theatre"
+			],
+			[
+				"sounds/fr/pourquoi.mp3",
+				"pourquoi ?",
+				"why? "
+			],
+			[
+				"sounds/fr/parce que.mp3",
+				"parce que",
+				"because"
+			],
+			[
+				"sounds/fr/bruyant bruyante.mp3",
+				"bruyant (m) bruyante (f)",
+				"noisy"
+			],
+			[
+				"sounds/fr/ennuyeux ennuyeuse.mp3",
+				"ennuyeux (m) ennuyeuse (f)",
+				"boring"
+			],
+			[
+				"sounds/fr/intéressant intéressante.mp3",
+				"intéressant (m) intéressante (f)",
+				"interesting"
+			],
+			[
+				"sounds/fr/tranquille.mp3",
+				"tranquille",
+				"quiet, peaceful"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "LO7Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO7Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"memorycards1": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Félicitations !",
+					"id": "MemoryMatchGame1",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 8,
+					"cards": [
+						{
+							"audio": "sounds/fr/la fleur.mp3",
+							"foreignLanguage": "la fleur",
+							"localLanguage": "flower",
+							"image": "images/memory/flower.png"
+						},
+						{
+							"audio": "sounds/fr/la forêt.mp3",
+							"foreignLanguage": "la forêt",
+							"localLanguage": "forest",
+							"image": "images/memory/forest.png"
+						},
+						{
+							"audio": "sounds/fr/le babyfoot.mp3",
+							"foreignLanguage": "le babyfoot",
+							"localLanguage": "table football",
+							"image": "images/memory/table-football.png"
+						},
+						{
+							"audio": "sounds/fr/l'arbre.mp3",
+							"foreignLanguage": "l'arbre",
+							"localLanguage": "tree",
+							"image": "images/memory/tree.png"
+						},
+						{
+							"audio": "sounds/fr/la neige.mp3",
+							"foreignLanguage": "la neige",
+							"localLanguage": "snow",
+							"image": "images/memory/snow.png"
+						},
+						{
+							"audio": "sounds/fr/danser.mp3",
+							"foreignLanguage": "danser",
+							"localLanguage": "dancing",
+							"image": "images/memory/dancing.png"
+						},
+						{
+							"audio": "sounds/fr/la pluie.mp3",
+							"foreignLanguage": "la pluie",
+							"localLanguage": "rain",
+							"image": "images/memory/rain.png"
+						},
+						{
+							"audio": "sounds/fr/le foot.mp3",
+							"foreignLanguage": "le foot",
+							"localLanguage": "football",
+							"image": "images/memory/football.png"
+						},
+						{
+							"audio": "sounds/fr/dormir.mp3",
+							"foreignLanguage": "dormir",
+							"localLanguage": "sleeping",
+							"image": "images/memory/sleeping.png"
+						},
+						{
+							"audio": "sounds/fr/l'athlétisme.mp3",
+							"foreignLanguage": "l'athlétisme",
+							"localLanguage": "athletics",
+							"image": "images/memory/athletics.png"
+						},
+						{
+							"audio": "sounds/fr/le soleil.mp3",
+							"foreignLanguage": "le soleil",
+							"localLanguage": "sun",
+							"image": "images/memory/sun.png"
+						},
+						{
+							"audio": "sounds/fr/le basket.mp3",
+							"foreignLanguage": "le basket",
+							"localLanguage": "basketball",
+							"image": "images/memory/basketball.png"
+						},
+						{
+							"audio": "sounds/fr/tricoter.mp3",
+							"foreignLanguage": "tricoter",
+							"localLanguage": "knitting",
+							"image": "images/memory/knitting.png"
+						},
+						{
+							"audio": "sounds/fr/chanter.mp3",
+							"foreignLanguage": "chanter",
+							"localLanguage": "singing",
+							"image": "images/memory/singing.png"
+						},
+						{
+							"audio": "sounds/fr/le shopping.mp3",
+							"foreignLanguage": "le shopping",
+							"localLanguage": "shopping",
+							"image": "images/memory/shopping.png"
+						}
+					],
+					"showHintsText": "Show hints",
+					"titleText": "1. Learn some vocabulary"
+				}
+			},
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Superbe !",
+					"instructionsText": "Listen to the speakers and select the correct definite article.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Marc n'aime pas [le|la|*l'|les] athlétisme.",
+							"audio": "sounds/fr/Marc n'aime pas l'athlétisme.mp3"
+						},
+						{
+							"text": "Serge déteste [*le|la|l'|les] foot.",
+							"audio": "sounds/fr/Serge déteste le foot.mp3"
+						},
+						{
+							"text": "Tu aimes  [*le|la|l'|les] surf ?",
+							"audio": "sounds/fr/Tu aimes le surf.mp3"
+						},
+						{
+							"text": "Mon copain aime beaucoup [le|*la|l'|les] course.",
+							"audio": "sounds/fr/Mon copain aime beaucoup la course.mp3"
+						},
+						{
+							"text": "Clément n'aime pas du tout [le|la|*l'|les] équitation.",
+							"audio": "sounds/fr/Clément n'aime pas du tout l'équitation.mp3"
+						},
+						{
+							"text": "Je préfère [le|*la|l'|les] musculation.",
+							"audio": "sounds/fr/Je préfère la musculation.mp3"
+						},
+						{
+							"text": "Vous aimez [*le|la|l'|les] basket ?",
+							"audio": "sounds/fr/Vous aimez le basket.mp3"
+						},
+						{
+							"text": "Vous préférez [le|*la|l'|les] France ou [le|*la|l'|les] Suisse ?",
+							"audio": "sounds/fr/Vous préférez la France ou la Suisse.mp3"
+						},
+						{
+							"text": "Je déteste [le|*la|l'|les] pluie !",
+							"audio": "sounds/fr/Je déteste la pluie !.mp3"
+						},
+						{
+							"text": "J'adore [le|*la|l'|les] neige !",
+							"audio": "sounds/fr/J'adore la neige !.mp3"
+						},
+						{
+							"text": "Tu aimes [le|la|l'|*les] animaux ?",
+							"audio": "sounds/fr/Tu aimes les animaux.mp3"
+						}
+					],
+					"titleText": "2. Talking about likes and dislikes"
+				}
+			},
+			{
+				"phrases1": {
+					"blanksType": "phrases",
+					"cheatText": "Show answer",
+					"component": "Blanks",
+					"congratulationsText": "Très bien !",
+					"id": "phrases1",
+					"instructionsText": "Drag the words to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"items": [
+						{
+							"text": "Je suis très [sportif]. J'aime beaucoup [le foot]. J'aime aussi le tennis et [le cricket] mais je n'aime pas [du tout] le rugby. C'est [dangereux] ! Ma sœur est [active] mais elle n'est pas très sportive. Elle [préfère] le yoga. C'est [relaxant]. Mes parents [aiment] le ski ! Ils adorent [la neige] ! Moi, je n'aime pas [le froid] ! Je [déteste] le shopping ! Qu'est-ce que tu [aimes] faire pendant ton [temps] libre ?",
+							"audio": "sounds/fr/LO7 dialogue1.mp3"
+						}
+					],
+					"titleText": "3 Practise your listening skills."
+				}
+			},
+			{
+				"dropdowns2": {
+					"component": "DropDowns",
+					"id": "dropdowns2",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Listen to this poem by Mymi Doinet about the rainbow and fill in the colours as you hear them.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"items": [
+						{
+							"text": "[Bleu|Indigo|Jaune|Orangé|Violet|Vert|*Rouge] comme un fruit du Mexique"
+						},
+						{
+							"text": "[Bleu|Indigo|Jaune|*Orangé|Violet|Vert|Rouge] comme le sable d'Afrique"
+						},
+						{
+							"text": "[Bleu|Indigo|*Jaune|Orangé|Violet|Vert|Rouge] comme les girafes chics"
+						},
+						{
+							"text": "[Bleu|Indigo|Jaune|Orangé|Violet|*Vert|Rouge] comme un sorbet de Jamaïque"
+						},
+						{
+							"text": "[*Bleu|Indigo|Jaune|Orangé|Violet|Vert|Rouge] comme les vagues du Pacifique"
+						},
+						{
+							"text": "[Bleu|*Indigo|Jaune|Orangé|Violet|Vert|Rouge] comme un papillon des tropiques"
+						},
+						{
+							"text": "[Bleu|Indigo|Jaune|Orangé|*Violet|Vert|Rouge] comme les volcans de Martinique"
+						},
+						{
+							"text": "Qui donc est aussi fantastique ?"
+						},
+						{
+							"text": "Est-ce un rêve ou est-ce véridique ?"
+						},
+						{
+							"text": "C'est dans le ciel magnifique"
+						},
+						{
+							"text": "L'arc aux sept couleurs magiques."
+						},
+						{
+							"text": "Mymi Doinet"
+						}
+					],
+					"titleText": "4. Sept Couleurs Magiques"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

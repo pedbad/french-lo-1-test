@@ -1,0 +1,62 @@
+// AnswerTable.scss
+
+@use "../../styles/colours.module.scss" as *;
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/mixins.module.scss" as *;
+@use "../../styles/variables.module.scss" as *;
+
+.answer-table-container {
+	.help {
+		// display: flex;
+		// flex-direction: column;
+		// row-gap: 8px;
+		// justify-content: flex-between;
+		@include help();
+	}
+	// table {
+	// 	text-align: left;
+	// 	border-collapse: collapse;
+	// 	background: #ebebeb;
+	// 	background: linear-gradient(45deg, rgb(245, 245, 245) 0%, rgba(255, 255, 255, 1) 50%, rgb(250, 250, 250) 73%, rgba(255, 255, 255, 1) 77%, rgba(237, 237, 237, 1) 100%);
+
+	// 	td,
+	// 	th {
+	// 		border: 1px solid #000000;
+	// 		padding: 5px 4px;
+	// 		font-weight: bold;
+	// 		span.inline-monologue {
+	// 			white-space: nowrap;
+	// 			.monologue-container {
+	// 				display: inline-flex;
+	// 			}
+	// 		}
+	// 	}
+	// 	tbody {
+	// 		border: none;
+	// 		tr {
+	// 			&.spacer {
+	// 				border-left: 1px solid red;
+	// 				border-right: none;
+	// 				td {
+	// 					border-left: none;
+	// 					border-right: none;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	td {
+	// 		font-size: 0.8rem;
+	// 		padding: 0.1rem;
+	// 	}
+	// }
+}
+@include respond-above(m) {
+	// .answer-table-container {
+	// 	// table {
+	// 	// 	td {
+	// 	// 		font-size: 1rem;
+	// 	// 		padding: 0.25rem 1rem;
+	// 	// 	}
+	// 	// }
+	// }
+}

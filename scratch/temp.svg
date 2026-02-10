@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27">
+   <circle cx="13.5" cy="13.5" r="12.5" fill="none" stroke="#ddd" />
+   <circle cx="13.5" cy="13.5" r="12.5" fill="none" stroke="currentColor" style="transition:strokeDashoffset .2s linear"
+      transform="rotate(-90 13.5 13.5)" />
+   <path fill="red" d="M6.501 6.617h4.611v13.765H6.501zm8.465 0h4.611v13.765h-4.611z" style="stroke:none" />
+   <path fill="#00f" d="m18.64 13.5-5.14 3.448-5.14 3.447V6.604l5.14 3.447z" class="play"
+      style="stroke:none;stroke-width:1.17669" />
+</svg>

@@ -1,0 +1,551 @@
+{
+	"settings": {
+		"class": "lo-8",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"intro": "This lesson teaches learners how to describe free-time activities in French, using verbs like faire and jouer with correct partitive articles (du, de la, des). It introduces vocabulary for sports, hobbies, and weekend routines, and shows how to distinguish between jouer à (for games and sports) and jouer de (for musical instruments). Learners also review adjective agreement (sportif/sportive) and practise pronunciation of –tion words, improving fluency when talking about leisure and pastimes."
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"content": [
+			{
+				"dialogues1": {
+					"component": "PhraseTable",
+					"id": "dialogues1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Tu aimes l'escalade.mp3",
+							"Tu aimes l'escalade ?",
+							"Do you like climbing?"
+						],
+						[
+							"sounds/fr/Je n'aime pas du tout l'escalade. C'est trop dangereux ! Je préfère l'équitation. J'adore les chevaux !.mp3",
+							"Je n'aime pas du tout l'escalade. C'est trop dangereux ! Je préfère l'équitation. J'adore les chevaux !",
+							"I don't like climbing at all. It's too dangerous! I prefer horse riding. I love horses!"
+						]
+					],
+					"titleText": "Dialogues 1"
+				}
+			},
+			{
+				"dialogues2": {
+					"component": "PhraseTable",
+					"id": "dialogues2",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Qu'est-ce que tu fais le weekend.mp3",
+							"Qu'est-ce que tu fais le weekend ?",
+							"What do you at the weekend?"
+						],
+						[
+							"sounds/fr/Le samedi, je fais de l'aviron. Je prends mon petit-déjeuner au café avec mes amis. Je vais en ville pour faire du shopping. Le soir, je sors avec ma copine.mp3",
+							"Le samedi, je fais de l'aviron. Je prends mon petit-déjeuner au café avec mes amis. Je vais en ville pour faire du shopping. Le soir, je sors avec ma copine.",
+							"On Saturdays, I go rowing. I have my breakfast in a café with my friends. I go into town to do some shopping. In the evening, I go out with my girlfriend."
+						],
+						[
+							"sounds/fr/Et le dimanche.mp3",
+							"Et le dimanche ?",
+							"And on Sundays?"
+						],
+						[
+							"sounds/fr/Le dimanche, je fais de la natation. L'après-midi, s'il fait beau, je fais de la randonnée avec mon frère. S'il fait mauvais, je lis un peu ou je regarde la télé. Et toi.mp3",
+							"Le dimanche, je fais de la natation. L'après-midi, s'il fait beau, je fais de la randonnée avec mon frère. S'il fait mauvais, je lis un peu ou je regarde la télé. Et toi ?",
+							"On Sundays, I go swimming. In the afternoon, if the weather's good, I go hiking with my brother. If the weather's bad. I read a bit, or I watch the tv. What about you?"
+						],
+						[
+							"sounds/fr/Je ne fais pas grand' chose. Je fais la grasse matinée. Je vois mes amis. Quelquefois, je vais au cinéma ou je vais en boîte. Ça dépend !.mp3",
+							"Je ne fais pas grand' chose. Je fais la grasse matinée. Je vois mes amis. Quelquefois, je vais au cinéma ou je vais en boîte. Ça dépend !",
+							"I don't do much. I have a lie-in. I see my friends. Sometimes I go to the cinema, or I go clubbing. It depends."
+						]
+					],
+					"titleText": "Dialogues 2"
+				}
+			},
+			{
+				"dialogues3": {
+					"component": "PhraseTable",
+					"id": "dialogues3",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Vous jouez d'un instrument de musique.mp3",
+							"Vous jouez d'un instrument de musique ?",
+							"Do you play a musical instrument?"
+						],
+						[
+							"sounds/fr/Oui, je joue du piano et de la clarinette aussi. Et vous.mp3",
+							"Oui, je joue du piano et de la clarinette aussi. Et vous ?",
+							"Yes, I play the piano and the clarinet. What about you?"
+						],
+						[
+							"sounds/fr/Je joue de l'accordéon et joue du piano aussi.mp3",
+							"Je joue de l'accordéon et joue du piano aussi.",
+							"I play the accordion, and I play the piano too."
+						]
+					],
+					"titleText": "Dialogues 3"
+				}
+			},
+			{
+				"dialogues4": {
+					"component": "PhraseTable",
+					"id": "dialogues4",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Le samedi, je joue au basket. Ça te dit de jouer au basket avec nous.mp3",
+							"Le samedi, je joue au basket. Ça te dit de jouer au basket avec nous ?",
+							"On Saturdays, I play basketball. Do you fancy playing basketball with us?"
+						],
+						[
+							"sounds/fr/Le samedi, je ne peux pas - je joue au volley. C'est dommage !.mp3",
+							"Le samedi, je ne peux pas - je joue au volley. C'est dommage !",
+							"On Saturdays, I can't - I play volleyball. It's a pity!"
+						]
+					],
+					"titleText": "Dialogues 4"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"/sounds/fr/temps libre.mp3",
+				"temps libre (m)",
+				"free time, spare time"
+			],
+			[
+				"/sounds/fr/loisirs.mp3",
+				"loisirs (mpl)",
+				"leisure pursuits"
+			],
+			[
+				"/sounds/fr/les passe-temps.mp3",
+				"les passe-temps (mpl)",
+				"pastimes"
+			],
+			[
+				"/sounds/fr/faire.mp3",
+				"faire",
+				"to do , to make"
+			],
+			[
+				"/sounds/fr/jouer à.mp3",
+				"jouer à",
+				"to play (ball sports, games)"
+			],
+			[
+				"/sounds/fr/jouer de.mp3",
+				"jouer de",
+				"to play (musical instruments)"
+			],
+			[
+				"/sounds/fr/aviron.mp3",
+				"aviron (m) ",
+				"rowing"
+			],
+			[
+				"/sounds/fr/boules.mp3",
+				"boules (fpl)",
+				"bowls"
+			],
+			[
+				"/sounds/fr/boxe.mp3",
+				"boxe (f)",
+				"boxing"
+			],
+			[
+				"/sounds/fr/cheval chevaux.mp3",
+				"cheval (m) chevaux (mpl)",
+				"horse (s)"
+			],
+			[
+				"/sounds/fr/course à pied.mp3",
+				"course (f) à pied",
+				"running"
+			],
+			[
+				"/sounds/fr/course d'orientation.mp3",
+				"course d'orientation (f)",
+				"orienteering"
+			],
+			[
+				"/sounds/fr/cricket.mp3",
+				"cricket (m)",
+				"cricket"
+			],
+			[
+				"/sounds/fr/équitation.mp3",
+				"équitation (f)",
+				"horse riding"
+			],
+			[
+				"/sounds/fr/escalade.mp3",
+				"escalade (f)",
+				"climbing"
+			],
+			[
+				"/sounds/fr/escrime.mp3",
+				"escrime (f)",
+				"fencing"
+			],
+			[
+				"/sounds/fr/lèche-vitrine.mp3",
+				"lèche-vitrine (m)",
+				"window shopping"
+			],
+			[
+				"/sounds/fr/lecture.mp3",
+				"lecture (f)",
+				"reading"
+			],
+			[
+				"/sounds/fr/natation.mp3",
+				"natation (f)",
+				"swimming"
+			],
+			[
+				"/sounds/fr/peinture.mp3",
+				"peinture (f)",
+				"painting"
+			],
+			[
+				"/sounds/fr/pétanque.mp3",
+				"pétanque (f)",
+				"pétanque (French bowls)"
+			],
+			[
+				"/sounds/fr/randonnée.mp3",
+				"randonnée (f)",
+				"hiking, country walks"
+			],
+			[
+				""
+			],
+			[
+				"/sounds/fr/actif, active.mp3",
+				"actif, active",
+				"active"
+			],
+			[
+				"/sounds/fr/dangereux, dangereuse.mp3",
+				"dangereux, dangereuse",
+				"dangerous"
+			],
+			[
+				"/sounds/fr/sportif, sportive.mp3",
+				"sportif, sportive",
+				"sporty"
+			],
+			[
+				"/sounds/fr/trop.mp3",
+				"trop",
+				"too"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "LO8Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO8Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"memorycards1": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Congratulations! You have a good memory!",
+					"id": "MemoryMatchGame1",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 8,
+					"cards": [
+						{
+							"audio": "sounds/fr/la fleur.mp3",
+							"foreignLanguage": "la fleur",
+							"localLanguage": "flower",
+							"image": "images/memory/flower.png"
+						},
+						{
+							"audio": "sounds/fr/la forêt.mp3",
+							"foreignLanguage": "la forêt",
+							"localLanguage": "forest",
+							"image": "images/memory/forest.png"
+						},
+						{
+							"audio": "sounds/fr/le babyfoot.mp3",
+							"foreignLanguage": "le babyfoot",
+							"localLanguage": "table football",
+							"image": "images/memory/table-football.png"
+						},
+						{
+							"audio": "sounds/fr/l'arbre.mp3",
+							"foreignLanguage": "l'arbre",
+							"localLanguage": "tree",
+							"image": "images/memory/tree.png"
+						},
+						{
+							"audio": "sounds/fr/la neige.mp3",
+							"foreignLanguage": "la neige",
+							"localLanguage": "snow",
+							"image": "images/memory/snow.png"
+						},
+						{
+							"audio": "sounds/fr/danser.mp3",
+							"foreignLanguage": "danser",
+							"localLanguage": "dancing",
+							"image": "images/memory/dancing.png"
+						},
+						{
+							"audio": "sounds/fr/la pluie.mp3",
+							"foreignLanguage": "la pluie",
+							"localLanguage": "rain",
+							"image": "images/memory/rain.png"
+						},
+						{
+							"audio": "sounds/fr/le foot.mp3",
+							"foreignLanguage": "le foot",
+							"localLanguage": "football",
+							"image": "images/memory/football.png"
+						},
+						{
+							"audio": "sounds/fr/dormir.mp3",
+							"foreignLanguage": "dormir",
+							"localLanguage": "sleeping",
+							"image": "images/memory/sleeping.png"
+						},
+						{
+							"audio": "sounds/fr/l'athlétisme.mp3",
+							"foreignLanguage": "l'athlétisme",
+							"localLanguage": "athletics",
+							"image": "images/memory/athletics.png"
+						},
+						{
+							"audio": "sounds/fr/le soleil.mp3",
+							"foreignLanguage": "le soleil",
+							"localLanguage": "sun",
+							"image": "images/memory/sun.png"
+						},
+						{
+							"audio": "sounds/fr/le basket.mp3",
+							"foreignLanguage": "le basket",
+							"localLanguage": "basketball",
+							"image": "images/memory/basketball.png"
+						},
+						{
+							"audio": "sounds/fr/tricoter.mp3",
+							"foreignLanguage": "tricoter",
+							"localLanguage": "knitting",
+							"image": "images/memory/knitting.png"
+						},
+						{
+							"audio": "sounds/fr/chanter.mp3",
+							"foreignLanguage": "chanter",
+							"localLanguage": "singing",
+							"image": "images/memory/singing.png"
+						},
+						{
+							"audio": "sounds/fr/le shopping.mp3",
+							"foreignLanguage": "le shopping",
+							"localLanguage": "shopping",
+							"image": "images/memory/shopping.png"
+						}
+					],
+					"showHintsText": "Show hints",
+					"titleText": "1. Practise your vocabulary"
+				}
+			},
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Très bien !",
+					"instructionsText": "",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Je fais [*du|de la|de l'|des] shopping.",
+							"audio": "sounds/fr/Je fais du shopping.mp3"
+						},
+						{
+							"text": "Vous faites [*du|de la|*de l'|des] jogging le matin ?",
+							"audio": "sounds/fr/Vous faites du jogging le matin.mp3"
+						},
+						{
+							"text": "Tu fais [du|de la|*de l'|des] aviron ?",
+							"audio": "sounds/fr/Tu fais de l'aviron.mp3"
+						},
+						{
+							"text": "J'aime faire [*du|de la|de l'|des] lèche-vitrine.",
+							"audio": "sounds/fr/J'aime faire du lèche-vitrine.mp3"
+						},
+						{
+							"text": "Ma sœur aime faire [du|*de la|de l'|des] peinture.",
+							"audio": "sounds/fr/Ma sœur aime faire de la peinture.mp3"
+						},
+						{
+							"text": "Je  fais [du|de la|*de l'|des] équitation pendant mon temps libre.",
+							"audio": "sounds/fr/Je fais de l'équitation pendant mon temps libre.mp3"
+						},
+						{
+							"text": "Je joue [du|*de la|de l'|des] batterie.",
+							"audio": "sounds/fr/Je joue de la batterie.mp3"
+						},
+						{
+							"text": "Tu joues [du|*de la|de l'|des] guitare ?",
+							"audio": "sounds/fr/Tu joues de la guitare.mp3"
+						},
+						{
+							"text": "Mes parents jouent [*du|de la|de l'|des] piano.",
+							"audio": "sounds/fr/Mes parents jouent du piano.mp3"
+						},
+						{
+							"text": "Vous jouez [*du|de la|de l'|des] trombone ?",
+							"audio": "sounds/fr/Vous jouez du trombone.mp3"
+						}
+					],
+					"titleText": "2. Talking about leisure activities."
+				}
+			},
+			{
+				"dropdowns2": {
+					"component": "DropDowns",
+					"id": "dropdowns2",
+					"congratulationsText": "Superbe !",
+					"instructionsText": "In the following sentences and questions select au , à la, à l' or aux as appropriate:",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Le lundi, il joue [*au|à la|à l'|aux] foot.",
+							"audio": "sounds/fr/Le lundi, il joue au foot.mp3"
+						},
+						{
+							"text": "Le mardi, il joue [*au|à la|à l'|aux] tennis.",
+							"audio": "sounds/fr/Le mardi, il joue au tennis.mp3"
+						},
+						{
+							"text": "Le mercredi, il joue [*au|à la|à l'|aux] volley.",
+							"audio": "sounds/fr/Le mercredi, il joue au volley.mp3"
+						},
+						{
+							"text": "Le jeudi, il joue [au|*à la|à l'|aux] pétanque.",
+							"audio": "sounds/fr/Le jeudi, il joue à la pétanque.mp3"
+						},
+						{
+							"text": "Le vendredi, il joue [au|à la|à l'|*aux] boules",
+							"audio": "sounds/fr/Le vendredi, il joue aux boules.mp3"
+						},
+						{
+							"text": "Le samedi, il joue [*au|à la|à l'|aux] baseball. Les soir, il joue [*au|à la|à l'|aux] babyfoot avec ses amis",
+							"audio": "sounds/fr/Le samedi, il joue au baseball. Les soir, il joue au babyfoot avec ses amis.mp3"
+						},
+						{
+							"text": "Le dimanche, il est un peu fatigué. Il reste à la maison. Quelquefois, Il joue [au|à la|à l'|*aux] échecs avec son frère.",
+							"audio": "sounds/fr/Le dimanche, il est un peu fatigué. Il reste à la maison. Quelquefois, Il joue aux échecs avec son frère.mp3"
+						}
+					],
+					"titleText": "3. Julien est très sportif"
+				}
+			},
+			{
+				"dropdowns3": {
+					"component": "DropDowns",
+					"id": "dropdowns3",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Listen to the responses to this question and select answers accordingly:",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "1 Je fais [de l'équitation|de la course d'orientation|*de la natation]",
+							"audio": "sounds/fr/Je fais de la natation.mp3"
+						},
+						{
+							"text": "2 Je fais [*de l'équitation|de la course d'orientation|de la natation]",
+							"audio": "sounds/fr/Je fais de l'équitation.mp3"
+						},
+						{
+							"text": "3 Je fais [du taekwondo|*du yoga|du jogging]",
+							"audio": "sounds/fr/Je fais du yoga.mp3"
+						},
+						{
+							"text": "4 Je fais [*de la randonnée|de la course à pied|de l'équitation]",
+							"audio": "sounds/fr/Je fais de la randonnée.mp3"
+						},
+						{
+							"text": "5 Je fais [de l'escalade|de la lecture|*du lèche-vitrine]",
+							"audio": "sounds/fr/Je fais du lèche-vitrine.mp3"
+						},
+						{
+							"text": "6 Je fais [de la lecture|*de l'escalade|de la course d'orientation]",
+							"audio": "sounds/fr/Je fais de l'escalade.mp3"
+						},
+						{
+							"text": "7 Je fais [*des gâteaux|des crêpes des pizzas]",
+							"audio": "sounds/fr/Je fais des gâteaux.mp3"
+						},
+						{
+							"text": "8 Je fais [de la lecture|*de la boxe|du jardinage]",
+							"audio": "sounds/fr/Je fais de la boxe.mp3"
+						}
+					],
+					"titleText": "4. Qu’est-ce que tu fais le dimanche ?"
+				}
+			},
+			{
+				"phrases1": {
+					"blanksType": "phrases",
+					"cheatText": "Show answer",
+					"component": "Blanks",
+					"congratulationsText": "Très bien !",
+					"id": "phrases1",
+					"instructionsText": "Drag the words to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"items": [
+						{
+							"text": "Je ne fais pas [grand-chose]. Je fais la [grasse matinée]. Je vois mes [amis]. Quelquefois, je vais au [cinéma] ou je vais en [boîte]. Ça dépend !",
+							"audio": "sounds/fr/Je ne fais pas grand chose. Je fais la grasse matinée. Je vois mes amis. Quelquefois, je vais au cinéma ou je vais en boîte. Ça dépend !.mp3"
+						},
+						{
+							"text": "Le samedi, je fais de l' [aviron]. Je prends mon [déjeuner] au café avec mon copain. Je vais en ville pour faire du [shopping]. Le soir, je sors avec [mes] amies.",
+							"audio": "sounds/fr/Le samedi, je fais de l’aviron. Je prends mon déjeuner au café avec mon copain. Je vais en ville pour faire du shopping. Le soir, je sors avec mes amies.mp3"
+						},
+						{
+							"text": "Le dimanche, [je fais] de la natation. L'après-midi, s'il fait [beau], je fais [de la] randonnée avec ma sœur . S'il fait mauvais, je fais de la [peinture] ou je regarde la [télé].",
+							"audio": "sounds/fr/Le dimanche, je fais de la natation L'après-midi, s'il fait beau, je fais de la randonnée avec ma sœur S'il fait mauvais, je fais de la peinture ou je regarde la télé.mp3"
+						}
+					],
+					"titleText": "5 Qu'est-ce que tu fais le weekend ?"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

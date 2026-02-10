@@ -1,0 +1,203 @@
+// AudioClip.scss
+@use "../../styles/media-queries" as *;
+@use "../../styles/mixins.module" as *;
+
+:root {
+	--compact-dimension: 27px;
+	--audio-inline-size: 1.05em;
+	--audio-inline-offset: -0.08em;
+}
+.audio-clip {
+	display: flex;
+	align-items: center;
+}
+p > audio,
+audio.compact,
+audio.super-compact {
+	width: 200px;
+	height: var(--compact-dimension); // Half default height
+	vertical-align: middle;
+	&.inset {
+		&.compact {
+			border-radius: calc(var(--compact-dimension) / 2);
+			min-width: 160px;
+		}
+		box-shadow:
+			-3px -3px 3px color-mix(in oklab, var(--foreground) 40%, transparent),
+			-3px 3px 3px color-mix(in oklab, var(--foreground) 40%, transparent),
+			3px 3px 3px color-mix(in oklab, var(--background) 40%, transparent),
+			3px -3px 3px color-mix(in oklab, var(--background) 40%, transparent);
+	}
+}
+
+@include respond-below(m) {
+	audio {
+		width: 200px;
+		height: var(--compact-dimension); // Half default height
+		vertical-align: middle;
+	}
+}
+
+.audio-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25em;
+	position: relative;
+	text-decoration: none !important;
+	--progress-width: 100%;
+	white-space: nowrap;
+	&.playing {
+		color: var(--chart-2);
+	}
+	svg {
+		display: inline-block;
+		width: var(--audio-inline-size);
+		height: var(--audio-inline-size);
+		flex: 0 0 auto;
+		transform: translateY(var(--audio-inline-offset));
+	}
+	&::after {
+		// content: "";
+		width: var(--progress-width);
+		height: 1px;
+		position: absolute;
+		bottom: 4px;
+		left: 0;
+		background-color: var(--primary);
+		transition: width 0.5s;
+	}
+	&.playing {
+		--progress-width: 0%;
+	}
+}
+
+.audio-container {
+	// background-color: #f1f3f4;
+	background-color: transparent;
+	width: var(--compact-dimension);
+	height: var(--compact-dimension);
+
+	z-index: 1;
+	display: block;
+	position: relative;
+	&.playing {
+		color: var(--chart-2);
+	}
+	&.inline {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+$circle-duration: 0.2s;
+.circular-audio-progress {
+	.play {
+		opacity: 1;
+		transition: opacity $circle-duration;
+	}
+	.pause {
+		opacity: 0;
+		transition: opacity $circle-duration;
+		// Doesn't work :-(
+		// animation-name: ge;
+		// animation-duration: calc($circle-duration / 10);
+		// animation-timing-function: linear;
+		// animation-iteration-count: infinite;
+	}
+	&.playing {
+		.play {
+			opacity: 0;
+			transition: opacity $circle-duration;
+		}
+		.pause {
+			opacity: 1;
+			transition: opacity $circle-duration;
+			fill: linear-gradient;
+		}
+	}
+}
+
+@keyframes ge {
+	0% {
+		// fill: #ff0000;
+		fill: linear-gradient(0deg, var(--destructive) 0%, var(--chart-2) 48%, var(--foreground) 48%);
+	}
+	100% {
+		// fill: #ff0000;
+		fill: linear-gradient(0deg, var(--destructive) 0%, var(--chart-2) 90%, var(--foreground) 90%);
+	}
+}
+
+.circular-audio-progress-speaker,
+.circular-audio-progress {
+	width: var(--compact-dimension);
+	height: var(--compact-dimension);
+	border-radius: calc(var(--compact-dimension) / 2);
+	cursor: pointer;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+span.audio-link {
+	// color: blue;
+	cursor: pointer;
+	// text-decoration: underline;
+}
+
+$cycle: 1600ms;
+
+.circular-audio-progress-speaker {
+	.speaker-arc {
+		opacity: 0;
+		transition: opacity calc($cycle / 2);
+	}
+	&.playing {
+		.speaker-arc {
+			transform-origin: 56% 50%;
+			animation-name: radiate;
+			animation-duration: $cycle;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+
+			transform: scale(0.5);
+			transition: opacity calc($cycle * 3);
+		}
+		.speaker-arc1 {
+			animation-delay: 0;
+		}
+		.speaker-arc2 {
+			animation-delay: calc($cycle / 2);
+		}
+		// .speaker-arc3 {
+		// 	animation-delay: $cycle * 2/3;
+		// }
+	}
+}
+
+@keyframes radiate {
+	0% {
+		opacity: 0;
+		transform: scale(0.5);
+		// color: rgb(14, 231, 14);
+	}
+	10% {
+		opacity: 1;
+		transform: scale(0.6);
+	}
+	90% {
+		opacity: 1;
+		transform: scale(2);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(2.2);
+	}
+}
+
+@include respond-above(m) {
+	audio.super-compact {
+		width: 210px;
+	}
+}

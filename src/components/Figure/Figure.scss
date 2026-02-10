@@ -1,0 +1,100 @@
+/*
+Figure.scss
+*/
+@use "../../styles/variables.module" as *;
+@use "../../styles/colours.module" as *;
+@use "../../styles/mixins.module" as *;
+@use "../../styles/media-queries.scss" as *;
+figure {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	margin: 6vmin 0 0 0;
+	padding: 0;
+	// clear: both;
+
+	&.right,
+	&.left,
+	&.centre {
+		width: 100%;
+		margin: 0;
+		&.space-before {
+			margin: 4vh 0 4% 0;
+		}
+	}
+	// &.clearboth{
+	// 	a{
+	// 	margin-top: 0;
+	// 	}
+	// }
+	a {
+		display: flex;
+	}
+	figcaption {
+		display: block;
+		clear: left;
+		margin-top: 1rem;
+		text-align: center;
+		// font-style: italic;
+	}
+}
+@include respond-above(s) {
+	figure {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		margin: 6vmin 0 0 0;
+		padding: 0;
+		// clear: both;
+
+		&.right,
+		&.left,
+		&.centre {
+			width: auto;
+		}
+		&.right {
+			float: right;
+			margin: 0 0 4% 4%;
+			&.space-before {
+				margin: 4vh 0 4% 4%;
+			}
+			figcaption {
+				clear: right;
+			}
+		}
+		&.left {
+			float: left;
+			margin: 0 4% 4% 0;
+			&.space-before {
+				margin: 4vh 4% 4% 0;
+			}
+			figcaption {
+				clear: left;
+			}
+		}
+		&.centre {
+			width: 100%;
+			margin: 0;
+			&.space-before {
+				margin: 4vh 0 4% 0;
+			}
+		}
+		// &.clearboth{
+		// 	a{
+		// 	margin-top: 0;
+		// 	}
+		// }
+		a {
+			display: flex;
+		}
+		figcaption {
+			display: block;
+			clear: left;
+			margin-top: 1rem;
+			text-align: center;
+			// font-style: italic;
+		}
+	}
+}

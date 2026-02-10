@@ -1,0 +1,228 @@
+.main-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9998;
+
+	// Hack the width to be correct :-(
+	nav {
+		max-width: none;
+	}
+
+	width: 100%;
+	padding: 0.75rem 1rem;
+
+	background-color: var(--background);
+	color: var(--foreground);
+	border-bottom: 1px solid var(--border);
+	backdrop-filter: blur(12px);
+
+	.menu-root {
+		width: 100%;
+		display: block;
+	}
+
+	.menu-flex {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		justify-content: space-between;
+	}
+
+	.menu-left {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex: 0 0 auto;
+	}
+
+	.menu-right {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-left: auto;
+		justify-content: flex-end;
+		flex-wrap: nowrap;
+
+		li {
+			border-bottom: 2px solid transparent;
+			transition: border-color 0.15s ease;
+
+			&.highlight {
+				border-bottom-color: var(--primary);
+			}
+		}
+	}
+
+	.menu-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-left: 0.75rem;
+	}
+
+	.nav-title {
+		font-size: var(--font-size-xl);
+		font-weight: 600;
+		color: var(--foreground);
+		white-space: nowrap;
+	}
+
+	.nav-link {
+		font-size: var(--font-size-lg);
+		color: rgb(var(--color-text-secondary));
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: rgb(var(--color-text-primary));
+		}
+	}
+
+	.icon-button {
+		padding: 0;
+		border-radius: 9999px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent; // !important;
+
+		svg {
+			width: 1.25rem;
+			height: 1.25rem;
+			display: block;
+			stroke: currentColor;
+			fill: none;
+		}
+	}
+
+	.menu-toggle-button {
+		/* Hidden on desktop by default, shown via media query for mobile */
+		padding: 0.35rem;
+		border-radius: 9999px;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+
+		display: none; // overridden for mobile
+
+		svg {
+			width: 1.5rem;
+			height: 1.5rem;
+			stroke: currentColor;
+			fill: none;
+			stroke-width: 2;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			display: block;
+		}
+
+		&:hover {
+			background-color: oklch(0 0 0 / 0.06);
+		}
+	}
+
+	/* MOBILE DROPDOWN */
+	.mobile-menu {
+		border-top: 1px solid var(--border);
+		background-color: var(--background);
+
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.25s ease;
+
+		.mobile-menu-list {
+			list-style: none;
+			margin: 0;
+			padding: 0.35rem 0;
+
+			li {
+				border-bottom: 1px solid oklch(0 0 0 / 0.06);
+
+				&:last-child {
+					border-bottom: none;
+				}
+				padding-left: 12px;
+				&.highlight {
+					& > a {
+						color: var(--primary);
+						font-weight: 600;
+					}
+					border-left: 2px var(--primary) solid;
+				}
+			}
+		}
+
+		.nav-link-mobile {
+			display: block;
+			padding: 0.5rem 0;
+			font-size: var(--font-size-lg);
+			color: rgb(var(--color-text-secondary));
+			text-decoration: none;
+
+			&:hover {
+				color: rgb(var(--color-text-primary));
+			}
+		}
+
+		&.open {
+			max-height: 500px; // large enough for all items
+		}
+	}
+}
+
+/* RESPONSIVE BEHAVIOUR */
+@media (max-width: 767.98px) {
+	.main-menu {
+		// Hack the width to be correct :-(
+		nav {
+			max-width: none;
+		}
+		.menu-right {
+			display: none; // Hide desktop inline menu
+		}
+
+		.menu-actions {
+			margin-left: auto;
+		}
+
+		.menu-toggle-button {
+			display: inline-flex; // Show hamburger on mobile
+			align-items: center;
+			justify-content: center;
+		}
+
+		.mobile-menu {
+			display: block;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.main-menu {
+		// Hack the width to be correct :-(
+		nav {
+			max-width: none;
+		}
+		.menu-right {
+			display: flex;
+		}
+
+		.menu-toggle-button {
+			display: none !important; // Hide hamburger on desktop
+		}
+
+		.mobile-menu {
+			display: none !important;
+		}
+	}
+}
+
+/* Optional: ensure main content isn't hidden under fixed header.
+   Apply this to a wrapper around your page content. */
+/*
+.page-with-main-menu {
+  padding-top: 3.5rem; // tweak to actual header height
+}
+*/

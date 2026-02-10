@@ -1,0 +1,677 @@
+// App.scss
+
+@use "./styles/colours.module" as *;
+@use "./styles/media-queries" as *;
+@use "./styles/variables.module" as *;
+@use "./styles/mixins.module" as *;
+@use "sass:color";
+
+@font-face {
+	font-family: "Feijoa Bold";
+	src: url("/fonts/Feijoa-Bold.otf");
+}
+@font-face {
+	font-family: "Feijoa Medium";
+	src: url("/fonts/Feijoa-Medium.otf");
+}
+@font-face {
+	font-family: "Feijoa Medium Italic";
+	src: url("/fonts/Feijoa-MediumItalic.otf");
+}
+@font-face {
+	font-family: "OpenSans Bold";
+	src: url("/fonts/OpenSans-Bold.ttf");
+}
+@font-face {
+	font-family: "OpenSans Regular";
+	src: url("/fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+	font-family: "OpenSans SemiBold";
+	src: url("/fonts/OpenSans-SemiBold.ttf");
+}
+.lo-menu {
+	display: flex;
+}
+body {
+	font-family: "OpenSans Regular", sans-serif;
+	font-size: 16px;
+	// color: black;
+	background: var(--background);
+	margin: 0;
+	// background: $body-back;
+	// background: green;
+}
+h1 {
+	font-family: "Feijoa Bold", times-roman;
+}
+h2,
+h3,
+h4 {
+	font-family: "Feijoa Medium", times-roman;
+}
+h5,
+h6 {
+	font-family: "OpenSans SemiBold", sans-serif;
+}
+h1 {
+	// font-weight: bold;
+	line-height: 1.2;
+}
+h2,
+h3,
+h4 {
+	line-height: 1.2;
+	// font-weight: 500;
+}
+h5,
+h6 {
+	line-height: 1.2;
+	// font-weight: 500;
+}
+
+h1 {
+	font-size: 3rem;
+	margin-top: calc(1.2 * 3rem);
+}
+h2 {
+	font-size: 2.5rem;
+	margin-top: calc(1.2 * 2.5rem);
+}
+h3 {
+	font-size: 2rem;
+	margin-top: calc(1.2 * 2rem);
+}
+h4 {
+	font-size: 1.75rem;
+	margin-top: calc(1.2 * 1.75rem);
+}
+h5 {
+	font-size: 1.5rem;
+	margin-top: calc(1.2 * 1.5rem);
+}
+h6 {
+	font-size: 1.25rem;
+	margin-top: calc(1.2 * 1.25rem);
+}
+#fontSamples {
+	border: 1px solid var(--destructive);
+	margin: 3rem;
+	padding: 3rem;
+	display: none;
+}
+figure {
+	figcaption {
+		font-family: "OpenSans Regular", sans-serif;
+		font-size: 0.75rem;
+	}
+}
+// .main-header,
+// .top-menu {
+// 	position: fixed;
+// }
+
+// h1,
+// h2,
+// h3 {
+// 	clear: both;
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5 {
+// 	font-weight: normal;
+// }
+
+// h2 {
+// 	line-height: 2em;
+// 	font-size: 1.6em;
+// }
+
+html {
+	scroll-behavior: smooth;
+	&.debug {
+		.blanks-container .target-board .word.blank span {
+			opacity: 0.2;
+		}
+		#fontSamples {
+			// display: block;
+		}
+	}
+
+	&.can-speak {
+			#content {
+	.special-anchor,
+	.special-anchor:visited {
+		color: oklch(0.646 0.222 41.116);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		cursor: pointer;
+					// following doesn't help eliminate contextual search :-(
+					-webkit-user-select: none; /* Chrome/Safari */
+					-moz-user-select: none; /* Firefox */
+					-ms-user-select: none; /* IE10+ */
+					user-select: none; /* Standard */
+				}
+				.speak {
+					color: var(--primary);
+					text-decoration: underline;
+					text-underline-offset: 3px;
+					cursor: pointer;
+				}
+			.special-anchor {
+				position: relative;
+				padding-right: 17px;
+
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					right: 0;
+					top: 2px;
+					pointer-events: none;
+				}
+
+				&::before {
+					width: 16px;
+					height: 16px;
+					background-color: var(--primary);
+
+					-webkit-mask-image: url("/images/icons/info-icon.svg");
+					-webkit-mask-repeat: no-repeat;
+					-webkit-mask-position: center;
+					-webkit-mask-size: contain;
+
+					mask-image: url("/images/icons/info-icon.svg");
+					mask-repeat: no-repeat;
+					mask-position: center;
+					mask-size: contain;
+				}
+				&::after {
+					height: 17px;
+					width: 17px;
+					border-bottom: 1px solid var(--primary);
+				}
+			}
+		}
+		#SpeechSynthesisError {
+			display: none;
+			// opacity: 0;
+			// transition: opacity 0;
+			animation-name: none;
+		}
+	}
+}
+
+/* ✅ Only hide inactive tab panels (TabsContent), not tab triggers */
+[role="tabpanel"][data-state="inactive"] {
+	display: none;
+}
+
+.flash {
+	animation-name: flash-animation;
+	animation-duration: 1000ms;
+	animation-timing-function: ease;
+	animation-iteration-count: 3;
+}
+
+.flash-target {
+	animation-name: anchor-flash;
+	animation-duration: 1000ms;
+	animation-iteration-count: 3;
+}
+
+.special-anchor-target.flash-target {
+	background-color: color-mix(in oklab, var(--ped-warn) 40%, transparent);
+	box-shadow: 0 0 0 5px color-mix(in oklab, var(--ped-warn) 20%, transparent);
+	border-radius: 0.4rem;
+	display: inline-block;
+	padding: 0.1rem 0.4rem;
+}
+
+@keyframes flash-animation {
+	0% {
+		background-color: color-mix(in oklab, var(--ring) 0%, transparent);
+	}
+	50% {
+		background-color: var(--ring);
+	}
+	100% {
+		background-color: color-mix(in oklab, var(--ring) 0%, transparent);
+	}
+}
+
+@keyframes button-flash-animation {
+	0% {
+		background-color: color-mix(in oklab, var(--ring) 0%, transparent);
+		color: var(--foreground);
+	}
+	50% {
+		background-color: var(--ring);
+	}
+	100% {
+		background-color: color-mix(in oklab, var(--ring) 0%, transparent);
+		color: initial;
+	}
+}
+
+@keyframes anchor-flash {
+	0% {
+		background-color: color-mix(in oklab, var(--ped-warn) 20%, transparent);
+		box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 20%, transparent);
+	}
+	50% {
+		background-color: color-mix(in oklab, var(--ped-warn) 50%, transparent);
+		box-shadow: 0 0 0 6px color-mix(in oklab, var(--ped-warn) 25%, transparent);
+	}
+	100% {
+		background-color: color-mix(in oklab, var(--ped-warn) 20%, transparent);
+		box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 20%, transparent);
+	}
+}
+
+.no-config {
+	opacity: 0;
+	animation-name: fadeIn;
+	animation-duration: 600ms;
+	animation-timing-function: ease;
+	animation-delay: 400ms;
+	animation-fill-mode: forwards;
+}
+
+#SpeechSynthesisError {
+	background-color: var(--card);
+	background: var(--card);
+	border-radius: 20px;
+	// border: var(--border-width) * 1px ridge darkblue;
+	color: var(--primary);
+	// display: flex;
+	font-size: 40px;
+	height: fit-content;
+	inset: 0;
+	line-height: 60px;
+	margin: auto;
+	min-height: 22vh;
+	min-width: 80vw;
+	padding: 1rem 0;
+	position: fixed;
+	text-align: center;
+	width: fit-content;
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+	// opacity: 1;
+	// transition: opacity 0; //1s 2s;
+	touch-action: none;
+	opacity: 0;
+	animation-name: fadeIn;
+	animation-duration: 600ms;
+	animation-timing-function: ease;
+	animation-delay: 400ms;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		display: none;
+	}
+	10% {
+		display: flex;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.app {
+	box-sizing: border-box;
+	line-height: 1.4em;
+	margin: 0;
+	overflow: hidden;
+}
+
+hr {
+	border: none;
+	height: 1px;
+}
+
+.container {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	// align-items: center;
+	flex-direction: column;
+	z-index: 1;
+	// margin: 1rem auto;
+	// max-width: 1200px;
+	// touch-action: none;
+
+	overflow: visible;
+	padding: 0.5rem; // 3rem;
+	box-sizing: border-box;
+	.instructions {
+		text-align: center;
+	}
+}
+
+#hero {
+	// align-items: center;
+	background-image: url(/images/fr_banner.svg);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	min-height: clamp(780px, 75vw, 1120px);
+	// justify-content: space-evenly;
+	margin-bottom: 0.5rem;
+	margin-top: $header-height;
+	max-width: 100%;
+	overflow-y: hidden;
+	padding: 1rem;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	.hero-title {
+		margin: 0;
+		// background: rgba(255, 255, 255, 0.6);
+		color: var(--hero-title-color);
+		text-align: left;
+		font-size: clamp(2.75rem, 5vw, 3.75rem);
+		text-shadow:
+			0 2px 6px color-mix(in oklab, var(--hero-title-color) 50%, transparent),
+			0 6px 14px color-mix(in oklab, var(--hero-title-color) 35%, transparent);
+		// box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+		padding: 0.2rem 0.4rem;
+		border-radius: 8px;
+	}
+}
+
+.dark {
+	#hero {
+		.hero-title {
+			color: var(--hero-title-color) !important;
+		}
+	}
+}
+
+#content {
+	width: 100vw;
+	max-width: 1400px;
+	color: var(--foreground);
+	text-align: left;
+	padding: 1rem 0;
+	margin: auto;
+	// margin-top: $main-menu-height;
+	ul {
+		margin: 2rem 0;
+		padding-left: 1.2rem;
+		list-style: disc; // Apologies, this is necessary because tailwind (which I hate) removes the most basic of defaults so that you have to add bloat to bring it back to expected behaviour.
+	}
+	li {
+		.video {
+			margin-left: -40px;
+		}
+	}
+	.instructions,
+	.intro {
+		ul {
+			list-style: disc;
+		}
+	}
+	:where(p, li, td, th, figcaption, caption) {
+		font-size: var(--font-size-base);
+		line-height: var(--body-line-height);
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		color: var(--foreground);
+	}
+	.intro {
+		h2 {
+			margin-bottom: 2rem;
+			font-size: var(--font-size-lg);
+		}
+		p {
+			font-size: var(--font-size-xl);
+			line-height: calc(var(--body-line-height) + 0.1);
+		}
+	}
+	.hero-section {
+		.intro-split {
+			.intro-split-image {
+				margin-top: -1.1rem;
+				max-width: none;
+				width: 100%;
+			}
+			.information {
+				margin-top: 0;
+			}
+			.info-content {
+				transform: none;
+			}
+		}
+	}
+	.title-sub {
+		display: block;
+		margin-top: 0.4rem;
+		color: var(--muted-foreground);
+	}
+	.section h2 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.video {
+		border-width: 5px;
+		border-style: ridge;
+		border-color: var(--border);
+		border-radius: 4px;
+		width: 560px;
+		height: 315px;
+		max-width: 90vw;
+		max-height: 90vh;
+	}
+	.html-content {
+		width: 100%;
+		border-radius: 12px;
+		box-sizing: border-box;
+	}
+	> .html-content {
+		padding: $common-left-margin;
+	}
+	.html-content,
+	.instructions {
+		padding: 0 1vw;
+	}
+	.instructions {
+		font-size: var(--font-size-lg);
+		line-height: 1.6;
+		p {
+			font-size: inherit !important;
+			line-height: inherit !important;
+		}
+	}
+
+	.footnote {
+		font-size: 0.8rem;
+	}
+
+	.audio-clip {
+		margin: 1.4rem 0;
+		audio {
+			border: 1px solid var(--border);
+			border-radius: 0.6rem;
+			background: var(--muted); //#f9f9f9;
+			max-height: 40px;
+		}
+	}
+
+	// span.audio-link,
+		a {
+			color: var(--primary);
+			cursor: pointer;
+			text-decoration: underline;
+			&.special-anchor-target {
+				color: initial;
+				text-decoration: initial;
+				display: block;
+				pointer-events: none; // Doesn't work :-(
+			}
+		}
+}
+
+.fr-FR {
+	#hero {
+		// background-repeat: no-repeat;
+		background-position: center center;
+		// background-size: cover;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+	#content {
+		#radio2 {
+			span:nth-of-type(1) {
+				min-width: 30px;
+			}
+			li {
+				min-width: 0;
+			}
+		}
+	}
+}
+
+.lo-15 {
+	.blanks-container.type-questions-answers .word.blank {
+		width: 210px;
+	}
+}
+
+.lo-6 {
+	#dropdowns2,
+	#dropdowns3 {
+		table {
+			&.annabelle,
+			&.camille {
+				td {
+					text-align: initial;
+				}
+			}
+			td {
+				text-align: right;
+			}
+		}
+	}
+}
+
+.lo-demo {
+	#picturesAndWords1 {
+		.word {
+			max-width: 160px;
+		}
+	}
+}
+
+@include respond-above(s) {
+	.container {
+		padding: 2rem 3rem;
+	}
+	#hero {
+		h1 {
+			font-size: clamp(2.2rem, 4vw, 3rem);
+		}
+	}
+}
+
+@include respond-below(l) {
+	#content {
+		#imagePlaceholder {
+			margin: 1rem 0;
+		}
+	}
+}
+
+@include respond-above(m) {
+	$header-height: 8rem;
+	#hero {
+		h1 {
+			font-size: clamp(2.4rem, 4vw, 3.5rem);
+		}
+	}
+	#content {
+		padding: 1rem 2rem;
+	}
+
+	.content {
+		text-align: justify;
+		margin: 0 auto;
+		li {
+			.video {
+				margin-left: 40px;
+			}
+		}
+		.video {
+			margin-left: 40px;
+		}
+	}
+
+	p {
+		line-height: 1.6em;
+	}
+	.spinning-globe {
+		width: 256px;
+		height: 256px;
+		position: relative;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+		&::after {
+			// Crap attempt to anti-aliase
+			content: "";
+			width: 102%;
+			height: 102%;
+			position: absolute;
+			border: 4px solid $background-colour; //white; // #e3e2fd;
+			z-index: 12;
+			border-radius: 50%;
+			top: -1%;
+			left: -1%;
+			box-sizing: border-box;
+			filter: blur(1px);
+		}
+	}
+}
+
+@include respond-above(xl) {
+	#hero {
+		h1 {
+			font-size: 3rem;
+		}
+	}
+	#content {
+		padding: 1rem 2rem;
+		width: calc(100vw - 4rem);
+	}
+}
+
+@media print {
+	.noprint {
+		display: none;
+	}
+}
+.special-anchor {
+	color: oklch(0.646 0.222 41.116);
+	text-decoration-color: color-mix(in oklab, oklch(0.646 0.222 41.116) 60%, transparent);
+	font-weight: 600;
+}
+.special-anchor:visited {
+	color: oklch(0.646 0.222 41.116);
+	text-decoration-color: color-mix(in oklab, oklch(0.646 0.222 41.116) 60%, transparent);
+}

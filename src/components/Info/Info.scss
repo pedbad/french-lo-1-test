@@ -1,0 +1,47 @@
+/*
+Info.scss
+*/
+@use "../../styles/colours.module" as *;
+@use "../../styles/mixins.module" as *;
+@use "../../styles/variables.module" as *;
+
+$info-blue: var(--primary);
+
+.information {
+	background-color: rgb(var(--color-primary-50) / 1);
+	padding: 12px 16px 12px 16px;
+	position: relative;
+	border-radius: 0.6rem;
+	display: flex;
+	column-gap: 0.4rem;
+	align-items: baseline;
+	border: 2px solid rgb(var(--color-primary-400) / 1);
+	color: $info-blue;
+	font-size: var(--font-size-base);
+	margin-top: 0.25rem;
+	.info-icon {
+		width: 2em;
+		height: 2em;
+		flex: 0 0 auto;
+		display: inline-block;
+		background-color: $info-blue;
+		-webkit-mask: url("/public/images/icons/info-icon.svg") no-repeat center / contain;
+		mask: url("/public/images/icons/info-icon.svg") no-repeat center / contain;
+	}
+	> div.info-content {
+		li {
+			font-size: var(--font-size-lg);
+			line-height: 1.5;
+			margin-top: 0.3rem;
+		}
+		transform: translateY(-0.42em);
+			h3 {
+				font-size: var(--font-size-lg);
+				margin-top: 0;
+			}
+			h4 {
+				font-size: var(--font-size-base);
+				margin-top: 0rem;
+			}
+	}
+}

@@ -1,0 +1,616 @@
+{
+	"settings": {
+		"class": "lo-3",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"intro": "This lesson teaches how to correctly use and understand French vocabulary, verb groups, and pronunciation, while developing listening and speaking skills through contextual exercises that reinforce grammatical accuracy and gender agreement."
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"instructionsTextHTML": "<a title='No machine-readable author provided. AzaToth assumed (based on copyright claims)., CC BY-SA 3.0 &lt;http: //creativecommons.org/licenses/by-sa/3.0/&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Rotating_globe.gif'><div class='spinning-globe' ><img alt='This image right here shows a globe spinning around in a 360 degree rotation.' src='https://upload.wikimedia.org/wikipedia/commons/6/6b/Rotating_globe.gif?20090914225528'></div></a>",
+		"content": [
+			{
+				"phraseTable3": {
+					"component": "PhraseTable",
+					"id": "phraseTable3",
+					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"phrases": [
+						[
+							"sounds/fr/Tu es française.mp3",
+							"Tu es française ?",
+							"Are you French ?"
+						],
+						[
+							"sounds/fr/Ah non, je ne suis pas française !.mp3",
+							"Ah non, je ne suis pas française !",
+							"Oh no, I'm not French!"
+						],
+						[
+							"sounds/fr/Tu es de quelle nationalité.mp3",
+							"Tu es de quelle nationalité ?",
+							"What nationality are you?"
+						],
+						[
+							"sounds/fr/Je suis belge. Je viens de Bruxelles. Tu viens d'où.mp3",
+							"Je suis belge. Je viens de Bruxelles. Tu viens d'où ?",
+							"I'm Belgian. I come from Brussels. Where do you come from?"
+						],
+						[
+							"sounds/fr/Je viens d'Espagne.mp3",
+							"Je viens d'Espagne.",
+							"I come from Spain."
+						],
+						[
+							""
+						],
+						[
+							"sounds/fr/D'où venez-vous, Monsieur.mp3",
+							"D'où venez-vous, Monsieur ?",
+							"Where do you come from, sir? "
+						],
+						[
+							"sounds/fr/Je viens des Etats-Unis. Je suis américain. Ma femme est canadienne. Elle vient du Québec. Et vous, vous êtes suisse.mp3",
+							"Je viens des Etats-Unis. Je suis américain. Ma femme est canadienne. Elle vient du Québec. Et vous, vous êtes suisse ?",
+							"I come from the USA. I'm American. My wife's Canadian. She comes from Quebec. And are you Swiss?"
+						],
+						[
+							"sounds/fr/Ah non, je suis luxembourgeoise.mp3",
+							"Ah non, je suis luxembourgeoise.",
+							"Oh no, I'm Luxemburgish."
+						],
+						[
+							""
+						],
+						[
+							"sounds/fr/Tu parles allemand.mp3",
+							"Tu parles allemand ?",
+							"Do you speak German?"
+						],
+						[
+							"sounds/fr/Non, je ne parle pas allemand.mp3",
+							"Non, je ne parle pas allemand.",
+							"No, I don't speak German."
+						],
+						[
+							"sounds/fr/Quelles langues parles-tu.mp3",
+							"Quelles langues parles-tu ?",
+							"Which languages do you speak?"
+						],
+						[
+							"sounds/fr/Je parle français. C'est tout.mp3",
+							"Je parle français. C'est tout.",
+							"I speak French. That's all."
+						],
+						[
+							""
+						],
+						[
+							"sounds/fr/Quelles langues parlez-vous.mp3",
+							"Quelles langues parlez-vous ?",
+							"Which languages do you speak?"
+						],
+						[
+							"sounds/fr/Je suis trilingue. Je parle français, arabe et un petit peu anglais.mp3",
+							"Je suis trilingue. Je parle français, arabe et un petit peu anglais.",
+							"I'm trilingual. I speak French, Arabic and a little bit of English."
+						],
+						[
+							"sounds/fr/Et les enfants.mp3",
+							"Et les enfants ?",
+							"And the children?"
+						],
+						[
+							"sounds/fr/Ils sont bilingues. Ils parlent français et arabe.mp3",
+							"Ils sont bilingues. Ils parlent français et arabe.",
+							"They're bilingual. They speak French and Arabic."
+						]
+					],
+					"titleText": "Nationalities and languages"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"header": [
+			"",
+			"Nationalité",
+			"Pays",
+			"Nationality",
+			"Country"
+		],
+		"phrases": [
+			[
+				"sounds/fr/algérien, algérienne, Algérie.mp3",
+				"algérien / algérienne",
+				"Algérie (f)",
+				"Algerian",
+				"Algeria"
+			],
+			[
+				"sounds/fr/allemand, allemande, Allemagne.mp3",
+				"allemand / allemande",
+				"Allemagne (f)",
+				"German",
+				"Germany"
+			],
+			[
+				"sounds/fr/américain, américaine, Etats-Unis.mp3",
+				"américain / américaine",
+				"Etats-Unis (mpl)",
+				"American",
+				"USA"
+			],
+			[
+				"sounds/fr/anglais, anglaise, Angleterre.mp3",
+				"anglais / anglaise",
+				"Angleterre (f)",
+				"English",
+				"England"
+			],
+			[
+				"sounds/fr/australien, australienne, Australie.mp3",
+				"australien / australienne",
+				"Australie (f)",
+				"Australian",
+				"Australia"
+			],
+			[
+				"sounds/fr/belge, Belgique.mp3",
+				"belge",
+				"Belgique (f)",
+				"Belgian",
+				"Belgium"
+			],
+			[
+				"sounds/fr/britannique, Grande Bretagne.mp3",
+				"britannique",
+				"Grande Bretagne (f)",
+				"British",
+				"Great Britain"
+			],
+			[
+				"sounds/fr/canadien, canadienne, Canada.mp3",
+				"canadien / canadienne",
+				"Canada (m)",
+				"Canadian",
+				"Canada"
+			],
+			[
+				"sounds/fr/chinois, chinoise, Chine.mp3",
+				"chinois / chinoise",
+				"Chine (f)",
+				"Chinese",
+				"China"
+			],
+			[
+				"sounds/fr/écossais, écossaise, Ecosse.mp3",
+				"écossais / écossaise",
+				"Ecosse (f)",
+				"Scottish",
+				"Scotland"
+			],
+			[
+				"sounds/fr/espagnol, espagnole, Espagne.mp3",
+				"espagnol / espagnole",
+				"Espagne (f)",
+				"Spanish",
+				"Spain"
+			],
+			[
+				"sounds/fr/français, française, France.mp3",
+				"français / française",
+				"France (f)",
+				"French",
+				"France"
+			],
+			[
+				"sounds/fr/gallois, galloise, Pays de Galles.mp3",
+				"gallois / galloise",
+				"Pays de Galles (m)",
+				"Welsh",
+				"Wales  "
+			],
+			[
+				"sounds/fr/ghanéen, ghanéenne, Ghana.mp3",
+				"ghanéen / ghanéenne",
+				"Ghana (m)",
+				"Ghanean",
+				"Ghana"
+			],
+			[
+				"sounds/fr/libanais, libanaise, Liban.mp3",
+				"libanais / libanaise",
+				"Liban (m)",
+				"Lebanese",
+				"Lebanon"
+			],
+			[
+				"sounds/fr/luxembourgeois, luxembourgeoise, Luxembourg.mp3",
+				"luxembourgeois / luxembourgeoise",
+				"Luxembourg (m)",
+				"Luxembourgish",
+				"Luxemburg"
+			],
+			[
+				"sounds/fr/marocain, marocaine, Maroc.mp3",
+				"marocain / marocaine",
+				"Maroc (m)",
+				"Maroccan",
+				"Morocco"
+			],
+			[
+				"sounds/fr/irlandais, irlandaise, irelande.mp3",
+				"irlandais / irlandaise",
+				"Irelande (f)",
+				"Irish",
+				"Ireland"
+			],
+			[
+				"sounds/fr/nord irlandais, nord irlandaise, Irelande du Nord.mp3",
+				"nord irlandais / nord irlandaise",
+				"Irelande (f) du Nord",
+				"Northern Irish",
+				"Northern Ireland"
+			],
+			[
+				"sounds/fr/sénégalais, sénégalaise, Sénégal.mp3",
+				"sénégalais / sénégalaise",
+				"Sénégal (m)",
+				"Senegalese",
+				"Senegal"
+			],
+			[
+				"sounds/fr/suisse, Suisse.mp3",
+				"suisse",
+				"Suisse (f)",
+				"Swiss",
+				"Switzerland"
+			],
+			[
+				"sounds/fr/tunisien, tunisienne, Tunisie.mp3",
+				"tunisien / tunisienne",
+				"Tunisie (f)",
+				"Tunisian",
+				"Tunisia"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"phraseTable5": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "phraseTable5",
+		"instructionsText": "",
+		"phrases": [
+			[
+				"sounds/fr/parler.mp3",
+				"parler",
+				"to speak"
+			],
+			[
+				"sounds/fr/Quelles langues parles-tu Tu parles quelles langues.mp3",
+				"Quelles langues parles-tu ? / Tu parles quelles langues ?",
+				"Which languages do you speak?"
+			],
+			[
+				"sounds/fr/Quelles langues parlez-vous Vous parlez quelles langues.mp3",
+				"Quelles langues parlez-vous ? / Vous parlez quelles langues ?",
+				"Which languages do you speak?"
+			],
+			[
+				"sounds/fr/Je parle anglais Je ne parle pas anglais.mp3",
+				"Je parle anglais / Je ne parle pas anglais",
+				"I speak / I don't speak English."
+			],
+			[
+				"sounds/fr/venir de.mp3",
+				"venir de",
+				"to come from"
+			],
+			[
+				"sounds/fr/D'où viens-tu Tu viens d'où.mp3",
+				"D'où viens-tu ? / Tu viens d'où ?",
+				"Where do you come from?"
+			],
+			[
+				"sounds/fr/D'où venez-vous Vous venez d'où.mp3",
+				"D'où venez-vous ? / Vous venez d'où ?",
+				"Where do you come from?"
+			],
+			[
+				"sounds/fr/Je viens de  Je ne viens pas de.mp3",
+				"Je viens de … / Je ne viens pas de …",
+				"I come from … / don't come from …"
+			]
+		],
+		"titleText": "",
+		"comment": "Vocabulary continued"
+	},
+	"grammar": {
+		"component": "LO3Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO3Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"expandable": false,
+		"id": "exercises",
+		"component": "Group",
+		"content": [
+			{
+				"dropdowns2": {
+					"component": "DropDowns",
+					"id": "dropdowns2",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Listen to the speakers and select the correct adjective of nationality.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"items": [
+						{
+							"text": "Je suis [marocain|*marocaine|africain|africaine].",
+							"audio": "sounds/fr/je suis marocaine.mp3"
+						},
+						{
+							"text": "Je suis [américain|américaine|mexicain|*mexicaine].",
+							"audio": "sounds/fr/je suis mexicaine.mp3"
+						},
+						{
+							"text": "Je suis [*canadien|canadienne|ghanéen|ghanéenne].",
+							"audio": "sounds/fr/je suis canadien.mp3"
+						},
+						{
+							"text": "Je suis [français|*française|anglais|anglaise].",
+							"audio": "sounds/fr/je suis française.mp3"
+						},
+						{
+							"text": "Je suis [*chinois|chinoise|gallois|galloise].",
+							"audio": "sounds/fr/je suis chinois.mp3"
+						},
+						{
+							"text": "Je suis [anglais|anglaise|sénégalais|*sénégalaise].",
+							"audio": "sounds/fr/je suis sénégalaise.mp3"
+						}
+					],
+					"commented-out": "test [a|*b|c|d|e] and [*a|b|c|d].",
+					"titleText": "1. Select the Correct Adjective of Nationality"
+				}
+			},
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Très bien !",
+					"instructionsTextHTML": "Fill in the gaps with <b>de</b> / <b>du</b> / <b>d'</b> / <b>des</b> as appropriate.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Je viens [*de|d'|du|des] France.",
+							"audio": "sounds/fr/Je viens de France.mp3"
+						},
+						{
+							"text": "Je viens [*de|d'|du|des] Suisse.",
+							"audio": "sounds/fr/Je viens de Suisse.mp3"
+						},
+						{
+							"text": "Je viens [de|*d'|du|des] Orléans.",
+							"audio": "sounds/fr/Je viens d'Orléans.mp3"
+						},
+						{
+							"text": "Je viens [de|d'|*du|des] Maroc.",
+							"audio": "sounds/fr/Je viens du Maroc.mp3"
+						},
+						{
+							"text": "Je viens [*de|d'|du|des] Tunisie.",
+							"audio": "sounds/fr/Je viens de Tunisie.mp3"
+						},
+						{
+							"text": "Je viens [de|*d'|du|des] Ecosse.",
+							"audio": "sounds/fr/Je viens d'Ecosse.mp3"
+						},
+						{
+							"text": "Je viens [de|d'|*du|des] Gabon.",
+							"audio": "sounds/fr/Je viens du Gabon.mp3"
+						},
+						{
+							"text": "Je viens [de|d'|du|*des] États-Unis.",
+							"audio": "sounds/fr/Je viens Des États-Unis.mp3"
+						}
+					],
+					"titleText": "2. Practise saying where you're from."
+				}
+			},
+			{
+				"answerTable1": {
+					"component": "AnswerTable",
+					"congratulationsText": "Superbe !",
+					"id": "AnswerTable1",
+					"instructionsText": "Type the feminine form, then click the check button. Listen to the pronunciation of masculine and feminine forms.",
+					"header": [
+						"Masculine",
+						"feminine",
+						"Listen (m & f)"
+					],
+					"phrases": [
+						[
+							"américain",
+							"[américaine]",
+							"sounds/fr/américain américaine.mp3"
+						],
+						[
+							"asiatique",
+							"[asiatique]",
+							"sounds/fr/asiatique(m) asiatique(f).mp3"
+						],
+						[
+							"brésilien",
+							"[brésilienne]",
+							"sounds/fr/brésilien brésilienne.mp3"
+						],
+						[
+							"croate",
+							"[croate]",
+							"sounds/fr/croate(m) croate(f).mp3"
+						],
+						[
+							"danois",
+							"[danoise]",
+							"sounds/fr/danois danoise.mp3"
+						],
+						[
+							"italien",
+							"[italienne]",
+							"sounds/fr/italien italienne.mp3"
+						],
+						[
+							"portugais",
+							"[portugaise]",
+							"sounds/fr/portugais portugaise.mp3"
+						],
+						[
+							"russe",
+							"[russe]",
+							"sounds/fr/russe(m) russe(f).mp3"
+						],
+						[
+							"ukrainien",
+							"[ukrainienne]",
+							"sounds/fr/ukrainien, ukrainienne.mp3"
+						],
+						[
+							"célibataire",
+							"[célibataire]",
+							"sounds/fr/célibataire(m) célibataire(f).mp3"
+						],
+						[
+							"fatigué",
+							"[fatiguée]",
+							"sounds/fr/fatigué fatiguée.mp3"
+						],
+						[
+							"malade",
+							"[malade]",
+							"sounds/fr/malade(m) malade(f).mp3"
+						],
+						[
+							"marié",
+							"[mariée]",
+							"sounds/fr/marié mariée.mp3"
+						],
+						[
+							"dentiste",
+							"[dentiste]",
+							"sounds/fr/dentiste(m) dentiste(f).mp3"
+						],
+						[
+							"doctorant",
+							"[doctorante]",
+							"sounds/fr/doctorant doctorante.mp3"
+						],
+						[
+							"étudiant",
+							"[étudiante]",
+							"sounds/fr/étudiant étudiante.mp3"
+						],
+						[
+							"informaticien",
+							"[informaticienne]",
+							"sounds/fr/informaticien informaticienne.mp3"
+						],
+						[
+							"journaliste",
+							"[journaliste]",
+							"sounds/fr/journaliste(m) journaliste(f).mp3"
+						],
+						[
+							"mécanicien",
+							"[mécanicienne]",
+							"sounds/fr/mécanicien mécanicienne.mp3"
+						],
+						[
+							"médecin",
+							"[médecin]",
+							"sounds/fr/médecin(m) médecin(f).mp3"
+						],
+						[
+							"pharmacien",
+							"[pharmacienne]",
+							"sounds/fr/pharmacien pharmacienne.mp3"
+						]
+					],
+					"titleText": "3. Practise masculine and feminine forms of adjectives and professions"
+				}
+			},
+			{
+				"answerTable2": {
+					"component": "AnswerTable",
+					"congratulationsText": "Excellent !",
+					"id": "AnswerTable2",
+					"instructionsText": "Write what you hear.",
+					"phrases": [
+						[
+							"",
+							"[Je suis marié avec Lucie.]",
+							"sounds/fr/Je suis marié avec Lucie.mp3"
+						],
+						[
+							"",
+							"[Je suis canadien et je viens de Montréal.]",
+							"sounds/fr/Je suis canadien et je viens de Montréal.mp3"
+						],
+						[
+							"",
+							"[Lucie est anglaise.]",
+							"sounds/fr/Lucie est anglaise.mp3"
+						],
+						[
+							"",
+							"[Elle vient de Bristol.]",
+							"sounds/fr/Elle vient de Bristol.mp3"
+						],
+						[
+							"",
+							"[Elle parle anglais et un petit peu français.]",
+							"sounds/fr/Elle parle anglais et un petit peu français.mp3"
+						],
+						[
+							"",
+							"[Je suis bilingue.]",
+							"sounds/fr/Je suis bilingue.mp3"
+						],
+						[
+							"",
+							"[Je parle anglais et français.]",
+							"sounds/fr/Je parle anglais et français.mp3"
+						],
+						[
+							"",
+							"[Je suis professeur de maths et Lucie est avocate.]",
+							"sounds/fr/Je suis professeur de maths et Lucie est avocate.mp3"
+						]
+					],
+					"titleText": "4. Practise your listening skills"
+				}
+			}
+		],
+		"titleText": "Exercises"
+	}
+}

@@ -1,0 +1,29 @@
+// Mockney.scss
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/variables.module" as *;
+
+.mockney-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "title title" "english mockney" "blank button";
+	column-gap: 20px;
+	textarea {
+		height: 200px;
+	}
+	.mockney-english {
+		grid-area: english;
+	}
+	.mockney-mockney {
+		grid-area: mockney;
+	}
+	h1 {
+		grid-area: title;
+	}
+	button {
+		width: fit-content;
+		grid-area: button;
+		margin: 12px;
+	}
+}

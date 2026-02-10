@@ -1,0 +1,756 @@
+{
+	"settings": {
+		"class": "lo-12",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"introHTML": "<p>This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities (Donnez-moi deux kilos de pommes de terre, s’il vous plaît), checking prices (C’est combien ?), and responding to questions like Avec ça ? or C’est tout ? It introduces key vocabulary for shops, food items, quantities, and packaging, such as le marché, la boulangerie, du fromage, une barquette de framboises, un kilo de pommes.</p><p>Grammar focuses on the verb aller (“to go”) and the use of partitive and quantity articles (du, de la, de l’, des, de, d’) to express amounts and negation (Je n’ai pas de pain). It also explains plural noun formation, including irregular endings like -eau → -eaux and -au → -aux.</p><p>Pronunciation practice contrasts the vowel sounds u and ou, helping learners distinguish between similar words like tu / tout and pur / pour. Overall, the topic builds confidence in conducting everyday shopping interactions naturally in French.</p>"
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "phraseTable1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Qu'est-ce que tu fais aujourd'hui.mp3",
+							"Qu'est-ce que tu fais aujourd'hui ?",
+							"What are you doing today?"
+						],
+						[
+							"sounds/fr/Je fais mes courses.mp3",
+							"Je fais mes courses.",
+							"I'm doing my shopping."
+						],
+						[
+							"sounds/fr/Tu vas au supermarché.mp3",
+							"Tu vas au supermarché ?",
+							"Are you going to the supermarket?"
+						],
+						[
+							"sounds/fr/Non, je vais au marché. Ce n'est pas loin de chez moi.mp3",
+							"Non, je vais au marché. Ce n'est pas loin de chez moi.",
+							"No, I'm going to the market. It isn't very far from me."
+						],
+						[
+							"sounds/fr/C'est bien !.mp3",
+							"C'est bien !",
+							"That's good."
+						],
+						[
+							"sounds/fr/Oui, c'est pratique. Et le jeudi, je vais au grand marché au centre-ville. J'achète souvent du fromage et du jambon là-bas. Il y a beaucoup de choix. Et il y a un très bon fleuriste aussi.mp3",
+							"Oui, c'est pratique. Et le jeudi, je vais au grand marché au centre-ville. J'achète souvent du fromage et du jambon là-bas. Il y a beaucoup de choix. Et il y a un très bon fleuriste aussi.",
+							"Yes, it's practical. And on Thursdays I go to the big market in the town centre. I often buy cheese and ham there. There's lots of choice. And there's a very good florist too."
+						],
+						[
+							"sounds/fr/Tu as de la chance ! Si nous voulons du pain, Marc va à la boulangerie au bout de la rue, mais il n'y a pas de marché près de chez nous. Le samedi matin, Marc et moi allons au supermarché.mp3",
+							"Tu as de la chance ! Si nous voulons du pain, Marc va à la boulangerie au bout de la rue, mais il n'y a pas de marché près de chez nous. Le samedi matin, Marc et moi allons au supermarché.",
+							"You're lucky. If we want bread, Marc goes to the baker's at the end of the road, but there isn't a market near us. On Saturday mornings Marc and I go to the supermarket."
+						]
+					],
+					"titleText": "Dialogues 1"
+				}
+			},
+			{
+				"phraseTable2": {
+					"component": "PhraseTable",
+					"id": "phraseTable2",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Madame, bonjour ! Vous désirez.mp3",
+							"Madame, bonjour ! Vous désirez ?",
+							"Hello madam! What can I get you?"
+						],
+						[
+							"sounds/fr/Donnez-moi deux kilos de pommes de terre, s'il vous plaît.mp3",
+							"Donnez-moi deux kilos de pommes de terre, s'il vous plaît.",
+							"Give me two kilos of potatoes please."
+						],
+						[
+							"sounds/fr/Avec ça.mp3",
+							"Avec ça ?",
+							"Anything else ?"
+						],
+						[
+							"sounds/fr/Trois poireaux, oui... et deux poivrons, un poivron jaune et un poivron rouge.mp3",
+							"Trois poireaux, oui... et deux poivrons, un poivron jaune et un poivron rouge.",
+							"Three leeks, yes... and two peppers, one yellow pepper and one red pepper."
+						],
+						[
+							"sounds/fr/Voilà ! C'est tout.mp3",
+							"Voilà ! C'est tout ?",
+							"Here you are. Is that everything?"
+						],
+						[
+							"sounds/fr/Les melons, c'est combien.mp3",
+							"Les melons, c'est combien ?",
+							"How much are the melons?"
+						],
+						[
+							"sounds/fr/Les melons, c'est 3 euros la pièce.mp3",
+							"Les melons, c'est 3 euros la pièce.",
+							"The melons are 3 euros each."
+						],
+						[
+							"sounds/fr/Je vais prendre un melon, et puis c'est tout !.mp3",
+							"Je vais prendre un melon, et puis c'est tout !",
+							"I'll take one melon and then that's everything."
+						],
+						[
+							"sounds/fr/Bien ! Ça fait 10 euros 50 s'il vous plaît Madame !.mp3",
+							"Bien ! Ça fait 10 &euro; 50 s'il vous plaît Madame !",
+							"Good! That comes to 10 &euro; 50 please madam."
+						]
+					],
+					"titleText": "Dialogues 2"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"sounds/fr/faire les courses.mp3",
+				"faire les courses",
+				"to do the shopping"
+			],
+			[
+				"sounds/fr/aller.mp3",
+				"aller",
+				"to go"
+			],
+			[
+				"sounds/fr/boucherie.mp3",
+				"boucherie (f)",
+				"butcher's shop"
+			],
+			[
+				"sounds/fr/boulangerie.mp3",
+				"boulangerie (f)",
+				"bakery"
+			],
+			[
+				"sounds/fr/épicerie.mp3",
+				"épicerie (f)",
+				"grocer's, corner shop "
+			],
+			[
+				"sounds/fr/fleuriste.mp3",
+				"fleuriste (m and f)",
+				"florist's"
+			],
+			[
+				"sounds/fr/marchand de fruits et légumes.mp3",
+				"marchand (m) de fruits et légumes",
+				"greengrocer's"
+			],
+			[
+				"sounds/fr/marché.mp3",
+				"marché (m)",
+				"market"
+			],
+			[
+				"sounds/fr/poissonnerie.mp3",
+				"poissonnerie (f)",
+				"fishmonger's"
+			],
+			[
+				"sounds/fr/supermarché.mp3",
+				"supermarché (m)",
+				"supermarket"
+			],
+			[
+				"sounds/fr/kilo, demi-kilo.mp3",
+				"kilo (m), demi-kilo (m)",
+				"kilo, half a kilo"
+			],
+			[
+				"sounds/fr/barquette de framboises.mp3",
+				"barquette (f) de framboises",
+				"punnet of raspberries"
+			],
+			[
+				"sounds/fr/pièce.mp3",
+				"pièce (f)",
+				"each"
+			],
+			[
+				"sounds/fr/Les pommes de terre, c'est combien le kilo.mp3",
+				"Les pommes de terre, c'est combien le kilo ?",
+				"How much is a kilo of potatoes?"
+			],
+			[
+				"sounds/fr/Les concombres, c'est combien la pièce.mp3",
+				"Les concombres, c'est combien la pièce ?",
+				"How much is a cucumber?"
+			],
+			[
+				"sounds/fr/C'est tout Oui, c'est tout.mp3",
+				"C'est tout ? Oui, c'est tout.",
+				"Is that all / everything? Yes, that's all / everything."
+			],
+			[
+				"sounds/fr/Avec ça Avec ceci.mp3",
+				"Avec ça ? Avec ceci ?",
+				"Anything else?"
+			],
+			[
+				"sounds/fr/Donnez-moi.mp3",
+				"Donnez-moi...",
+				"Give me..."
+			],
+			[
+				"sounds/fr/Ça fait.mp3",
+				"Ça fait...",
+				"That comes to..."
+			],
+			[
+				"sounds/fr/carotte.mp3",
+				"carotte (f)",
+				"carrot"
+			],
+			[
+				"sounds/fr/chou, choux.mp3",
+				"chou (m) choux (mpl)",
+				"cabbage(s)"
+			],
+			[
+				"sounds/fr/concombre.mp3",
+				"concombre (m)",
+				"cucumber"
+			],
+			[
+				"sounds/fr/oignon.mp3",
+				"oignon (m)",
+				"onion"
+			],
+			[
+				"sounds/fr/pain.mp3",
+				"pain (m)",
+				"bread"
+			],
+			[
+				"sounds/fr/poireau, poireaux.mp3",
+				"poireau (m) poireaux (mpl)",
+				"leek (s)"
+			],
+			[
+				"sounds/fr/poivron.mp3",
+				"poivron (m)",
+				"pepper"
+			],
+			[
+				"sounds/fr/salade.mp3",
+				"salade (f)",
+				"salad, lettuce"
+			],
+			[
+				"sounds/fr/cerise.mp3",
+				"cerise (f)",
+				"cherry"
+			],
+			[
+				"sounds/fr/citron.mp3",
+				"citron (m)",
+				"lemon"
+			],
+			[
+				"sounds/fr/fraise.mp3",
+				"fraise (f)",
+				"strawberry"
+			],
+			[
+				"sounds/fr/framboise.mp3",
+				"framboise (f)",
+				"raspberry"
+			],
+			[
+				"sounds/fr/huile d'olives.mp3",
+				"huile (f) d'olives",
+				"olive oil"
+			],
+			[
+				"sounds/fr/melon.mp3",
+				"melon (m)",
+				"melon"
+			],
+			[
+				"sounds/fr/pomme.mp3",
+				"pomme (f)",
+				"apple"
+			],
+			[
+				"sounds/fr/légume.mp3",
+				"légume (m)",
+				"vegetable"
+			],
+			[
+				"sounds/fr/fruit.mp3",
+				"fruit (m)",
+				"fruit"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "L12Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "L12Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronuciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Incroyable !",
+					"instructionsText": "Select the correct word to fill in the gaps",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Amel [vais|vas|*va|allons|allez|vont] à la piscine.",
+							"audio": "sounds/fr/Amel va à la piscine.mp3"
+						},
+						{
+							"text": "Mes voisins [vais|vas|va|allons|allez|*vont] au supermarché.",
+							"audio": "sounds/fr/Mes voisins vont au supermarché.mp3"
+						},
+						{
+							"text": "Tu [vais|*vas|va|allons|allez|vont] à la boulangerie ?",
+							"audio": "sounds/fr/Tu vas à la boulangerie.mp3"
+						},
+						{
+							"text": "Ma mère et moi [vais|vas|va|*allons|allez|vont] au marché.",
+							"audio": "sounds/fr/Ma mère et moi allons au marché.mp3"
+						},
+						{
+							"text": "Mon frère et son fils [vais|vas|va|allons|allez|*vont] à la bibliothèque.",
+							"audio": "sounds/fr/Mon frère et son fils vont à la bibliothèque.mp3"
+						},
+						{
+							"text": "Je [*vais|vas|va|allons|allez|vont] au centre sportif.",
+							"audio": "sounds/fr/Je vais au centre sportif.mp3"
+						},
+						{
+							"text": "Thomas et Louise, vous [vais|vas|va|allons|*allez|vont] au centre-ville ?",
+							"audio": "sounds/fr/Thomas et Louise, vous allez au centre-ville.mp3"
+						},
+						{
+							"text": "[Je|Tu|Elle|Nous|Vous|*Elles] vont à l'épicerie. ",
+							"audio": "sounds/fr/Elles vont à l'épicerie.mp3"
+						},
+						{
+							"text": "[*Je|Tu|Elle|Nous|Vous|Elles] vais à la boucherie.",
+							"audio": "sounds/fr/Je vais à la boucherie.mp3"
+						},
+						{
+							"text": "[Je|Tu|*Elle|Nous|Vous|Elles] va chez le marchand de fruits et légumes.",
+							"audio": "sounds/fr/Elle va chez le marchand de fruits et légumes.mp3"
+						},
+						{
+							"text": "[Je|Tu|Il|Nous|vous|*Ils] vont à la poissonnerie.",
+							"audio": "sounds/fr/Ils vont à la poissonnerie.mp3"
+						},
+						{
+							"text": "[Je|Tu|*Il|Nous|Vous|Ils] va chez la fleuriste.",
+							"audio": "sounds/fr/Il va chez la fleuriste.mp3"
+						}
+					],
+					"titleText": "1. Where is everyone going?"
+				}
+			},
+			{
+				"dropdowns2": {
+					"component": "DropDowns",
+					"id": "dropdowns2",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Select the correct word to fill in the gaps",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "trois bouteilles [*de|d'|du|de la|de l'|des] vin rouge",
+							"audio": "sounds/fr/trois bouteilles de vin rouge.mp3"
+						},
+						{
+							"text": "cinq bouteilles [de|*d'|du|de la|de l'|des] eau minérale",
+							"audio": "sounds/fr/cinq bouteilles d'eau minérale.mp3"
+						},
+						{
+							"text": "300 grammes [*de|d'|du|de la|de l'|des] fromage",
+							"audio": "sounds/fr/300 grammes de fromage.mp3"
+						},
+						{
+							"text": "200 grammes [*de|d'|du|de la|de l'|des] jambon",
+							"audio": "sounds/fr/200 grammes de jambon.mp3"
+						},
+						{
+							"text": "une barquette [*de|d'|du|de la|de l'|des] framboises",
+							"audio": "sounds/fr/une barquette de framboises.mp3"
+						},
+						{
+							"text": "une bouteille [de|*d'|du|de la|de l'|des] huile [de|*d'|du|de la|de l'|des] olives",
+							"audio": "sounds/fr/une bouteille d'huile d'olives.mp3"
+						}
+					],
+					"titleText": "2. Marion's shopping list"
+				}
+			},
+			{
+				"dropdowns3": {
+					"component": "DropDowns",
+					"id": "dropdowns3",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Select the correct word to fill in the gaps",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "[de|d'|du|*de la|de l'|des] salade",
+							"audio": "sounds/fr/de la salade.mp3"
+						},
+						{
+							"text": "[de|d'|du|de la|de l'|*des] oignons",
+							"audio": "sounds/fr/des oignons.mp3"
+						},
+						{
+							"text": "[de|d'|*du|de la|de l'|des] lait",
+							"audio": "sounds/fr/du lait.mp3"
+						},
+						{
+							"text": "[de|d'|*du|de la|de l'|des] café",
+							"audio": "sounds/fr/du café.mp3"
+						},
+						{
+							"text": "[de|d'|*du|de la|de l'|des] jus [de|*d'|du|de la|de l'|des] orange",
+							"audio": "sounds/fr/du jus d'orange.mp3"
+						}
+					],
+					"titleText": "3. Yves' shopping list"
+				}
+			},
+			{
+				"answerTable2": {
+					"component": "AnswerTable",
+					"congratulationsText": "Excellent !",
+					"id": "AnswerTable2",
+					"instructionsText": "Write what you hear.",
+					"phrases": [
+						[
+							"",
+							"[Je voudrais un kilo de pommes de terre et un demi-kilo de carottes.]",
+							"sounds/fr/Je voudrais un kilo de pommes de terre et un demi-kilo de carottes.mp3"
+						],
+						[
+							"",
+							"[Avec ça ?]",
+							"sounds/fr/Avec ça.mp3"
+						],
+						[
+							"",
+							"[200 grammes d'abricots s'il vous plaît.]",
+							"sounds/fr/200 grammes d'abricots s'il vous plaît.mp3"
+						],
+						[
+							"",
+							"[D'accord.]",
+							"sounds/fr/d'accord.mp3"
+						],
+						[
+							"",
+							"[Et une barquette de cerises.]",
+							"sounds/fr/Et une barquette de cerises.mp3"
+						],
+						[
+							"",
+							"[C'est tout ?]",
+							"sounds/fr/C'est tout.mp3"
+						],
+						[
+							"",
+							"[Non, donnez-moi trois poireaux et un poivron rouge.]",
+							"sounds/fr/Non, donnez-moi trois poireaux et un poivron rouge.mp3"
+						],
+						[
+							"",
+							"[Voilà !]",
+							"sounds/fr/Voilà ! (male).mp3"
+						],
+						[
+							"",
+							"[Les melons, c'est combien la pièce ?]",
+							"sounds/fr/Les melons, c'est combien la pièce.mp3"
+						],
+						[
+							"",
+							"[2€50 la pièce Madame.]",
+							"sounds/fr/2€50 la pièce Madame.mp3"
+						],
+						[
+							"",
+							"[Un melon s'il vous plaît.]",
+							"sounds/fr/Un melon s'il vous plaît.mp3"
+						],
+						[
+							"",
+							"[Avec ça ?]",
+							"sounds/fr/Avec ça.mp3"
+						],
+						[
+							"",
+							"[C'est tout merci !]",
+							"sounds/fr/C'est tout merci !.mp3"
+						]
+					],
+					"titleText": "4. Practise your listening skills"
+				}
+			},
+			{
+				"groupTable1": {
+					"component": "HIDEBlanks",
+					"id": "groupTable1",
+					"congratulationsText": "Well done!",
+					"instructionsText": "You will hear a series of words containing either the sound u or the sound ou. Drag the words below into the correct box as you hear them.",
+					"listenDescriptionText": "Sample",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "group-table",
+					"header": [
+						"u",
+						"ou"
+					],
+					"answers": [
+						[
+							"du",
+							"doux"
+						],
+						[
+							"pur",
+							"chou"
+						],
+						[
+							"légume",
+							"tout"
+						],
+						[
+							"tu",
+							"pour"
+						],
+						[
+							"rue",
+							"nous"
+						],
+						[
+							"nu",
+							"vous"
+						],
+						[
+							"bu",
+							"poule"
+						],
+						[
+							"vue",
+							"bout"
+						],
+						[
+							"pull",
+							"couteau"
+						],
+						[
+							"jus",
+							"roue"
+						]
+					],
+					"words": [
+						"du",
+						"doux",
+						"pur",
+						"chou",
+						"légume",
+						"tu",
+						"tout",
+						"pour",
+						"rue",
+						"nous",
+						"vous",
+						"poule",
+						"nu",
+						"bu",
+						"vue",
+						"pull",
+						"bout",
+						"couteau",
+						"roue",
+						"jus"
+					],
+					"soundFile": "sounds/fr/LO12EX4.mp3",
+					"titleTextHTML": "5. Distinguishing the sounds <b>u</b> and <b>ou</b>"
+				}
+			},
+			{
+				"radio2": {
+					"component": "RadioQuiz",
+					"id": "radio2",
+					"instructionsTextHTML": "Play each phrase, click <b>u</b> or <b>ou</b>.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "sort-table",
+					"options": [
+						"u",
+						"ou"
+					],
+					"phrases": [
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/du.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/doux.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/pur.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/chou.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/légume.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/tu.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/tout.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/pour.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/rue.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/nous.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/vous.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/poule.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/nu.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/bu.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/vue.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/pull.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/bout.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/couteau.mp3"
+						],
+						[
+							"",
+							1,
+							"",
+							"sounds/fr/roue.mp3"
+						],
+						[
+							"",
+							0,
+							"",
+							"sounds/fr/jus.mp3"
+						]
+					],
+					"titleTextHTML": "5. Distinguishing the sounds u and ou."
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

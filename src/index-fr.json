@@ -1,0 +1,78 @@
+{
+	"learningObjects": [
+		{
+			"title": "First Contact: greetings, farewells and social niceties",
+			"titleShort": "First Contact",
+			"file": "1"
+		},
+		{
+			"title": "About me: marital status, occupation",
+			"titleShort": "About me",
+			"file": "2"
+		},
+		{
+			"title": "Origins and Languages",
+			"file": "3"
+		},
+		{
+			"title": "Current location",
+			"file": "4"
+		},
+		{
+			"title": "House and Home",
+			"file": "5"
+		},
+		{
+			"title": "Family, friends and neighbours",
+			"file": "6"
+		},
+		{
+			"title": "Opinions matter: Likes and dislikes",
+			"titleShort": "Opinions matter",
+			"file": "7"
+		},
+		{
+			"title": "Free Time",
+			"file": "8"
+		},
+		{
+			"title": "Phoning in France",
+			"file": "9"
+		},
+		{
+			"title": "Making Arrangements",
+			"file": "10"
+		},
+		{
+			"title": "Out and about: going to a café",
+			"titleShort": "Going to a café",
+			"file": "11"
+		},
+		{
+			"title": "Out and about: Shopping in the market",
+			"titleShort": "Shopping in the market",
+			"file": "12"
+		},
+		{
+			"title": "Daily routine",
+			"file": "13"
+		},
+		{
+			"title": "Studying at university",
+			"file": "14"
+		},
+		{
+			"title": "Making Arrangements",
+			"file": "15"
+		},
+		{
+			"title": "Sample components to pick from",
+			"file": "demo"
+		},
+		{
+			"title": "Answer Table Test",
+			"file": "answer"
+		}
+	],
+	"title": "French Basic"
+}

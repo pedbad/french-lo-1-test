@@ -1,0 +1,273 @@
+{
+	"settings": {
+		"class": "lo-2",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"intro": "This lesson teaches how to correctly use and understand French pronouns, genders, and pronunciation through contextual listening and speaking practice."
+	},
+	"monologues": {
+		"component": "Section",
+		"expandable": false,
+		"instructionsTextHTML": "<img src='images/handshake.png' style='width: 200px; border: 1px solid black;margin-bottom: 20px;'/>",
+		"content": [
+			{
+				"monologues1": {
+					"component": "PhraseTable",
+					"id": "monologues1",
+					"informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"phrases": [
+						[
+							"sounds/fr/Salut, je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.mp3",
+							"Salut, je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.",
+							"Hi, I'm Sylvain. I'm single. I'm a geography student."
+						],
+						[
+							"sounds/fr/Bonjour ! Je m'appelle Jacqueline. Je suis divorcée. Je suis prof de maths.mp3",
+							"Bonjour ! Je m'appelle Jacqueline. Je suis divorcée. Je suis prof de maths.",
+							"Hello, my name's Jacqueline. I'm divorced. I'm a maths teacher"
+						],
+						[
+							"sounds/fr/Bonsoir ! Je m'appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.mp3",
+							"Bonsoir ! Je m'appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
+							"Good evening, my name's Olivier Durand. I've been married to Alex for three years and I'm a librarian."
+						]
+					],
+					"titleText": "A bit about me"
+				}
+			}
+		],
+		"id": "monologues",
+		"titleText": "Monologues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+		"phrases": [
+			[
+				"sounds/fr/être.mp3",
+				"être",
+				"to be"
+			],
+			[
+				"sounds/fr/marié.mp3",
+				"marié.e",
+				"married"
+			],
+			[
+				"sounds/fr/divorcé.mp3",
+				"divorcé.e",
+				"divorced"
+			],
+			[
+				"sounds/fr/séparé.mp3",
+				"séparé.e",
+				"separated"
+			],
+			[
+				"sounds/fr/fiancé.mp3",
+				"fiancé.e",
+				"engaged"
+			],
+			[
+				"sounds/fr/pacsé.mp3",
+				"pacsé.e",
+				"In a civil partnership"
+			],
+			[
+				"sounds/fr/célibataire.mp3",
+				"célibataire",
+				"single"
+			],
+			[
+				"sounds/fr/étudiant, étudiante.mp3",
+				"étudiant (m) / étudiante (f)",
+				"University student"
+			],
+			[
+				"sounds/fr/élève.mp3",
+				"élève",
+				"school pupil"
+			],
+			[
+				"sounds/fr/chercheur, chercheuse.mp3",
+				"chercheur (m) / chercheuse (f)",
+				"researcher"
+			],
+			[
+				"sounds/fr/doctorant, doctorante.mp3",
+				"doctorant (m) / doctorante (f)",
+				"PhD student"
+			],
+			[
+				"sounds/fr/professeur, professeure, prof.mp3",
+				"professeur (m) / professeure (f) / prof (m and f)",
+				"teacher, professor"
+			],
+			[
+				"sounds/fr/médecin.mp3",
+				"médecin (m and f)",
+				"doctor"
+			],
+			[
+				"sounds/fr/archiviste.mp3",
+				"archiviste",
+				"archiviste"
+			],
+			[
+				"sounds/fr/bibliothécaire.mp3",
+				"bibliothécaire",
+				"librarian"
+			],
+			[
+				"sounds/fr/administrateur, administratrice.mp3",
+				"administrateur (m) / administratrice (f)",
+				"administrator"
+			],
+			[
+				"sounds/fr/informaticien, informaticienne.mp3",
+				"informaticien (m) / informaticienne (f)",
+				"IT specialist"
+			],
+			[
+				"sounds/fr/avocat, avocate.mp3",
+				"avocat (m) / avocate (f)",
+				"lawyer"
+			],
+			[
+				"sounds/fr/Que faites-vous (dans la vie).mp3",
+				"Que faites-vous (dans la vie) ?",
+				"What do you do (for a living)?"
+			],
+			[
+				"sounds/fr/Que fais-tu (dans la vie).mp3",
+				"Que fais-tu (dans la vie) ?",
+				"What do you do (for a living)?"
+			],
+			[
+				"sounds/fr/Quelle est ta profession Quelle est votre profession.mp3",
+				"Quelle est ta profession ? Quelle est votre profession ?",
+				"What's your profession?"
+			],
+			[
+				"sounds/fr/Quel est ton métier Quel est votre métier.mp3",
+				"Quel est ton / votre métier ?",
+				"What's your profession?"
+			],
+			[
+				"sounds/fr/depuis.mp3",
+				"depuis",
+				"for (a period of time), since"
+			],
+			[
+				"sounds/fr/malade.mp3",
+				"malade",
+				"ill"
+			],
+			[
+				"sounds/fr/hier.mp3",
+				"hier",
+				"yesterday"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "LO2Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO2Demystify",
+		"content": [
+			"<p>1 Silent letters at the end of a word <img src='/images/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh' title='lady with finger to lips. Shh'/></p><p>The consonants <b>d</b>, <b>g</b>, <b>p</b>, <b>s</b>, <b>t</b>, <b>x</b>, <b>z</b> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<b>d</b></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<b>d</b></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<b>g</b></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<b>p</b></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<b>s</b></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<b>s</b></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<b>x</b></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<b>z</b></span></p><p>The letter <b>e</b> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&#39appelle.mp3' alt='Je m''appelle'>Je m&#39appell<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<b>e</b></span></p><p><b>NB</b> 2-letter words ending in <b>e</b> are exceptions:</p><p><span class='audio-link' sound-file='/sounds/fr/ce.mp3'>ce</span>, <span class='audio-link' sound-file='/sounds/fr/de.mp3'>de</span>, <span class='audio-link' sound-file='/sounds/fr/je.mp3'>je</span>,  <span class='audio-link' sound-file='/sounds/fr/le.mp3'>le</span>, <span class='audio-link' sound-file='/sounds/fr/me.mp3'>me</span>, <span class='audio-link' sound-file='/sounds/fr/ne.mp3'>ne</span>, <span class='audio-link' sound-file='/sounds/fr/se.mp3'>se</span>, <span class='audio-link' sound-file='/sounds/fr/te.mp3'>te</span></p><hr/><p>2 <b>Th</b></p><p>In French the letters <b>th</b> are pronounced <b>t</b>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><b>Thomas</b></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><b>thé</b></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><b>théologie</b></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><b>maths</b></span></p>"
+		],
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"dropdowns3": {
+					"component": "DropDowns",
+					"id": "dropdowns3",
+					"congratulationsText": "Très bien !",
+					"instructionsText": "Select the correct part of être to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"items": [
+						{
+							"text": "Tu [*es|est|êtes] fiancé ? "
+						},
+						{
+							"text": "Je [sommes|*suis|sont] mariée avec Steffi. "
+						},
+						{
+							"text": "Vous [est|*êtes|sommes] professeurs ?"
+						},
+						{
+							"text": "Nous [es|êtes|*sommes] pacsés."
+						},
+						{
+							"text": "Il [es|*est|sont] étudiant en astronomie."
+						},
+						{
+							"text": "Ils [suis|est|*sont] jeunes."
+						},
+						{
+							"text": "Elle  [es|*est|êtes] chercheuse."
+						},
+						{
+							"text": "Elles [suis|sommes|*sont] étudiantes en éducation."
+						},
+						{
+							"text": "Jérome et moi [suis|sont|*sommes] divorcés maintenant."
+						}
+					],
+					"titleTextHTML": "Practise the verb <b>être</b>."
+				}
+			},
+			{
+				"dropdowns4": {
+					"component": "DropDowns",
+					"id": "dropdowns4",
+					"congratulationsText": "Well done!",
+					"instructionsText": "Match the questions and answers",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Salut les enfants ! Tout va bien ? [*Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
+							"audio": "sounds/fr/salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
+						},
+						{
+							"text": "Tu es archiviste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|*Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
+							"audio": "sounds/fr/tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
+						},
+						{
+							"text": "Monsieur Tondereau est journaliste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|*Non, il est bibliothécaire.|Je suis professeur de géographie.]",
+							"audio": "sounds/fr/monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
+						},
+						{
+							"text": "Que faites-vous dans la vie ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|*Je suis professeur de géographie.]",
+							"audio": "sounds/fr/que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
+						}
+					],
+					"titleText": "Answering Questions"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

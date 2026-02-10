@@ -1,0 +1,510 @@
+{
+	"settings": {
+		"class": "lo-15",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"introHTML": "<p>This lesson focuses on making plans and talking about holidays and future activities. Through short dialogues, learners practise using the near future tense (aller + infinitive) to describe where they are going (Je vais passer mes vacances en France), what they are going to do (Je vais faire des randonnées), and how they will travel (en avion, à pied, à vélo).</p><p>Vocabulary covers holiday destinations, weather, and travel — including words for transport (en train, en voiture), activities (nager, bronzer, faire du tourisme), and seasonal expressions (en été, en hiver). Learners also encounter cultural and geographical terms like les Caraïbes and francophone.</p><p>Grammar highlights:</p><ul><li>The multiple uses of aller — to go, to ask how someone is (Comment ça va ?), and to form the near future tense (Je vais visiter Paris).</li><li>The correct use of faire and il y a in weather expressions, where English would use “to be”: Il fait chaud, Il y a du soleil.</li></ul><p>Overall, this topic enables learners to plan and describe travel experiences, talk about future intentions, and use natural French expressions for weather and holiday activities.</p>"
+	},
+	"dialogues": {
+		"component": "Section",
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "phraseTable1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Où vas-tu passer tes vacances.mp3",
+							"Où vas-tu passer tes vacances ?",
+							"Where are you going to spend your holidays?"
+						],
+						[
+							"sounds/fr/Je vais passer mes vacances en France.mp3",
+							"Je vais passer mes vacances en France.",
+							"I'm going to spend my holidays in France."
+						],
+						[
+							"sounds/fr/Ah oui, où exactement.mp3",
+							"Ah oui, où exactement ?",
+							"Oh yes, where exactly? "
+						],
+						[
+							"sounds/fr/À Bordeaux. C'est une très belle ville !.mp3",
+							"À Bordeaux. C'est une très belle ville !",
+							"In Bordeaux. It's a very beautiful town."
+						]
+					],
+					"titleText": "Dialogues 1"
+				}
+			},
+			{
+				"phraseTable2": {
+					"component": "PhraseTable",
+					"id": "phraseTable2",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Tu vas passer tes vacances en Europe cette année.mp3",
+							"Tu vas passer tes vacances en Europe cette année ?",
+							"Are you going to spend your holidays in Europe this year?"
+						],
+						[
+							"sounds/fr/Non, je vais passer mes vacances dans les Caraïbes ! Je vais aller en Guadeloupe ! J'ai de la famille là-bas.mp3",
+							"Non, je vais passer mes vacances dans les Caraïbes ! Je vais aller en Guadeloupe ! J'ai de la famille là-bas.",
+							"No, I'm going to spend my holidays in the Caribbean. I'm going to go to Guadeloupe. I've got family there."
+						],
+						[
+							"sounds/fr/Et qu'est-ce que tu vas faire là-bas.mp3",
+							"Et qu'est-ce que tu vas faire là-bas ?",
+							"And what are you going to do there?"
+						],
+						[
+							"sounds/fr/Il y a beaucoup de choses à faire. Je vais faire des randonnées. Je vais aller au Jardin botanique. Je vais voir les Chutes du Carbet. Et je vais bronzer sur la plage. Il fait très beau en Guadeloupe !.mp3",
+							"Il y a beaucoup de choses à faire. Je vais faire des randonnées. Je vais aller au Jardin botanique. Je vais voir les Chutes du Carbet. Et je vais bronzer sur la plage. Il fait très beau en Guadeloupe !",
+							"There's lots of things to do. I'm going to go hiking. I'm going to go the Botanic Garden. I'm going to see the Carbet Falls. And I'm going to sunbathe on the beach. The weather's very good in Guadeloupe! "
+						],
+						[
+							"sounds/fr/C'est super ! Quelles vacances !.mp3",
+							"C'est super ! Quelles vacances !",
+							"That's super! What a (great) holiday!"
+						],
+						[
+							"sounds/fr/Et toi, tu vas aller où.mp3",
+							"Et toi, tu vas aller où ?",
+							"What about you? Where are you going to go?"
+						],
+						[
+							"sounds/fr/Je ne vais pas partir en vacances cet été. Je vais rester chez moi pour écrire ma thèse !.mp3",
+							"Je ne vais pas partir en vacances cet été. Je vais rester chez moi pour écrire ma thèse !",
+							"I'm not going away on holiday this summer, I'm going to stay at home to write my dissertation."
+						]
+					],
+					"titleText": "Dialogues 2"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"sounds/fr/vacances.mp3",
+				"vacances (fpl)",
+				"holiday (s)"
+			],
+			[
+				"sounds/fr/passer.mp3",
+				"passer",
+				"to spend time"
+			],
+			[
+				"sounds/fr/loger.mp3",
+				"loger",
+				"to stay"
+			],
+			[
+				"sounds/fr/bronzer.mp3",
+				"bronzer",
+				"to sunbathe"
+			],
+			[
+				"sounds/fr/nager.mp3",
+				"nager",
+				"to swim"
+			],
+			[
+				"sounds/fr/visiter.mp3",
+				"visiter",
+				"to visit (a place)"
+			],
+			[
+				"sounds/fr/voyager.mp3",
+				"voyager",
+				"to travel"
+			],
+			[
+				"sounds/fr/se détendre.mp3",
+				"se détendre",
+				"to relax"
+			],
+			[
+				"sounds/fr/faire du ski.mp3",
+				"faire du ski",
+				"to go ski-ing"
+			],
+			[
+				"sounds/fr/faire du tourisme.mp3",
+				"faire du tourisme",
+				"to do some sightseeing"
+			],
+			[
+				"sounds/fr/partir.mp3",
+				"partir",
+				"to leave, to depart, to set off"
+			],
+			[
+				"sounds/fr/en avion, train, voiture, bateau, car, taxi, métro, bus, ferry, hélicoptère.mp3",
+				"en avion, train, voiture, bateau, car, taxi, métro, bus, ferry, hélicoptère",
+				"by plane, train, car, boat, coach, taxi, underground train, bus, ferry, helicopter"
+			],
+			[
+				"sounds/fr/à vélo. à moto.mp3",
+				"à vélo, moto",
+				"by bike, motorcycle"
+			],
+			[
+				"sounds/fr/à cheval.mp3",
+				"à cheval",
+				"on horseback"
+			],
+			[
+				"sounds/fr/à pied.mp3",
+				"à pied",
+				"on foot"
+			],
+			[
+				"sounds/fr/sur la plage.mp3",
+				"sur la plage",
+				"on the beach"
+			],
+			[
+				"sounds/fr/sable.mp3",
+				"sable (m)",
+				"sand"
+			],
+			[
+				"sounds/fr/vague.mp3",
+				"vague (f)",
+				"wave"
+			],
+			[
+				"sounds/fr/francophone.mp3",
+				"francophone",
+				"French-speaking"
+			],
+			[
+				""
+			],
+			[
+				"sounds/fr/Quel temps fait-il.mp3",
+				"Quel temps fait-il ?",
+				"What's the weather like?"
+			],
+			[
+				"sounds/fr/Il fait beau, Il fait chaud, Il fait froid, Il fait mauvais.mp3",
+				"Il fait beau / chaud / froid / mauvais.",
+				"The weather is good / hot / cold / bad."
+			],
+			[
+				"sounds/fr/Il y a du soleil.mp3",
+				"Il y a du soleil",
+				"It's sunny."
+			],
+			[
+				"sounds/fr/Il y a du vent.mp3",
+				"Il y a du vent",
+				"It's windy."
+			],
+			[
+				"sounds/fr/au printemps.mp3",
+				"au printemps",
+				"in the spring"
+			],
+			[
+				"sounds/fr/en été.mp3",
+				"en été",
+				"in the summer"
+			],
+			[
+				"sounds/fr/en automne.mp3",
+				"en automne",
+				"in the autumn"
+			],
+			[
+				"sounds/fr/en hiver.mp3",
+				"en hiver",
+				"in the winter"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "L15Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"memorycards4": {
+					"cheatText": "Show answer",
+					"component": "MemoryMatchGame",
+					"congratulationsText": "Congratulations!",
+					"id": "MemoryMatchGame4",
+					"instructionsText": "Match the picture to the French word.",
+					"nPairsToPlay": 8,
+					"cards": [
+						{
+							"audio": "sounds/fr/Le bus.mp3",
+							"foreignLanguage": "Le bus",
+							"localLanguage": "bus",
+							"image": "images/memory-transport/bus.png"
+						},
+						{
+							"audio": "sounds/fr/Le taxi.mp3",
+							"foreignLanguage": "Le taxi",
+							"localLanguage": "taxi",
+							"image": "images/memory-transport/taxi.png"
+						},
+						{
+							"audio": "sounds/fr/Le métro.mp3",
+							"foreignLanguage": "Le métro",
+							"localLanguage": "underground train",
+							"image": "images/memory-transport/underground-train.png"
+						},
+						{
+							"audio": "sounds/fr/Le ferry.mp3",
+							"foreignLanguage": "Le ferry",
+							"localLanguage": "ferry",
+							"image": "images/memory-transport/ferry.png"
+						},
+						{
+							"audio": "sounds/fr/L'avion.mp3",
+							"foreignLanguage": "L'avion",
+							"localLanguage": "aeroplane",
+							"image": "images/memory-transport/aeroplane.png"
+						},
+						{
+							"audio": "sounds/fr/Le vélo.mp3",
+							"foreignLanguage": "Le vélo",
+							"localLanguage": "bicycle",
+							"image": "images/memory-transport/bicycle.png"
+						},
+						{
+							"audio": "sounds/fr/Le bateau.mp3",
+							"foreignLanguage": "Le bateau",
+							"localLanguage": "boat",
+							"image": "images/memory-transport/boat.png"
+						},
+						{
+							"audio": "sounds/fr/Le scooter.mp3",
+							"foreignLanguage": "Le scooter",
+							"localLanguage": "scooter",
+							"image": "images/memory-transport/scooter.png"
+						},
+						{
+							"audio": "sounds/fr/La voiture.mp3",
+							"foreignLanguage": "La voiture",
+							"localLanguage": "car",
+							"image": "images/memory-transport/car.png"
+						},
+						{
+							"audio": "sounds/fr/L'hélicoptère.mp3",
+							"foreignLanguage": "L'hélicoptère",
+							"localLanguage": "helicopter",
+							"image": "images/memory-transport/helicopter.png"
+						},
+						{
+							"audio": "sounds/fr/La moto.mp3",
+							"foreignLanguage": "La moto",
+							"localLanguage": "motorcycle",
+							"image": "images/memory-transport/motorcycle.png"
+						},
+						{
+							"audio": "sounds/fr/Le train.mp3",
+							"foreignLanguage": "Le train",
+							"localLanguage": "train",
+							"image": "images/memory-transport/train.png"
+						}
+					],
+					"showHintsText": "Show hints",
+					"titleText": "1. Transport"
+				}
+			},
+			{
+				"wordsIntoSlots1": {
+					"component": "Blanks",
+					"congratulationsText": "Superbe !",
+					"id": "wordsIntoSlots1",
+					"instructionsText": "Match the French with the English",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "questions-answers",
+					"questions": [
+						"Il fait mauvais.",
+						"Il y a du soleil.",
+						"Il fait froid.",
+						"Il pleut.",
+						"Il fait chaud.",
+						"Il neige.",
+						"Il fait beau.",
+						"Il y a du vent."
+					],
+					"answers": [
+						"The weather's bad.",
+						"It's sunny.",
+						"It's cold.",
+						"It's raining.",
+						"It's hot.",
+						"It's snowing.",
+						"The weather's good.",
+						"It's windy."
+					],
+					"soundFiles": [
+						"sounds/fr/Il fait mauvais.mp3",
+						"sounds/fr/Il y a du soleil.mp3",
+						"sounds/fr/Il fait froid.mp3",
+						"sounds/fr/Il pleut.mp3",
+						"sounds/fr/Il fait chaud.mp3",
+						"sounds/fr/Il neige.mp3",
+						"sounds/fr/Il fait beau.mp3",
+						"sounds/fr/Il y a du vent.mp3"
+					],
+					"titleText": "2. Build up your vocabulary: weather"
+				}
+			},
+			{
+				"dropdowns3": {
+					"component": "DropDowns",
+					"id": "dropdowns3",
+					"congratulationsText": "Excellent !",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"instructionsText": "Quand je suis en vacances...",
+					"items": [
+						{
+							"text": "je ne [travaillez|travailles|*travaille] pas.",
+							"audio": "sounds/fr/Quand je suis en vacances je ne travaille pas.mp3"
+						},
+						{
+							"text": "je me [détend|*détends|détendent] !",
+							"audio": "sounds/fr/Quand je suis en vacances je me détends !.mp3"
+						},
+						{
+							"text": "je me [*lève|lèves|lèvent] tard.",
+							"audio": "sounds/fr/Quand je suis en vacances je me lève tard.mp3"
+						},
+						{
+							"text": "je [bronzes|bronzent|*bronze].",
+							"audio": "sounds/fr/Quand je suis en vacances je bronze.mp3"
+						},
+						{
+							"text": "je [lisent|*lis|lit] un peu.",
+							"audio": "sounds/fr/Quand je suis en vacances je lis un peu.mp3"
+						},
+						{
+							"text": "je [nagent|*nage|nagez].",
+							"audio": "sounds/fr/Quand je suis en vacances je nage.mp3"
+						},
+						{
+							"text": "je [*fais|fait|font] du tourisme.",
+							"audio": "sounds/fr/Quand je suis en vacances je fais du tourisme.mp3"
+						},
+						{
+							"text": "je [*vois|voit|voient] des amis.",
+							"audio": "sounds/fr/Quand je suis en vacances je vois des amis.mp3"
+						},
+						{
+							"text": "nous [font|faites|*faisons] des randonnées ensemble.",
+							"audio": "sounds/fr/Quand je suis en vacances nous faisons des randonnées ensemble.mp3"
+						},
+						{
+							"text": "le soir, ils ne [*cuisinent|cuisinons|cuisine] pas.",
+							"audio": "sounds/fr/Quand je suis en vacances le soir, ils ne cuisinent pas.mp3"
+						},
+						{
+							"text": "nous [dînent|dînez|*dînons] au restaurant.",
+							"audio": "sounds/fr/Quand je suis en vacances nous dînons au restaurant.mp3"
+						}
+					],
+					"titleText": "3. Select the correct form of the verb each time in Adèle's description of her holiday activities."
+				}
+			},
+			{
+				"monologues1": {
+					"component": "AnswerTable",
+					"id": "monologues1",
+					"phrases": [
+						[
+							"",
+							"[Je suis canadien et je viens du Québec.]",
+							"sounds/fr/Je suis canadien et je viens du Québec.mp3"
+						],
+						[
+							"",
+							"[Je parle français et anglais.]",
+							"sounds/fr/Je parle français et anglais.mp3"
+						],
+						[
+							"",
+							"[J'habite en France depuis cinq ans.]",
+							"sounds/fr/J'habite en France depuis cinq ans.mp3"
+						],
+						[
+							"",
+							"[J'aime voyager.]",
+							"sounds/fr/J'aime voyager.mp3"
+						],
+						[
+							"",
+							"[D'habitude, je passe mes vacances en Europe dans un pays francophone.]",
+							"sounds/fr/D'habitude, je passe mes vacances en Europe dans un pays francophone.mp3"
+						],
+						[
+							"",
+							"[J'aime la Suisse et le Luxembourg mais je ne connais pas la Belgique.]",
+							"sounds/fr/J'aime la Suisse et le Luxembourg mais je ne connais pas la Belgique.mp3"
+						]
+					],
+					"titleText": "4. Type what you hear"
+				}
+			},
+			{
+				"phrases1": {
+					"component": "Blanks",
+					"id": "phrases1",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Drag the words to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "phrases",
+					"items": [
+						{
+							"text": "Cette année, je vais [passer] mes vacances au Canada ! Je vais [revoir] ma famille !",
+							"audio": "sounds/fr/Cette année, je vais passer mes vacances au Canada ! Je vais revoir ma famille !.mp3"
+						},
+						{
+							"text": "Mes parents vont [être] très contents de me revoir. Ils vont [venir] me chercher à l'aéroport.",
+							"audio": "sounds/fr/Mes parents vont être très contents de me revoir. Ils vont venir me chercher à l'aéroport.mp3"
+						},
+						{
+							"text": "Pendant mes vacances, je vais [faire] du ski et du snow-rafting. J'adore la neige. Je vais [retrouver] mes amis et on va [sortir] ensemble. On va [dîner] au restaurant.",
+							"audio": "sounds/fr/Pendant mes vacances, je vais faire du ski et du snow-rafting. J'adore la neige. Je vais retrouver mes amis et on va sortir ensemble. On va dîner au restaurant.mp3"
+						},
+						{
+							"text": "Je vais [aller] au Carnaval de Québec. Je vais bien [m'amuser] ! C'est sûr !",
+							"audio": "sounds/fr/Je vais aller au Carnaval de Québec. Je vais bien m'amuser ! C'est sûr !.mp3"
+						}
+					],
+					"titleText": "5. Fill in the gaps in Jo's plans for his forthcoming holiday."
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

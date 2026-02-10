@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="nodebug">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" href="favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="University of Cambridge Language Centre Vite Prototype - Richard Bagnall" />
+	<title>University of Cambridge Language Centre Vite Prototype - Richard Bagnall</title>
+</head>
+
+<body class="bg-background">
+	<div id="root"></div>
+	<script type="module" src="./src/main.jsx"></script>
+	<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
+	<script>
+		var config = {
+			apiKey: '9c3bd2a68162ba67b19f07e540747675bd136e66',
+			product: 'community',
+			optionalCookies: [
+				{
+					name: 'analytics',
+					label: 'Analytics',
+					description: 'Analytical cookies help us to improve our website by collecting and reporting information on its usage.',
+					cookies: [],
+					onAccept: function () { },
+					onRevoke: function () { }
+				}
+			],
+
+			position: 'LEFT',
+			theme: 'LIGHT'
+		};
+
+		CookieControl.load(config);
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+/*
+TextField.scss
+*/
+
+@use "../../../styles/colours.module" as *;
+@use "../../../styles/mixins.module" as *;
+@use "../../../styles/variables.module" as *;
+
+.text-field-row,
+.file {
+	input.file {
+		border: none;
+		width: 100%;
+	}
+	&.disabled,
+	&.readOnly {
+		input {
+			cursor: not-allowed;
+			background-color: transparent;
+			border: none;
+			outline: none;
+		}
+	}
+	input {
+		width: 100%;
+		@include form-field-common-font-padding();
+		height: $form-common-height;
+		// grid-column-start: 2;
+		// grid-column-end: 2;
+		// grid-row-start: 1;
+		grid-area: device;
+		align-self: flex-end;
+	}
+	button {
+		grid-area: buttons;
+		align-self: center;
+		justify-self: center;
+		&.copy-button,
+		&.paste-button {
+			grid-area: buttons;
+		}
+		&.copy-button {
+			justify-self: center;
+			&::before {
+				mask-image: URL("../../../images/copy.svg");
+				mask-size: 50%;
+			}
+		}
+		// &.paste-button {
+		// 	justify-self: flex-start;
+		// 	&::before {
+		// 		// mask-image: URL('../../../images/paste.svg');
+		// 		mask-size: 50%;
+		// 	}
+		// }
+	}
+}

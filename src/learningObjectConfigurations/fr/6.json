@@ -1,0 +1,593 @@
+{
+	"settings": {
+		"class": "lo-6",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"intro": "This lesson teaches learners how to talk about family, friends, and relationships in French — describing relatives and using possessive adjectives correctly (e.g. mon frère, ma sœur, mes parents). It introduces the irregular verb avoir (“to have”) and common expressions that use it (j’ai faim, j’ai 25 ans). Learners also practise pronunciation of double l (as in famille, fille, bouteille), developing accurate and natural speech when discussing family and personal relationships."
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"instructionsTextHTML": "<a href='https://commons.wikimedia.org/wiki/File:Waldburg_Ahnentafel.jpg'><img width='256' src='https://upload.wikimedia.org/wikipedia/commons/2/26/Waldburg_Ahnentafel.jpg' style='border: 1px solid black;'></a>",
+		"content": [
+			{
+				"dialogues1": {
+					"component": "PhraseTable",
+					"id": "dialogues1",
+					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"phrases": [
+						[
+							"sounds/fr/Tu as des frères et des sœurs.mp3",
+							"Tu as des frères et des sœurs ?",
+							"Have you got brothers and sisters?"
+						],
+						[
+							"sounds/fr/Oui, j'ai un grand frère et deux petites sœurs. Et toi.mp3",
+							"Oui, j'ai un grand frère et deux petites sœurs. Et toi ?",
+							"Yes, I have a big (older) brother and two little (younger) sisters. What about you?"
+						],
+						[
+							"sounds/fr/Je n'ai pas de frères, mais j'ai une sœur-jumelle.mp3",
+							"Je n'ai pas de frères, mais j'ai une sœur-jumelle.",
+							"I haven't got any brothers, but I've got a twin sister."
+						]
+					],
+					"titleText": "Dialogues 1"
+				}
+			},
+			{
+				"dialogues2": {
+					"component": "PhraseTable",
+					"id": "dialogues2",
+					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"phrases": [
+						[
+							"sounds/fr/Vous avez des frères et des sœurs.mp3",
+							"Vous avez des frères et des sœurs ?",
+							"Have you got brothers and sisters?"
+						],
+						[
+							"sounds/fr/Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous.mp3",
+							"Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous ?",
+							"No, I've got neither brothers nor sisters. I'm an only child. What about you?"
+						],
+						[
+							"sounds/fr/J'ai un demi-frère et une demi-sœur.mp3",
+							"J'ai un demi-frère et une demi-sœur.",
+							"I've got a half-brother and a half-sister."
+						]
+					],
+					"titleText": "Dialogues 2"
+				}
+			},
+			{
+				"dialogues3": {
+					"component": "PhraseTable",
+					"id": "dialogues3",
+					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"phrases": [
+						[
+							"sounds/fr/Caroline, vous avez des enfants.mp3",
+							"Caroline, vous avez des enfants ?",
+							"Caroline, do you have any children?"
+						],
+						[
+							"sounds/fr/Ah non, nous n'avons pas d'enfants, pas encore ! Et vous.mp3",
+							"Ah non, nous n'avons pas d'enfants, pas encore ! Et vous ?",
+							"Oh no, we haven't got any children, not yet. What about you?"
+						],
+						[
+							"sounds/fr/Oui, j'ai un fils.mp3",
+							"Oui, j'ai un fils.",
+							"Yes, I've got a son."
+						],
+						[
+							"sounds/fr/Il a quel âge.mp3",
+							"Il a quel âge ?",
+							"How old is he?"
+						],
+						[
+							"sounds/fr/C'est un bébé. Il a cinq mois.mp3",
+							"C'est un bébé. Il a cinq mois.",
+							"He's a baby. He's five months old."
+						]
+					],
+					"titleText": "Dialogues 3"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"sounds/fr/famille.mp3",
+				"famille (f)",
+				"family"
+			],
+			[
+				"sounds/fr/père mère.mp3",
+				"père (m) mère (f)",
+				"father, mother"
+			],
+			[
+				"sounds/fr/parent.mp3",
+				"parent (m)",
+				"parent / relative"
+			],
+			[
+				"sounds/fr/maman, papa.mp3",
+				"maman, papa",
+				"mum, dad"
+			],
+			[
+				"sounds/fr/frère, sœur.mp3",
+				"frère (m) sœur (f)",
+				"brother, sister"
+			],
+			[
+				"sounds/fr/jumeau, jumelle.mp3",
+				"jumeau (m) jumelle (f)",
+				"twin brother, twin sister"
+			],
+			[
+				"sounds/fr/fils, fille.mp3",
+				"fils (m) fille (f)",
+				"son, daughter"
+			],
+			[
+				"sounds/fr/garçon, fille.mp3",
+				"garçon (m) fille (f)",
+				"boy, girl"
+			],
+			[
+				"sounds/fr/bébé.mp3",
+				"bébé (m)",
+				"baby"
+			],
+			[
+				"sounds/fr/oncle, tante.mp3",
+				"oncle (m) tante (f)",
+				"uncle, aunt"
+			],
+			[
+				"sounds/fr/cousin, cousine.mp3",
+				"cousin (m) cousine (f)",
+				"cousin"
+			],
+			[
+				"sounds/fr/grands-parents.mp3",
+				"grands-parents (mpl)",
+				"grandparents"
+			],
+			[
+				"sounds/fr/grand-père, grand-mère.mp3",
+				"grand-père (m) grand-mère (f)",
+				"grandfather"
+			],
+			[
+				"sounds/fr/beau-père.mp3",
+				"beau-père (m)",
+				"father-in-law, stepfather"
+			],
+			[
+				"sounds/fr/belle-mère.mp3",
+				"belle-mère (f)",
+				"mother-in-law, stepmother"
+			],
+			[
+				"sounds/fr/beau-frère.mp3",
+				"beau-frère  (m)",
+				"brother-in-law, stepbrother"
+			],
+			[
+				"sounds/fr/belle-sœur.mp3",
+				"belle-sœur (f)",
+				"sister-in-law, stepsister"
+			],
+			[
+				"sounds/fr/enfant unique.mp3",
+				"enfant unique",
+				"only child"
+			],
+			[
+				"sounds/fr/demi-frère, demi-sœur.mp3",
+				"demi-frère (m) demi-sœur (f)",
+				"half-brother, half-sister"
+			],
+			[
+				"sounds/fr/petits-enfants.mp3",
+				"petits-enfants (mpl)",
+				"grandchildren"
+			],
+			[
+				"sounds/fr/petit-fils, petite-fille.mp3",
+				"petit-fils (m) petite-fille (f)",
+				"grandson, granddaughter"
+			],
+			[
+				"sounds/fr/mari, femme.mp3",
+				"mari (m) femme (f)",
+				"husband, wife"
+			],
+			[
+				"sounds/fr/personne.mp3",
+				"personne (f)",
+				"person"
+			],
+			[
+				"sounds/fr/ami, amie.mp3",
+				"ami (m) amie (f)",
+				"friend"
+			],
+			[
+				"sounds/fr/copain, copine.mp3",
+				"copain (m) copine (f)",
+				"friend / boyfriend, girlfriend"
+			],
+			[
+				"sounds/fr/compagnon, compagne.mp3",
+				"compagnon (m) compagne (f)",
+				"partner"
+			],
+			[
+				"sounds/fr/conjoint, conjointe.mp3",
+				"conjoint (m) conjointe (f)",
+				"spouse"
+			],
+			[
+				"sounds/fr/voisin, voisine.mp3",
+				"voisin (m) voisine (f)",
+				"neighbour"
+			],
+			[
+				"sounds/fr/Quel âge as-tu. Tu as quel âge.mp3",
+				"Quel âge as-tu ? Tu as quel âge ?",
+				"How old are you ?"
+			],
+			[
+				"sounds/fr/Quel âge avez-vous. Vous avez quel âge.mp3",
+				"Quel âge avez-vous ? Vous avez quel âge ?",
+				"How old are you ?"
+			],
+			[
+				"sounds/fr/gentil, gentille.mp3",
+				"gentil (m) gentille (f)",
+				"nice, kind"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "LO6Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO6Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Listen to the speakers and select what you hear.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "[J'ai des sœurs.|*J'ai deux sœurs.|Je n'ai pas de sœurs.]",
+							"audio": "sounds/fr/J'ai deux sœurs.mp3"
+						},
+						{
+							"text": "[Il a un frère.|*Elle a un frère.|Elles ont un frère.]",
+							"audio": "sounds/fr/Elle a un frère.mp3"
+						},
+						{
+							"text": "[Mon copain s'appelle David.|Mon conjoint s'appelle David.|*Mon compagnon s'appelle David.]",
+							"audio": "sounds/fr/Mon compagnon s'appelle David.mp3"
+						},
+						{
+							"text": "[*Ils ont un fils.|Ils ont deux fils.|Ils ont deux filles.]",
+							"audio": "sounds/fr/Ils ont un fils.mp3"
+						},
+						{
+							"text": "[Mon amie est allemande.|Mes amis sont allemands.|*Mes amies sont allemandes.]",
+							"audio": "sounds/fr/Mes amies sont allemandes.mp3"
+						}
+					],
+					"titleText": "1. Practise your listening skills"
+				}
+			},
+			{
+				"dropdowns2": {
+					"component": "DropDowns",
+					"id": "dropdowns2",
+					"congratulationsText": "Très bien !",
+					"htmlContent": "<div><h2>All the words containing double&nbsp;<b>ll</b> are in bold. Do you know which are pronounced <b>l</b> and which <b>y</b>? Select <b>y</b> or <b>l</b> in the box below. Once you've completed each task listen to the text.</h2><table class='camille'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/La famille de Camille habite à Paris.mp3'>La <b>famille</b> de <b>Camille</b> habite à Paris.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de Camille est très gentille.mp3'>La <b>fille</b> de <b>Camille</b> est très <b>gentille</b>.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de sa fille s&apos;appelle Myrtille.mp3'>La <b>fille</b> de sa <b>fille</b> <b>s'appelle Myrtille</b>.</span></br><span class='audio-link' sound-file='sounds/fr/Camille aime les tilleuls de Versailles.mp3'><b>Camille</b> aime les <b>tilleuls</b> de <b>Versailles</b>.</span></td></tr></tbody></table><p class='footnote'>les tilleuls - lime trees</p></div>&copy; Jacqueline Rosen",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "famille ([*y|l])",
+							"audio": "sounds/fr/famille.mp3"
+						},
+						{
+							"text": "Camille ([*y|l])",
+							"audio": "sounds/fr/Camille.mp3"
+						},
+						{
+							"text": "fille ([*y|l])",
+							"audio": "sounds/fr/fille.mp3"
+						},
+						{
+							"text": "gentille ([*y|l])",
+							"audio": "sounds/fr/gentille.mp3"
+						},
+						{
+							"text": "s'appelle ([y|*l])",
+							"audio": "sounds/fr/s'appelle.mp3"
+						},
+						{
+							"text": "Myrtille ([*y|l])",
+							"audio": "sounds/fr/Myrtille.mp3"
+						},
+						{
+							"text": "tilleuls ([*y|l])",
+							"audio": "sounds/fr/tilleuls.mp3"
+						},
+						{
+							"text": "Versailles ([*y|l])",
+							"audio": "sounds/fr/Versailles.mp3"
+						}
+					],
+					"titleText": "2. Camille"
+				}
+			},
+			{
+				"dropdowns3": {
+					"component": "DropDowns",
+					"id": "dropdowns3",
+					"congratulationsText": "Très bien !",
+					"htmlContent": "<div><h2>All the words containing double <b>ll</b> are in bold. Do you know which are pronounced <b>l</b> and which <b>y</b>? Select y or l in the box below. Once you've completed each task listen to the text.</h2><table class='annabelle'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/Annabelle a une petite-fille.mp3'><b>Annabelle</b> a une <b>petite-fille</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Elle s&apos;appelle Isabelle.mp3'><b>Elle s'appelle Isabelle</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle nest pas belle.mp3'><b>Isabelle</b> n'est pas <b>belle</b></span><br/><span class='audio-link' sound-file='sounds/fr/Mais Isabelle est très gentille.mp3'>Mais <b>Isabelle</b> est très <b>gentille</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle habite à Lille.mp3'><b>Isabelle</b> habite à <b>Lille</b></span><br/><span class='audio-link' sound-file='sounds/fr/Elle y habite avec Gilles.mp3'><b>Elle</b> y habite avec <b>Gilles</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Ce nest pas très tranquille.mp3'>Ce n'est pas très <b>tranquille</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Mais quelle belle ville, la ville de Lille.mp3'>Mais <b>quelle belle ville</b>, la <b>ville</b> de <b>Lille</b> !</span></td></tr></tbody></table>&copy; Jacqueline Rosen</div>",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Annabelle ([y|*l])",
+							"audio": "sounds/fr/Annabelle.mp3"
+						},
+						{
+							"text": "elle ([y|*l])",
+							"audio": "sounds/fr/elle.mp3"
+						},
+						{
+							"text": "petite-fille ([*y|l])",
+							"audio": "sounds/fr/petite-fille.mp3"
+						},
+						{
+							"text": "Isabelle ([y|*l])",
+							"audio": "sounds/fr/Isabelle.mp3"
+						},
+						{
+							"text": "Lille ([y|*l])",
+							"audio": "sounds/fr/Lille.mp3"
+						},
+						{
+							"text": "Gilles ([y|*l])",
+							"audio": "sounds/fr/Gilles.mp3"
+						},
+						{
+							"text": "tranquille ([y|*l])",
+							"audio": "sounds/fr/tranquille.mp3"
+						},
+						{
+							"text": "quelle ([y|*l])",
+							"audio": "sounds/fr/quelle.mp3"
+						},
+						{
+							"text": "belle ([y|*l])",
+							"audio": "sounds/fr/belle.mp3"
+						},
+						{
+							"text": "ville ([y|*l])",
+							"audio": "sounds/fr/ville.mp3"
+						}
+					],
+					"audio": [],
+					"titleText": "3. Annabelle."
+				}
+			},
+			{
+				"dropdowns4": {
+					"component": "DropDowns",
+					"id": "dropdowns4",
+					"congratulationsText": "Superbe !",
+					"instructionsTextHTML": "Fill in the gaps with the correct part of <b>avoir</b>.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "J' [*ai|as|a|avons|avez|ont] 30 ans.",
+							"audio": "sounds/fr/J'ai 30 ans.mp3"
+						},
+						{
+							"text": "Nous [ai|as|a|*avons|avez|ont] trois enfants.",
+							"audio": "sounds/fr/Nous avons trois enfants.mp3"
+						},
+						{
+							"text": "Vous [ai|as|a|avons|*avez|ont] soif ?",
+							"audio": "sounds/fr/Vous avez soif.mp3"
+						},
+						{
+							"text": "Tu [ai|*as|a|avons|avez|ont] faim ?",
+							"audio": "sounds/fr/Tu as faim.mp3"
+						},
+						{
+							"text": "Elle [ai|as|*a|avons|avez|ont] un fils de deux ans.",
+							"audio": "sounds/fr/Elle a un fils de deux ans.mp3"
+						},
+						{
+							"text": "Ils [ai|as|a|avons|avez|*ont] un bébé de trois mois.",
+							"audio": "sounds/fr/Ils ont un bébé de trois mois.mp3"
+						},
+						{
+							"text": "Elles [ai|as|a|avons|avez|*ont] peur.",
+							"audio": "sounds/fr/Elles ont peur.mp3"
+						},
+						{
+							"text": "Il [ai|as|*a|avons|avez|ont] un appartement en ville.",
+							"audio": "sounds/fr/Il a un appartement en ville.mp3"
+						},
+						{
+							"text": "J' [*ai|as|a|avons|avez|ont] froid.",
+							"audio": "sounds/fr/J'ai froid.mp3"
+						},
+						{
+							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge ?",
+							"audio": "sounds/fr/Vous avez quel âge.mp3"
+						}
+					],
+					"titleTextHTML": "4. Practise the verb <b>avoir</b>."
+				}
+			},
+			{
+				"dropdowns5": {
+					"component": "DropDowns",
+					"id": "dropdowns5",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Select the correct word to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Louis n'est pas [*mon|ma|mes] frère. C'est [*mon|ma|mes] cousin.  ",
+							"audio": "sounds/fr/Louis n'est pas mon frère C'est mon cousin.mp3"
+						},
+						{
+							"text": "Je vous présente [mon|*ma|mes] tante, Géraldine et [*mon|ma|mes] oncle, Simon. ",
+							"audio": "sounds/fr/Je vous présente ma tante, Géraldine et mon oncle, Simon.mp3"
+						},
+						{
+							"text": "[Mon|Ma|*Mes] cousines habitent aux Etats-Unis.",
+							"audio": "sounds/fr/Mes cousines habitent aux Etats-Unis.mp3"
+						},
+						{
+							"text": "Où habite [ton|*ta|tes] famille ?",
+							"audio": "sounds/fr/Où habite ta famille.mp3"
+						},
+						{
+							"text": "Comment s'appelle [*ton|ta|tes] voisin ?",
+							"audio": "sounds/fr/Comment s'appelle ton voisin.mp3"
+						},
+						{
+							"text": "[Ton|Ta|*Tes] amis habitent en banlieue ?",
+							"audio": "sounds/fr/Tes amis habitent en banlieue.mp3"
+						},
+						{
+							"text": "Mélanie n'habite pas chez [*son|sa|ses] père, elle habite chez [son|*sa|ses] mère.",
+							"audio": "sounds/fr/Mélanie n'habite pas chez son père, elle habite chez sa mère.mp3"
+						},
+						{
+							"text": "[Son|Sa|*Ses] sœurs sont en Australie.",
+							"audio": "sounds/fr/Ses sœurs sont en Australie.mp3"
+						},
+						{
+							"text": "[*Notre|Nos] maison se trouve à cinq kilomètres d'ici.",
+							"audio": "sounds/fr/Notre maison se trouve à cinq kilomètres d'ici.mp3"
+						},
+						{
+							"text": "[Notre|*Nos] petits-enfants sont bilingues.",
+							"audio": "sounds/fr/Nos petits-enfants sont bilingues.mp3"
+						},
+						{
+							"text": "Où sont [votre|*vos] enfants ?",
+							"audio": "sounds/fr/Où sont vos enfants.mp3"
+						},
+						{
+							"text": "Et [*votre|vos] mari ?",
+							"audio": "sounds/fr/Et votre mari.mp3"
+						},
+						{
+							"text": "Ils sont chez [leur|*leurs] grands-parents.",
+							"audio": "sounds/fr/Ils sont chez leurs grands-parents.mp3"
+						},
+						{
+							"text": "Où se trouve [*leur|leurs] appartement ?",
+							"audio": "sounds/fr/Où se trouve leur appartement.mp3"
+						}
+					],
+					"titleText": "5. Practise the possessives."
+				}
+			},
+			{
+				"wordsIntoSlots2": {
+					"component": "Blanks",
+					"congratulationsText": "Très bien !",
+					"id": "wordsIntoSlots2",
+					"instructionsText": "Match the questions and answers",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "questions-answers",
+					"questions": [
+						"Ma famille est",
+						"Il y a",
+						"La personne la plus âgée",
+						"Elle a",
+						"Elle est",
+						"Mon grand-père est",
+						"Mes parents",
+						"Ils sont mariés",
+						"J'ai deux sœurs",
+						"Ils sont tous"
+					],
+					"answers": [
+						"une famille nombreuse.",
+						"huit personnes dans ma famille.",
+						"est ma grand-mère.",
+						"89 ans.",
+						"veuve.",
+						"décédé.",
+						"s'appellent Julie et Marc.",
+						"depuis 26 ans.",
+						"et deux frères.",
+						"plus âgés que moi."
+					],
+					"soundFiles": [
+						"sounds/fr/Ma famille est une famille nombreuse.mp3",
+						"sounds/fr/Il y a huit personnes dans ma famille.mp3",
+						"sounds/fr/La personne la plus âgée est ma grand-mère.mp3",
+						"sounds/fr/Elle a 89 ans.mp3",
+						"sounds/fr/Elle est veuve.mp3",
+						"sounds/fr/Mon grand-père est décédé.mp3",
+						"sounds/fr/Mes parents s'appellent Julie et Marc.mp3",
+						"sounds/fr/Ils sont mariés depuis 26 ans.mp3",
+						"sounds/fr/J'ai deux sœurs et deux frères.mp3",
+						"sounds/fr/Ils sont tous plus âgés que moi.mp3"
+					],
+					"titleText": "6. Jeanne's Family. "
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

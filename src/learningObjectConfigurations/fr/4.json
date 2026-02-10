@@ -1,0 +1,377 @@
+{
+	"settings": {
+		"class": "lo-4",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"intro": "This lesson teaches learners how to talk about where they live and where places are located in French. It introduces key questions and answers using “habiter”, prepositions for “in” (à, en, au, aux, dans le), and vocabulary for describing types of places and surroundings. It also develops pronunciation with the nasal vowel sound “in” (as in Singapour, jardin, indien), helping learners speak more naturally when discussing locations and geography."
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "phraseTable1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"/sounds/fr/Où habites-tu.mp3",
+							"Où habites-tu ?",
+							"Where do you live?"
+						],
+						[
+							"/sounds/fr/J'habite en Belgique.mp3",
+							"J'habite en Belgique.",
+							"I live in Belgium."
+						],
+						[
+							"/sounds/fr/Où exactement.mp3",
+							"Où exactement ?",
+							"Where exactly?"
+						],
+						[
+							"/sounds/fr/A Bruxelles Et toi.mp3",
+							"A Bruxelles. Et toi ?",
+							"In Brussels. What about you?"
+						],
+						[
+							"/sounds/fr/J'habite à Cardiff au Pays de Galles.mp3",
+							"J'habite à Cardiff au Pays de Galles.",
+							"I live in Cardiff in Wales"
+						],
+						[
+							""
+						],
+						[
+							"/sounds/fr/Où habitez-vous.mp3",
+							"Où habitez-vous ?",
+							"Where do you live ?"
+						],
+						[
+							"/sounds/fr/J'habite aux Etats Unis.mp3",
+							"J'habite aux Etats Unis.",
+							"I live in the USA"
+						],
+						[
+							"/sounds/fr/Et moi, j'habite au Maroc.mp3",
+							"Et moi, j'habite au Maroc.",
+							"And I live in Morocco."
+						],
+						[
+							""
+						],
+						[
+							"/sounds/fr/Où se trouve la cathédrale de Notre Dame.mp3",
+							"Où se trouve la cathédrale de Notre Dame ?",
+							"Where is Notre Dame Cathedral?"
+						],
+						[
+							"/sounds/fr/La cathédrale de Notre Dame se trouve à Paris.mp3",
+							"La cathédrale de Notre Dame se trouve à Paris !",
+							"Notre Dame Cathedral is in Paris!"
+						],
+						[
+							""
+						],
+						[
+							"/sounds/fr/Tu habites au centre-ville.mp3",
+							"Tu habites au centre-ville ?",
+							"Do you live in the city centre? "
+						],
+						[
+							"/sounds/fr/Non, j'habite dans un petit village à une heure d'ici.mp3",
+							"Non, j'habite dans un petit village à une heure d'ici.",
+							"No, I live in a small village an hour away from here."
+						]
+					],
+					"titleText": "Where do you live?"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"/sounds/fr/habiter.mp3",
+				"habiter",
+				"to live"
+			],
+			[
+				"/sounds/fr/où.mp3",
+				"où",
+				"where"
+			],
+			[
+				"/sounds/fr/Où habites-tu Tu habites où.mp3",
+				"Où habites-tu ? Tu habites où ?",
+				"Where do you live?"
+			],
+			[
+				"/sounds/fr/Où habitez-vous Vous habitez où.mp3",
+				"Où habitez-vous ? Vous habitez où ?",
+				"Where do you live?"
+			],
+			[
+				"/sounds/fr/Où se trouve Lille Lille se trouve en France.mp3",
+				"Où se trouve Lille ? Lille se trouve en France.",
+				"Where is Lille? Lille is in France."
+			],
+			[
+				"/sounds/fr/Où es-tu né Où êtes-vous née.mp3",
+				"Où es-tu né.e ? Où êtes-vous né.e ?",
+				"Where were you born?"
+			],
+			[
+				"/sounds/fr/Je suis née.mp3",
+				"Je suis né.e …",
+				"I was born …"
+			],
+			[
+				"/sounds/fr/au bord de la mer.mp3",
+				"au bord de la mer",
+				"at the seaside"
+			],
+			[
+				"/sounds/fr/à la campagne.mp3",
+				"à la campagne",
+				"in the countryside"
+			],
+			[
+				"/sounds/fr/à la montagne.mp3",
+				"à la montagne",
+				"In the mountains"
+			],
+			[
+				"/sounds/fr/au centre-ville.mp3",
+				"au centre-ville",
+				"in the town / city centre"
+			],
+			[
+				"/sounds/fr/en banlieue.mp3",
+				"en banlieue",
+				"in the suburbs"
+			],
+			[
+				"/sounds/fr/dans un petit village dans un grand village.mp3",
+				"dans un petit / grand village",
+				"in a small / large village"
+			],
+			[
+				"/sounds/fr/Dans une petite ville. Dans une grande ville.mp3",
+				"dans une petite / grande ville",
+				"In a small/ large town"
+			],
+			[
+				"/sounds/fr/C'est près d'ici.mp3",
+				"C'est près d'ici.",
+				"It's near here."
+			],
+			[
+				"/sounds/fr/C'est très loin d'ici.mp3",
+				"C'est très loin d'ici.",
+				"It's a long way from here."
+			],
+			[
+				"/sounds/fr/C'est à 15 minutes d'ici.mp3",
+				"C'est à 15 minutes d'ici.",
+				"It's 15 minutes away from here."
+			],
+			[
+				"/sounds/fr/C'est près de Cambridge.mp3",
+				"C'est près de Cambridge.",
+				"It's near Cambridge."
+			],
+			[
+				"/sounds/fr/C'est à 20 kilomètres de Paris.mp3",
+				"C'est à 20 kilomètres de Paris.",
+				"It's 20 km from Paris."
+			],
+			[
+				"/sounds/fr/dans une maison.mp3",
+				"dans une maison",
+				"in a house"
+			],
+			[
+				"/sounds/fr/dans un immeuble.mp3",
+				"dans un immeuble",
+				"in a block of flats"
+			],
+			[
+				"/sounds/fr/dans un appartement.mp3",
+				"dans un appartement",
+				"in a flat"
+			],
+			[
+				"/sounds/fr/en résidence universitaire.mp3",
+				"en résidence universitaire",
+				"in university accommodation"
+			],
+			[
+				"/sounds/fr/en colocation.mp3",
+				"en colocation",
+				"in a flat / house share"
+			],
+			[
+				"/sounds/fr/seule.mp3",
+				"seul.e",
+				"alone"
+			],
+			[
+				"/sounds/fr/aimer.mp3",
+				"aimer",
+				"to love, to like"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "Explanation",
+		"content": [
+			"<p>In French there are several words that translate the word '<b>in</b>'. If you are saying '<b>in</b>' <b>with a proper noun</b> i.e. a place name, you will see <b>à</b>, <b>en</b>, <b>au</b>, <b>aux</b>, <b>dans le</b>. The chart below shows when each of these is used.</p><table><tbody><tr><td>à</td><td>Londres, Cambridge, Marseille</td><td>towns, cities, villages</td></tr><tr><td>à</td><td>Singapour, Hongkong, Taiwan</td><td>islands and archipelagos without gender</td></tr><tr><td>au</td><td>Maroc, Canada, Chili</td><td>masculine countries beginning with a consonant</td></tr><tr><td>en</td><td>France, Suisse, Chine</td><td>all feminine countries</td></tr><tr><td>en</td><td>Afghanistan, Iran, Andorre</td><td>masculine countries beginning with a vowel</td></tr><tr><td>en</td><td>Provence, Nouvelle Calédonie</td><td>feminine provinces and regions </td></tr><tr><td>en</td><td>Océanie, Afrique, Amérique du nord / du sud, Europe, Asie, Antarctique</td><td>the continents</td></tr><tr><td>aux</td><td>Pays Bas, Seychelles, États-Unis</td><td>plurals</td></tr><tr><td>dans le</td><td>Cambridgeshire, Derbyshire, Pas-de-Calais, Colorado</td><td>masculine provinces and regions including the British counties</td></tr></tbody></table>"
+		],
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO4Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"LO4Exercise1": {
+					"component": "LO4EX1",
+					"id": "LO4Exercise1",
+					"titleText": "1. Nonsense Rhyme."
+				}
+			},
+			{
+				"explanation4": {
+					"component": "HIDE_Explanation",
+					"content": [
+						"<p>Try to make other nonsense rhymes yourself using the words below containing the sound <span class='audio-link' sound-file='/sounds/fr/ain.mp3'>ain</span> to fill in the gaps</p>"
+					],
+					"id": "explanation4",
+					"titleText": "2. You Try! MORE TO GO HERE WHEN I FIGURE OUT WHAT'S REQUIRED. Free text or fill the gaps? Please see question in word doc."
+				}
+			},
+			{
+				"dropdowns3": {
+					"component": "DropDowns",
+					"id": "dropdowns3",
+					"congratulationsText": "Très bien !",
+					"instructionsText": "Select the correct form of 'in' to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"titleText": "2. Practise saying where people live",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Ma famille habite:"
+						},
+						{
+							"text": "[à|*au|en|aux|dans le] Canada."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] France."
+						},
+						{
+							"text": "[*à|au|en|aux|dans le] Taiwan."
+						},
+						{
+							"text": "[à|*au|en|aux|dans le] Japon."
+						},
+						{
+							"text": "[*à|au|en|aux|dans le] Bordeaux."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] Nouvelle Zélande."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] Chine."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] Turquie."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] Suisse."
+						},
+						{
+							"text": "[à|*au|en|aux|dans le] Sénégal."
+						},
+						{
+							"text": "[à|au|en|*aux|dans le] Etats-Unis."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] Angleterre."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] Algérie."
+						},
+						{
+							"text": "[à|au|*en|aux|dans le] Afghanistan."
+						},
+						{
+							"text": "[*à|au|en|aux|dans le] Bruxelles."
+						},
+						{
+							"text": "[à|au|en|aux|*dans le] Yorkshire."
+						}
+					]
+				}
+			},
+			{
+				"dropdowns4": {
+					"component": "DropDowns",
+					"id": "dropdowns4",
+					"congratulationsText": "Superbe !",
+					"instructionsText": "Listen and choose the correct option to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"titleText": "3. Where do you live?",
+					"cheatText": "Show answer",
+					"items": [
+						{
+							"text": "Tu habites [*à la campagne | à la montagne | au bord de la mer] ?",
+							"audio": "sounds/fr/Tu habites à la campagne.mp3"
+						},
+						{
+							"text": "Non, j'habite [au centre-ville |*dans une grande ville | pas loin de la ville]",
+							"audio": "sounds/fr/Non, j'habite dans une grande ville.mp3"
+						},
+						{
+							"text": "Nous habitons [en résidence universitaire | près de l'université | *à deux minutes de l'université]",
+							"audio": "sounds/fr/Nous habitons à deux minutes de l'université.mp3"
+						},
+						{
+							"text": " Nous habitons dans [un grand immeuble | une grande maison | *un petit immeuble]",
+							"audio": "sounds/fr/Nous habitons dans un petit immeuble.mp3"
+						},
+						{
+							"text": "L'immeuble se trouve [*en banlieue | au centre-ville | à 20 minutes d'ici]",
+							"audio": "sounds/fr/L'immeuble se trouve en banlieue.mp3"
+						}
+					],
+					"audio": []
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

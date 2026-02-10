@@ -1,0 +1,123 @@
+// WordGrid.scss
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/mixins.module" as *;
+@use "../../styles/variables.module" as *;
+
+// html.debug {
+// 	.word-grid-container {
+// 		// span {
+// 		// 	border: 1px solid rgba(255, 0, 0, 0.2);
+// 		// }
+// 	}
+// }
+
+.word-grid-container {
+	padding: 1rem;
+	position: RELATIVE;
+	// background: $panel-back;
+	.word-grid-table-outer-container {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		.word-grid-table-container {
+			touch-action: none;
+			z-index: 1;
+			position: relative;
+			display: inline-block;
+			// background: linear-gradient(0% lightgray, 50% white, 100% lightgray);
+			// background: #ebebeb;
+			// background: linear-gradient(45deg, rgba(235, 235, 235, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(241, 241, 241, 1) 73%, rgba(255, 255, 255, 1) 77%, rgba(237, 237, 237, 1) 100%);
+
+			background: var(--muted);
+			background: linear-gradient(
+				45deg,
+				color-mix(in oklab, var(--muted) 85%, var(--background)) 0%,
+				color-mix(in oklab, var(--muted) 70%, var(--background)) 50%,
+				color-mix(in oklab, var(--muted) 85%, var(--background)) 73%,
+				color-mix(in oklab, var(--muted) 70%, var(--background)) 77%,
+				var(--muted) 100%
+			);
+		}
+	}
+	.word-list {
+		text-transform: capitalize;
+		span.found {
+			background: $highlight;
+		}
+	}
+	table {
+		border-collapse: collapse;
+		user-select: none; /* Standard syntax */
+		z-index: 1;
+		cursor: pointer;
+		td {
+			border: 1px solid var(--border);
+			box-sizing: border-box;
+			width: var(--cell-dimension);
+			height: var(--cell-dimension);
+			font-size: 1rem;
+			text-align: center;
+			text-transform: uppercase;
+			// background: white;
+			border-radius: 4px;
+			box-shadow:
+				-1px -1px 0 color-mix(in oklab, var(--foreground) 25%, transparent) inset,
+				0 0 3px color-mix(in oklab, var(--border) 60%, transparent) inset,
+				4px 4px 2px color-mix(in oklab, var(--background) 85%, transparent) inset,
+				2px 2px 2px color-mix(in oklab, var(--foreground) 25%, transparent) inset,
+				-2px -2px 2px color-mix(in oklab, var(--foreground) 25%, transparent) inset;
+			font-weight: bold;
+			padding: 0;
+		}
+		p {
+			margin: 0;
+			letter-spacing: 0.5rem;
+		}
+	}
+	// .help {
+	// 	padding: 1rem;
+	// 	display: flex;
+	// 	justify-content: space-evenly;
+	// 	width: 600px;
+	// }
+	.help {
+		// padding: 1rem;
+		// display: flex;
+		// justify-content: space-between;
+		// width: 100%;
+		// align-items: center;
+		@include help();
+	}
+
+	.hidden-help {
+		opacity: 0;
+		transition: opacity 4s;
+		&.show {
+			opacity: 1;
+			transition: opacity 4s;
+		}
+	}
+
+	.hints {
+		// padding: 1rem;
+		// display: flex;
+		// justify-content: space-evenly;
+		// width: 600px;
+	}
+
+	.hidden-hints {
+		opacity: 0;
+		transition: opacity 4s;
+		&.show {
+			opacity: 1;
+			transition: opacity 4s;
+		}
+	}
+	p.clue {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+}

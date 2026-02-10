@@ -1,0 +1,32 @@
+// PhraseTable.scss
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/mixins.module" as *;
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/variables.module" as *;
+
+.phrases-table-container {
+	width: 100%;
+	// @include standard-table();
+	table {
+		margin-top: 1rem;
+		tbody {
+			tr {
+				td {
+					span {
+						white-space: initial; // To override tailwind :-(
+					}
+				}
+			}
+		}
+	}
+	.sort-container {
+		// width: 100%;
+		align-items: space-between;
+		display: flex;
+		flex-direction: row;
+		column-gap: 8px;
+		// justify-content: space-between;
+		margin: 16px 0 8px;
+	}
+}

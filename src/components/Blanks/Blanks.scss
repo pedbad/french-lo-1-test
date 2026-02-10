@@ -1,0 +1,362 @@
+// Blanks.scss
+// Main layout + behaviour for Blanks exercises (phrases, tables, pictures, etc.)
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/variables.module" as *;
+@use "../../styles/media-queries" as *;
+@use "../../styles/mixins.module" as *;
+
+$max-tile-width: 360px;
+
+/* ----------------------------------------------------------
+   Shared tile sizing (used for blanks + draggable words)
+---------------------------------------------------------- */
+@mixin blanks-tile() {
+	color: var(--primary-foreground);
+	width: $max-tile-width;
+	max-width: $max-tile-width;
+	box-sizing: border-box;
+	text-align: center;
+	touch-action: none;
+}
+
+/* ==========================================================
+   ROOT CONTAINER
+========================================================== */
+.blanks-container {
+	// touch-action intentionally disabled at times; keep commented unless needed
+	// touch-action: none;
+
+	> .blanks,
+	> .target-board {
+		display: block;
+		z-index: 1;
+	}
+
+	/* --------------------------------------------------------
+     Main exercise column
+  	-------------------------------------------------------- */
+	.blanks {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+
+		line-height: 1.4em;
+		overflow: visible;
+		box-sizing: border-box;
+
+		color: $text;
+	}
+
+	/* --------------------------------------------------------
+     Draggable words container
+	-------------------------------------------------------- */
+	.words-container {
+		padding: 0.5rem 1rem;
+		line-height: 0.5rem;
+		overflow: visible;
+		z-index: 20;
+		position: relative;
+		touch-action: none; // ✅ prevents scroll/pinch while interacting here
+		overscroll-behavior: contain; // ✅ stops "scroll chaining" on some browsers
+		transition: width 1s;
+
+		.draggable {
+			cursor: pointer;
+			text-align: center;
+			z-index: 23;
+
+			span {
+				box-shadow: 1px 1px 1px color-mix(in oklab, var(--foreground) 30%, transparent);
+			}
+		}
+
+		.dragging {
+			z-index: 24;
+		}
+
+		.placed {
+			z-index: 22;
+		}
+	}
+
+	/* --------------------------------------------------------
+     Hidden placeholders (measurement only)
+	-------------------------------------------------------- */
+	.placeholders {
+		position: absolute;
+		top: 0;
+		padding: 2rem 3rem;
+		visibility: hidden;
+
+		.word span {
+			opacity: 0.5;
+		}
+	}
+
+	p.clue {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	/* --------------------------------------------------------
+     Help / controls
+	-------------------------------------------------------- */
+	.help {
+		@include help();
+	}
+
+	.hidden-help {
+		opacity: 0;
+		transition: opacity 4s;
+
+		&.show {
+			opacity: 1;
+		}
+	}
+
+	.audio-clip {
+		display: flex;
+		align-items: center;
+	}
+
+	/* ==========================================================
+     TYPE MODIFIERS
+	========================================================== */
+
+	&.type-table,
+	&.type-pictures-answers,
+	&.type-questions-answers {
+		.target-board {
+			padding: 1rem;
+		}
+	}
+
+	&.type-group-table,
+	&.type-table {
+		.audio-clip {
+			margin-top: 1.4rem;
+			audio {
+				border: 1px solid var(--border);
+				border-radius: 0.6rem;
+				background: var(--muted); //#f9f9f9;
+				max-height: 40px;
+			}
+		}
+	}
+
+	/* Drag shadow when moving tiles */
+	&.type-table,
+	&.type-pictures-answers,
+	&.type-questions-answers,
+	&.type-phrases {
+		.dragging span {
+			box-shadow: 8px 8px 8px color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+	}
+
+	/* Pictures in tables */
+	&.type-pictures-answers td img {
+		width: 50px;
+	}
+
+	/* --------------------------------------------------------
+     Phrase layout
+	-------------------------------------------------------- */
+	&.type-phrases {
+		.target-board {
+			padding: 0;
+
+			ul li {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: flex-start;
+
+				min-height: 40px;
+				column-gap: 12px;
+				line-height: 2.6rem;
+				margin: 0;
+			}
+		}
+
+		.phrase {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+
+			column-gap: 8px;
+			margin: 2px 1rem 2px 0;
+		}
+	}
+
+	/* --------------------------------------------------------
+     Pictures / questions layouts
+	-------------------------------------------------------- */
+	&.type-pictures-answers,
+	&.type-questions-answers {
+		> .blanks > .target-board {
+			.blank span {
+				opacity: 0;
+				@include blanks-tile();
+				width: $max-tile-width;
+			}
+		}
+
+		.words-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-start;
+
+			span {
+				@include blanks-tile();
+				width: $max-tile-width;
+			}
+		}
+
+		&.complete table td:nth-child(3) {
+			background: var(--card);
+			max-width: 1000px;
+			border: 1px solid var(--border);
+			pointer-events: all;
+
+			transition:
+				max-width 6s 1s,
+				border-color 1s 1s;
+		}
+	}
+
+	/* ==========================================================
+     TARGET BOARD (merged & deduplicated)
+	========================================================== */
+	.target-board {
+		background: var(--muted); //#f9f9f9; //red; // hsl(0deg, 0%, 90%);
+		border: 1px solid var(--border);
+		border-radius: 0.6rem;
+		padding: 0.3rem;
+
+		font-size: 1.2rem;
+		font-weight: bold;
+
+		.audio-clip {
+			opacity: 0;
+			transition: opacity 1s;
+		}
+
+		/* Blank targets */
+		.word.blank {
+			min-width: 140px;
+			// box-shadow: 0 0 4px red inset;
+			border: dashed 1px color-mix(in oklab, var(--border) 80%, transparent);
+			border-radius: $tile-border-radius;
+
+			&.highlight {
+				background: radial-gradient(circle, var(--chart-2) 0%, transparent 100%);
+			}
+			// &::before {
+			// 	content: "?";
+			// 	position: absolute;
+			// 	inset: 0;
+
+			// 	display: flex;
+			// 	align-items: center;
+			// 	justify-content: center;
+
+			// 	color: red;
+			// }
+
+			span {
+				opacity: 0;
+				// color: $text;
+			}
+		}
+
+		ul {
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 0;
+
+				.word {
+					position: relative;
+				}
+
+				label {
+					font-weight: normal;
+					display: inline-flex;
+					margin-left: 3rem;
+				}
+			}
+		}
+
+		table {
+			border-collapse: collapse;
+			text-align: left;
+
+			box-shadow:
+				-3px -3px 3px color-mix(in oklab, var(--foreground) 40%, transparent),
+				-3px 3px 3px color-mix(in oklab, var(--foreground) 40%, transparent),
+				3px 3px 3px color-mix(in oklab, var(--background) 40%, transparent),
+				3px -3px 3px color-mix(in oklab, var(--background) 40%, transparent);
+
+			td,
+			th {
+				font-size: 1rem;
+				font-weight: bold;
+				text-align: center;
+				background: var(--card);
+
+				border: 1px solid var(--border);
+				padding: 0 4px;
+			}
+
+			td:nth-of-type(2),
+			td:nth-of-type(4) {
+				text-align: left;
+			}
+
+			tbody tr.spacer td {
+				border-left: none;
+				border-right: none;
+			}
+		}
+	}
+
+	&.type-table .target-board .word.blank {
+		min-width: 150px;
+	}
+
+	&.type-group-table {
+		.target-board {
+			padding: 1rem;
+		}
+
+		table td {
+			text-align: left;
+		}
+	}
+
+	&.complete .audio-clip {
+		opacity: 1;
+		transition: opacity 1s 1s;
+	}
+}
+
+/* ==========================================================
+   Responsive tweaks
+========================================================== */
+@include respond-above(s) {
+	.words-container {
+		line-height: 3.5rem;
+	}
+
+	.blanks-container > .target-board {
+		padding: 1rem 2rem;
+	}
+}

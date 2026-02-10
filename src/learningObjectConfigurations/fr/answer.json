@@ -1,0 +1,107 @@
+{
+	"settings": {
+		"class": "lo-demo",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR"
+	},
+	"answerTable1": {
+		"component": "AnswerTable",
+		"congratulationsText": "Well done!",
+		"htmlContent": "<p>The <b>AnswerTable</b> component, uses phrases to populate the left column of a table. The second of each phrase is the correct answer to the question. The user must type  the correct answer into the input in the right hand column and press the 'Check'. Button. The text box is a compact <b>Monologue</b> component, see below.</p>",
+		"id": "AnswerTable1",
+		"instructionsText": "Supply the feminine form of the adjectives and nouns listed below. If the forms are different, compare the Pronunciation Write the feminine form in the empty cells, then click the check button.",
+		"header": [
+			"Masculine",
+			"Feminine"
+		],
+		"phrases": [
+			[
+				"américain",
+				"[américaine]"
+			],
+			[
+				"asiatique",
+				"[asiatique]"
+			],
+			[
+				"brésilien",
+				"[brésilienne]"
+			],
+			[
+				"croate",
+				"[croate]"
+			],
+			[
+				"danois",
+				"[danoise]"
+			],
+			[
+				"italien",
+				"[italienne]"
+			],
+			[
+				"portugais",
+				"[portugaise]"
+			],
+			[
+				"russe",
+				"[russe]"
+			],
+			[
+				"ukrainien",
+				"[ukrainien]"
+			],
+			[
+				"célibataire",
+				"[célibataire]"
+			],
+			[
+				"fatigué",
+				"[fatiguée]"
+			],
+			[
+				"malade",
+				"[malade]"
+			],
+			[
+				"marié",
+				"[mariée]"
+			],
+			[
+				"dentiste",
+				"[dentiste]"
+			],
+			[
+				"doctorant",
+				"[doctorante]"
+			],
+			[
+				"étudiant",
+				"[étudiante]"
+			],
+			[
+				"informaticien",
+				"[informaticienne]"
+			],
+			[
+				"journaliste",
+				"[journaliste]"
+			],
+			[
+				"mécanicien",
+				"[mécanicienne]"
+			],
+			[
+				"médecin",
+				"[médecin]"
+			],
+			[
+				"pharmacien",
+				"[pharmacienne]"
+			]
+		],
+		"titleText": "AnswerTable"
+	}
+}

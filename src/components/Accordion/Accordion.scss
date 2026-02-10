@@ -1,0 +1,197 @@
+/*
+Accordion.scss
+*/
+@use "../../styles/colours.module.scss" as *;
+@use "../../styles/mixins.module.scss" as *;
+@use "../../styles/variables.module.scss" as *;
+@use "sass:color";
+$header-height: 40px;
+$header-font-size: var(--font-size-lg);
+$spacer: 20px;
+$transition-speed: 0.35s;
+
+$common-left-margin: 20px;
+
+@mixin hideArticleContent {
+	> .content {
+		transition: all $transition-speed ease-in-out;
+		max-height: 0;
+	}
+}
+
+@mixin hideArticle {
+	/* hideArticle */
+	transition: all $transition-speed ease-in-out;
+	overflow: hidden;
+	@include hideArticleContent;
+}
+
+@mixin showArticle {
+	/* showArticle */
+	clear: both;
+	height: auto;
+	line-height: normal;
+	opacity: 1;
+	overflow: hidden;
+	transition: all $transition-speed ease-in-out;
+}
+
+@mixin showArticleContent {
+	&.group {
+		> .content {
+			max-height: 5600px;
+		}
+	}
+	> .content {
+		transition: all $transition-speed ease-in-out;
+		max-height: 2300px;
+		> article {
+			@include showArticle;
+		}
+	}
+}
+
+@mixin hideHeader {
+	/* hideHeader */
+	.accordion {
+		.arrow {
+			transition: all $transition-speed;
+			margin-right: 0.5em;
+			cursor: pointer;
+			display: none;
+			&:focus {
+				outline: 0;
+				border: none;
+			}
+		}
+	}
+}
+
+@mixin showHeader {
+	/* showHeader */
+	.accordion {
+		.arrow {
+			display: block;
+			&:focus {
+				outline: 0;
+				border: none;
+			}
+		}
+	}
+}
+
+.accordion {
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation: none !important;
+			transition: none !important;
+		}
+	}
+		.arrow {
+			transition: all $transition-speed;
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			zoom: 1;
+			margin-left: 0.6rem;
+		}
+	width: 100%;
+
+	.section {
+		clear: both;
+	}
+
+	.accordion-article {
+		border-bottom: none;
+		overflow: hidden;
+		height: auto;
+		@include hideArticle;
+		header {
+			@include hideHeader;
+			font-size: $header-font-size;
+			display: flex;
+			cursor: pointer;
+			margin-top: 2.4rem;
+			padding: 20px 0;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			border-bottom: none;
+			border-top-left-radius: 12px;
+			border-top-right-radius: 12px;
+			color: var(--foreground);
+			&:hover {
+				background-color: var(--accordion-mist);
+				color: var(--accordion-hover-text);
+				h2 {
+					color: var(--accordion-hover-text) !important;
+				}
+			}
+			svg.arrow {
+				transition: all $transition-speed;
+				margin-right: 0.5em;
+				cursor: pointer;
+				width: 1rem;
+				height: 1rem;
+				display: block;
+			}
+
+			h2 {
+				cursor: pointer;
+				font-size: $header-font-size;
+				margin: 0;
+				color: inherit;
+			}
+		}
+		&.expanded {
+			page-break-inside: avoid;
+			@include showArticle;
+			@include showArticleContent;
+			> header {
+				background-color: var(--accordion-mist);
+				color: var(--accordion-hover-text);
+				h2 {
+					color: var(--accordion-hover-text) !important;
+				}
+			}
+			> .content {
+				border-top: none !important;
+				border-top-color: transparent !important;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+				margin-top: 0;
+			}
+			.accordion-article {
+				> header {
+					@include showHeader;
+					font-size: $header-font-size;
+				}
+			}
+			> header {
+				@include showHeader;
+				svg.arrow {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+	.accordion-article.collapsed .accordion-article.expanded {
+		@include hideArticle;
+	}
+
+	> .accordion-article > .content {
+		overflow: hidden;
+		border-color: rgb(var(--color-border-subtle) / 1) !important;
+		max-height: 0;
+		transition: max-height 0.45s ease;
+	}
+
+	> .accordion-article.expanded > .content {
+		max-height: var(--radix-accordion-content-height);
+	}
+
+	/* Tighten the gap between accordion headers and inline info panels. */
+	.accordion-article .information {
+		margin-top: 0.25rem;
+	}
+}

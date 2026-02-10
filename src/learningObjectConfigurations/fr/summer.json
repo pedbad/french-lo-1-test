@@ -1,0 +1,14 @@
+{
+	"settings": {
+		"class": "lo-demo",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR"
+	},
+	"custom2": {
+		"component": "L13ASummersDay",
+		"id": "L13ASummersDay",
+		"titleText": "A summer's day"
+	}
+}

@@ -1,0 +1,427 @@
+{
+	"settings": {
+		"class": "lo-9",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"intro": "This lesson teaches how to make and answer phone calls in French, including asking for and giving telephone and mobile numbers. Learners practise typical telephone phrases such as Âllo, C’est bien le… ?, and Je me suis trompé(e) de numéro. It also explains how French phone numbers are structured by region and how to group digits in pairs when speaking. Grammar focuses on using bien for confirmation (C’est bien ça !), and pronunciation covers the numbers 5–10, especially how their final consonants change depending on the following sound."
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "phraseTable1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Quel est ton numéro de portable.mp3",
+							"Quel est ton numéro de portable ?",
+							"What's your mobile number?"
+						],
+						[
+							"sounds/fr/C'est le 07 23 35 44 52.mp3",
+							"C'est le 07 23 35 44 52.",
+							"It's 07 23 35 44 52."
+						],
+						[
+							"sounds/fr/Quel est votre numéro de téléphone s'il vous plaît Madame.mp3",
+							"Quel est votre numéro de téléphone s'il vous plaît Madame ?",
+							"What's your phone number please, Madam?"
+						],
+						[
+							"sounds/fr/C'est le 04 44 22 33 10 11.mp3",
+							"C'est le 04 44 22 33 10 11.",
+							"It's 04 44 22 33 10 11."
+						]
+					],
+					"titleText": "Dialogues 1"
+				}
+			},
+			{
+				"phraseTable2": {
+					"component": "PhraseTable",
+					"id": "phraseTable2",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"/sounds/fr/Oui, âllo.mp3",
+							"Oui, âllo ?",
+							"Yes, hello?"
+						],
+						[
+							"/sounds/fr/Bonjour Madame, c'est bien le 01 23 08 09 15.mp3",
+							"Bonjour Madame, c'est bien le 01 23 08 09 15 ?",
+							"Hello, this is 01 23 08 09 14, isn't it?"
+						],
+						[
+							"/sounds/fr/Ah non, je suis désolée,  il y a une erreur ! C'est le 01 23 08 08 16.mp3",
+							"Ah non, je suis désolée,  il y a une erreur ! C'est le 01 23 08 08 16.",
+							"Oh no, I'm sorry, there's a mistake. This is 01 23 08 08 16."
+						],
+						[
+							"/sounds/fr/Oh ! Excusez-moi ! Au revoir Madame !.mp3",
+							"Oh ! Excusez-moi ! Au revoir Madame !",
+							"Oh, excuse me! Goodbye!"
+						],
+						[
+							"/sounds/fr/Au revoir Monsieur !.mp3",
+							"Au revoir Monsieur !",
+							"Goodbye!"
+						]
+					],
+					"titleText": "Dialogues 2"
+				}
+			},
+			{
+				"phraseTable3": {
+					"component": "PhraseTable",
+					"id": "phraseTable3",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"/sounds/fr/Âllo, oui (male).mp3",
+							"Âllo, oui ?",
+							"Hello?"
+						],
+						[
+							"/sounds/fr/Bonjour, c'est bien le 01 23 08 09 15.mp3",
+							"Bonjour, c'est bien le 01 23 08 09 15 ?",
+							"Hello, this is 01 23 08 09 15, isn't it?"
+						],
+						[
+							"/sounds/fr/Oui, c'est bien ça (male).mp3",
+							"Oui, c'est bien ça.",
+							"Yes, that's right."
+						],
+						[
+							"/sounds/fr/André est là, s'iI vous plaît.mp3",
+							"André est là, s'iI vous plaît ?",
+							"Is André there please?"
+						],
+						[
+							"/sounds/fr/Oui, c'est André à l'appareil.mp3",
+							"Oui, c'est André à l'appareil.",
+							"Yes, this is André speaking"
+						],
+						[
+							"/sounds/fr/André, tu veux prendre un verre avec moi ce soir.mp3",
+							"André, tu veux prendre un verre avec moi ce soir ?",
+							"André, do you want to have a drink with me this evening?"
+						],
+						[
+							"/sounds/fr/Oui, je veux bien. À quelle heure (male).mp3",
+							"Oui, je veux bien. À quelle heure ?",
+							"Yes, I'd like that. At what time?"
+						],
+						[
+							"/sounds/fr/À huit heures.mp3",
+							"À huit heures ?",
+							"At 8 o'clock?"
+						],
+						[
+							"/sounds/fr/D'accord ! À ce soir ! (male).mp3",
+							"D'accord ! À ce soir !",
+							"Alright! See you this evening!"
+						],
+						[
+							"/sounds/fr/À plus tard !.mp3",
+							"À plus tard !",
+							"See you later!"
+						]
+					],
+					"titleText": "Dialogues 3"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"/sounds/fr/numéro.mp3",
+				"numéro (m)",
+				"number"
+			],
+			[
+				"/sounds/fr/portable.mp3",
+				"portable (m)",
+				"mobile"
+			],
+			[
+				"/sounds/fr/téléphone.mp3",
+				"téléphone (m)",
+				"telephone"
+			],
+			[
+				"/sounds/fr/téléphone fixe.mp3",
+				"(téléphone) fixe (m)",
+				"landline"
+			],
+			[
+				"/sounds/fr/âllo.mp3",
+				"âllo",
+				"hello (on the telephone only)"
+			],
+			[
+				"/sounds/fr/C'est moi.mp3",
+				"C'est moi.",
+				"It's me."
+			],
+			[
+				"/sounds/fr/d'accord.mp3",
+				"d'accord",
+				"alright, agreed"
+			],
+			[
+				"/sounds/fr/désolé.mp3",
+				"désolé.e",
+				"sorry"
+			],
+			[
+				"/sounds/fr/erreur.mp3",
+				"erreur (f)",
+				"mistake"
+			],
+			[
+				"/sounds/fr/À demain !.mp3",
+				"À demain !",
+				"See you tomorrow!"
+			],
+			[
+				"/sounds/fr/À plus tard ! À plus !.mp3",
+				"À plus tard !  /  À plus !",
+				"See you later!"
+			],
+			[
+				"/sounds/fr/se tromper de.mp3",
+				"se tromper de",
+				"to make a mistake / to be mistaken about something"
+			],
+			[
+				"/sounds/fr/Je me suis trompé de numéro.mp3",
+				"Je me suis trompé.e  de numéro.",
+				"I've made a mistake about the number.  "
+			],
+			[
+				"/sounds/fr/Tu t'es trompé de numéro.mp3",
+				"Tu t'es trompé.e de numéro.",
+				"You've made a mistake about the number."
+			],
+			[
+				"/sounds/fr/Vous vous êtes trompé de numéro.mp3",
+				"Vous vous êtes trompé.e  de numéro.",
+				"You've made a mistake about the number."
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "LO9Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO9Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"answerTable1": {
+					"component": "AnswerTable",
+					"congratulationsText": "Excellent !",
+					"id": "AnswerTable1",
+					"header": [
+						"Question",
+						"Answer",
+						"Listen"
+					],
+					"phrases": [
+						[
+							"Quel est ton numéro de portable ?",
+							"C'est le [06 10 15 24 35]",
+							"/sounds/fr/C'est le 06 10 15 24 35.mp3"
+						],
+						[
+							"Quel est ton numéro de portable ?",
+							"C'est le [07 12 18 36 47]",
+							"/sounds/fr/C'est le 07 12 18 36 47.mp3"
+						],
+						[
+							"Quel est votre numéro de portable ?",
+							"C'est le [07 26 19 49 50]",
+							"/sounds/fr/C'est le 07 26 19 49 50.mp3"
+						],
+						[
+							"Quel est ton numéro de portable ?",
+							"C'est le [06 28 21 53 62]",
+							"/sounds/fr/C'est le 06 28 21 53 62.mp3"
+						],
+						[
+							"Quel est votre numéro de téléphone ?",
+							"C'est le [02 30 43 53 67]",
+							"/sounds/fr/C'est le 02 30 43 53 67.mp3"
+						],
+						[
+							"Quel est votre numéro de téléphone ?",
+							"C'est le [05 31 46 60 68]",
+							"/sounds/fr/C'est le 05 31 46 60 68.mp3"
+						],
+						[
+							"Quel est ton numéro de téléphone ?",
+							"C'est le [03 44 55 66 70]",
+							"/sounds/fr/C'est le 03 44 55 66 70.mp3"
+						],
+						[
+							"Quel est ton numéro de téléphone ?",
+							"C'est le [01 59 69 62 73]",
+							"/sounds/fr/C'est le 01 59 69 62 73.mp3"
+						],
+						[
+							"Quel est ton numéro de téléphone ?",
+							"C'est le [04 66 71 77 80]",
+							"/sounds/fr/C'est le 04 66 71 77 80.mp3"
+						],
+						[
+							"Quel est ton numéro de téléphone ?",
+							"C'est le [01 88 11 13 90]",
+							"/sounds/fr/C'est le 01 88 11 13 90.mp3"
+						]
+					],
+					"titleText": "1. Giving your phone number. "
+				}
+			},
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Très bien !",
+					"instructionsText": "",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Âllo, oui ?",
+							"audio": "sounds/fr/Âllo, oui.mp3"
+						},
+						{
+							"text": "Bonjour Madame, c'est [combien|*bien] le 02 25 09 10 44 ?",
+							"audio": "sounds/fr/Bonjour Madame, c'est bien le 02 25 09 10 44.mp3"
+						},
+						{
+							"text": "Ah non, Monsieur, je suis [désolé|*désolée]. Il y a [un|*une] erreur ! C'est [*le|la] 02 25 09 10 47.",
+							"audio": "sounds/fr/Ah non, Monsieur, je suis désolée. Il y a une erreur ! C'est le 02 25 09 10 47.mp3"
+						},
+						{
+							"text": "Oh ! Excusez-moi ! Au revoir Madame !",
+							"audio": "sounds/fr/Oh ! Excusez-moi ! Au revoir Madame !.mp3"
+						},
+						{
+							"text": "Au revoir Monsieur !",
+							"audio": "sounds/fr/Au revoir Monsieur !.mp3"
+						},
+						{},
+						{
+							"text": "Âllo, oui ?",
+							"audio": "sounds/fr/Âllo, oui.mp3"
+						},
+						{
+							"text": "Bonjour Madame, [*c'est|ces] bien le 03 25 09 13 45 ?",
+							"audio": "sounds/fr/Bonjour Madame, c'est bien le 03 25 09 13 45.mp3"
+						},
+						{
+							"text": "Ah non, Madame, je suis [*désolée|désolées] Il y a une [horreur|*erreur] ! C'est [*le|les] 03 26  09 13  47.",
+							"audio": "sounds/fr/Ah non, Madame, je suis désolée Il y a une erreur ! C'est le 03 26 09 13 47.mp3"
+						},
+						{
+							"text": "Oh ! Excusez-moi ! Au revoir Madame !",
+							"audio": "sounds/fr/Oh ! Excusez-moi ! Au revoir Madame !.mp3"
+						},
+						{
+							"text": "Au revoir Madame !",
+							"audio": "sounds/fr/Au revoir Madame !.mp3"
+						}
+					],
+					"titleText": "2. Talking on the phone."
+				}
+			},
+			{
+				"phrases1": {
+					"component": "Blanks",
+					"id": "phrases1",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Drag the words to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "phrases",
+					"items": [
+						{
+							"text": "Âllo, oui ?",
+							"audio": "sounds/fr/Âllo, oui (male).mp3"
+						},
+						{
+							"text": "Bonjour, c'est bien le 05 24 07 19 55 ?",
+							"audio": "sounds/fr/Bonjour, c'est bien le 05 24 07 19 55.mp3"
+						},
+						{
+							"text": "[Oui, c'est bien ça.]",
+							"audio": "sounds/fr/Oui, c'est bien ça (male).mp3"
+						},
+						{
+							"text": "Dominique est là, s'il vous plaît ?",
+							"audio": "sounds/fr/Dominique est là, s'il vous plaît.mp3"
+						},
+						{
+							"text": "[Oui, c'est Dominique à l'appareil.]",
+							"audio": "sounds/fr/Oui, c'est Dominique à l'appareil.mp3"
+						},
+						{
+							"text": "Dominique, tu veux prendre un verre avec moi ce soir ?",
+							"audio": "sounds/fr/Dominique, tu veux prendre un verre avec moi ce soir.mp3"
+						},
+						{
+							"text": "[Oui, je veux bien. À quelle heure ?]",
+							"audio": "sounds/fr/Oui, je veux bien. À quelle heure (male).mp3"
+						},
+						{
+							"text": "À huit heures ?",
+							"audio": "sounds/fr/À huit heures.mp3"
+						},
+						{
+							"text": "[Oui, d'accord. Tu veux aller où ?]",
+							"audio": "sounds/fr/Oui, d'accord. Tu veux aller où.mp3"
+						},
+						{
+							"text": "Au nouveau café au centre-ville ?",
+							"audio": "sounds/fr/Au nouveau café au centre-ville.mp3"
+						},
+						{
+							"text": "[Oui, très bien ! J'aime beaucoup le nouveau café.]",
+							"audio": "sounds/fr/Oui, très bien ! J'aime beaucoup le nouveau café.mp3"
+						}
+					],
+					"titleText": "3. Answer the questions"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

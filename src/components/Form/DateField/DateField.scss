@@ -1,0 +1,27 @@
+/*
+DateField.scss
+*/
+
+@use "../../../styles/colours.module" as *;
+@use "../../../styles/mixins.module" as *;
+@use "../../../styles/variables.module" as *;
+
+form .row {
+	&.date-field {
+		grid-template-areas: "label device";
+		&.disabled {
+			input {
+				cursor: not-allowed;
+			}
+		}
+		input {
+			@include form-field-common-font-padding();
+			align-self: flex-end;
+			grid-area: device;
+			justify-self: end;
+			height: $form-common-height;
+			max-width: 170px;
+			width: 100%;
+		}
+	}
+}

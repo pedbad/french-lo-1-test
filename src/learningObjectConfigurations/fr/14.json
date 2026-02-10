@@ -1,0 +1,658 @@
+{
+	"settings": {
+		"class": "lo-14",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"introHTML": "<p>This lesson focuses on talking about university life, studies, and academic routines. Through realistic dialogues, learners practise describing their courses (Je suis étudiant en mathématiques), level of study (Je fais une licence / un master / un doctorat), and workload (J’ai un emploi du temps chargé). The conversations also include common student experiences like attending lectures (cours magistraux), writing essays (dissertations), and feeling tired or stressed from academic demands.</p><p>The vocabulary covers university subjects, degrees, and academic terms — for example, la biologie, le droit, la thèse, le séminaire, la fac d’architecture — along with adjectives to express opinions and feelings (intéressant, fatigant, stressant, fascinant).</p><p>Grammar explains:</p><ul><li>The idiomatic structure with comme to ask “what kind” (Qu’est-ce que tu fais comme études ?).</li><li>The irregular verbs devoir (“to have to”) and pouvoir (“to be able to”) used with infinitives (Je dois partir, Je peux répondre).</li><li>The difference between present participles (-ant, e.g. intéressant, motivant) and past participles (-é, e.g. fatigué, fasciné), both of which can function as adjectives and must agree in gender and number.</li></ul><p>Overall, the topic helps learners describe their university studies, academic workload, and related emotions, while mastering essential verbs and idiomatic expressions for student life in French.</p>"
+	},
+	"dialogues": {
+		"component": "Section",
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "phraseTable1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Qu'est-ce que tu fais comme études (m).mp3",
+							"Qu'est-ce que tu fais comme études ?",
+							"What are you studying ?"
+						],
+						[
+							"sounds/fr/Je suis étudiant en mathématiques.mp3",
+							"Je suis étudiant en mathématiques.",
+							"I'm a maths student."
+						],
+						[
+							"sounds/fr/Tu fais un master.mp3",
+							"Tu fais un master ?",
+							"Are you doing a masters?"
+						],
+						[
+							"sounds/fr/Non, je fais une licence.mp3",
+							"Non, je fais une licence.",
+							"No, I'm doing a bachelor's degree / I'm an undergrad."
+						],
+						[
+							"sounds/fr/Tu es en première année.mp3",
+							"Tu es en première année ?",
+							"Are you in the first year?"
+						],
+						[
+							"sounds/fr/Non, je suis en deuxième année.mp3",
+							"Non, je suis en deuxième année.",
+							"No, I'm in the second year"
+						],
+						[
+							"sounds/fr/Moi, je fais une fac d'architecture. Je suis en première année de master.mp3",
+							"Moi, je fais une fac d'architecture. Je suis en première année de master.",
+							"I'm studying architecture. I'm in the first year of a masters."
+						],
+						[
+							"sounds/fr/Et ton copain Il étudie l'architecture aussi.mp3",
+							"Et ton copain ? Il étudie l'architecture aussi ?",
+							"What about your boyfriend? Is he studying architecture too?"
+						],
+						[
+							"sounds/fr/Non, il est doctorant. Il fait un doctorat en langues médiévales. Il écrit sa thèse. Il est très occupé. Il passe des heures à la bibliothèque !.mp3",
+							"Non, il est doctorant. Il fait un doctorat en langues médiévales. Il écrit sa thèse. Il est très occupé. Il passe des heures à la bibliothèque !",
+							"No, he's a PhD student. He's doing a PhD in medieval languages. He's writing his dissertation. He's very busy. He's spending hours at the library!"
+						]
+					],
+					"titleText": "Dialogues 1"
+				}
+			},
+			{
+				"phraseTable2": {
+					"component": "PhraseTable",
+					"id": "phraseTable2",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"sounds/fr/Alice, ça va Tu as l'air très fatigué aujourd'hui !.mp3",
+							"Alice, ça va ? Tu as l'air très fatigué aujourd'hui !",
+							"Alice, are you alright? You look very tired today!"
+						],
+						[
+							"sounds/fr/Non, ça ne va pas aujourd'hui ! Je suis très fatiguée.mp3",
+							"Non, ça ne va pas aujourd'hui ! Je suis très fatiguée.",
+							"No, I'm not alright today. I'm very tired."
+						],
+						[
+							"sounds/fr/pourquoi.mp3",
+							"Pourquoi ?",
+							"Why ?"
+						],
+						[
+							"sounds/fr/Cette semaine j'ai cinq cours magistraux, deux séminaires et deux tutorats ! Et beaucoup de lecture !.mp3",
+							"Cette semaine j'ai cinq cours magistraux, deux séminaires et deux tutorats ! Et beaucoup de lecture !",
+							"This week I've got five lectures, two seminars and two tutorials. And lots of reading!"
+						],
+						[
+							"sounds/fr/C'est vraiment beaucoup ! Tu as un emploi du temps très chargé, Alice !.mp3",
+							"C'est vraiment beaucoup ! Tu as un emploi du temps très chargé, Alice !",
+							"That really is a lot! You've got a very heavy timetable, Alice!"
+						],
+						[
+							"sounds/fr/Oui, et je dois écrire deux dissertations aussi ! C'est trop ! Je suis très stressée !.mp3",
+							"Oui, et je dois écrire deux dissertations aussi ! C'est trop ! Je suis très stressée !",
+							"Yes, and I have to write two essays as well. It's too much! I'm very stressed!"
+						],
+						[
+							"sounds/fr/Mais ça va aller, Alice ! C'est bientôt les vacances et tu peux te reposer !.mp3",
+							"Mais ça va aller, Alice ! C'est bientôt les vacances et tu peux te reposer !",
+							"But it 'll be alright, Alice! It'll soon be the holidays, and you can have a rest!"
+						]
+					],
+					"titleText": "Dialogues 2"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"phrases": [
+			[
+				"sounds/fr/étudiant. étudiante.mp3",
+				"étudiant / étudiante",
+				"student"
+			],
+			[
+				"sounds/fr/chercheur. chercheuse.mp3",
+				"chercheur / chercheuse",
+				"researcher"
+			],
+			[
+				"sounds/fr/doctorant, doctorante.mp3",
+				"doctorant / doctorante",
+				"PhD student"
+			],
+			[
+				"sounds/fr/professeur.mp3",
+				"professeur.e",
+				"professor"
+			],
+			[
+				"sounds/fr/scientifique.mp3",
+				"scientifique",
+				"scientist"
+			],
+			[
+				"sounds/fr/étudier, faire des études.mp3",
+				"étudier, faire des études (fpl)",
+				"to study"
+			],
+			[
+				"sounds/fr/faire une fac.mp3",
+				"faire une fac (colloquial)",
+				"to study at university"
+			],
+			[
+				"sounds/fr/Je fais une fac de linguistique.mp3",
+				"Je fais une fac de linguistique",
+				"I'm studying linguistics at university"
+			],
+			[
+				"sounds/fr/Qu'est-ce que tu fais comme études Qu'est-ce que vous faites comme études.mp3",
+				"Qu'est-ce que tu fais comme études ? Qu'est-ce que vous faites comme études ?",
+				"What are you studying? "
+			],
+			[
+				"sounds/fr/Tu fais quoi comme études Vous faites quoi comme études.mp3",
+				"Tu fais quoi comme études ? Vous faites quoi comme études ? (colloquial)",
+				"What are you studying?"
+			],
+			[
+				"sounds/fr/faire de la recherche.mp3",
+				"faire de la recherche",
+				"to do research"
+			],
+			[
+				"sounds/fr/passer un examen.mp3",
+				"passer un examen",
+				"to take an exam"
+			],
+			[
+				"sounds/fr/licence.mp3",
+				"licence (f)",
+				"First degree, bachelor's degree"
+			],
+			[
+				"sounds/fr/master.mp3",
+				"master (m)",
+				"masters"
+			],
+			[
+				"sounds/fr/doctorat.mp3",
+				"doctorat (m)",
+				"PhD"
+			],
+			[
+				"sounds/fr/thèse.mp3",
+				"thèse (f)",
+				"thesis, dissertation"
+			],
+			[
+				"sounds/fr/dissertation.mp3",
+				"dissertation (f)",
+				"essay"
+			],
+			[
+				"sounds/fr/anthropologie.mp3",
+				"anthropologie (f)",
+				"anthropologie"
+			],
+			[
+				"sounds/fr/architecture.mp3",
+				"architecture (f)",
+				"architecture"
+			],
+			[
+				"sounds/fr/biologie.mp3",
+				"biologie (f)",
+				"biologie"
+			],
+			[
+				"sounds/fr/chimie.mp3",
+				"chimie (f)",
+				"chemistry"
+			],
+			[
+				"sounds/fr/droit.mp3",
+				"droit (m)",
+				"law"
+			],
+			[
+				"sounds/fr/éducation.mp3",
+				"éducation (f)",
+				"education"
+			],
+			[
+				"sounds/fr/géographie.mp3",
+				"géographie (f)",
+				"geography"
+			],
+			[
+				"sounds/fr/histoire.mp3",
+				"histoire (f)",
+				"history"
+			],
+			[
+				"sounds/fr/informatique.mp3",
+				"informatique (f) ",
+				"IT"
+			],
+			[
+				"sounds/fr/ingénierie.mp3",
+				"ingénierie (f)",
+				"engineering"
+			],
+			[
+				"sounds/fr/langues médiévales.mp3",
+				"langues médiévales (fpl)",
+				"medieval languages"
+			],
+			[
+				"sounds/fr/linguistique.mp3",
+				"linguistique (f)",
+				"linguistics"
+			],
+			[
+				"sounds/fr/littérature anglaise, littérature française.mp3",
+				"littérature (f) anglaise, littérature française",
+				"English literature, French literature"
+			],
+			[
+				"sounds/fr/politique.mp3",
+				"politique (f)",
+				"politics"
+			],
+			[
+				"sounds/fr/robotique.mp3",
+				"robotique (f)",
+				"robotics"
+			],
+			[
+				"sounds/fr/sciences naturelles.mp3",
+				"sciences naturelles (fpl)",
+				"natural sciences"
+			],
+			[
+				"sounds/fr/théologie.mp3",
+				"théologie (f)",
+				"theology"
+			],
+			[
+				"sounds/fr/en première année, en deuxième année, en troisième année.mp3",
+				"en première année, en deuxième année, en troisième année",
+				"in the first, second, third year"
+			],
+			[
+				"sounds/fr/cours magistral, cours magistraux.mp3",
+				"cours magistral (m), cours magistraux (mpl)",
+				"lecture (s)"
+			],
+			[
+				"sounds/fr/séminaire.mp3",
+				"séminaire (m)",
+				"seminar"
+			],
+			[
+				"sounds/fr/travaux pratiques.mp3",
+				"travaux pratiques (mpl)",
+				"practical work"
+			],
+			[
+				"sounds/fr/tutorat.mp3",
+				"tutorat (m)",
+				"tutorial"
+			],
+			[
+				"sounds/fr/C'est facile.mp3",
+				"C'est facile",
+				"It's easy"
+			],
+			[
+				"sounds/fr/C'est difficile.mp3",
+				"C'est difficile",
+				"It's difficult"
+			],
+			[
+				"sounds/fr/C'est intéressant.mp3",
+				"C'est intéressant",
+				"It's interesting"
+			],
+			[
+				"sounds/fr/C'est fascinant.mp3",
+				"C'est fascinant",
+				"It's fascinating"
+			],
+			[
+				"sounds/fr/C'est stressant.mp3",
+				"C'est stressant",
+				"It's stressful"
+			],
+			[
+				"sounds/fr/Je suis stressé.mp3",
+				"Je suis stressé.e",
+				"I'm stressed"
+			],
+			[
+				"sounds/fr/C'est fatigant.mp3",
+				"C'est fatigant",
+				"It's tiring"
+			],
+			[
+				"sounds/fr/Je suis fatigué.mp3",
+				"Je suis fatigué.e",
+				"I'm tired"
+			],
+			[
+				"sounds/fr/J'ai un emploi du temps chargé.mp3",
+				"J'ai un emploi du temps chargé",
+				"I have a heavy / full timetable"
+			],
+			[
+				"sounds/fr/Je suis très occupé.mp3",
+				"Je suis très occupé.e",
+				"I'm very busy"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "L14Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"phrases1": {
+					"blanksType": "phrases",
+					"cheatText": "Show answer",
+					"component": "Blanks",
+					"congratulationsText": "Très bien !",
+					"id": "phrases1",
+					"instructionsText": "Drag the words in the box to fill in the gaps in the conversation below.",
+					"showHintsText": "Show hints when moving",
+					"items": [
+						{
+							"text": "Qu'est-ce que tu fais [comme] études ?",
+							"audio": "sounds/fr/Qu'est-ce que tu fais comme études (m).mp3"
+						},
+						{
+							"text": "Je suis étudiante [en] politique.",
+							"audio": "sounds/fr/Je suis étudiante en politique.mp3"
+						},
+						{
+							"text": "Tu fais une [licence] ?",
+							"audio": "sounds/fr/Tu fais une licence.mp3"
+						},
+						{
+							"text": "Non, je fais un [master].",
+							"audio": "sounds/fr/Non, je fais un master.mp3"
+						},
+						{
+							"text": "Tu es en [quelle] année ?",
+							"audio": "sounds/fr/Tu es en quelle année.mp3"
+						},
+						{
+							"text": "Je suis en première [année].",
+							"audio": "sounds/fr/Je suis en première année.mp3"
+						},
+						{
+							"text": "Je fais une fac [d']anthropologie. Je suis en troisième année [de] licence.",
+							"audio": "sounds/fr/Je fais une fac d'anthropologie. Je suis en troisième année de licence.mp3"
+						},
+						{
+							"text": "Et ta [copine] ? Elle étudie l' [anthropologie] aussi ?",
+							"audio": "sounds/fr/Et ta copine Elle étudie l'anthropologie aussi.mp3"
+						},
+						{
+							"text": "Non, elle est [doctorante]. Elle fait un doctorat en histoire [médiévale]. Elle écrit sa [thèse]. Elle est très [occupée]. Elle passe des heures à la [bibliothèque] !",
+							"audio": "sounds/fr/Non, elle est doctorante. Elle fait un doctorat en histoire médiévale. Elle écrit sa thèse. Elle est très occupée. Elle passe des heures à la bibliothèque !.mp3"
+						}
+					],
+					"titleText": "1 Chatting about your studies"
+				}
+			},
+			{
+				"answerTable1": {
+					"component": "AnswerTable",
+					"congratulationsText": "Superbe !",
+					"id": "AnswerTable1",
+					"instructionsText": "What (sort of )… ? Complete the questions below.",
+					"phrases": [
+						[
+							"What (sort of) cheese do you like?",
+							"Qu'est-ce que tu [aimes] comme [fromage] ?",
+							"sounds/fr/Qu'est-ce que tu aimes comme fromage.mp3"
+						],
+						[
+							"What (sort of) films do you like?",
+							"Qu'est-ce que tu [aimes] comme [films] ?",
+							"sounds/fr/Qu'est-ce que tu aimes comme films.mp3"
+						],
+						[
+							"What (sort of) music do you like?",
+							"Qu'est-ce que vous [aimez] comme [musique] ?",
+							"sounds/fr/Qu'est-ce que vous aimez comme musique.mp3"
+						],
+						[
+							"What wine do you prefer?",
+							"Qu'est-ce que vous [préférez] comme [vin] ?",
+							"sounds/fr/Qu'est-ce que vous préférez comme vin.mp3"
+						],
+						[
+							"What sports do you do?",
+							"Qu'est-ce que tu [fais] comme [sports] ?",
+							"sounds/fr/Qu'est-ce que tu fais comme sports.mp3"
+						],
+						[
+							"What activities do the children do?",
+							"Qu'est-ce que les enfants [font] comme [activités] ?",
+							"sounds/fr/Qu'est-ce que les enfants font comme activités.mp3"
+						],
+						[
+							"What is he studying?",
+							"Qu'est-ce qu'il [fait] comme [études] ?",
+							"sounds/fr/Qu'est-ce qu'il fait comme études.mp3"
+						],
+						[
+							"What about you? What are you studying?",
+							"Et toi ? Qu'est-ce que tu [fais] comme [études] ?",
+							"sounds/fr/Et toi Qu'est-ce que tu fais comme études.mp3"
+						]
+					],
+					"titleText": "2 Ask it the French way"
+				}
+			},
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"congratulationsText": "Excellent !",
+					"id": "dropdowns1",
+					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Je [*dois|doit|devons|devez|doivent] écrire une dissertation ce week-end.",
+							"audio": "sounds/fr/Je dois écrire une dissertation ce weekend.mp3"
+						},
+						{
+							"text": "Annie [dois|*doit|devons|devez|doivent] faire une présentation aujourd'hui.",
+							"audio": "sounds/fr/Annie doit faire une présentation aujourd'hui.mp3"
+						},
+						{
+							"text": "Nous [dois|doit|*devons|devez|doivent] passer un examen demain.",
+							"audio": "sounds/fr/Nous devons passer un examen demain.mp3"
+						},
+						{
+							"text": "Tu [*dois|doit|devons|devez|doivent] faire tes devoirs avant de sortir.",
+							"audio": "sounds/fr/Tu dois faire tes devoirs avant de sortir.mp3"
+						},
+						{
+							"text": "Marc [dois|*doit|devons|devez|doivent] terminer sa thèse.",
+							"audio": "sounds/fr/Marc doit terminer sa thèse.mp3"
+						},
+						{
+							"text": "Vous [dois|doit|devons|*devez|doivent] lire ce livre avant le tutorat.",
+							"audio": "sounds/fr/Vous devez lire ce livre avant le tutorat.mp3"
+						},
+						{
+							"text": "Les étudiants [dois|doit|devons|devez|*doivent] étudier pendant les vacances.",
+							"audio": "sounds/fr/Les étudiants doivent étudier pendant les vacances.mp3"
+						},
+						{
+							"text": "On [dois|*doit|devons|devez|doivent] se concentrer pendant les cours.",
+							"audio": "sounds/fr/On doit se concentrer pendant les cours.mp3"
+						},
+						{
+							"text": "Les étudiantes [dois|doit|devons|devez|*doivent] être fatiguées.",
+							"audio": "sounds/fr/Les étudiantes doivent être fatiguées.mp3"
+						}
+					],
+					"titleText": "3 Practise using devoir"
+				}
+			},
+			{
+				"dropdowns2": {
+					"component": "DropDowns",
+					"id": "dropdowns2",
+					"congratulationsText": "Très bien !",
+					"instructionsText": "Select the time that you hear.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Je [*peux|peut|pouvons|pouvez|peuvent] ouvrir la fenêtre, s'il vous plaît ?",
+							"audio": "sounds/fr/Je peux ouvrir la fenêtre, s'il vous plaît.mp3"
+						},
+						{
+							"text": "Max et moi [peux|peut|*pouvons|pouvez|peuvent] venir vous voir demain soir.",
+							"audio": "sounds/fr/Max et moi pouvons venir vous voir demain soir.mp3"
+						},
+						{
+							"text": "Tu [*peux|peut|pouvons|pouvez|peuvent] expliquer en anglais, si tu veux.",
+							"audio": "sounds/fr/Tu peux expliquer en anglais, si tu veux.mp3"
+						},
+						{
+							"text": "Mon copain [peux|*peut|pouvons|pouvez|peuvent] traduire le texte.",
+							"audio": "sounds/fr/Mon copain peut traduire le texte.mp3"
+						},
+						{
+							"text": "Nos amis [peux|peut|pouvons|pouvez|*peuvent] dormir chez nous.",
+							"audio": "sounds/fr/Nos amis peuvent dormir chez nous.mp3"
+						},
+						{
+							"text": "On [peux|*peut|pouvons|pouvez|peuvent] réviser ensemble.",
+							"audio": "sounds/fr/On peut réviser ensemble.mp3"
+						},
+						{
+							"text": "Amélie [peux|*peut|pouvons|pouvez|peuvent] se détendre dans le jardin.",
+							"audio": "sounds/fr/Amélie peut se détendre dans le jardin.mp3"
+						},
+						{
+							"text": "Tes amies [peux|peut|pouvons|pouvez|*peuvent] travailler avec nous.",
+							"audio": "sounds/fr/Tes amies peuvent travailler avec nous.mp3"
+						},
+						{
+							"text": "Vous [peux|peut|pouvons|*pouvez|peuvent] étudier à la bibliothèque.",
+							"audio": "sounds/fr/Vous pouvez étudier à la bibliothèque.mp3"
+						}
+					],
+					"titleText": "4 Practise using pouvoir"
+				}
+			},
+			{
+				"group2": {
+					"component": "Group",
+					"content": [
+						{
+							"answerTable2": {
+								"component": "AnswerTable",
+								"congratulationsText": "Superbe !",
+								"id": "AnswerTable2",
+								"instructionsText": "Fill in the gaps with the present participle of the verb supplied. Remember that the present participle is being used as an adjective so will need to agree with the noun it is describing.",
+								"phrases": [
+									[
+										"",
+										"Le film est très [amusant]. (amuser)"
+									],
+									[
+										"",
+										"Mon travail est [fatigant]. (fatiguer)"
+									],
+									[
+										"",
+										"L'histoire est [fascinante]. (fasciner)"
+									],
+									[
+										"",
+										"Mes études sont très [intéressantes]. (intéresser)"
+									],
+									[
+										"",
+										"Les cours magistraux sont très [motivants]. (motiver)"
+									]
+								],
+								"titleText": "i. Present participle"
+							}
+						},
+						{
+							"answerTable3": {
+								"component": "AnswerTable",
+								"congratulationsText": "Superbe !",
+								"id": "AnswerTable3",
+								"instructionsText": " Fill in the gaps with the past participle of the verb supplied. Remember that the past participle is being used as an adjective so will need to agree with the noun it is describing.",
+								"phrases": [
+									[
+										"",
+										"Les étudiants sont très [occupés]. (occuper)"
+									],
+									[
+										"",
+										"J'ai une semaine très [chargée]. (charger)"
+									],
+									[
+										"",
+										"Daniel est très [motivé]. (motiver)"
+									],
+									[
+										"",
+										"Les étudiantes sont [fatiguées]. (fatiguer)"
+									],
+									[
+										"",
+										"Elle est [fascinée]. (fasciner)"
+									]
+								],
+								"titleText": "ii. Past participle"
+							}
+						}
+					],
+					"id": "group2",
+					"titleText": "5 Using participles as adjectives "
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}

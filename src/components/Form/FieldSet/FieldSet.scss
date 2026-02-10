@@ -1,0 +1,14 @@
+/*
+FieldSet.scss
+*/
+@use "../../../styles/colours.module" as *;
+
+.form-group {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	border: none;
+	margin: 0;
+	padding: 0;
+}

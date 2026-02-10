@@ -1,0 +1,97 @@
+// CrossWord.scss
+
+@use "../../styles/colours.module" as *;
+@use "../../styles/media-queries.scss" as *;
+@use "../../styles/variables.module" as *;
+
+.crossword-container {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 8px;
+	grid-template-areas:
+		"instructions instructions"
+		"board clues";
+	// background: $panel-back;
+	table {
+		p {
+			margin: 0;
+			letter-spacing: 0.5rem;
+		}
+	}
+
+	span {
+		&.animate {
+			animation-name: vertical-rotate;
+			animation-duration: 0.5s;
+			animation-timing-function: linear;
+			animation-iteration-count: 8;
+			background-color: $correct-background;
+			border: 1px solid $correct-border;
+			box-sizing: border-box;
+		}
+		padding: 0.5rem 0;
+		font-size: 2rem;
+		cursor: pointer;
+		display: inline-block;
+		border: 1px solid var(--border);
+		user-select: none;
+		&.error {
+			border: 1px solid $incorrect-border;
+			background: $incorrect-background;
+		}
+	}
+
+	.instructions {
+		padding: 1rem;
+		grid-area: instructions;
+		// background: red;
+		// display: flex;
+		// justify-content: space-evenly;
+		// width: 600px;
+	}
+
+	.clues {
+		padding: 1rem 0 0 20px;
+		grid-area: clues;
+		// background: red;
+		// display: flex;
+		// justify-content: space-evenly;
+		// width: 600px;
+	}
+
+	table.board {
+		grid-area: board;
+		text-align: left;
+		border-collapse: collapse;
+		// background: white;
+		margin: 10px;
+		tr {
+			width: auto;
+		}
+		td,
+		th {
+			display: inline-block;
+			border: 1px solid var(--border);
+			padding: 5px 4px;
+			font-weight: bold;
+		}
+		tbody {
+			border: none;
+			tr {
+				&.spacer {
+					border-left: none;
+					border-right: none;
+					td {
+						border-left: none;
+						border-right: none;
+					}
+				}
+			}
+		}
+		td {
+			font-size: 1rem;
+			padding: 0.25rem 1rem;
+		}
+	}
+}

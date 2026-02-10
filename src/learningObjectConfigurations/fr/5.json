@@ -1,0 +1,398 @@
+{
+	"settings": {
+		"class": "lo-5",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"intro": "This lesson teaches learners how to describe different types of housing and rooms in French, using vocabulary for household spaces and furnishings. It introduces the expression “il y a” (“there is/are”) and verbs used only in the third person (e.g. il pleut, il faut), while reinforcing adjectival agreement patterns such as spacieux/spacieuse. It also develops pronunciation through the nasal vowel sound “an” (as in blanc, chambre), helping learners speak naturally when describing their home and surroundings."
+	},
+	"monologues": {
+		"component": "Section",
+		"expandable": false,
+		"instructionsTextHTML": "<img src='images/handshake.png' style='width: 200px; border: 1px solid black;margin-bottom: 20px;'/>",
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "phraseTable1",
+					"instructionsText": "Read the phrases and play the audio clips.",
+					"phrases": [
+						[
+							"/sounds/fr/LO5 monologue1.mp3",
+							"J'habite dans un appartement au premier étage d'un grand immeuble.  J'ai une petite cuisine et une salle de séjour et un petit balcon aussi. Ma chambre n'est pas grande, mais elle est confortable. Derrière l'immeuble il y a un jardin communautaire.",
+							"I live in a flat on the first floor of a large block of flats. I've got a small kitchen, a living room and a small balcony as well. My bedroom isn't big, but it's comfortable. Behind the block of flats there's a communal garden."
+						],
+						[
+							"/sounds/fr/LO5 monologue2.mp3",
+							"Cette année, je loue une maison.  Elle est petite. Au rez-de-chaussée, il y a la cuisine et la salle de séjour. A l'étage, il y a deux chambres, une pour moi et une autre pour mes invités. La salle de bains et les toilettes se trouvent à l'étage aussi.",
+							"This year I'm renting a house. It's small. On the ground floor there's the kitchen and the living room. Upstairs there are two bedrooms, one for me and another one for my guests. The bathroom and toilet are upstairs too."
+						],
+						[
+							"/sounds/fr/LO5 monologue3.mp3",
+							"Mes parents ont une grande maison à la campagne.  Au rez-de-chaussée, il y a une grande cuisine et une buanderie ainsi qu'un salon et une salle à manger et une petite salle de séjour. Ils n'ont pas de bureau.  Au premier étage, il y a une salle de bains, des toilettes, une douche et quatre chambres. Ils ont une cave aussi où ils mettent leur vin !",
+							"My parents have a big house in the countryside. On the ground floor there's a big kitchen, a utility room as well as a lounge and a dining room and a small living room. They don't have a study. On the first floor there's a bathroom, a toilet, a shower room and four bedrooms. They've also got a cellar where they put their wine!"
+						]
+					],
+					"titleText": "Home"
+				}
+			}
+		],
+		"id": "monologues",
+		"titleText": "Monologues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsText": "Read the phrases and play the audio clips.",
+		"footnote": "* In France the plural form is used even if there is just one facility. In other francophone countries, the singular 'la toilette' occurs.",
+		"phrases": [
+			[
+				"/sounds/fr/logement.mp3",
+				"logement (m)",
+				"accommodation"
+			],
+			[
+				"/sounds/fr/louer.mp3",
+				"louer",
+				"to rent  / hire"
+			],
+			[
+				"/sounds/fr/loyer.mp3",
+				"loyer (m)",
+				"rent "
+			],
+			[
+				"/sounds/fr/colocataire.mp3",
+				"colocataire  (m/f)",
+				"flat /house mate"
+			],
+			[
+				"/sounds/fr/au sous-sol.mp3",
+				"au sous-sol",
+				"in the basement"
+			],
+			[
+				"/sounds/fr/au rez-de-chaussée.mp3",
+				"au rez-de-chaussée",
+				"on the ground floor"
+			],
+			[
+				"/sounds/fr/au premier étage au deuxième étage au troisième étage.mp3",
+				"au premier / deuxième / troisième étage",
+				"on the first / second / third floor"
+			],
+			[
+				"/sounds/fr/chambre.mp3",
+				"chambre (f)",
+				"bedroom"
+			],
+			[
+				"/sounds/fr/salle de bains.mp3",
+				"salle (f) de bains",
+				"bathroom"
+			],
+			[
+				"/sounds/fr/douche.mp3",
+				"douche (f)",
+				"shower room"
+			],
+			[
+				"/sounds/fr/toilettes.mp3",
+				"toilettes (fpl)*",
+				"toilet"
+			],
+			[
+				"/sounds/fr/salon.mp3",
+				"salon (m)",
+				"lounge"
+			],
+			[
+				"/sounds/fr/salle de séjour.mp3",
+				"salle (f) de séjour",
+				"living room"
+			],
+			[
+				"/sounds/fr/salle à manger.mp3",
+				"salle (f) à manger",
+				"dining room"
+			],
+			[
+				"/sounds/fr/cuisine.mp3",
+				"cuisine (f)",
+				"kitchen"
+			],
+			[
+				"/sounds/fr/buanderie.mp3",
+				"buanderie (f)",
+				"utility / laundry room"
+			],
+			[
+				"/sounds/fr/cave.mp3",
+				"cave (f)",
+				"cellar"
+			],
+			[
+				"/sounds/fr/grenier.mp3",
+				"grenier (m)",
+				"attic "
+			],
+			[
+				"/sounds/fr/balcon.mp3",
+				"balcon (m)",
+				"balcony"
+			],
+			[
+				"/sounds/fr/jardin.mp3",
+				"jardin (m)",
+				"garden"
+			],
+			[
+				"/sounds/fr/derrière.mp3",
+				"derrière",
+				"behind"
+			],
+			[
+				"/sounds/fr/devant.mp3",
+				"devant",
+				"in front of"
+			],
+			[
+				"/sounds/fr/à l'étage.mp3",
+				"à l'étage",
+				"upstairs"
+			],
+			[
+				"/sounds/fr/confortable.mp3",
+				"confortable",
+				"comfortable"
+			],
+			[
+				"/sounds/fr/spacieux spacieuse.mp3",
+				"spacieux / spacieuse",
+				"spacious "
+			],
+			[
+				"/sounds/fr/lumineux lumineuse.mp3",
+				"lumineux / lumineuse",
+				"light"
+			],
+			[
+				"/sounds/fr/délicieux délicieuse.mp3",
+				"délicieux / délicieuse",
+				"delicious"
+			],
+			[
+				"/sounds/fr/dangereux dangereuse.mp3",
+				"dangereux / dangereuse",
+				"dangerous"
+			],
+			[
+				"/sounds/fr/courageux courageuse.mp3",
+				"courageux / courageuse",
+				"courageous /brave"
+			],
+			[
+				"/sounds/fr/ambitieux ambitieuse.mp3",
+				"ambitieux / ambitieuse",
+				"ambitious"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "LO5Grammar",
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage"
+	},
+	"pronunciation": {
+		"component": "LO5Demystify",
+		"expandable": false,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"pictureTable1": {
+					"component": "Blanks",
+					"congratulationsText": "Très bien !",
+					"id": "picturesAndWords1",
+					"instructionsText": "Match the pictures and words",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "pictures-answers",
+					"pictures": [
+						"images/memory-rooms/bathroom.jpg",
+						"images/memory-rooms/bedroom.jpg",
+						"images/memory-rooms/cellar.jpg",
+						"images/memory-rooms/shower-room.jpg",
+						"images/memory-rooms/dining-room.jpg",
+						"images/memory-rooms/utility-room.jpg",
+						"images/memory-rooms/lounge.jpg",
+						"images/memory-rooms/toilet.jpg",
+						"images/memory-rooms/attic.jpg",
+						"images/memory-rooms/balcony.jpg",
+						"images/memory-rooms/kitchen.jpg",
+						"images/memory-rooms/study.jpg"
+					],
+					"answers": [
+						"salle de bains",
+						"chambre",
+						"cave",
+						"douche",
+						"salle à manger",
+						"buanderie",
+						"salon",
+						"toilettes",
+						"grenier",
+						"balcon",
+						"cuisine",
+						"bureau"
+					],
+					"soundFiles": [
+						"sounds/fr/la salle de bains.mp3",
+						"sounds/fr/la chambre.mp3",
+						"sounds/fr/la cave.mp3",
+						"sounds/fr/la douche.mp3",
+						"sounds/fr/la salle à manger.mp3",
+						"sounds/fr/la buanderie.mp3",
+						"sounds/fr/le salon.mp3",
+						"sounds/fr/les toilettes.mp3",
+						"sounds/fr/le grenier.mp3",
+						"sounds/fr/le balcon.mp3",
+						"sounds/fr/la cuisine.mp3",
+						"sounds/fr/le bureau.mp3"
+					],
+					"titleText": "1. The Rooms of the House"
+				}
+			},
+			{
+				"dropdowns1": {
+					"component": "DropDowns",
+					"id": "dropdowns1",
+					"congratulationsText": "Excellent !",
+					"instructionsText": "Listen to the speakers and select the correct definite article to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "[le|*la|les] salle de bains",
+							"audio": "sounds/fr/la salle de bains.mp3"
+						},
+						{
+							"text": "[le|*la|les] chambre",
+							"audio": "sounds/fr/la chambre.mp3"
+						},
+						{
+							"text": "[le|*la|les] cave",
+							"audio": "sounds/fr/la cave.mp3"
+						},
+						{
+							"text": "[le|*la|les] douche",
+							"audio": "sounds/fr/la douche.mp3"
+						},
+						{
+							"text": "[le|*la|les] salle à manger",
+							"audio": "sounds/fr/la salle à manger.mp3"
+						},
+						{
+							"text": "[le|*la|les] buanderie",
+							"audio": "sounds/fr/la buanderie.mp3"
+						},
+						{
+							"text": "[*le|la|les] salon",
+							"audio": "sounds/fr/le salon.mp3"
+						},
+						{
+							"text": "[le|la|*les] toilettes",
+							"audio": "sounds/fr/les toilettes.mp3"
+						},
+						{
+							"text": "[*le|la|les] grenier",
+							"audio": "sounds/fr/le grenier.mp3"
+						},
+						{
+							"text": "[*le|la|les] balcon",
+							"audio": "sounds/fr/le balcon.mp3"
+						},
+						{
+							"text": "[le|*la|les] cuisine",
+							"audio": "sounds/fr/la cuisine.mp3"
+						},
+						{
+							"text": "[*le|la|les] bureau",
+							"audio": "sounds/fr/le bureau.mp3"
+						}
+					],
+					"titleText": "2. Do you remember the gender?"
+				}
+			},
+			{
+				"dropdowns2": {
+					"component": "DropDowns",
+					"id": "dropdowns2",
+					"congratulationsText": "Très bien !",
+					"instructionsText": "Listen to the speakers and select the correct form of the adjective to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"items": [
+						{
+							"text": "Le bureau est [*lumineux|lumineuse/ lumineuses].",
+							"audio": "sounds/fr/Le bureau est lumineux.mp3"
+						},
+						{
+							"text": "La cave est [dangereux|*dangereuse|dangereuses].",
+							"audio": "sounds/fr/La cave est dangereuse.mp3"
+						},
+						{
+							"text": "Mme Leserre est très [curieux|*curieuse|curieuses].",
+							"audio": "sounds/fr/Mme Leserre est très curieuse.mp3"
+						},
+						{
+							"text": "Pauline, tu es très [courageux|*courageuse|courageuses]. ",
+							"audio": "sounds/fr/Pauline, tu es très courageuse.mp3"
+						},
+						{
+							"text": "Le Champagne est [*délicieux|délicieuse|délicieuses].",
+							"audio": "sounds/fr/Le Champagne est délicieux.mp3"
+						},
+						{
+							"text": "Les étudiantes sont [ambitieux|ambitieuse|*ambitieuses].",
+							"audio": "sounds/fr/Les étudiantes sont ambitieuses.mp3"
+						}
+					],
+					"commented-out": "test [a|*b|c|d|e] and [*a|b|c|d].",
+					"titleText": "3. Practise descriptions"
+				}
+			},
+			{
+				"phrases1": {
+					"component": "Blanks",
+					"id": "phrases1",
+					"congratulationsText": "Superbe !",
+					"instructionsText": "Drag the words to fill in the gaps.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"blanksType": "phrases",
+					"items": [
+						{
+							"text": "J'habite [seule]. Mon appartement n'est pas [très] grand, mais il est très [confortable].  Il y a [une] salle de séjour [lumineuse]. Elle [est] très jolie. J'ai un petit [balcon] – c'est super !  Il y a [deux] chambres, une pour [moi] et une autre [petite] chambre pour mes invités. J'ai une salle de bains et des [toilettes], bien sûr ! Il y a [un] jardin devant l'immeuble.",
+							"audio": "sounds/fr/LO5 phrases1.mp3"
+						}
+					],
+					"titleText": "4. Complete the description"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises"
+	}
+}
