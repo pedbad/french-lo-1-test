@@ -143,8 +143,8 @@ html {
 
 	&.can-speak {
 			#content {
-	.special-anchor,
-	.special-anchor:visited {
+	.modal-link,
+	.modal-link:visited {
 		color: oklch(0.646 0.222 41.116);
 		text-decoration: underline;
 		text-underline-offset: 3px;
@@ -161,38 +161,37 @@ html {
 					text-underline-offset: 3px;
 					cursor: pointer;
 				}
-			.special-anchor {
+			.modal-link {
 				position: relative;
-				padding-right: 17px;
+				padding-right: 22px;
 
 				&::before,
 				&::after {
 					content: "";
 					position: absolute;
 					right: 0;
-					top: 2px;
+					top: 50%;
 					pointer-events: none;
 				}
 
 				&::before {
-					width: 16px;
-					height: 16px;
-					background-color: var(--primary);
+					width: 20px;
+					height: 20px;
+					transform: translateY(-50%);
+					background-color: currentColor;
 
-					-webkit-mask-image: url("/images/icons/info-icon.svg");
+					-webkit-mask-image: url("/images/icons/message-square-warning.svg");
 					-webkit-mask-repeat: no-repeat;
 					-webkit-mask-position: center;
 					-webkit-mask-size: contain;
 
-					mask-image: url("/images/icons/info-icon.svg");
+					mask-image: url("/images/icons/message-square-warning.svg");
 					mask-repeat: no-repeat;
 					mask-position: center;
 					mask-size: contain;
 				}
 				&::after {
-					height: 17px;
-					width: 17px;
-					border-bottom: 1px solid var(--primary);
+					display: none;
 				}
 			}
 		}
@@ -223,7 +222,7 @@ html {
 	animation-iteration-count: 3;
 }
 
-.special-anchor-target.flash-target {
+.modal-link-target.flash-target {
 	background-color: color-mix(in oklab, var(--ped-warn) 40%, transparent);
 	box-shadow: 0 0 0 5px color-mix(in oklab, var(--ped-warn) 20%, transparent);
 	border-radius: 0.4rem;
@@ -517,7 +516,7 @@ hr {
 			color: var(--primary);
 			cursor: pointer;
 			text-decoration: underline;
-			&.special-anchor-target {
+			&.modal-link-target {
 				color: initial;
 				text-decoration: initial;
 				display: block;
@@ -666,12 +665,12 @@ hr {
 		display: none;
 	}
 }
-.special-anchor {
+.modal-link {
 	color: oklch(0.646 0.222 41.116);
 	text-decoration-color: color-mix(in oklab, oklch(0.646 0.222 41.116) 60%, transparent);
 	font-weight: 600;
 }
-.special-anchor:visited {
+.modal-link:visited {
 	color: oklch(0.646 0.222 41.116);
 	text-decoration-color: color-mix(in oklab, oklch(0.646 0.222 41.116) 60%, transparent);
 }

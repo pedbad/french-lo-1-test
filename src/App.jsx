@@ -27,13 +27,13 @@ import {
 	Section,
 	Social,
 	Sortable,
-	SpecialLinkModal,
+	ModalLinkDialog,
 	WordGrid,
 	WordParts,
 } from "./components";
 import {
 	handleResponse,
-	handleSpecialLinkClick,
+	handleModalLinkClick,
 	isTouchChrome,
 	playAudioLink,
 	speak,
@@ -66,9 +66,9 @@ export default class App extends React.Component {
 			errors: [],
 			languageCode: languageCode,
 			showDialog: false,
-			showSpecialLinkModal: false,
-			specialLinkModalTitle: "",
-			specialLinkModalContentHTML: "",
+			showModalLinkDialog: false,
+			modalLinkDialogTitle: "",
+			modalLinkDialogContentHTML: "",
 		};
 
 		// this.loadConfig = this.loadConfig.bind(this);
@@ -123,7 +123,7 @@ export default class App extends React.Component {
 				`./src/learningObjectConfigurations/${languageCode}/${loId}.json`,
 				loId
 			);
-			this.initialiseSpecialAnchors();
+			this.initialiseModalLinks();
 
 			configPromise.then(this.initialiseSynth);
 		} else {
@@ -139,7 +139,7 @@ export default class App extends React.Component {
 	};
 
 	componentDidUpdate = () => {
-		this.initialiseSpecialAnchors();
+		this.initialiseModalLinks();
 	};
 
 	expandAllAccordions = () => {
@@ -172,23 +172,23 @@ export default class App extends React.Component {
 		});
 	};
 
-	showSpecialLinkModal = (title, contentHTML) => {
+	showModalLinkDialog = (title, contentHTML) => {
 		this.setState({
-			showSpecialLinkModal: true,
-			specialLinkModalTitle: title || "",
-			specialLinkModalContentHTML: contentHTML || "",
+			showModalLinkDialog: true,
+			modalLinkDialogTitle: title || "",
+			modalLinkDialogContentHTML: contentHTML || "",
 		});
 	};
 
-	hideSpecialLinkModal = () => {
+	hideModalLinkDialog = () => {
 		this.setState({
-			showSpecialLinkModal: false,
-			specialLinkModalTitle: "",
-			specialLinkModalContentHTML: "",
+			showModalLinkDialog: false,
+			modalLinkDialogTitle: "",
+			modalLinkDialogContentHTML: "",
 		});
 	};
 
-	findSpecialLinkContent = (targetId) => {
+	findModalLinkContent = (targetId) => {
 		const { config } = this.state;
 		if (!config) {
 			return {
@@ -240,7 +240,7 @@ export default class App extends React.Component {
 
 		const targetEl =
 			document.getElementById(targetId) ||
-			document.querySelector(`.special-anchor-target[name="${targetId}"]`);
+			document.querySelector(`.modal-link-target[name="${targetId}"]`);
 		if (targetEl) {
 			const container = targetEl.closest("p, li, div, section") || targetEl;
 			return {
@@ -255,8 +255,8 @@ export default class App extends React.Component {
 		};
 	};
 
-	initialiseSpecialAnchors = () => {
-		const anchors = document.querySelectorAll(".special-anchor");
+	initialiseModalLinks = () => {
+		const anchors = document.querySelectorAll(".modal-link");
 		anchors.forEach((anchor) => {
 			// console.log("anchor", anchor);
 			if (anchor.setup) {
@@ -265,14 +265,14 @@ export default class App extends React.Component {
 			} else {
 				if (anchor.classList.contains('nav')) {
 					anchor.addEventListener("click", (e) =>
-						handleSpecialLinkClick(e, { mode: "scroll" })
+						handleModalLinkClick(e, { mode: "scroll" })
 					);
 				} else {
 					anchor.addEventListener("click", (e) =>
-						handleSpecialLinkClick(e, {
+						handleModalLinkClick(e, {
 							mode: "modal",
-							findSpecialLinkContent: this.findSpecialLinkContent,
-							showSpecialLinkModal: this.showSpecialLinkModal,
+							findModalLinkContent: this.findModalLinkContent,
+							showModalLinkDialog: this.showModalLinkDialog,
 						})
 					);
 				}
@@ -280,7 +280,7 @@ export default class App extends React.Component {
 			}
 			anchor.setup = true;
 		});
-		const targets = document.querySelectorAll(".special-anchor-target");
+		const targets = document.querySelectorAll(".modal-link-target");
 		targets.forEach((target) => {
 			if (target.setup) {
 				// do nothing
@@ -721,9 +721,9 @@ export default class App extends React.Component {
 			learningObjects = [],
 			refreshErrorLog,
 			showDialog = false,
-			showSpecialLinkModal = false,
-			specialLinkModalTitle = "",
-			specialLinkModalContentHTML = "",
+			showModalLinkDialog = false,
+			modalLinkDialogTitle = "",
+			modalLinkDialogContentHTML = "",
 			settings,
 			showSpeechError = false,
 			siteTitle,
@@ -768,9 +768,9 @@ export default class App extends React.Component {
 
 						<span
 							aria-hidden="true"
-							className={`special-anchor-target`}
-							id="special-anchor-top"
-							name={`special-anchor-top`}
+							className={`modal-link-target`}
+							id="modal-link-top"
+							name={`modal-link-top`}
 							style={{ "position": "absolute", "top": "-4rem" }}
 							tabIndex="-1"
 						/>
@@ -781,11 +781,11 @@ export default class App extends React.Component {
 							clearError={this.clearError}
 							refreshErrorLog={refreshErrorLog}
 						/>
-						<SpecialLinkModal
-							open={showSpecialLinkModal}
-							title={specialLinkModalTitle}
-							contentHTML={specialLinkModalContentHTML}
-							onClose={this.hideSpecialLinkModal}
+						<ModalLinkDialog
+							open={showModalLinkDialog}
+							title={modalLinkDialogTitle}
+							contentHTML={modalLinkDialogContentHTML}
+							onClose={this.hideModalLinkDialog}
 						/>
 
 						<MainMenu

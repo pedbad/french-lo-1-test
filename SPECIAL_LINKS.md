@@ -1,12 +1,12 @@
-Step-by-Step Solution: Implementing a Modal for Special Links
+Step-by-Step Solution: Implementing a Modal for Modal Links
 
 This involves three main parts: setting up the modal, getting the content, and triggering the modal.
 
 Area 1: Setting Up the Modal Component
 
 1. Identify/Create a Modal Component:
-    * Baby Step: You need a pop-up window component. You can use an existing one (like Congratulate) or create a new SpecialLinkModal (potentially using shadcn/Radix Dialog).
-    * Action: This SpecialLinkModal needs to accept show (boolean), title (string), contentHTML (HTML string), and onClose (function) as props.
+    * Baby Step: You need a pop-up window component. You can use an existing one (like Congratulate) or create a new ModalLinkDialog (potentially using shadcn/Radix Dialog).
+    * Action: This ModalLinkDialog needs to accept show (boolean), title (string), contentHTML (HTML string), and onClose (function) as props.
 
 2. Add Modal State to `App.jsx`:
     * Baby Step: App.jsx needs to control the modal's visibility, title, and content.
@@ -14,45 +14,45 @@ Area 1: Setting Up the Modal Component
 
         this.state = {
             // ... existing state ...
-            showSpecialLinkModal: false,       // Is the modal currently visible?
-            specialLinkModalTitle: '',         // Title for the modal header
-            specialLinkModalContentHTML: '',   // The HTML content for the modal body
+            showModalLinkDialog: false,       // Is the modal currently visible?
+            modalLinkDialogTitle: '',         // Title for the modal header
+            modalLinkDialogContentHTML: '',   // The HTML content for the modal body
         };
 
 3. Create Modal Control Functions in `App.jsx`:
     * Baby Step: You need functions to open and close the modal.
     * Action: In src/App.jsx, define these methods:
 
-        showSpecialLinkModal = (title, contentHTML) => {
+        showModalLinkDialog = (title, contentHTML) => {
             this.setState({
-                showSpecialLinkModal: true,
-                specialLinkModalTitle: title,
-                specialLinkModalContentHTML: contentHTML,
+                showModalLinkDialog: true,
+                modalLinkDialogTitle: title,
+                modalLinkDialogContentHTML: contentHTML,
             });
         };
 
-        hideSpecialLinkModal = () => {
+        hideModalLinkDialog = () => {
             this.setState({
-                showSpecialLinkModal: false,
-                specialLinkModalTitle: '',
-                specialLinkModalContentHTML: '',
+                showModalLinkDialog: false,
+                modalLinkDialogTitle: '',
+                modalLinkDialogContentHTML: '',
             });
         };
 
 4. Render the Modal in `App.jsx`:
-    * Baby Step: Place your SpecialLinkModal component in App.jsx's render method so it's always available to appear.
-    * Action: Add your SpecialLinkModal near the top of the render method, inside the main app div:
+    * Baby Step: Place your ModalLinkDialog component in App.jsx's render method so it's always available to appear.
+    * Action: Add your ModalLinkDialog near the top of the render method, inside the main app div:
 
         // Inside App.jsx render() method
         return (
             <div className="app ...">
                 {/* ... other top-level components ... */}
 
-                <SpecialLinkModal
-                    show={showSpecialLinkModal}
-                    title={specialLinkModalTitle}
-                    contentHTML={specialLinkModalContentHTML}
-                    onClose={this.hideSpecialLinkModal}
+                <ModalLinkDialog
+                    show={showModalLinkDialog}
+                    title={modalLinkDialogTitle}
+                    contentHTML={modalLinkDialogContentHTML}
+                    onClose={this.hideModalLinkDialog}
                 />
 
                 {/* ... rest of your App.jsx content ... */}
@@ -62,14 +62,14 @@ Area 1: Setting Up the Modal Component
 Area 2: Content Retrieval (Single Source of Truth)
 
 5. Understand JSON Content Structure:
-    * Baby Step: Identify where the explanation text is located in your config JSON (e.g., 1.json). For special links like #tuvous, the explanation is likely in a property like infoTextHTML within a specific grammar section.
+    * Baby Step: Identify where the explanation text is located in your config JSON (e.g., 1.json). For modal links like #tuvous, the explanation is likely in a property like infoTextHTML within a specific grammar section.
     * Action: Make a mental note of how a targetId (like tuvous) maps to a title and infoTextHTML within your this.state.config object.
 
-6. Create a `findSpecialLinkContent` Utility in `App.jsx`:
-    * Baby Step: This function will search your this.state.config object for the explanation based on the targetId from the special link.
+6. Create a `findModalLinkContent` Utility in `App.jsx`:
+    * Baby Step: This function will search your this.state.config object for the explanation based on the targetId from the modal link.
     * Action: Add this method to App.jsx. This will be the most complex part to customize based on your JSON's exact structure.
 
-        findSpecialLinkContent = (targetId) => {
+        findModalLinkContent = (targetId) => {
             const { config } = this.state;
             if (!config) return { title: 'Error', contentHTML: '<p>Content not loaded.</p>' };
 
@@ -111,15 +111,15 @@ Area 2: Content Retrieval (Single Source of Truth)
 
 Area 3: Triggering the Modal
 
-8. Modify `handleSpecialLinkClick` (in `utility.js` and `App.jsx`):
-    * Baby Step: Change the existing handleSpecialLinkClick (which causes scrolling) to instead call your showSpecialLinkModal.
+8. Modify `handleModalLinkClick` (in `utility.js` and `App.jsx`):
+    * Baby Step: Change the existing handleModalLinkClick (which causes scrolling) to instead call your showModalLinkDialog.
     * Action:
-        * Update src/App.jsx's initialiseSpecialAnchors to pass the new findSpecialLinkContent and showSpecialLinkModal methods to handleSpecialLinkClick.
-        * Modify utility.js's handleSpecialLinkClick to:
+        * Update src/App.jsx's initialiseModalLinks to pass the new findModalLinkContent and showModalLinkDialog methods to handleModalLinkClick.
+        * Modify utility.js's handleModalLinkClick to:
             * e.preventDefault(); (stop scrolling).
             * Extract targetId from href.
-            * Call the findSpecialLinkContent callback with targetId.
-            * Call the showSpecialLinkModal callback with the retrieved title and contentHTML.
+            * Call the findModalLinkContent callback with targetId.
+            * Call the showModalLinkDialog callback with the retrieved title and contentHTML.
             * Remove or disable any old scroll and highlight logic.
 
 9. Remove Old "Back to Link" Button:

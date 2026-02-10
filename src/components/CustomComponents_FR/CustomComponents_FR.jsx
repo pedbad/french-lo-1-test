@@ -48,9 +48,9 @@ export class LO1Grammar1 extends PureComponent {
 					<p>You will learn:</p>
 					<ul><li>When to use Monsieur, Madame, and Mademoiselle.</li><li>Abbreviations: M., Mme., Mlle.</li></ul>
 
-					<p><span className={`special-anchor-target`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
+					<p><span className={`modal-link-target`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
 						To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`/sounds/fr/Madame.mp3`}><b>Madame</b></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
-					</span><span className={`special-anchor-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`/sounds/fr/Mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
+					</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`/sounds/fr/Mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
 						for a teenage girl.</span></p>
 					<Table>
 						<TableBody>
@@ -95,11 +95,11 @@ export class LO1Grammar2 extends PureComponent {
 						<li>How to use <i>vous</i> formally or when speaking to several people.</li>
 						<li>How <i>toi</i> replaces <i>tu</i> in responses (<i>Et toi ?</i>).</li>
 					</ul>
-					<p><span className={`special-anchor-target`} id={`tuvous`} name={`tuvous`}>2&nbsp;
+					<p><span className={`modal-link-target`} id={`tuvous`} name={`tuvous`}>2&nbsp;
 						<AudioClip className={`link`} soundFile={`sounds/fr/tu.mp3`}><b>Tu</b></AudioClip> and&nbsp;
 						<AudioClip className={`link`} soundFile={`sounds/fr/vous.mp3`}><b>vous</b></AudioClip>&nbsp;both mean 'you'.</span></p>
 					<p><b>Tu</b> is used when addressing one person and is familiar. That means you use it when speaking to your partner, a relative, a friend,
-						a classmate or a child etc. <span className={`special-anchor-target`} id={`toi`} name={`toi`} >When returning question i.e. when you ask 'and you?' you use the
+						a classmate or a child etc. <span className={`modal-link-target`} id={`toi`} name={`toi`} >When returning question i.e. when you ask 'and you?' you use the
 						form&nbsp;
 					<AudioClip className={`link`} soundFile={`sounds/fr/toi.mp3`}><b>toi</b></AudioClip> instead of&nbsp;
 					<AudioClip className={`link`} soundFile={`sounds/fr/tu.mp3`}><b>tu:</b></AudioClip>&nbsp;
@@ -275,12 +275,12 @@ export class LO2Grammar extends PureComponent {
 								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/tu es.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
-								<TableCell><a className={`special-anchor`} href={`#subject-pronouns`}>il</a> est</TableCell>
+								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>il</a> est</TableCell>
 								<TableCell>he is, it is</TableCell>
 								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/il est.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
-								<TableCell><a className={`special-anchor`} href={`#subject-pronouns`}>elle</a> est</TableCell>
+								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elle</a> est</TableCell>
 								<TableCell>she is, it is</TableCell>
 								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/elle est.mp3`} /></TableCell>
 							</TableRow>
@@ -295,12 +295,12 @@ export class LO2Grammar extends PureComponent {
 								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/vous êtes.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
-								<TableCell><a className={`special-anchor`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
+								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
 								<TableCell>they are</TableCell>
 								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/ils sont.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
-								<TableCell><a className={`special-anchor`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
+								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
 								<TableCell>they are</TableCell>
 								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/elles sont.mp3`} /></TableCell>
 							</TableRow>
@@ -349,7 +349,7 @@ export class LO2Grammar extends PureComponent {
 					id={`${id ? `${id}Panel3` : ''}`}
 					key={`${id}Panel3`}
 				>
-					<p><a className={`special-anchor-target`} id={`subject-pronouns`} name={`subject-pronouns`} ><b>3. Subject pronouns</b>.</a></p>
+					<p><a className={`modal-link-target`} id={`subject-pronouns`} name={`subject-pronouns`} ><b>3. Subject pronouns</b>.</a></p>
 					<ul>
 						<li><b>Il</b> is used to replace a masculine noun.</li>
 						<li><b>Elle</b> is used to replace a feminine noun.</li>

@@ -220,7 +220,7 @@ export const scrollToElement = (element) => {
 	}, 2000);
 
 };
-export const handleSpecialLinkClick = (e, options = {}) => {
+export const handleModalLinkClick = (e, options = {}) => {
 	e.preventDefault();
 
 	const linkEl = e.currentTarget;
@@ -231,25 +231,25 @@ export const handleSpecialLinkClick = (e, options = {}) => {
 	const targetId = rawAfterHash.replace(/^[.#]+/, "").trim();
 	if (!targetId) return;
 
-	const { mode = "modal", findSpecialLinkContent, showSpecialLinkModal } = options;
+	const { mode = "modal", findModalLinkContent, showModalLinkDialog } = options;
 
 	if (mode === "scroll") {
 		const targetEl =
 			document.getElementById(targetId) ||
-			document.querySelector(`.special-anchor-target[name="${targetId}"]`);
+			document.querySelector(`.modal-link-target[name="${targetId}"]`);
 		if (targetEl) scrollToElement(targetEl);
 		return;
 	}
 
 	if (
-		typeof findSpecialLinkContent !== "function" ||
-		typeof showSpecialLinkModal !== "function"
+		typeof findModalLinkContent !== "function" ||
+		typeof showModalLinkDialog !== "function"
 	) {
 		return;
 	}
 
-	const { title, contentHTML } = findSpecialLinkContent(targetId);
-	showSpecialLinkModal(title, contentHTML);
+	const { title, contentHTML } = findModalLinkContent(targetId);
+	showModalLinkDialog(title, contentHTML);
 };
 
 export const highlightTextDiff = (a, b, countCorrect, sounds = false) => {

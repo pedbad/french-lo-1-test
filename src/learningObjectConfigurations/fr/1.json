@@ -52,7 +52,7 @@
             ],
             [
               "sounds/fr/Bonjour Monsieur Letort ! \u00c7a va tr\u00e8s bien. Et vous.mp3",
-              "Bonjour Monsieur Letort ! \u00c7a va tr\u00e8s bien. Et <a class='special-anchor' href='#tuvous'>vous</a> ?",
+              "Bonjour Monsieur Letort ! \u00c7a va tr\u00e8s bien. Et <a class='modal-link' href='#tuvous'>vous</a> ?",
               "Hello M Letort, I'm very well, thank you. And you?"
             ],
             [
@@ -72,12 +72,12 @@
           "phrases": [
             [
               "sounds/fr/Comment t'appelles-tu.mp3",
-              "Comment t'appelles-<a class='special-anchor' href='#tuvous'>tu</a> ?",
+              "Comment t'appelles-<a class='modal-link' href='#tuvous'>tu</a> ?",
               "What's your name?"
             ],
             [
               "sounds/fr/Je m'appelle Max, et toi.mp3",
-              "Je m'appelle Max, et <a class='special-anchor' href='#toi'>toi</a> ?",
+              "Je m'appelle Max, et <a class='modal-link' href='#toi'>toi</a> ?",
               "My name is Max. And you're\u2026.?"
             ],
             [
@@ -97,7 +97,7 @@
           "phrases": [
             [
               "sounds/fr/Comment vous appelez-vous.mp3",
-              "Comment <a class='special-anchor' href='#tuvous'>vous</a> appelez-vous ?",
+              "Comment <a class='modal-link' href='#tuvous'>vous</a> appelez-vous ?",
               "What's your name?"
             ],
             [
@@ -157,12 +157,12 @@
       ],
       [
         "sounds/fr/madame.mp3",
-        "<a class='special-anchor' href='#madame'>Madame</a>",
+        "<a class='modal-link' href='#madame'>Madame</a>",
         "Madam, Mrs / Ms"
       ],
       [
         "sounds/fr/mademoiselle.mp3",
-        "<a class='special-anchor' href='#mademoiselle'>Mademoiselle</a>",
+        "<a class='modal-link' href='#mademoiselle'>Mademoiselle</a>",
         "Young lady, Miss"
       ],
       [
@@ -227,12 +227,12 @@
       ],
       [
         "sounds/fr/Comment t'appelles-tu.mp3",
-        "Comment t'appelles-<a class='special-anchor' href='#tuvous'>tu</a> ?",
+        "Comment t'appelles-<a class='modal-link' href='#tuvous'>tu</a> ?",
         "What's your name?"
       ],
       [
         "sounds/fr/Comment vous appelez-vous.mp3",
-        "Comment <a class='special-anchor' href='#tuvous'>vous</a> appelez-vous ?",
+        "Comment <a class='modal-link' href='#tuvous'>vous</a> appelez-vous ?",
         "What's your name?"
       ],
       [
@@ -463,7 +463,7 @@
           "congratulationsText": "Tr\u00e8s bien !",
           "id": "phrases4",
           "informationText": "Practise reconstructing short informal and formal conversations using the right words and register.",
-          "instructionsTextHTMLXXX": "<a name='nested' class='special-anchor-target'>nested target, how are we doing?</a>",
+          "instructionsTextHTMLXXX": "<a name='nested' class='modal-link-target'>nested target, how are we doing?</a>",
           "showHintsText": "Show hints when moving",
           "items": [
             {

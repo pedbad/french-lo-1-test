@@ -19,7 +19,7 @@ const applyHighlightClasses = (html = "") => {
 	return withClasses.replace(/\bmodal-highlight\b/g, "");
 };
 
-export const SpecialLinkModal = ({ open, title, contentHTML, onClose }) => {
+export const ModalLinkDialog = ({ open, title, contentHTML, onClose }) => {
 	const safeHTML = contentHTML
 		? DOMPurify.sanitize(applyHighlightClasses(contentHTML))
 		: "";

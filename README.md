@@ -54,13 +54,14 @@ Typography is also normalized: root tokens (`--body-font-size`, `--body-line-hei
 - Remaining font-size inconsistencies (hardcoded px/rem) are being audited—Tailwind’s token-based scale plus new CSS vars for `2xl`/`3xl` will replace them gradually.
 - Introduction + Grammar now use a dedicated hero-style Section so instruction text and imagery share the same baseline and card framing as the rest of the UI.
 - Special anchors currently add a short delay before scrolling so accordion panels have time to expand; TODO: smooth that interaction so the highlight feels more immediate once we refactor the anchor logic.
-- Special links now open a shadcn/Radix modal (no scrolling). The modal pulls content from existing `infoTextHTML`/`informationTextHTML` so there’s no duplication; optional `<span class='modal-highlight'>…</span>` in JSON triggers a Tailwind-based highlight animation inside the modal only.
+- Modal links open a shadcn/Radix modal (no scrolling). The modal pulls content from existing `infoTextHTML`/`informationTextHTML` so there’s no duplication; optional `<span class='modal-highlight'>…</span>` in JSON triggers a Tailwind-based highlight animation inside the modal only.
 - Inline audio icons are normalized via CSS variables in `src/components/AudioClip/AudioClip.scss` to keep size and baseline alignment consistent across paragraph text.
 - The Introduction `HeroSection` can opt out of the default card styling via `transparentCard`, so it can sit directly on the page background (no white card or border) while other sections remain carded.
 - The Info panel now uses the Lucide `Info` icon (via `lucide-react`) instead of a custom masked SVG.
 - The favicon now uses the eLearning logo SVG (from the footer) via `public/favicon.svg`.
 - Added PNG favicon assets (16/32) plus Apple/Android icons and a `site.webmanifest` for broader device support.
 - Theme toggling now temporarily disables CSS transitions to prevent visible flicker (notably in tables) during light/dark switches.
+- Modal links use the Lucide `message-square-warning` icon for the inline indicator.
 
 ## TODO
 

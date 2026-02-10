@@ -5,7 +5,7 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { handleSpecialLinkClick } from "../../utility.js";
+import { handleModalLinkClick } from "../../utility.js";
 import { IconButton } from "..";
 import React from "react";
 
@@ -34,7 +34,7 @@ export class MainMenu extends React.Component {
 			const candidates = [];
 
 			// 1. Intro
-			const introEl = document.getElementById("special-anchor-intro");
+			const introEl = document.getElementById("modal-link-intro");
 			if (introEl) {
 				const rect = introEl.getBoundingClientRect();
 				// We only care that the top is below the menu and somewhere in the viewport
@@ -49,7 +49,7 @@ export class MainMenu extends React.Component {
 			// 2. Config sections (including Monologues)
 			for (const [, value] of Object.entries(config)) {
 				const { id } = value;
-				const target = document.getElementById(`special-anchor-${id}`);
+				const target = document.getElementById(`modal-link-${id}`);
 				if (!target) continue;
 
 				const rect = target.getBoundingClientRect();
@@ -116,12 +116,12 @@ export class MainMenu extends React.Component {
 
 	/**
    * Shared nav click handler for desktop + mobile.
-   * Uses your existing handleSpecialLinkClick for smart scrolling,
+   * Uses your existing handleModalLinkClick for smart scrolling,
    * and closes the mobile menu if it’s open.
    */
 	handleNavClick = (e) => {
-		// Use your global special link handler (handles preventDefault internally)
-		handleSpecialLinkClick(e, { mode: "scroll" });
+		// Use your global modal link handler (handles preventDefault internally)
+		handleModalLinkClick(e, { mode: "scroll" });
 
 		// Close mobile menu if open
 		if (this.state.mobileOpen) {
@@ -146,7 +146,7 @@ export class MainMenu extends React.Component {
 			if (component) {
 				const highlight = menuHighlight === `menuItem-${id}`;
 				const label = menuText ? menuText : titleText;
-				const href = `#special-anchor-${id}`;
+				const href = `#modal-link-${id}`;
 
 				// Desktop item
 				topMenu.push(
@@ -157,7 +157,7 @@ export class MainMenu extends React.Component {
 					>
 						<NavigationMenuLink asChild>
 							<a
-								className="special-anchor nav nav-link"
+								className="modal-link nav nav-link"
 								href={href}
 								onClick={this.handleNavClick}
 							>
@@ -172,7 +172,7 @@ export class MainMenu extends React.Component {
 					<li key={`mobile-${id}`} className={highlight ? "highlight" : ""}>
 						<a
 							href={href}
-							className="nav-link nav-link-mobile nav special-anchor"
+							className="nav-link nav-link-mobile nav modal-link"
 							onClick={this.handleNavClick}
 						>
 							{label}
@@ -189,7 +189,7 @@ export class MainMenu extends React.Component {
 			}
 		}
 
-		const introHref = "#special-anchor-intro";
+		const introHref = "#modal-link-intro";
 
 		return (
 			<header className="main-menu" id="mainMenu">
@@ -200,8 +200,8 @@ export class MainMenu extends React.Component {
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<a
-										className="special-anchor nav nav-title"
-										href="#special-anchor-top"
+										className="modal-link nav nav-title"
+										href="#modal-link-top"
 										onClick={this.handleNavClick}
 									>
 										{title}
@@ -219,7 +219,7 @@ export class MainMenu extends React.Component {
 							>
 								<NavigationMenuLink asChild>
 									<a
-										className="special-anchor nav nav-link"
+										className="modal-link nav nav-link"
 										href={introHref}
 										onClick={this.handleNavClick}
 									>
@@ -288,7 +288,7 @@ export class MainMenu extends React.Component {
 						<li className={introHighlight ? "highlight" : ""}>
 							<a
 								href={introHref}
-								className="nav-link nav-link-mobile nav special-anchor"
+								className="nav-link nav-link-mobile nav modal-link"
 								onClick={this.handleNavClick}
 							>
 								Introduction

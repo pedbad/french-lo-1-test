@@ -150,8 +150,8 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 ## 16) Audio Path Normalization
 - Fixed French audio playback by normalizing asset paths to NFD in `resolveAsset`, matching decomposed accent filenames on disk.
 
-## 17) Special Links → Modal (shadcn)
-- Added a shadcn/Radix Dialog modal for special links so clicks open contextual explanations instead of scrolling.
+## 17) Modal Links → Modal (shadcn)
+- Added a shadcn/Radix Dialog modal for modal links so clicks open contextual explanations instead of scrolling.
 - Content is pulled from existing config `infoTextHTML`/`informationTextHTML` (single source of truth).
 - Highlighting uses Tailwind classes in the modal; JSON can mark terms with `<span class='modal-highlight'>…</span>` without affecting in-page rendering.
 - Removed the back-to-link button and scroll-back logic.
@@ -176,6 +176,12 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 
 ## 23) Theme Toggle Smoothness
 - Added a short `no-theme-transition` class during light/dark toggles to suppress CSS transitions and prevent table-row flicker.
+
+## 24) Modal Link Icon
+- Modal links now use the Lucide `message-square-warning` indicator icon.
+
+## 25) Modal Link Naming
+- Renamed `special-anchor`/`special-anchor-target` to `modal-link`/`modal-link-target` across configs, styles, and handlers.
 
 
 # Files Deleted (partial but comprehensive)

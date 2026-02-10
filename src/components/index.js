@@ -38,7 +38,7 @@ export * from './Section';
 export * from './SequenceAudioController';
 export * from './Social';
 export * from './Sortable';
-export * from './SpecialLinkModal/SpecialLinkModal';
+export * from './ModalLinkDialog/ModalLinkDialog';
 export * from './TopButton';
 export * from './WordGrid';
 export * from './WordParts';

@@ -85,9 +85,9 @@ export class Section extends React.PureComponent {
 					<CardHeader className="px-6 pb-4 pt-6">
 						<CardTitle className="text-base [&_h2]:m-0">{/* font-semibold">*/}
 							<h2
-								className="special-anchor-target"
-								id={`special-anchor-${target}`}
-								name={`special-anchor-${target}`}
+								className="modal-link-target"
+								id={`modal-link-${target}`}
+								name={`modal-link-${target}`}
 							>
 								{titleHTML ? (
 									<span

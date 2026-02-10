@@ -272,8 +272,8 @@ export class PhraseTable extends React.PureComponent {
 		const targetNode = event?.target;
 		const anchorElement =
 			targetNode instanceof Element
-				? targetNode.closest(".special-anchor")
-				: targetNode?.parentElement?.closest(".special-anchor");
+				? targetNode.closest(".modal-link, .modal-link")
+				: targetNode?.parentElement?.closest(".modal-link, .modal-link");
 		if (anchorElement) return;
 
 		if (targetNode instanceof Element && targetNode.closest('.audio-container')) return;

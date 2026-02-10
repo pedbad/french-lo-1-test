@@ -95,9 +95,9 @@ export class AccordionArticle extends React.PureComponent {
 			<h2
 				onClick={this.toggleExpanded}
 				title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-				className={`special-anchor-target`}
-				id={`special-anchor-${target}`}
-				name={`special-anchor-${target}`}
+				className={`modal-link-target`}
+				id={`modal-link-${target}`}
+				name={`modal-link-${target}`}
 			>
 				{title}
 				{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}
@@ -109,9 +109,9 @@ export class AccordionArticle extends React.PureComponent {
 				<h2
 					onClick={this.toggleExpanded}
 					title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-					className={`special-anchor-target`}
-					id={`special-anchor-${target}`}
-					name={`special-anchor-${target}`}
+					className={`modal-link-target`}
+					id={`modal-link-${target}`}
+					name={`modal-link-${target}`}
 				>
 					<span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }} />
 					{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}
