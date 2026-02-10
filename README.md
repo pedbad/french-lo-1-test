@@ -60,6 +60,7 @@ Typography is also normalized: root tokens (`--body-font-size`, `--body-line-hei
 - The Info panel now uses the Lucide `Info` icon (via `lucide-react`) instead of a custom masked SVG.
 - The favicon now uses the eLearning logo SVG (from the footer) via `public/favicon.svg`.
 - Added PNG favicon assets (16/32) plus Apple/Android icons and a `site.webmanifest` for broader device support.
+- Theme toggling now temporarily disables CSS transitions to prevent visible flicker (notably in tables) during light/dark switches.
 
 ## TODO
 

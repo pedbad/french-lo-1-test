@@ -513,6 +513,13 @@ export default class App extends React.Component {
 
 		if (sessionStorage.getItem(`dark`)) dark = JSON.parse(sessionStorage.getItem(`dark`));
 
+		if (typeof document !== "undefined") {
+			document.documentElement.classList.add("no-theme-transition");
+			window.setTimeout(() => {
+				document.documentElement.classList.remove("no-theme-transition");
+			}, 200);
+		}
+
 		this.setDark(!dark);
 		// const html = document.getElementsByName('html');
 		// const cl = html.classList;

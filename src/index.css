@@ -264,6 +264,14 @@
 	}
 }
 
+@layer base {
+	html.no-theme-transition *,
+	html.no-theme-transition *::before,
+	html.no-theme-transition *::after {
+		transition: none !important;
+	}
+}
+
 /* @layer components {
 	.btn {
 		@apply inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide text-text-primary transition-transform duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 hover:-translate-y-0.5;

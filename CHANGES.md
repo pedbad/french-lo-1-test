@@ -174,6 +174,9 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Added `public/favicon.svg` using the eLearning logo from the footer and updated `index.html` to reference it.
 - Generated PNG favicon assets (16/32), Apple touch icon, Android icons, and `public/site.webmanifest`.
 
+## 23) Theme Toggle Smoothness
+- Added a short `no-theme-transition` class during light/dark toggles to suppress CSS transitions and prevent table-row flicker.
+
 
 # Files Deleted (partial but comprehensive)
 

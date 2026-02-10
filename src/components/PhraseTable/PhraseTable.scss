@@ -11,6 +11,13 @@
 	// @include standard-table();
 	table {
 		margin-top: 1rem;
+		tbody tr {
+			background-color: var(--card);
+		}
+		tbody tr:hover {
+			background-color: color-mix(in oklab, var(--muted) 70%, transparent);
+			color: var(--chart-2);
+		}
 		tbody {
 			tr {
 				td {
