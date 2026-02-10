@@ -181,9 +181,14 @@ $common-left-margin: 20px;
 
 	> .accordion-article > .content {
 		overflow: hidden;
-		border-color: rgb(var(--color-border-subtle) / 1) !important;
+		outline: none;
 		max-height: 0;
 		transition: max-height 0.45s ease;
+	}
+
+	.accordion-card-content {
+		outline: 2px solid rgb(var(--color-border-subtle) / 0.5);
+		background-color: rgb(var(--color-secondary-100) / 0.5);
 	}
 
 	> .accordion-article.expanded > .content {

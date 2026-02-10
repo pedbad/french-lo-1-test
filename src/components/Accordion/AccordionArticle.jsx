@@ -121,6 +121,7 @@ export class AccordionArticle extends React.PureComponent {
 
 		const contentId = `${id}-content`;
 		const { informationText, informationTextHTML } = config || {};
+		const hasInfo = Boolean(informationText || informationTextHTML);
 		const shouldSuppressChildInfo = Boolean(informationText || informationTextHTML);
 		const renderedChildren = shouldSuppressChildInfo
 			? React.Children.map(children, (child) =>
@@ -172,7 +173,7 @@ export class AccordionArticle extends React.PureComponent {
 						className={`content ${expanded ? 'animate-accordion-down' : ''}`}
 						data-state={expanded ? 'open' : 'closed'}
 					>
-						{expanded && (informationText || informationTextHTML) ? (
+						{hasInfo ? (
 							<Info
 								id={`info-${id}`}
 								informationText={informationText}
@@ -188,8 +189,8 @@ export class AccordionArticle extends React.PureComponent {
 						className={`content w-full sortable mt-2 border border-t-0 rounded-t-none ${expanded ? 'animate-accordion-down' : ''}`}
 						data-state={expanded ? 'open' : 'closed'}
 					>
-						<CardContent className="p-2">
-							{expanded && (informationText || informationTextHTML) ? (
+						<CardContent className="p-2 accordion-card-content">
+							{hasInfo ? (
 								<Info
 									id={`info-${id}`}
 									informationText={informationText}
