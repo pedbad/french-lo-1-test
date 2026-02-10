@@ -16,6 +16,8 @@ html.debug {
 .word-parts-container {
 	position: relative;
 	table {
+		font-size: inherit;
+		line-height: inherit;
 		p {
 			margin: 0;
 			letter-spacing: 0.2rem;
@@ -49,13 +51,13 @@ html.debug {
 	.wordparts-reveal.icon-button:hover {
 		background-color: color-mix(in oklab, var(--ped-warn) 85%, transparent);
 	}
-	span {
+	table span {
 		$tumble-iterations: 1; //8;
 		$tumble-time: 0.5s; // Same as sound clip!
 		border: 1px solid transparent;
 		cursor: pointer;
 		display: inline-block;
-		font-size: 0.8rem; //1rem; //1.2rem;
+		font-size: inherit;
 		padding: 0; //0.1rem 0; //0.5rem 0;
 		position: relative;
 		transform-style: preserve-3d;
@@ -144,9 +146,19 @@ html.debug {
 		}
 		table {
 			td {
-				font-size: 1rem;
+				font-size: calc(var(--font-size-xl) * 1.5);
 				padding: 0.25rem 1rem;
 			}
+		}
+	}
+}
+
+@include respond-below(m) {
+	.word-parts-container {
+		table td,
+		table span {
+			font-size: calc(var(--font-size-base) * 1.15);
+			line-height: 1.35;
 		}
 	}
 }

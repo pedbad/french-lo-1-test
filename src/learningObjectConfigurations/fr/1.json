@@ -21,22 +21,22 @@
           "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
           "phrases": [
             [
-              "sounds/fr/Salut, \u00e7a va.mp3",
-              "Salut, \u00e7a va ?",
+              "sounds/fr/Salut, ça va.mp3",
+              "Salut, ça va ?",
               "Hi, are you well?"
             ],
             [
-              "sounds/fr/Salut ! \u00c7a va ! Et toi.mp3",
-              "Salut ! \u00c7a va ! Et toi ?",
+              "sounds/fr/Salut ! Ça va ! Et toi.mp3",
+              "Salut ! Ça va ! Et toi ?",
               "Hi, I'm fine and you?"
             ],
             [
-              "sounds/fr/Tr\u00e8s bien, merci !.mp3",
-              "Tr\u00e8s bien, merci !",
+              "sounds/fr/Très bien, merci !.mp3",
+              "Très bien, merci !",
               "Very well, thank you!"
             ]
           ],
-          "titleText": "Informal greetings: \"Salut, \u00e7a va ?\""
+          "titleText": "Informal greetings: \"Salut, ça va ?\""
         }
       },
       {
@@ -46,18 +46,18 @@
           "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
           "phrases": [
             [
-              "sounds/fr/Bonjour, Madame Foucher ! Comment \u00e7a va.mp3",
-              "Bonjour, Madame Foucher ! Comment \u00e7a va ?",
+              "sounds/fr/Bonjour, Madame Foucher ! Comment ça va.mp3",
+              "Bonjour, Madame Foucher ! Comment ça va ?",
               "Hello, Mme Foucher! How are you?"
             ],
             [
-              "sounds/fr/Bonjour Monsieur Letort ! \u00c7a va tr\u00e8s bien. Et vous.mp3",
-              "Bonjour Monsieur Letort ! \u00c7a va tr\u00e8s bien. Et <a class='modal-link' href='#tuvous'>vous</a> ?",
+              "sounds/fr/Bonjour Monsieur Letort ! Ça va très bien. Et vous.mp3",
+              "Bonjour Monsieur Letort ! Ça va très bien. Et <a class='modal-link' href='#tuvous'>vous</a> ?",
               "Hello M Letort, I'm very well, thank you. And you?"
             ],
             [
-              "sounds/fr/\u00c7a va, merci !.mp3",
-              "\u00c7a va, merci !",
+              "sounds/fr/Ça va, merci !.mp3",
+              "Ça va, merci !",
               "I'm fine, thank you!"
             ]
           ],
@@ -78,7 +78,7 @@
             [
               "sounds/fr/Je m'appelle Max, et toi.mp3",
               "Je m'appelle Max, et <a class='modal-link' href='#toi'>toi</a> ?",
-              "My name is Max. And you're\u2026.?"
+              "My name is Max. And you're….?"
             ],
             [
               "sounds/fr/Je m'appelle Camille.mp3",
@@ -86,7 +86,7 @@
               "My name's Camille."
             ]
           ],
-          "titleText": "Informal introductions: \"Je m'appelle\u2026\""
+          "titleText": "Informal introductions: \"Je m'appelle…\""
         }
       },
       {
@@ -118,7 +118,7 @@
     "expandable": false,
     "id": "vocabulary",
     "instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Key greeting and farewell expressions (<i>Bonjour, Salut, Au revoir, \u00c0 bient\u00f4t</i>).</li><li>Terms of address (<i>Monsieur, Madame, Mademoiselle, Jeune homme, Les enfants</i>).</li><li>Friendly and affectionate expressions (<i>Mon ch\u00e9ri, Ma ch\u00e9rie, Mon amour</i>).</li></ul>",
+    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Key greeting and farewell expressions (<i>Bonjour, Salut, Au revoir, À bientôt</i>).</li><li>Terms of address (<i>Monsieur, Madame, Mademoiselle, Jeune homme, Les enfants</i>).</li><li>Friendly and affectionate expressions (<i>Mon chéri, Ma chérie, Mon amour</i>).</li></ul>",
     "phrases": [
       [
         "sounds/fr/bonjour.mp3",
@@ -146,8 +146,8 @@
         "Goodbye"
       ],
       [
-        "sounds/fr/\u00c0 bient\u00f4t.mp3",
-        "\u00c0 bient\u00f4t",
+        "sounds/fr/À bientôt.mp3",
+        "À bientôt",
         "See you soon!"
       ],
       [
@@ -187,7 +187,7 @@
       ],
       [
         "sounds/fr/mon cheri ma cherie.mp3",
-        "Mon ch\u00e9ri (m) / ma ch\u00e9rie (f)",
+        "Mon chéri (m) / ma chérie (f)",
         "My darling"
       ],
       [
@@ -201,23 +201,23 @@
         "Everyone (literally : all the world)"
       ],
       [
-        "sounds/fr/\u00c7a va (q).mp3",
-        "\u00c7a va ?",
+        "sounds/fr/Ça va (q).mp3",
+        "Ça va ?",
         "Are you well / OK?  Are things alright/ OK?"
       ],
       [
-        "sounds/fr/Comment \u00e7a va.mp3",
-        "Comment \u00e7a va ?",
+        "sounds/fr/Comment ça va.mp3",
+        "Comment ça va ?",
         "How are you? (literally: how's it going?)"
       ],
       [
-        "sounds/fr/Tr\u00e8s bien.mp3",
-        "Tr\u00e8s bien",
+        "sounds/fr/Très bien.mp3",
+        "Très bien",
         "Very well"
       ],
       [
-        "sounds/fr/\u00c7a va.mp3",
-        "\u00c7a va.",
+        "sounds/fr/Ça va.mp3",
+        "Ça va.",
         "(I'm) fine"
       ],
       [
@@ -237,17 +237,17 @@
       ],
       [
         "sounds/fr/Je m'appelle.mp3",
-        "Je m'appelle \u2026",
-        "My name is \u2026"
+        "Je m'appelle …",
+        "My name is …"
       ],
       [
-        "sounds/fr/Bonne journ\u00e9e !.mp3",
-        "Bonne journ\u00e9e !",
+        "sounds/fr/Bonne journée !.mp3",
+        "Bonne journée !",
         "Have a nice day!"
       ],
       [
-        "sounds/fr/Bonne soir\u00e9e !.mp3",
-        "Bonne soir\u00e9e !",
+        "sounds/fr/Bonne soirée !.mp3",
+        "Bonne soirée !",
         "Have a nice evening!   "
       ],
       [
@@ -286,8 +286,8 @@
         "Today"
       ],
       [
-        "sounds/fr/enchant\u00e9.mp3",
-        "Enchant\u00e9.e",
+        "sounds/fr/enchanté.mp3",
+        "Enchanté.e",
         "Pleased to meet you (literally: delighted)"
       ]
     ],
@@ -380,24 +380,24 @@
           "component": "WordParts",
           "congratulationsText": "Superbe !",
           "id": "wordparts1",
-          "informationTextHTML": "Select the part of each word that contains the nasal, <i>r</i>, or <i>oi</i> sound.",
+          "informationTextHTML": "Select the part of each word that contains the nasal, <i>r</i>, or <i>oi</i> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
           "showHintsText": "Show hints when moving",
           "items": [
             {
-              "text": "b[on]jou[r] m[on] ch\u00e9[r]i",
-              "audio": "sounds/fr/bonjour mon ch\u00e9ri.mp3"
+              "text": "b[on]jou[r] m[on] ché[r]i",
+              "audio": "sounds/fr/bonjour mon chéri.mp3"
             },
             {
               "text": "b[on]s[oi][r] m[on] amou[r]",
               "audio": "sounds/fr/bonsoir mon amour.mp3"
             },
             {
-              "text": "au [r]ev[oi][r] ma ch\u00e9[r]ie",
-              "audio": "sounds/fr/au revoir ma ch\u00e9rie.mp3"
+              "text": "au [r]ev[oi][r] ma ché[r]ie",
+              "audio": "sounds/fr/au revoir ma chérie.mp3"
             },
             {
-              "text": "quelle [h]o[rr]eu[r] Val\u00e9[r]ie !",
-              "audio": "sounds/fr/quelle horreur val\u00e9rie !.mp3"
+              "text": "quelle [h]o[rr]eu[r] Valé[r]ie !",
+              "audio": "sounds/fr/quelle horreur valérie !.mp3"
             }
           ],
           "titleText": "1. Identify pronunciation features"
@@ -414,16 +414,16 @@
           "blanksType": "phrases",
           "items": [
             {
-              "text": "Coucou [mon] amour ! \u00c7a [va] aujourd'hui ?",
-              "audio": "sounds/fr/Coucou mon amour ! \u00c7a va aujourd'hui.mp3"
+              "text": "Coucou [mon] amour ! Ça [va] aujourd'hui ?",
+              "audio": "sounds/fr/Coucou mon amour ! Ça va aujourd'hui.mp3"
             },
             {
-              "text": "Oui, ma [ch\u00e9rie] ! \u00c7a va [tr\u00e8s] bien ! Et [toi] ?",
-              "audio": "sounds/fr/Oui, ma ch\u00e9rie ! \u00c7a va tr\u00e8s bien ! Et toi.mp3"
+              "text": "Oui, ma [chérie] ! Ça va [très] bien ! Et [toi] ?",
+              "audio": "sounds/fr/Oui, ma chérie ! Ça va très bien ! Et toi.mp3"
             },
             {
-              "text": "\u00c7a va !",
-              "audio": "sounds/fr/\u00c7a va !.mp3"
+              "text": "Ça va !",
+              "audio": "sounds/fr/Ça va !.mp3"
             }
           ],
           "titleText": "2. Meeting and greeting gap fillers"
@@ -440,12 +440,12 @@
           "showHintsText": "Show hints when moving",
           "items": [
             {
-              "text": "Bonsoir Monsieur Galipot ! [Comment] \u00e7a va ?",
-              "audio": "sounds/fr/Bonsoir Monsieur Galipot ! Comment \u00e7a va.mp3"
+              "text": "Bonsoir Monsieur Galipot ! [Comment] ça va ?",
+              "audio": "sounds/fr/Bonsoir Monsieur Galipot ! Comment ça va.mp3"
             },
             {
-              "text": "Bonsoir Madame Bernard, \u00e7a va tr\u00e8s bien, merci. Et [vous] ?",
-              "audio": "sounds/fr/Bonsoir Madame Bernard, \u00e7a va tr\u00e8s bien, merci. Et vous.mp3"
+              "text": "Bonsoir Madame Bernard, ça va très bien, merci. Et [vous] ?",
+              "audio": "sounds/fr/Bonsoir Madame Bernard, ça va très bien, merci. Et vous.mp3"
             },
             {
               "text": "Ah pas mal [merci] !",
@@ -460,7 +460,7 @@
           "blanksType": "phrases",
           "cheatText": "Show answer",
           "component": "Blanks",
-          "congratulationsText": "Tr\u00e8s bien !",
+          "congratulationsText": "Très bien !",
           "id": "phrases4",
           "informationText": "Practise reconstructing short informal and formal conversations using the right words and register.",
           "instructionsTextHTMLXXX": "<a name='nested' class='modal-link-target'>nested target, how are we doing?</a>",
@@ -479,16 +479,16 @@
               "audio": "sounds/fr/Et moi, je m'appelle David.mp3"
             },
             {
-              "text": "D'accord. Tr\u00e8s bien !",
-              "audio": "sounds/fr/D'accord. Tr\u00e8s bien !.mp3"
+              "text": "D'accord. Très bien !",
+              "audio": "sounds/fr/D'accord. Très bien !.mp3"
             },
             {
-              "text": "Merci Madame ! Bonne journ\u00e9e !",
-              "audio": "sounds/fr/Merci Madame ! Bonne journ\u00e9e !.mp3"
+              "text": "Merci Madame ! Bonne journée !",
+              "audio": "sounds/fr/Merci Madame ! Bonne journée !.mp3"
             },
             {
-              "text": "Au [revoir] les enfants !  Bonne journ\u00e9e !",
-              "audio": "sounds/fr/Au revoir les enfants !  Bonne journ\u00e9e !.mp3"
+              "text": "Au [revoir] les enfants !  Bonne journée !",
+              "audio": "sounds/fr/Au revoir les enfants !  Bonne journée !.mp3"
             }
           ],
           "titleText": "4. Fill in the gaps: greetings and introductions"
@@ -498,8 +498,8 @@
         "wordsIntoSlots5": {
           "component": "Blanks",
           "id": "wordsIntoSlots5",
-          "congratulationsText": "Tr\u00e8s bien !",
-          "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises \u2014 focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
+          "congratulationsText": "Très bien !",
+          "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises — focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
           "listenDescriptionText": "Speech",
           "showHintsText": "Show hints when moving",
           "cheatText": "Show answer",
@@ -511,7 +511,7 @@
             "non",
             "bon",
             "son",
-            "pr\u00e9nom",
+            "prénom",
             "bonjour"
           ],
           "soundFile": "sounds/fr/LO1 5 words-in-order.mp3",
@@ -522,8 +522,8 @@
         "wordsIntoSlots6": {
           "component": "Blanks",
           "id": "wordsIntoSlots6",
-          "congratulationsText": "Tr\u00e8s bien !",
-          "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises \u2014 focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
+          "congratulationsText": "Très bien !",
+          "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises — focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
           "listenDescriptionText": "Speech",
           "showHintsText": "Show hints when moving",
           "cheatText": "Show answer",
@@ -556,13 +556,13 @@
             ],
             [
               "",
-              "h\u00f4tel",
-              "sounds/fr/h\u00f4tel.mp3"
+              "hôtel",
+              "sounds/fr/hôtel.mp3"
             ],
             [
               "",
-              "h\u00f4pital",
-              "sounds/fr/h\u00f4pital.mp3"
+              "hôpital",
+              "sounds/fr/hôpital.mp3"
             ],
             [
               "",
@@ -570,7 +570,7 @@
               "sounds/fr/horrible.mp3"
             ]
           ],
-          "informationText": "Listen to each pronunciation clip and drag the matching French word into place. Focus on the silent h words you\u2019ve just studied."
+          "informationText": "Listen to each pronunciation clip and drag the matching French word into place. Focus on the silent h words you’ve just studied."
         }
       }
     ],
