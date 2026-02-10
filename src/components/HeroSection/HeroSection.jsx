@@ -20,6 +20,7 @@ export const HeroSection = ({
 		instructionsTextHTML,
 		instructionsLayout,
 		stackInfo = false,
+		transparentCard = false,
 	} = config || {};
 	const hasInfo = Boolean(informationText || informationTextHTML);
 	const sideBySide = hasInfo && !stackInfo;
@@ -27,7 +28,11 @@ export const HeroSection = ({
 
 	return (
 		<div className="section hero-section" id={id}>
-			<Card className="w-full sortable mt-6">
+			<Card
+				className={`w-full sortable mt-6 ${
+					transparentCard ? "bg-transparent border-0 shadow-none" : ""
+				}`}
+			>
 				<CardHeader className="px-6 pb-4 pt-6">
 					<CardTitle className="text-base [&_h2]:m-0">
 						<h2

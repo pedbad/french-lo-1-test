@@ -159,6 +159,13 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 ## 18) Inline Audio Icon Consistency
 - Normalized inline audio icon size and baseline alignment via `--audio-inline-size` and `--audio-inline-offset` in `src/components/AudioClip/AudioClip.scss`.
 
+## 19) Introduction Card Styling Exception
+- The Introduction `HeroSection` now supports a `transparentCard` flag, used for the intro only.
+- This removes the white card background, border, and shadow so the Introduction sits on the main page background while other sections keep the default card styling.
+
+## 20) Info Panel Typography
+- Reduced info panel list text to `--font-size-sm` (~16px) and set the lead line (`h3`) slightly larger with `--font-size-base`.
+
 
 # Files Deleted (partial but comprehensive)
 

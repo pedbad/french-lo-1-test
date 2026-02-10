@@ -874,6 +874,7 @@ export default class App extends React.Component {
 													id: "intro-section",
 													expandable: false,
 													heroSection: true,
+													transparentCard: true,
 													instructionsLayout: introLayout || undefined,
 													informationTextHTML: informationHTML,
 													stackInfo: true,

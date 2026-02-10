@@ -2,8 +2,8 @@ import { resolveAsset } from "../../utility";
 import DOMPurify from "dompurify";
 
 export const DEFAULT_INSTRUCTION_STYLE = {
-	fontSize: 'var(--font-size-xl)',
-	lineHeight: '1.55'
+	fontSize: 'var(--font-size-sm)',
+	lineHeight: 'var(--body-line-height)'
 };
 
 export const InstructionsMedia = ({

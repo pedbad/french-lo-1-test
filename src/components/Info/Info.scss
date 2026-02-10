@@ -14,14 +14,18 @@ $info-blue: var(--primary);
 	border-radius: 0.6rem;
 	display: flex;
 	column-gap: 0.4rem;
-	align-items: baseline;
+	align-items: flex-start;
 	border: 2px solid rgb(var(--color-primary-400) / 1);
 	color: $info-blue;
-	font-size: var(--font-size-base);
+	font-size: var(--font-size-sm);
+	line-height: var(--body-line-height);
 	margin-top: 0.25rem;
 	.info-icon {
+		/* Align icon center to the lead line (h3) in the info panel */
+		font-size: var(--font-size-base);
 		width: 2em;
 		height: 2em;
+		margin-top: calc((1.4em - 2em) / 2);
 		flex: 0 0 auto;
 		display: inline-block;
 		background-color: $info-blue;
@@ -30,17 +34,17 @@ $info-blue: var(--primary);
 	}
 	> div.info-content {
 		li {
-			font-size: var(--font-size-lg);
-			line-height: 1.5;
+			font-size: var(--font-size-sm);
+			line-height: var(--body-line-height);
 			margin-top: 0.3rem;
 		}
-		transform: translateY(-0.42em);
 			h3 {
-				font-size: var(--font-size-lg);
+				font-size: var(--font-size-base);
+				line-height: 1.4;
 				margin-top: 0;
 			}
 			h4 {
-				font-size: var(--font-size-base);
+				font-size: var(--font-size-sm);
 				margin-top: 0rem;
 			}
 	}

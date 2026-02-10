@@ -490,8 +490,8 @@ hr {
 		padding: 0 1vw;
 	}
 	.instructions {
-		font-size: var(--font-size-lg);
-		line-height: 1.6;
+		font-size: var(--font-size-sm);
+		line-height: var(--body-line-height);
 		p {
 			font-size: inherit !important;
 			line-height: inherit !important;
