@@ -45,12 +45,9 @@ export class LO1Grammar1 extends PureComponent {
 					key={`${id}CustomComponent1`}
 				>
 					<h3>1. Forms of address and politeness</h3>
-					<p>You will learn:</p>
-					<ul><li>When to use Monsieur, Madame, and Mademoiselle.</li><li>Abbreviations: M., Mme., Mlle.</li></ul>
-
 					<p><span className={`modal-link-target`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
-						To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`/sounds/fr/Madame.mp3`}><b>Madame</b></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
-					</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`/sounds/fr/Mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
+						To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`sounds/fr/madame.mp3`}><b>Madame</b></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
+					</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`sounds/fr/mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
 						for a teenage girl.</span></p>
 					<Table>
 						<TableBody>
@@ -89,12 +86,6 @@ export class LO1Grammar2 extends PureComponent {
 					key={`${id}CustomComponent2`}
 				>
 					<h3>2. The “tu” vs “vous” distinction</h3>
-					<p>You will learn:</p>
-					<ul>
-						<li>How to use <i>tu</i> with friends, family, and children.</li>
-						<li>How to use <i>vous</i> formally or when speaking to several people.</li>
-						<li>How <i>toi</i> replaces <i>tu</i> in responses (<i>Et toi ?</i>).</li>
-					</ul>
 					<p><span className={`modal-link-target`} id={`tuvous`} name={`tuvous`}>2&nbsp;
 						<AudioClip className={`link`} soundFile={`sounds/fr/tu.mp3`}><b>Tu</b></AudioClip> and&nbsp;
 						<AudioClip className={`link`} soundFile={`sounds/fr/vous.mp3`}><b>vous</b></AudioClip>&nbsp;both mean 'you'.</span></p>

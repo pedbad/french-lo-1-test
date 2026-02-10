@@ -301,7 +301,7 @@
         "grammar1": {
           "component": "LO1Grammar1",
           "id": "grammar1",
-          "infoTextHTML": "In this section, you'll explore how to address people politely in French. You'll learn when to use <i>Monsieur</i>, <span class='modal-highlight'><i>Madame</i></span>, and <span class='modal-highlight'><i>Mademoiselle</i></span>, and how to recognise their abbreviations (<i>M.</i>, <i>Mme.</i>, <i>Mlle</i>.).",
+          "infoTextHTML": "In this section, you'll explore how to address people politely in French.<p>You will learn:</p><ul><li>When to use <i>Monsieur</i>, <span class='modal-highlight'><i>Madame</i></span>, and <span class='modal-highlight'><i>Mademoiselle</i></span>.</li><li>Abbreviations: <i>M.</i>, <i>Mme.</i>, <i>Mlle</i>.</li></ul>",
           "titleText": "1. Forms of address and politeness"
         }
       },
@@ -309,7 +309,7 @@
         "grammar2": {
           "component": "LO1Grammar2",
           "id": "grammar2",
-          "infoTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><i>tu</i></span> and <span class='modal-highlight'><i>vous</i></span> to show different levels of formality. You'll practise using tu with friends, family, and children, and <i>vous</i> in formal settings or when speaking to more than one person. You'll also see how <span class='modal-highlight'><i>toi</i></span> replaces <i>tu</i> in short responses like <i>Et toi ?</i>",
+          "infoTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><i>tu</i></span> and <span class='modal-highlight'><i>vous</i></span> to show different levels of formality. You'll practise using <i>tu</i> with friends, family, and children, and <i>vous</i> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <i>tu</i> with friends, family, and children.</li><li>How to use <i>vous</i> formally or when speaking to several people.</li><li>How <i>toi</i> replaces <i>tu</i> in responses (<i>Et toi ?</i>).</li></ul>",
           "titleTextHTML": "2. The \"<i>tu</i>\" vs \"<i>vous</i>\" distinction"
         }
       }

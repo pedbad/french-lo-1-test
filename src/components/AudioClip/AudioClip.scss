@@ -40,21 +40,25 @@ audio.super-compact {
 
 .audio-link {
 	display: inline-flex;
-	align-items: center;
+	align-items: baseline;
 	gap: 0.25em;
 	position: relative;
 	text-decoration: none !important;
 	--progress-width: 100%;
 	white-space: nowrap;
+	color: var(--chart-2);
 	&.playing {
 		color: var(--chart-2);
+	}
+	&:hover {
+		color: oklch(0.646 0.222 41.116);
 	}
 	svg {
 		display: inline-block;
 		width: var(--audio-inline-size);
 		height: var(--audio-inline-size);
 		flex: 0 0 auto;
-		transform: translateY(var(--audio-inline-offset));
+		transform: none;
 	}
 	&::after {
 		// content: "";

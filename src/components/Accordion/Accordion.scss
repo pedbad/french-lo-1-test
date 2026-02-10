@@ -198,5 +198,10 @@ $common-left-margin: 20px;
 	/* Tighten the gap between accordion headers and inline info panels. */
 	.accordion-article .information {
 		margin-top: 0.25rem;
+		margin-bottom: 0;
+	}
+
+	.accordion-card-content .information + .panel h3 {
+		margin-top: 0;
 	}
 }
