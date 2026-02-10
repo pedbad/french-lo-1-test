@@ -202,17 +202,16 @@ export class WordParts extends React.PureComponent {
 					</tr>
 				);
 			} else {
+				const soundFile = `${items[i].audio}`;
 				cells.push(
 					<td key={`row${i}cell1`}>
-						{phraseList[i]}
+						<AudioClip className={`super-compact-speaker`} soundFile={soundFile} />
 					</td>
 				);
-				// const soundFile = resolveAsset(`${audio[i]}`);
-				const soundFile = resolveAsset(`${items[i].audio}`);
 
 				cells.push(
 					<td key={`row${i}cell2`}>
-						<AudioClip className={`super-compact-speaker`} soundFile={soundFile} />
+						{phraseList[i]}
 					</td>
 				);
 
@@ -242,12 +241,28 @@ export class WordParts extends React.PureComponent {
 					</tbody>
 				</table>
 
-				<div className='help'>
-					<IconButton className={`hidden-help ${nPlaced >= 1 || failCount >= 1 || complete ? 'show' : ''}`} onClick={this.handleReset} theme={`reset`}>Reset</IconButton>
-					<IconButton className={`hidden-help ${failCount >= 2 ? 'show' : ''}`} disabled={nPlaced === this.nToSolve} onClick={this.autoSolve} theme={`eye`}>{cheatText}</IconButton>
-				</div>
-
+				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 				<p>{`${nPlaced} correct out of ${nToSolve}`}</p>
+
+				<div className='help'>
+					<IconButton
+						className={`wordparts-reveal hidden-help ${failCount >= 2 ? 'show' : ''}`}
+						disabled={nPlaced === this.nToSolve}
+						onClick={this.autoSolve}
+						theme={`eye`}
+						variant="outline"
+					>
+						{cheatText}
+					</IconButton>
+					<IconButton
+						className={`wordparts-reset hidden-help ${nPlaced >= 1 || failCount >= 1 || complete ? 'show' : ''}`}
+						onClick={this.handleReset}
+						theme={`reset`}
+						variant="outline"
+					>
+						Reset
+					</IconButton>
+				</div>
 			</div>
 		);
 	};

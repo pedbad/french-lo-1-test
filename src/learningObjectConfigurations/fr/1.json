@@ -580,7 +580,7 @@
     "instructionsLayout": {
       "paragraph": "This section introduces a range of exercises to help practise French pronunciation, greetings, introductions, and listening comprehension through interactive gap-filling and sound recognition activities.",
       "image": {
-        "src": "images/exercises.svg",
+        "src": "images/intro-placeholder.svg",
         "alt": "Interactive exercises"
       }
     }

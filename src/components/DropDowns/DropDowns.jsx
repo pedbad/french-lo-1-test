@@ -386,6 +386,13 @@ export class DropDowns extends React.PureComponent {
 				</p>
 				<div className="help">
 					<IconButton
+						className={`hidden-help ${failCount >= 1 ? "show" : ""}`}
+						onClick={this.autoSolve}
+						theme={`eye`}
+					>
+						{cheatText}
+					</IconButton>
+					<IconButton
 						className={`hidden-help ${
 							nCorrect >= 1 || failCount >= 1 ? "show" : ""
 						}`}
@@ -393,13 +400,6 @@ export class DropDowns extends React.PureComponent {
 						theme={`reset`}
 					>
             Reset
-					</IconButton>
-					<IconButton
-						className={`hidden-help ${failCount >= 1 ? "show" : ""}`}
-						onClick={this.autoSolve}
-						theme={`eye`}
-					>
-						{cheatText}
 					</IconButton>
 				</div>
 

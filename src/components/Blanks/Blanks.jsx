@@ -905,19 +905,19 @@ export class Blanks extends React.Component {
 					</Label>
 
 					<IconButton
-						className={`hidden-help ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
-						onClick={this.handleReset}
-						theme={`reset`}
-					>
-						Reset
-					</IconButton>
-
-					<IconButton
 						className={`hidden-help ${failCount >= 2 ? 'show' : ''}`}
 						onClick={this.autoSolve}
 						theme={`eye`}
 					>
 						{cheatText}
+					</IconButton>
+
+					<IconButton
+						className={`hidden-help ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
+						onClick={this.handleReset}
+						theme={`reset`}
+					>
+						Reset
 					</IconButton>
 				</div>
 			</div>
