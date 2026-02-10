@@ -166,6 +166,10 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 ## 20) Info Panel Typography
 - Reduced info panel list text to `--font-size-sm` (~16px) and set the lead line (`h3`) slightly larger with `--font-size-base`.
 
+## 21) Info Panel Icon
+- Switched the Info panel icon to Lucide's `Info` (`lucide-react`) and removed the custom SVG mask.
+- Updated the Lucide info icon styling to render as a filled black circle with a white "i".
+
 
 # Files Deleted (partial but comprehensive)
 

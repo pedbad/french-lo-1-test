@@ -1,5 +1,6 @@
 import './Info.scss';
 import DOMPurify from "dompurify";
+import { Info as InfoIcon } from "lucide-react";
 import React from 'react';
 
 export class Info extends React.PureComponent {
@@ -32,7 +33,11 @@ export class Info extends React.PureComponent {
 					onClick={() => this.setState({ showInfo: true })}
 					title={'More information'}
 				>i</button> */}
-		const infoIcon = <span className="info-icon" aria-hidden="true" />;
+		const infoIcon = (
+			<span className="info-icon" aria-hidden="true">
+				<InfoIcon className="info-icon__svg" />
+			</span>
+		);
 
 		if (informationTextHTML) {
 			return (

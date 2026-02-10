@@ -57,6 +57,7 @@ Typography is also normalized: root tokens (`--body-font-size`, `--body-line-hei
 - Special links now open a shadcn/Radix modal (no scrolling). The modal pulls content from existing `infoTextHTML`/`informationTextHTML` so there’s no duplication; optional `<span class='modal-highlight'>…</span>` in JSON triggers a Tailwind-based highlight animation inside the modal only.
 - Inline audio icons are normalized via CSS variables in `src/components/AudioClip/AudioClip.scss` to keep size and baseline alignment consistent across paragraph text.
 - The Introduction `HeroSection` can opt out of the default card styling via `transparentCard`, so it can sit directly on the page background (no white card or border) while other sections remain carded.
+- The Info panel now uses the Lucide `Info` icon (via `lucide-react`) instead of a custom masked SVG.
 
 ## TODO
 

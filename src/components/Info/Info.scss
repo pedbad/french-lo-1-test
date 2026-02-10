@@ -23,14 +23,26 @@ $info-blue: var(--primary);
 	.info-icon {
 		/* Align icon center to the lead line (h3) in the info panel */
 		font-size: var(--font-size-base);
-		width: 2em;
-		height: 2em;
-		margin-top: calc((1.4em - 2em) / 2);
+		width: 1.6em;
+		height: 1.6em;
+		margin-top: calc((1.4em - 1.6em) / 2);
 		flex: 0 0 auto;
-		display: inline-block;
-		background-color: $info-blue;
-		-webkit-mask: url("/public/images/icons/info-icon.svg") no-repeat center / contain;
-		mask: url("/public/images/icons/info-icon.svg") no-repeat center / contain;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 999px;
+		background-color: var(--foreground);
+	}
+
+	.info-icon__svg {
+		width: 1.4em;
+		height: 1.4em;
+		color: var(--background);
+		stroke-width: 3.4;
+	}
+
+	.info-icon__svg circle {
+		display: none;
 	}
 	> div.info-content {
 		li {
