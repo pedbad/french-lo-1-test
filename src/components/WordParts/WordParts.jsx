@@ -9,6 +9,8 @@ import DOMPurify from "dompurify";
 import React from 'react';
 import {resolveAsset} from '../../utility';
 
+const WORD_PARTS_TEXT_CLASS = "text-[calc(var(--font-size-base)*1.15)] leading-[1.35] md:text-[calc(var(--font-size-xl)*1.5)]";
+
 export class WordParts extends React.PureComponent {
 
 	// Table of phrases with translatiopns column and sound files column.
@@ -235,7 +237,7 @@ export class WordParts extends React.PureComponent {
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
 
-				<table>
+				<table className={WORD_PARTS_TEXT_CLASS}>
 					<tbody>
 						{rows}
 					</tbody>
