@@ -209,8 +209,8 @@ export class MemoryMatchGame extends React.PureComponent {
 						className={`memory-map-container num${cards.length}cards`}
 					>
 						{/* dirty max-height, but the container won't shrink down for the scaled down content :-( */}
-						<h2>Cards</h2>
-						<h2>Matched&nbsp;pairs</h2>
+						<h2 className="text-base">Cards</h2>
+						<h2 className="text-base">Matched&nbsp;pairs</h2>
 						<div className="cards">
 							{cards.map(card => (
 								<Card
