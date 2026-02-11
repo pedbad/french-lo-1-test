@@ -86,7 +86,6 @@ $error-log-width: 700px;
 		text-align: center;
 		padding: 8px;
 		font-weight: bold;
-		font-size: 0.8rem;
 		background-color: var(--muted);
 		color: $header-colour;
 		overflow: hidden;
@@ -123,7 +122,6 @@ $error-log-width: 700px;
 	table {
 		width: 100%;
 		border-collapse: collapse;
-		font-size: 0.8rem;
 		tr {
 			background-color: var(--card); // rgba(255, 0, 0, 0.05);
 			&:nth-of-type(even) {
