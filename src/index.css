@@ -11,9 +11,9 @@
 @layer base {
 	:root {
 		color-scheme: light;
-		--font-sans: 'Inter';
-		--font-heading: 'Space Grotesk';
-		--font-mono: 'JetBrains Mono';
+		--font-sans: 'OpenSans Regular', sans-serif;
+		--font-heading: 'Feijoa Medium', serif;
+		--font-mono: 'JetBrains Mono', monospace;
 
 		--color-primary-50: 239 246 255;
 		--color-primary-100: 219 234 254;
