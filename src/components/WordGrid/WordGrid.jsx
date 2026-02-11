@@ -7,6 +7,8 @@ import DOMPurify from "dompurify";
 import { IconButton } from "..";
 import {resolveAsset} from "../../utility";
 
+const WORD_GRID_TABLE_TEXT_CLASS = "text-base";
+
 const directions = [
 	{ x: 1, y: 0 }, // right
 	{ x: 0, y: 1 }, // down
@@ -489,9 +491,11 @@ export class WordGrid extends PureComponent {
 									/>
 								)}
 							</svg>
-							<table 								width={grid.length * cellDimension}
+							<table
+								width={grid.length * cellDimension}
 								height={grid.length * cellDimension}
-								className='word-grid'>
+								className={`word-grid ${WORD_GRID_TABLE_TEXT_CLASS}`}
+							>
 								<tbody>
 									{grid.map((row, rowIndex) => (
 										<tr key={rowIndex}>
