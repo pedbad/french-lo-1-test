@@ -192,6 +192,11 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Added circle-based progress indicators to WordParts and adjusted sizing/spacing for mobile.
 - Updated the WordParts instructions to mention Show answer/Reset with inline icons.
 
+## 27) Hero Banner Rendering (Non-cropping SVG)
+- Replaced the hero CSS background banner with an explicit `<img>` in `src/App.jsx` (`src="images/fr_banner.svg"`), including `loading="eager"` and `fetchPriority="high"` for above-the-fold rendering.
+- Updated `#hero` styles in `src/App.scss` to use `aspect-ratio: 16 / 9` and a positioned `.hero-image` with `object-fit: contain` and `object-position: center bottom`.
+- Why: the previous `background-size: cover` implementation could crop banner artwork on narrower/wider viewports. The new setup preserves the entire SVG composition across responsive breakpoints while keeping the title overlay in place.
+
 
 # Files Deleted (partial but comprehensive)
 

@@ -63,6 +63,7 @@ Typography is also normalized: root tokens (`--body-font-size`, `--body-line-hei
 - Theme toggling now temporarily disables CSS transitions to prevent visible flicker (notably in tables) during light/dark switches.
 - Modal links use the Lucide `message-square-warning` icon for the inline indicator.
 - WordParts now shows a circle-based progress row and inline icon guidance for Show answer/Reset.
+- Hero banner now renders as a semantic `<img>` (`images/fr_banner.svg`) inside `#hero` instead of a CSS background image. The hero uses a `16:9` aspect ratio with `object-fit: contain` so the full banner artwork remains visible across screen sizes (no `cover` cropping), while the title remains layered above the image.
 
 ## TODO
 
