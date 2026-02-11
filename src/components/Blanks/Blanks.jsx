@@ -22,6 +22,9 @@ import { Label } from "@/components/ui/label";
 import React from 'react';
 import { Switch } from "@/components/ui/switch";
 
+const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[1.2rem] font-bold";
+const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
+
 export class Blanks extends React.Component {
 
 	// Stores original "home" positions for each tile (coords relative to words-container)
@@ -877,11 +880,11 @@ export class Blanks extends React.Component {
 						{wordTiles}
 					</div>
 
-					<div className='target-board'>
+					<div className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS}`}>
 						{blanksType === 'phrases' ? (
 							<ul>{phraseList}</ul>
 						) : (
-							<Table>
+							<Table className={BLANKS_TARGET_TABLE_TEXT_CLASS}>
 								{header.length > 0 ? (
 									<TableHeader><TableRow>{headerCells}</TableRow></TableHeader>
 								) : null}
