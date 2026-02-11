@@ -156,6 +156,11 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Highlighting uses Tailwind classes in the modal; JSON can mark terms with `<span class='modal-highlight'>…</span>` without affecting in-page rendering.
 - Removed the back-to-link button and scroll-back logic.
 
+## 18) Modal Link Content Refactor (CustomComponents)
+- Modal content for key grammar links (`tuvous`, `toi`, `madame`, `mademoiselle`) now renders the same React bodies from `src/components/CustomComponents_FR/CustomComponents_FR.jsx`, so the modal shows the intended copy and audio clips work.
+- The modal dialog now accepts React content explicitly (in addition to HTML strings) because `AudioClip` components cannot render via `dangerouslySetInnerHTML`.
+- Modal highlight animation now fades out after flashing (no lingering highlight).
+
 ## 18) Inline Audio Icon Consistency
 - Normalized inline audio icon size and baseline alignment via `--audio-inline-size` and `--audio-inline-offset` in `src/components/AudioClip/AudioClip.scss`.
 

@@ -230,6 +230,23 @@ html {
 	padding: 0.1rem 0.4rem;
 }
 
+.modal-highlight-flash {
+	animation: modal-highlight-flash 1000ms ease 3;
+	border-radius: 0.4rem;
+	display: inline-block;
+	padding: 0.1rem 0.35rem;
+}
+
+.btn-ped-warn {
+	background-color: var(--ped-warn);
+	border-color: var(--ped-warn);
+	color: var(--primary-foreground, #fff);
+}
+
+.btn-ped-warn:hover {
+	background-color: color-mix(in oklab, var(--ped-warn) 85%, black);
+}
+
 @keyframes flash-animation {
 	0% {
 		background-color: color-mix(in oklab, var(--ring) 0%, transparent);
@@ -268,6 +285,21 @@ html {
 	100% {
 		background-color: color-mix(in oklab, var(--ped-warn) 20%, transparent);
 		box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 20%, transparent);
+	}
+}
+
+@keyframes modal-highlight-flash {
+	0% {
+		background-color: color-mix(in oklab, var(--ped-warn) 8%, transparent);
+		box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 8%, transparent);
+	}
+	50% {
+		background-color: color-mix(in oklab, var(--ped-warn) 24%, transparent);
+		box-shadow: 0 0 0 3px color-mix(in oklab, var(--ped-warn) 12%, transparent);
+	}
+	100% {
+		background-color: transparent;
+		box-shadow: 0 0 0 0 transparent;
 	}
 }
 

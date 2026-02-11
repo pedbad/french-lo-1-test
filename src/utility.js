@@ -248,8 +248,8 @@ export const handleModalLinkClick = (e, options = {}) => {
 		return;
 	}
 
-	const { title, contentHTML } = findModalLinkContent(targetId);
-	showModalLinkDialog(title, contentHTML);
+	const { title, contentHTML, content } = findModalLinkContent(targetId);
+	showModalLinkDialog(title, contentHTML, content);
 };
 
 export const highlightTextDiff = (a, b, countCorrect, sounds = false) => {

@@ -45,7 +45,7 @@ import{
 	TabsTrigger,
 } from "@/components/ui/tabs";
 
-import { AllCustomComponentsFR } from "./components/CustomComponents_FR/index.js";
+import { AllCustomComponentsFR, Grammar1Body, Grammar2Body } from "./components/CustomComponents_FR/index.js";
 import DOMPurify from "dompurify";
 
 import React from "react";
@@ -69,6 +69,7 @@ export default class App extends React.Component {
 			showModalLinkDialog: false,
 			modalLinkDialogTitle: "",
 			modalLinkDialogContentHTML: "",
+			modalLinkDialogContent: null,
 		};
 
 		// this.loadConfig = this.loadConfig.bind(this);
@@ -172,11 +173,12 @@ export default class App extends React.Component {
 		});
 	};
 
-	showModalLinkDialog = (title, contentHTML) => {
+	showModalLinkDialog = (title, contentHTML, content) => {
 		this.setState({
 			showModalLinkDialog: true,
 			modalLinkDialogTitle: title || "",
 			modalLinkDialogContentHTML: contentHTML || "",
+			modalLinkDialogContent: content || null,
 		});
 	};
 
@@ -185,11 +187,32 @@ export default class App extends React.Component {
 			showModalLinkDialog: false,
 			modalLinkDialogTitle: "",
 			modalLinkDialogContentHTML: "",
+			modalLinkDialogContent: null,
 		});
 	};
 
 	findModalLinkContent = (targetId) => {
 		const { config } = this.state;
+		const modalContentMap = {
+			madame: {
+				title: "1. Forms of address and politeness",
+				content: <Grammar1Body highlightIntro />,
+			},
+			mademoiselle: {
+				title: "1. Forms of address and politeness",
+				content: <Grammar1Body highlightIntro />,
+			},
+			tuvous: {
+				title: "2. The \"tu\" vs \"vous\" distinction",
+				content: <Grammar2Body highlightIntro />,
+			},
+			toi: {
+				title: "2. The \"tu\" vs \"vous\" distinction",
+				content: <Grammar2Body highlightIntro />,
+			},
+		};
+
+		if (modalContentMap[targetId]) return modalContentMap[targetId];
 		if (!config) {
 			return {
 				title: "Not found",
@@ -227,16 +250,6 @@ export default class App extends React.Component {
 		});
 
 		if (entries.has(targetId)) return entries.get(targetId);
-
-		const aliasMap = {
-			madame: "grammar1",
-			mademoiselle: "grammar1",
-			tuvous: "grammar2",
-			toi: "grammar2",
-		};
-
-		const aliasId = aliasMap[targetId];
-		if (aliasId && entries.has(aliasId)) return entries.get(aliasId);
 
 		const targetEl =
 			document.getElementById(targetId) ||
@@ -785,6 +798,7 @@ export default class App extends React.Component {
 							open={showModalLinkDialog}
 							title={modalLinkDialogTitle}
 							contentHTML={modalLinkDialogContentHTML}
+							content={this.state.modalLinkDialogContent}
 							onClose={this.hideModalLinkDialog}
 						/>
 
@@ -870,7 +884,7 @@ export default class App extends React.Component {
 												: null;
 										if (introLayout) {
 											introLayout.image = {
-												src: "images/intro-placeholder.svg",
+												src: "images/first-contact.svg",
 												alt: "Learners greeting illustration"
 											};
 											introLayout.stackOnDesktop = true;

@@ -43,14 +43,6 @@ html.debug {
 		background-color: color-mix(in oklab, var(--chart-2) 85%, transparent);
 	}
 
-	.wordparts-reveal.icon-button {
-		border-color: var(--ped-warn);
-		background-color: var(--ped-warn);
-		color: var(--primary-foreground, #fff);
-	}
-	.wordparts-reveal.icon-button:hover {
-		background-color: color-mix(in oklab, var(--ped-warn) 85%, transparent);
-	}
 	table span {
 		$tumble-iterations: 1; //8;
 		$tumble-time: 0.5s; // Same as sound clip!

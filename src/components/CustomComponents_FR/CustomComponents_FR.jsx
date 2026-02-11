@@ -45,31 +45,30 @@ export class LO1Grammar1 extends PureComponent {
 					key={`${id}CustomComponent1`}
 				>
 					<h3>1. Forms of address and politeness</h3>
-					<p><span className={`modal-link-target`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
-						To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`sounds/fr/madame.mp3`}><b>Madame</b></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
-					</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`sounds/fr/mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
-						for a teenage girl.</span></p>
-					<Table>
-						<TableBody>
-							<TableRow>
-								<TableCell>Abbreviations:</TableCell>
-								<TableCell>Monsieur - <b>M</b>.</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell></TableCell>
-								<TableCell>Madame - <b>Mme</b>.</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell></TableCell>
-								<TableCell>Mademoiselle - <b>Mlle</b>.</TableCell>
-							</TableRow>
-						</TableBody>
-					</Table>
+					<Grammar1Body />
 				</div>
 			</div>
 		);
 	};
 }
+
+export const Grammar1Body = ({ highlightIntro = false } = {}) => (
+	<>
+		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
+			To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`sounds/fr/madame.mp3`}><b>Madame</b></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
+		</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`sounds/fr/mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
+			for a teenage girl.</span></p>
+		{/* Replaced a table with a definition list for clearer HTML5 term/definition semantics (also reused by modal content so AudioClip stays React-rendered). */}
+		<dl className="abbreviations">
+			<dt>Abbreviations</dt>
+			<dd>Monsieur — <strong>M</strong>.</dd>
+			<dd>Madame — <strong>Mme</strong>.</dd>
+			<dd>Mademoiselle — <strong>Mlle</strong>.</dd>
+		</dl>
+	</>
+);
+
+const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
 
 export class LO1Grammar2 extends PureComponent {
 	render = () => {
@@ -86,25 +85,31 @@ export class LO1Grammar2 extends PureComponent {
 					key={`${id}CustomComponent2`}
 				>
 					<h3>2. The “tu” vs “vous” distinction</h3>
-					<p><span className={`modal-link-target`} id={`tuvous`} name={`tuvous`}>2&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/tu.mp3`}><b>Tu</b></AudioClip> and&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/vous.mp3`}><b>vous</b></AudioClip>&nbsp;both mean 'you'.</span></p>
-					<p><b>Tu</b> is used when addressing one person and is familiar. That means you use it when speaking to your partner, a relative, a friend,
-						a classmate or a child etc. <span className={`modal-link-target`} id={`toi`} name={`toi`} >When returning question i.e. when you ask 'and you?' you use the
-						form&nbsp;
-					<AudioClip className={`link`} soundFile={`sounds/fr/toi.mp3`}><b>toi</b></AudioClip> instead of&nbsp;
-					<AudioClip className={`link`} soundFile={`sounds/fr/tu.mp3`}><b>tu:</b></AudioClip>&nbsp;
-					<AudioClip className={`link`} soundFile={`sounds/fr/Je m'appelle Michel et toi.mp3`}><b>Je m'appelle Michel, et toi ?</b></AudioClip></span></p>
-					<p>You use <AudioClip className={`link`} soundFile={`sounds/fr/vous.mp3`}><b>vous</b></AudioClip> when addressing an adult that you don't know e.g.
-						a shop assistant, bus driver, waiting staff etc or an adult to whom you wish to show a degree of distance or respect e.g. your professor,
-						a health professional, a legal advisor, an acquaintance of your parents etc.</p>
-					<p><b>Vous</b> is also used when addressing more than one person
-						whatever your relationship to them.</p>
+					<Grammar2Body />
 				</div>
 			</div>
 		);
 	};
 }
+
+export const Grammar2Body = ({ highlightIntro = false } = {}) => (
+	<>
+		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`} name={`tuvous`}>2&nbsp;
+			<AudioClip className={`link`} soundFile={`sounds/fr/tu.mp3`}><b>Tu</b></AudioClip> and&nbsp;
+			<AudioClip className={`link`} soundFile={`sounds/fr/vous.mp3`}><b>vous</b></AudioClip>&nbsp;both mean 'you'.</span></p>
+		<p><b>Tu</b> is used when addressing one person and is familiar. That means you use it when speaking to your partner, a relative, a friend,
+			a classmate or a child etc. <span className={`modal-link-target`} id={`toi`} name={`toi`} >When returning question i.e. when you ask 'and you?' you use the
+			form&nbsp;
+		<AudioClip className={`link`} soundFile={`sounds/fr/toi.mp3`}><b>toi</b></AudioClip> instead of&nbsp;
+		<AudioClip className={`link`} soundFile={`sounds/fr/tu.mp3`}><b>tu:</b></AudioClip>&nbsp;
+		<AudioClip className={`link`} soundFile={`sounds/fr/Je m'appelle Michel et toi.mp3`}><b>Je m'appelle Michel, et toi ?</b></AudioClip></span></p>
+		<p>You use <AudioClip className={`link`} soundFile={`sounds/fr/vous.mp3`}><b>vous</b></AudioClip> when addressing an adult that you don't know e.g.
+			a shop assistant, bus driver, waiting staff etc or an adult to whom you wish to show a degree of distance or respect e.g. your professor,
+			a health professional, a legal advisor, an acquaintance of your parents etc.</p>
+		<p><b>Vous</b> is also used when addressing more than one person
+			whatever your relationship to them.</p>
+	</>
+);
 
 export class LO1Demystify1 extends PureComponent {
 	render = () => {

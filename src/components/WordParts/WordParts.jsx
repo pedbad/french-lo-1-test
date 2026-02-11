@@ -261,11 +261,11 @@ export class WordParts extends React.PureComponent {
 
 				<div className='help'>
 					<IconButton
-						className={`wordparts-reveal hidden-help ${failCount >= 2 ? 'show' : ''}`}
+						className={`wordparts-reveal btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
 						disabled={nPlaced === this.nToSolve}
 						onClick={this.autoSolve}
 						theme={`eye`}
-						variant="outline"
+						variant="default"
 					>
 						{cheatText}
 					</IconButton>

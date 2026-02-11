@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
@@ -25,12 +26,18 @@ const DialogContent = React.forwardRef(({ className, children, ...props }, ref) 
 		<DialogPrimitive.Content
 			ref={ref}
 			className={cn(
-				"fixed left-[50%] top-[50%] z-50 grid w-full max-w-[min(720px,calc(100vw-2rem))] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-xl border border-border-subtle bg-card p-6 text-foreground shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+				"fixed left-[50%] top-[50%] z-50 grid w-full max-w-[min(720px,calc(100vw-2rem))] lg:max-w-[min(860px,calc(100vw-4rem))] xl:max-w-[min(980px,calc(100vw-5rem))] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-xl border border-border-subtle bg-card p-6 text-foreground shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
 				className
 			)}
 			{...props}
 		>
 			{children}
+			<DialogPrimitive.Close
+				className="absolute right-4 top-4 rounded-sm p-1 opacity-70 transition-opacity hover:bg-muted/60 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none"
+				aria-label="Close"
+			>
+				<X className="h-4 w-4" />
+			</DialogPrimitive.Close>
 		</DialogPrimitive.Content>
 	</DialogPortal>
 ));
