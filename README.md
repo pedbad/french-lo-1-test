@@ -104,6 +104,16 @@ Yes, this is correct with one nuance: keep design tokens in `src/index.css` as C
 4. Deprecate custom SCSS: Gradually shrink SCSS to only rare, complex cases that can’t be expressed with utilities.
 5. Use `@apply` strategically: Acceptable during transition, but the long-term goal is co-located Tailwind classes in markup.
 
+## TODO: Styling Consolidation
+It’s bad because styling is split across SCSS and Tailwind, so changes require hunting in two systems, which slows updates and causes inconsistency; to fix it, we should migrate component styles into Tailwind utilities (or tokenized `@apply` classes), then delete legacy SCSS so tokens become the single, maintainable source of truth.
+
+Proposed approach:
+1. Inventory SCSS usage by component and tag each as migrate-now vs. legacy-keep.
+2. For each migrate-now component, move layout/typography/spacing to Tailwind utilities and map any remaining values to tokens in `tailwind.config.js` or `src/index.css`.
+3. Replace SCSS selectors with co-located Tailwind classes or shared `@apply` utilities (sparingly).
+4. Remove the component’s SCSS once parity is reached and UI is visually verified.
+5. Repeat in batches (start with high-traffic components: Accordion, PhraseTable, WordParts, Info).
+
 ## Semantics
 
 Based on the render method in `src/App.jsx`, there is no `<main>` HTML element being used. The primary content areas are enclosed within `div` elements, such as `#hero` and `#content`.

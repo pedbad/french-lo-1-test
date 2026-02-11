@@ -52,21 +52,29 @@ export class LO1Grammar1 extends PureComponent {
 	};
 }
 
-export const Grammar1Body = ({ highlightIntro = false } = {}) => (
-	<>
-		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
-			To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`sounds/fr/madame.mp3`}><b>Madame</b></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
-		</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`sounds/fr/mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
-			for a teenage girl.</span></p>
-		{/* Replaced a table with a definition list for clearer HTML5 term/definition semantics (also reused by modal content so AudioClip stays React-rendered). */}
-		<dl className="abbreviations">
-			<dt>Abbreviations</dt>
-			<dd>Monsieur — <strong>M</strong>.</dd>
-			<dd>Madame — <strong>Mme</strong>.</dd>
-			<dd>Mademoiselle — <strong>Mlle</strong>.</dd>
-		</dl>
-	</>
-);
+export const Grammar1Body = ({ highlightIntro = false, showInfoBox = false } = {}) => {
+	const abbreviationsList = (
+		<>
+			{/* Replaced a table with a definition list for clearer HTML5 term/definition semantics (also reused by modal content so AudioClip stays React-rendered). */}
+			<dl className="abbreviations abbreviations-inline">
+				<dt>Abbreviations</dt>
+				<dd>
+					Monsieur — <strong>M</strong>. · Madame — <strong>Mme</strong>. · Mademoiselle — <strong>Mlle</strong>.
+				</dd>
+			</dl>
+		</>
+	);
+
+	return (
+		<>
+			<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
+				To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`sounds/fr/madame.mp3`}><b>Madame</b></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
+			</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`sounds/fr/mademoiselle.mp3`}><b>Mademoiselle</b></AudioClip>. <b>Mademoiselle</b> is otherwise reserved
+				for a teenage girl.</span></p>
+			{showInfoBox ? <Info>{abbreviationsList}</Info> : abbreviationsList}
+		</>
+	);
+};
 
 const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
 

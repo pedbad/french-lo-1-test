@@ -485,6 +485,11 @@ hr {
 			list-style: disc;
 		}
 	}
+	.abbreviations {
+		font-size: var(--font-size-base);
+		line-height: var(--body-line-height);
+		margin-top: 0.75rem;
+	}
 	:where(p, li, td, th, figcaption, caption) {
 		font-size: var(--font-size-base);
 		line-height: var(--body-line-height);
