@@ -390,6 +390,7 @@ hr {
 }
 
 #hero {
+	--hero-banner-title-color: oklch(0.398 0.07 227.392);
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -418,14 +419,14 @@ hr {
 		z-index: 1;
 		margin: 0;
 		// background: rgba(255, 255, 255, 0.6);
-		color: var(--chart-3);
+		color: var(--hero-banner-title-color);
 		text-align: right;
 		align-self: flex-end;
 		width: 100%;
 		font-size: clamp(4rem, 7.25vw, 5.75rem);
 		text-shadow:
-			0 2px 6px color-mix(in oklab, var(--chart-3) 50%, transparent),
-			0 6px 14px color-mix(in oklab, var(--chart-3) 35%, transparent);
+			0 2px 6px color-mix(in oklab, var(--hero-banner-title-color) 50%, transparent),
+			0 6px 14px color-mix(in oklab, var(--hero-banner-title-color) 35%, transparent);
 		// box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 		padding: 1.4rem 3rem 0.35rem 0.6rem;
 		border-radius: 8px;
@@ -434,9 +435,11 @@ hr {
 
 @media (max-width: 650px) {
 	#hero {
+		padding-top: 0.25rem;
 		.hero-title {
 			text-align: center;
-			padding: 1rem 1.25rem 0.3rem;
+			margin-top: 0;
+			padding: 0.3rem 1.25rem 0.2rem;
 			font-size: clamp(2.4rem, 7.5vw, 3.1rem);
 		}
 	}
@@ -458,14 +461,6 @@ hr {
 	}
 	.modal-link-dialog h2 {
 		font-size: 1.8rem;
-	}
-}
-
-.dark {
-	#hero {
-		.hero-title {
-			color: var(--hero-title-color) !important;
-		}
 	}
 }
 
