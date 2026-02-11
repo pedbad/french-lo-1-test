@@ -15,7 +15,9 @@ logger.warn = (msg, options) => {
 	loggerWarn(msg, options);
 };
 
-export default defineConfig(({ command }) => ({
+const basePath = '/french-basic/';
+
+export default defineConfig(() => ({
 	assetsInclude: [
 		'**/*.mp3',
 		'**/*.jpg',
@@ -23,7 +25,7 @@ export default defineConfig(({ command }) => ({
 		'**/*.svg',
 		'**/*.ttf'
 	],
-	base: command === 'build' ? `./` : `/projects/richard/`,
+	base: basePath,
 	build: {
 		assetsDir: "src",
 		emptyOutDir: true,
