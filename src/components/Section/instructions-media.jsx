@@ -1,26 +1,23 @@
-import { resolveAsset } from "../../utility";
 import DOMPurify from "dompurify";
+import { resolveAsset } from "../../utility";
 
-export const DEFAULT_INSTRUCTION_STYLE = {
-	fontSize: 'var(--font-size-sm)',
-	lineHeight: 'var(--body-line-height)'
-};
+export const INSTRUCTION_TEXT_CLASS = "text-sm leading-[var(--body-line-height)]";
 
 export const InstructionsMedia = ({
 	paragraph,
 	paragraphHTML,
 	image = {},
-	instructionStyle = DEFAULT_INSTRUCTION_STYLE,
+	instructionTextClass = INSTRUCTION_TEXT_CLASS,
 	stackOnDesktop = false,
 }) => {
 	const paragraphNode = paragraphHTML ? (
 		<div
-			className="leading-relaxed md:flex-1"
-			style={{ ...instructionStyle, margin: 0 }}
+			className={`${instructionTextClass} md:flex-1`}
+			style={{ margin: 0 }}
 			dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paragraphHTML) }}
 		/>
 	) : paragraph ? (
-		<p className="leading-relaxed md:flex-1" style={{ ...instructionStyle, margin: 0 }}>
+		<p className={`${instructionTextClass} md:flex-1`} style={{ margin: 0 }}>
 			{paragraph}
 		</p>
 	) : null;
