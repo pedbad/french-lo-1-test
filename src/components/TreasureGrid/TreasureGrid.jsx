@@ -2,6 +2,8 @@ import './TreasureGrid.scss';
 import React, { PureComponent } from 'react';
 import Colours from '../../styles/colours.module.scss';
 
+const TREASURE_GRID_MESSAGE_TEXT_CLASS = "text-[1.2rem] font-bold";
+
 const gridData = [
 	["livre", "pomme", "maison", "chat", "ciel"],
 	["apple", "sky", "house", "book", "cat"],
@@ -67,8 +69,8 @@ export class TreasureGrid extends PureComponent {
 						))
 					)}
 				</div>
-				{this.state.message && <p className="message">{this.state.message}</p>}
+				{this.state.message && <p className={`message ${TREASURE_GRID_MESSAGE_TEXT_CLASS}`}>{this.state.message}</p>}
 			</div>
-		);
-	};
+			);
+		};
 }
