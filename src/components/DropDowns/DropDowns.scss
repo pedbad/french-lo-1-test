@@ -76,10 +76,7 @@ html.debug {
 			select,
 			.select {
 				// span {
-				font-size: 0.8rem;
-				line-height: 1.4rem;
 				padding: 0;
-
 				min-width: 9rem;
 				display: inline-block;
 				outline: none;
@@ -159,13 +156,11 @@ html.debug {
 	.drop-downs-container {
 		.phrases-html,
 		table td {
-			font-size: 1rem;
 			padding: 0.25rem 1rem;
 			p {
 				select,
 				.select {
 					// span {
-					font-size: 1.2rem;
 					padding: 4px;
 
 					min-width: 12rem;
