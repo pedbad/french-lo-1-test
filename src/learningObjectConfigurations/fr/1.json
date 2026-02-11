@@ -408,7 +408,7 @@
           "component": "Blanks",
           "id": "phrases2",
           "congratulationsText": "Excellent !",
-          "informationText": "Practise reconstructing short informal and formal conversations using the right words and register.",
+          "informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "showHintsText": "Show hints when moving",
           "cheatText": "Show answer",
           "blanksType": "phrases",
