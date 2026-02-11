@@ -8,7 +8,10 @@
 		"start": "vite",
 		"build": "vite build",
 		"lint": "eslint .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"check:typography": "bash scripts/check-typography-guard.sh --staged",
+		"check:typography:branch": "bash scripts/check-typography-guard.sh --against origin/main",
+		"prepush:local": "yarn lint && yarn check:typography:branch"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.8",
