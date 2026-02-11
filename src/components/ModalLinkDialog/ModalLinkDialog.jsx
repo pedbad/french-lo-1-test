@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/dialog";
 
 const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
+const modalTitleClass = "text-base sm:text-lg max-[650px]:text-[1.8rem]";
+const modalBodyClass = "space-y-3 text-base leading-relaxed text-foreground sm:text-lg [&_h2]:max-[650px]:text-[1.8rem]";
 
 const applyHighlightClasses = (html = "") => {
 	const withClasses = html
@@ -27,17 +29,17 @@ export const ModalLinkDialog = ({ open, title, contentHTML, content, onClose }) 
 		<Dialog open={open} onOpenChange={(next) => (next ? null : onClose())}>
 			<DialogContent className="modal-link-dialog max-h-[85vh] overflow-y-auto">
 				<DialogHeader>
-					<DialogTitle className="text-base sm:text-lg">
+					<DialogTitle className={modalTitleClass}>
 						{title || "More information"}
 					</DialogTitle>
 				</DialogHeader>
 				{content ? (
-					<div className="space-y-3 text-base leading-relaxed text-foreground sm:text-lg">
+					<div className={modalBodyClass}>
 						{content}
 					</div>
 				) : (
 					<div
-						className="space-y-3 text-base leading-relaxed text-foreground sm:text-lg"
+						className={modalBodyClass}
 						dangerouslySetInnerHTML={{ __html: safeHTML }}
 					/>
 				)}
