@@ -35,11 +35,17 @@ footer {
 				img {
 					max-width: 100%;
 					&.logo {
-						&.horizontal {
-							display: none;
+						display: none;
+						&.theme-light {
+							&.horizontal {
+								display: none;
+							}
+							&.vertical {
+								display: block;
+							}
 						}
-						&.vertical {
-							display: block;
+						&.theme-dark {
+							display: none;
 						}
 					}
 				}
@@ -55,8 +61,17 @@ footer {
 			a {
 				display: block;
 				color: var(--foreground);
+				transition:
+					color 180ms ease,
+					transform 180ms ease,
+					filter 180ms ease;
 				&:hover {
-					color: var(--primary);
+					color: var(--chart-3);
+					transform: translateY(-2px) scale(1.04);
+					filter: drop-shadow(0 4px 10px color-mix(in oklab, var(--chart-3) 35%, transparent));
+				}
+				&:active {
+					transform: translateY(-1px) scale(1.01);
 				}
 			}
 		}
@@ -133,11 +148,38 @@ footer {
 	}
 }
 
+@media (prefers-reduced-motion: reduce) {
+	footer {
+		.footer-container {
+			.square-logos a {
+				transition: color 120ms ease;
+				&:hover,
+				&:active {
+					transform: none;
+					filter: none;
+				}
+			}
+		}
+	}
+}
+
 .dark footer {
 	background-color: var(--sidebar);
 	.footer-container {
-		.uclogo img.logo {
-			filter: invert(1);
+		.square-logos a:hover {
+			color: var(--chart-4);
+			filter: drop-shadow(0 4px 10px color-mix(in oklab, var(--chart-4) 35%, transparent));
+		}
+		.uclogo a img.logo.theme-light {
+			display: none;
+		}
+		.uclogo a img.logo.theme-dark {
+			&.horizontal {
+				display: none;
+			}
+			&.vertical {
+				display: block;
+			}
 		}
 	}
 }
@@ -183,10 +225,13 @@ footer {
 					width: $common-width;
 					img {
 						&.logo {
-							&.horizontal {
+							&.theme-light.horizontal {
 								display: block;
 							}
-							&.vertical {
+							&.theme-light.vertical {
+								display: none;
+							}
+							&.theme-dark {
 								display: none;
 							}
 						}
@@ -195,6 +240,24 @@ footer {
 			}
 			.square-logos {
 				width: $common-width;
+			}
+		}
+	}
+}
+
+@include respond-above(s) {
+	.dark footer {
+		.footer-container {
+			.uclogo a img.logo.theme-light {
+				display: none;
+			}
+			.uclogo a img.logo.theme-dark {
+				&.horizontal {
+					display: block;
+				}
+				&.vertical {
+					display: none;
+				}
 			}
 		}
 	}
