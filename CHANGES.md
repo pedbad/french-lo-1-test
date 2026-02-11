@@ -183,6 +183,10 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 ## 25) Modal Link Naming
 - Renamed `special-anchor`/`special-anchor-target` to `modal-link`/`modal-link-target` across configs, styles, and handlers.
 
+## 26) WordParts Progress + Guidance
+- Added circle-based progress indicators to WordParts and adjusted sizing/spacing for mobile.
+- Updated the WordParts instructions to mention Show answer/Reset with inline icons.
+
 
 # Files Deleted (partial but comprehensive)
 

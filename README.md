@@ -62,6 +62,7 @@ Typography is also normalized: root tokens (`--body-font-size`, `--body-line-hei
 - Added PNG favicon assets (16/32) plus Apple/Android icons and a `site.webmanifest` for broader device support.
 - Theme toggling now temporarily disables CSS transitions to prevent visible flicker (notably in tables) during light/dark switches.
 - Modal links use the Lucide `message-square-warning` icon for the inline indicator.
+- WordParts now shows a circle-based progress row and inline icon guidance for Show answer/Reset.
 
 ## TODO
 

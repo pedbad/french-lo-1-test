@@ -812,7 +812,7 @@ export default class App extends React.Component {
 							<>
 
 								<div id="hero">
-									<h2 className="hero-title">{siteTitle}</h2>
+									<h2 className="hero-title text-stroke-chart-3">{siteTitle}</h2>
 								</div>
 								<main id="content" key="content" role="main">
 									<h1>

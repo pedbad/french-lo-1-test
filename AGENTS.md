@@ -33,3 +33,4 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Tailwind utilities consume these tokens via `tailwind.config.js`; shadcn components live in `src/components/ui/`.
 - SCSS is still present for legacy/component styling (e.g. `src/App.scss` and component SCSS files), so both Tailwind and SCSS currently affect UI.
 - Theme toggling briefly disables CSS transitions (`html.no-theme-transition`) to avoid flicker during light/dark switches.
+- WordParts includes a circle-based progress indicator and inline icon guidance (Show answer/Reset) powered by CSS-masked SVGs.

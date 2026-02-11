@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 
 const highlightClass =
-	"rounded-md bg-amber-300/90 px-1 text-lg font-semibold text-amber-950 ring-2 ring-amber-400/80 animate-highlight-flash";
+	"rounded-md bg-amber-300/90 px-1 text-base sm:text-lg font-semibold text-amber-950 ring-2 ring-amber-400/80 animate-highlight-flash";
 
 const applyHighlightClasses = (html = "") => {
 	const withClasses = html
@@ -26,12 +26,14 @@ export const ModalLinkDialog = ({ open, title, contentHTML, onClose }) => {
 
 	return (
 		<Dialog open={open} onOpenChange={(next) => (next ? null : onClose())}>
-			<DialogContent className="max-h-[85vh] overflow-y-auto">
+			<DialogContent className="modal-link-dialog max-h-[85vh] overflow-y-auto">
 				<DialogHeader>
-					<DialogTitle>{title || "More information"}</DialogTitle>
+					<DialogTitle className="text-base sm:text-lg">
+						{title || "More information"}
+					</DialogTitle>
 				</DialogHeader>
 				<div
-					className="space-y-3 text-lg leading-relaxed text-foreground"
+					className="space-y-3 text-base leading-relaxed text-foreground sm:text-lg"
 					dangerouslySetInnerHTML={{ __html: safeHTML }}
 				/>
 				<div className="flex justify-end">

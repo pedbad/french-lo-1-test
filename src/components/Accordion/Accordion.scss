@@ -205,3 +205,16 @@ $common-left-margin: 20px;
 		margin-top: 0;
 	}
 }
+
+@media (max-width: 650px) {
+	.accordion {
+		.accordion-article {
+			header {
+				font-size: calc(var(--font-size-lg) * 0.9);
+				h2 {
+					font-size: calc(var(--font-size-lg) * 0.9);
+				}
+			}
+		}
+	}
+}

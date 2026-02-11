@@ -264,6 +264,14 @@
 	}
 }
 
+@layer utilities {
+	.text-stroke-chart-3 {
+		-webkit-text-stroke: 1px var(--chart-3);
+		text-stroke: 1px var(--chart-3);
+		paint-order: stroke fill;
+	}
+}
+
 @layer base {
 	html.no-theme-transition *,
 	html.no-theme-transition *::before,
