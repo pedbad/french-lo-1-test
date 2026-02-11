@@ -3,6 +3,8 @@ import DOMPurify from "dompurify";
 import { Info as InfoIcon } from "lucide-react";
 import React from 'react';
 
+const INFO_CONTENT_TEXT_CLASS = "info-content text-sm leading-[var(--body-line-height)] [&_li]:text-sm [&_li]:leading-[var(--body-line-height)] [&_h3]:mt-0 [&_h3]:text-base [&_h3]:leading-[1.4] [&_h4]:mt-0 [&_h4]:text-sm";
+
 export class Info extends React.PureComponent {
 	// constructor(props) {
 	// 	super(props);
@@ -42,21 +44,21 @@ export class Info extends React.PureComponent {
 		if (informationTextHTML) {
 			return (
 				<div
-					className={`information`}
+					className="information"
 					id={`${id}-Info`}
 				>
 					{infoIcon}
-					<div className={`info-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(informationTextHTML) }}/>
+					<div className={INFO_CONTENT_TEXT_CLASS} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(informationTextHTML) }}/>
 				</div>
 			);
 		} else if (informationText) {
 			return (
 				<div
-					className={`information`}
+					className="information"
 					id={`${id}-Info`}
 				>
 					{infoIcon}
-					<div className={`info-content`}>
+					<div className={INFO_CONTENT_TEXT_CLASS}>
 						{informationText ? informationText : null}
 					</div>
 				</div>
@@ -64,11 +66,11 @@ export class Info extends React.PureComponent {
 		} else if (children) {
 			return (
 				<div
-					className={`information`}
+					className="information"
 					id={`${id}-Info`}
 				>
 					{infoIcon}
-					<div className={`info-content`}>
+					<div className={INFO_CONTENT_TEXT_CLASS}>
 						{children}
 					</div>
 				</div>
