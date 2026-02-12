@@ -3,7 +3,7 @@ export * from './AnswerTable';
 export * from './Attribution';
 export * from './AudioClip';
 export * from './Blanks';
-export * from './Blanks/Word';
+export * from './Blanks/DraggableWordTile';
 // export * from './Catalyst';
 export * from './AudioClip';
 export * from './Congratulate';

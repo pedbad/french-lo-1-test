@@ -6,7 +6,7 @@ import {
 	IconButton,
 	Info,
 	SequenceAudioController,
-	Word,
+	DraggableWordTile,
 } from '../../components';
 import { resolveAsset, shuffleArray } from '../../utility';
 import {
@@ -27,12 +27,15 @@ const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
 const BLANKS_CONTENT_FLOW_CLASS = "leading-[1.4em]";
 const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[0.5rem] sm:leading-[3.5rem]";
 const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[2.6rem]";
+const BLANKS_DROP_TARGET_CLASS = "border-2 border-dashed border-[color-mix(in_oklab,var(--chart-3)_72%,var(--border))] bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)]";
 
 export class Blanks extends React.Component {
 
 	// Stores original "home" positions for each tile (coords relative to words-container)
 	// Keyed by the first class on the tile: "word{index}"
 	tileHomePositions = {};
+	// Stores current placement: { [tileKey]: targetKey }
+	tileAssignments = {};
 
 	constructor(props) {
 		super(props);
@@ -58,9 +61,9 @@ export class Blanks extends React.Component {
 						if (phraseSplit[j][0] === '[') {
 							const cleaned = phraseSplit[j].replace('[', '').replace(']', '');
 							wordTiles.push(
-								<Word className={`blank draggable`} index={wordTileIndex} key={`${id}word${wordTileIndex + 1}`}>
+								<DraggableWordTile className={`blank draggable`} index={wordTileIndex} key={`${id}word${wordTileIndex + 1}`}>
 									{cleaned}
-								</Word>
+								</DraggableWordTile>
 							);
 							wordTileIndex++;
 							words.push(cleaned);
@@ -75,9 +78,9 @@ export class Blanks extends React.Component {
 				nToPlace = words.length;
 				for (let i = 0; i < nToPlace; i++) {
 					wordTiles.push(
-						<Word className={`blank draggable visiblekey-${id}word${i}`} index={i} key={`${id}word${i}`}>
+						<DraggableWordTile className={`blank draggable visiblekey-${id}word${i}`} index={i} key={`${id}word${i}`}>
 							{words[i]}
-						</Word>
+						</DraggableWordTile>
 					);
 				}
 				wordTiles = shuffleArray(wordTiles);
@@ -87,9 +90,9 @@ export class Blanks extends React.Component {
 				nToPlace = words.length;
 				for (let i = 0; i < nToPlace; i++) {
 					wordTiles.push(
-						<Word className={`blank draggable`} index={i} key={`${id}word${i}`}>
+						<DraggableWordTile className={`blank draggable`} index={i} key={`${id}word${i}`}>
 							{words[i]}
-						</Word>
+						</DraggableWordTile>
 					);
 				}
 				wordTiles = shuffleArray(wordTiles);
@@ -101,9 +104,9 @@ export class Blanks extends React.Component {
 				mixer = shuffleArray(mixer);
 				for (let i = 0; i < nToPlace; i++) {
 					wordTiles.push(
-						<Word className={`blank draggable`} index={mixer[i][0]} key={`${id}word${i}`}>
+						<DraggableWordTile className={`blank draggable`} index={mixer[i][0]} key={`${id}word${i}`}>
 							{mixer[i][1]}
-						</Word>
+						</DraggableWordTile>
 					);
 				}
 				break;
@@ -114,9 +117,9 @@ export class Blanks extends React.Component {
 				mixer = shuffleArray(mixer);
 				for (let i = 0; i < nToPlace; i++) {
 					wordTiles.push(
-						<Word className={`blank draggable`} index={mixer[i][0]} key={`${id}word${i}`}>
+						<DraggableWordTile className={`blank draggable`} index={mixer[i][0]} key={`${id}word${i}`}>
 							{mixer[i][1]}
-						</Word>
+						</DraggableWordTile>
 					);
 				}
 				break;
@@ -128,6 +131,7 @@ export class Blanks extends React.Component {
 		this.state = {
 			...config,
 			id,
+			assignedCount: 0,
 			margin: 20,
 			nToPlace,
 			showHints: false,
@@ -165,6 +169,7 @@ export class Blanks extends React.Component {
 	// ---------- Helpers ----------
 
 	getTileKey = (tileEl) => tileEl?.classList?.[0]; // "word{index}"
+	getWordKeyFromEl = (el) => Array.from(el?.classList || []).find((c) => /^word\d+$/.test(c));
 
 	getWordsContainerRect = () => {
 		const wc = this.wordsContainerRef.current;
@@ -184,6 +189,78 @@ export class Blanks extends React.Component {
 		if (!this.tileHomePositions || Object.keys(this.tileHomePositions).length === 0) {
 			this.pinTiles();
 		}
+	};
+
+	assignTileToTarget = (tileKey, targetKey) => {
+		this.tileAssignments[tileKey] = targetKey;
+		this.setState({ assignedCount: Object.keys(this.tileAssignments).length });
+	};
+
+	unassignTile = (tileKey) => {
+		if (tileKey && this.tileAssignments[tileKey]) {
+			delete this.tileAssignments[tileKey];
+			this.setState({ assignedCount: Object.keys(this.tileAssignments).length });
+		}
+	};
+
+	returnTileToHome = (tileEl) => {
+		if (!tileEl) return;
+		const tileKey = this.getTileKey(tileEl);
+		const home = this.tileHomePositions[tileKey];
+		if (!home) return;
+
+		tileEl.classList.remove("dragging", "highlight", "success", "placed");
+		tileEl.classList.add("draggable", "returning");
+		tileEl.style.pointerEvents = "";
+		tileEl.style.opacity = "1";
+		tileEl.style.left = home.left;
+		tileEl.style.top = home.top;
+		setTimeout(() => tileEl.classList.remove("returning"), 220);
+	};
+
+	evictExistingOccupant = (targetKey, exceptTileKey) => {
+		const { id } = this.state;
+		const occupantEntry = Object.entries(this.tileAssignments).find(
+			([tileKey, currentTarget]) => currentTarget === targetKey && tileKey !== exceptTileKey
+		);
+		if (!occupantEntry) return;
+		const [occupantTileKey] = occupantEntry;
+		const occupantTile = document.querySelector(`#${id} .words-container .word.${occupantTileKey}`);
+		this.returnTileToHome(occupantTile);
+		this.unassignTile(occupantTileKey);
+	};
+
+	handleCheckAnswers = () => {
+		const { id, nToPlace } = this.state;
+		this.ensureHomePositions();
+
+		let correctCount = 0;
+		let hadWrong = false;
+
+		for (const [tileKey, targetKey] of Object.entries(this.tileAssignments)) {
+			const tile = document.querySelector(`#${id} .words-container .word.${tileKey}`);
+			if (!tile) continue;
+
+			if (tileKey === targetKey) {
+				correctCount++;
+				tile.classList.remove("dragging", "returning", "highlight", "success");
+				tile.classList.remove("draggable");
+				tile.classList.add("placed");
+				tile.style.pointerEvents = "none";
+				tile.style.opacity = "1";
+			} else {
+				hadWrong = true;
+				this.returnTileToHome(tile);
+				delete this.tileAssignments[tileKey];
+			}
+		}
+
+		this.setState((prev) => ({
+			assignedCount: Object.keys(this.tileAssignments).length,
+			nPlaced: correctCount,
+			complete: correctCount === nToPlace,
+			failCount: hadWrong ? (prev.failCount || 0) + 1 : (prev.failCount || 0),
+		}));
 	};
 
 	// ---------- Core actions ----------
@@ -346,6 +423,16 @@ export class Blanks extends React.Component {
 		if (!target.classList.contains('draggable')) target = target.parentElement;
 
 		if (target.classList.contains('word') && target.classList.contains('draggable')) {
+			// Keep receiving pointer events even if the pointer leaves the container.
+			if (typeof e.pointerId === "number" && e.currentTarget?.setPointerCapture) {
+				try {
+					e.currentTarget.setPointerCapture(e.pointerId);
+					this.activePointerId = e.pointerId;
+				} catch {
+					// no-op: some browsers can reject pointer capture in edge cases
+				}
+			}
+
 			this.movingPiece = target;
 
 			const cl = this.movingPiece.classList;
@@ -365,13 +452,13 @@ export class Blanks extends React.Component {
 				}
 
 				// Place tile center under pointer in words-container coords
-				const { x, y } = this.getMouseInWordsContainer(e);
-				const rect = this.movingPiece.getBoundingClientRect();
-				const left = x - rect.width / 2;
-				const top = y - rect.height / 2;
+					const { x, y } = this.getMouseInWordsContainer(e);
+					const rect = this.movingPiece.getBoundingClientRect();
+					const left = x - rect.width / 2;
+					const top = y - rect.height / 2;
 
-				this.movingPiece.style.left = `${left}px`;
-				this.movingPiece.style.top = `${top}px`;
+					this.movingPiece.style.left = `${left}px`;
+					this.movingPiece.style.top = `${top}px`;
 				this.movingPiece.classList.add("dragging");
 			}
 		}
@@ -383,14 +470,14 @@ export class Blanks extends React.Component {
 		if (this.movingPiece && this.movingPiece.classList.contains("dragging")) {
 			e.preventDefault();
 
-			const { x, y } = this.getMouseInWordsContainer(e);
-			const rect = this.movingPiece.getBoundingClientRect();
+				const { x, y } = this.getMouseInWordsContainer(e);
+				const rect = this.movingPiece.getBoundingClientRect();
 
-			const left = x - rect.width / 2;
-			const top = y - rect.height / 2;
+				const left = x - rect.width / 2;
+				const top = y - rect.height / 2;
 
-			this.movingPiece.style.left = `${left}px`;
-			this.movingPiece.style.top = `${top}px`;
+				this.movingPiece.style.left = `${left}px`;
+				this.movingPiece.style.top = `${top}px`;
 
 			const { success, overTarget, targetWord } = this.inLimits();
 
@@ -410,44 +497,61 @@ export class Blanks extends React.Component {
 	};
 
 	handleMouseUp = (e) => {
+		if (
+			typeof this.activePointerId === "number" &&
+			e.currentTarget?.releasePointerCapture
+		) {
+			try {
+				e.currentTarget.releasePointerCapture(this.activePointerId);
+			} catch {
+				// no-op
+			}
+			this.activePointerId = undefined;
+		}
+
 		e.stopPropagation();
 
-		const clickAudio = new Audio(resolveAsset('/sounds/click.mp3'));
-		let { failCount = 0 } = this.state;
+			const clickAudio = new Audio(resolveAsset('/sounds/click.mp3'));
+			let { failCount = 0 } = this.state;
 
 		if (this.movingPiece !== undefined) {
-			const { nToPlace } = this.state;
-			let { nPlaced = 0 } = this.state;
-
 			const inLimitsResult = this.inLimits();
 			this.movingPiece.classList.remove('highlight');
 
-			if (inLimitsResult.success) {
-				const { targetLeft, targetTop } = inLimitsResult;
+				if (inLimitsResult.overTarget) {
+					const { targetLeft, targetTop, targetWord } = inLimitsResult;
+					const tileKey = this.getTileKey(this.movingPiece);
+					const targetKey = this.getWordKeyFromEl(targetWord);
+					if (!tileKey || !targetKey) {
+						this.returnTileToHome(this.movingPiece);
+						this.movingPiece = undefined;
+						this.clearTargetHighlights();
+						return;
+					}
 
-				clickAudio.play();
+					// One tile per target: replace existing occupant.
+					this.evictExistingOccupant(targetKey, tileKey);
 
-				this.movingPiece.style.left = `${targetLeft}px`;
-				this.movingPiece.style.top = `${targetTop}px`;
+					clickAudio.play();
 
-				this.movingPiece.classList.remove("dragging");
-				this.movingPiece.classList.remove("returning");
-				this.movingPiece.classList.add("placed");
-				this.movingPiece.classList.remove("draggable");
+					this.movingPiece.style.left = `${targetLeft}px`;
+					this.movingPiece.style.top = `${targetTop}px`;
 
-				// keep it visible
-				this.movingPiece.style.opacity = "1";
+					this.movingPiece.classList.remove("dragging");
+					this.movingPiece.classList.remove("returning");
+					this.movingPiece.classList.remove("placed");
+					this.movingPiece.classList.add("draggable");
 
-				this.movingPiece = undefined;
+					this.movingPiece.style.opacity = "1";
+					this.movingPiece.style.pointerEvents = "";
 
-				nPlaced++;
-				if (nPlaced === nToPlace) {
-					this.setState({ complete: true });
-				}
-				this.setState({ nPlaced });
-			}			else {
-				this.movingPiece.classList.remove("dragging");
-				this.movingPiece.classList.add("returning");
+					this.assignTileToTarget(tileKey, targetKey);
+					this.movingPiece = undefined;
+				} else {
+					const tileKey = this.getTileKey(this.movingPiece);
+					this.unassignTile(tileKey);
+					this.movingPiece.classList.remove("dragging");
+					this.movingPiece.classList.add("returning");
 
 				this.movingPiece.style.left = `${this.startX}px`;
 				this.movingPiece.style.top = `${this.startY}px`;
@@ -464,8 +568,8 @@ export class Blanks extends React.Component {
 			}
 		}
 
-		this.clearTargetHighlights();
-	};
+			this.clearTargetHighlights();
+		};
 
 	clearTargetHighlights = () => {
 		const { id } = this.state;
@@ -537,12 +641,14 @@ export class Blanks extends React.Component {
 		// const targetSpans = document.querySelectorAll(`#${id} .target-board .blank span`);
 		// targetSpans.forEach((s) => { s.style.opacity = 0; });
 
-		this.clearTargetHighlights();
+			this.clearTargetHighlights();
+			this.tileAssignments = {};
 
-		this.setState(() => ({
-			failCount: 0,
-			matched: [],
-			nPlaced: 0,
+			this.setState(() => ({
+				assignedCount: 0,
+				failCount: 0,
+				matched: [],
+				nPlaced: 0,
 			complete: false,
 		}));
 	};
@@ -552,42 +658,11 @@ export class Blanks extends React.Component {
 	inLimits = () => {
 		const { id, margin } = this.state;
 
-		const cl = this.movingPiece.classList;
-		const targetWord = document.querySelector(`#${id} .target.${cl[0]}`);
-		const targetSpan = document.querySelector(`#${id} .target.${cl[0]} span`);
-
-		if (targetWord) {
-			const targetRect = targetWord.getBoundingClientRect();
-			const { left: tLeft, top: tTop, right: tRight, bottom: tBottom } = targetRect;
-
-			const pieceRect = this.movingPiece.getBoundingClientRect();
-			const { left: pLeft, top: pTop, right: pRight, bottom: pBottom } = pieceRect;
-
-			const pieceMid = pLeft + (pRight - pLeft) / 2;
-
-			if ((pieceMid >= tLeft) && (pieceMid <= tRight) && pTop >= tTop - margin && pBottom <= tBottom + margin) {
-				// Convert viewport -> words-container coords
-				const wcRect = this.getWordsContainerRect();
-				if (!wcRect) return { success: false };
-
-				const relativeLeft = targetRect.left - wcRect.left;
-				const relativeTop = targetRect.top - wcRect.top;
-
-				return {
-					overTarget: true,
-					success: true,
-					targetLeft: relativeLeft,
-					targetTop: relativeTop,
-					targetSpan,
-					targetWord,
-				};
-			}
-		}
-
 		// Over-any-target highlight (no snap)
 		const targetWords = document.querySelectorAll(`#${id} .target.word`);
 		const pieceRect = this.movingPiece.getBoundingClientRect();
 		const { left: pLeft, top: pTop, right: pRight, bottom: pBottom } = pieceRect;
+		const movingKey = this.getTileKey(this.movingPiece);
 
 		for (let i = 0; i < targetWords.length; i++) {
 			const tw = targetWords[i];
@@ -595,7 +670,15 @@ export class Blanks extends React.Component {
 
 			const pieceMid = pLeft + (pRight - pLeft) / 2;
 			if ((pieceMid >= r.left) && (pieceMid <= r.right) && pTop >= r.top - margin && pBottom <= r.bottom + margin) {
-				return { overTarget: true, targetWord: tw };
+				const wcRect = this.getWordsContainerRect();
+				if (!wcRect) return { overTarget: true, targetWord: tw };
+				return {
+					overTarget: true,
+					success: this.getWordKeyFromEl(tw) === movingKey,
+					targetWord: tw,
+					targetLeft: r.left - wcRect.left,
+					targetTop: r.top - wcRect.top,
+				};
 			}
 		}
 
@@ -654,6 +737,7 @@ export class Blanks extends React.Component {
 
 	render = () => {
 		const {
+			assignedCount = 0,
 			answers,
 			blanksType = 'phrases',
 			cheatText,
@@ -714,11 +798,11 @@ export class Blanks extends React.Component {
 								if (words[k] === cleaned) foundIndex = k;
 							}
 
-							phrase.push(
-								<div className={`word${foundIndex} word blank target`} key={`phraseSpan${i}-${j}`}>
-									<span>{cleaned}</span>
-								</div>
-							);
+								phrase.push(
+									<DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={foundIndex} key={`phraseSpan${i}-${j}`}>
+										{cleaned}
+									</DraggableWordTile>
+								);
 						} else {
 							phrase.push(<span className='word' key={`phraseSpan${i}-${j}`}>{phraseSplit[j]} </span>);
 						}
@@ -762,15 +846,15 @@ export class Blanks extends React.Component {
 						<TableRow key={`${id}row${i}`}>
 							<TableCell>{i}.</TableCell>
 							<TableCell>
-								<Word className={`blank target`} index={i - 1} key={`${id}word${i}`}>{phrase}</Word>
+								<DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={i - 1} key={`${id}word${i}`}>{phrase}</DraggableWordTile>
 							</TableCell>
 							{i <= words.length / 2 ?
 								<>
 									<TableCell>{i + nRows}.</TableCell>
 									<TableCell>
-										<Word className={`blank target`} index={i - 1 + nRows} key={`${id}word${i + nRows}`}>
+										<DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={i - 1 + nRows} key={`${id}word${i + nRows}`}>
 											{words[i - 1 + nRows]}
-										</Word>
+										</DraggableWordTile>
 									</TableCell>
 								</>
 								: null}
@@ -787,7 +871,7 @@ export class Blanks extends React.Component {
 						<TableRow key={`${id}row${i}`}>
 							<TableCell><AudioClip className={`super-compact-speaker`} soundFile={sf} /></TableCell>
 							<TableCell>{questions[i - 1]}</TableCell>
-							<TableCell><Word className={`blank target`} index={i - 1} key={`${id}word${i}`}>{answers[i - 1]}</Word></TableCell>
+							<TableCell><DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={i - 1} key={`${id}word${i}`}>{answers[i - 1]}</DraggableWordTile></TableCell>
 						</TableRow>
 					);
 				}
@@ -804,14 +888,14 @@ export class Blanks extends React.Component {
 					tableRows.push(
 						<TableRow key={`${id}row${i}`}>
 							<TableCell>
-								<Word className={`blank target`} index={words.indexOf(answers[i - 1][0])} key={`${id}word${i}`}>
+								<DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={words.indexOf(answers[i - 1][0])} key={`${id}word${i}`}>
 									{answers[i - 1][0]}
-								</Word>
+								</DraggableWordTile>
 							</TableCell>
 							<TableCell>
-								<Word className={`blank target`} index={words.indexOf(answers[i - 1][1])} key={`${id}word${i}`}>
+								<DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={words.indexOf(answers[i - 1][1])} key={`${id}word${i}`}>
 									{answers[i - 1][1]}
-								</Word>
+								</DraggableWordTile>
 							</TableCell>
 						</TableRow>
 					);
@@ -826,7 +910,7 @@ export class Blanks extends React.Component {
 						<TableRow key={`${id}row${i}`}>
 							<TableCell><AudioClip className={`super-compact-speaker`} soundFile={sf} /></TableCell>
 							<TableCell><img src={`${pictures[i - 1]}`} alt={`${answers[i - 1]}`} /></TableCell>
-							<TableCell><Word className={`blank target`} index={i - 1} key={`${id}word${i}`}>{answers[i - 1]}</Word></TableCell>
+							<TableCell><DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={i - 1} key={`${id}word${i}`}>{answers[i - 1]}</DraggableWordTile></TableCell>
 						</TableRow>
 					);
 				}
@@ -928,9 +1012,18 @@ export class Blanks extends React.Component {
 						</Label>
 					</div>
 
-					<div className="help-actions">
-						<IconButton
-							className={`btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
+						<div className="help-actions">
+							<IconButton
+								className={`btn-chart-2 ${assignedCount >= 1 ? 'show' : ''}`}
+								onClick={this.handleCheckAnswers}
+								theme={`check`}
+								variant="default"
+							>
+								Check answers
+							</IconButton>
+
+							<IconButton
+								className={`btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
 							onClick={this.autoSolve}
 							theme={`eye`}
 							variant="default"

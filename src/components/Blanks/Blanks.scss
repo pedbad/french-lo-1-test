@@ -235,12 +235,12 @@ $max-tile-width: 360px;
 			transition: opacity 1s;
 		}
 
-		/* Blank targets */
-		.word.blank {
-			min-width: 140px;
-			// box-shadow: 0 0 4px red inset;
-			border: dashed 1px color-mix(in oklab, var(--border) 80%, transparent);
-			border-radius: $tile-border-radius;
+			/* Blank targets */
+			.word.blank {
+				min-width: 140px;
+				// box-shadow: 0 0 4px red inset;
+				border: dashed 1px color-mix(in oklab, var(--border) 80%, transparent);
+				border-radius: $tile-border-radius;
 
 			&.highlight {
 				background: radial-gradient(circle, var(--chart-2) 0%, transparent 100%);
@@ -257,13 +257,13 @@ $max-tile-width: 360px;
 			// 	color: red;
 			// }
 
-			span {
-				opacity: 0;
-				// color: $text;
+				span {
+					opacity: 0;
+					// color: $text;
+				}
 			}
-		}
 
-		ul {
+			ul {
 			list-style: none;
 			padding-left: 0;
 
