@@ -200,3 +200,19 @@ $common-left-margin: 20px;
 		margin-top: 0;
 	}
 }
+
+@media (max-width: 640px) {
+	.accordion .accordion-article > header h2,
+	.accordion .accordion-article > header h2 > span {
+		font-size: calc(var(--font-size-lg) * 0.98415) !important; // another 10% down
+		line-height: 1.2 !important;
+	}
+
+	.accordion .accordion-article > header h2 .accordion-title-before-colon {
+		display: inline;
+	}
+
+	.accordion .accordion-article > header h2 .accordion-title-after-colon {
+		display: block;
+	}
+}

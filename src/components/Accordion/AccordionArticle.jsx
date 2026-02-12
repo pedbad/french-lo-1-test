@@ -76,6 +76,24 @@ export class AccordionArticle extends React.PureComponent {
 		}
 	};
 
+	renderSplitTitle = (rawTitle) => {
+		if (typeof rawTitle !== "string") return rawTitle;
+		const colonIndex = rawTitle.indexOf(":");
+		if (colonIndex < 0) return rawTitle;
+
+		const firstLine = rawTitle.slice(0, colonIndex + 1).trimEnd();
+		const secondLine = rawTitle.slice(colonIndex + 1).trimStart();
+		if (!secondLine) return rawTitle;
+
+		return (
+			<>
+				<span className="accordion-title-before-colon">{firstLine}</span>
+				{" "}
+				<span className="accordion-title-after-colon">{secondLine}</span>
+			</>
+		);
+	};
+
 	render = () => {
 		const {
 			children,
@@ -106,11 +124,11 @@ export class AccordionArticle extends React.PureComponent {
 					marginTop: 0,
 					marginBottom: 0,
 				}}
-			>
-				{title}
-				{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}
-			</h2>
-		);
+				>
+					{this.renderSplitTitle(title)}
+					{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}
+				</h2>
+			);
 
 		if (titleHTML !== '') {
 			h2 = (

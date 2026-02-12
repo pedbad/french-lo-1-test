@@ -102,7 +102,7 @@ export class LO1Grammar2 extends PureComponent {
 
 export const Grammar2Body = ({ highlightIntro = false } = {}) => (
 	<>
-		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`} name={`tuvous`}>2&nbsp;
+		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`} name={`tuvous`}>
 			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/001-tu.mp3`}><b>Tu</b></AudioClip> and&nbsp;
 			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/002-vous.mp3`}><b>vous</b></AudioClip>&nbsp;both mean 'you'.</span></p>
 		<p><b>Tu</b> is used when addressing one person and is familiar. That means you use it when speaking to your partner, a relative, a friend,
