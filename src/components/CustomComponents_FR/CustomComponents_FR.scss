@@ -83,6 +83,10 @@
 }
 
 #RegionalTelephoneMap {
+	/* Component-scoped typography tokens for regional map SVG labels */
+	--regional-map-label-size: 74.6667px;
+	--regional-map-label-size-small: 40px;
+
 	.svg-container {
 		overflow: hidden;
 		border: 1px solid var(--border);
@@ -116,7 +120,7 @@
 				// font-variant: normal;
 				font-weight: 700;
 				// font-stretch: normal;
-				font-size: 74.6667px;
+				font-size: var(--regional-map-label-size);
 				// font-family: Arial;
 				fill: var(--background);
 			}
@@ -138,7 +142,7 @@
 		#g01 {
 			transform-origin: 50% 50%;
 			text {
-				font-size: 40px;
+				font-size: var(--regional-map-label-size-small);
 			}
 			.land {
 				fill: var(--chart-1);
