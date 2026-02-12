@@ -36,7 +36,7 @@ export class Info extends React.PureComponent {
 					title={'More information'}
 				>i</button> */}
 		const infoIcon = (
-			<span className="info-icon" aria-hidden="true">
+			<span className="info-icon text-[var(--font-size-base)]" aria-hidden="true">
 				<InfoIcon className="info-icon__svg" />
 			</span>
 		);
