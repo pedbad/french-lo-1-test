@@ -72,8 +72,6 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
-		font-size: var(--font-size-xl);
-		font-weight: 600;
 		color: var(--foreground);
 		white-space: nowrap;
 	}
@@ -85,7 +83,6 @@
 	}
 
 	.nav-link {
-		font-size: var(--font-size-lg);
 		color: rgb(var(--color-text-secondary));
 		transition: color 0.2s ease;
 
@@ -171,7 +168,6 @@
 		.nav-link-mobile {
 			display: block;
 			padding: 0.5rem 0;
-			font-size: var(--font-size-lg);
 			color: rgb(var(--color-text-secondary));
 			text-decoration: none;
 

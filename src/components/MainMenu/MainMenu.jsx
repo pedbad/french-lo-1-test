@@ -10,6 +10,9 @@ import { handleModalLinkClick } from "../../utility.js";
 import { IconButton } from "..";
 import React from "react";
 
+const MENU_TITLE_TEXT_CLASS = "text-[var(--font-size-xl)] font-semibold";
+const MENU_LINK_TEXT_CLASS = "text-[var(--font-size-lg)]";
+
 export class MainMenu extends React.Component {
 	constructor(props) {
 		super(props);
@@ -195,8 +198,8 @@ export class MainMenu extends React.Component {
 						key={`menuItem-${id}`}
 					>
 						<NavigationMenuLink asChild>
-							<a
-								className="modal-link nav nav-link"
+								<a
+								className={`modal-link nav nav-link ${MENU_LINK_TEXT_CLASS}`}
 								href={href}
 								onClick={this.handleNavClick}
 							>
@@ -211,7 +214,7 @@ export class MainMenu extends React.Component {
 					<li key={`mobile-${id}`} className={highlight ? "highlight" : ""}>
 						<a
 							href={href}
-							className="nav-link nav-link-mobile nav modal-link"
+							className={`nav-link nav-link-mobile nav modal-link ${MENU_LINK_TEXT_CLASS}`}
 							onClick={this.handleNavClick}
 						>
 							{label}
@@ -239,7 +242,7 @@ export class MainMenu extends React.Component {
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-title"
+										className={`modal-link nav nav-title ${MENU_TITLE_TEXT_CLASS}`}
 										href="#modal-link-top"
 										onClick={this.handleNavClick}
 									>
@@ -259,7 +262,7 @@ export class MainMenu extends React.Component {
 							>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-link"
+										className={`modal-link nav nav-link ${MENU_LINK_TEXT_CLASS}`}
 										href={introHref}
 										onClick={this.handleNavClick}
 									>
@@ -328,7 +331,7 @@ export class MainMenu extends React.Component {
 						<li className={introHighlight ? "highlight" : ""}>
 							<a
 								href={introHref}
-								className="nav-link nav-link-mobile nav modal-link"
+								className={`nav-link nav-link-mobile nav modal-link ${MENU_LINK_TEXT_CLASS}`}
 								onClick={this.handleNavClick}
 							>
 								Introduction
