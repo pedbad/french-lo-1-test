@@ -52,7 +52,6 @@ $max-tile-width: 360px;
 	-------------------------------------------------------- */
 	.words-container {
 		padding: 0.5rem 1rem;
-		line-height: 0.5rem;
 		overflow: visible;
 		z-index: 20;
 		position: relative;
@@ -343,10 +342,6 @@ $max-tile-width: 360px;
    Responsive tweaks
 ========================================================== */
 @include respond-above(s) {
-	.words-container {
-		line-height: 3.5rem;
-	}
-
 	.blanks-container > .target-board {
 		padding: 1rem 2rem;
 	}
