@@ -1,7 +1,18 @@
 import DOMPurify from "dompurify";
 import { resolveAsset } from "../../utility";
 
-export const INSTRUCTION_TEXT_CLASS = "text-sm leading-[var(--body-line-height)]";
+export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-xl)] leading-[var(--body-line-height)] [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--body-line-height)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--body-line-height)]";
+export const applyInstructionTypographyToHTML = (html) => {
+	if (typeof DOMParser === "undefined") {
+		return html;
+	}
+	const doc = new DOMParser().parseFromString(html, "text/html");
+	doc.querySelectorAll("p, li").forEach((node) => {
+		node.style.fontSize = "var(--font-size-xl)";
+		node.style.lineHeight = "var(--body-line-height)";
+	});
+	return doc.body.innerHTML;
+};
 
 export const InstructionsMedia = ({
 	paragraph,
@@ -10,11 +21,15 @@ export const InstructionsMedia = ({
 	instructionTextClass = INSTRUCTION_TEXT_CLASS,
 	stackOnDesktop = false,
 }) => {
+	const safeParagraphHTML = paragraphHTML
+		? applyInstructionTypographyToHTML(DOMPurify.sanitize(paragraphHTML))
+		: "";
+
 	const paragraphNode = paragraphHTML ? (
 		<div
 			className={`${instructionTextClass} md:flex-1`}
 			style={{ margin: 0 }}
-			dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paragraphHTML) }}
+			dangerouslySetInnerHTML={{ __html: safeParagraphHTML }}
 		/>
 	) : paragraph ? (
 		<p className={`${instructionTextClass} md:flex-1`} style={{ margin: 0 }}>
