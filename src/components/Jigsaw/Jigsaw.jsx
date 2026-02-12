@@ -18,6 +18,7 @@ import Variables from "../../styles/_variables.module.scss";
 
 const JIGSAW_CLUE_TEXT_CLASS = "text-[1.4rem] font-bold";
 const JIGSAW_TIME_TEXT_CLASS = "text-[2rem]";
+const JIGSAW_CANVAS_TEXT_CLASS = "leading-[1.4em]";
 
 export class Jigsaw extends React.PureComponent {
 
@@ -396,7 +397,7 @@ export class Jigsaw extends React.PureComponent {
 				/>
 
 				<div
-					className={`jigsaw ${showHints ? 'show-hints' : ''}`}
+					className={`jigsaw ${JIGSAW_CANVAS_TEXT_CLASS} ${showHints ? 'show-hints' : ''}`}
 					onTouchStart={this.handleMouseDown}
 					onTouchMove={this.handleMouseMove}
 					onTouchEnd={this.handleMouseEnd}
