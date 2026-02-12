@@ -1455,32 +1455,32 @@
 		"instructionsText": "",
 		"phrases": [
 			[
-				"sounds/fr/Salut, ça va.mp3",
+				"audio/lo1/dialogues/phraseTable1/001-salut-ca-va.mp3",
 				"Salut, ça va ?",
 				"Hi, are you well?"
 			],
 			[
-				"sounds/fr/Salut ! Ça va ! Et toi.mp3",
+				"audio/lo1/dialogues/phraseTable1/002-salut-ca-va-et-toi.mp3",
 				"Salut ! Ça va ! Et toi ?",
 				"Hi, I'm fine and you?"
 			],
 			[
-				"sounds/fr/Très bien, merci !.mp3",
+				"audio/lo1/dialogues/phraseTable1/003-tres-bien-merci.mp3",
 				"Très bien, merci !",
 				"Very well, thank you!"
 			],
 			[
-				"sounds/fr/Bonjour, Madame Foucher ! Comment ça va.mp3",
+				"audio/lo1/dialogues/phraseTable2/001-bonjour-madame-foucher-comment-ca-va.mp3",
 				"Bonjour, Madame Foucher ! Comment ça va ?",
 				"lo, Mme Foucher! How are you?"
 			],
 			[
-				"sounds/fr/Bonjour Monsieur Letort ! Ça va très bien. Et vous.mp3",
+				"audio/lo1/dialogues/phraseTable2/002-bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3",
 				"Bonjour Monsieur Letort ! Ça va très bien. Et vous* ?",
 				"lo M Letort, I'm very well, thank you. And you?"
 			],
 			[
-				"sounds/fr/Ça va, merci !.mp3",
+				"audio/lo1/dialogues/phraseTable2/003-ca-va-merci.mp3",
 				"Ça va, merci !",
 				"I'm fine, thank you!"
 			],
@@ -1488,17 +1488,17 @@
 				""
 			],
 			[
-				"sounds/fr/Comment t'appelles-tu.mp3",
+				"audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
 				"Comment t'appelles-tu* ?",
 				"What's your name?"
 			],
 			[
-				"sounds/fr/Je m'appelle Max, et toi.mp3",
+				"audio/lo1/dialogues/phraseTable3/002-je-mappelle-max-et-toi.mp3",
 				"Je m'appelle Max, et toi* ?",
 				"My name is Max. And you're….?"
 			],
 			[
-				"sounds/fr/Je m'appelle Camille.mp3",
+				"audio/lo1/dialogues/phraseTable3/003-je-mappelle-camille.mp3",
 				"Je m'appelle Camille.",
 				"My name's Camille."
 			],
@@ -1506,12 +1506,12 @@
 				""
 			],
 			[
-				"sounds/fr/Comment vous appelez-vous.mp3",
+				"audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
 				"Comment vous* appelez-vous ?",
 				"What's your name?"
 			],
 			[
-				"sounds/fr/Je m'appelle Isabelle Martin.mp3",
+				"audio/lo1/dialogues/phraseTable4/002-je-mappelle-isabelle-martin.mp3",
 				"Je m'appelle Isabelle Martin.",
 				"My name is Isabelle Martin."
 			]
@@ -1547,19 +1547,19 @@
 					"items": [
 						{
 							"text": "b[on]jou[r] m[on] ché[r]i",
-							"audio": "sounds/fr/bonjour mon chéri.mp3"
+							"audio": "audio/lo1/exercises/wordparts1/001-bonjour-mon-cheri.mp3"
 						},
 						{
 							"text": "b[on]s[oi][r] m[on] amou[r]",
-							"audio": "sounds/fr/bonsoir mon amour.mp3"
+							"audio": "audio/lo1/exercises/wordparts1/002-bonsoir-mon-amour.mp3"
 						},
 						{
 							"text": "au [r]ev[oi][r] ma ché[r]ie",
-							"audio": "sounds/fr/au revoir ma chérie.mp3"
+							"audio": "audio/lo1/exercises/wordparts1/003-au-revoir-ma-cherie.mp3"
 						},
 						{
 							"text": "quelle [h]o[rr]eu[r] Valé[r]ie !",
-							"audio": "sounds/fr/quelle horreur valérie !.mp3"
+							"audio": "audio/lo1/exercises/wordparts1/004-quelle-horreur-valerie.mp3"
 						}
 					],
 					"titleText": "WordParts"
@@ -1845,27 +1845,27 @@
 					"items": [
 						{
 							"text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
-							"audio": "sounds/fr/Bonjour les enfants. Comment vous appelez-vous.mp3"
+							"audio": "audio/lo1/exercises/phrases4/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
 						},
 						{
 							"text": "Bonjour Madame ! Je m' [appelle] Annie.",
-							"audio": "sounds/fr/Bonjour Madame ! Je m' appelle Annie.mp3"
+							"audio": "audio/lo1/exercises/phrases4/002-bonjour-madame-je-mappelle-annie.mp3"
 						},
 						{
 							"text": "Et [moi], je m'appelle David.",
-							"audio": "sounds/fr/Et moi, je m'appelle David.mp3"
+							"audio": "audio/lo1/exercises/phrases4/003-et-moi-je-mappelle-david.mp3"
 						},
 						{
 							"text": "D'accord. Très bien !",
-							"audio": "sounds/fr/D'accord. Très bien !.mp3"
+							"audio": "audio/lo1/exercises/phrases4/004-daccord-tres-bien.mp3"
 						},
 						{
 							"text": "Merci Madame ! Bonne journée !",
-							"audio": "sounds/fr/Merci Madame ! Bonne journée !.mp3"
+							"audio": "audio/lo1/exercises/phrases4/005-merci-madame-bonne-journee.mp3"
 						},
 						{
 							"text": "Au [revoir] les enfants !  Bonne journée !",
-							"audio": "sounds/fr/Au revoir les enfants !  Bonne journée !.mp3"
+							"audio": "audio/lo1/exercises/phrases4/006-au-revoir-les-enfants-bonne-journee.mp3"
 						}
 					],
 					"titleText": "Blanks blanksType='phrases'"

@@ -49,8 +49,13 @@ export class AudioClip extends React.PureComponent {
 				this.setState({
 					status: 'playing'
 				});
-
-				soundFileAudio.play();
+				if (!soundFileAudio) {
+					this.playSound(e);
+					break;
+				}
+				soundFileAudio.play().catch(() => {
+					this.setState({ status: 'stopped' });
+				});
 				break;
 			case 'playing':
 				this.pause(e);
@@ -82,7 +87,12 @@ export class AudioClip extends React.PureComponent {
 				status: 'stopped',
 			});
 		};
-		soundFileAudio.play();
+		soundFileAudio.play().catch(() => {
+			this.setState({
+				progress: 0,
+				status: 'stopped',
+			});
+		});
 		this.setState({
 			soundFileAudio: soundFileAudio,
 			status: 'playing'

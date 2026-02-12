@@ -355,9 +355,11 @@ export const resolveAsset = (path = '') => {
 	const base = import.meta.env.BASE_URL || '/';
 	const normalizedBase = base.endsWith('/') ? base : `${base}/`;
 	const normalizedPath = `${path}`.startsWith('/') ? `${path}`.slice(1) : `${path}`;
+	// Mac-origin audio file names are often NFD; normalize requests to match on-disk assets.
+	const normalizedPathNfd = normalizedPath.normalize("NFD");
 	// If already resolved against BASE_URL, just URI-encode it.
-	if (`${path}`.startsWith(normalizedBase)) return encodeURI(`${path}`);
-	return encodeURI(`${normalizedBase}${normalizedPath}`);
+	if (`${path}`.startsWith(normalizedBase)) return encodeURI(`${path}`.normalize("NFD"));
+	return encodeURI(`${normalizedBase}${normalizedPathNfd}`);
 };
 
 export const resolveAssetHTML = (html) => {

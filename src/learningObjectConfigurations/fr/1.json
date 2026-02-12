@@ -21,17 +21,17 @@
           "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
           "phrases": [
             [
-              "sounds/fr/Salut, ça va.mp3",
+              "audio/lo1/dialogues/phraseTable1/001-salut-ca-va.mp3",
               "Salut, ça va ?",
               "Hi, are you well?"
             ],
             [
-              "sounds/fr/Salut ! Ça va ! Et toi.mp3",
+              "audio/lo1/dialogues/phraseTable1/002-salut-ca-va-et-toi.mp3",
               "Salut ! Ça va ! Et toi ?",
               "Hi, I'm fine and you?"
             ],
             [
-              "sounds/fr/Très bien, merci !.mp3",
+              "audio/lo1/dialogues/phraseTable1/003-tres-bien-merci.mp3",
               "Très bien, merci !",
               "Very well, thank you!"
             ]
@@ -46,17 +46,17 @@
           "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
           "phrases": [
             [
-              "sounds/fr/Bonjour, Madame Foucher ! Comment ça va.mp3",
+              "audio/lo1/dialogues/phraseTable2/001-bonjour-madame-foucher-comment-ca-va.mp3",
               "Bonjour, Madame Foucher ! Comment ça va ?",
               "Hello, Mme Foucher! How are you?"
             ],
             [
-              "sounds/fr/Bonjour Monsieur Letort ! Ça va très bien. Et vous.mp3",
+              "audio/lo1/dialogues/phraseTable2/002-bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3",
               "Bonjour Monsieur Letort ! Ça va très bien. Et <a class='modal-link' href='#tuvous'>vous</a> ?",
               "Hello M Letort, I'm very well, thank you. And you?"
             ],
             [
-              "sounds/fr/Ça va, merci !.mp3",
+              "audio/lo1/dialogues/phraseTable2/003-ca-va-merci.mp3",
               "Ça va, merci !",
               "I'm fine, thank you!"
             ]
@@ -71,17 +71,17 @@
           "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
           "phrases": [
             [
-              "sounds/fr/Comment t'appelles-tu.mp3",
+              "audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
               "Comment t'appelles-<a class='modal-link' href='#tuvous'>tu</a> ?",
               "What's your name?"
             ],
             [
-              "sounds/fr/Je m'appelle Max, et toi.mp3",
+              "audio/lo1/dialogues/phraseTable3/002-je-mappelle-max-et-toi.mp3",
               "Je m'appelle Max, et <a class='modal-link' href='#toi'>toi</a> ?",
               "My name is Max. And you're….?"
             ],
             [
-              "sounds/fr/Je m'appelle Camille.mp3",
+              "audio/lo1/dialogues/phraseTable3/003-je-mappelle-camille.mp3",
               "Je m'appelle Camille.",
               "My name's Camille."
             ]
@@ -96,12 +96,12 @@
           "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
           "phrases": [
             [
-              "sounds/fr/Comment vous appelez-vous.mp3",
+              "audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
               "Comment <a class='modal-link' href='#tuvous'>vous</a> appelez-vous ?",
               "What's your name?"
             ],
             [
-              "sounds/fr/Je m'appelle Isabelle Martin.mp3",
+              "audio/lo1/dialogues/phraseTable4/002-je-mappelle-isabelle-martin.mp3",
               "Je m'appelle Isabelle Martin.",
               "My name is Isabelle Martin."
             ]
@@ -121,172 +121,172 @@
     "informationTextHTML": "<h3>You will learn:</h3><ul><li>Key greeting and farewell expressions (<i>Bonjour, Salut, Au revoir, À bientôt</i>).</li><li>Terms of address (<i>Monsieur, Madame, Mademoiselle, Jeune homme, Les enfants</i>).</li><li>Friendly and affectionate expressions (<i>Mon chéri, Ma chérie, Mon amour</i>).</li></ul>",
     "phrases": [
       [
-        "sounds/fr/bonjour.mp3",
+        "audio/lo1/vocabulary/001-bonjour.mp3",
         "Bonjour",
         "Hello, good morning, good afternoon"
       ],
       [
-        "sounds/fr/bonsoir.mp3",
+        "audio/lo1/vocabulary/002-bonsoir.mp3",
         "Bonsoir",
         "Hello, good evening"
       ],
       [
-        "sounds/fr/coucou.mp3",
+        "audio/lo1/vocabulary/003-coucou.mp3",
         "Coucou",
         "Hi, cooee, peek-a-boo"
       ],
       [
-        "sounds/fr/salut.mp3",
+        "audio/lo1/vocabulary/004-salut.mp3",
         "Salut",
         "Hi, bye"
       ],
       [
-        "sounds/fr/Au revoir.mp3",
+        "audio/lo1/vocabulary/005-au-revoir.mp3",
         "Au revoir",
         "Goodbye"
       ],
       [
-        "sounds/fr/À bientôt.mp3",
+        "audio/lo1/vocabulary/006-a-bientot.mp3",
         "À bientôt",
         "See you soon!"
       ],
       [
-        "sounds/fr/monsieur.mp3",
+        "audio/lo1/vocabulary/007-monsieur.mp3",
         "Monsieur",
         "Sir, Mr"
       ],
       [
-        "sounds/fr/madame.mp3",
+        "audio/lo1/vocabulary/008-madame.mp3",
         "<a class='modal-link' href='#madame'>Madame</a>",
         "Madam, Mrs / Ms"
       ],
       [
-        "sounds/fr/mademoiselle.mp3",
+        "audio/lo1/vocabulary/009-mademoiselle.mp3",
         "<a class='modal-link' href='#mademoiselle'>Mademoiselle</a>",
         "Young lady, Miss"
       ],
       [
-        "sounds/fr/messieurs-dames.mp3",
+        "audio/lo1/vocabulary/010-messieurs-dames.mp3",
         "Messieurs-dames",
         "Ladies and gentlemen"
       ],
       [
-        "sounds/fr/jeune homme.mp3",
+        "audio/lo1/vocabulary/011-jeune-homme.mp3",
         "Jeune homme",
         "Young man"
       ],
       [
-        "sounds/fr/mon petit ma petite.mp3",
+        "audio/lo1/vocabulary/012-mon-petit-ma-petite.mp3",
         "Mon petit (m) / Ma petite (f)",
         "Poppet  (literally: my little one)"
       ],
       [
-        "sounds/fr/mon amour.mp3",
+        "audio/lo1/vocabulary/013-mon-amour.mp3",
         "Mon amour",
         "My love"
       ],
       [
-        "sounds/fr/mon cheri ma cherie.mp3",
+        "audio/lo1/vocabulary/014-mon-cheri-ma-cherie.mp3",
         "Mon chéri (m) / ma chérie (f)",
         "My darling"
       ],
       [
-        "sounds/fr/les enfants.mp3",
+        "audio/lo1/vocabulary/015-les-enfants.mp3",
         "Les enfants",
         "Children"
       ],
       [
-        "sounds/fr/tout le monde.mp3",
+        "audio/lo1/vocabulary/016-tout-le-monde.mp3",
         "Tout le monde",
         "Everyone (literally : all the world)"
       ],
       [
-        "sounds/fr/Ça va (q).mp3",
+        "audio/lo1/vocabulary/017-ca-va-question.mp3",
         "Ça va ?",
         "Are you well / OK?  Are things alright/ OK?"
       ],
       [
-        "sounds/fr/Comment ça va.mp3",
+        "audio/lo1/vocabulary/018-comment-ca-va.mp3",
         "Comment ça va ?",
         "How are you? (literally: how's it going?)"
       ],
       [
-        "sounds/fr/Très bien.mp3",
+        "audio/lo1/vocabulary/019-tres-bien.mp3",
         "Très bien",
         "Very well"
       ],
       [
-        "sounds/fr/Ça va.mp3",
+        "audio/lo1/vocabulary/020-ca-va.mp3",
         "Ça va.",
         "(I'm) fine"
       ],
       [
-        "sounds/fr/Pas mal.mp3",
+        "audio/lo1/vocabulary/021-pas-mal.mp3",
         "Pas mal",
         "Not bad"
       ],
       [
-        "sounds/fr/Comment t'appelles-tu.mp3",
+        "audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
         "Comment t'appelles-<a class='modal-link' href='#tuvous'>tu</a> ?",
         "What's your name?"
       ],
       [
-        "sounds/fr/Comment vous appelez-vous.mp3",
+        "audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
         "Comment <a class='modal-link' href='#tuvous'>vous</a> appelez-vous ?",
         "What's your name?"
       ],
       [
-        "sounds/fr/Je m'appelle.mp3",
+        "audio/lo1/vocabulary/022-je-mappelle.mp3",
         "Je m'appelle …",
         "My name is …"
       ],
       [
-        "sounds/fr/Bonne journée !.mp3",
+        "audio/lo1/vocabulary/023-bonne-journee.mp3",
         "Bonne journée !",
         "Have a nice day!"
       ],
       [
-        "sounds/fr/Bonne soirée !.mp3",
+        "audio/lo1/vocabulary/024-bonne-soiree.mp3",
         "Bonne soirée !",
         "Have a nice evening!   "
       ],
       [
-        "sounds/fr/Bonne nuit !.mp3",
+        "audio/lo1/vocabulary/025-bonne-nuit.mp3",
         "Bonne nuit !",
         "Good night!"
       ],
       [
-        "sounds/fr/Bon voyage !.mp3",
+        "audio/lo1/vocabulary/026-bon-voyage.mp3",
         "Bon voyage !",
         "Have a safe journey! / Have a good trip!"
       ],
       [
-        "sounds/fr/Bonnes vacances !.mp3",
+        "audio/lo1/vocabulary/027-bonnes-vacances.mp3",
         "Bonnes vacances !",
         "Enjoy your holiday!"
       ],
       [
-        "sounds/fr/oui, non.mp3",
+        "audio/lo1/vocabulary/028-oui-non.mp3",
         "Oui, non",
         "Yes, no"
       ],
       [
-        "sounds/fr/merci.mp3",
+        "audio/lo1/vocabulary/029-merci.mp3",
         "Merci",
         "Thank you"
       ],
       [
-        "sounds/fr/d'accord.mp3",
+        "audio/lo1/vocabulary/030-daccord.mp3",
         "D'accord",
         "OK then, alright"
       ],
       [
-        "sounds/fr/aujourd'hui.mp3",
+        "audio/lo1/vocabulary/031-aujourdhui.mp3",
         "Aujourd'hui",
         "Today"
       ],
       [
-        "sounds/fr/enchanté.mp3",
+        "audio/lo1/vocabulary/032-enchante.mp3",
         "Enchanté.e",
         "Pleased to meet you (literally: delighted)"
       ]
@@ -385,19 +385,19 @@
           "items": [
             {
               "text": "b[on]jou[r] m[on] ché[r]i",
-              "audio": "sounds/fr/bonjour mon chéri.mp3"
+              "audio": "audio/lo1/exercises/wordparts1/001-bonjour-mon-cheri.mp3"
             },
             {
               "text": "b[on]s[oi][r] m[on] amou[r]",
-              "audio": "sounds/fr/bonsoir mon amour.mp3"
+              "audio": "audio/lo1/exercises/wordparts1/002-bonsoir-mon-amour.mp3"
             },
             {
               "text": "au [r]ev[oi][r] ma ché[r]ie",
-              "audio": "sounds/fr/au revoir ma chérie.mp3"
+              "audio": "audio/lo1/exercises/wordparts1/003-au-revoir-ma-cherie.mp3"
             },
             {
               "text": "quelle [h]o[rr]eu[r] Valé[r]ie !",
-              "audio": "sounds/fr/quelle horreur valérie !.mp3"
+              "audio": "audio/lo1/exercises/wordparts1/004-quelle-horreur-valerie.mp3"
             }
           ],
           "titleText": "1. Identify pronunciation features"
@@ -415,15 +415,15 @@
           "items": [
             {
               "text": "Coucou [mon] amour ! Ça [va] aujourd'hui ?",
-              "audio": "sounds/fr/Coucou mon amour ! Ça va aujourd'hui.mp3"
+              "audio": "audio/lo1/exercises/phrases2/001-coucou-mon-amour-ca-va-aujourdhui.mp3"
             },
             {
               "text": "Oui, ma [chérie] ! Ça va [très] bien ! Et [toi] ?",
-              "audio": "sounds/fr/Oui, ma chérie ! Ça va très bien ! Et toi.mp3"
+              "audio": "audio/lo1/exercises/phrases2/002-oui-ma-cherie-ca-va-tres-bien-et-toi.mp3"
             },
             {
               "text": "Ça va !",
-              "audio": "sounds/fr/Ça va !.mp3"
+              "audio": "audio/lo1/exercises/phrases2/003-ca-va.mp3"
             }
           ],
           "titleText": "2. Meeting and greeting gap fillers"
@@ -441,15 +441,15 @@
           "items": [
             {
               "text": "Bonsoir Monsieur Galipot ! [Comment] ça va ?",
-              "audio": "sounds/fr/Bonsoir Monsieur Galipot ! Comment ça va.mp3"
+              "audio": "audio/lo1/exercises/phrases3/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
             },
             {
               "text": "Bonsoir Madame Bernard, ça va très bien, merci. Et [vous] ?",
-              "audio": "sounds/fr/Bonsoir Madame Bernard, ça va très bien, merci. Et vous.mp3"
+              "audio": "audio/lo1/exercises/phrases3/002-bonsoir-madame-bernard-ca-va-tres-bien-merci-et-vous.mp3"
             },
             {
               "text": "Ah pas mal [merci] !",
-              "audio": "sounds/fr/Ah pas mal merci !.mp3"
+              "audio": "audio/lo1/exercises/phrases3/003-ah-pas-mal-merci.mp3"
             }
           ],
           "titleText": "3. Fill in the gaps: greetings and introductions"
@@ -468,27 +468,27 @@
           "items": [
             {
               "text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
-              "audio": "sounds/fr/Bonjour les enfants. Comment vous appelez-vous.mp3"
+              "audio": "audio/lo1/exercises/phrases4/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
             },
             {
               "text": "Bonjour Madame ! Je m' [appelle] Annie.",
-              "audio": "sounds/fr/Bonjour Madame ! Je m' appelle Annie.mp3"
+              "audio": "audio/lo1/exercises/phrases4/002-bonjour-madame-je-mappelle-annie.mp3"
             },
             {
               "text": "Et [moi], je m'appelle David.",
-              "audio": "sounds/fr/Et moi, je m'appelle David.mp3"
+              "audio": "audio/lo1/exercises/phrases4/003-et-moi-je-mappelle-david.mp3"
             },
             {
               "text": "D'accord. Très bien !",
-              "audio": "sounds/fr/D'accord. Très bien !.mp3"
+              "audio": "audio/lo1/exercises/phrases4/004-daccord-tres-bien.mp3"
             },
             {
               "text": "Merci Madame ! Bonne journée !",
-              "audio": "sounds/fr/Merci Madame ! Bonne journée !.mp3"
+              "audio": "audio/lo1/exercises/phrases4/005-merci-madame-bonne-journee.mp3"
             },
             {
               "text": "Au [revoir] les enfants !  Bonne journée !",
-              "audio": "sounds/fr/Au revoir les enfants !  Bonne journée !.mp3"
+              "audio": "audio/lo1/exercises/phrases4/006-au-revoir-les-enfants-bonne-journee.mp3"
             }
           ],
           "titleText": "4. Fill in the gaps: greetings and introductions"
@@ -514,7 +514,7 @@
             "prénom",
             "bonjour"
           ],
-          "soundFile": "sounds/fr/LO1 5 words-in-order.mp3",
+          "soundFile": "audio/lo1/exercises/wordsIntoSlots5/001-lo1-5-words-in-order.mp3",
           "titleText": "5. Listening comprehension"
         }
       },
@@ -538,7 +538,7 @@
             "quoi",
             "froid"
           ],
-          "soundFile": "sounds/fr/LO1 6 words-in-order.mp3",
+          "soundFile": "audio/lo1/exercises/wordsIntoSlots6/001-lo1-6-words-in-order.mp3",
           "titleText": "6. Listening comprehension"
         }
       },
