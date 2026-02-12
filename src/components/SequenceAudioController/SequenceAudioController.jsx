@@ -410,7 +410,7 @@ export class SequenceAudioController extends React.Component {
 
 				<div className="controls">
 					<button
-						className={`play-pause`}
+						className={`play-pause text-base`}
 						onClick={this.toggleMasterPlay}
 						title={playState === "playing" ? "Pause" : "Play"}
 					>

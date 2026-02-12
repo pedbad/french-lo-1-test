@@ -33,6 +33,42 @@ http://localhost:5173/french-basic/?lang=fr&lo=1
 yarn build
 ```
 
+## Typography Guardrails
+
+To prevent new hardcoded typography drifting back into SCSS/JSX, this repo includes a typography guard script.
+
+### One-time setup (local pre-commit hook)
+
+```bash
+bash scripts/setup-githooks.sh
+```
+
+This configures git to use `.githooks/` in this repo, where pre-commit runs:
+
+```bash
+yarn -s check:typography
+```
+
+### Manual checks
+
+Check staged changes:
+
+```bash
+yarn check:typography
+```
+
+Check all changes introduced by your branch vs `origin/main`:
+
+```bash
+yarn check:typography:branch
+```
+
+Run the recommended local pre-push gate:
+
+```bash
+yarn prepush:local
+```
+
 ## Configuring the learning object
 
 There is an **index-fr.json** file which lists the various learning object configuration files. It is used to construct a navigation menu.
@@ -63,6 +99,7 @@ Typography is also normalized: root tokens (`--body-font-size`, `--body-line-hei
 - Theme toggling now temporarily disables CSS transitions to prevent visible flicker (notably in tables) during light/dark switches.
 - Modal links use the Lucide `message-square-warning` icon for the inline indicator.
 - WordParts now shows a circle-based progress row and inline icon guidance for Show answer/Reset.
+- Hero banner now renders as a semantic `<img>` (`images/fr_banner.svg`) inside `#hero` instead of a CSS background image. The hero uses a `16:9` aspect ratio with `object-fit: contain` so the full banner artwork remains visible across screen sizes (no `cover` cropping), while the title remains layered above the image.
 
 ## TODO
 

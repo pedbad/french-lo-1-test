@@ -420,34 +420,43 @@ hr {
 }
 
 #hero {
-	// align-items: center;
-	background-image: url(/images/fr_banner.svg);
-	background-position: center bottom;
-	background-repeat: no-repeat;
-	background-size: cover;
+	--hero-banner-title-color: oklch(0.398 0.07 227.392);
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	min-height: clamp(780px, 75vw, 1120px);
-	// justify-content: space-evenly;
+	justify-content: flex-start;
+	align-items: flex-end;
+	aspect-ratio: 16 / 9;
+	min-height: clamp(340px, 56.25vw, 960px);
 	margin-bottom: 0.5rem;
 	margin-top: $header-height;
 	max-width: 100%;
-	overflow-y: hidden;
+	overflow: hidden;
 	padding: 1rem;
-	justify-content: flex-start;
-	align-items: flex-end;
+
+	.hero-image {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		object-fit: contain;
+		object-position: center bottom;
+	}
 
 	.hero-title {
+		position: relative;
+		z-index: 1;
 		margin: 0;
 		// background: rgba(255, 255, 255, 0.6);
-		color: var(--chart-3);
+		color: var(--hero-banner-title-color);
 		text-align: right;
 		align-self: flex-end;
 		width: 100%;
 		font-size: clamp(4rem, 7.25vw, 5.75rem);
 		text-shadow:
-			0 2px 6px color-mix(in oklab, var(--chart-3) 50%, transparent),
-			0 6px 14px color-mix(in oklab, var(--chart-3) 35%, transparent);
+			0 2px 6px color-mix(in oklab, var(--hero-banner-title-color) 50%, transparent),
+			0 6px 14px color-mix(in oklab, var(--hero-banner-title-color) 35%, transparent);
 		// box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 		padding: 1.4rem 3rem 0.35rem 0.6rem;
 		border-radius: 8px;
@@ -456,9 +465,11 @@ hr {
 
 @media (max-width: 650px) {
 	#hero {
+		padding-top: 0.25rem;
 		.hero-title {
 			text-align: center;
-			padding: 1rem 1.25rem 0.3rem;
+			margin-top: 0;
+			padding: 0.3rem 1.25rem 0.2rem;
 			font-size: clamp(2.4rem, 7.5vw, 3.1rem);
 		}
 	}
@@ -473,20 +484,6 @@ hr {
 		.title-sub {
 			font-size: 0.9em;
 			margin-top: 0.25rem;
-		}
-	}
-	.modal-link-dialog {
-		font-size: 1.8rem;
-	}
-	.modal-link-dialog h2 {
-		font-size: 1.8rem;
-	}
-}
-
-.dark {
-	#hero {
-		.hero-title {
-			color: var(--hero-title-color) !important;
 		}
 	}
 }
@@ -617,12 +614,7 @@ hr {
 		padding: 0 1vw;
 	}
 	.instructions {
-		font-size: var(--font-size-sm);
-		line-height: var(--body-line-height);
-		p {
-			font-size: inherit !important;
-			line-height: inherit !important;
-		}
+		// Typography now comes from utility classes/tokens.
 	}
 
 	.footnote {

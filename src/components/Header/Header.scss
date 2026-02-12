@@ -7,14 +7,12 @@ header.main-header {
 	color: var(--primary-foreground);
 	display: block;
 	left: 0;
-	line-height: 3rem;
 	margin: 0;
 	text-align: center;
 	top: 0;
 	width: 100%;
 	h1 {
 		margin: 0;
-		// 	font-size: 1.3em;
 	}
 	// h2 {
 	// 	margin: 0;
@@ -23,11 +21,4 @@ header.main-header {
 	// 	}
 	// }
 	box-shadow: 0 8px 8px color-mix(in oklab, var(--foreground) 20%, transparent);
-}
-@include respond-above(m) {
-	// header.main-header {
-	// 	h1 {
-	// 		font-size: 2rem;
-	// 	}
-	// }
 }

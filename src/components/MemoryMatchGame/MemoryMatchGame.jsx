@@ -209,9 +209,9 @@ export class MemoryMatchGame extends React.PureComponent {
 						className={`memory-map-container num${cards.length}cards`}
 					>
 						{/* dirty max-height, but the container won't shrink down for the scaled down content :-( */}
-						<h2>Cards</h2>
-						<h2>Matched&nbsp;pairs</h2>
-						<div className="cards">
+						<h2 className="text-base">Cards</h2>
+						<h2 className="text-base">Matched&nbsp;pairs</h2>
+						<div className="cards text-[0.8rem] xl:text-[0.9rem] 2xl:text-[1rem]">
 							{cards.map(card => (
 								<Card
 									card={card}
@@ -222,7 +222,7 @@ export class MemoryMatchGame extends React.PureComponent {
 							))}
 						</div>
 						<div className={`matches-container`}>{/* To force align top */}
-							<div className="matches">
+							<div className="matches text-[0.6rem] lg:text-[0.7rem] xl:text-[0.8rem]">
 								{sortedMatches.map(card =>
 									matched.includes(card.id) ?
 										(

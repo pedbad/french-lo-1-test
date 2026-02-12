@@ -7,7 +7,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import DOMPurify from "dompurify";
 import React from 'react';
-import { DEFAULT_INSTRUCTION_STYLE, InstructionsMedia } from "./instructions-media";
+import { INSTRUCTION_TEXT_CLASS, InstructionsMedia, applyInstructionTypographyToHTML } from "./instructions-media";
 
 export class Section extends React.PureComponent {
 	constructor(props) {
@@ -53,6 +53,9 @@ export class Section extends React.PureComponent {
 			instructionsTextHTML,
 			instructionsLayout,
 		} = config;
+		const safeInstructionsTextHTML = instructionsTextHTML
+			? applyInstructionTypographyToHTML(DOMPurify.sanitize(instructionsTextHTML))
+			: "";
 		const { informationText, informationTextHTML } = config;
 
 		const {
@@ -102,11 +105,14 @@ export class Section extends React.PureComponent {
 						</CardTitle>
 						{/* <Info className={`text accordionarticle`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML}/> */}
 						{instructionsLayout ? (
-							<InstructionsMedia {...instructionsLayout} instructionStyle={DEFAULT_INSTRUCTION_STYLE} />
+							<InstructionsMedia
+								{...instructionsLayout}
+								instructionTextClass={INSTRUCTION_TEXT_CLASS}
+							/>
 						) : (
 							<>
-								{instructionsText ? <p className="instructions text section mt-0" style={{ ...DEFAULT_INSTRUCTION_STYLE, margin: 0 }}>{instructionsText}</p> : null}
-								{instructionsTextHTML ? <div className="instructions html section mt-0" style={{ ...DEFAULT_INSTRUCTION_STYLE, margin: 0 }} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(instructionsTextHTML) }} /> : null}
+								{instructionsText ? <p className={`instructions text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>{instructionsText}</p> : null}
+								{instructionsTextHTML ? <div className={`instructions html section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }} dangerouslySetInnerHTML={{ __html: safeInstructionsTextHTML }} /> : null}
 							</>
 						)}
 						{(instructionsText || instructionsTextHTML || instructionsLayout) ? <Separator className="my-3" /> : null}

@@ -3,6 +3,8 @@ import DOMPurify from "dompurify";
 import {Info} from '..';
 import React from 'react';
 
+const ACCORDION_TITLE_TEXT_CLASS = "text-[var(--font-size-base)]";
+
 export class AccordionArticle extends React.PureComponent {
 
 	constructor(props) {
@@ -95,9 +97,15 @@ export class AccordionArticle extends React.PureComponent {
 			<h2
 				onClick={this.toggleExpanded}
 				title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-				className={`modal-link-target`}
+				className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
 				id={`modal-link-${target}`}
 				name={`modal-link-${target}`}
+				style={{
+					fontSize: "calc(var(--font-size-lg) * 1.215)",
+					lineHeight: "1.2",
+					marginTop: 0,
+					marginBottom: 0,
+				}}
 			>
 				{title}
 				{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}
@@ -109,9 +117,15 @@ export class AccordionArticle extends React.PureComponent {
 				<h2
 					onClick={this.toggleExpanded}
 					title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-					className={`modal-link-target`}
+					className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
 					id={`modal-link-${target}`}
 					name={`modal-link-${target}`}
+					style={{
+						fontSize: "calc(var(--font-size-lg) * 1.215)",
+						lineHeight: "1.2",
+						marginTop: 0,
+						marginBottom: 0,
+					}}
 				>
 					<span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }} />
 					{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}

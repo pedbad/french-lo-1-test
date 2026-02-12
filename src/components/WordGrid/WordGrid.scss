@@ -58,7 +58,6 @@
 			box-sizing: border-box;
 			width: var(--cell-dimension);
 			height: var(--cell-dimension);
-			font-size: 1rem;
 			text-align: center;
 			text-transform: uppercase;
 			// background: white;
@@ -115,9 +114,5 @@
 			opacity: 1;
 			transition: opacity 4s;
 		}
-	}
-	p.clue {
-		font-size: 1.4rem;
-		font-weight: bold;
 	}
 }

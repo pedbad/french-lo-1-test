@@ -9,6 +9,8 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 
+const ERROR_LOG_TEXT_CLASS = "text-sm";
+
 export class ErrorLog extends React.Component {
 
 	constructor(props) {
@@ -130,7 +132,7 @@ export class ErrorLog extends React.Component {
 
 		return (
 			<div id='errorLog' className={`${errors.length > 0 ? 'show' : ''} ${collapse ? 'collapse' : ''} noprint`}>
-				<header>
+				<header className={ERROR_LOG_TEXT_CLASS}>
 					Error Log
 					<div className='header-buttons-left'>
 						<button
@@ -156,7 +158,7 @@ export class ErrorLog extends React.Component {
 					</div>
 				</header>
 				<div id='tableContainer'>
-					<Table>
+					<Table className={ERROR_LOG_TEXT_CLASS}>
 						<TableBody>
 							{rows}
 						</TableBody>

@@ -26,10 +26,8 @@
 	box-sizing: border-box;
 	// color: darkblue;
 	display: flex;
-	// font-size: 40px;
 	height: fit-content;
 	inset: 0;
-	line-height: 60px;
 	margin: auto;
 	min-height: 22vh;
 	// min-width: 80vw;
@@ -84,8 +82,6 @@
 }
 @include respond-above(m) {
 	#congratulate {
-		font-size: 80px;
-		line-height: 90px;
 		margin: auto 10%;
 		padding: 2rem;
 		button {

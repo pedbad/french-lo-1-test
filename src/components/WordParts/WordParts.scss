@@ -16,8 +16,6 @@ html.debug {
 .word-parts-container {
 	position: relative;
 	table {
-		font-size: inherit;
-		line-height: inherit;
 		p {
 			margin: 0;
 			letter-spacing: 0.2rem;
@@ -49,7 +47,6 @@ html.debug {
 		border: 1px solid transparent;
 		cursor: pointer;
 		display: inline-block;
-		font-size: inherit;
 		padding: 0; //0.1rem 0; //0.5rem 0;
 		position: relative;
 		transform-style: preserve-3d;
@@ -77,11 +74,6 @@ html.debug {
 		&.error {
 			@include incorrect-highlight();
 		}
-	}
-
-	p.clue {
-		font-size: 1.4rem;
-		font-weight: bold;
 	}
 
 	.hidden-help {
@@ -132,32 +124,16 @@ html.debug {
 }
 @include respond-above(m) {
 	.word-parts-container {
-		> span {
-			font-size: 1.2rem;
-			padding: 0.5rem 0;
-		}
 		table {
 			td {
-				font-size: calc(var(--font-size-xl) * 1.5);
 				padding: 0.25rem 1rem;
 			}
 		}
 	}
 }
 
-@include respond-below(m) {
-	.word-parts-container {
-		table td,
-		table span {
-			font-size: calc(var(--font-size-base) * 1.15);
-			line-height: 1.35;
-		}
-	}
-}
 @include respond-above(xxl) {
 	.word-parts-container {
-		span {
-			font-size: 1.4rem;
-		}
+		// Typography size now controlled by JSX utility classes.
 	}
 }

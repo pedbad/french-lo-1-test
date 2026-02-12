@@ -16,7 +16,6 @@
 
 	.jigsaw {
 		// 629 x 508
-		line-height: 1.4em;
 		position: relative;
 		overflow: visible;
 		width: $tile-size * 10px;
@@ -43,7 +42,6 @@
 	}
 
 	p.clue {
-		font-size: 1.4rem;
 		font-weight: bold;
 	}
 
@@ -84,7 +82,6 @@
 	}
 	.time-taken {
 		right: 0;
-		font-size: 2rem;
 	}
 }
 @include respond-above(m) {
