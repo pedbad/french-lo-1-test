@@ -199,6 +199,10 @@ Divider lines now use the shadcn `Separator` component (`src/components/ui/separ
 
 ## Audio Path Fix (Accent Normalization)
 
+Major filename issue: JSON uses composed accents, while disk has decomposed forms (e.g. Ç, è), which can break URL matching.
+should be no accents, apostrophes, commas, exclamation marks!
+stable prefix ordering: 001-..., 002-...
+
 Some French audio filenames on disk use decomposed accents (NFD), while JSON references used composed accents (NFC). This mismatch caused 404s and `NotSupportedError` in the browser. The fix normalizes asset paths to NFD inside `resolveAsset` so the requested URL matches the actual filenames.
 
 ## Badges
