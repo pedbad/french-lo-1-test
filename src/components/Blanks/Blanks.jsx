@@ -26,6 +26,7 @@ const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[1.2rem] font-bold";
 const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
 const BLANKS_CONTENT_FLOW_CLASS = "leading-[1.4em]";
 const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[0.5rem] sm:leading-[3.5rem]";
+const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[2.6rem]";
 
 export class Blanks extends React.Component {
 
@@ -884,7 +885,7 @@ export class Blanks extends React.Component {
 
 					<div className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS}`}>
 						{blanksType === 'phrases' ? (
-							<ul>{phraseList}</ul>
+							<ul className={BLANKS_PHRASE_ROWS_FLOW_CLASS}>{phraseList}</ul>
 						) : (
 							<Table className={BLANKS_TARGET_TABLE_TEXT_CLASS}>
 								{header.length > 0 ? (
