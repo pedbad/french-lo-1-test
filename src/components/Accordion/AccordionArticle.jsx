@@ -78,20 +78,22 @@ export class AccordionArticle extends React.PureComponent {
 
 	renderSplitTitle = (rawTitle) => {
 		if (typeof rawTitle !== "string") return rawTitle;
-		const colonIndex = rawTitle.indexOf(":");
-		if (colonIndex < 0) return rawTitle;
-
-		const firstLine = rawTitle.slice(0, colonIndex + 1).trimEnd();
-		const secondLine = rawTitle.slice(colonIndex + 1).trimStart();
-		if (!secondLine) return rawTitle;
-
-		return (
-			<>
-				<span className="accordion-title-before-colon">{firstLine}</span>
-				{" "}
-				<span className="accordion-title-after-colon">{secondLine}</span>
-			</>
-		);
+		const renderPartSuffix = (text) => {
+			if (typeof text !== "string") return text;
+			const match = text.match(/\s*\(part\s*(\d+)\)$/i);
+			if (!match) return text;
+			const partNumber = match[1];
+			const partText = `(part ${partNumber})`;
+			const baseText = text.replace(/\s*\(part\s*\d+\)$/i, "").trimEnd();
+			return (
+				<>
+					{baseText}
+					{" "}
+					<span className="accordion-title-part">{partText}</span>
+				</>
+			);
+		};
+		return renderPartSuffix(rawTitle);
 	};
 
 	render = () => {

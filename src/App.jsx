@@ -1195,27 +1195,28 @@ export default class App extends React.Component {
 							})()
 						);
 
-					articles.push(
-						outerWrapper(
-							<Tabs
-								className="group-tabs w-full "
-								defaultValue={defaultTabValue || (tabItems[0] && tabItems[0].value)}
-							>
-								<TabsList className="group-tabs-list  py-5 inline-flex rounded-lg border border-border/60 bg-background/80">
+						articles.push(
+							outerWrapper(
+								<Tabs
+									className="w-full overflow-hidden rounded-xl border border-border/45 bg-card/80"
+									defaultValue={defaultTabValue || (tabItems[0] && tabItems[0].value)}
+								>
+									<TabsList className="flex h-auto w-full flex-col items-stretch justify-start gap-0 overflow-visible rounded-lg border border-border/35 bg-muted/20 p-1 min-[1170px]:flex-wrap min-[1170px]:flex-row min-[1170px]:gap-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/35 min-[1170px]:p-0">
+										{tabItems.map((item) => (
+											<TabsTrigger
+												className="w-full cursor-pointer justify-start rounded-md border border-transparent !px-4 !py-2 text-left !text-[1.2rem] !leading-tight font-medium text-foreground/90 transition-colors data-[state=active]:bg-card data-[state=active]:text-[var(--chart-3)] data-[state=active]:font-bold data-[state=active]:border-border/45 data-[state=active]:border-l-4 data-[state=active]:border-l-[var(--chart-3)] min-[1170px]:shrink-0 min-[1170px]:w-auto min-[1170px]:justify-center min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:border-r min-[1170px]:border-border/45 min-[1170px]:!min-h-[3.8rem] min-[1170px]:!px-6 min-[1170px]:!py-3 min-[1170px]:!text-[1.4rem] min-[1170px]:text-center min-[1170px]:data-[state=active]:relative min-[1170px]:data-[state=active]:z-20 min-[1170px]:data-[state=active]:translate-y-[2px] min-[1170px]:data-[state=active]:bg-muted/25 min-[1170px]:data-[state=active]:shadow-none min-[1170px]:data-[state=active]:border-t-2 min-[1170px]:data-[state=active]:border-l-2 min-[1170px]:data-[state=active]:border-r-2 min-[1170px]:data-[state=active]:border-b-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--foreground)_24%,var(--border))] min-[1170px]:data-[state=active]:!border-b-[color-mix(in_oklab,var(--muted)_25%,var(--card))]"
+												key={item.value}
+												value={item.value}>
+												{item.label}
+											</TabsTrigger>
+										))}
+									</TabsList>
 									{tabItems.map((item) => (
-										<TabsTrigger
-											className="cursor-pointer rounded-none border-r border-border/60 px-4 py-1.5 text-sm data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
+										<TabsContent
+											className="mt-2 rounded-lg border border-[color-mix(in_oklab,var(--foreground)_18%,var(--border))] bg-muted/20 p-4 data-[state=inactive]:hidden data-[state=active]:block min-[1170px]:mt-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/25 min-[1170px]:data-[state=active]:border-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--foreground)_24%,var(--border))]"
 											key={item.value}
-											value={item.value}>
-											{item.label}
-										</TabsTrigger>
-									))}
-								</TabsList>
-								{tabItems.map((item) => (
-									<TabsContent
-										key={item.value}
-										value={item.value}
-										forceMount
+											value={item.value}
+											forceMount
 									>
 										{item.content}
 									</TabsContent>

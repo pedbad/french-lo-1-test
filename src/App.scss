@@ -204,11 +204,6 @@ html {
 	}
 }
 
-/* ✅ Only hide inactive tab panels (TabsContent), not tab triggers */
-[role="tabpanel"][data-state="inactive"] {
-	display: none;
-}
-
 .flash {
 	animation-name: flash-animation;
 	animation-duration: 1000ms;

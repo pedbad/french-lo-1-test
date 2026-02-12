@@ -216,3 +216,13 @@ $common-left-margin: 20px;
 		display: block;
 	}
 }
+
+.accordion .accordion-article > header h2 .accordion-title-part {
+	font-size: calc(var(--font-size-sm) * 1.08);
+	opacity: 0.62;
+	font-weight: 500;
+}
+
+.accordion .accordion-article > header h2 {
+	font-variant-numeric: lining-nums tabular-nums;
+}

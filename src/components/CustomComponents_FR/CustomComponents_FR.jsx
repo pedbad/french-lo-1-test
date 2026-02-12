@@ -132,17 +132,16 @@ export class LO1Demystify1 extends PureComponent {
 					<p>In this part, you'll focus on mastering the French nasal sounds found in words like bonjour and bonsoir.
 						You'll learn how airflow through your nose and mouth creates this unique sound in French.</p>
 				</Info>
-				<div
-					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
-					key={`${id}Panel`}
-				>
-					<h3>1. Nasal vowels: "on / om"</h3>
-					{/* <img src={resolveAsset(`images/nose-pinch.png`)} title={`Speak while pinching your nose`} /> */}
-					<div className={`text`}>
-						<p>1 <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/001-on-om.mp3`} ><b>-on</b> / <b>om</b></AudioClip></p>
-						<p>In French there are some sounds known as nasal vowels: o followed by n or m is one of these. (sound file -on)
-						In this first topic you will have encountered this sound in the words <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/002-bonjour.mp3`} >bonjour</AudioClip> and <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/003-bonsoir.mp3`} >bonsoir</AudioClip>.
+					<div
+						className={`panel`}
+						id={`${id ? `${id}Panel` : ''}`}
+						key={`${id}Panel`}
+					>
+						<h3>1. Nasal vowels: "on / om"</h3>
+						<div className={`text`}>
+							<p>1 <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/001-on-om.mp3`} ><b>-on</b> / <b>om</b></AudioClip></p>
+							<p>In French there are some sounds known as nasal vowels: o followed by n or m is one of these. (sound file -on)
+							In this first topic you will have encountered this sound in the words <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/002-bonjour.mp3`} >bonjour</AudioClip> and <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/003-bonsoir.mp3`} >bonsoir</AudioClip>.
 						The sound is created as air comes through both nose and mouth. If you have a slight cold or pinch your nose you will be able to produce the sound without difficulty!</p>
 					</div>
 				</div>
@@ -222,22 +221,14 @@ export class LO1Demystify4 extends PureComponent {
 				<Info>
 					<p>Finally, you'll find out why the letter <i>h</i> is never pronounced in French. You'll see examples like homme, horrible, and horizon, where the <i>h</i> remains completely silent.</p>
 				</Info>
-				<div
-					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
-					key={`${id}Panel`}
-				>
-					<img
-						alt="lady with finger to lips.Shh"
-						src={resolveAsset('images/shh.jpg')}
-						style={{
-							border: '1px solid color-mix(in oklab, var(--border) 60%, transparent)',
-							verticalAlign: 'middle',
-						}}
-						title="lady with finger to lips.Shh" />
-					<div className={`text`}>
-						<h3>4. The silent "h"</h3>
-						<p>The letter <b>h</b> occurs in French words, but is never aspirated e.g. <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation4/001-homme.mp3`} >
+					<div
+						className={`panel`}
+						id={`${id ? `${id}Panel` : ''}`}
+						key={`${id}Panel`}
+					>
+						<div className={`text`}>
+							<h3>4. The silent "h"</h3>
+							<p>The letter <b>h</b> occurs in French words, but is never aspirated e.g. <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation4/001-homme.mp3`} >
 							<b>h</b>omme</AudioClip>, <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation4/002-horrible.mp3`} >
 							<b>h</b>orrible</AudioClip>, <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation4/003-horizon.mp3`} >
 							<b>h</b>orizon</AudioClip>.</p>

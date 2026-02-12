@@ -8,10 +8,16 @@
 .custom-content {
 	@include standard-table();
 }
+
 #LO1-pronunciation1-Accordion,
+#LO1-pronunciation2-Accordion,
+#LO1-pronunciation3-Accordion,
 #LO1-pronunciation4-Accordion,
 #LO1-pronunciation-Group-Section {
 	align-items: flex-start;
+	.panel {
+		margin-top: 0;
+	}
 	img {
 		width: 300px;
 		height: 300px;
@@ -19,6 +25,8 @@
 		border: 1px solid var(--border);
 	}
 	#pronunciation1Panel,
+	#pronunciation2Panel2,
+	#pronunciation3Panel,
 	#pronunciation4Panel {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -29,6 +37,7 @@
 			"text image";
 		h3 {
 			grid-area: title;
+			margin-top: 0;
 		}
 		.information {
 			grid-area: title;
@@ -36,13 +45,23 @@
 		p {
 			grid-area: text;
 		}
-		img {
-			justify-self: right;
-			grid-area: image;
-			width: 300px;
-			height: 300px;
-			border: 1px solid var(--border);
+			img {
+				justify-self: right;
+				grid-area: image;
+				width: 300px;
+				height: 300px;
+				border: 1px solid var(--border);
+			}
 		}
+
+	#pronunciation1Panel,
+	#pronunciation2Panel2,
+	#pronunciation3Panel,
+	#pronunciation4Panel {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"title"
+			"text";
 	}
 }
 
