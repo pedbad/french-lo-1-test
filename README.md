@@ -21,10 +21,10 @@ yarn install
 yarn dev
 ```
 
-By default the app is served under `/projects/richard/` in dev mode. Example:
+By default the app is served under `/french-basic/`. Example:
 
 ```
-http://localhost:5173/projects/richard/?lang=fr&lo=1
+http://localhost:5173/french-basic/?lang=fr&lo=1
 ```
 
 ## Build app
