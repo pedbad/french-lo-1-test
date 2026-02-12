@@ -3,6 +3,8 @@ import DOMPurify from "dompurify";
 import {Info} from '..';
 import React from 'react';
 
+const ACCORDION_TITLE_TEXT_CLASS = "text-[var(--font-size-lg)] max-[650px]:text-[calc(var(--font-size-lg)*0.9)]";
+
 export class AccordionArticle extends React.PureComponent {
 
 	constructor(props) {
@@ -95,7 +97,7 @@ export class AccordionArticle extends React.PureComponent {
 			<h2
 				onClick={this.toggleExpanded}
 				title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-				className={`modal-link-target`}
+				className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
 				id={`modal-link-${target}`}
 				name={`modal-link-${target}`}
 			>
@@ -109,7 +111,7 @@ export class AccordionArticle extends React.PureComponent {
 				<h2
 					onClick={this.toggleExpanded}
 					title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-					className={`modal-link-target`}
+					className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
 					id={`modal-link-${target}`}
 					name={`modal-link-${target}`}
 				>
