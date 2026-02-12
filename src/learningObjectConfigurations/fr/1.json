@@ -381,7 +381,7 @@
           "congratulationsText": "Superbe !",
           "id": "wordparts1",
           "informationTextHTML": "Select the part of each word that contains the nasal, <i>r</i>, or <i>oi</i> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
-          "showHintsText": "Show hints when moving",
+          "showHintsText": "Hints",
           "items": [
             {
               "text": "b[on]jou[r] m[on] ché[r]i",
@@ -408,8 +408,8 @@
           "component": "Blanks",
           "id": "phrases2",
           "congratulationsText": "Excellent !",
-          "informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-          "showHintsText": "Show hints when moving",
+          "informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>), then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "showHintsText": "Hints",
           "cheatText": "Show answer",
           "blanksType": "phrases",
           "items": [
@@ -437,7 +437,7 @@
           "congratulationsText": "Superbe !",
           "id": "phrases3",
           "informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-          "showHintsText": "Show hints when moving",
+          "showHintsText": "Hints",
           "items": [
             {
               "text": "Bonsoir Monsieur Galipot ! [Comment] ça va ?",
@@ -464,7 +464,7 @@
           "id": "phrases4",
           "informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "instructionsTextHTMLXXX": "<a name='nested' class='modal-link-target'>nested target, how are we doing?</a>",
-          "showHintsText": "Show hints when moving",
+          "showHintsText": "Hints",
           "items": [
             {
               "text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
@@ -501,7 +501,7 @@
           "congratulationsText": "Très bien !",
           "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises — focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
           "listenDescriptionText": "Speech",
-          "showHintsText": "Show hints when moving",
+          "showHintsText": "Hints",
           "cheatText": "Show answer",
           "blanksType": "table",
           "words": [
@@ -525,7 +525,7 @@
           "congratulationsText": "Très bien !",
           "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises — focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
           "listenDescriptionText": "Speech",
-          "showHintsText": "Show hints when moving",
+          "showHintsText": "Hints",
           "cheatText": "Show answer",
           "blanksType": "table",
           "words": [

@@ -128,15 +128,16 @@ export class Blanks extends React.Component {
 				break;
 		}
 
-		this.state = {
-			...config,
-			id,
-			assignedCount: 0,
-			margin: 20,
-			nToPlace,
-			showHints: false,
-			wordTiles,
-			words,
+			this.state = {
+				...config,
+				id,
+				assignedCount: 0,
+				margin: 20,
+				nToPlace,
+				showHints: false,
+				showInvalidDropHint: false,
+				wordTiles,
+				words,
 
 			activeRowIndex: -1,
 			masterPlayState: "stopped",
@@ -144,7 +145,7 @@ export class Blanks extends React.Component {
 		};
 	}
 
-	componentDidMount() {
+		componentDidMount() {
 		document.addEventListener(
 			"touchmove",
 			(e) => {
@@ -164,6 +165,10 @@ export class Blanks extends React.Component {
 		if (idChanged || configRefChanged) {
 			this.tileHomePositions = {};
 		}
+	}
+
+	componentWillUnmount() {
+		if (this.invalidDropHintTimeout) clearTimeout(this.invalidDropHintTimeout);
 	}
 
 	// ---------- Helpers ----------
@@ -512,18 +517,40 @@ export class Blanks extends React.Component {
 		e.stopPropagation();
 
 			const clickAudio = new Audio(resolveAsset('/sounds/click.mp3'));
-			let { failCount = 0 } = this.state;
+			let { failCount = 0, showHints = false } = this.state;
 
 		if (this.movingPiece !== undefined) {
 			const inLimitsResult = this.inLimits();
 			this.movingPiece.classList.remove('highlight');
 
 				if (inLimitsResult.overTarget) {
-					const { targetLeft, targetTop, targetWord } = inLimitsResult;
+					const { targetLeft, targetTop, targetWord, success } = inLimitsResult;
 					const tileKey = this.getTileKey(this.movingPiece);
 					const targetKey = this.getWordKeyFromEl(targetWord);
 					if (!tileKey || !targetKey) {
 						this.returnTileToHome(this.movingPiece);
+						this.movingPiece = undefined;
+						this.clearTargetHighlights();
+						return;
+					}
+
+					// In hint mode, reject incorrect slot immediately and make it obvious why.
+					if (showHints && !success) {
+						const droppedTile = this.movingPiece;
+						this.unassignTile(tileKey);
+						droppedTile.classList.remove("dragging");
+						droppedTile.classList.add("returning");
+						droppedTile.style.left = `${this.startX}px`;
+						droppedTile.style.top = `${this.startY}px`;
+
+						failCount++;
+						this.setState({ failCount });
+						this.triggerInvalidDropFeedback(droppedTile, targetWord);
+
+						setTimeout(() => {
+							droppedTile.classList.remove("returning");
+						}, 350);
+
 						this.movingPiece = undefined;
 						this.clearTargetHighlights();
 						return;
@@ -549,27 +576,49 @@ export class Blanks extends React.Component {
 					this.movingPiece = undefined;
 				} else {
 					const tileKey = this.getTileKey(this.movingPiece);
+					const droppedTile = this.movingPiece;
 					this.unassignTile(tileKey);
-					this.movingPiece.classList.remove("dragging");
-					this.movingPiece.classList.add("returning");
+					droppedTile.classList.remove("dragging");
+					droppedTile.classList.add("returning");
 
-				this.movingPiece.style.left = `${this.startX}px`;
-				this.movingPiece.style.top = `${this.startY}px`;
+					droppedTile.style.left = `${this.startX}px`;
+					droppedTile.style.top = `${this.startY}px`;
 
-				failCount++;
-				this.setState({ failCount });
+					failCount++;
+					this.setState({ failCount });
+					this.triggerInvalidDropFeedback(droppedTile, null);
 
-				setTimeout(() => {
-					if (this.movingPiece) {
-						this.movingPiece.classList.remove("returning");
-						this.movingPiece = undefined;
-					}
-				}, 1000);
+					setTimeout(() => {
+						droppedTile.classList.remove("returning");
+					}, 350);
+					this.movingPiece = undefined;
+				}
 			}
-		}
 
 			this.clearTargetHighlights();
 		};
+
+	triggerInvalidDropFeedback = (tileEl, targetEl) => {
+		if (tileEl) {
+			tileEl.classList.remove("invalid-drop");
+			void tileEl.offsetWidth;
+			tileEl.classList.add("invalid-drop");
+			setTimeout(() => tileEl.classList.remove("invalid-drop"), 380);
+		}
+
+		if (targetEl) {
+			targetEl.classList.remove("invalid-target");
+			void targetEl.offsetWidth;
+			targetEl.classList.add("invalid-target");
+			setTimeout(() => targetEl.classList.remove("invalid-target"), 420);
+		}
+
+		if (this.invalidDropHintTimeout) clearTimeout(this.invalidDropHintTimeout);
+		this.setState({ showInvalidDropHint: true });
+		this.invalidDropHintTimeout = setTimeout(() => {
+			this.setState({ showInvalidDropHint: false });
+		}, 900);
+	};
 
 	clearTargetHighlights = () => {
 		const { id } = this.state;
@@ -752,9 +801,10 @@ export class Blanks extends React.Component {
 			nToPlace,
 			pictures,
 			questions,
-			showHints,
-			showHintsText,
-			soundFile,
+				showHints,
+				showHintsText,
+				showInvalidDropHint = false,
+				soundFile,
 			soundFiles = [],
 			words = [],
 		} = this.state;
@@ -962,10 +1012,10 @@ export class Blanks extends React.Component {
 					/>
 				) : null}
 
-				<div className={`blanks ${BLANKS_CONTENT_FLOW_CLASS} ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
-					<div className={`words-container ${BLANKS_WORDS_CONTAINER_FLOW_CLASS}`} ref={this.wordsContainerRef}>
-						{wordTiles}
-					</div>
+					<div className={`blanks ${BLANKS_CONTENT_FLOW_CLASS} ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
+						<div className={`words-container ${BLANKS_WORDS_CONTAINER_FLOW_CLASS}`} ref={this.wordsContainerRef}>
+							{wordTiles}
+						</div>
 
 					<div className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS}`}>
 						{blanksType === 'phrases' ? (
@@ -1000,32 +1050,26 @@ export class Blanks extends React.Component {
 				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 
 				<div className='help help-blanks'>
-					<div className="help-hints">
-						<Switch
-							aria-label="Show hints"
-							id={`showHintsId-${id ? id : ''}`}
-							checked={showHints}
-							onCheckedChange={this.handleToggle}
-						/>
-						<Label htmlFor={`showHintsId-${id ? id : ''}`} className="cursor-pointer">
-							{showHintsText}
-						</Label>
-					</div>
+						<div className="help-hints">
+							<Switch
+								aria-label="Show hints"
+								id={`showHintsId-${id ? id : ''}`}
+								checked={showHints}
+								onCheckedChange={this.handleToggle}
+							/>
+							<Label htmlFor={`showHintsId-${id ? id : ''}`} className="cursor-pointer">
+								{showHintsText}
+							</Label>
+							<span className={`invalid-drop-hint ${showInvalidDropHint ? 'show' : ''}`} aria-live="polite">
+								Try another slot
+							</span>
+						</div>
 
-						<div className="help-actions">
-							<IconButton
-								className={`btn-chart-2 ${assignedCount >= 1 ? 'show' : ''}`}
-								onClick={this.handleCheckAnswers}
-								theme={`check`}
-								variant="default"
-							>
-								Check answers
-							</IconButton>
-
-							<IconButton
-								className={`btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
-							onClick={this.autoSolve}
-							theme={`eye`}
+							<div className="help-actions">
+								<IconButton
+									className={`btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
+								onClick={this.autoSolve}
+								theme={`eye`}
 							variant="default"
 						>
 							{cheatText}
@@ -1036,12 +1080,21 @@ export class Blanks extends React.Component {
 							onClick={this.handleReset}
 							theme={`reset`}
 							variant="default"
-						>
-							Reset
-						</IconButton>
+								>
+									Reset
+								</IconButton>
+
+								<IconButton
+									className={`btn-hero-title btn-check-right ${assignedCount >= 1 ? 'show' : ''}`}
+									onClick={this.handleCheckAnswers}
+									theme={`check`}
+									variant="default"
+								>
+									Check answers
+								</IconButton>
+						</div>
 					</div>
 				</div>
-			</div>
 		);
 	};
 }
