@@ -117,9 +117,15 @@ $common-left-margin: 20px;
 			border-top-left-radius: 12px;
 			border-top-right-radius: 12px;
 			color: var(--foreground);
+			box-shadow: 0 0 0 transparent;
+			transition:
+				background-color 800ms ease-in-out,
+				color 800ms ease-in-out,
+				box-shadow 800ms ease-in-out;
 			&:hover {
 				background-color: var(--accordion-mist);
 				color: var(--accordion-hover-text);
+				box-shadow: 0 8px 18px color-mix(in oklab, var(--foreground) 10%, transparent);
 				h2 {
 					color: var(--accordion-hover-text) !important;
 				}
@@ -137,6 +143,7 @@ $common-left-margin: 20px;
 				cursor: pointer;
 				margin: 0;
 				color: inherit;
+				transition: color 800ms ease-in-out;
 			}
 		}
 		&.expanded {
