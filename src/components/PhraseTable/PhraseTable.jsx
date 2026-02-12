@@ -132,6 +132,10 @@ export class PhraseTable extends React.PureComponent {
 					</TableRow>
 				);
 			} else {
+				const hasAudioCell = phrase.some(
+					(value) => typeof value === "string" && value.endsWith(".mp3")
+				);
+
 				for (let j = 0; j < phrase.length; j++) {
 					const value = phrase[j];
 
@@ -160,7 +164,7 @@ export class PhraseTable extends React.PureComponent {
 
 				rows.push(
 					<TableRow
-						className={rowSoundFile ? "cursor-pointer" : ""}
+						className={`${rowSoundFile ? "cursor-pointer" : ""} ${hasAudioCell ? "has-audio-row" : ""}`.trim()}
 						key={`row${i}`}
 						onClick={(e) => this.handleRowClick(rowSoundFile, e)}
 					>

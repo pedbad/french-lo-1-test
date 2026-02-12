@@ -18,6 +18,10 @@
 		tbody tr {
 			background-color: var(--card);
 		}
+		tbody tr.has-audio-row td:nth-child(2) span,
+		tbody tr.has-audio-row td:nth-child(3) span {
+			font-size: 120%;
+		}
 		tbody tr:hover {
 			background-color: color-mix(in oklab, var(--muted) 70%, transparent);
 			color: var(--chart-2);
