@@ -43,7 +43,6 @@
 	}
 
 	p.clue {
-		font-size: 1.4rem;
 		font-weight: bold;
 	}
 
@@ -84,7 +83,6 @@
 	}
 	.time-taken {
 		right: 0;
-		font-size: 2rem;
 	}
 }
 @include respond-above(m) {
