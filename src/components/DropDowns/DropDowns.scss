@@ -100,11 +100,6 @@ html.debug {
 		}
 	}
 
-	p.clue {
-		font-size: 1.4rem;
-		font-weight: bold;
-	}
-
 	.help {
 		@include help();
 	}
