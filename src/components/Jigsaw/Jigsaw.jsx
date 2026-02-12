@@ -16,6 +16,10 @@ import {
 import React from "react";
 import Variables from "../../styles/_variables.module.scss";
 
+const JIGSAW_CLUE_TEXT_CLASS = "text-[1.4rem] font-bold";
+const JIGSAW_TIME_TEXT_CLASS = "text-[2rem]";
+const JIGSAW_CANVAS_TEXT_CLASS = "leading-[1.4em]";
+
 export class Jigsaw extends React.PureComponent {
 
 	// Contains a location for unplaced pieces and a target to drag them to.
@@ -384,7 +388,7 @@ export class Jigsaw extends React.PureComponent {
 				onMouseUp={this.handleMouseUp}
 			>
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
-				<p className='clue'>{descriptionText}&nbsp;</p>
+				<p className={`clue ${JIGSAW_CLUE_TEXT_CLASS}`}>{descriptionText}&nbsp;</p>
 
 				<AudioClip
 					id={`AudioClipFor${id ? id : ''}`}
@@ -393,7 +397,7 @@ export class Jigsaw extends React.PureComponent {
 				/>
 
 				<div
-					className={`jigsaw ${showHints ? 'show-hints' : ''}`}
+					className={`jigsaw ${JIGSAW_CANVAS_TEXT_CLASS} ${showHints ? 'show-hints' : ''}`}
 					onTouchStart={this.handleMouseDown}
 					onTouchMove={this.handleMouseMove}
 					onTouchEnd={this.handleMouseEnd}
@@ -414,7 +418,7 @@ export class Jigsaw extends React.PureComponent {
 						ref={this.targetRef}
 					>
 					</div>
-					<p className='time-taken'>{timeReport}</p>
+					<p className={`time-taken ${JIGSAW_TIME_TEXT_CLASS}`}>{timeReport}</p>
 				</div>
 				<div className='help'>
 					<label className={`hidden-help ${failCount >= 2 ? 'show' : ''}`}>{showHintsText}: <input type='checkbox' onClick={this.handleHints} checked={showHints} /></label>

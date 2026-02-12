@@ -14,13 +14,15 @@ export class Footer extends React.PureComponent{
 			<footer>
 				{/* Flex Container */}
 
-				<div className="footer-container">
+				<div className="footer-container font-semibold">
 					{/* Logo and social links container */}
 
 					<div className={`uclogo`}>
 						<a href="https://www.langcen.cam.ac.uk/" target="_blank">
-							<img src="images/ucam_language_centre_h_black.png" className={`logo horizontal`} alt={ucLogoAlt}/>
-							<img src="images/ucam_language_centre_v_black.png" className={`logo vertical`} alt={ucLogoAlt} />
+							<img src="images/ucam_language_centre_h_black.png" className={`logo theme-light horizontal`} alt={ucLogoAlt}/>
+							<img src="images/ucam_language_centre_v_black.png" className={`logo theme-light vertical`} alt={ucLogoAlt} />
+							<img src="images/Language-Centre/Horizontal/Reversed colour/ucam_language_centre_h_rev_col.png" className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
+							<img src="images/Language-Centre/Vertical/Reversed colour/ucam_language_centre_v_rev_col.png" className={`logo theme-dark vertical`} alt={ucLogoAlt} />
 						</a>
 					</div>
 
@@ -75,16 +77,16 @@ export class Footer extends React.PureComponent{
 
 					{/* Copyright Info */}
 					<div className={`copyright`}>
-						<p className="copy">{strYear} © University of Cambridge</p>
-						<p className='developed'>Developed by <a className="hover:text-primary" href="https://www.langcen.cam.ac.uk/">The Language Centre</a></p>
+						<p className="copy text-base">{strYear} © University of Cambridge</p>
+						<p className='developed text-xs font-normal'>Developed by <a className="hover:text-primary" href="https://www.langcen.cam.ac.uk/">The Language Centre</a></p>
 					</div>
 
 					{/* License */}
 					<div className={`license`}>
-						<p className="license text-footerText text-xs">
+						<p className="license text-footerText text-base leading-[26px] font-normal">
 							This work is licensed under the Creative Commons
 							Attribution-NonCommercial-NoDerivs 4.0 International Licence.<br/>
-							To view a copy of this licence, visit: <a className="hover:text-primary"
+							To view a copy of this licence, visit: <a className="hover:text-primary font-semibold"
 								href="https://creativecommons.org/"
 								target="_blank">creativecommons.org</a>
 						</p>

@@ -10,7 +10,6 @@ footer {
 	.footer-container {
 		color: var(--foreground);
 		padding: 40px 36px 60px;
-		font-family: "OpenSans SemiBold", sans-serif;
 
 		display: grid;
 		grid-template-columns: 1fr;
@@ -35,11 +34,17 @@ footer {
 				img {
 					max-width: 100%;
 					&.logo {
-						&.horizontal {
-							display: none;
+						display: none;
+						&.theme-light {
+							&.horizontal {
+								display: none;
+							}
+							&.vertical {
+								display: block;
+							}
 						}
-						&.vertical {
-							display: block;
+						&.theme-dark {
+							display: none;
 						}
 					}
 				}
@@ -55,8 +60,17 @@ footer {
 			a {
 				display: block;
 				color: var(--foreground);
+				transition:
+					color 180ms ease,
+					transform 180ms ease,
+					filter 180ms ease;
 				&:hover {
-					color: var(--primary);
+					color: var(--chart-3);
+					transform: translateY(-2px) scale(1.04);
+					filter: drop-shadow(0 4px 10px color-mix(in oklab, var(--chart-3) 35%, transparent));
+				}
+				&:active {
+					transform: translateY(-1px) scale(1.01);
 				}
 			}
 		}
@@ -88,15 +102,11 @@ footer {
 		.license {
 			grid-area: license;
 			font-style: normal;
-			font-family: "OpenSans Regular", sans-serif;
 
 			// font-weight: 400;
-			line-height: 26px; /* 162.5% */
-			font-size: 16px;
 			// margin-top: 32px;
 			color: color-mix(in oklab, var(--foreground) 85%, transparent);
 			a {
-				font-family: "OpenSans SemiBold", sans-serif;
 				&:hover {
 					color: var(--primary);
 				}
@@ -120,14 +130,24 @@ footer {
 					color: var(--primary);
 				}
 			}
-			.copy {
-				font-size: 16px;
-			}
 			.developed {
-				font-size: 12px;
 				margin-top: 0;
 				font-style: normal;
-				font-family: "OpenSans Regular", sans-serif;
+			}
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	footer {
+		.footer-container {
+			.square-logos a {
+				transition: color 120ms ease;
+				&:hover,
+				&:active {
+					transform: none;
+					filter: none;
+				}
 			}
 		}
 	}
@@ -136,8 +156,20 @@ footer {
 .dark footer {
 	background-color: var(--sidebar);
 	.footer-container {
-		.uclogo img.logo {
-			filter: invert(1);
+		.square-logos a:hover {
+			color: var(--chart-4);
+			filter: drop-shadow(0 4px 10px color-mix(in oklab, var(--chart-4) 35%, transparent));
+		}
+		.uclogo a img.logo.theme-light {
+			display: none;
+		}
+		.uclogo a img.logo.theme-dark {
+			&.horizontal {
+				display: none;
+			}
+			&.vertical {
+				display: block;
+			}
 		}
 	}
 }
@@ -183,10 +215,13 @@ footer {
 					width: $common-width;
 					img {
 						&.logo {
-							&.horizontal {
+							&.theme-light.horizontal {
 								display: block;
 							}
-							&.vertical {
+							&.theme-light.vertical {
+								display: none;
+							}
+							&.theme-dark {
 								display: none;
 							}
 						}
@@ -195,6 +230,24 @@ footer {
 			}
 			.square-logos {
 				width: $common-width;
+			}
+		}
+	}
+}
+
+@include respond-above(s) {
+	.dark footer {
+		.footer-container {
+			.uclogo a img.logo.theme-light {
+				display: none;
+			}
+			.uclogo a img.logo.theme-dark {
+				&.horizontal {
+					display: block;
+				}
+				&.vertical {
+					display: none;
+				}
 			}
 		}
 	}

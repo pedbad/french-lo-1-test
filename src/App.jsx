@@ -826,6 +826,14 @@ export default class App extends React.Component {
 							<>
 
 								<div id="hero">
+									<img
+										alt="French Basic banner illustration"
+										className="hero-image"
+										decoding="async"
+										fetchPriority="high"
+										loading="eager"
+										src="images/fr_banner.svg"
+									/>
 									<h2 className="hero-title text-stroke-chart-3">{siteTitle}</h2>
 								</div>
 								<main id="content" key="content" role="main">

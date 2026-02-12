@@ -6,6 +6,8 @@ import {
 import { IconButton } from '..';
 import React from 'react';
 
+const READ_ALOUD_RECORD_BUTTON_TEXT_CLASS = "text-[1.2rem]";
+
 export class ReadAloud extends React.PureComponent {
 	constructor(props) {
 		super(props);
@@ -209,7 +211,7 @@ export class ReadAloud extends React.PureComponent {
 					</div>
 
 					<button
-						className={`recording-container`}
+						className={`recording-container ${READ_ALOUD_RECORD_BUTTON_TEXT_CLASS}`}
 						onClick={this.recordAndScore}
 					>{firstTry ? 'Record' : 'Try again?'}</button>
 

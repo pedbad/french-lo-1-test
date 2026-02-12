@@ -22,6 +22,12 @@ import { Label } from "@/components/ui/label";
 import React from 'react';
 import { Switch } from "@/components/ui/switch";
 
+const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[1.2rem] font-bold";
+const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
+const BLANKS_CONTENT_FLOW_CLASS = "leading-[1.4em]";
+const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[0.5rem] sm:leading-[3.5rem]";
+const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[2.6rem]";
+
 export class Blanks extends React.Component {
 
 	// Stores original "home" positions for each tile (coords relative to words-container)
@@ -872,16 +878,16 @@ export class Blanks extends React.Component {
 					/>
 				) : null}
 
-				<div className={`blanks ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
-					<div className={`words-container`} ref={this.wordsContainerRef}>
+				<div className={`blanks ${BLANKS_CONTENT_FLOW_CLASS} ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
+					<div className={`words-container ${BLANKS_WORDS_CONTAINER_FLOW_CLASS}`} ref={this.wordsContainerRef}>
 						{wordTiles}
 					</div>
 
-					<div className='target-board'>
+					<div className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS}`}>
 						{blanksType === 'phrases' ? (
-							<ul>{phraseList}</ul>
+							<ul className={BLANKS_PHRASE_ROWS_FLOW_CLASS}>{phraseList}</ul>
 						) : (
-							<Table>
+							<Table className={BLANKS_TARGET_TABLE_TEXT_CLASS}>
 								{header.length > 0 ? (
 									<TableHeader><TableRow>{headerCells}</TableRow></TableHeader>
 								) : null}

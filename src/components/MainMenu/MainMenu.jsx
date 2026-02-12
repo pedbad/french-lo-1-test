@@ -5,6 +5,7 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { MessageCircleMore } from "lucide-react";
 import { handleModalLinkClick } from "../../utility.js";
 import { IconButton } from "..";
 import React from "react";
@@ -16,6 +17,7 @@ export class MainMenu extends React.Component {
 			menuHighlight: "menuItem-intro",
 			mobileOpen: false,
 		};
+		this.pendingNavTarget = null;
 		window.__lastKnownScrollPosition = 0;
 	}
 
@@ -28,18 +30,39 @@ export class MainMenu extends React.Component {
 
 			const mainMenuRect = mainMenu.getBoundingClientRect();
 			const mainMenuBottom = mainMenuRect.bottom;
-			const html = document.documentElement;
-			const viewportHeight = window.innerHeight || html.clientHeight;
+			// A heading becomes "active" only once it reaches this line.
+			// This prevents intro from highlighting while the hero banner is still in view.
+			const activationLine = mainMenuBottom + 140;
+			const passed = [];
 
-			const candidates = [];
+			// While smooth-scrolling from a nav click, keep the clicked section active
+			// until its heading reaches the activation line.
+			if (this.pendingNavTarget) {
+				const pendingTarget = document.getElementById(
+					`modal-link-${this.pendingNavTarget}`
+				);
+				if (pendingTarget) {
+					const pendingRect = pendingTarget.getBoundingClientRect();
+					if (pendingRect.top > activationLine + 8) {
+						const pendingKey =
+							this.pendingNavTarget === "intro"
+								? "menuItem-intro"
+								: `menuItem-${this.pendingNavTarget}`;
+						if (this.state.menuHighlight !== pendingKey) {
+							this.setState({ menuHighlight: pendingKey });
+						}
+						return;
+					}
+				}
+				this.pendingNavTarget = null;
+			}
 
 			// 1. Intro
 			const introEl = document.getElementById("modal-link-intro");
 			if (introEl) {
 				const rect = introEl.getBoundingClientRect();
-				// We only care that the top is below the menu and somewhere in the viewport
-				if (rect.top >= mainMenuBottom && rect.top < viewportHeight) {
-					candidates.push({
+				if (rect.top <= activationLine) {
+					passed.push({
 						key: "menuItem-intro",
 						top: rect.top,
 					});
@@ -53,22 +76,20 @@ export class MainMenu extends React.Component {
 				if (!target) continue;
 
 				const rect = target.getBoundingClientRect();
-				if (rect.top >= mainMenuBottom && rect.top < viewportHeight) {
-					candidates.push({
+				if (rect.top <= activationLine) {
+					passed.push({
 						key: `menuItem-${id}`,
 						top: rect.top,
 					});
 				}
 			}
 
-			// Pick the section whose top is closest to the menu
-			if (candidates.length > 0) {
-				candidates.sort((a, b) => a.top - b.top);
-				const best = candidates[0].key;
+			// Pick the heading closest to the activation line from above.
+			passed.sort((a, b) => b.top - a.top);
+			const best = passed.length > 0 ? passed[0].key : null;
 
-				if (this.state.menuHighlight !== best) {
-					this.setState({ menuHighlight: best });
-				}
+			if (this.state.menuHighlight !== best) {
+				this.setState({ menuHighlight: best });
 			}
 		};
 
@@ -92,7 +113,7 @@ export class MainMenu extends React.Component {
 
 		this.resizeHandler = () => {
 			// If we resize up to desktop, close mobile menu
-			if (window.innerWidth >= 768 && this.state.mobileOpen) {
+			if (window.innerWidth >= 1000 && this.state.mobileOpen) {
 				this.setState({ mobileOpen: false });
 			}
 			// Recalculate which section is "current"
@@ -120,6 +141,24 @@ export class MainMenu extends React.Component {
    * and closes the mobile menu if it’s open.
    */
 	handleNavClick = (e) => {
+		const href = e.currentTarget?.getAttribute("href") || "";
+		if (href.startsWith("#modal-link-")) {
+			const rawId = href.replace("#modal-link-", "");
+			if (rawId === "top") {
+				this.pendingNavTarget = null;
+				if (this.state.menuHighlight !== null) {
+					this.setState({ menuHighlight: null });
+				}
+			} else {
+				this.pendingNavTarget = rawId;
+				const nextHighlight =
+					rawId === "intro" ? "menuItem-intro" : `menuItem-${rawId}`;
+				if (this.state.menuHighlight !== nextHighlight) {
+					this.setState({ menuHighlight: nextHighlight });
+				}
+			}
+		}
+
 		// Use your global modal link handler (handles preventDefault internally)
 		handleModalLinkClick(e, { mode: "scroll" });
 
@@ -156,8 +195,8 @@ export class MainMenu extends React.Component {
 						key={`menuItem-${id}`}
 					>
 						<NavigationMenuLink asChild>
-							<a
-								className="modal-link nav nav-link"
+								<a
+								className="modal-link nav nav-link text-[var(--nav-link-size)]"
 								href={href}
 								onClick={this.handleNavClick}
 							>
@@ -172,7 +211,7 @@ export class MainMenu extends React.Component {
 					<li key={`mobile-${id}`} className={highlight ? "highlight" : ""}>
 						<a
 							href={href}
-							className="nav-link nav-link-mobile nav modal-link"
+							className="nav-link nav-link-mobile nav modal-link text-[var(--nav-link-size)]"
 							onClick={this.handleNavClick}
 						>
 							{label}
@@ -200,10 +239,11 @@ export class MainMenu extends React.Component {
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-title"
+										className="modal-link nav nav-title text-[var(--nav-title-size)] font-semibold"
 										href="#modal-link-top"
 										onClick={this.handleNavClick}
 									>
+										<MessageCircleMore aria-hidden="true" className="nav-title-icon" />
 										{title}
 									</a>
 								</NavigationMenuLink>
@@ -219,7 +259,7 @@ export class MainMenu extends React.Component {
 							>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-link"
+										className="modal-link nav nav-link text-[var(--nav-link-size)]"
 										href={introHref}
 										onClick={this.handleNavClick}
 									>
@@ -288,7 +328,7 @@ export class MainMenu extends React.Component {
 						<li className={introHighlight ? "highlight" : ""}>
 							<a
 								href={introHref}
-								className="nav-link nav-link-mobile nav modal-link"
+								className="nav-link nav-link-mobile nav modal-link text-[var(--nav-link-size)]"
 								onClick={this.handleNavClick}
 							>
 								Introduction

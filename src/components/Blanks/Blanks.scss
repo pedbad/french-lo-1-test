@@ -41,8 +41,6 @@ $max-tile-width: 360px;
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: center;
-
-		line-height: 1.4em;
 		overflow: visible;
 		box-sizing: border-box;
 
@@ -54,7 +52,6 @@ $max-tile-width: 360px;
 	-------------------------------------------------------- */
 	.words-container {
 		padding: 0.5rem 1rem;
-		line-height: 0.5rem;
 		overflow: visible;
 		z-index: 20;
 		position: relative;
@@ -93,11 +90,6 @@ $max-tile-width: 360px;
 		.word span {
 			opacity: 0.5;
 		}
-	}
-
-	p.clue {
-		font-size: 1.4rem;
-		font-weight: bold;
 	}
 
 	/* --------------------------------------------------------
@@ -176,7 +168,6 @@ $max-tile-width: 360px;
 
 				min-height: 40px;
 				column-gap: 12px;
-				line-height: 2.6rem;
 				margin: 0;
 			}
 		}
@@ -237,7 +228,6 @@ $max-tile-width: 360px;
 		border-radius: 0.6rem;
 		padding: 0.3rem;
 
-		font-size: 1.2rem;
 		font-weight: bold;
 
 		.audio-clip {
@@ -307,7 +297,6 @@ $max-tile-width: 360px;
 
 			td,
 			th {
-				font-size: 1rem;
 				font-weight: bold;
 				text-align: center;
 				background: var(--card);
@@ -352,10 +341,6 @@ $max-tile-width: 360px;
    Responsive tweaks
 ========================================================== */
 @include respond-above(s) {
-	.words-container {
-		line-height: 3.5rem;
-	}
-
 	.blanks-container > .target-board {
 		padding: 1rem 2rem;
 	}

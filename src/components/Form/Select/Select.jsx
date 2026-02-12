@@ -57,7 +57,7 @@ export class Select extends React.Component {
 		});
 		return (
 			<select
-				className={`${renderedOptions.length <= 1 ? 'hidden' : ''} ${editable ? 'select-editable' : ''} ${multiple ? 'select-multiple' : ''}`}
+				className={`${renderedOptions.length <= 1 ? 'hidden' : ''} ${editable ? 'select-editable' : ''} ${multiple ? 'select-multiple' : ''} text-base`}
 				id={id}
 				key={`select-${id}`}
 				// onChange={(e) => {
@@ -114,6 +114,7 @@ export class Select extends React.Component {
 					>
 						{this.renderSelect()}
 						<input
+							className="text-base"
 							autoComplete="off"
 							id={`selectInput${id}`}
 							key={`select-input-${id}`}
