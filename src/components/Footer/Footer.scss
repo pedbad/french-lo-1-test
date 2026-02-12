@@ -10,7 +10,6 @@ footer {
 	.footer-container {
 		color: var(--foreground);
 		padding: 40px 36px 60px;
-		font-family: "OpenSans SemiBold", sans-serif;
 
 		display: grid;
 		grid-template-columns: 1fr;
@@ -103,13 +102,11 @@ footer {
 		.license {
 			grid-area: license;
 			font-style: normal;
-			font-family: "OpenSans Regular", sans-serif;
 
 			// font-weight: 400;
 			// margin-top: 32px;
 			color: color-mix(in oklab, var(--foreground) 85%, transparent);
 			a {
-				font-family: "OpenSans SemiBold", sans-serif;
 				&:hover {
 					color: var(--primary);
 				}
@@ -136,7 +133,6 @@ footer {
 			.developed {
 				margin-top: 0;
 				font-style: normal;
-				font-family: "OpenSans Regular", sans-serif;
 			}
 		}
 	}

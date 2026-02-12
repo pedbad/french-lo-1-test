@@ -14,7 +14,7 @@ export class Footer extends React.PureComponent{
 			<footer>
 				{/* Flex Container */}
 
-				<div className="footer-container">
+				<div className="footer-container font-semibold">
 					{/* Logo and social links container */}
 
 					<div className={`uclogo`}>
@@ -78,15 +78,15 @@ export class Footer extends React.PureComponent{
 					{/* Copyright Info */}
 					<div className={`copyright`}>
 						<p className="copy text-base">{strYear} © University of Cambridge</p>
-						<p className='developed text-xs'>Developed by <a className="hover:text-primary" href="https://www.langcen.cam.ac.uk/">The Language Centre</a></p>
+						<p className='developed text-xs font-normal'>Developed by <a className="hover:text-primary" href="https://www.langcen.cam.ac.uk/">The Language Centre</a></p>
 					</div>
 
 					{/* License */}
 					<div className={`license`}>
-						<p className="license text-footerText text-base leading-[26px]">
+						<p className="license text-footerText text-base leading-[26px] font-normal">
 							This work is licensed under the Creative Commons
 							Attribution-NonCommercial-NoDerivs 4.0 International Licence.<br/>
-							To view a copy of this licence, visit: <a className="hover:text-primary"
+							To view a copy of this licence, visit: <a className="hover:text-primary font-semibold"
 								href="https://creativecommons.org/"
 								target="_blank">creativecommons.org</a>
 						</p>
