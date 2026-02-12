@@ -11,7 +11,9 @@
 		"preview": "vite preview",
 		"check:typography": "bash scripts/check-typography-guard.sh --staged",
 		"check:typography:branch": "bash scripts/check-typography-guard.sh --against origin/main",
-		"prepush:local": "yarn lint && yarn check:typography:branch"
+		"check:audio-unicode": "node scripts/audio-unicode-guard.mjs --check",
+		"fix:audio-unicode": "node scripts/audio-unicode-guard.mjs --fix",
+		"prepush:local": "yarn lint && yarn check:typography:branch && yarn check:audio-unicode"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.8",
