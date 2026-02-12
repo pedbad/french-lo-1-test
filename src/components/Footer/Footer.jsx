@@ -77,13 +77,13 @@ export class Footer extends React.PureComponent{
 
 					{/* Copyright Info */}
 					<div className={`copyright`}>
-						<p className="copy">{strYear} © University of Cambridge</p>
-						<p className='developed'>Developed by <a className="hover:text-primary" href="https://www.langcen.cam.ac.uk/">The Language Centre</a></p>
+						<p className="copy text-base">{strYear} © University of Cambridge</p>
+						<p className='developed text-xs'>Developed by <a className="hover:text-primary" href="https://www.langcen.cam.ac.uk/">The Language Centre</a></p>
 					</div>
 
 					{/* License */}
 					<div className={`license`}>
-						<p className="license text-footerText text-xs">
+						<p className="license text-footerText text-base leading-[26px]">
 							This work is licensed under the Creative Commons
 							Attribution-NonCommercial-NoDerivs 4.0 International Licence.<br/>
 							To view a copy of this licence, visit: <a className="hover:text-primary"

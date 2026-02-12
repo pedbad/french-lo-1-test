@@ -106,8 +106,6 @@ footer {
 			font-family: "OpenSans Regular", sans-serif;
 
 			// font-weight: 400;
-			line-height: 26px; /* 162.5% */
-			font-size: 16px;
 			// margin-top: 32px;
 			color: color-mix(in oklab, var(--foreground) 85%, transparent);
 			a {
@@ -135,11 +133,7 @@ footer {
 					color: var(--primary);
 				}
 			}
-			.copy {
-				font-size: 16px;
-			}
 			.developed {
-				font-size: 12px;
 				margin-top: 0;
 				font-style: normal;
 				font-family: "OpenSans Regular", sans-serif;
