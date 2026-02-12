@@ -499,7 +499,7 @@
           "component": "Blanks",
           "id": "wordsIntoSlots5",
           "congratulationsText": "Très bien !",
-          "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises — focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
+          "informationTextHTML": "Listen to the full audio, then drag each word into the table in the exact order you hear it. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm your sequence, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal it, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "listenDescriptionText": "Speech",
           "showHintsText": "Hints",
           "cheatText": "Show answer",
