@@ -24,6 +24,7 @@ import { Switch } from "@/components/ui/switch";
 
 const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[1.2rem] font-bold";
 const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
+const BLANKS_CONTENT_FLOW_CLASS = "leading-[1.4em]";
 
 export class Blanks extends React.Component {
 
@@ -875,7 +876,7 @@ export class Blanks extends React.Component {
 					/>
 				) : null}
 
-				<div className={`blanks ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
+				<div className={`blanks ${BLANKS_CONTENT_FLOW_CLASS} ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
 					<div className={`words-container`} ref={this.wordsContainerRef}>
 						{wordTiles}
 					</div>
