@@ -151,6 +151,13 @@ Proposed approach:
 4. Remove the component’s SCSS once parity is reached and UI is visually verified.
 5. Repeat in batches (start with high-traffic components: Accordion, PhraseTable, WordParts, Info).
 
+Current SCSS footprint (49 files), grouped by area:
+- Core UI/structure: `src/components/Accordion/Accordion.scss`, `src/components/AnswerTable/AnswerTable.scss`, `src/components/Attribution/Attribution.scss`, `src/components/Congratulate/Congratulate.scss`, `src/components/ErrorLog/ErrorLog.scss`, `src/components/Explanation/Explanation.scss`, `src/components/Explanation/Panel/Panel.scss`, `src/components/Figure/Figure.scss`, `src/components/Footer/Footer.scss`, `src/components/Header/Header.scss`, `src/components/IconButton/IconButton.scss`, `src/components/Image/Image.scss`, `src/components/Info/Info.scss`, `src/components/LandingPage/LandingPage.scss`, `src/components/LearningObjectMenu/LearningObjectMenu.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/Social/Social.scss`, `src/components/TopButton/TopButton.scss`
+- Activities & exercises: `src/components/Blanks/Blanks.scss`, `src/components/Blanks/Word/Word.scss`, `src/components/ConnectFour/ConnectFour.scss`, `src/components/CrossWord/CrossWord.scss`, `src/components/DropDowns/DropDowns.scss`, `src/components/Jigsaw/Jigsaw.scss`, `src/components/Jigsaw/Piece/Piece.scss`, `src/components/MemoryMatchGame/MemoryMatchGame.scss`, `src/components/MemoryMatchGame/Card/Card.scss`, `src/components/Monologue/Monologue.scss`, `src/components/PhraseTable/PhraseTable.scss`, `src/components/RadioQuiz/RadioQuiz.scss`, `src/components/ReadAloud/ReadAloud.scss`, `src/components/Sortable/Sortable.scss`, `src/components/TreasureGrid/TreasureGrid.scss`, `src/components/WordGrid/WordGrid.scss`, `src/components/WordParts/WordParts.scss`
+- Forms: `src/components/Form/DateField/DateField.scss`, `src/components/Form/Dialog/Dialog.scss`, `src/components/Form/FieldSet/FieldSet.scss`, `src/components/Form/OkCancel/OkCancel.scss`, `src/components/Form/Progress/Progress.scss`, `src/components/Form/RadioC/RadioC.scss`, `src/components/Form/Select/Select.scss`, `src/components/Form/TextField/TextField.scss`, `src/components/Form/TristateCheckBox/TristateCheckBox.scss`
+- Media & audio: `src/components/AudioClip/AudioClip.scss`, `src/components/SequenceAudioController/SequenceAudioController.scss`
+- Locale/flags/custom content: `src/components/CustomComponents_FR/CustomComponents_FR.scss`, `src/components/Flag/Flag.scss`, `src/components/Mockney/Mockney.scss`
+
 ## Semantics
 
 Based on the render method in `src/App.jsx`, there is no `<main>` HTML element being used. The primary content areas are enclosed within `div` elements, such as `#hero` and `#content`.

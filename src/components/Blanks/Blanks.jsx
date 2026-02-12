@@ -897,34 +897,56 @@ export class Blanks extends React.Component {
 					</div>
 				</div>
 
-				<p>{nPlaced} correct out of {nToPlace}</p>
+				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+				<div className="flex flex-wrap items-center gap-2">
+					<div className="flex flex-nowrap items-center gap-2 overflow-x-auto" aria-label={`${nPlaced} correct out of ${nToPlace}`}>
+						{Array.from({ length: nToPlace }).map((_, index) => {
+							const filled = index < nPlaced;
+							return (
+								<span
+									key={`progress-circle-${index}`}
+									className={`h-[1.125rem] w-[1.125rem] sm:h-[1.5rem] sm:w-[1.5rem] rounded-full border ${filled ? "bg-[var(--chart-2)] border-[var(--chart-2)]" : "bg-transparent border-[color-mix(in_oklab,var(--foreground)_35%,transparent)]"}`}
+									aria-hidden="true"
+								/>
+							);
+						})}
+					</div>
+					<p className="m-0">{nPlaced} correct out of {nToPlace}</p>
+				</div>
+				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 
-				<div className='help'>
-					<Switch
-						aria-label="Show hints"
-						id={`showHintsId-${id ? id : ''}`}
-						checked={showHints}
-						onCheckedChange={this.handleToggle}
-					/>
-					<Label htmlFor={`showHintsId-${id ? id : ''}`} className="cursor-pointer">
-						{showHintsText}
-					</Label>
+				<div className='help help-blanks'>
+					<div className="help-hints">
+						<Switch
+							aria-label="Show hints"
+							id={`showHintsId-${id ? id : ''}`}
+							checked={showHints}
+							onCheckedChange={this.handleToggle}
+						/>
+						<Label htmlFor={`showHintsId-${id ? id : ''}`} className="cursor-pointer">
+							{showHintsText}
+						</Label>
+					</div>
 
-					<IconButton
-						className={`hidden-help ${failCount >= 2 ? 'show' : ''}`}
-						onClick={this.autoSolve}
-						theme={`eye`}
-					>
-						{cheatText}
-					</IconButton>
+					<div className="help-actions">
+						<IconButton
+							className={`btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
+							onClick={this.autoSolve}
+							theme={`eye`}
+							variant="default"
+						>
+							{cheatText}
+						</IconButton>
 
-					<IconButton
-						className={`hidden-help ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
-						onClick={this.handleReset}
-						theme={`reset`}
-					>
-						Reset
-					</IconButton>
+						<IconButton
+							className={`btn-chart-2 hidden-help ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
+							onClick={this.handleReset}
+							theme={`reset`}
+							variant="default"
+						>
+							Reset
+						</IconButton>
+					</div>
 				</div>
 			</div>
 		);

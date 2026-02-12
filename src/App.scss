@@ -247,6 +247,36 @@ html {
 	background-color: color-mix(in oklab, var(--ped-warn) 85%, black);
 }
 
+.btn-chart-2 {
+	background-color: var(--chart-2);
+	border-color: var(--chart-2);
+	color: var(--primary-foreground, #fff);
+}
+
+.btn-chart-2:hover {
+	background-color: color-mix(in oklab, var(--chart-2) 85%, black);
+}
+
+.help.help-blanks {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+
+.help.help-blanks .help-hints {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.help.help-blanks .help-actions {
+	margin-left: auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
 @keyframes flash-animation {
 	0% {
 		background-color: color-mix(in oklab, var(--ring) 0%, transparent);
