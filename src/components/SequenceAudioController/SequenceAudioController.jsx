@@ -1,5 +1,6 @@
 import "./SequenceAudioController.scss";
 import React from "react";
+import { stopAllAudioPlayback } from "../../utility";
 
 export class SequenceAudioController extends React.Component {
 	constructor(props) {
@@ -155,6 +156,7 @@ export class SequenceAudioController extends React.Component {
 		const { playState } = this.state;
 
 		if (playState === "paused") {
+			stopAllAudioPlayback(audio);
 			audio.play();
 			this.setState(
 				{
@@ -183,6 +185,7 @@ export class SequenceAudioController extends React.Component {
 			audio.pause();
 			this.setState({ playState: "paused" }, this.emitPlayState);
 		} else if (playState === "paused") {
+			stopAllAudioPlayback(audio);
 			audio.play();
 			this.setState({ playState: "playing" }, this.emitPlayState);
 		} else {
@@ -212,7 +215,10 @@ export class SequenceAudioController extends React.Component {
 			}
 
 			const shouldPlay = opts.autoplay !== false;
-			if (shouldPlay) audio.play().catch(console.error); // eslint-disable-line
+			if (shouldPlay) {
+				stopAllAudioPlayback(audio);
+				audio.play().catch(console.error); // eslint-disable-line
+			}
 
 			const d = Number.isFinite(audio.duration)
 				? audio.duration

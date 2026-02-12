@@ -35,3 +35,4 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Theme toggling briefly disables CSS transitions (`html.no-theme-transition`) to avoid flicker during light/dark switches.
 - WordParts includes a circle-based progress indicator and inline icon guidance (Show answer/Reset) powered by CSS-masked SVGs.
 - Modal links open shadcn/Radix dialogs. The dialog accepts React content (not just HTML strings) so `AudioClip` components can render; for key grammar links the modal renders React content from `src/components/CustomComponents_FR/CustomComponents_FR.jsx` so audio clips work and text stays in sync with the on-page content.
+- Audio playback is globally single-active: when a new clip starts, all other currently playing clips are paused (`stopAllAudioPlayback` + `trackFloatingAudio` in `src/utility.js`, used by `AudioClip`, `SequenceAudioController`, and `playAudioLink`).

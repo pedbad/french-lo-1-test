@@ -192,6 +192,16 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Added circle-based progress indicators to WordParts and adjusted sizing/spacing for mobile.
 - Updated the WordParts instructions to mention Show answer/Reset with inline icons.
 
+## 27) Audio Playback Exclusivity (Single Active Clip)
+- Fixed overlapping playback so only one audio clip can play at a time across the app.
+- Added global helpers in `src/utility.js`:
+  - `trackFloatingAudio` to track `new Audio(...)` instances.
+  - `stopAllAudioPlayback` to pause all other active DOM/floating audio before new playback.
+- Wired single-audio behavior into:
+  - `src/components/AudioClip/AudioClip.jsx` (custom clip playback and native audio play events).
+  - `src/components/SequenceAudioController/SequenceAudioController.jsx` (sequence play/resume).
+  - `playAudioLink` in `src/utility.js` (row-link fallback playback).
+
 ## 27) Hero Banner Rendering (Non-cropping SVG)
 - Replaced the hero CSS background banner with an explicit `<img>` in `src/App.jsx` (`src="images/fr_banner.svg"`), including `loading="eager"` and `fetchPriority="high"` for above-the-fold rendering.
 - Updated `#hero` styles in `src/App.scss` to use `aspect-ratio: 16 / 9` and a positioned `.hero-image` with `object-fit: contain` and `object-position: center bottom`.

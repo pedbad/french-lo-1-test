@@ -3,6 +3,8 @@ import { CircularAudioProgressAnimatedSpeakerDisplay } from '.';
 import React from 'react';
 import {
 	resolveAsset,
+	stopAllAudioPlayback,
+	trackFloatingAudio,
 } from '../../utility';
 
 
@@ -24,6 +26,7 @@ export class AudioClip extends React.PureComponent {
 		e.stopPropagation();
 		// useRef is true when the player is an audio control
 		if (useRef) {
+			stopAllAudioPlayback(this.audioRef.current);
 			this.initialiseProgress(this.audioRef.current);
 		}
 		this.setState({
@@ -53,6 +56,7 @@ export class AudioClip extends React.PureComponent {
 					this.playSound(e);
 					break;
 				}
+				stopAllAudioPlayback(soundFileAudio);
 				soundFileAudio.play().catch(() => {
 					this.setState({ status: 'stopped' });
 				});
@@ -80,6 +84,8 @@ export class AudioClip extends React.PureComponent {
 		const { soundFile } = this.props;
 		this.notePlaying(e, false);
 		const soundFileAudio = new Audio(resolveAsset(soundFile));
+		trackFloatingAudio(soundFileAudio);
+		stopAllAudioPlayback(soundFileAudio);
 		this.initialiseProgress(soundFileAudio);
 		soundFileAudio.onended = () => {
 			this.setState({
