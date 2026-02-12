@@ -352,11 +352,12 @@ export const resolveAsset = (path = '') => {
 	if (!path) return path;
 	// Do not alter absolute URLs.
 	if (/^https?:\/\//i.test(path)) return path;
-	// Normalize to NFD to match filenames stored with decomposed accents on disk.
-	const normalizedPath = path.normalize("NFD");
-	// If already resolved, just URI-encode it to handle spaces/punctuation safely.
-	if (normalizedPath.search(import.meta.env.BASE_URL) === 0) return encodeURI(normalizedPath);
-	return encodeURI(`${import.meta.env.BASE_URL}${normalizedPath}`);
+	const base = import.meta.env.BASE_URL || '/';
+	const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+	const normalizedPath = `${path}`.startsWith('/') ? `${path}`.slice(1) : `${path}`;
+	// If already resolved against BASE_URL, just URI-encode it.
+	if (`${path}`.startsWith(normalizedBase)) return encodeURI(`${path}`);
+	return encodeURI(`${normalizedBase}${normalizedPath}`);
 };
 
 export const resolveAssetHTML = (html) => {

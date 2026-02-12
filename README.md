@@ -33,6 +33,42 @@ http://localhost:5173/projects/richard/?lang=fr&lo=1
 yarn build
 ```
 
+## Typography Guardrails
+
+To prevent new hardcoded typography drifting back into SCSS/JSX, this repo includes a typography guard script.
+
+### One-time setup (local pre-commit hook)
+
+```bash
+bash scripts/setup-githooks.sh
+```
+
+This configures git to use `.githooks/` in this repo, where pre-commit runs:
+
+```bash
+yarn -s check:typography
+```
+
+### Manual checks
+
+Check staged changes:
+
+```bash
+yarn check:typography
+```
+
+Check all changes introduced by your branch vs `origin/main`:
+
+```bash
+yarn check:typography:branch
+```
+
+Run the recommended local pre-push gate:
+
+```bash
+yarn prepush:local
+```
+
 ## Configuring the learning object
 
 There is an **index-fr.json** file which lists the various learning object configuration files. It is used to construct a navigation menu.

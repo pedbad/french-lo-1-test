@@ -21,6 +21,9 @@ import DOMPurify from "dompurify";
 import React from "react";
 import { resolveAsset } from "../../utility";
 
+const DROPDOWN_TRIGGER_TEXT_CLASS = "min-w-[9rem] p-0 text-[var(--font-size-sm)] leading-[1.4rem] md:min-w-[12rem] md:p-1 md:text-[1.2rem]";
+const DROPDOWNS_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base";
+
 export class DropDowns extends React.PureComponent {
 	// Table of phrases with dropdowns and sound files column.
 	// config is passed from the parent so that multiple exercises are possible.
@@ -162,7 +165,7 @@ export class DropDowns extends React.PureComponent {
 							this.handleSelectChange(value, winner, selectIndex)
 						}
 					>
-						<SelectTrigger className="w-[180px]">
+						<SelectTrigger className={DROPDOWN_TRIGGER_TEXT_CLASS}>
 							<SelectValue placeholder="Select answer" />
 						</SelectTrigger>
 						<SelectContent>
@@ -170,7 +173,7 @@ export class DropDowns extends React.PureComponent {
 								<SelectItem
 									key={`${selectId}-opt-${i}`}
 									value={String(i)}
-									className={i === winner ? "hint" : ""}
+									className={`${i === winner ? "hint " : ""}text-[var(--font-size-sm)] md:text-[1.2rem]`}
 								>
 									{opt}
 								</SelectItem>
@@ -350,7 +353,7 @@ export class DropDowns extends React.PureComponent {
 			}
 
 			content = (
-				<Table>
+				<Table className={DROPDOWNS_TABLE_TEXT_CLASS}>
 					<TableBody>{rows}</TableBody>
 				</Table>
 			);

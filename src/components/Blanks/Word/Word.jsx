@@ -1,6 +1,8 @@
 import './Word.scss';
 import React from 'react';
 
+const BLANK_WORD_TEXT_CLASS = "text-[1.2rem] leading-[1.4rem]";
+
 export class Word extends React.PureComponent {
 
 	render = () => {
@@ -31,7 +33,7 @@ export class Word extends React.PureComponent {
 				onTouchMove={handleMouseMove}
 				onTouchEnd={handleMouseUp}
 				style={styles}
-			><span>{children}</span></div>
-		);
-	};
+				><span className={BLANK_WORD_TEXT_CLASS}>{children}</span></div>
+			);
+		};
 }

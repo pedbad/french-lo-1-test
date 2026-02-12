@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[pre-commit] Running typography guard on staged changes..."
+yarn -s check:typography
+

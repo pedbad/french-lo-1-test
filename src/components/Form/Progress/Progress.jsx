@@ -1,6 +1,8 @@
 import './Progress.scss';
 import React from 'react';
 
+const PROGRESS_TEXT_CLASS = "leading-[140%]";
+
 export class Progress extends React.PureComponent {
 	render() {
 		const {
@@ -21,7 +23,7 @@ export class Progress extends React.PureComponent {
 						style={{ width: `${step * 100 / count}%` }} >
 						<div className={`progress-bar-background`} />
 					</div>
-					<span>{`${(step * 100 / count).toFixed(1)}%`}</span>
+					<span className={PROGRESS_TEXT_CLASS}>{`${(step * 100 / count).toFixed(1)}%`}</span>
 				</div > : null
 		);
 	}

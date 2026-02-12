@@ -6,7 +6,6 @@ Accordion.scss
 @use "../../styles/variables.module.scss" as *;
 @use "sass:color";
 $header-height: 40px;
-$header-font-size: var(--font-size-lg);
 $spacer: 20px;
 $transition-speed: 0.35s;
 
@@ -30,7 +29,6 @@ $common-left-margin: 20px;
 	/* showArticle */
 	clear: both;
 	height: auto;
-	line-height: normal;
 	opacity: 1;
 	overflow: hidden;
 	transition: all $transition-speed ease-in-out;
@@ -108,7 +106,6 @@ $common-left-margin: 20px;
 		@include hideArticle;
 		header {
 			@include hideHeader;
-			font-size: $header-font-size;
 			display: flex;
 			cursor: pointer;
 			margin-top: 2.4rem;
@@ -138,7 +135,6 @@ $common-left-margin: 20px;
 
 			h2 {
 				cursor: pointer;
-				font-size: $header-font-size;
 				margin: 0;
 				color: inherit;
 			}
@@ -164,7 +160,6 @@ $common-left-margin: 20px;
 			.accordion-article {
 				> header {
 					@include showHeader;
-					font-size: $header-font-size;
 				}
 			}
 			> header {
@@ -203,18 +198,5 @@ $common-left-margin: 20px;
 
 	.accordion-card-content .information + .panel h3 {
 		margin-top: 0;
-	}
-}
-
-@media (max-width: 650px) {
-	.accordion {
-		.accordion-article {
-			header {
-				font-size: calc(var(--font-size-lg) * 0.9);
-				h2 {
-					font-size: calc(var(--font-size-lg) * 0.9);
-				}
-			}
-		}
 	}
 }

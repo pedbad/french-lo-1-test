@@ -188,7 +188,6 @@ $card-back-border-width: 8px;
 		.card {
 			height: 100px * 0.7;
 			width: 160px * 0.7;
-			font-size: 0.8rem;
 		}
 	}
 
@@ -196,39 +195,21 @@ $card-back-border-width: 8px;
 		.card {
 			height: 100px * 0.6;
 			width: 160px * 0.6;
-			font-size: 0.6rem;
 		}
 	}
 }
-@include respond-above(l) {
-	.memory-match-game {
-		.cards {
-			.card {
-				font-size: 0.8rem;
-			}
-		}
-		.matches {
-			.card {
-				font-size: 0.7rem;
-			}
-		}
-	}
-}
-
 @include respond-above(xl) {
 	.memory-match-game {
 		.cards {
 			.card {
 				height: 100px * 0.8;
 				width: 160px * 0.8;
-				font-size: 0.9rem;
 			}
 		}
 		.matches {
 			.card {
 				height: 100px * 0.6;
 				width: 160px * 0.6;
-				font-size: 0.8rem;
 			}
 		}
 	}
@@ -240,7 +221,6 @@ $card-back-border-width: 8px;
 			.card {
 				height: 100px;
 				width: 160px;
-				font-size: 1rem;
 			}
 		}
 		.matches {

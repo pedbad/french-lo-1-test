@@ -23,6 +23,8 @@ import {
 	resolveAsset,
 } from '../../utility';
 
+const RADIO_QUIZ_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base";
+
 export class RadioQuiz extends React.Component {
 
 	// Table of phrases with translatiopns column and sound files column.
@@ -195,7 +197,7 @@ export class RadioQuiz extends React.Component {
 			>
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-				<Table>
+				<Table className={RADIO_QUIZ_TABLE_TEXT_CLASS}>
 					<TableBody>
 						{rows}
 					</TableBody>

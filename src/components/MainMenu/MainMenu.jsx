@@ -195,8 +195,8 @@ export class MainMenu extends React.Component {
 						key={`menuItem-${id}`}
 					>
 						<NavigationMenuLink asChild>
-							<a
-								className="modal-link nav nav-link"
+								<a
+								className="modal-link nav nav-link text-[var(--nav-link-size)]"
 								href={href}
 								onClick={this.handleNavClick}
 							>
@@ -211,7 +211,7 @@ export class MainMenu extends React.Component {
 					<li key={`mobile-${id}`} className={highlight ? "highlight" : ""}>
 						<a
 							href={href}
-							className="nav-link nav-link-mobile nav modal-link"
+							className="nav-link nav-link-mobile nav modal-link text-[var(--nav-link-size)]"
 							onClick={this.handleNavClick}
 						>
 							{label}
@@ -239,7 +239,7 @@ export class MainMenu extends React.Component {
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-title"
+										className="modal-link nav nav-title text-[var(--nav-title-size)] font-semibold"
 										href="#modal-link-top"
 										onClick={this.handleNavClick}
 									>
@@ -259,7 +259,7 @@ export class MainMenu extends React.Component {
 							>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-link"
+										className="modal-link nav nav-link text-[var(--nav-link-size)]"
 										href={introHref}
 										onClick={this.handleNavClick}
 									>
@@ -328,7 +328,7 @@ export class MainMenu extends React.Component {
 						<li className={introHighlight ? "highlight" : ""}>
 							<a
 								href={introHref}
-								className="nav-link nav-link-mobile nav modal-link"
+								className="nav-link nav-link-mobile nav modal-link text-[var(--nav-link-size)]"
 								onClick={this.handleNavClick}
 							>
 								Introduction

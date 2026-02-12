@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Info, TopButton } from "..";
 import DOMPurify from "dompurify";
 import React from "react";
-import { DEFAULT_INSTRUCTION_STYLE, InstructionsMedia } from "../Section/instructions-media";
+import { INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
 import { resolveAsset } from "../../utility";
 
 export const HeroSection = ({
@@ -58,19 +58,19 @@ export const HeroSection = ({
 							<InstructionsMedia
 								{...instructionsLayout}
 								image={splitInfoImage ? undefined : instructionsLayout.image}
-								instructionStyle={DEFAULT_INSTRUCTION_STYLE}
+								instructionTextClass={INSTRUCTION_TEXT_CLASS}
 							/>
 						) : (
 							<div className="w-full">
 								{instructionsText ? (
-									<p className="leading-relaxed" style={{ ...DEFAULT_INSTRUCTION_STYLE, margin: 0 }}>
+									<p className={INSTRUCTION_TEXT_CLASS} style={{ margin: 0 }}>
 										{instructionsText}
 									</p>
 								) : null}
 								{instructionsTextHTML ? (
 									<div
-										className="leading-relaxed"
-										style={{ ...DEFAULT_INSTRUCTION_STYLE, margin: 0 }}
+										className={INSTRUCTION_TEXT_CLASS}
+										style={{ margin: 0 }}
 										dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(instructionsTextHTML) }}
 									/>
 								) : null}
