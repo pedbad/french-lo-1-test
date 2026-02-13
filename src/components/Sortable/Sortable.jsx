@@ -9,6 +9,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
+import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
 
 
 export class Sortable extends React.Component {
@@ -31,6 +32,8 @@ export class Sortable extends React.Component {
 					: 0
 			).fill(null) // "correct" | "incorrect" | null
 		};
+
+		this.cardRefs = new Map();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -57,6 +60,12 @@ export class Sortable extends React.Component {
 	}
 	// inside class Sortable
 	pointerId = null;
+
+	setCardRef = (itemId, element) => {
+		if (itemId === undefined || itemId === null) return;
+		if (element) this.cardRefs.set(itemId, element);
+		else this.cardRefs.delete(itemId);
+	};
 
 	swapById = (items, draggingId, targetId) => {
 		const fromIndex = items.findIndex((item) => item.id === draggingId);
@@ -210,6 +219,8 @@ export class Sortable extends React.Component {
 		const { config } = this.props;
 		const phrasesLen =
 			config && config.phrases ? config.phrases.length : 0;
+		const idsBefore = this.state.lang2Items.map((item) => item.id);
+		const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
 
 		this.setState({
 			checkedCorrectCount: 0,
@@ -222,6 +233,16 @@ export class Sortable extends React.Component {
 			lastResult: null,
 			rowStatuses: new Array(phrasesLen).fill(null),
 			usedShowAnswer: false,
+		}, () => {
+			playFlipAnimation({
+				before,
+				duration: 460,
+				fromOpacity: 0.96,
+				getElement: (id) => this.cardRefs.get(id),
+				ids: this.state.lang2Items.map((item) => item.id),
+				stagger: 22,
+				toOpacity: 1,
+			});
 		});
 	};
 
@@ -284,6 +305,8 @@ export class Sortable extends React.Component {
 	autoSolve = () => {
 		const { config } = this.props;
 		if (!config || !config.phrases) return;
+		const idsBefore = this.state.lang2Items.map((item) => item.id);
+		const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
 		const lang2Items = config.phrases.map((phrase, index) => {
 			if (Array.isArray(phrase)) {
 				return {
@@ -306,6 +329,13 @@ export class Sortable extends React.Component {
 			lastResult: "correct",
 			rowStatuses: new Array(config.phrases.length).fill("correct"),
 			usedShowAnswer: true,
+		}, () => {
+			playFlipAnimation({
+				before,
+				duration: 460,
+				getElement: (id) => this.cardRefs.get(id),
+				ids: this.state.lang2Items.map((item) => item.id),
+			});
 		});
 	};
 
@@ -428,6 +458,7 @@ export class Sortable extends React.Component {
 											isDragging={isDragging}
 											isDropTarget={dropTargetId === lang2Item?.id && !isDragging}
 											label={lang2Item ? lang2Item.lang2 : ""}
+											ref={(element) => this.setCardRef(lang2Item?.id, element)}
 											onDragStart={
 												lang2Item
 													? this.handleDragStart(lang2Item.id)

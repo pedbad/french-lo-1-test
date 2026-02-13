@@ -4,6 +4,7 @@ import { ProgressDots } from "../ProgressDots";
 import { SequenceAudioController } from "../SequenceAudioController";
 import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
 import { resolveAsset, shuffleArray } from "../../utility";
+import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
 
 const buildTokens = (words = []) =>
 	words.map((label, index) => ({
@@ -68,11 +69,8 @@ export class SequenceOrder extends React.PureComponent {
 
 	handleDrop = (event, targetId) => {
 		event.preventDefault();
-		const before = new Map();
-		this.state.userTokens.forEach((token) => {
-			const card = this.cardRefs.get(token.id);
-			if (card) before.set(token.id, card.getBoundingClientRect());
-		});
+		const idsBefore = this.state.userTokens.map((token) => token.id);
+		const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
 
 		this.setState((prev) => {
 			if (!prev.draggingId || prev.draggingId === targetId) {
@@ -90,30 +88,11 @@ export class SequenceOrder extends React.PureComponent {
 				userTokens: swap(prev.userTokens, fromIndex, toIndex),
 			};
 		}, () => {
-			if (typeof window === "undefined") return;
-			if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
-
-			requestAnimationFrame(() => {
-				this.state.userTokens.forEach((token) => {
-					const card = this.cardRefs.get(token.id);
-					const first = before.get(token.id);
-					if (!card || !first) return;
-					const last = card.getBoundingClientRect();
-					const dx = first.left - last.left;
-					const dy = first.top - last.top;
-					if (dx === 0 && dy === 0) return;
-
-					card.animate(
-						[
-							{ transform: `translate(${dx}px, ${dy}px)` },
-							{ transform: "translate(0, 0)" },
-						],
-						{
-							duration: 260,
-							easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-						}
-					);
-				});
+			playFlipAnimation({
+				before,
+				duration: 260,
+				getElement: (id) => this.cardRefs.get(id),
+				ids: this.state.userTokens.map((token) => token.id),
 			});
 		});
 	};
@@ -142,11 +121,8 @@ export class SequenceOrder extends React.PureComponent {
 	};
 
 	handleReset = () => {
-		const before = new Map();
-		this.state.userTokens.forEach((token) => {
-			const card = this.cardRefs.get(token.id);
-			if (card) before.set(token.id, card.getBoundingClientRect());
-		});
+		const idsBefore = this.state.userTokens.map((token) => token.id);
+		const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
 
 		this.setState((prev) => ({
 			checkResult: null,
@@ -157,40 +133,21 @@ export class SequenceOrder extends React.PureComponent {
 			usedShowAnswer: false,
 			userTokens: shuffleArray([...prev.expectedTokens]),
 		}), () => {
-			if (typeof window === "undefined") return;
-			if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
-
-			requestAnimationFrame(() => {
-				this.state.userTokens.forEach((token, index) => {
-					const card = this.cardRefs.get(token.id);
-					const first = before.get(token.id);
-					if (!card || !first) return;
-					const last = card.getBoundingClientRect();
-					const dx = first.left - last.left;
-					const dy = first.top - last.top;
-
-					card.animate(
-						[
-							{ transform: `translate(${dx}px, ${dy}px)`, opacity: 0.96 },
-							{ transform: "translate(0, 0)", opacity: 1 },
-						],
-						{
-							delay: index * 22,
-							duration: 460,
-							easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-						}
-					);
-				});
+			playFlipAnimation({
+				before,
+				duration: 460,
+				fromOpacity: 0.96,
+				getElement: (id) => this.cardRefs.get(id),
+				ids: this.state.userTokens.map((token) => token.id),
+				stagger: 22,
+				toOpacity: 1,
 			});
 		});
 	};
 
 	handleShowAnswer = () => {
-		const before = new Map();
-		this.state.userTokens.forEach((token) => {
-			const card = this.cardRefs.get(token.id);
-			if (card) before.set(token.id, card.getBoundingClientRect());
-		});
+		const idsBefore = this.state.userTokens.map((token) => token.id);
+		const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
 
 		this.setState((prev) => ({
 			checkResult: {
@@ -205,29 +162,11 @@ export class SequenceOrder extends React.PureComponent {
 			usedShowAnswer: true,
 			userTokens: [...prev.expectedTokens],
 		}), () => {
-			if (typeof window === "undefined") return;
-			if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
-
-			requestAnimationFrame(() => {
-				this.state.userTokens.forEach((token) => {
-					const card = this.cardRefs.get(token.id);
-					const first = before.get(token.id);
-					if (!card || !first) return;
-					const last = card.getBoundingClientRect();
-					const dx = first.left - last.left;
-					const dy = first.top - last.top;
-					if (dx === 0 && dy === 0) return;
-					card.animate(
-						[
-							{ transform: `translate(${dx}px, ${dy}px)` },
-							{ transform: "translate(0, 0)" },
-						],
-						{
-							duration: 460,
-							easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-						}
-					);
-				});
+			playFlipAnimation({
+				before,
+				duration: 460,
+				getElement: (id) => this.cardRefs.get(id),
+				ids: this.state.userTokens.map((token) => token.id),
 			});
 		});
 	};
