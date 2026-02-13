@@ -57,4 +57,4 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 
 ## Next Recommended Baby Step
 
-- [ ] Typography batch 3: convert remaining small hardcoded text in `src/App.scss` (`figcaption`, `.footnote`) to token-based values.
+- [x] Typography batch 3: converted remaining small hardcoded text in `src/App.scss` (`figcaption`, `.footnote`) to token-based values.

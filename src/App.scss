@@ -106,7 +106,7 @@ h6 {
 figure {
 	figcaption {
 		font-family: var(--font-sans);
-		font-size: 0.75rem;
+		font-size: var(--font-size-xs);
 	}
 }
 // .main-header,
@@ -632,7 +632,7 @@ hr {
 	}
 
 	.footnote {
-		font-size: 0.8rem;
+		font-size: var(--font-size-xs);
 	}
 
 	.audio-clip {

@@ -279,6 +279,12 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - copy-only short prompt for quick reuse
 - Updated docs tracker references in `README.md` and progress state in `TASKS_COMPLETED.md`.
 
+## 34) Typography Batch 3 (Small Text Tokenization)
+- Updated `src/App.scss`:
+  - `figure figcaption` font-size from hardcoded `0.75rem` -> `var(--font-size-xs)`
+  - `.footnote` font-size from hardcoded `0.8rem` -> `var(--font-size-xs)`
+- Updated `TASKS_COMPLETED.md` to mark Typography batch 3 as complete.
+
 
 # Files Deleted (partial but comprehensive)
 
