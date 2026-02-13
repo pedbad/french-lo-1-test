@@ -70,15 +70,15 @@ export default defineConfig(() => ({
 					src: 'src/index*.json' // path to your file
 				},
 				{
-					dest: '/sounds',
+					dest: 'sounds',
 					src: './public/sounds'
 				},
 				{
-					dest: '/images',
+					dest: 'images',
 					src: './public/images'
 				},
 				{
-					dest: '/fonts',
+					dest: 'fonts',
 					src: './public/fonts'
 				}
 			]
