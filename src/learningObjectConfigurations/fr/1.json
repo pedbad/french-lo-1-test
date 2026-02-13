@@ -514,7 +514,7 @@
             "prénom",
             "bonjour"
           ],
-          "soundFile": "audio/lo1/exercises/wordsIntoSlots5/001-lo1-5-words-in-order.mp3",
+          "soundFile": "audio/lo1/exercises/listeningOrder1/001-listening-order-1.mp3",
           "titleText": "5. Listening comprehension (part1)"
         }
       },
@@ -538,7 +538,7 @@
             "quoi",
             "froid"
           ],
-          "soundFile": "audio/lo1/exercises/wordsIntoSlots6/001-lo1-6-words-in-order.mp3",
+          "soundFile": "audio/lo1/exercises/listeningOrder2/001-listening-order-2.mp3",
           "titleText": "6. Listening comprehension (part2)"
         }
       },
