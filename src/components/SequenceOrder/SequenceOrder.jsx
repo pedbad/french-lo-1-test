@@ -1,0 +1,356 @@
+import React from "react";
+import { IconButton } from "../IconButton";
+import { ProgressDots } from "../ProgressDots";
+import { SequenceAudioController } from "../SequenceAudioController";
+import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
+import { resolveAsset, shuffleArray } from "../../utility";
+
+const buildTokens = (words = []) =>
+	words.map((label, index) => ({
+		id: `token-${index}`,
+		label,
+		order: index,
+	}));
+
+const swap = (items, fromIndex, toIndex) => {
+	if (fromIndex === toIndex || fromIndex < 0 || toIndex < 0) return items;
+	const next = [...items];
+	[next[fromIndex], next[toIndex]] = [next[toIndex], next[fromIndex]];
+	return next;
+};
+
+export class SequenceOrder extends React.PureComponent {
+	constructor(props) {
+		super(props);
+		const { config = {} } = props;
+		const { words = [] } = config;
+		const expectedTokens = buildTokens(words);
+		const shuffledTokens = shuffleArray([...expectedTokens]);
+
+		this.state = {
+			checkResult: null,
+			draggingId: null,
+			dropTargetId: null,
+			expectedTokens,
+			failedChecks: 0,
+			hasReordered: false,
+			usedShowAnswer: false,
+			userTokens: shuffledTokens,
+		};
+
+		this.cardRefs = new Map();
+	}
+
+	setCardRef = (tokenId, element) => {
+		if (element) this.cardRefs.set(tokenId, element);
+		else this.cardRefs.delete(tokenId);
+	};
+
+	handleDragStart = (tokenId) => {
+		this.setState({ draggingId: tokenId, checkResult: null });
+	};
+
+	handleDragOver = (event) => {
+		event.preventDefault();
+	};
+
+	handleDragEnter = (targetId) => {
+		this.setState({ dropTargetId: targetId });
+	};
+
+	handleDrop = (event, targetId) => {
+		event.preventDefault();
+		const before = new Map();
+		this.state.userTokens.forEach((token) => {
+			const card = this.cardRefs.get(token.id);
+			if (card) before.set(token.id, card.getBoundingClientRect());
+		});
+
+		this.setState((prev) => {
+			if (!prev.draggingId || prev.draggingId === targetId) {
+				return { draggingId: null, dropTargetId: null };
+			}
+			const fromIndex = prev.userTokens.findIndex((token) => token.id === prev.draggingId);
+			const toIndex = prev.userTokens.findIndex((token) => token.id === targetId);
+			if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) {
+				return { draggingId: null, dropTargetId: null };
+			}
+			return {
+				hasReordered: true,
+				draggingId: null,
+				dropTargetId: null,
+				userTokens: swap(prev.userTokens, fromIndex, toIndex),
+			};
+		}, () => {
+			if (typeof window === "undefined") return;
+			if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
+
+			requestAnimationFrame(() => {
+				this.state.userTokens.forEach((token) => {
+					const card = this.cardRefs.get(token.id);
+					const first = before.get(token.id);
+					if (!card || !first) return;
+					const last = card.getBoundingClientRect();
+					const dx = first.left - last.left;
+					const dy = first.top - last.top;
+					if (dx === 0 && dy === 0) return;
+
+					card.animate(
+						[
+							{ transform: `translate(${dx}px, ${dy}px)` },
+							{ transform: "translate(0, 0)" },
+						],
+						{
+							duration: 260,
+							easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+						}
+					);
+				});
+			});
+		});
+	};
+
+	handleDragEnd = () => {
+		this.setState({ draggingId: null, dropTargetId: null });
+	};
+
+	handleCheckAnswers = () => {
+		this.setState((prev) => {
+			let correctCount = 0;
+			const total = prev.expectedTokens.length;
+			for (let i = 0; i < total; i++) {
+				if (prev.userTokens[i]?.id === prev.expectedTokens[i]?.id) correctCount += 1;
+			}
+			const isComplete = correctCount === total;
+			return {
+				checkResult: {
+					correctCount,
+					isComplete,
+					total,
+				},
+				failedChecks: isComplete ? prev.failedChecks : prev.failedChecks + 1,
+			};
+		});
+	};
+
+	handleReset = () => {
+		const before = new Map();
+		this.state.userTokens.forEach((token) => {
+			const card = this.cardRefs.get(token.id);
+			if (card) before.set(token.id, card.getBoundingClientRect());
+		});
+
+		this.setState((prev) => ({
+			checkResult: null,
+			draggingId: null,
+			dropTargetId: null,
+			failedChecks: 0,
+			hasReordered: false,
+			usedShowAnswer: false,
+			userTokens: shuffleArray([...prev.expectedTokens]),
+		}), () => {
+			if (typeof window === "undefined") return;
+			if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
+
+			requestAnimationFrame(() => {
+				this.state.userTokens.forEach((token, index) => {
+					const card = this.cardRefs.get(token.id);
+					const first = before.get(token.id);
+					if (!card || !first) return;
+					const last = card.getBoundingClientRect();
+					const dx = first.left - last.left;
+					const dy = first.top - last.top;
+
+					card.animate(
+						[
+							{ transform: `translate(${dx}px, ${dy}px)`, opacity: 0.96 },
+							{ transform: "translate(0, 0)", opacity: 1 },
+						],
+						{
+							delay: index * 22,
+							duration: 460,
+							easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+						}
+					);
+				});
+			});
+		});
+	};
+
+	handleShowAnswer = () => {
+		const before = new Map();
+		this.state.userTokens.forEach((token) => {
+			const card = this.cardRefs.get(token.id);
+			if (card) before.set(token.id, card.getBoundingClientRect());
+		});
+
+		this.setState((prev) => ({
+			checkResult: {
+				correctCount: prev.expectedTokens.length,
+				isComplete: true,
+				total: prev.expectedTokens.length,
+			},
+			draggingId: null,
+			dropTargetId: null,
+			failedChecks: prev.failedChecks,
+			hasReordered: true,
+			usedShowAnswer: true,
+			userTokens: [...prev.expectedTokens],
+		}), () => {
+			if (typeof window === "undefined") return;
+			if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return;
+
+			requestAnimationFrame(() => {
+				this.state.userTokens.forEach((token) => {
+					const card = this.cardRefs.get(token.id);
+					const first = before.get(token.id);
+					if (!card || !first) return;
+					const last = card.getBoundingClientRect();
+					const dx = first.left - last.left;
+					const dy = first.top - last.top;
+					if (dx === 0 && dy === 0) return;
+					card.animate(
+						[
+							{ transform: `translate(${dx}px, ${dy}px)` },
+							{ transform: "translate(0, 0)" },
+						],
+						{
+							duration: 460,
+							easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+						}
+					);
+				});
+			});
+		});
+	};
+
+	render = () => {
+		const { config = {} } = this.props;
+		const {
+			cheatText = "Show answer",
+			soundFile,
+		} = config;
+		const { checkResult, draggingId, dropTargetId, failedChecks, hasReordered, userTokens, usedShowAnswer } = this.state;
+		const canCheck = userTokens.length > 0;
+		const total = userTokens.length;
+		const correctCount = checkResult?.correctCount || 0;
+		const showReveal = failedChecks >= 2 || usedShowAnswer;
+		const showReset = hasReordered || failedChecks >= 1 || usedShowAnswer || Boolean(checkResult?.isComplete);
+
+		return (
+			<div className="space-y-4">
+				{soundFile ? (
+					<div className="space-y-1">
+						<SequenceAudioController sources={[resolveAsset(soundFile)]} />
+					</div>
+				) : null}
+
+				<div className="rounded-xl border border-border/70 bg-card p-3">
+					<div className="space-y-2 min-[901px]:hidden">
+						{userTokens.map((token, index) => {
+							const isDragging = draggingId === token.id;
+							const isDropTarget = dropTargetId === token.id && !isDragging;
+							return (
+								<SortableWordCard
+									direction="vertical"
+									draggable
+									isDragging={isDragging}
+									isDropTarget={isDropTarget}
+									key={token.id}
+									label={token.label}
+									onDragEnd={this.handleDragEnd}
+									onDragEnter={() => this.handleDragEnter(token.id)}
+									onDragOver={this.handleDragOver}
+									onDrop={(event) => this.handleDrop(event, token.id)}
+									onDragStart={() => this.handleDragStart(token.id)}
+									ref={(element) => this.setCardRef(token.id, element)}
+									showIndex
+									slotLabel={index + 1}
+								/>
+							);
+						})}
+					</div>
+
+					<div className="hidden min-[901px]:block">
+						<div
+							className="mb-2 grid gap-2 [grid-template-columns:repeat(var(--token-count),minmax(5.5rem,1fr))] min-[1180px]:[grid-template-columns:repeat(var(--token-count),minmax(7rem,1fr))]"
+							style={{ "--token-count": userTokens.length }}
+						>
+							{userTokens.map((token, index) => (
+								<div
+									className="rounded-md border border-[rgb(var(--color-primary-300)_/_0.55)] bg-[rgb(var(--color-primary-50)_/_0.75)] px-2 py-1 text-center text-[0.7rem] font-semibold text-[rgb(var(--color-text-secondary)_/_1)] min-[1180px]:text-sm"
+									key={`slot-${token.id}`}
+								>
+									{index + 1}
+								</div>
+							))}
+						</div>
+
+						<div
+							className="grid gap-2 [grid-template-columns:repeat(var(--token-count),minmax(5.5rem,1fr))] min-[1180px]:[grid-template-columns:repeat(var(--token-count),minmax(7rem,1fr))]"
+							style={{ "--token-count": userTokens.length }}
+						>
+							{userTokens.map((token) => {
+								const isDragging = draggingId === token.id;
+								const isDropTarget = dropTargetId === token.id && !isDragging;
+								return (
+									<SortableWordCard
+										direction="horizontal"
+										draggable
+										isDragging={isDragging}
+										isDropTarget={isDropTarget}
+										key={token.id}
+										label={token.label}
+										onDragEnd={this.handleDragEnd}
+										onDragEnter={() => this.handleDragEnter(token.id)}
+										onDragOver={this.handleDragOver}
+										onDrop={(event) => this.handleDrop(event, token.id)}
+										onDragStart={() => this.handleDragStart(token.id)}
+										ref={(element) => this.setCardRef(token.id, element)}
+										size="compact"
+									/>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+
+				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+				<ProgressDots correct={correctCount} total={total} />
+				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+
+				<div className="flex flex-wrap justify-end gap-2">
+					{showReveal ? (
+						<IconButton
+							className="btn-ped-warn"
+							onClick={this.handleShowAnswer}
+							theme="eye"
+							variant="default"
+						>
+							{cheatText}
+						</IconButton>
+					) : null}
+					{showReset ? (
+						<IconButton
+							className="btn-chart-2"
+							onClick={this.handleReset}
+							theme="reset"
+							variant="default"
+						>
+							Reset
+						</IconButton>
+					) : null}
+					<IconButton
+						className="btn-hero-title"
+						disabled={!canCheck}
+						onClick={this.handleCheckAnswers}
+						theme="check"
+						variant="default"
+					>
+						Check answers
+					</IconButton>
+				</div>
+			</div>
+		);
+	};
+}

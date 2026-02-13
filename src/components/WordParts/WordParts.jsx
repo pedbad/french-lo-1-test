@@ -3,11 +3,11 @@ import {
 	AudioClip,
 	IconButton,
 	Info,
+	ProgressDots,
 } from '..';
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from 'react';
-import {resolveAsset} from '../../utility';
 
 const WORD_PARTS_TEXT_CLASS = "text-[calc(var(--font-size-base)*1.15)] leading-[1.35] md:text-[calc(var(--font-size-xl)*1.5)]";
 
@@ -244,21 +244,7 @@ export class WordParts extends React.PureComponent {
 				</table>
 
 				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
-				<div className="flex flex-wrap items-center gap-2">
-					<div className="flex flex-nowrap items-center gap-2 overflow-x-auto" aria-label={`${nPlaced} correct out of ${nToSolve}`}>
-						{Array.from({ length: nToSolve }).map((_, index) => {
-							const filled = index < nPlaced;
-							return (
-								<span
-									key={`progress-circle-${index}`}
-									className={`h-[1.125rem] w-[1.125rem] sm:h-[1.5rem] sm:w-[1.5rem] rounded-full border ${filled ? "bg-[var(--chart-2)] border-[var(--chart-2)]" : "bg-transparent border-[color-mix(in_oklab,var(--foreground)_35%,transparent)]"}`}
-									aria-hidden="true"
-								/>
-							);
-						})}
-					</div>
-					<p className="m-0">{`${nPlaced} correct out of ${nToSolve}`}</p>
-				</div>
+				<ProgressDots correct={nPlaced} total={nToSolve} />
 				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 
 				<div className='help'>

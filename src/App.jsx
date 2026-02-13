@@ -20,20 +20,21 @@ import {
 	LearningObjectMenu,
 	MainMenu,
 	MemoryMatchGame,
+	ModalLinkDialog,
 	Monologue,
 	PhraseTable,
 	RadioQuiz,
 	ReadAloud,
 	Section,
+	SequenceOrder,
 	Social,
 	Sortable,
-	ModalLinkDialog,
 	WordGrid,
 	WordParts,
 } from "./components";
 import {
-	handleResponse,
 	handleModalLinkClick,
+	handleResponse,
 	isTouchChrome,
 	playAudioLink,
 	speak,
@@ -224,7 +225,7 @@ export default class App extends React.Component {
 
 		const addEntry = (item) => {
 			if (!item || typeof item !== "object") return;
-			const id = item.id;
+			const {id} = item;
 			const contentHTML =
 				item.infoTextHTML ||
 				item.informationTextHTML ||
@@ -667,6 +668,14 @@ export default class App extends React.Component {
 			case "ReadAloud":
 				return (
 					<ReadAloud
+						config={value}
+						logError={this.logError}
+						showDialog={this.showDialog}
+					/>
+				);
+			case "SequenceOrder":
+				return (
+					<SequenceOrder
 						config={value}
 						logError={this.logError}
 						showDialog={this.showDialog}
@@ -1195,28 +1204,29 @@ export default class App extends React.Component {
 							})()
 						);
 
-						articles.push(
-							outerWrapper(
-								<Tabs
-									className="w-full overflow-hidden rounded-xl border border-border/45 bg-card/80"
-									defaultValue={defaultTabValue || (tabItems[0] && tabItems[0].value)}
-								>
-									<TabsList className="flex h-auto w-full flex-col items-stretch justify-start gap-0 overflow-visible rounded-lg border border-border/35 bg-muted/20 p-1 min-[1170px]:flex-wrap min-[1170px]:flex-row min-[1170px]:gap-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/35 min-[1170px]:p-0">
-										{tabItems.map((item) => (
-											<TabsTrigger
-												className="w-full cursor-pointer justify-start rounded-md border border-transparent !px-4 !py-2 text-left !text-[1.2rem] !leading-tight font-medium text-foreground/90 transition-colors data-[state=active]:bg-card data-[state=active]:text-[var(--chart-3)] data-[state=active]:font-bold data-[state=active]:border-border/45 data-[state=active]:border-l-4 data-[state=active]:border-l-[var(--chart-3)] min-[1170px]:shrink-0 min-[1170px]:w-auto min-[1170px]:justify-center min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:border-r min-[1170px]:border-border/45 min-[1170px]:!min-h-[3.8rem] min-[1170px]:!px-6 min-[1170px]:!py-3 min-[1170px]:!text-[1.4rem] min-[1170px]:text-center min-[1170px]:data-[state=active]:relative min-[1170px]:data-[state=active]:z-20 min-[1170px]:data-[state=active]:translate-y-[2px] min-[1170px]:data-[state=active]:bg-muted/25 min-[1170px]:data-[state=active]:shadow-none min-[1170px]:data-[state=active]:border-t-2 min-[1170px]:data-[state=active]:border-l-2 min-[1170px]:data-[state=active]:border-r-2 min-[1170px]:data-[state=active]:border-b-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--foreground)_24%,var(--border))] min-[1170px]:data-[state=active]:!border-b-[color-mix(in_oklab,var(--muted)_25%,var(--card))]"
-												key={item.value}
-												value={item.value}>
-												{item.label}
-											</TabsTrigger>
-										))}
-									</TabsList>
+					articles.push(
+						outerWrapper(
+							<Tabs
+								className="w-full overflow-hidden rounded-xl border border-border/45 bg-card/80"
+								defaultValue={defaultTabValue || (tabItems[0] && tabItems[0].value)}
+							>
+								<TabsList className="flex h-auto w-full flex-col items-stretch justify-start gap-0 overflow-visible rounded-lg border border-border/35 bg-muted/20 p-1 min-[1170px]:flex-wrap min-[1170px]:flex-row min-[1170px]:gap-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/35 min-[1170px]:p-0">
 									{tabItems.map((item) => (
-										<TabsContent
-											className="mt-2 rounded-lg border border-[color-mix(in_oklab,var(--foreground)_18%,var(--border))] bg-muted/20 p-4 data-[state=inactive]:hidden data-[state=active]:block min-[1170px]:mt-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/25 min-[1170px]:data-[state=active]:border-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--foreground)_24%,var(--border))]"
+										<TabsTrigger
+											className="w-full cursor-pointer justify-start rounded-md border border-transparent !px-4 !py-2 text-left !text-[1.2rem] !leading-tight font-medium text-foreground/90 transition-colors data-[state=active]:bg-card data-[state=active]:text-[var(--chart-3)] data-[state=active]:font-bold data-[state=active]:border-border/45 data-[state=active]:border-l-4 data-[state=active]:border-l-[var(--chart-3)] min-[1170px]:shrink-0 min-[1170px]:w-auto min-[1170px]:justify-center min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:border-r min-[1170px]:border-border/45 min-[1170px]:!min-h-[3.8rem] min-[1170px]:!px-6 min-[1170px]:!py-3 min-[1170px]:!text-[1.4rem] min-[1170px]:text-center min-[1170px]:data-[state=active]:relative min-[1170px]:data-[state=active]:z-20 min-[1170px]:data-[state=active]:translate-y-[2px] min-[1170px]:data-[state=active]:bg-muted/25 min-[1170px]:data-[state=active]:shadow-none min-[1170px]:data-[state=active]:border-t-2 min-[1170px]:data-[state=active]:border-l-2 min-[1170px]:data-[state=active]:border-r-2 min-[1170px]:data-[state=active]:border-b-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--foreground)_24%,var(--border))] min-[1170px]:data-[state=active]:!border-b-[color-mix(in_oklab,var(--muted)_25%,var(--card))]"
 											key={item.value}
 											value={item.value}
-											forceMount
+										>
+											{item.label}
+										</TabsTrigger>
+									))}
+								</TabsList>
+								{tabItems.map((item) => (
+									<TabsContent
+										className="mt-2 rounded-lg border border-[color-mix(in_oklab,var(--foreground)_18%,var(--border))] bg-muted/20 p-4 data-[state=inactive]:hidden data-[state=active]:block min-[1170px]:mt-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/25 min-[1170px]:data-[state=active]:border-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--foreground)_24%,var(--border))]"
+										key={item.value}
+										value={item.value}
+										forceMount
 									>
 										{item.content}
 									</TabsContent>
@@ -1373,6 +1383,28 @@ export default class App extends React.Component {
 						titleHTML={titleTextHTML}
 					>
 						<ReadAloud
+							config={value}
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
+			case "SequenceOrder": {
+				articles.push(
+					<AccordionArticle
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						ref={(AccordionArticle) => {
+							window.refs.push(AccordionArticle);
+						}}
+						target={id}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<SequenceOrder
 							config={value}
 							logError={this.logError}
 							showDialog={this.showDialog}

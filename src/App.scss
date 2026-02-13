@@ -500,6 +500,7 @@ hr {
 	text-align: left;
 	padding: 1rem 0;
 	margin: auto;
+	margin-bottom: 4rem;
 	// margin-top: $main-menu-height;
 	ul {
 		margin: 2rem 0;
@@ -553,8 +554,8 @@ hr {
 	}
 	.inline-icon-check {
 		background-color: var(--chart-3);
-		-webkit-mask-image: url("/images/icons/tick.svg");
-		mask-image: url("/images/icons/tick.svg");
+		-webkit-mask-image: url("/images/icons/circle-check.svg");
+		mask-image: url("/images/icons/circle-check.svg");
 	}
 	.word-parts-container table td,
 	.word-parts-container table span {

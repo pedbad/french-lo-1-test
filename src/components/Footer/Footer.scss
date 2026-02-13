@@ -7,6 +7,58 @@ $common-width: 216px;
 
 footer {
 	background-color: var(--footer-background);
+	position: relative;
+	overflow: visible;
+	isolation: isolate;
+
+	// Soft wave + angled crest to break the flat "box" top edge.
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		height: 64px;
+		transform: translateY(-100%);
+		background: inherit;
+		clip-path: polygon(0 100%, 0 16%, 14% 78%, 34% 22%, 52% 84%, 71% 28%, 87% 74%, 100% 18%, 100% 100%);
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		height: 42px;
+		transform: translateY(-86%);
+		background:
+			conic-gradient(
+				from 210deg at 8% 100%,
+				color-mix(in oklab, var(--footer-background) 68%, white) 0deg,
+				color-mix(in oklab, var(--footer-background) 24%, transparent) 58deg,
+				transparent 125deg
+			),
+			conic-gradient(
+				from -30deg at 92% 100%,
+				color-mix(in oklab, var(--footer-background) 66%, white) 0deg,
+				color-mix(in oklab, var(--footer-background) 22%, transparent) 62deg,
+				transparent 128deg
+			),
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--footer-background) 50%, white) 0%,
+				color-mix(in oklab, var(--footer-background) 18%, transparent) 58%,
+				transparent 100%
+			);
+		background-blend-mode: screen, screen, normal;
+		opacity: 0.92;
+		pointer-events: none;
+		z-index: 0;
+	}
+
 	.footer-container {
 		color: var(--foreground);
 		padding: 40px 36px 60px;
@@ -155,6 +207,10 @@ footer {
 
 .dark footer {
 	background-color: var(--sidebar);
+	&::before,
+	&::after {
+		display: none;
+	}
 	.footer-container {
 		.square-logos a:hover {
 			color: var(--chart-4);

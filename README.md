@@ -206,6 +206,31 @@ stable prefix ordering: 001-..., 002-...
 
 Some French audio filenames on disk use decomposed accents (NFD), while JSON references used composed accents (NFC). This mismatch caused 404s and `NotSupportedError` in the browser. The fix normalizes asset paths to NFD inside `resolveAsset` so the requested URL matches the actual filenames.
 
+## LO1 Exercise Refactor (Listening Order)
+
+LO1 listening exercises were refactored for consistency, clearer naming, and safer audio paths:
+
+- Exercise ids/keys were renamed to behavior-based names:
+  - `listeningOrder1`
+  - `listeningOrder2`
+  - `listeningOrder3`
+- Exercises 5 and 6 now use the shared `SequenceOrder` interaction with:
+  - swap-on-drop behavior
+  - responsive layout (compact horizontal on medium, vertical on small)
+  - consistent action buttons (`Check answers`, `Show answer`, `Reset`)
+  - shared circle progress dots
+- Exercise 7 (`Sortable`) was updated to use the same draggable card visual style (shared `SortableWordCard`) while keeping per-item audio clips.
+- Exercise 7 feedback was simplified:
+  - removed row-level check/cross markers
+  - removed extra bottom success/error message text
+  - progress dots update on `Check answers` (not during drag)
+- Exercise 7 audio moved off legacy `sounds/fr/...` paths and into LO1 sectioned audio:
+  - `public/audio/lo1/exercises/listeningOrder3/001-homme.mp3`
+  - `public/audio/lo1/exercises/listeningOrder3/002-hotel.mp3`
+  - `public/audio/lo1/exercises/listeningOrder3/003-hopital.mp3`
+  - `public/audio/lo1/exercises/listeningOrder3/004-horrible.mp3`
+- Filenames for this activity are ASCII-safe to avoid accented-path issues.
+
 ## Badges
 
 ![Node](https://img.shields.io/badge/node-18.x-brightgreen)

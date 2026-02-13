@@ -207,6 +207,42 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Updated `#hero` styles in `src/App.scss` to use `aspect-ratio: 16 / 9` and a positioned `.hero-image` with `object-fit: contain` and `object-position: center bottom`.
 - Why: the previous `background-size: cover` implementation could crop banner artwork on narrower/wider viewports. The new setup preserves the entire SVG composition across responsive breakpoints while keeping the title overlay in place.
 
+## 28) LO1 Listening Exercise Refactor (5/6/7)
+- Renamed legacy exercise keys/ids in `src/learningObjectConfigurations/fr/1.json`:
+  - `wordsIntoSlots5` -> `listeningOrder1`
+  - `wordsIntoSlots6` -> `listeningOrder2`
+  - `sortable1` -> `listeningOrder3`
+- Added reusable draggable card UI component:
+  - `src/components/SortableWordCard/SortableWordCard.jsx`
+- Updated `src/components/SequenceOrder/SequenceOrder.jsx`:
+  - swap-on-drop only (no live reorder on hover)
+  - drop-target highlight improvements
+  - responsive behavior: compact horizontal below ~1180px, vertical below ~900px
+  - vertical layout uses up/down icon; horizontal uses left/right icon
+  - removed fallback `"Speech"` caption rendering
+  - action buttons follow the same hidden/reveal pattern used in other exercises
+- Updated `src/components/Sortable/Sortable.jsx`:
+  - adopts shared `SortableWordCard` visual style (vertical card look)
+  - controls now match other exercises (`Check answers`, `Show answer`, `Reset`)
+  - added shared `ProgressDots`
+  - progress updates on `Check answers` (not during drag)
+  - removed row check/cross indicators and extra textual success/error feedback
+  - improved drag/drop stability by using target tracking + swap-on-drop commit
+- Updated exercise instruction copy in `src/learningObjectConfigurations/fr/1.json` for consistent guidance and inline icon usage.
+
+## 29) LO1 Exercise 7 Audio Path Migration (Legacy -> audio/lo1)
+- Exercise 7 (`listeningOrder3`) audio moved from legacy `sounds/fr/...` references to LO1 sectioned paths in `src/learningObjectConfigurations/fr/1.json`.
+- Added new audio files under:
+  - `public/audio/lo1/exercises/listeningOrder3/001-homme.mp3`
+  - `public/audio/lo1/exercises/listeningOrder3/002-hotel.mp3`
+  - `public/audio/lo1/exercises/listeningOrder3/003-hopital.mp3`
+  - `public/audio/lo1/exercises/listeningOrder3/004-horrible.mp3`
+- Used ASCII-safe filenames (`hotel`, `hopital`) to avoid accented path issues.
+
+## 30) Inline Check Icon Consistency
+- Added `public/images/icons/circle-check.svg`.
+- Updated `.inline-icon-check` in `src/App.scss` to use the same circular check glyph style as the `Check answers` button icon across instruction text.
+
 
 # Files Deleted (partial but comprehensive)
 

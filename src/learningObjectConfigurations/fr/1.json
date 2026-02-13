@@ -495,11 +495,11 @@
         }
       },
       {
-        "wordsIntoSlots5": {
-          "component": "Blanks",
-          "id": "wordsIntoSlots5",
+        "listeningOrder1": {
+          "component": "SequenceOrder",
+          "id": "listeningOrder1",
           "congratulationsText": "Très bien !",
-          "informationTextHTML": "Listen to the full audio, then drag each word into the table in the exact order you hear it. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm your sequence, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal it, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "listenDescriptionText": "Speech",
           "showHintsText": "Hints",
           "cheatText": "Show answer",
@@ -515,15 +515,15 @@
             "bonjour"
           ],
           "soundFile": "audio/lo1/exercises/wordsIntoSlots5/001-lo1-5-words-in-order.mp3",
-          "titleText": "5. Listening comprehension"
+          "titleText": "5. Listening comprehension (part1)"
         }
       },
       {
-        "wordsIntoSlots6": {
-          "component": "Blanks",
-          "id": "wordsIntoSlots6",
+        "listeningOrder2": {
+          "component": "SequenceOrder",
+          "id": "listeningOrder2",
           "congratulationsText": "Très bien !",
-          "informationTextHTML": "Listen and drag or match the correct words to complete short spoken exercises — focusing on <i>on</i> / <i>om</i> and <i>oi</i> sounds.",
+          "informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "listenDescriptionText": "Speech",
           "showHintsText": "Hints",
           "cheatText": "Show answer",
@@ -539,38 +539,38 @@
             "froid"
           ],
           "soundFile": "audio/lo1/exercises/wordsIntoSlots6/001-lo1-6-words-in-order.mp3",
-          "titleText": "6. Listening comprehension"
+          "titleText": "6. Listening comprehension (part2)"
         }
       },
       {
-        "sortable1": {
+        "listeningOrder3": {
           "component": "Sortable",
-          "id": "sortable1",
-          "titleText": "7. Listening comprehension",
+          "id": "listeningOrder3",
+          "titleText": "7. Listening comprehension (part3)",
           "shuffleOnLoad": true,
           "phrases": [
             [
               "",
               "homme",
-              "sounds/fr/homme.mp3"
+              "audio/lo1/exercises/listeningOrder3/001-homme.mp3"
             ],
             [
               "",
               "hôtel",
-              "sounds/fr/hôtel.mp3"
+              "audio/lo1/exercises/listeningOrder3/002-hotel.mp3"
             ],
             [
               "",
               "hôpital",
-              "sounds/fr/hôpital.mp3"
+              "audio/lo1/exercises/listeningOrder3/003-hopital.mp3"
             ],
             [
               "",
               "horrible",
-              "sounds/fr/horrible.mp3"
+              "audio/lo1/exercises/listeningOrder3/004-horrible.mp3"
             ]
           ],
-          "informationText": "Listen to each pronunciation clip and drag the matching French word into place. Focus on the silent h words you’ve just studied."
+          "informationTextHTML": "Listen to each pronunciation clip, then drag the matching French word into the correct position. Focus on the silent <i>h</i> words from this section. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again."
         }
       }
     ],

@@ -5,6 +5,7 @@ import {
 	CircularAudioProgressAnimatedSpeakerDisplay,
 	IconButton,
 	Info,
+	ProgressDots,
 	SequenceAudioController,
 	DraggableWordTile,
 } from '../../components';
@@ -1032,21 +1033,7 @@ export class Blanks extends React.Component {
 				</div>
 
 				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
-				<div className="flex flex-wrap items-center gap-2">
-					<div className="flex flex-nowrap items-center gap-2 overflow-x-auto" aria-label={`${nPlaced} correct out of ${nToPlace}`}>
-						{Array.from({ length: nToPlace }).map((_, index) => {
-							const filled = index < nPlaced;
-							return (
-								<span
-									key={`progress-circle-${index}`}
-									className={`h-[1.125rem] w-[1.125rem] sm:h-[1.5rem] sm:w-[1.5rem] rounded-full border ${filled ? "bg-[var(--chart-2)] border-[var(--chart-2)]" : "bg-transparent border-[color-mix(in_oklab,var(--foreground)_35%,transparent)]"}`}
-									aria-hidden="true"
-								/>
-							);
-						})}
-					</div>
-					<p className="m-0">{nPlaced} correct out of {nToPlace}</p>
-				</div>
+				<ProgressDots correct={nPlaced} total={nToPlace} />
 				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 
 				<div className='help help-blanks'>
