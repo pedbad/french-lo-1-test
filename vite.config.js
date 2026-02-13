@@ -15,7 +15,7 @@ logger.warn = (msg, options) => {
 	loggerWarn(msg, options);
 };
 
-const basePath = '/french-basic/';
+const basePath = '/projects/french-basic/';
 
 export default defineConfig(() => ({
 	assetsInclude: [
