@@ -397,7 +397,7 @@ html {
 
 .app {
 	box-sizing: border-box;
-	line-height: 1.4em;
+	line-height: calc(var(--body-line-height) - 0.3);
 	margin: 0;
 	overflow: hidden;
 }
@@ -563,7 +563,7 @@ hr {
 	.word-parts-container table td,
 	.word-parts-container table span {
 		font-size: calc(var(--font-size-base) * 1.5);
-		line-height: 1.3;
+		line-height: calc(var(--body-line-height) - 0.4);
 	}
 	h1,
 	h2,
@@ -685,7 +685,7 @@ hr {
 		.word-parts-container table td,
 		.word-parts-container table span {
 			font-size: calc(var(--font-size-base) * 1.15);
-			line-height: 1.35;
+			line-height: calc(var(--body-line-height) - 0.35);
 		}
 	}
 }
@@ -765,7 +765,7 @@ hr {
 	}
 
 	p {
-		line-height: 1.6em;
+		line-height: calc(var(--body-line-height) - 0.1);
 	}
 	.spinning-globe {
 		width: 256px;

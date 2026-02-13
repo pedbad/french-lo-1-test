@@ -62,3 +62,4 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [x] Typography batch 4: converted PhraseTable hardcoded text sizing to token-based values in `src/components/PhraseTable/PhraseTable.scss`.
 - [~] Typography batch 5: continue `src/App.scss` cleanup (remaining hardcoded `line-height`/clamp text hotspots) with visual parity checks.
   - completed: heading `line-height` and heading margin factors tokenized via `--line-height-2xl`
+  - completed: additional App line-height literals replaced with token expressions (`.app`, WordParts table text, responsive WordParts text, desktop paragraph line-height)

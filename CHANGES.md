@@ -300,6 +300,14 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - heading top-margin factors now use `var(--line-height-2xl)` instead of hardcoded `1.2`
 - Updated `TASKS_COMPLETED.md` to mark Typography batch 5 as in progress with heading-rhythm work complete.
 
+## 37) Typography Batch 5.1 (App Line-Height Token Expressions)
+- Updated `src/App.scss` to replace additional hardcoded line-height literals with token expressions:
+  - `.app` line-height from `1.4em` -> `calc(var(--body-line-height) - 0.3)`
+  - WordParts table text line-height from `1.3` -> `calc(var(--body-line-height) - 0.4)`
+  - responsive WordParts table text line-height from `1.35` -> `calc(var(--body-line-height) - 0.35)`
+  - desktop paragraph line-height from `1.6em` -> `calc(var(--body-line-height) - 0.1)`
+- Updated `TASKS_COMPLETED.md` with this batch progress under Typography batch 5.
+
 
 # Files Deleted (partial but comprehensive)
 
