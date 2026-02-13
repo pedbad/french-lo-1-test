@@ -46,12 +46,20 @@ export class SequenceOrder extends React.PureComponent {
 		else this.cardRefs.delete(tokenId);
 	};
 
-	handleDragStart = (tokenId) => {
+	handleDragStart = (event, tokenId) => {
+		// Keep drag semantics as "move" to avoid OS/browser copy (+) cursor.
+		if (event?.dataTransfer) {
+			event.dataTransfer.effectAllowed = "move";
+			event.dataTransfer.setData("text/plain", tokenId);
+		}
 		this.setState({ draggingId: tokenId, checkResult: null });
 	};
 
 	handleDragOver = (event) => {
 		event.preventDefault();
+		if (event?.dataTransfer) {
+			event.dataTransfer.dropEffect = "move";
+		}
 	};
 
 	handleDragEnter = (targetId) => {
@@ -246,7 +254,7 @@ export class SequenceOrder extends React.PureComponent {
 				) : null}
 
 				<div className="rounded-xl border border-border/70 bg-card p-3">
-					<div className="space-y-2 min-[901px]:hidden">
+					<div className="space-y-2 min-[1200px]:hidden">
 						{userTokens.map((token, index) => {
 							const isDragging = draggingId === token.id;
 							const isDropTarget = dropTargetId === token.id && !isDragging;
@@ -262,7 +270,7 @@ export class SequenceOrder extends React.PureComponent {
 									onDragEnter={() => this.handleDragEnter(token.id)}
 									onDragOver={this.handleDragOver}
 									onDrop={(event) => this.handleDrop(event, token.id)}
-									onDragStart={() => this.handleDragStart(token.id)}
+									onDragStart={(event) => this.handleDragStart(event, token.id)}
 									ref={(element) => this.setCardRef(token.id, element)}
 									showIndex
 									slotLabel={index + 1}
@@ -271,26 +279,12 @@ export class SequenceOrder extends React.PureComponent {
 						})}
 					</div>
 
-					<div className="hidden min-[901px]:block">
+					<div className="hidden min-[1200px]:block">
 						<div
-							className="mb-2 grid gap-2 [grid-template-columns:repeat(var(--token-count),minmax(5.5rem,1fr))] min-[1180px]:[grid-template-columns:repeat(var(--token-count),minmax(7rem,1fr))]"
+							className="grid gap-2 [grid-template-columns:repeat(var(--token-count),minmax(5.5rem,1fr))] min-[1200px]:max-[1399px]:[grid-template-columns:repeat(var(--token-count),minmax(5.6rem,1fr))] min-[1400px]:[grid-template-columns:repeat(var(--token-count),minmax(7rem,1fr))]"
 							style={{ "--token-count": userTokens.length }}
 						>
-							{userTokens.map((token, index) => (
-								<div
-									className="rounded-md border border-[rgb(var(--color-primary-300)_/_0.55)] bg-[rgb(var(--color-primary-50)_/_0.75)] px-2 py-1 text-center text-[0.7rem] font-semibold text-[rgb(var(--color-text-secondary)_/_1)] min-[1180px]:text-sm"
-									key={`slot-${token.id}`}
-								>
-									{index + 1}
-								</div>
-							))}
-						</div>
-
-						<div
-							className="grid gap-2 [grid-template-columns:repeat(var(--token-count),minmax(5.5rem,1fr))] min-[1180px]:[grid-template-columns:repeat(var(--token-count),minmax(7rem,1fr))]"
-							style={{ "--token-count": userTokens.length }}
-						>
-							{userTokens.map((token) => {
+							{userTokens.map((token, index) => {
 								const isDragging = draggingId === token.id;
 								const isDropTarget = dropTargetId === token.id && !isDragging;
 								return (
@@ -305,9 +299,12 @@ export class SequenceOrder extends React.PureComponent {
 										onDragEnter={() => this.handleDragEnter(token.id)}
 										onDragOver={this.handleDragOver}
 										onDrop={(event) => this.handleDrop(event, token.id)}
-										onDragStart={() => this.handleDragStart(token.id)}
+										onDragStart={(event) => this.handleDragStart(event, token.id)}
 										ref={(element) => this.setCardRef(token.id, element)}
-										size="compact"
+										showIndex
+										size="square"
+										slotLabel={index + 1}
+										stacked
 									/>
 								);
 							})}
@@ -319,37 +316,43 @@ export class SequenceOrder extends React.PureComponent {
 				<ProgressDots correct={correctCount} total={total} />
 				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 
-				<div className="flex flex-wrap justify-end gap-2">
-					{showReveal ? (
+					<div className="flex flex-wrap justify-end gap-2">
+						{showReveal ? (
+							<IconButton
+								ariaLabel={cheatText}
+								className="btn-ped-warn max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+								onClick={this.handleShowAnswer}
+								theme="eye"
+								title={cheatText}
+								variant="default"
+							>
+								<span className="hidden min-[560px]:inline">{cheatText}</span>
+							</IconButton>
+						) : null}
+						{showReset ? (
+							<IconButton
+								ariaLabel="Reset"
+								className="btn-chart-2 max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+								onClick={this.handleReset}
+								theme="reset"
+								title="Reset"
+								variant="default"
+							>
+								<span className="hidden min-[560px]:inline">Reset</span>
+							</IconButton>
+						) : null}
 						<IconButton
-							className="btn-ped-warn"
-							onClick={this.handleShowAnswer}
-							theme="eye"
+							ariaLabel="Check answers"
+							className="btn-hero-title max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+							disabled={!canCheck}
+							onClick={this.handleCheckAnswers}
+							theme="check"
+							title="Check answers"
 							variant="default"
 						>
-							{cheatText}
+							<span className="hidden min-[560px]:inline">Check answers</span>
 						</IconButton>
-					) : null}
-					{showReset ? (
-						<IconButton
-							className="btn-chart-2"
-							onClick={this.handleReset}
-							theme="reset"
-							variant="default"
-						>
-							Reset
-						</IconButton>
-					) : null}
-					<IconButton
-						className="btn-hero-title"
-						disabled={!canCheck}
-						onClick={this.handleCheckAnswers}
-						theme="check"
-						variant="default"
-					>
-						Check answers
-					</IconButton>
-				</div>
+					</div>
 			</div>
 		);
 	};

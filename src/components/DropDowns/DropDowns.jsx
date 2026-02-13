@@ -387,24 +387,26 @@ export class DropDowns extends React.PureComponent {
 					<span className="n-placed">{nCorrect}</span> correct out of{" "}
 					{`${this.nToSolve}`}
 				</p>
-				<div className="help">
-					<IconButton
-						className={`hidden-help ${failCount >= 1 ? "show" : ""}`}
-						onClick={this.autoSolve}
-						theme={`eye`}
-					>
-						{cheatText}
-					</IconButton>
-					<IconButton
-						className={`hidden-help ${
-							nCorrect >= 1 || failCount >= 1 ? "show" : ""
-						}`}
-						onClick={this.handleReset}
-						theme={`reset`}
-					>
-            Reset
-					</IconButton>
-				</div>
+					<div className="help">
+						<IconButton
+							ariaLabel={cheatText}
+							className={`hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${failCount >= 1 ? "show" : ""}`}
+							onClick={this.autoSolve}
+							theme={`eye`}
+							title={cheatText}
+						>
+							<span className="hidden min-[560px]:inline">{cheatText}</span>
+						</IconButton>
+						<IconButton
+							ariaLabel="Reset"
+							className={`hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${nCorrect >= 1 || failCount >= 1 ? "show" : ""}`}
+							onClick={this.handleReset}
+							theme={`reset`}
+							title="Reset"
+						>
+							<span className="hidden min-[560px]:inline">Reset</span>
+						</IconButton>
+					</div>
 
 				{footnote ? (
 					<p key={`p-footnote`} className="footnote">

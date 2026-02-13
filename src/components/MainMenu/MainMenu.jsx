@@ -113,7 +113,7 @@ export class MainMenu extends React.Component {
 
 		this.resizeHandler = () => {
 			// If we resize up to desktop, close mobile menu
-			if (window.innerWidth >= 1000 && this.state.mobileOpen) {
+			if (window.innerWidth >= 1200 && this.state.mobileOpen) {
 				this.setState({ mobileOpen: false });
 			}
 			// Recalculate which section is "current"

@@ -462,21 +462,42 @@ export class Sortable extends React.Component {
 						<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 					</div>
 
-					<div className="flex flex-wrap justify-end gap-2">
-						{showReveal ? (
-							<IconButton className="btn-ped-warn" onClick={this.autoSolve} theme="eye" variant="default">
-								{cheatText}
+						<div className="flex flex-wrap justify-end gap-2">
+							{showReveal ? (
+								<IconButton
+									ariaLabel={cheatText}
+									className="btn-ped-warn max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+									onClick={this.autoSolve}
+									theme="eye"
+									title={cheatText}
+									variant="default"
+								>
+									<span className="hidden min-[560px]:inline">{cheatText}</span>
+								</IconButton>
+							) : null}
+							{showReset ? (
+								<IconButton
+									ariaLabel="Reset"
+									className="btn-chart-2 max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+									onClick={this.reset}
+									theme="reset"
+									title="Reset"
+									variant="default"
+								>
+									<span className="hidden min-[560px]:inline">Reset</span>
+								</IconButton>
+							) : null}
+							<IconButton
+								ariaLabel="Check answers"
+								className="btn-hero-title max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+								theme="check"
+								onClick={this.checkAnswer}
+								title="Check answers"
+								variant="default"
+							>
+								<span className="hidden min-[560px]:inline">Check answers</span>
 							</IconButton>
-						) : null}
-						{showReset ? (
-							<IconButton className="btn-chart-2" onClick={this.reset} theme="reset" variant="default">
-								Reset
-							</IconButton>
-						) : null}
-						<IconButton className="btn-hero-title" theme="check" onClick={this.checkAnswer} variant="default">
-							Check answers
-						</IconButton>
-					</div>
+						</div>
 
 				</CardContent>
 			</Card>

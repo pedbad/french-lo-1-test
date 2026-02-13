@@ -200,7 +200,7 @@
 }
 
 /* RESPONSIVE BEHAVIOUR */
-@media (max-width: 999.98px) {
+@media (max-width: 1199.98px) {
 	.main-menu {
 		// Hack the width to be correct :-(
 		nav {
@@ -226,7 +226,7 @@
 	}
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
 	.main-menu {
 		// Hack the width to be correct :-(
 		nav {
@@ -242,6 +242,14 @@
 
 		.mobile-menu {
 			display: none !important;
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+	.main-menu {
+		.menu-right .nav-link {
+			font-size: calc(var(--nav-link-size) * 0.8);
 		}
 	}
 }

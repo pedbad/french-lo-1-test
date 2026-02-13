@@ -1054,32 +1054,38 @@ export class Blanks extends React.Component {
 
 							<div className="help-actions">
 								<IconButton
-									className={`btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
-								onClick={this.autoSolve}
-								theme={`eye`}
-							variant="default"
-						>
-							{cheatText}
-						</IconButton>
-
-						<IconButton
-							className={`btn-chart-2 hidden-help ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
-							onClick={this.handleReset}
-							theme={`reset`}
-							variant="default"
+									ariaLabel={cheatText}
+									className={`btn-ped-warn hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${failCount >= 2 ? 'show' : ''}`}
+									onClick={this.autoSolve}
+									theme={`eye`}
+									title={cheatText}
+									variant="default"
 								>
-									Reset
+									<span className="hidden min-[560px]:inline">{cheatText}</span>
 								</IconButton>
 
 								<IconButton
-									className={`btn-hero-title btn-check-right ${assignedCount >= 1 ? 'show' : ''}`}
-									onClick={this.handleCheckAnswers}
-									theme={`check`}
+									ariaLabel="Reset"
+									className={`btn-chart-2 hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
+									onClick={this.handleReset}
+									theme={`reset`}
+									title="Reset"
 									variant="default"
 								>
-									Check answers
+									<span className="hidden min-[560px]:inline">Reset</span>
 								</IconButton>
-						</div>
+
+								<IconButton
+									ariaLabel="Check answers"
+									className={`btn-hero-title btn-check-right max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${assignedCount >= 1 ? 'show' : ''}`}
+									onClick={this.handleCheckAnswers}
+									theme={`check`}
+									title="Check answers"
+									variant="default"
+								>
+									<span className="hidden min-[560px]:inline">Check answers</span>
+								</IconButton>
+							</div>
 					</div>
 				</div>
 		);

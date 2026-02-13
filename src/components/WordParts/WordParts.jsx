@@ -247,25 +247,29 @@ export class WordParts extends React.PureComponent {
 				<ProgressDots correct={nPlaced} total={nToSolve} />
 				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
 
-				<div className='help'>
-					<IconButton
-						className={`wordparts-reveal btn-ped-warn hidden-help ${failCount >= 2 ? 'show' : ''}`}
-						disabled={nPlaced === this.nToSolve}
-						onClick={this.autoSolve}
-						theme={`eye`}
-						variant="default"
-					>
-						{cheatText}
-					</IconButton>
-					<IconButton
-						className={`wordparts-reset hidden-help ${nPlaced >= 1 || failCount >= 1 || complete ? 'show' : ''}`}
-						onClick={this.handleReset}
-						theme={`reset`}
-						variant="outline"
-					>
-						Reset
-					</IconButton>
-				</div>
+					<div className='help'>
+						<IconButton
+							ariaLabel={cheatText}
+							className={`wordparts-reveal btn-ped-warn hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${failCount >= 2 ? 'show' : ''}`}
+							disabled={nPlaced === this.nToSolve}
+							onClick={this.autoSolve}
+							theme={`eye`}
+							title={cheatText}
+							variant="default"
+						>
+							<span className="hidden min-[560px]:inline">{cheatText}</span>
+						</IconButton>
+						<IconButton
+							ariaLabel="Reset"
+							className={`wordparts-reset hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${nPlaced >= 1 || failCount >= 1 || complete ? 'show' : ''}`}
+							onClick={this.handleReset}
+							theme={`reset`}
+							title="Reset"
+							variant="outline"
+						>
+							<span className="hidden min-[560px]:inline">Reset</span>
+						</IconButton>
+					</div>
 			</div>
 		);
 	};
