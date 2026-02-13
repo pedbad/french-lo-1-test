@@ -69,6 +69,21 @@ Run the recommended local pre-push gate:
 yarn prepush:local
 ```
 
+## Migration Trackers
+
+The active migration/audit trackers are:
+
+- `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (live checklist)
+- `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1-test/COLOR_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1-test/HTML_ACCESSIBILITY_ISSUES.md`
+
+Recommended before push:
+
+```bash
+yarn prepush:local
+```
+
 ## Configuring the learning object
 
 There is an **index-fr.json** file which lists the various learning object configuration files. It is used to construct a navigation menu.

@@ -243,6 +243,17 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Added `public/images/icons/circle-check.svg`.
 - Updated `.inline-icon-check` in `src/App.scss` to use the same circular check glyph style as the `Check answers` button icon across instruction text.
 
+## 31) Typography Batch (Token Ownership) + Task Tracker Docs
+- Refactored global typography ownership in `src/App.scss`:
+  - `body` now uses tokenized base size (`var(--font-size-sm)`)
+- Converted global `h1..h6` sizing block in `src/App.scss` from hardcoded rem values to token-based expressions derived from `--font-size-3xl`, preserving the existing visual ratio ladder.
+- Updated `README.md` with a `Migration Trackers` section linking active planning/audit documents.
+- Added `TASKS_COMPLETED.md` as a live checklist for:
+  - typography migration progress
+  - color migration progress
+  - audio migration progress
+  - accessibility/HTML validity phases
+
 
 # Files Deleted (partial but comprehensive)
 
