@@ -83,6 +83,7 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/COLOR_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/HTML_ACCESSIBILITY_ISSUES.md`
+- `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 
 Recommended before push:
 

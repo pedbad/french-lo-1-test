@@ -34,7 +34,7 @@
 	display: flex;
 }
 body {
-	font-family: "OpenSans Regular", sans-serif;
+	font-family: var(--font-sans);
 	font-size: var(--font-size-sm);
 	// color: black;
 	background: var(--background);
@@ -43,16 +43,19 @@ body {
 	// background: green;
 }
 h1 {
-	font-family: "Feijoa Bold", times-roman;
+	font-family: var(--font-heading);
+	font-weight: 700;
 }
 h2,
 h3,
 h4 {
-	font-family: "Feijoa Medium", times-roman;
+	font-family: var(--font-heading);
+	font-weight: 500;
 }
 h5,
 h6 {
-	font-family: "OpenSans SemiBold", sans-serif;
+	font-family: var(--font-sans);
+	font-weight: 600;
 }
 h1 {
 	// font-weight: bold;
@@ -102,7 +105,7 @@ h6 {
 }
 figure {
 	figcaption {
-		font-family: "OpenSans Regular", sans-serif;
+		font-family: var(--font-sans);
 		font-size: 0.75rem;
 	}
 }

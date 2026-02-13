@@ -266,6 +266,19 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - `TYPOGRAPHY_MIGRATION.md`
   - `TASKS_COMPLETED.md`
 
+## 33) Typography Font-Family Tokenization + Future Project Blueprint
+- Updated `src/App.scss` to use tokenized font-family declarations:
+  - `body` -> `var(--font-sans)`
+  - `h1..h4` -> `var(--font-heading)` with explicit weights
+  - `h5..h6` -> `var(--font-sans)` with explicit weight
+  - `figure figcaption` -> `var(--font-sans)`
+- Added `FUTURE_PROJECTS.md` with:
+  - reusable master prompt for new React + Bun + Tailwind + shadcn + Lucide projects
+  - strict single-source-of-truth theming policy (no SCSS)
+  - recommended modern directory structure (including audio/video/images/svg/fonts)
+  - copy-only short prompt for quick reuse
+- Updated docs tracker references in `README.md` and progress state in `TASKS_COMPLETED.md`.
+
 
 # Files Deleted (partial but comprehensive)
 

@@ -21,7 +21,8 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - Global body base size moved to token var (`var(--font-size-sm)`) in `src/App.scss`
 - [x] Small App typography batch 2 complete
   - Global `h1..h6` size block moved from hardcoded rem to token-based expressions in `src/App.scss`
-- [ ] Migrate remaining SCSS `font-family` ownership into utility/token path
+- [~] Migrate remaining SCSS `font-family` ownership into utility/token path
+  - App baseline font-family declarations in `src/App.scss` now tokenized (`var(--font-sans)`, `var(--font-heading)`)
 - [ ] Continue removing hardcoded `font-size/line-height/font-family` from remaining SCSS hotspots
   - Priority: `src/App.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/PhraseTable/PhraseTable.scss`
 
