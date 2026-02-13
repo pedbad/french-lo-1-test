@@ -37,6 +37,12 @@ yarn build
 
 To prevent new hardcoded typography drifting back into SCSS/JSX, this repo includes a typography guard script.
 
+Current policy:
+- Blocks `font-size` with literal `px/rem/em` values in new lines.
+- Blocks `line-height` with literal `px/rem/em` values in new lines.
+- Allows `font-family` only when tokenized, e.g. `font-family: var(--font-sans);`.
+- Blocks literal `font-family` declarations in new lines.
+
 ### One-time setup (local pre-commit hook)
 
 ```bash

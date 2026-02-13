@@ -164,6 +164,7 @@ Goal: stop drift back to mixed ownership.
 
 Add a lightweight check in CI (or pre-commit):
 - Fail if new `font-size:` or `line-height:` is introduced in SCSS outside allowlisted files.
+- Fail if new literal `font-family:` is introduced in SCSS (allow tokenized `font-family: var(--font-...)`).
 
 Example approach:
 - Script using `rg` to detect forbidden declarations.

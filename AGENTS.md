@@ -32,6 +32,11 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Styling single source of truth lives in `src/index.css` via shadcn tokens + custom theme tokens (`--page-background`, `--hero-title-color`, `--footer-background`).
 - Tailwind utilities consume these tokens via `tailwind.config.js`; shadcn components live in `src/components/ui/`.
 - SCSS is still present for legacy/component styling (e.g. `src/App.scss` and component SCSS files), so both Tailwind and SCSS currently affect UI.
+- Typography guard policy (`scripts/check-typography-guard.sh`):
+  - blocks new literal `font-size` values with `px/rem/em`
+  - blocks new literal `line-height` values with `px/rem/em`
+  - allows tokenized `font-family: var(--font-...)`
+  - blocks literal `font-family` declarations
 - Theme toggling briefly disables CSS transitions (`html.no-theme-transition`) to avoid flicker during light/dark switches.
 - WordParts includes a circle-based progress indicator and inline icon guidance (Show answer/Reset) powered by CSS-masked SVGs.
 - Modal links open shadcn/Radix dialogs. The dialog accepts React content (not just HTML strings) so `AudioClip` components can render; for key grammar links the modal renders React content from `src/components/CustomComponents_FR/CustomComponents_FR.jsx` so audio clips work and text stays in sync with the on-page content.

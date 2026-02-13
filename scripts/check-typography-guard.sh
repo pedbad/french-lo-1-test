@@ -10,7 +10,7 @@ usage() {
 	echo "Checks added typography declarations and blocks:"
 	echo "  - font-size with px/rem/em"
 	echo "  - line-height with px/rem/em"
-	echo "  - direct font-family declarations"
+	echo "  - font-family declarations unless tokenized (var(--font-...))"
 }
 
 while [[ $# -gt 0 ]]; do
@@ -64,10 +64,33 @@ VIOLATIONS="$(
 		| awk '
 			# Keep only added lines from the patch, skip patch headers.
 			/^\+\+\+/ { next }
-			/^\+/     { print }
+			! /^\+/   { next }
+			/^\+\s*$/ { next }
+			/^\+\s*\/\// { next }
+			/^\+\s*\/\*/ { next }
+			/^\+\s*\*/ { next }
+			{
+				raw = $0
+				line = tolower($0)
+
+				if (line ~ /font-size[[:space:]]*:[^;]*(px|rem|em)\b/) {
+					print NR ":" raw
+					next
+				}
+
+				if (line ~ /line-height[[:space:]]*:[^;]*(px|rem|em)\b/) {
+					print NR ":" raw
+					next
+				}
+
+				# Allow font-family only when tokenized via var(--font-...)
+				if (line ~ /font-family[[:space:]]*:/) {
+					if (line !~ /font-family[[:space:]]*:[[:space:]]*var\([[:space:]]*--font-[a-z0-9-]+/) {
+						print NR ":" raw
+					}
+				}
+			}
 		' \
-		| grep -Ev '^\+\s*//|^\+\s*/\*|^\+\s*\*|^\+\s*$' \
-		| grep -En 'font-size\s*:\s*[^;]*(px|rem|em)\b|line-height\s*:\s*[^;]*(px|rem|em)\b|font-family\s*:' \
 		|| true
 )"
 

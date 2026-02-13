@@ -254,6 +254,18 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - audio migration progress
   - accessibility/HTML validity phases
 
+## 32) Typography Guard Policy Adjustment (Transition-Friendly)
+- Updated `scripts/check-typography-guard.sh` policy:
+  - still blocks literal `font-size` with `px/rem/em`
+  - still blocks literal `line-height` with `px/rem/em`
+  - now allows tokenized `font-family` declarations (`font-family: var(--font-...)`)
+  - still blocks literal `font-family` declarations
+- Synced docs to prevent policy drift:
+  - `README.md`
+  - `TYPOGRAPHY_PLAN.md`
+  - `TYPOGRAPHY_MIGRATION.md`
+  - `TASKS_COMPLETED.md`
+
 
 # Files Deleted (partial but comprehensive)
 

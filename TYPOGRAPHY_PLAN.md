@@ -162,10 +162,14 @@ Rules:
 1. Fail on new SCSS/CSS declarations:
    - `font-size:` with px/rem/em literals
    - `line-height:` with px/rem/em literals
-   - `font-family:` direct declarations
-2. Allowlist file for justified exceptions:
+   - `font-family:` direct literal declarations
+2. Allow `font-family` only when tokenized:
+   - `font-family: var(--font-sans);`
+   - `font-family: var(--font-heading);`
+   - `font-family: var(--font-mono);`
+3. Allowlist file for justified exceptions:
    - `scripts/typography-allowlist.txt`
-3. Exclude comments from detection.
+4. Exclude comments from detection.
 
 ## 5B. Add package scripts
 In `package.json` add:

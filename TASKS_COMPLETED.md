@@ -16,11 +16,12 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - `scripts/check-typography-guard.sh`
   - `.githooks/pre-commit`
   - `yarn prepush:local`
+  - policy: literal `font-size`/`line-height` blocked; tokenized `font-family: var(--font-...)` allowed
 - [x] Small App typography batch 1 complete
   - Global body base size moved to token var (`var(--font-size-sm)`) in `src/App.scss`
 - [x] Small App typography batch 2 complete
   - Global `h1..h6` size block moved from hardcoded rem to token-based expressions in `src/App.scss`
-- [ ] Migrate remaining SCSS `font-family` ownership into utility/token path (currently blocked by guard policy on new SCSS `font-family:` lines)
+- [ ] Migrate remaining SCSS `font-family` ownership into utility/token path
 - [ ] Continue removing hardcoded `font-size/line-height/font-family` from remaining SCSS hotspots
   - Priority: `src/App.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/PhraseTable/PhraseTable.scss`
 
