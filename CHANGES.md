@@ -294,6 +294,12 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - marked Typography batch 4 complete
   - noted `MainMenu.scss` is already tokenized for typography sizing.
 
+## 36) Typography Batch 5 (App Heading Rhythm Tokens)
+- Updated `src/App.scss` heading rhythm to token-based line-height usage:
+  - `h1..h6` line-height from hardcoded `1.2` -> `var(--line-height-2xl)`
+  - heading top-margin factors now use `var(--line-height-2xl)` instead of hardcoded `1.2`
+- Updated `TASKS_COMPLETED.md` to mark Typography batch 5 as in progress with heading-rhythm work complete.
+
 
 # Files Deleted (partial but comprehensive)
 
