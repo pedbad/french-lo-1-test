@@ -285,6 +285,15 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - `.footnote` font-size from hardcoded `0.8rem` -> `var(--font-size-xs)`
 - Updated `TASKS_COMPLETED.md` to mark Typography batch 3 as complete.
 
+## 35) Typography Batch 4 (PhraseTable Tokenization)
+- Updated `src/components/PhraseTable/PhraseTable.scss`:
+  - audio-row span size from hardcoded `120%` -> `calc(var(--font-size-base) * 1.2)`
+  - mobile span size from hardcoded `1.12rem` -> `calc(var(--font-size-base) * 0.97)`
+  - mobile line-height from hardcoded `1.2` -> `var(--line-height-2xl)`
+- Updated `TASKS_COMPLETED.md`:
+  - marked Typography batch 4 complete
+  - noted `MainMenu.scss` is already tokenized for typography sizing.
+
 
 # Files Deleted (partial but comprehensive)
 

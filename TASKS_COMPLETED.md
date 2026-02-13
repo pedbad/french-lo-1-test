@@ -24,7 +24,8 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [~] Migrate remaining SCSS `font-family` ownership into utility/token path
   - App baseline font-family declarations in `src/App.scss` now tokenized (`var(--font-sans)`, `var(--font-heading)`)
 - [ ] Continue removing hardcoded `font-size/line-height/font-family` from remaining SCSS hotspots
-  - Priority: `src/App.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/PhraseTable/PhraseTable.scss`
+  - Priority: `src/App.scss`, `src/components/PhraseTable/PhraseTable.scss`
+  - Note: `src/components/MainMenu/MainMenu.scss` has been verified as tokenized for typography sizing.
 
 ## Color
 
@@ -58,3 +59,5 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 ## Next Recommended Baby Step
 
 - [x] Typography batch 3: converted remaining small hardcoded text in `src/App.scss` (`figcaption`, `.footnote`) to token-based values.
+- [x] Typography batch 4: converted PhraseTable hardcoded text sizing to token-based values in `src/components/PhraseTable/PhraseTable.scss`.
+- [ ] Typography batch 5: continue `src/App.scss` cleanup (remaining hardcoded `line-height`/clamp text hotspots) with visual parity checks.
