@@ -344,6 +344,13 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: removes one more hardcoded typography literal and keeps mobile accordion heading rhythm aligned with shared line-height tokens.
 - Updated `TASKS_COMPLETED.md` to record this completed sub-step.
 
+## 44) Typography Batch 5.6 (Responsive Hero Clamp Tokenization)
+- Updated `src/App.scss` hero heading rules in responsive breakpoints:
+  - `@include respond-above(s)`: `clamp(2.2rem, 4vw, 3rem)` -> `clamp(calc(var(--font-size-3xl) * 0.55), 4vw, calc(var(--font-size-3xl) * 0.75))`
+  - `@include respond-above(m)`: `clamp(2.4rem, 4vw, 3.5rem)` -> `clamp(calc(var(--font-size-3xl) * 0.6), 4vw, calc(var(--font-size-3xl) * 0.875))`
+- Why: keeps responsive hero sizing anchored to shared typography tokens while preserving the existing viewport behavior.
+- Updated `TASKS_COMPLETED.md` under Typography batch 5 progress.
+
 
 # Files Deleted (partial but comprehensive)
 

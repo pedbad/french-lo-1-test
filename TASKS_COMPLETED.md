@@ -67,3 +67,4 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `#SpeechSynthesisError` hardcoded `40px/60px` replaced with tokenized size/line-height
   - completed: mobile `.title-main` / `.title-sub` `em` sizes replaced with token expressions
   - completed: desktop xl hero `h1` `3rem` literal replaced with token expression
+  - completed: responsive hero clamps (`2.2/3rem` and `2.4/3.5rem`) replaced with token-based clamp expressions

@@ -727,7 +727,7 @@ hr {
 	}
 	#hero {
 		h1 {
-			font-size: clamp(2.2rem, 4vw, 3rem);
+			font-size: clamp(calc(var(--font-size-3xl) * 0.55), 4vw, calc(var(--font-size-3xl) * 0.75));
 		}
 	}
 }
@@ -744,7 +744,7 @@ hr {
 	$header-height: 8rem;
 	#hero {
 		h1 {
-			font-size: clamp(2.4rem, 4vw, 3.5rem);
+			font-size: clamp(calc(var(--font-size-3xl) * 0.6), 4vw, calc(var(--font-size-3xl) * 0.875));
 		}
 	}
 	#content {
