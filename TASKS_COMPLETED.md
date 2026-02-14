@@ -66,6 +66,13 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `MainMenu.scss` nav link text colors moved from palette-channel `rgb(var(--color-text-*)))` usage to semantic tokens (`--muted-foreground`, `--foreground`)
   - completed: `AudioClip.scss` hover accent literal `oklch(...)` replaced with semantic `--ped-warn`
   - completed: `Footer.scss` literal white/hex/rgb dark social palette values moved to centralized footer tokens in `index.css` and consumed via `var(--footer-social-...)`
+- [x] Remove remaining low-risk fallback literals in active exercise styles
+  - completed: `WordParts.scss` button text fallback `var(--primary-foreground, #fff)` simplified to token-only `var(--primary-foreground)`
+  - completed: `MemoryMatchGame.scss` and `MemoryMatchGame/Card/Card.scss` Sass transparent helper changed from `rgba(#fff, 0)` to `transparent`
+  - completed: `Flag.jsx` canvas shading switched from `--foreground/--background` + black/white fallbacks to semantic RGB channel tokens (`--color-text-primary`, `--color-surface-base`)
+  - completed: `Blanks.scss`, `DraggableWordTile.jsx`, and shared `header-footer-background` mixin now use semantic token mixes (`--foreground`/`--background`) instead of literal `black/white`
+- [ ] Decide policy for remaining Sass compile-time contrast helper literals in `_mixins.module.scss`
+  - evaluate whether `contrast()` internals (`white`, `black`, `#ffffff`) should be tokenized, allowlisted, or kept as compile-time utility exceptions
 
 ## Audio
 
@@ -74,10 +81,18 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [x] LO1 exercise audio migration to `public/audio/lo1/exercises/...` underway
 - [x] ASCII-safe naming policy documented and in use for migrated files
 - [ ] Complete migration of remaining legacy `public/sounds/fr/...` references to `public/audio/lo1/...`
+- [ ] Add explicit LO1 exercise/audio mapping contract to reduce ordering confusion
+  - document that render order comes from JSON `exercises.content`, while folder listings are alphabetical
+  - add optional `audioFolder` + `order` metadata in LO JSON for clarity
+  - add a validation script to confirm each mapped folder exists and matches referenced audio files
 
 ## Accessibility / HTML Validity
 
 - [x] Audit and phased plan documented in `HTML_ACCESSIBILITY_ISSUES.md`
+- [x] Semantic inline emphasis and spacing cleanup in JSX
+  - replaced legacy presentational tags in rendered JSX content (`<b>/<i>`) with semantic tags (`<strong>/<em>`) in key content renderers
+  - fixed inline spacing around Grammar 2 (`Tu` / `vous`) audio-link sentence using explicit React spaces (`{' '}`) to avoid collapsed/ambiguous gaps around inline components
+  - build verification passed (`yarn build`)
 - [ ] Phase 1: remove invalid `name` attributes and empty IDs
 - [ ] Phase 2: fix duplicate IDs and ID generation consistency
 - [ ] Phase 3: improve interactive semantics (accordion/button patterns)

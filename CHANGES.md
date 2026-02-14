@@ -649,6 +649,78 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - kept matching conservative for dash separators (requires surrounding spaces) to avoid splitting hyphenated words.
 - Why: improves resilience to mixed title punctuation while preventing accidental splits in normal hyphenated terms.
 
+## 74) Build Asset De-duplication (Fonts/Images/Sounds)
+- Added `/Users/ped/Sites/french/french-lo-1-test/FONTS_PROBLEM.md`:
+  - documented the duplication issue, root cause, impact, and verification checklist for maintainers.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/vite.config.js`:
+  - removed redundant `viteStaticCopy` targets for `public/fonts`, `public/images`, and `public/sounds`.
+  - kept `viteStaticCopy` only for JSON files sourced from `src/...`.
+- Verification:
+  - fresh `yarn build` succeeds.
+  - nested duplicate folders are no longer produced:
+    - `dist/fonts/fonts` (removed)
+    - `dist/images/images` (removed)
+    - `dist/sounds/sounds` (removed)
+- Why: Vite already copies `public/` assets by default; duplicating them via static-copy created redundant output and larger artifacts.
+
+## 75) Audio Ordering TODO Documentation
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Audio section):
+  - added a future TODO to formalize LO1 exercise/audio mapping so folder alphabetical order is not mistaken for render order.
+  - captured follow-up actions:
+    - document JSON render-order source (`exercises.content`)
+    - add optional `audioFolder` + `order` metadata
+    - add a validation script to verify folder/audio reference consistency.
+- Why: prevents future drift/confusion during ongoing audio restructuring work.
+
+## 76) Color Cleanup Batch (WordParts + MemoryMatch)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/WordParts/WordParts.scss`:
+  - removed literal fallback from `var(--primary-foreground, #fff)` to token-only `var(--primary-foreground)`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MemoryMatchGame/MemoryMatchGame.scss`:
+  - replaced Sass transparent helper from `rgba(#fff, 0)` to `transparent`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MemoryMatchGame/Card/Card.scss`:
+  - replaced Sass transparent helper from `rgba(#fff, 0)` to `transparent`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Color section):
+  - logged this low-risk fallback-literal cleanup as complete.
+- Why: removes remaining color literal/fallback debt in active exercise styles while keeping visuals unchanged and token ownership clean.
+
+## 77) Color Cleanup Batch (Flag Canvas Shading)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Flag/Flag.jsx`:
+  - switched canvas shading from `--foreground/--background` with black/white fallback literals to semantic RGB channel tokens:
+    - `--color-text-primary`
+    - `--color-surface-base`
+  - standardized shading color construction with `rgba(...)` using token channels.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Color section):
+  - logged the Flag token-channel migration and added a follow-up decision item for remaining Sass utility literals in `_mixins.module.scss`.
+- Why: removes a remaining literal fallback path and aligns dynamic canvas shading with the same semantic token system used elsewhere.
+
+## 78) Color Cleanup Batch (Exercise Mixes + Shared Gradient)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/Blanks.scss`:
+  - replaced warning hint background mix from `black` to semantic `var(--foreground)`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx`:
+  - replaced `white/black` mixes in Tailwind arbitrary color-mix utilities with semantic tokens:
+    - `var(--background)`
+    - `var(--foreground)`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/styles/_mixins.module.scss`:
+  - updated shared `header-footer-background` mixin to use `var(--foreground)` instead of literal `black` in gradient edge mixes.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Color section):
+  - recorded completion of this tokenization pass and narrowed the remaining follow-up to the Sass `contrast()` helper policy.
+- Why: continues color unification by removing literal `black/white` mixes in active exercise styling and shared gradient utilities while preserving visual intent via semantic tokens.
+
+## 79) Semantics + Inline Spacing Cleanup (`<b>/<i>` + AudioLink sentence spacing)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/CustomComponents_FR/CustomComponents_FR.jsx`:
+  - replaced legacy presentational tags in rendered JSX content:
+    - `<b>` -> `<strong>`
+    - `<i>` -> `<em>`
+  - fixed Grammar 2 ("tu vs vous") inline spacing to use explicit React spaces around inline `AudioClip` nodes:
+    - `{' '}` between `Tu`, `and`, `vous`, and `both mean 'you'.`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ReadAloud/ReadAloud.jsx`:
+  - replaced phrase wrapper `<b>` with semantic `<strong>`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - changed sample HTML string from `<b>HTML</b>` to `<strong>HTML</strong>`.
+- Validation:
+  - `yarn build` passes successfully after the semantic-tag migration and spacing fix.
+- Why: improves semantic HTML/accessibility without changing behavior, and removes whitespace ambiguity around inline audio components.
+
 
 # Files Deleted (partial but comprehensive)
 

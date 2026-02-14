@@ -207,7 +207,7 @@ export class ReadAloud extends React.PureComponent {
 					<div className={`instructions`}>
 						{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-						<p><b><span className='speak phrase'>{phrase}</span></b></p>
+						<p><strong><span className='speak phrase'>{phrase}</span></strong></p>
 					</div>
 
 					<button

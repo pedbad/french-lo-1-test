@@ -109,6 +109,7 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/COLOR_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/HTML_ACCESSIBILITY_ISSUES.md`
+- `/Users/ped/Sites/french/french-lo-1-test/FONTS_PROBLEM.md` (build asset duplication root-cause note)
 - `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 
 Recommended before push:
@@ -219,6 +220,9 @@ Top-level learning object blocks (Introduction, Dialogues, Vocabulary, Grammar, 
 Headings should avoid extra wrapper spans when the title is plain text; only `titleHTML` needs a wrapper for `dangerouslySetInnerHTML`.
 
 Anchor ids/classes should live on the heading itself (e.g. the `<h2>`), not on an extra `<span>` wrapper.
+
+Inline emphasis in rendered JSX should use semantic tags (`<strong>`, `<em>`) rather than presentational (`<b>`, `<i>`).  
+For text that includes inline React components (for example `AudioClip` inside a sentence), prefer explicit React spaces (`{' '}`) instead of relying on incidental whitespace so sentence spacing remains stable.
 
 ## Tailwind Notes
 

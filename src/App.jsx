@@ -916,7 +916,7 @@ export default class App extends React.Component {
 										<Info informationText={"Information Text"} />
 										<Info
 											informationTextHTML={
-												"<p>Information Text <b>HTML</b></p>"
+												"<p>Information Text <strong>HTML</strong></p>"
 											}
 										/>
 									</div>

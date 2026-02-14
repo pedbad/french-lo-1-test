@@ -46,6 +46,17 @@ These are mostly tooling/validator-compatibility issues, not app defects:
 - unnecessary `role="main"` on `<main>`
 - title on unsupported elements in some contexts
 
+## Quick Wins Completed (2026-02-14)
+1. Semantic emphasis tags in rendered JSX
+- Replaced legacy presentational tags in active rendered JSX content:
+  - `<b>` -> `<strong>`
+  - `<i>` -> `<em>`
+- Rationale: keeps emphasis semantic and improves assistive-technology interpretation with no UI behavior change.
+
+2. Inline spacing around audio-link sentence content
+- In LO1 Grammar 2 ("tu vs vous"), replaced whitespace-dependent spacing with explicit React spaces (`{' '}`) around inline `AudioClip` components.
+- Rationale: avoids collapsed/ambiguous spacing when inline components render as wrappers (`span`/inline-flex).
+
 ## Likely Root Causes
 - Legacy component patterns mixed with newer shadcn/Tailwind patterns.
 - Reusable components generating IDs from optional props (falling back to invalid/duplicate values).
