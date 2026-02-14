@@ -381,6 +381,12 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: these mixins are reused across components, so tokenizing here reduces repeated literal typography and improves consistency at shared-style entry points.
 - Updated `TASKS_COMPLETED.md` with this completed step.
 
+## 49) Typography Batch 5.10 (Shared Mixins Font-Family Tokenization)
+- Updated `src/styles/_mixins.module.scss` (`.button-info` inside `@mixin comparison`):
+  - `font-family: "Times New Roman", Times, serif` -> `font-family: var(--font-heading)`
+- Why: removes a remaining hardcoded SCSS font-family and keeps family selection aligned with the token source of truth.
+- Updated `TASKS_COMPLETED.md` with this completed sub-step.
+
 
 # Files Deleted (partial but comprehensive)
 

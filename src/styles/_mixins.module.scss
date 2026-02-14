@@ -103,7 +103,7 @@ _mixins.module.scss
 				// border: 1px solid $button-border;
 				font-size: var(--font-size-sm);
 				line-height: calc(var(--font-size-sm) * 1.25);
-				font-family: "Times New Roman", Times, serif;
+				font-family: var(--font-heading);
 				font-weight: bold;
 				margin-left: 8px;
 			}
