@@ -49,8 +49,9 @@ It follows modern React best practices.
 
 ## Current Baseline
 
-- SCSS files in `src`: 54
-- SCSS imports in JSX/JS: 53
+- SCSS files in `src`: 51
+- SCSS imports in JSX/JS: 50
+- baseline started at: 54 SCSS files / 53 SCSS imports
 
 These counts give us a measurable baseline for reduction.
 
@@ -111,17 +112,17 @@ These are accepted refinements from peer review, adapted to this repo:
 - [x] Add SCSS guard to:
   - `.githooks/pre-commit`
   - `.github/workflows/pr-quality.yml`
-- [ ] Keep existing typography/color/a11y guards required in pre-commit and CI.
+- [x] Keep existing typography/color/a11y guards required in pre-commit and CI.
 - [ ] Do not enable global ESLint `no-restricted-imports` for `*.scss` yet (would fail current baseline); use diff-based guard until migration nears completion.
 
 ### Phase 1: Quick Win SCSS Removals (Small Files)
 
 - [ ] Migrate and remove:
-  - `src/components/Attribution/Attribution.scss`
-  - `src/components/IconButton/IconButton.scss`
-  - `src/components/TopButton/TopButton.scss`
-  - `src/components/Explanation/Panel/Panel.scss`
-  - `src/components/Form/FieldSet/FieldSet.scss`
+  - [x] `src/components/Attribution/Attribution.scss`
+  - [ ] `src/components/IconButton/IconButton.scss`
+  - [x] `src/components/TopButton/TopButton.scss`
+  - [x] `src/components/Explanation/Panel/Panel.scss`
+  - [ ] `src/components/Form/FieldSet/FieldSet.scss`
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components

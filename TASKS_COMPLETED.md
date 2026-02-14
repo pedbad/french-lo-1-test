@@ -141,11 +141,14 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - [x] add SCSS guard to `.githooks/pre-commit` and `.github/workflows/pr-quality.yml`
 - [ ] Phase 1: Quick-win SCSS removals
   - migrate/remove small files first:
-    - `src/components/Attribution/Attribution.scss`
-    - `src/components/IconButton/IconButton.scss`
-    - `src/components/TopButton/TopButton.scss`
-    - `src/components/Explanation/Panel/Panel.scss`
-    - `src/components/Form/FieldSet/FieldSet.scss`
+    - [x] `src/components/Attribution/Attribution.scss`
+    - [ ] `src/components/IconButton/IconButton.scss`
+    - [x] `src/components/TopButton/TopButton.scss`
+    - [x] `src/components/Explanation/Panel/Panel.scss`
+    - [ ] `src/components/Form/FieldSet/FieldSet.scss`
+  - current SCSS footprint after first quick-win batch:
+    - SCSS files in `src`: 51 (from 54)
+    - SCSS imports in JSX/JS: 50 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation

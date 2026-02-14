@@ -1,4 +1,3 @@
-import './Attribution.scss';
 import React from 'react';
 
 const ATTRIBUTION_TEXT_CLASS = "text-[calc(var(--font-size-sm)*0.5)]";
@@ -13,7 +12,7 @@ export class Attribution extends React.PureComponent {
 
 		return (
 			<div
-				className={`attribution ${ATTRIBUTION_TEXT_CLASS} ${className ? className : null}`}
+				className={`attribution ${ATTRIBUTION_TEXT_CLASS} ${className ? className : ''}`}
 			>
 				{children}
 			</div>

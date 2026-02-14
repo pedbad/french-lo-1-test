@@ -1,10 +1,9 @@
-import './TopButton.scss';
 import { Button } from "@/components/ui/button";
 import React from 'react';
 export class TopButton extends React.PureComponent {
 	render = () => {
 		return (
-			<div className={`top-button-container`}>
+			<div className="top-button-container flex justify-end">
 				<Button
 					className={`cursor-pointer`}
 					size="sm" onClick={() => { scrollTo({ behavior: 'smooth', left: 0, top: 0 }); }}>
