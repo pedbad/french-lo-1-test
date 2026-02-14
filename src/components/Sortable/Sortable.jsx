@@ -398,7 +398,7 @@ export class Sortable extends React.Component {
 					{!suppressInfo && (informationText || informationTextHTML) ? (
 						<Info className={`text`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML} />
 					) : null}
-					<div className="mx-auto w-[80%]">
+					<div className="mx-auto mt-2 w-[80%]">
 						{phrases.map((phrase, index) => {
 							let foreignLanguage = "";
 							let audio = null;

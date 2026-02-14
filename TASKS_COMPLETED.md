@@ -69,3 +69,4 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: mobile `.title-main` / `.title-sub` `em` sizes replaced with token expressions
   - completed: desktop xl hero `h1` `3rem` literal replaced with token expression
   - completed: responsive hero clamps (`2.2/3rem` and `2.4/3.5rem`) replaced with token-based clamp expressions
+  - completed: main hero/title clamps (`4/5.75rem`, `2.4/3.1rem`, `1.6/2.1rem`) replaced with token-based clamp expressions

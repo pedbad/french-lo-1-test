@@ -358,6 +358,19 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: removes remaining hardcoded inline line-height in accordion titles and aligns title rhythm with shared typography tokens.
 - Updated `TASKS_COMPLETED.md` to record this completed sub-step.
 
+## 46) Typography Batch 5.8 (Core Hero Clamp Tokenization)
+- Updated `src/App.scss` remaining hero/title clamp literals:
+  - `.hero-title`: `clamp(4rem, 7.25vw, 5.75rem)` -> `clamp(var(--font-size-3xl), 7.25vw, calc(var(--font-size-3xl) * 1.4375))`
+  - mobile `.hero-title`: `clamp(2.4rem, 7.5vw, 3.1rem)` -> `clamp(calc(var(--font-size-3xl) * 0.6), 7.5vw, calc(var(--font-size-3xl) * 0.775))`
+  - mobile `#content h1`: `clamp(1.6rem, 5.2vw, 2.1rem)` -> `clamp(calc(var(--font-size-3xl) * 0.4), 5.2vw, calc(var(--font-size-3xl) * 0.525))`
+- Why: this removes the remaining hardcoded `rem` values from the primary hero/title typography path and keeps scale tuning anchored to `--font-size-3xl`.
+- Updated `TASKS_COMPLETED.md` under Typography batch 5 progress.
+
+## 47) Sortable Spacing Follow-up (Post-debug)
+- Updated `src/components/Sortable/Sortable.jsx` sortable list wrapper:
+  - added `mt-2` to the `mx-auto w-[80%]` container below the blue info panel.
+- Why: increases separation between the instruction/info box and the sortable card container for the final listening exercise, after visual verification.
+
 
 # Files Deleted (partial but comprehensive)
 
