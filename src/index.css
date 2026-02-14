@@ -457,6 +457,67 @@
 	html.debug #learningObjectMenu {
 		display: flex;
 	}
+
+	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
+	.image-anchor {
+		width: 100%;
+	}
+
+	.image-anchor img {
+		width: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.image-anchor {
+			width: auto;
+		}
+
+		.image-anchor .right {
+			float: right;
+			margin: 0 0 4% 4%;
+		}
+
+		.image-anchor .right.space-before {
+			margin: 4vh 0 4% 4%;
+		}
+
+		.image-anchor .left {
+			float: left;
+			margin: 0 4% 4% 0;
+		}
+
+		.image-anchor .left.space-before {
+			margin: 4vh 4% 4% 0;
+		}
+
+		.image-anchor .centre {
+			margin: 0 0 4% 0;
+		}
+
+		.image-anchor .centre.space-before {
+			margin: 4vh 0 4% 0;
+		}
+
+		.image-anchor.max400 .image {
+			max-width: 400px;
+		}
+
+		.image-anchor.max600 .image {
+			max-width: 600px;
+		}
+
+		.image-anchor.max800 .image {
+			max-width: 800px;
+		}
+
+		.image-anchor.max900 .image {
+			max-width: 900px;
+		}
+
+		.image-anchor.max1000 .image {
+			max-width: 1000px;
+		}
+	}
 }
 
 @layer utilities {

@@ -1,4 +1,3 @@
-import './Image.scss';
 import React from 'react';
 
 export class Image extends React.PureComponent {

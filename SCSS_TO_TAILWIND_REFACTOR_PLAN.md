@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 28
-- current SCSS imports in JSX/JS: 27
+- current SCSS files in `src`: 27
+- current SCSS imports in JSX/JS: 26
 
 These counts give us a measurable baseline for reduction.
 
@@ -164,6 +164,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/Blanks/DraggableWordTile/DraggableWordTile.scss` (deleted; hint-overlay and breakpoint spacing selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Form/Progress/Progress.scss` (deleted; progress indicator shell/bar/label and shine overlay migrated to tokenized utilities in `Progress.jsx`)
   - [x] `src/components/LearningObjectMenu/LearningObjectMenu.scss` (deleted; menu list/item/link styling moved to tokenized utilities in `LearningObjectMenu.jsx` with debug visibility rule preserved in `index.css`)
+  - [x] `src/components/Image/Image.scss` (deleted; image-anchor sizing/alignment and max-width class selectors migrated to layered global CSS in `index.css`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components
