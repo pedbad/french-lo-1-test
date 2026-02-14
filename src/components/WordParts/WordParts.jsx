@@ -5,10 +5,10 @@ import {
 	Info,
 	ProgressDots,
 } from '..';
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from 'react';
-import { cn } from "@/lib/utils";
 
 const WORD_PARTS_TEXT_CLASS = "text-[calc(var(--font-size-base)*1.15)] leading-[var(--line-height-wordparts-mobile)] md:text-[calc(var(--font-size-xl)*1.5)] md:leading-[var(--line-height-wordparts)]";
 
@@ -251,7 +251,12 @@ export class WordParts extends React.PureComponent {
 					<div className="exercise-help exercise-help-end">
 						<IconButton
 							ariaLabel={cheatText}
-							className={cn("wordparts-reveal btn-ped-warn hidden-help exercise-icon-button", failCount >= 2 && "show")}
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								role: "reveal",
+								tone: "warn",
+								visible: failCount >= 2,
+							})}
 							disabled={nPlaced === this.nToSolve}
 							onClick={this.autoSolve}
 							theme={`eye`}
@@ -262,10 +267,12 @@ export class WordParts extends React.PureComponent {
 						</IconButton>
 						<IconButton
 							ariaLabel="Reset"
-							className={cn(
-								"wordparts-reset hidden-help exercise-icon-button",
-								(nPlaced >= 1 || failCount >= 1 || complete) && "show"
-							)}
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								role: "reset",
+								tone: "neutral",
+								visible: nPlaced >= 1 || failCount >= 1 || complete,
+							})}
 							onClick={this.handleReset}
 							theme={`reset`}
 							title="Reset"

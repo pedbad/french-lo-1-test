@@ -9,8 +9,8 @@ import {
 	SequenceAudioController,
 	DraggableWordTile,
 } from '../../components';
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { resolveAsset, shuffleArray } from '../../utility';
-import { cn } from "@/lib/utils";
 import {
 	Table,
 	TableBody,
@@ -1056,7 +1056,11 @@ export class Blanks extends React.Component {
 							<div className="exercise-help-actions">
 								<IconButton
 									ariaLabel={cheatText}
-									className={cn("btn-ped-warn hidden-help exercise-icon-button", failCount >= 2 && "show")}
+									className={exerciseActionButtonVariants({
+										progressive: true,
+										tone: "warn",
+										visible: failCount >= 2,
+									})}
 									onClick={this.autoSolve}
 									theme={`eye`}
 									title={cheatText}
@@ -1067,10 +1071,11 @@ export class Blanks extends React.Component {
 
 								<IconButton
 									ariaLabel="Reset"
-									className={cn(
-										"btn-chart-2 hidden-help exercise-icon-button",
-										(nPlaced >= 1 || failCount >= 2 || complete) && "show"
-									)}
+									className={exerciseActionButtonVariants({
+										progressive: true,
+										tone: "neutral",
+										visible: nPlaced >= 1 || failCount >= 2 || complete,
+									})}
 									onClick={this.handleReset}
 									theme={`reset`}
 									title="Reset"
@@ -1081,7 +1086,12 @@ export class Blanks extends React.Component {
 
 								<IconButton
 									ariaLabel="Check answers"
-									className={cn("btn-hero-title btn-check-right exercise-icon-button", assignedCount >= 1 && "show")}
+									className={exerciseActionButtonVariants({
+										align: "right",
+										progressive: true,
+										tone: "primary",
+										visible: assignedCount >= 1,
+									})}
 									onClick={this.handleCheckAnswers}
 									theme={`check`}
 									title="Check answers"

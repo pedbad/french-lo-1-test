@@ -3,6 +3,7 @@ import { IconButton } from "../IconButton";
 import { ProgressDots } from "../ProgressDots";
 import { SequenceAudioController } from "../SequenceAudioController";
 import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { resolveAsset, shuffleArray } from "../../utility";
 import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
 
@@ -259,7 +260,7 @@ export class SequenceOrder extends React.PureComponent {
 						{showReveal ? (
 							<IconButton
 								ariaLabel={cheatText}
-								className="btn-ped-warn exercise-icon-button"
+								className={exerciseActionButtonVariants({ tone: "warn" })}
 								onClick={this.handleShowAnswer}
 								theme="eye"
 								title={cheatText}
@@ -271,7 +272,7 @@ export class SequenceOrder extends React.PureComponent {
 						{showReset ? (
 							<IconButton
 								ariaLabel="Reset"
-								className="btn-chart-2 exercise-icon-button"
+								className={exerciseActionButtonVariants({ tone: "neutral" })}
 								onClick={this.handleReset}
 								theme="reset"
 								title="Reset"
@@ -282,7 +283,7 @@ export class SequenceOrder extends React.PureComponent {
 						) : null}
 						<IconButton
 							ariaLabel="Check answers"
-							className="btn-hero-title exercise-icon-button"
+							className={exerciseActionButtonVariants({ tone: "primary" })}
 							disabled={!canCheck}
 							onClick={this.handleCheckAnswers}
 							theme="check"

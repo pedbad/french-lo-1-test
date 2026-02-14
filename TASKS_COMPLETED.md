@@ -174,6 +174,14 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - `src/components/Blanks/Blanks.jsx`
     - `src/components/DropDowns/DropDowns.jsx`
     - `src/components/WordParts/WordParts.jsx`
+  - [x] added shared `cva` exercise action button variant layer:
+    - `src/components/exerciseActionButtonVariants.js`
+  - [x] migrated exercise action button class composition to shared `cva` API in:
+    - `src/components/Sortable/Sortable.jsx`
+    - `src/components/SequenceOrder/SequenceOrder.jsx`
+    - `src/components/Blanks/Blanks.jsx`
+    - `src/components/DropDowns/DropDowns.jsx`
+    - `src/components/WordParts/WordParts.jsx`
   - [x] removed duplicated SCSS wrapper rules in:
     - `src/App.scss`
     - `src/components/Blanks/Blanks.scss`

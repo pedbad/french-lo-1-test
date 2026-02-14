@@ -141,6 +141,28 @@ const badgeVariants = cva(
 );
 ```
 
+3. Real project pattern: shared exercise action button variants
+
+Why:
+1. Avoid repeated class strings (`btn-ped-warn`, `hidden-help`, `show`, `exercise-icon-button`) across many components.
+2. Keep behavior/style composition in one file for easier refactor safety.
+
+Implementation:
+1. Define variants once in `src/components/exerciseActionButtonVariants.js`.
+2. Consume in components with explicit intent:
+
+```jsx
+className={exerciseActionButtonVariants({
+  tone: "warn",
+  progressive: true,
+  visible: failCount >= 2,
+})}
+```
+
+Result:
+1. Safer edits (one source for variant composition rules).
+2. Less SCSS drift and fewer per-component class divergences.
+
 ## Token Usage Rules (Project-Specific)
 
 1. Use semantic token variables from `src/index.css`.

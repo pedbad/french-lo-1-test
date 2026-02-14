@@ -19,8 +19,8 @@ import {
 } from "@/components/ui/table";
 import DOMPurify from "dompurify";
 import React from "react";
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { resolveAsset } from "../../utility";
-import { cn } from "@/lib/utils";
 
 const DROPDOWN_TRIGGER_TEXT_CLASS = "min-w-[9rem] p-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:min-w-[12rem] md:p-1 md:text-[calc(var(--font-size-sm)*1.2)]";
 const DROPDOWNS_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base";
@@ -391,7 +391,10 @@ export class DropDowns extends React.PureComponent {
 					<div className="exercise-help">
 						<IconButton
 							ariaLabel={cheatText}
-							className={cn("hidden-help exercise-icon-button", failCount >= 1 && "show")}
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								visible: failCount >= 1,
+							})}
 							onClick={this.autoSolve}
 							theme={`eye`}
 							title={cheatText}
@@ -400,7 +403,10 @@ export class DropDowns extends React.PureComponent {
 						</IconButton>
 						<IconButton
 							ariaLabel="Reset"
-							className={cn("hidden-help exercise-icon-button", (nCorrect >= 1 || failCount >= 1) && "show")}
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								visible: nCorrect >= 1 || failCount >= 1,
+							})}
 							onClick={this.handleReset}
 							theme={`reset`}
 							title="Reset"

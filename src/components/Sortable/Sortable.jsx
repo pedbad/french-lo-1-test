@@ -6,6 +6,7 @@ import {
 	Info,
 	ProgressDots,
 } from "../../components";
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import React from "react";
 import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
 import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
@@ -485,7 +486,7 @@ export class Sortable extends React.Component {
 					{showReveal ? (
 						<IconButton
 							ariaLabel={cheatText}
-							className="btn-ped-warn exercise-icon-button"
+							className={exerciseActionButtonVariants({ tone: "warn" })}
 							onClick={this.autoSolve}
 							theme="eye"
 							title={cheatText}
@@ -497,7 +498,7 @@ export class Sortable extends React.Component {
 					{showReset ? (
 						<IconButton
 							ariaLabel="Reset"
-							className="btn-chart-2 exercise-icon-button"
+							className={exerciseActionButtonVariants({ tone: "neutral" })}
 							onClick={this.reset}
 							theme="reset"
 							title="Reset"
@@ -508,7 +509,7 @@ export class Sortable extends React.Component {
 					) : null}
 					<IconButton
 						ariaLabel="Check answers"
-						className="btn-hero-title exercise-icon-button"
+						className={exerciseActionButtonVariants({ tone: "primary" })}
 						theme="check"
 						onClick={this.checkAnswer}
 						title="Check answers"

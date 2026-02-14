@@ -170,6 +170,14 @@ These are accepted refinements from peer review, adapted to this repo:
     - `src/components/Blanks/Blanks.jsx`
     - `src/components/DropDowns/DropDowns.jsx`
     - `src/components/WordParts/WordParts.jsx`
+  - [x] introduced shared `cva` button variant API:
+    - `src/components/exerciseActionButtonVariants.js`
+  - [x] migrated exercise action buttons to the shared `cva` API in:
+    - `src/components/Sortable/Sortable.jsx`
+    - `src/components/SequenceOrder/SequenceOrder.jsx`
+    - `src/components/Blanks/Blanks.jsx`
+    - `src/components/DropDowns/DropDowns.jsx`
+    - `src/components/WordParts/WordParts.jsx`
 
 ### Phase 3: High-Impact File Migration (One at a Time)
 
