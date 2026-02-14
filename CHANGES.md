@@ -567,6 +567,27 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - marked typography stream complete for current scope and aligned wording with semantic token naming.
 - Why: removes the last runtime dependency on a removed alias and closes the typography migration loop with a single tokenized line-height vocabulary.
 
+## 67) Color Guardrails (Script + Package Wiring)
+- Added `/Users/ped/Sites/french/french-lo-1-test/scripts/check-color-guard.sh`:
+  - detects added literal color drift in style-like lines across `scss/css/jsx/tsx/js/ts` diffs.
+  - blocks:
+    - hex literals (`#fff`, `#ffcc00`, ...)
+    - named colors (`black`, `white`, `red`, ...)
+    - color functions without token indirection (`rgb(...)`, `oklch(...)`, etc. without `var(--...)`)
+  - supports `--staged`, `--working`, and `--against <ref>` (matching typography guard workflow).
+- Added `/Users/ped/Sites/french/french-lo-1-test/scripts/color-allowlist.txt`:
+  - file-scoped allowlist for intentional literal color definitions.
+  - seeded with `src/index.css` (token source).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/package.json` scripts:
+  - added `check:color`
+  - added `check:color:branch`
+  - updated `prepush:local` to include `yarn check:color:branch`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+  - documented color guard policy and usage commands.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+  - marked color guard script + prepush wiring tasks complete.
+- Why: mirrors typography guardrails to prevent new non-token color drift while continuing hotspot-by-hotspot migration.
+
 
 # Files Deleted (partial but comprehensive)
 

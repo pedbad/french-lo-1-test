@@ -76,6 +76,31 @@ Run the recommended local pre-push gate:
 yarn prepush:local
 ```
 
+## Color Guardrails
+
+To prevent literal color drift back into components, this repo includes a color guard script.
+
+Current policy:
+- Blocks added hex colors (for example `#fff`, `#ffcc00`) outside allowlisted files.
+- Blocks added named colors (`black`, `white`, `red`, etc.) outside allowlisted files.
+- Blocks added color functions without token indirection (for example `rgb(...)`, `oklch(...)` without `var(--...)`).
+- Allows tokenized color usage via `var(--...)`.
+- Allowlist is file-scoped via `scripts/color-allowlist.txt` (currently `src/index.css`).
+
+### Manual checks
+
+Check staged changes:
+
+```bash
+yarn check:color
+```
+
+Check all changes introduced by your branch vs `origin/main`:
+
+```bash
+yarn check:color:branch
+```
+
 ## Migration Trackers
 
 The active migration/audit trackers are:

@@ -1,0 +1,4 @@
+# File path globs where literal color definitions are allowed.
+# Keep this list narrow and intentional.
+
+src/index.css

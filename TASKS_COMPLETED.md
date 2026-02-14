@@ -53,10 +53,11 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [x] Canonical color strategy documented (`COLOR_AUDIT.md`, `COLOR_MIGRATION.md`, `COLOR_PLAN.md`)
 - [x] Core token foundations present in `src/index.css`
 - [x] Tailwind token mapping in `tailwind.config.js`
-- [ ] Add color guard script
+- [x] Add color guard script
   - `scripts/check-color-guard.sh`
   - `scripts/color-allowlist.txt`
-- [ ] Add `check:color` to package scripts and include in local pre-push flow
+- [x] Add `check:color` to package scripts and include in local pre-push flow
+- [ ] Tune color guard allowlist/patterns based on real-world false positives (keep list minimal)
 - [ ] Migrate high-impact literal color hotspots
   - Priority: `src/App.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/AudioClip/AudioClip.scss`
 
