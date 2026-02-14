@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 42
-- current SCSS imports in JSX/JS: 41
+- current SCSS files in `src`: 41
+- current SCSS imports in JSX/JS: 40
 
 These counts give us a measurable baseline for reduction.
 
@@ -150,6 +150,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/Header/Header.scss` (deleted; surface/layout moved to tokenized classes in `index.css` + `Header.jsx`)
   - [x] `src/components/Form/DateField/DateField.scss` (deleted; input/layout styles migrated to tokenized utilities in `DateField.jsx`)
   - [x] `src/components/Social/Social.scss` (deleted; list/icon/link styles migrated to tokenized utilities in `Social.jsx`)
+  - [x] `src/components/Sortable/Sortable.scss` (deleted; touch-action and icon sizing migrated to tokenized utilities in `Sortable.jsx`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components

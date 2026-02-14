@@ -1,5 +1,4 @@
 // Sortable.jsx
-import './Sortable.scss';
 import {
 	AudioClip,
 	IconButton,
@@ -392,7 +391,7 @@ export class Sortable extends React.Component {
 		const showReset = hasReordered || failCount >= 1 || isComplete || usedShowAnswer;
 
 		return (
-			<div className="w-full sortable space-y-4">
+			<div className="w-full sortable space-y-4 [&>svg]:h-6 [&>svg]:w-6">
 				{prompt ? <p className="text-sm">{prompt}</p> : null}
 
 				<div className="space-y-3">
@@ -436,7 +435,7 @@ export class Sortable extends React.Component {
 
 									{/* RIGHT: Sortable lang2 phrase + tick/cross */}
 									<SortableWordCard
-										className="cursor-ns-resize"
+										className="cursor-ns-resize touch-none"
 										data-sortable-tile="1"
 										data-index={index}
 										data-item-id={lang2Item?.id || ""}
