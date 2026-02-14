@@ -1,4 +1,3 @@
-import './DateField.scss';
 import {
 	Info,
 } from '../..';
@@ -27,12 +26,13 @@ export class DateField extends React.PureComponent {
 		} = this.props;
 
 		return (
-			<div className={`date-field row ${className} ${value === '' ? 'unset' : ''} ${disabled ? 'disabled' : ''}`}>
+			<div className={`date-field row [grid-template-areas:"label_device"] ${className} ${value === '' ? 'unset' : ''} ${disabled ? 'disabled' : ''}`}>
 				{label ? <label htmlFor={id}>{label}{required ? <sup>*</sup> : ""}{info ? <Info
 					infoTitle={info.title}
 					infoMessage={info.message}
 				/> : ""}:</label> : ''}
 				<input
+					className="w-full max-w-[170px] self-end justify-self-end [grid-area:device] h-[38px] text-[var(--font-size-sm)] p-[8px_4px] disabled:cursor-not-allowed"
 					disabled={disabled}
 					id={id}
 					max={max}

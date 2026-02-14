@@ -152,12 +152,13 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/Form/OkCancel/OkCancel.scss` (deleted; styles migrated to JSX utilities in `src/components/Form/OkCancel/OkCancel.jsx`)
     - [x] `src/components/Mockney/Mockney.scss` (deleted; styles migrated to JSX utilities in `src/components/Mockney/Mockney.jsx`)
     - [x] `src/components/Header/Header.scss` (deleted; surface/layout moved to tokenized classes in `src/index.css` + `src/components/Header/Header.jsx`)
+    - [x] `src/components/Form/DateField/DateField.scss` (deleted; input/layout styles migrated to tokenized utilities in `src/components/Form/DateField/DateField.jsx`)
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 44 (from 54)
-    - SCSS imports in JSX/JS: 43 (from 53)
+    - SCSS files in `src`: 43 (from 54)
+    - SCSS imports in JSX/JS: 42 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
