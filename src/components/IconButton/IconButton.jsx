@@ -1,4 +1,3 @@
-import './IconButton.scss';
 import { Button } from "@/components/ui/button";
 import React from 'react';
 
@@ -290,7 +289,7 @@ export class IconButton extends React.PureComponent {
 				id={id || undefined}
 				size={size}
 				variant={variant} // ✅ only affects places where you explicitly pass it
-				className={`icon-button ${className ? className : ''} ${extraClasses}`}
+				className={`icon-button cursor-pointer [&_svg]:h-5 [&_svg]:w-5 [&_svg]:fill-none [&_svg]:stroke-current ${className ? className : ''} ${extraClasses}`}
 				onClick={onClick}
 				title={title}
 				aria-label={ariaLabel || title}

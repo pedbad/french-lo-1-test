@@ -49,8 +49,8 @@ It follows modern React best practices.
 
 ## Current Baseline
 
-- SCSS files in `src`: 51
-- SCSS imports in JSX/JS: 50
+- SCSS files in `src`: 49
+- SCSS imports in JSX/JS: 48
 - baseline started at: 54 SCSS files / 53 SCSS imports
 
 These counts give us a measurable baseline for reduction.
@@ -119,10 +119,10 @@ These are accepted refinements from peer review, adapted to this repo:
 
 - [ ] Migrate and remove:
   - [x] `src/components/Attribution/Attribution.scss`
-  - [ ] `src/components/IconButton/IconButton.scss`
+  - [x] `src/components/IconButton/IconButton.scss`
   - [x] `src/components/TopButton/TopButton.scss`
   - [x] `src/components/Explanation/Panel/Panel.scss`
-  - [ ] `src/components/Form/FieldSet/FieldSet.scss`
+  - [x] `src/components/Form/FieldSet/FieldSet.scss`
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components
