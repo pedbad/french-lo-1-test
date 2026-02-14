@@ -40,3 +40,6 @@ jobs:
 
       - name: A11y guard (branch)
         run: yarn check:a11y:branch
+
+      - name: SCSS guard (branch)
+        run: yarn check:scss:branch

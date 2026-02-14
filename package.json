@@ -15,9 +15,11 @@
 		"check:color:branch": "bash scripts/check-color-guard.sh --against origin/main",
 		"check:a11y": "bash scripts/check-a11y-guard.sh --staged",
 		"check:a11y:branch": "bash scripts/check-a11y-guard.sh --against origin/main",
+		"check:scss": "bash scripts/check-scss-guard.sh --staged",
+		"check:scss:branch": "bash scripts/check-scss-guard.sh --against origin/main",
 		"check:audio-unicode": "node scripts/audio-unicode-guard.mjs --check",
 		"fix:audio-unicode": "node scripts/audio-unicode-guard.mjs --fix",
-		"prepush:local": "yarn lint && yarn check:typography:branch && yarn check:color:branch && yarn check:a11y:branch && yarn check:audio-unicode"
+		"prepush:local": "yarn lint && yarn check:typography:branch && yarn check:color:branch && yarn check:a11y:branch && yarn check:scss:branch && yarn check:audio-unicode"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.8",

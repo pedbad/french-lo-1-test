@@ -56,6 +56,7 @@ This configures git to use `.githooks/` in this repo, where pre-commit runs:
 yarn -s check:typography
 yarn -s check:color
 yarn -s check:a11y
+yarn -s check:scss
 ```
 
 ### Manual checks
@@ -153,6 +154,26 @@ Validator triage guidance:
 - Fix first: invalid values (for example `align-items: space-between`, `word-break: keep-word`) and duplicate IDs.
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
+
+## SCSS Drift Guard
+
+To prevent refactor backsliding while legacy SCSS is being removed, this repo includes:
+- script: `/Users/ped/Sites/french/french-lo-1-test/scripts/check-scss-guard.sh`
+
+Policy:
+- blocks newly added `.scss` / `.sass` files
+- blocks newly added SCSS/SASS imports in `.js/.jsx/.ts/.tsx`
+
+Concrete examples:
+- adding `src/components/NewCard/NewCard.scss` in a PR fails the guard
+- adding `import './NewCard.scss'` in `NewCard.jsx` fails the guard
+
+Manual checks:
+
+```bash
+yarn check:scss
+yarn check:scss:branch
+```
 
 ## CI Quality Gates (GitHub Actions)
 

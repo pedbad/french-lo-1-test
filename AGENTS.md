@@ -54,8 +54,8 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
   - rationale: invalid semantics/duplicate IDs are high-impact defects because they break keyboard/screen-reader and DOM/ARIA targeting
 - Local quality gates:
   - one-time hook setup: `bash scripts/setup-githooks.sh`
-  - staged checks: `yarn check:typography`, `yarn check:color`, and `yarn check:a11y`
-  - branch checks: `yarn check:typography:branch`, `yarn check:color:branch`, and `yarn check:a11y:branch`
+  - staged checks: `yarn check:typography`, `yarn check:color`, `yarn check:a11y`, and `yarn check:scss`
+  - branch checks: `yarn check:typography:branch`, `yarn check:color:branch`, `yarn check:a11y:branch`, and `yarn check:scss:branch`
   - recommended pre-push: `yarn prepush:local`
 - CI quality gates:
   - workflow file: `.github/workflows/pr-quality.yml`

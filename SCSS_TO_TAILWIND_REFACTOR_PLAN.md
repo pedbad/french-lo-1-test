@@ -103,12 +103,12 @@ These are accepted refinements from peer review, adapted to this repo:
 - [ ] Stabilize cascade/layer order for mixed migration state.
   - confirm `@layer base/components/utilities` behavior in `src/index.css`
   - document temporary conflict-resolution strategy (minimal, removable)
-- [ ] Add `scripts/check-scss-guard.sh` to fail when new `.scss` or `.sass` files are introduced.
-- [ ] Extend SCSS guard to fail when new SCSS imports are introduced in JSX/TSX/JS/TS.
-- [ ] Add package scripts:
+- [x] Add `scripts/check-scss-guard.sh` to fail when new `.scss` or `.sass` files are introduced.
+- [x] Extend SCSS guard to fail when new SCSS imports are introduced in JSX/TSX/JS/TS.
+- [x] Add package scripts:
   - `yarn check:scss`
   - `yarn check:scss:branch`
-- [ ] Add SCSS guard to:
+- [x] Add SCSS guard to:
   - `.githooks/pre-commit`
   - `.github/workflows/pr-quality.yml`
 - [ ] Keep existing typography/color/a11y guards required in pre-commit and CI.
