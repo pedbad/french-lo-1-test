@@ -27,6 +27,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - Priority: `src/App.scss`, `src/components/PhraseTable/PhraseTable.scss`
   - Note: `src/components/MainMenu/MainMenu.scss` has been verified as tokenized for typography sizing.
   - completed: mobile accordion heading `line-height: 1.2` replaced with `var(--line-height-2xl)` in `src/components/Accordion/Accordion.scss`
+  - completed: accordion title inline style `lineHeight: "1.2"` replaced with `var(--line-height-2xl)` in `src/components/Accordion/AccordionArticle.jsx`
 
 ## Color
 

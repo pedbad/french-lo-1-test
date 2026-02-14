@@ -122,7 +122,7 @@ export class AccordionArticle extends React.PureComponent {
 				name={`modal-link-${target}`}
 				style={{
 					fontSize: "calc(var(--font-size-lg) * 1.215)",
-					lineHeight: "1.2",
+					lineHeight: "var(--line-height-2xl)",
 					marginTop: 0,
 					marginBottom: 0,
 				}}
@@ -142,7 +142,7 @@ export class AccordionArticle extends React.PureComponent {
 					name={`modal-link-${target}`}
 					style={{
 						fontSize: "calc(var(--font-size-lg) * 1.215)",
-						lineHeight: "1.2",
+						lineHeight: "var(--line-height-2xl)",
 						marginTop: 0,
 						marginBottom: 0,
 					}}

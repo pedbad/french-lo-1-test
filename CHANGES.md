@@ -351,6 +351,13 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: keeps responsive hero sizing anchored to shared typography tokens while preserving the existing viewport behavior.
 - Updated `TASKS_COMPLETED.md` under Typography batch 5 progress.
 
+## 45) Typography Batch 5.7 (Accordion Title Inline Line-Height Tokenization)
+- Updated `src/components/Accordion/AccordionArticle.jsx` title style objects:
+  - `lineHeight: "1.2"` -> `lineHeight: "var(--line-height-2xl)"`
+  - applied in both plain-title and HTML-title render branches.
+- Why: removes remaining hardcoded inline line-height in accordion titles and aligns title rhythm with shared typography tokens.
+- Updated `TASKS_COMPLETED.md` to record this completed sub-step.
+
 
 # Files Deleted (partial but comprehensive)
 
