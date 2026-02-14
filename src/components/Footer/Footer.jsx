@@ -90,7 +90,7 @@ export class Footer extends React.PureComponent{
 
 					{/* License */}
 					<div className={`license`}>
-						<p className="license text-footerText text-base leading-[26px] font-normal">
+						<p className="license text-footerText text-base leading-[calc(var(--font-size-base)*1.413)] font-normal">
 							This work is licensed under the Creative Commons
 							Attribution-NonCommercial-NoDerivs 4.0 International Licence.<br/>
 							To view a copy of this licence, visit: <a className="hover:text-primary font-semibold"

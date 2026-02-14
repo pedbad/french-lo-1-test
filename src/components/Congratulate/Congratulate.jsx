@@ -1,7 +1,8 @@
 import './Congratulate.scss';
 import React from 'react';
 
-const CONGRATULATE_TEXT_CLASS = "text-[40px] leading-[60px] md:text-[80px] md:leading-[90px]";
+const CONGRATULATE_TEXT_CLASS =
+	"text-[calc(var(--font-size-base)*2.174)] leading-[calc(var(--font-size-base)*3.261)] md:text-[calc(var(--font-size-base)*4.348)] md:leading-[calc(var(--font-size-base)*4.891)]";
 
 export class Congratulate extends React.PureComponent {
 	constructor(props) {

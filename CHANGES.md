@@ -422,6 +422,37 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - set social icon sizing/alignment for mobile and right-aligned placement under eLearning on desktop.
 - Why: places social links where users expect them (footer brand area) while preserving responsive layout and external-link safety.
 
+## 54) Typography Batch 5.14 (Footer + Congratulate Tailwind Tokenization)
+- Updated `src/components/Congratulate/Congratulate.jsx`:
+  - `CONGRATULATE_TEXT_CLASS` tokenized from hardcoded px values:
+    - `text-[40px]` -> `text-[calc(var(--font-size-base)*2.174)]`
+    - `leading-[60px]` -> `leading-[calc(var(--font-size-base)*3.261)]`
+    - `md:text-[80px]` -> `md:text-[calc(var(--font-size-base)*4.348)]`
+    - `md:leading-[90px]` -> `md:leading-[calc(var(--font-size-base)*4.891)]`
+- Updated `src/components/Footer/Footer.jsx`:
+  - license text line-height from hardcoded `leading-[26px]` -> `leading-[calc(var(--font-size-base)*1.413)]`
+- Why: removes remaining hardcoded Tailwind typography literals in JSX and keeps sizing tied to token scale while preserving current visual ratios.
+- Updated `TASKS_COMPLETED.md` with this completed sub-step.
+
+## 55) Typography Batch 5.15 (Regional Map Label Tokenization)
+- Updated `src/components/CustomComponents_FR/CustomComponents_FR.scss` (`#RegionalTelephoneMap`):
+  - `--regional-map-label-size: 74.6667px` -> `calc(var(--font-size-base) * 4.058)`
+  - `--regional-map-label-size-small: 40px` -> `calc(var(--font-size-base) * 2.174)`
+- Why: removes remaining component-level px typography literals and ties SVG label sizing to the shared type token scale, while preserving current visual ratios.
+- Updated `TASKS_COMPLETED.md` with this completed sub-step.
+
+## 56) Typography Batch 5.16 (Font-Face Ownership Split)
+- Added `/Users/ped/Sites/french/french-lo-1-test/src/styles/fonts.css` as the dedicated font registry:
+  - moved all `@font-face` declarations from `src/App.scss` into this file
+  - added `font-display: swap` to each face for better loading behavior
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/main.jsx`:
+  - imports `./styles/fonts.css` before `./index.css`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/check-typography-guard.sh`:
+  - keeps strict `font-family` guard everywhere
+  - allows literal `font-family` only in `src/styles/fonts.css` (for `@font-face`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md` guardrails to document that narrow exception.
+- Why: separates font-asset loading from component styling while preserving token-based font usage as the single source for typography application.
+
 
 # Files Deleted (partial but comprehensive)
 

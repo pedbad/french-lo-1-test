@@ -1,6 +1,6 @@
 # Tasks Completed Tracker
 
-Last updated: 2026-02-13
+Last updated: 2026-02-14
 Repo: `/Users/ped/Sites/french/french-lo-1-test`
 
 This checklist tracks migration progress toward one source of truth (tokens + Tailwind/shadcn utilities) and reduced SCSS ownership.
@@ -23,6 +23,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - Global `h1..h6` size block moved from hardcoded rem to token-based expressions in `src/App.scss`
 - [~] Migrate remaining SCSS `font-family` ownership into utility/token path
   - App baseline font-family declarations in `src/App.scss` now tokenized (`var(--font-sans)`, `var(--font-heading)`)
+  - `@font-face` declarations moved out of `src/App.scss` into dedicated `src/styles/fonts.css` (imported globally in `src/main.jsx`)
 - [ ] Continue removing hardcoded `font-size/line-height/font-family` from remaining SCSS hotspots
   - Priority: `src/App.scss`, `src/components/PhraseTable/PhraseTable.scss`
   - Note: `src/components/MainMenu/MainMenu.scss` has been verified as tokenized for typography sizing.
@@ -33,6 +34,9 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `CrossWord.jsx` inline `fontSize` literals (`10`, `16`) replaced with token-based expressions
   - completed: removed unused Sass typography literal variable (`$header-footer-font-size: 0.8rem`) and stale commented literal examples in `App.scss`
   - completed: centralized accordion title typography inline style into `ACCORDION_TITLE_STYLE` constant to avoid duplicated token rules
+  - completed: `Congratulate.jsx` and `Footer.jsx` Tailwind typography literals (`text-[40px]`, `leading-[60px]`, `md:text-[80px]`, `md:leading-[90px]`, `leading-[26px]`) replaced with token-based arbitrary values
+  - completed: `CustomComponents_FR.scss` regional map label custom properties (`74.6667px`, `40px`) replaced with token-based expressions from `--font-size-base`
+  - completed: typography guard now allows literal `font-family` only in `src/styles/fonts.css` for `@font-face`; guard remains strict elsewhere
 
 ## Color
 
@@ -75,3 +79,6 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: desktop xl hero `h1` `3rem` literal replaced with token expression
   - completed: responsive hero clamps (`2.2/3rem` and `2.4/3.5rem`) replaced with token-based clamp expressions
   - completed: main hero/title clamps (`4/5.75rem`, `2.4/3.1rem`, `1.6/2.1rem`) replaced with token-based clamp expressions
+  - completed: `Congratulate.jsx` + `Footer.jsx` Tailwind px typography literals replaced with tokenized arbitrary values
+  - completed: regional map SVG label custom properties in `CustomComponents_FR.scss` tokenized from px to `var(--font-size-base)` expressions
+  - completed: font-face declarations extracted to `src/styles/fonts.css` (global import via `src/main.jsx`) with `font-display: swap`

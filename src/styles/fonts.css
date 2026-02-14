@@ -1,0 +1,35 @@
+@font-face {
+	font-family: "Feijoa Bold";
+	src: url("/fonts/Feijoa-Bold.otf");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Feijoa Medium";
+	src: url("/fonts/Feijoa-Medium.otf");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Feijoa Medium Italic";
+	src: url("/fonts/Feijoa-MediumItalic.otf");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "OpenSans Bold";
+	src: url("/fonts/OpenSans-Bold.ttf");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "OpenSans Regular";
+	src: url("/fonts/OpenSans-Regular.ttf");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "OpenSans SemiBold";
+	src: url("/fonts/OpenSans-SemiBold.ttf");
+	font-display: swap;
+}

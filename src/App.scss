@@ -6,30 +6,6 @@
 @use "./styles/mixins.module" as *;
 @use "sass:color";
 
-@font-face {
-	font-family: "Feijoa Bold";
-	src: url("/fonts/Feijoa-Bold.otf");
-}
-@font-face {
-	font-family: "Feijoa Medium";
-	src: url("/fonts/Feijoa-Medium.otf");
-}
-@font-face {
-	font-family: "Feijoa Medium Italic";
-	src: url("/fonts/Feijoa-MediumItalic.otf");
-}
-@font-face {
-	font-family: "OpenSans Bold";
-	src: url("/fonts/OpenSans-Bold.ttf");
-}
-@font-face {
-	font-family: "OpenSans Regular";
-	src: url("/fonts/OpenSans-Regular.ttf");
-}
-@font-face {
-	font-family: "OpenSans SemiBold";
-	src: url("/fonts/OpenSans-SemiBold.ttf");
-}
 .lo-menu {
 	display: flex;
 }

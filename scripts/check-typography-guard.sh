@@ -62,8 +62,13 @@ fi
 VIOLATIONS="$(
 	printf '%s\n' "$DIFF_OUTPUT" \
 		| awk '
+			/^\+\+\+ / {
+				current_file = $0
+				sub(/^\+\+\+ [ab]\//, "", current_file)
+				next
+			}
+
 			# Keep only added lines from the patch, skip patch headers.
-			/^\+\+\+/ { next }
 			! /^\+/   { next }
 			/^\+\s*$/ { next }
 			/^\+\s*\/\// { next }
@@ -85,6 +90,10 @@ VIOLATIONS="$(
 
 				# Allow font-family only when tokenized via var(--font-...)
 				if (line ~ /font-family[[:space:]]*:/) {
+					# Allow literal font-family declarations in the dedicated font-face registry.
+					if (current_file ~ /src\/styles\/fonts\.css$/) {
+						next
+					}
 					if (line !~ /font-family[[:space:]]*:[[:space:]]*var\([[:space:]]*--font-[a-z0-9-]+/) {
 						print NR ":" raw
 					}

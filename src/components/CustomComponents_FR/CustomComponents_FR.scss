@@ -103,8 +103,9 @@
 
 #RegionalTelephoneMap {
 	/* Component-scoped typography tokens for regional map SVG labels */
-	--regional-map-label-size: 74.6667px;
-	--regional-map-label-size-small: 40px;
+	/* derived from prior 74.6667px / 40px at 16px root sizing */
+	--regional-map-label-size: calc(var(--font-size-base) * 4.058);
+	--regional-map-label-size-small: calc(var(--font-size-base) * 2.174);
 
 	.svg-container {
 		overflow: hidden;

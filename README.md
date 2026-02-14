@@ -42,6 +42,7 @@ Current policy:
 - Blocks `line-height` with literal `px/rem/em` values in new lines.
 - Allows `font-family` only when tokenized, e.g. `font-family: var(--font-sans);`.
 - Blocks literal `font-family` declarations in new lines.
+- Exception: allows literal `font-family` only in `src/styles/fonts.css` for `@font-face` registration.
 
 ### One-time setup (local pre-commit hook)
 
