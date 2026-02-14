@@ -24,6 +24,23 @@ Avoid:
 2. new `import './*.scss'` in components
 3. broad `!important` overrides
 
+## Maintenance Rationale (For Legacy + New Developers)
+
+Use this rule of thumb:
+1. Tokens define design decisions.
+2. Utilities apply those decisions.
+3. `cn()`/`cva` defines state and variant behavior.
+
+Why this is best practice for maintenance:
+1. One source of truth: reduces copy/paste class divergence.
+2. Lower regression risk: fewer files touched per styling change.
+3. Better review quality: intent-focused diffs instead of long class-string diffs.
+4. Easier handover: new contributors follow a predictable pattern.
+
+Concrete example from this repo:
+1. Exercise action buttons moved from repeated per-component class strings to shared `cva` variants in `src/components/exerciseActionButtonVariants.js`.
+2. Result: color/state/visibility rules are edited once and reused everywhere.
+
 ## Common SCSS -> Tailwind Mappings
 
 1. Layout/flex

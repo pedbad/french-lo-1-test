@@ -47,6 +47,26 @@ It follows modern React best practices.
   2. Tailwind utilities in JSX
   3. shadcn component composition/variants for reusable patterns
 
+## Why This Is Better for Maintenance (Concrete Team Impact)
+
+This migration is about reducing long-term maintenance cost, not rewriting style syntax.
+
+1. Smaller change surface for routine UI updates.
+- Before: update one button state color/spacing in 5 component files.
+- After: update shared utility/variant definition once, all consumers inherit it.
+
+2. Less style drift between similar exercises.
+- Before: class strings diverged over time (`hidden-help`, `show`, `btn-*` combinations).
+- After: a shared `cva` variant API keeps those combinations consistent by default.
+
+3. Faster and safer code reviews.
+- Before: reviewers had to parse long concatenated class strings in each component.
+- After: reviewers check semantic intent (`tone: "warn"`, `visible: failCount >= 2`).
+
+4. Better onboarding for legacy and newer developers.
+- Legacy developers still have explicit control, but now through stable variant contracts.
+- Newer developers get a predictable, shadcn-aligned pattern used elsewhere in modern React apps.
+
 ## Current Baseline
 
 - SCSS files in `src`: 49
