@@ -1,4 +1,3 @@
-import './Mockney.scss';
 import {
 	isTouchChrome,
 	speak,
@@ -235,22 +234,22 @@ export class Mockney extends PureComponent {
 
 		return (
 			<div>
-				<div className={`mockney-container`}>
-					<h1>Translate to Mockney</h1>
+				<div className="grid grid-cols-2 gap-x-5">
+					<h1 className="col-span-2">Translate to Mockney</h1>
 					<textarea
-						className={`mockney-english`}
+						className="h-[200px]"
 						id={`${id}English`}
 						onChange={this.handleChange}
 						placeholder={`English`} />
 					<textarea
-						className={`mockney-mockney`}
+						className="h-[200px]"
 						id={`${id}Mockney`}
 						placeholder={`Mockney`}
 						ref={this.mockneyRef}
 						value={mockney}
 						readOnly
 					/>
-					<button onClick={this.handleSpeak}>Read aloud</button>
+					<button className="w-fit col-start-2 m-3" onClick={this.handleSpeak}>Read aloud</button>
 				</div>
 			</div>
 		);

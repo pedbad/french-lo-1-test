@@ -150,12 +150,13 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/AnswerTable/AnswerTable.scss` (deleted; import removed from `src/components/AnswerTable/AnswerTable.jsx`)
     - [x] `src/components/ConnectFour/ConnectFour.scss` (deleted; import removed from `src/components/ConnectFour/ConnectFour.jsx`)
     - [x] `src/components/Form/OkCancel/OkCancel.scss` (deleted; styles migrated to JSX utilities in `src/components/Form/OkCancel/OkCancel.jsx`)
+    - [x] `src/components/Mockney/Mockney.scss` (deleted; styles migrated to JSX utilities in `src/components/Mockney/Mockney.jsx`)
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 46 (from 54)
-    - SCSS imports in JSX/JS: 45 (from 53)
+    - SCSS files in `src`: 45 (from 54)
+    - SCSS imports in JSX/JS: 44 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
