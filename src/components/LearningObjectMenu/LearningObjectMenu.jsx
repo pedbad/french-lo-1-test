@@ -1,4 +1,3 @@
-import './LearningObjectMenu.scss';
 import React from 'react';
 
 export class LearningObjectMenu extends React.Component {
@@ -17,9 +16,10 @@ export class LearningObjectMenu extends React.Component {
 			learningObjects.forEach((learningObject, index) => {
 				renderedMenu.push(
 					<li
-						className={`menu-item ${currentLearningObject === index ? 'highlight' : ''}`}
+						className={`menu-item m-1 indent-0 rounded-lg font-bold no-underline ${currentLearningObject === index ? 'highlight' : ''}`}
 						key={`menu-item-${index}`}>
 						<a
+							className="inline-block h-full w-full box-border rounded-lg bg-[var(--primary)] px-4 py-2 text-center font-bold text-[var(--primary-foreground)] no-underline visited:text-[var(--primary-foreground)]"
 							href={`${baseURL}?lang=${languageCode}&lo=${learningObject.file}`}
 							onClick={() => this.selectLearningObject(index)}
 						>{index <= 14 ? index + 1 : index === 15 ? 'Demo' : "Answer"}</a>
@@ -29,10 +29,9 @@ export class LearningObjectMenu extends React.Component {
 			);
 		}
 		return (
-			<ul id={`learningObjectMenu`} className={`lo-menu`}>
+			<ul id={`learningObjectMenu`} className={`lo-menu mb-2 w-full flex-row flex-wrap items-center justify-evenly list-none p-0`}>
 				{renderedMenu}
 			</ul>
 		);
 	};
 }
-

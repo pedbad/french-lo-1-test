@@ -448,6 +448,15 @@
 			margin: 0.2rem 0.2rem;
 		}
 	}
+
+	/* Legacy LO menu visibility contract: hidden by default, visible only in debug mode. */
+	#learningObjectMenu {
+		display: none;
+	}
+
+	html.debug #learningObjectMenu {
+		display: flex;
+	}
 }
 
 @layer utilities {
