@@ -1,5 +1,7 @@
 # Typography Unification Plan
 
+Status: Completed for current scope on 2026-02-14. This plan is retained as implementation history/reference.
+
 Date: 2026-02-11  
 Repo: `/Users/ped/Sites/french/french-lo-1-test`
 

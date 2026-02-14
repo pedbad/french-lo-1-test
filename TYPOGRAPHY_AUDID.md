@@ -1,5 +1,7 @@
 # Typography Audit
 
+Note: This is a historical baseline snapshot (2026-02-11) captured before the typography migration was completed. Current runtime typography uses semantic `--line-height-*` tokens.
+
 Date: 2026-02-11
 Repo: `/Users/ped/Sites/french/french-lo-1-test`
 
@@ -11,7 +13,7 @@ This audit checks where typography is currently controlled across:
 - JSX Tailwind text utilities (`text-*` classes)
 
 ## Executive Summary
-- Token definitions exist in one place: `src/index.css` (`--font-size-*`, `--body-line-height`).
+- Token definitions exist in one place: `src/index.css` (`--font-size-*`, `--line-height-body` and related semantic line-height tokens).
 - Tailwind `fontSize` is mapped to those tokens in `tailwind.config.js`.
 - Typography ownership is still split because many SCSS files set hardcoded sizes/line-heights.
 - JSX also uses direct utility scales (`text-sm`, `text-base`, etc.), including shadcn UI files.

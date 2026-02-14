@@ -553,6 +553,20 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - refreshed typography token wording to reference current semantic token names.
 - Why: completes line-height token migration and removes a compatibility alias that could reintroduce naming drift.
 
+## 66) Typography Completion Pass (Tailwind Mapping + Tracker Closure)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/tailwind.config.js`:
+  - replaced final legacy line-height reference `var(--body-line-height)` with `var(--line-height-body)`.
+  - mapped `xs/sm/lg/xl` line-heights to semantic tokens (`--line-height-xs`, `--line-height-sm`, `--line-height-lg`, `--line-height-xl`) instead of inline numeric literals.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - added semantic line-height tokens used by Tailwind mapping:
+    - `--line-height-xs`
+    - `--line-height-sm`
+    - `--line-height-lg`
+    - `--line-height-xl`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` and `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+  - marked typography stream complete for current scope and aligned wording with semantic token naming.
+- Why: removes the last runtime dependency on a removed alias and closes the typography migration loop with a single tokenized line-height vocabulary.
+
 
 # Files Deleted (partial but comprehensive)
 

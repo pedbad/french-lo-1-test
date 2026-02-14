@@ -21,11 +21,12 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - Global body base size moved to token var (`var(--font-size-sm)`) in `src/App.scss`
 - [x] Small App typography batch 2 complete
   - Global `h1..h6` size block moved from hardcoded rem to token-based expressions in `src/App.scss`
-- [~] Migrate remaining SCSS `font-family` ownership into utility/token path
+- [x] Migrate remaining SCSS `font-family` ownership into utility/token path
   - App baseline font-family declarations in `src/App.scss` now tokenized (`var(--font-sans)`, `var(--font-heading)`)
   - `@font-face` declarations moved out of `src/App.scss` into dedicated `src/styles/fonts.css` (imported globally in `src/main.jsx`)
-- [ ] Continue removing hardcoded `font-size/line-height/font-family` from remaining SCSS hotspots
-  - Priority: `src/App.scss`, `src/components/PhraseTable/PhraseTable.scss`
+- [x] Continue removing hardcoded `font-size/line-height/font-family` from remaining SCSS hotspots
+  - Full repo audit now shows no remaining literal SCSS/CSS `font-size` or `line-height` unit values (`px/rem/em`) in source.
+  - Tailwind typography mapping now uses semantic line-height tokens (`--line-height-*`) only; legacy `--body-line-height` runtime reference removed.
   - Note: `src/components/MainMenu/MainMenu.scss` has been verified as tokenized for typography sizing.
   - completed: mobile accordion heading `line-height: 1.2` replaced with `var(--line-height-2xl)` in `src/components/Accordion/Accordion.scss`
   - completed: accordion title inline style `lineHeight: "1.2"` replaced with `var(--line-height-2xl)` in `src/components/Accordion/AccordionArticle.jsx`
@@ -80,7 +81,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 
 - [x] Typography batch 3: converted remaining small hardcoded text in `src/App.scss` (`figcaption`, `.footnote`) to token-based values.
 - [x] Typography batch 4: converted PhraseTable hardcoded text sizing to token-based values in `src/components/PhraseTable/PhraseTable.scss`.
-- [~] Typography batch 5: continue `src/App.scss` cleanup (remaining hardcoded `line-height`/clamp text hotspots) with visual parity checks.
+- [x] Typography batch 5: continue `src/App.scss` cleanup (remaining hardcoded `line-height`/clamp text hotspots) with visual parity checks.
   - completed: heading `line-height` and heading margin factors tokenized via `--line-height-2xl`
   - completed: additional App line-height literals replaced with token expressions (`.app`, WordParts table text, responsive WordParts text, desktop paragraph line-height)
   - completed: `#SpeechSynthesisError` hardcoded `40px/60px` replaced with tokenized size/line-height
@@ -100,3 +101,4 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: Header/ModalLinkDialog/Attribution utility rem literals migrated to token expressions
   - completed: SortableWordCard and MemoryMatchGame rem utility text scales migrated to token expressions
   - completed: legacy `--body-line-height` alias removed; semantic line-height tokens are now canonical
+  - completed: `tailwind.config.js` line-height mappings now point to semantic tokens (`--line-height-body`, `--line-height-xs/sm/lg/xl`)

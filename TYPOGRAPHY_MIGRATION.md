@@ -1,9 +1,11 @@
 # Typography Migration Plan
 
+Status: Completed for current scope on 2026-02-14. This file remains as migration history and operating guidance for future typography changes.
+
 ## Why this exists
 This project currently has typography defined in multiple places:
 
-- `src/index.css` (design tokens like `--font-size-*`, `--body-line-height`)
+- `src/index.css` (design tokens like `--font-size-*`, `--line-height-body`)
 - `tailwind.config.js` (Tailwind `fontSize` mapping to tokens)
 - SCSS files (`src/App.scss`, component `*.scss`) with direct `font-size` and `line-height`
 - JSX class strings (`text-sm`, `text-base`, `sm:text-lg`, etc.)
@@ -89,7 +91,7 @@ In `src/index.css` keep a clear scale:
 - `--font-size-xl`
 - `--font-size-2xl`
 - `--font-size-3xl`
-- `--body-line-height`
+- `--line-height-body`
 - heading line-height tokens (`--line-height-2xl`, `--line-height-3xl`)
 
 Rules:

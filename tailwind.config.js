@@ -73,11 +73,11 @@ export default {
 			fontSize: {
 				'2xl': ['var(--font-size-2xl)', { lineHeight: 'var(--line-height-2xl)' }],
 				'3xl': ['var(--font-size-3xl)', { lineHeight: 'var(--line-height-3xl)' }],
-				base: ['var(--font-size-base)', { lineHeight: 'var(--body-line-height)' }],
-				lg: ['var(--font-size-lg)', { lineHeight: '1.8' }],
-				sm: ['var(--font-size-sm)', { lineHeight: '1.5' }],
-				xl: ['var(--font-size-xl)', { lineHeight: '1.9' }],
-				xs: ['var(--font-size-xs)', { lineHeight: '1.4' }],
+				base: ['var(--font-size-base)', { lineHeight: 'var(--line-height-body)' }],
+				lg: ['var(--font-size-lg)', { lineHeight: 'var(--line-height-lg)' }],
+				sm: ['var(--font-size-sm)', { lineHeight: 'var(--line-height-sm)' }],
+				xl: ['var(--font-size-xl)', { lineHeight: 'var(--line-height-xl)' }],
+				xs: ['var(--font-size-xs)', { lineHeight: 'var(--line-height-xs)' }],
 			},
 			keyframes: {
 				"highlight-flash": {
