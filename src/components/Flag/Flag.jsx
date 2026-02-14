@@ -1,4 +1,3 @@
-import './Flag.scss';
 import React, { createRef, PureComponent } from 'react';
 
 export class Flag extends PureComponent {
@@ -159,9 +158,12 @@ export class Flag extends PureComponent {
 
 	render = () => {
 		const { shadow } = this.props;
+		const flagContainerClass = shadow
+			? "relative overflow-visible before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/flagpole.png')] before:bg-no-repeat before:z-0 before:h-[200%] before:bg-[length:14.4%] before:top-[8.1px] before:left-[-9px]"
+			: "relative overflow-visible before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/flagpole.png')] before:bg-no-repeat before:z-0 before:h-[200%] before:bg-[length:16.4%] before:top-[-6.2px] before:left-[-26.1px]";
 		return (
-			<div className={`flag-container ${shadow ? 'shadow' : ''}`} >
-				<canvas ref={this.canvasRef} style={{ display: 'block' }} />
+			<div className={flagContainerClass}>
+				<canvas className="relative z-[1001] mt-[19px] block" ref={this.canvasRef} />
 			</div>
 		);
 	};
