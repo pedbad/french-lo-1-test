@@ -170,6 +170,14 @@ These are accepted refinements from peer review, adapted to this repo:
     - `exercise-help-end`
     - `exercise-help-hints`
     - `exercise-help-actions`
+  - [x] centralized legacy `.help` base layout into global layered CSS:
+    - `.help`
+  - [x] removed duplicate `@include help()` ownership from:
+    - `src/components/AnswerTable/AnswerTable.scss`
+    - `src/components/MemoryMatchGame/MemoryMatchGame.scss`
+    - `src/components/Jigsaw/Jigsaw.scss`
+    - `src/components/WordGrid/WordGrid.scss`
+    - `src/components/ReadAloud/ReadAloud.scss` (kept local `grid-area: help` override)
   - [x] centralized progressive reveal helper classes into global layered CSS:
     - `.hidden-help`
     - `.hidden-help.show`

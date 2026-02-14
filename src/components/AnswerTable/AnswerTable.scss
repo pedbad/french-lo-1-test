@@ -6,13 +6,6 @@
 @use "../../styles/variables.module.scss" as *;
 
 .answer-table-container {
-	.help {
-		// display: flex;
-		// flex-direction: column;
-		// row-gap: 8px;
-		// justify-content: flex-between;
-		@include help();
-	}
 	// table {
 	// 	text-align: left;
 	// 	border-collapse: collapse;

@@ -45,14 +45,6 @@
 		font-weight: bold;
 	}
 
-	.help {
-		// padding: 1rem;
-		// display: flex;
-		// justify-content: space-evenly;
-		// width: 600px;
-		@include help();
-	}
-
 	.audio-clip {
 		display: flex;
 		align-items: center;

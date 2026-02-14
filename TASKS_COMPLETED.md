@@ -164,6 +164,12 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - `exercise-help-end`
     - `exercise-help-hints`
     - `exercise-help-actions`
+  - [x] centralized legacy `.help` base layout in `src/index.css` and removed duplicate `@include help()` blocks from:
+    - `src/components/AnswerTable/AnswerTable.scss`
+    - `src/components/MemoryMatchGame/MemoryMatchGame.scss`
+    - `src/components/Jigsaw/Jigsaw.scss`
+    - `src/components/WordGrid/WordGrid.scss`
+    - `src/components/ReadAloud/ReadAloud.scss` (local `grid-area` override preserved)
   - [x] centralized shared progressive reveal helpers in `src/index.css`:
     - `.hidden-help`
     - `.hidden-help.show`

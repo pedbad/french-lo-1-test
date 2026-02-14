@@ -194,6 +194,21 @@ Maintenance win:
 1. One rule owner for shared behavior.
 2. Fewer regressions when changing transition/visibility behavior later.
 
+5. Real project pattern: centralize repeated layout mixin output
+
+Why:
+1. Legacy SCSS `@include help()` was copied across multiple component files.
+2. Same layout rule repeated in many files creates unnecessary maintenance overhead.
+
+Implementation example used here:
+1. Add shared `.help` layout to `src/index.css` under `@layer components`.
+2. Remove duplicated `@include help()` blocks from component SCSS files.
+3. Keep only local overrides where needed (example: `grid-area: help` in ReadAloud).
+
+Maintenance win:
+1. Common layout changes happen in one location.
+2. Component SCSS becomes smaller and more focused on truly component-specific behavior.
+
 ## Token Usage Rules (Project-Specific)
 
 1. Use semantic token variables from `src/index.css`.

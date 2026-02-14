@@ -17,14 +17,6 @@ $none: transparent;
 $blue: var(--primary);
 $border-radius: 10px;
 $transition-time: $memory-card-transition-time;
-.help {
-	// padding: 1rem;
-	// display: flex;
-	// justify-content: space-between;
-	// width: 100%;
-	// align-items: center;
-	@include help();
-}
 .memory-match-game-container {
 	position: relative;
 }

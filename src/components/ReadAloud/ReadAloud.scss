@@ -60,7 +60,6 @@ ReadAloud.scss
 		}
 	}
 	.help {
-		@include help();
 		grid-area: help;
 	}
 	@include comparison();

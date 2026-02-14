@@ -360,6 +360,11 @@
 		@apply flex flex-wrap justify-end gap-2;
 	}
 
+	/* Shared legacy help-row layout; keep local overrides in component styles when needed. */
+	.help {
+		@apply w-full flex flex-row items-center gap-2;
+	}
+
 	/* Shared progressive reveal pattern used by exercise action controls. */
 	.hidden-help {
 		opacity: 0;
