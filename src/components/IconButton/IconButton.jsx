@@ -287,7 +287,7 @@ export class IconButton extends React.PureComponent {
 
 		return (
 			<Button
-				id={id || ''}
+				id={id || undefined}
 				size={size}
 				variant={variant} // ✅ only affects places where you explicitly pass it
 				className={`icon-button ${className ? className : ''} ${extraClasses}`}

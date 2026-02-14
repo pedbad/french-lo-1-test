@@ -721,6 +721,50 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - `yarn build` passes successfully after the semantic-tag migration and spacing fix.
 - Why: improves semantic HTML/accessibility without changing behavior, and removes whitespace ambiguity around inline audio components.
 
+## 80) Color Guard Tuning + Mixins Policy Closure
+- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/check-color-guard.sh`:
+  - reduced false positives in class scanning by removing generic `className=` context matching and relying on utility-style token detection (`text-`, `bg-`, `border-`, `from-`, `to-`, `via-`, etc.).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/color-allowlist.txt`:
+  - clarified policy to keep allowlist limited to canonical token source files.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/styles/_mixins.module.scss`:
+  - removed unused `contrast()` Sass helper that contained compile-time `white/black/#ffffff` literals.
+  - replaced remaining `lightGray` literal with semantic token `var(--muted)` in `button-info`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+  - marked the last two color migration policy/guard tasks complete.
+- Why: closes outstanding color migration governance work without expanding allowlists or retaining dead literal-color helper code.
+
+## 81) Accessibility Phase 1A (Invalid `name` attrs + Empty ID emission)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - removed invalid `name` attribute from top modal-link target span (`id="modal-link-top"` retained).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`:
+  - removed invalid `name` attribute from section heading target.
+  - removed invalid `name` attribute from article wrapper div.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`:
+  - removed invalid `name` attribute from hero heading target.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
+  - removed invalid `name` attributes from accordion heading targets (title + titleHTML paths).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/CustomComponents_FR/CustomComponents_FR.jsx`:
+  - removed invalid non-form `name` attributes from modal-link spans/anchor (`madame`, `mademoiselle`, `tuvous`, `toi`, `subject-pronouns`).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/IconButton/IconButton.jsx`:
+  - changed `id={id || ''}` to `id={id || undefined}` so empty `id=""` is no longer emitted.
+- Validation:
+  - `yarn build` passes.
+  - color guard still passes (`yarn -s check:color:branch`).
+- Why: resolves high-noise HTML validity issues with minimal behavioral risk by removing invalid legacy attributes and preventing empty id output.
+
+## 82) Docs Sync (Semantics + Accessibility-First Future Blueprint)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+  - mirrored semantic/a11y updates to reflect current state:
+    - `<main id="content">` landmark in place
+    - inline emphasis migration (`<strong>/<em>`)
+    - abbreviations content using semantic definition-list markup (`<dl>/<dt>/<dd>`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md`:
+  - strengthened accessibility-first rules for all new projects:
+    - semantic landmarks/headings and proper interactive semantics from day one
+    - explicit accessibility test gates (lint + automated checks + keyboard pass) before merge
+    - accessibility treated as a non-negotiable quality gate, not a post-build cleanup task
+- Why: prevents documentation drift and makes accessibility expectations explicit in both current-repo guidance and future project scaffolding.
+
 
 # Files Deleted (partial but comprehensive)
 

@@ -90,7 +90,6 @@ export class Section extends React.PureComponent {
 							<h2
 								className="modal-link-target"
 								id={`modal-link-${target}`}
-								name={`modal-link-${target}`}
 							>
 								{titleHTML ? (
 									<span
@@ -123,7 +122,6 @@ export class Section extends React.PureComponent {
 
 						<div
 							id={`${id}`}
-							name={`article-${id}`}
 							key={`article-${id}`}
 						>
 							<div

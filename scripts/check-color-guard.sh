@@ -100,7 +100,9 @@ is_color_violation() {
 	local line="$1"
 
 	# Reduce false positives by only scanning style-like contexts.
-	if [[ ! "$line" =~ (color[[:space:]]*:|background[[:space:]]*:|border[[:space:]-]*:|fill[[:space:]]*:|stroke[[:space:]]*:|box-shadow[[:space:]]*:|text-shadow[[:space:]]*:|outline[[:space:]-]*:|filter[[:space:]]*:|class(name)?=|style=|text-|bg-|border-|from-|to-|via-|stroke-|fill-|shadow-) ]]; then
+	# Note: className-only matching is handled through utility-style tokens
+	# (text-/bg-/border-/etc.) to avoid flagging benign class names like "black".
+	if [[ ! "$line" =~ (color[[:space:]]*:|background[[:space:]]*:|border[[:space:]-]*:|fill[[:space:]]*:|stroke[[:space:]]*:|box-shadow[[:space:]]*:|text-shadow[[:space:]]*:|outline[[:space:]-]*:|filter[[:space:]]*:|style=|text-|bg-|border-|from-|to-|via-|stroke-|fill-|shadow-) ]]; then
 		return 1
 	fi
 

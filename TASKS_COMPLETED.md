@@ -57,7 +57,9 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - `scripts/check-color-guard.sh`
   - `scripts/color-allowlist.txt`
 - [x] Add `check:color` to package scripts and include in local pre-push flow
-- [ ] Tune color guard allowlist/patterns based on real-world false positives (keep list minimal)
+- [x] Tune color guard allowlist/patterns based on real-world false positives (keep list minimal)
+  - narrowed class-name scanning in `check-color-guard.sh` to utility-style tokens (`text-`, `bg-`, `border-`, etc.) to avoid false positives from benign class names like `black`
+  - kept allowlist intentionally minimal (`src/index.css` only)
 - [x] Migrate high-impact literal color hotspots
   - Priority: `src/App.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/AudioClip/AudioClip.scss`, `src/components/Footer/Footer.scss`
   - completed: `App.scss` literal accent `oklch(...)` usage replaced with semantic tokens (`--ped-warn`, `--chart-3`)
@@ -71,8 +73,9 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `MemoryMatchGame.scss` and `MemoryMatchGame/Card/Card.scss` Sass transparent helper changed from `rgba(#fff, 0)` to `transparent`
   - completed: `Flag.jsx` canvas shading switched from `--foreground/--background` + black/white fallbacks to semantic RGB channel tokens (`--color-text-primary`, `--color-surface-base`)
   - completed: `Blanks.scss`, `DraggableWordTile.jsx`, and shared `header-footer-background` mixin now use semantic token mixes (`--foreground`/`--background`) instead of literal `black/white`
-- [ ] Decide policy for remaining Sass compile-time contrast helper literals in `_mixins.module.scss`
-  - evaluate whether `contrast()` internals (`white`, `black`, `#ffffff`) should be tokenized, allowlisted, or kept as compile-time utility exceptions
+- [x] Decide policy for remaining Sass compile-time contrast helper literals in `_mixins.module.scss`
+  - decision: remove unused `contrast()` helper instead of allowlisting compile-time literals
+  - replaced remaining `lightGray` literal in `_mixins.module.scss` with semantic token `var(--muted)`
 
 ## Audio
 
@@ -94,6 +97,11 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - fixed inline spacing around Grammar 2 (`Tu` / `vous`) audio-link sentence using explicit React spaces (`{' '}`) to avoid collapsed/ambiguous gaps around inline components
   - build verification passed (`yarn build`)
 - [ ] Phase 1: remove invalid `name` attributes and empty IDs
+  - completed Phase 1A:
+    - removed invalid non-form `name` attributes in `App`, `Section`, `HeroSection`, `AccordionArticle`, and key `CustomComponents_FR` modal-link anchors
+    - stopped empty `id=\"\"` emission in `IconButton` by switching to `id={id || undefined}`
+  - remaining Phase 1:
+    - audit remaining `id={\`${id ? id : ''}\`}` patterns and decide which should become conditional `undefined`
 - [ ] Phase 2: fix duplicate IDs and ID generation consistency
 - [ ] Phase 3: improve interactive semantics (accordion/button patterns)
 - [ ] Phase 4: ARIA cleanup (remove invalid aria usage, keep only needed labels)

@@ -67,9 +67,9 @@ export const Grammar1Body = ({ highlightIntro = false, showInfoBox = false } = {
 
 	return (
 		<>
-			<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`madame`} name={`madame`}>In French there is no equivalent to the English Ms.
+			<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`madame`}>In French there is no equivalent to the English Ms.
 				To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar1/001-madame.mp3`}><strong>Madame</strong></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
-			</span><span className={`modal-link-target`} id={`mademoiselle`} name={`mademoiselle`} ><AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar1/002-mademoiselle.mp3`}><strong>Mademoiselle</strong></AudioClip>. <strong>Mademoiselle</strong> is otherwise reserved
+			</span><span className={`modal-link-target`} id={`mademoiselle`} ><AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar1/002-mademoiselle.mp3`}><strong>Mademoiselle</strong></AudioClip>. <strong>Mademoiselle</strong> is otherwise reserved
 				for a teenage girl.</span></p>
 			{showInfoBox ? <Info>{abbreviationsList}</Info> : abbreviationsList}
 		</>
@@ -102,13 +102,13 @@ export class LO1Grammar2 extends PureComponent {
 
 export const Grammar2Body = ({ highlightIntro = false } = {}) => (
 	<>
-		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`} name={`tuvous`}>
+		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`}>
 			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/001-tu.mp3`}><strong>Tu</strong></AudioClip>{' '}
 			and{' '}
 			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/002-vous.mp3`}><strong>vous</strong></AudioClip>{' '}
 			both mean 'you'.</span></p>
 		<p><strong>Tu</strong> is used when addressing one person and is familiar. That means you use it when speaking to your partner, a relative, a friend,
-			a classmate or a child etc. <span className={`modal-link-target`} id={`toi`} name={`toi`} >When returning question i.e. when you ask 'and you?' you use the
+			a classmate or a child etc. <span className={`modal-link-target`} id={`toi`} >When returning question i.e. when you ask 'and you?' you use the
 			form&nbsp;
 		<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/003-toi.mp3`}><strong>toi</strong></AudioClip> instead of&nbsp;
 		<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/001-tu.mp3`}><strong>tu:</strong></AudioClip>&nbsp;
@@ -346,7 +346,7 @@ export class LO2Grammar extends PureComponent {
 					id={`${id ? `${id}Panel3` : ''}`}
 					key={`${id}Panel3`}
 				>
-					<p><a className={`modal-link-target`} id={`subject-pronouns`} name={`subject-pronouns`} ><strong>3. Subject pronouns</strong>.</a></p>
+					<p><a className={`modal-link-target`} id={`subject-pronouns`} ><strong>3. Subject pronouns</strong>.</a></p>
 					<ul>
 						<li><strong>Il</strong> is used to replace a masculine noun.</li>
 						<li><strong>Elle</strong> is used to replace a feminine noun.</li>

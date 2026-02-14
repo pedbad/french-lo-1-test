@@ -38,7 +38,6 @@ export const HeroSection = ({
 						<h2
 							className="modal-link-target"
 							id={`modal-link-${target}`}
-							name={`modal-link-${target}`}
 						>
 							{titleHTML ? (
 								<span

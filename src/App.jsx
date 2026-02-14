@@ -823,7 +823,6 @@ export default class App extends React.Component {
 							aria-hidden="true"
 							className={`modal-link-target`}
 							id="modal-link-top"
-							name={`modal-link-top`}
 							style={{ "position": "absolute", "top": "-4rem" }}
 							tabIndex="-1"
 						/>

@@ -125,7 +125,6 @@ export class AccordionArticle extends React.PureComponent {
 				title={`${expanded ? 'Click to close' : 'Click to expand'}`}
 				className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
 				id={`modal-link-${target}`}
-				name={`modal-link-${target}`}
 				style={ACCORDION_TITLE_STYLE}
 			>
 				{this.renderSplitTitle(title)}
@@ -140,7 +139,6 @@ export class AccordionArticle extends React.PureComponent {
 					title={`${expanded ? 'Click to close' : 'Click to expand'}`}
 					className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
 					id={`modal-link-${target}`}
-					name={`modal-link-${target}`}
 					style={ACCORDION_TITLE_STYLE}
 				>
 					<span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }} />

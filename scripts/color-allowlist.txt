@@ -1,4 +1,5 @@
 # File path globs where literal color definitions are allowed.
 # Keep this list narrow and intentional.
+# Canonical token source only; avoid component-level allowlisting.
 
 src/index.css

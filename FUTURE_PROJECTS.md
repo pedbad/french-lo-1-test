@@ -24,12 +24,15 @@ Non-negotiable architecture:
    - visible focus states
    - keyboard support
    - prefers-reduced-motion support
+   - semantic landmarks/headings (`<main>`, `<nav>`, `<section>` with headings)
+   - native interactive elements first (`button`, `a`, `input`) before ARIA role fallbacks
 9. Add guardrails:
    - ESLint + Prettier
    - pre-commit hooks
    - CI checks
    - style guard script that fails on new hardcoded typography/colors outside token files
    - fail CI if any .scss/.sass files are added
+   - fail CI on accessibility gate failures (lint + automated checks)
 10. Add docs:
    - THEME_ARCHITECTURE.md
    - COMPONENT_GUIDELINES.md
@@ -199,6 +202,18 @@ document.documentElement.dataset.theme = localeThemeMap[locale];
 5. Verify locale/brand theme parity (French/Spanish/Russian or equivalents).
 6. Verify keyboard focus and reduced motion.
 7. Run guard checks and CI before merge.
+8. Run accessibility checks before merge:
+   - eslint accessibility rules (for example `jsx-a11y`)
+   - automated page checks (for example axe in Playwright/Cypress)
+   - quick keyboard-only smoke test (Tab/Shift+Tab, Enter, Space, Esc where relevant)
+
+## Accessibility Is Non-Negotiable
+
+Treat accessibility as a build requirement, not a polish task:
+1. Every page must ship with semantic landmarks and heading structure.
+2. Every interactive control must be keyboard-operable and visibly focusable.
+3. Every icon-only control must have an accessible name.
+4. CI must fail if accessibility gates fail.
 
 ## Copy-Only Prompt (Short)
 

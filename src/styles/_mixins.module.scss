@@ -15,17 +15,6 @@ _mixins.module.scss
 	); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
-@function contrast($n) {
-	$color-brightness: round(((red($n) * 299) + (green($n) * 587) + (blue($n) * 114)) / 1000);
-	$light-color: round(((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114)) / 1000);
-
-	@if abs($color-brightness) < ($light-color / 2) {
-		@return white;
-	} @else {
-		@return black;
-	}
-}
-
 @mixin help() {
 	width: 100%;
 	align-items: flex-start;
@@ -92,13 +81,13 @@ _mixins.module.scss
 			background: var(--card);
 		}
 
-		button {
-			&.button-info {
-				@include button-common;
-				background-color: lightGray;
-				border-radius: 10px;
-				width: 20px;
-				height: 20px;
+			button {
+				&.button-info {
+					@include button-common;
+					background-color: var(--muted);
+					border-radius: 10px;
+					width: 20px;
+					height: 20px;
 				padding: 0;
 				// border: 1px solid $button-border;
 				font-size: var(--font-size-sm);

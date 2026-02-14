@@ -209,11 +209,13 @@ Current SCSS footprint (49 files), grouped by area:
 
 ## Semantics
 
-Based on the render method in `src/App.jsx`, there is no `<main>` HTML element being used. The primary content areas are enclosed within `div` elements, such as `#hero` and `#content`.
-
-Using a `<main>` element is a W3C-recommended practice for semantic HTML5. It marks the dominant content of the `<body>`, which is unique to that document. Its absence means the page does not fully leverage HTML5 semantics, impacting accessibility (screen readers use `<main>` as a landmark for navigation) and potentially SEO.
-
-The `#content` element is a prime candidate to be replaced with `<main id="content">`.
+Semantic baseline updates are in place:
+- Primary content uses `<main id="content">` as the landmark container.
+- Top-level learning object blocks are rendered as semantic sections.
+- Inline emphasis in rendered JSX uses semantic tags:
+  - `<strong>` instead of `<b>`
+  - `<em>` instead of `<i>`
+- Abbreviations content in `CustomComponents_FR` now uses semantic definition-list markup (`<dl>`, `<dt>`, `<dd>`) instead of table-like structure.
 
 Top-level learning object blocks (Introduction, Dialogues, Vocabulary, Grammar, Pronunciation, Exercises) should be rendered as `<section>` elements to improve semantic structure and landmark navigation.
 

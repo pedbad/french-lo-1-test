@@ -5,6 +5,13 @@ This audit is based on your validator output from the Vite dev-rendered page.
 
 Important: that output includes **many false positives/noise** from Tailwind v4, SCSS module internals, and Vite-injected `<style>` tags. We should validate built HTML (`yarn build && yarn preview`) and then fix only real app markup/a11y issues.
 
+## Completed Semantic Upgrades (Already Applied)
+- Added semantic main landmark: the primary content wrapper now uses `<main id="content">` (replacing a generic container).
+- Replaced legacy presentational inline tags in rendered JSX:
+  - `<b>` -> `<strong>`
+  - `<i>` -> `<em>`
+- Replaced abbreviation table-like content with better semantics using abbreviation definitions (`<dl>`, `<dt>`, `<dd>`) in `CustomComponents_FR` (Abbreviations block).
+
 ## What Is Noise (Do Not Triage First)
 These are mostly tooling/validator-compatibility issues, not app defects:
 - `@layer`, `@property` unknown at-rules (Tailwind v4 CSS features)
@@ -56,6 +63,19 @@ These are mostly tooling/validator-compatibility issues, not app defects:
 2. Inline spacing around audio-link sentence content
 - In LO1 Grammar 2 ("tu vs vous"), replaced whitespace-dependent spacing with explicit React spaces (`{' '}`) around inline `AudioClip` components.
 - Rationale: avoids collapsed/ambiguous spacing when inline components render as wrappers (`span`/inline-flex).
+
+3. Invalid non-form `name` attributes removed (Phase 1A)
+- Removed legacy `name` attributes from non-form elements in:
+  - `App`
+  - `Section`
+  - `HeroSection`
+  - `AccordionArticle`
+  - key modal-link targets in `CustomComponents_FR`
+- Rationale: validator-compliant HTML (non-form elements should use `id` for fragment targets).
+
+4. Empty `id=""` emission reduced at source
+- `IconButton` now renders `id={id || undefined}` instead of `id={id || ''}`.
+- Rationale: prevents invalid empty id values being emitted repeatedly by icon-only controls.
 
 ## Likely Root Causes
 - Legacy component patterns mixed with newer shadcn/Tailwind patterns.
