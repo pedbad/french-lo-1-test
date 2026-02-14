@@ -1,4 +1,3 @@
-import './TextField.scss';
 import {
 	Info,
 } from '../..';
@@ -46,15 +45,19 @@ export class TextField extends React.PureComponent {
 			value = '',
 		} = this.props;
 
+		const isLocked = disabled || readOnly;
+		const inputClassName = `text-field w-full h-[38px] self-end [grid-area:device] text-[var(--font-size-sm)] p-[8px_4px] ${isLocked ? 'cursor-not-allowed bg-transparent border-0 outline-none' : ''}`;
 		return (
 			<div className={`
 				text-field-row
 				row
+				[&>button]:[grid-area:buttons] [&>button]:self-center [&>button]:justify-self-center
+				[&>.copy-button]:justify-self-center [&>.paste-button]:[grid-area:buttons]
 				${copyButton ? 'with-button' : ''}
 				${label === '' || label === undefined ? 'without-label' : ''}
 				${className} 
 				${value === '' ? 'unset' : ''} 
-				${disabled || readOnly ? 'disabled' : ''}
+				${isLocked ? 'disabled' : ''}
 				${error ? 'error' : ''}
 			`}>
 				{label ? <label htmlFor={id}>{label}{required ? <sup>*</sup> : ""}{info ? <Info
@@ -64,7 +67,7 @@ export class TextField extends React.PureComponent {
 				{(autocomplete !== '') ?
 					<input
 						autoComplete={autocomplete}
-						className={`text-field`}
+						className={inputClassName}
 						disabled={disabled}
 						editable={readOnly ? 'false' : 'true'}
 						id={id}
@@ -84,7 +87,7 @@ export class TextField extends React.PureComponent {
 					/>
 					:
 					<input
-						className={`text-field`}
+						className={inputClassName}
 						editable={readOnly ? 'false' : 'true'}
 						disabled={disabled}
 						id={id}
