@@ -357,10 +357,10 @@ html {
 	// border: var(--border-width) * 1px ridge darkblue;
 	color: var(--primary);
 	// display: flex;
-	font-size: 40px;
+	font-size: var(--font-size-2xl);
 	height: fit-content;
 	inset: 0;
-	line-height: 60px;
+	line-height: calc(var(--font-size-2xl) * 1.5);
 	margin: auto;
 	min-height: 22vh;
 	min-width: 80vw;

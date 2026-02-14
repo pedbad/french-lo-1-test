@@ -308,6 +308,13 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - desktop paragraph line-height from `1.6em` -> `calc(var(--body-line-height) - 0.1)`
 - Updated `TASKS_COMPLETED.md` with this batch progress under Typography batch 5.
 
+## 38) Typography Batch 5.2 (Speech Overlay Tokenization)
+- Updated `src/App.scss` in `#SpeechSynthesisError`:
+  - font-size from hardcoded `40px` -> `var(--font-size-2xl)`
+  - line-height from hardcoded `60px` -> `calc(var(--font-size-2xl) * 1.5)`
+- Why: this keeps overlay typography aligned with the shared token scale, so future global size tuning applies consistently and avoids isolated px-based drift.
+- Updated `TASKS_COMPLETED.md` with this sub-step under Typography batch 5.
+
 
 # Files Deleted (partial but comprehensive)
 

@@ -63,3 +63,4 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [~] Typography batch 5: continue `src/App.scss` cleanup (remaining hardcoded `line-height`/clamp text hotspots) with visual parity checks.
   - completed: heading `line-height` and heading margin factors tokenized via `--line-height-2xl`
   - completed: additional App line-height literals replaced with token expressions (`.app`, WordParts table text, responsive WordParts text, desktop paragraph line-height)
+  - completed: `#SpeechSynthesisError` hardcoded `40px/60px` replaced with tokenized size/line-height
