@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/dialog";
 
 const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
-const modalTitleClass = "text-base sm:text-lg max-[650px]:!text-[1.35rem]";
-const modalBodyClass = "space-y-3 text-base leading-relaxed text-foreground sm:text-lg [&_h2]:max-[650px]:!text-[1.35rem] [&_h3]:max-[650px]:!text-[1.35rem]";
+const modalTitleClass = "text-base sm:text-lg max-[650px]:!text-[var(--font-size-lg)]";
+const modalBodyClass = "space-y-3 text-base leading-relaxed text-foreground sm:text-lg [&_h2]:max-[650px]:!text-[var(--font-size-lg)] [&_h3]:max-[650px]:!text-[var(--font-size-lg)]";
 
 const applyHighlightClasses = (html = "") => {
 	const withClasses = html

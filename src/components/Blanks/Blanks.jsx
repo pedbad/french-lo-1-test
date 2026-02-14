@@ -23,11 +23,11 @@ import { Label } from "@/components/ui/label";
 import React from 'react';
 import { Switch } from "@/components/ui/switch";
 
-const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[1.2rem] font-bold";
+const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.2)] font-bold";
 const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
-const BLANKS_CONTENT_FLOW_CLASS = "leading-[1.4em]";
-const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[0.5rem] sm:leading-[3.5rem]";
-const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[2.6rem]";
+const BLANKS_CONTENT_FLOW_CLASS = "leading-[var(--line-height-app)]";
+const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*0.5)] sm:leading-[calc(var(--font-size-sm)*3.5)]";
+const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*2.6)]";
 const BLANKS_DROP_TARGET_CLASS = "border-2 border-dashed border-[color-mix(in_oklab,var(--chart-3)_72%,var(--border))] bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)]";
 
 export class Blanks extends React.Component {

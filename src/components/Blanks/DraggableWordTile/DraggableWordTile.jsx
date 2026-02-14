@@ -2,7 +2,7 @@ import './DraggableWordTile.scss';
 import { ArrowDownToLine } from "lucide-react";
 import React from 'react';
 
-const BLANK_WORD_TEXT_CLASS = "text-[1.2rem] leading-[1.4rem]";
+const BLANK_WORD_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.2)] leading-[calc(var(--font-size-sm)*1.4)]";
 const DROP_TARGET_ICON_CLASS = "pointer-events-none absolute inset-0 m-auto h-4 w-4 text-[color-mix(in_oklab,var(--chart-3)_65%,white)] opacity-70 z-0";
 const DRAGGABLE_WORD_TILE_CLASS = [
 	"inline-flex justify-center select-none transition-[left,top,box-shadow] duration-1000",

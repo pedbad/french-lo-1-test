@@ -1,7 +1,7 @@
 import './Header.scss';
 import React from 'react';
 
-const HEADER_TEXT_CLASS = "leading-[3rem]";
+const HEADER_TEXT_CLASS = "leading-[calc(var(--font-size-sm)*3)]";
 
 export class Header extends React.PureComponent {
 

@@ -21,7 +21,7 @@ import DOMPurify from "dompurify";
 import React from "react";
 import { resolveAsset } from "../../utility";
 
-const DROPDOWN_TRIGGER_TEXT_CLASS = "min-w-[9rem] p-0 text-[var(--font-size-sm)] leading-[1.4rem] md:min-w-[12rem] md:p-1 md:text-[1.2rem]";
+const DROPDOWN_TRIGGER_TEXT_CLASS = "min-w-[9rem] p-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:min-w-[12rem] md:p-1 md:text-[calc(var(--font-size-sm)*1.2)]";
 const DROPDOWNS_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base";
 
 export class DropDowns extends React.PureComponent {
@@ -173,7 +173,7 @@ export class DropDowns extends React.PureComponent {
 								<SelectItem
 									key={`${selectId}-opt-${i}`}
 									value={String(i)}
-									className={`${i === winner ? "hint " : ""}text-[var(--font-size-sm)] md:text-[1.2rem]`}
+									className={`${i === winner ? "hint " : ""}text-[var(--font-size-sm)] md:text-[calc(var(--font-size-sm)*1.2)]`}
 								>
 									{opt}
 								</SelectItem>

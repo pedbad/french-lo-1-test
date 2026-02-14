@@ -488,6 +488,71 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - updated HTML normalization helper to inject `var(--line-height-body)` for paragraph/list nodes.
 - Why: completes consumer migration to semantic line-height tokens and reduces dependence on the backward-compat alias.
 
+## 60) Typography Batch 5.20 (WordParts Tailwind Line-Height Tokenization)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/WordParts/WordParts.jsx`:
+  - `WORD_PARTS_TEXT_CLASS` line-height utilities:
+    - `leading-[1.35]` -> `leading-[var(--line-height-wordparts-mobile)]`
+    - added desktop tokenized line-height: `md:leading-[var(--line-height-wordparts)]`
+- Why: removes remaining non-token Tailwind line-height literal and aligns WordParts text rhythm with semantic line-height tokens introduced in batch 5.18.
+
+## 61) Typography Batch 5.21 (Exercise Constant Tokenization)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/Blanks.jsx`:
+  - tokenized `BLANKS_TARGET_BOARD_TEXT_CLASS` from `text-[1.2rem]`
+  - tokenized flow/row line-height utilities:
+    - `leading-[1.4em]` -> `leading-[var(--line-height-app)]`
+    - `leading-[0.5rem]` / `sm:leading-[3.5rem]` -> tokenized `calc(var(--font-size-sm) * ...)`
+    - `leading-[2.6rem]` -> tokenized `calc(var(--font-size-sm) * 2.6)`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx`:
+  - tokenized `BLANK_WORD_TEXT_CLASS` from `text-[1.2rem] leading-[1.4rem]`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ReadAloud/ReadAloud.jsx`:
+  - tokenized `READ_ALOUD_RECORD_BUTTON_TEXT_CLASS` from `text-[1.2rem]`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/TreasureGrid/TreasureGrid.jsx`:
+  - tokenized `TREASURE_GRID_MESSAGE_TEXT_CLASS` from `text-[1.2rem]`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Jigsaw/Jigsaw.jsx`:
+  - tokenized `JIGSAW_CLUE_TEXT_CLASS` (`1.4rem`) and `JIGSAW_TIME_TEXT_CLASS` (`2rem`)
+  - tokenized `JIGSAW_CANVAS_TEXT_CLASS` line-height from `leading-[1.4em]` to `leading-[var(--line-height-app)]`
+- Why: removes a concentrated group of remaining hardcoded typography literals from exercise components while preserving visual ratios through token expressions.
+
+## 62) Typography Batch 5.22 (Tabs + DropDowns Utility Tokenization)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - tokenized tabs trigger text sizes:
+    - `!text-[1.2rem]` -> `!text-[calc(var(--font-size-sm)*1.2)]`
+    - `min-[1170px]:!text-[1.4rem]` -> `min-[1170px]:!text-[calc(var(--font-size-sm)*1.4)]`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/DropDowns/DropDowns.jsx`:
+  - tokenized dropdown trigger typography:
+    - `leading-[1.4rem]` -> `leading-[var(--line-height-app)]`
+    - `md:text-[1.2rem]` -> `md:text-[calc(var(--font-size-sm)*1.2)]`
+  - tokenized dropdown option medium text utility:
+    - `md:text-[1.2rem]` -> `md:text-[calc(var(--font-size-sm)*1.2)]`
+- Why: removes remaining hardcoded rem typography utilities from tabs/dropdown controls and aligns them with the shared token scale.
+
+## 63) Typography Batch 5.23 (Header + Modal + Attribution Utility Tokenization)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Header/Header.jsx`:
+  - tokenized `HEADER_TEXT_CLASS` line-height from `leading-[3rem]` -> `leading-[calc(var(--font-size-sm)*3)]`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ModalLinkDialog/ModalLinkDialog.jsx`:
+  - tokenized mobile title/body heading overrides:
+    - `max-[650px]:!text-[1.35rem]` -> `max-[650px]:!text-[var(--font-size-lg)]` (title and nested `h2`/`h3`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Attribution/Attribution.jsx`:
+  - tokenized `ATTRIBUTION_TEXT_CLASS` from `text-[0.5rem]` -> `text-[calc(var(--font-size-sm)*0.5)]`
+- Why: removes another focused set of rem-based utility literals and keeps typography sizing aligned with shared tokens.
+
+## 64) Typography Batch 5.24 (Sortable + MemoryMatch Utility Tokenization)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/SortableWordCard/SortableWordCard.jsx`:
+  - tokenized remaining rem-based text utilities in `textClass` variants (`0.78rem`, `0.92rem`, `0.98rem`, `1.08rem`)
+  - tokenized stacked index badge text utilities (`0.68rem`, `0.72rem`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MemoryMatchGame/MemoryMatchGame.jsx`:
+  - tokenized cards/matches responsive text utilities:
+    - cards: `0.8rem`, `0.9rem`, `1rem`
+    - matches: `0.6rem`, `0.7rem`, `0.8rem`
+- Why: eliminates the next concentrated cluster of hardcoded rem typography utilities in exercise display components while preserving existing visual scale via token expressions.
+
+## 65) Typography Batch 5.25 (Legacy Line-Height Alias Removal)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - removed legacy `--body-line-height` alias after migrating all consumers to semantic tokens (`--line-height-body`, etc.).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+  - refreshed typography token wording to reference current semantic token names.
+- Why: completes line-height token migration and removes a compatibility alias that could reintroduce naming drift.
+
 
 # Files Deleted (partial but comprehensive)
 

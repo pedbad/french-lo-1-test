@@ -6,7 +6,7 @@ import {
 import { IconButton } from '..';
 import React from 'react';
 
-const READ_ALOUD_RECORD_BUTTON_TEXT_CLASS = "text-[1.2rem]";
+const READ_ALOUD_RECORD_BUTTON_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.2)]";
 
 export class ReadAloud extends React.PureComponent {
 	constructor(props) {

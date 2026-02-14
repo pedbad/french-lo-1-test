@@ -1,7 +1,7 @@
 import './Attribution.scss';
 import React from 'react';
 
-const ATTRIBUTION_TEXT_CLASS = "text-[0.5rem]";
+const ATTRIBUTION_TEXT_CLASS = "text-[calc(var(--font-size-sm)*0.5)]";
 
 export class Attribution extends React.PureComponent {
 

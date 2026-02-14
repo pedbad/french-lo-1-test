@@ -16,9 +16,9 @@ import {
 import React from "react";
 import Variables from "../../styles/_variables.module.scss";
 
-const JIGSAW_CLUE_TEXT_CLASS = "text-[1.4rem] font-bold";
-const JIGSAW_TIME_TEXT_CLASS = "text-[2rem]";
-const JIGSAW_CANVAS_TEXT_CLASS = "leading-[1.4em]";
+const JIGSAW_CLUE_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.4)] font-bold";
+const JIGSAW_TIME_TEXT_CLASS = "text-[calc(var(--font-size-sm)*2)]";
+const JIGSAW_CANVAS_TEXT_CLASS = "leading-[var(--line-height-app)]";
 
 export class Jigsaw extends React.PureComponent {
 

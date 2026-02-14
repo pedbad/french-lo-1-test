@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from 'react';
 
-const WORD_PARTS_TEXT_CLASS = "text-[calc(var(--font-size-base)*1.15)] leading-[1.35] md:text-[calc(var(--font-size-xl)*1.5)]";
+const WORD_PARTS_TEXT_CLASS = "text-[calc(var(--font-size-base)*1.15)] leading-[var(--line-height-wordparts-mobile)] md:text-[calc(var(--font-size-xl)*1.5)] md:leading-[var(--line-height-wordparts)]";
 
 export class WordParts extends React.PureComponent {
 

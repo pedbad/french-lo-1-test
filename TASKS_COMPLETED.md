@@ -40,6 +40,12 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: duplicate dark-mode typography token assignments removed from `src/index.css` so typography scale remains defined once in `:root`
   - completed: ad-hoc line-height arithmetic in `App.scss` replaced with semantic line-height tokens from `index.css` (`--line-height-app`, `--line-height-body-tight/loose`, `--line-height-wordparts*`)
   - completed: component consumers (`Info.jsx`, `instructions-media.jsx`) migrated from `--body-line-height` to `--line-height-body`; heading utility `leading-[1.4]` replaced with tokenized `--line-height-app`
+  - completed: `WordParts.jsx` Tailwind line-height literal (`leading-[1.35]`) replaced with semantic tokens (`--line-height-wordparts-mobile`, `--line-height-wordparts`)
+  - completed: grouped exercise constants tokenized in `Blanks.jsx`, `DraggableWordTile.jsx`, `ReadAloud.jsx`, `TreasureGrid.jsx`, and `Jigsaw.jsx` (`1.2rem`, `1.4rem`, `2rem`, `1.4em`, and related line-height literals)
+  - completed: tabs/dropdowns utility literals tokenized in `App.jsx` and `DropDowns.jsx` (`1.2rem`, `1.4rem`, `1.4rem` line-height)
+  - completed: `Header.jsx`, `ModalLinkDialog.jsx`, and `Attribution.jsx` utility rem literals tokenized (`3rem`, `1.35rem`, `0.5rem`)
+  - completed: rem utility literals tokenized in `SortableWordCard.jsx` and `MemoryMatchGame.jsx` (sortable card scales + memory card/match responsive text scales)
+  - completed: legacy `--body-line-height` alias removed from `index.css` after full consumer migration to semantic line-height tokens
 
 ## Color
 
@@ -88,3 +94,9 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: dark-mode typography token duplicates removed in `src/index.css` (`--font-size-*`, `--line-height-*`, `--body-line-height`)
   - completed: semantic line-height token pass in `index.css` and `App.scss` to replace inline `calc(var(--body-line-height) +/- ...)` usage
   - completed: downstream component migration (`Info.jsx`, `instructions-media.jsx`) to semantic `--line-height-body` token
+  - completed: WordParts text utility class line-height migrated to semantic tokens
+  - completed: exercise constant tokenization pass across Blanks/Jigsaw/ReadAloud/TreasureGrid components
+  - completed: tabs trigger + dropdown utility text/line-height literals migrated to token expressions
+  - completed: Header/ModalLinkDialog/Attribution utility rem literals migrated to token expressions
+  - completed: SortableWordCard and MemoryMatchGame rem utility text scales migrated to token expressions
+  - completed: legacy `--body-line-height` alias removed; semantic line-height tokens are now canonical
