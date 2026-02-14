@@ -250,24 +250,24 @@ export class WordParts extends React.PureComponent {
 					<div className='help'>
 						<IconButton
 							ariaLabel={cheatText}
-							className={`wordparts-reveal btn-ped-warn hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${failCount >= 2 ? 'show' : ''}`}
+							className={`wordparts-reveal btn-ped-warn hidden-help exercise-icon-button ${failCount >= 2 ? 'show' : ''}`}
 							disabled={nPlaced === this.nToSolve}
 							onClick={this.autoSolve}
 							theme={`eye`}
 							title={cheatText}
 							variant="default"
 						>
-							<span className="hidden min-[560px]:inline">{cheatText}</span>
+							<span className="exercise-icon-button-label">{cheatText}</span>
 						</IconButton>
 						<IconButton
 							ariaLabel="Reset"
-							className={`wordparts-reset hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${nPlaced >= 1 || failCount >= 1 || complete ? 'show' : ''}`}
+							className={`wordparts-reset hidden-help exercise-icon-button ${nPlaced >= 1 || failCount >= 1 || complete ? 'show' : ''}`}
 							onClick={this.handleReset}
 							theme={`reset`}
 							title="Reset"
 							variant="outline"
 						>
-							<span className="hidden min-[560px]:inline">Reset</span>
+							<span className="exercise-icon-button-label">Reset</span>
 						</IconButton>
 					</div>
 			</div>

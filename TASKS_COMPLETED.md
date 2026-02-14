@@ -152,6 +152,15 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
+  - [x] consolidated repeated exercise control button utility bundles into shared classes in `src/index.css`:
+    - `exercise-icon-button`
+    - `exercise-icon-button-label`
+  - [x] replaced duplicated class bundles in:
+    - `src/components/Sortable/Sortable.jsx`
+    - `src/components/SequenceOrder/SequenceOrder.jsx`
+    - `src/components/Blanks/Blanks.jsx`
+    - `src/components/DropDowns/DropDowns.jsx`
+    - `src/components/WordParts/WordParts.jsx`
   - move repeated SCSS visual patterns to tokenized Tailwind utility patterns
   - standardize dynamic branches on `cn()`/`cva`
 - [ ] Phase 3: High-impact file migration (one major file per PR)

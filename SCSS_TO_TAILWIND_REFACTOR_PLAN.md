@@ -138,6 +138,15 @@ These are accepted refinements from peer review, adapted to this repo:
 ### Phase 2: Utility Consolidation in Shared Patterns
 
 - [ ] Move reusable visual patterns from SCSS into tokenized utility patterns:
+  - [x] extracted duplicated exercise control button responsive sizing/label visibility into shared classes:
+    - `exercise-icon-button`
+    - `exercise-icon-button-label`
+  - [x] applied these shared classes across:
+    - `src/components/Sortable/Sortable.jsx`
+    - `src/components/SequenceOrder/SequenceOrder.jsx`
+    - `src/components/Blanks/Blanks.jsx`
+    - `src/components/DropDowns/DropDowns.jsx`
+    - `src/components/WordParts/WordParts.jsx`
   - button styles
   - card shells
   - spacing/layout helpers

@@ -390,21 +390,21 @@ export class DropDowns extends React.PureComponent {
 					<div className="help">
 						<IconButton
 							ariaLabel={cheatText}
-							className={`hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${failCount >= 1 ? "show" : ""}`}
+							className={`hidden-help exercise-icon-button ${failCount >= 1 ? "show" : ""}`}
 							onClick={this.autoSolve}
 							theme={`eye`}
 							title={cheatText}
 						>
-							<span className="hidden min-[560px]:inline">{cheatText}</span>
+							<span className="exercise-icon-button-label">{cheatText}</span>
 						</IconButton>
 						<IconButton
 							ariaLabel="Reset"
-							className={`hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${nCorrect >= 1 || failCount >= 1 ? "show" : ""}`}
+							className={`hidden-help exercise-icon-button ${nCorrect >= 1 || failCount >= 1 ? "show" : ""}`}
 							onClick={this.handleReset}
 							theme={`reset`}
 							title="Reset"
 						>
-							<span className="hidden min-[560px]:inline">Reset</span>
+							<span className="exercise-icon-button-label">Reset</span>
 						</IconButton>
 					</div>
 

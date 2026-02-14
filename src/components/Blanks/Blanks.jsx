@@ -1055,35 +1055,35 @@ export class Blanks extends React.Component {
 							<div className="help-actions">
 								<IconButton
 									ariaLabel={cheatText}
-									className={`btn-ped-warn hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${failCount >= 2 ? 'show' : ''}`}
+									className={`btn-ped-warn hidden-help exercise-icon-button ${failCount >= 2 ? 'show' : ''}`}
 									onClick={this.autoSolve}
 									theme={`eye`}
 									title={cheatText}
 									variant="default"
 								>
-									<span className="hidden min-[560px]:inline">{cheatText}</span>
+									<span className="exercise-icon-button-label">{cheatText}</span>
 								</IconButton>
 
 								<IconButton
 									ariaLabel="Reset"
-									className={`btn-chart-2 hidden-help max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
+									className={`btn-chart-2 hidden-help exercise-icon-button ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
 									onClick={this.handleReset}
 									theme={`reset`}
 									title="Reset"
 									variant="default"
 								>
-									<span className="hidden min-[560px]:inline">Reset</span>
+									<span className="exercise-icon-button-label">Reset</span>
 								</IconButton>
 
 								<IconButton
 									ariaLabel="Check answers"
-									className={`btn-hero-title btn-check-right max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11 ${assignedCount >= 1 ? 'show' : ''}`}
+									className={`btn-hero-title btn-check-right exercise-icon-button ${assignedCount >= 1 ? 'show' : ''}`}
 									onClick={this.handleCheckAnswers}
 									theme={`check`}
 									title="Check answers"
 									variant="default"
 								>
-									<span className="hidden min-[560px]:inline">Check answers</span>
+									<span className="exercise-icon-button-label">Check answers</span>
 								</IconButton>
 							</div>
 					</div>

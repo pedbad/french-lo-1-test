@@ -323,6 +323,16 @@
 	}
 }
 
+@layer components {
+	.exercise-icon-button {
+		@apply max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11;
+	}
+
+	.exercise-icon-button-label {
+		@apply hidden min-[560px]:inline;
+	}
+}
+
 @layer utilities {
 	.text-stroke-chart-3 {
 		-webkit-text-stroke: 1px var(--chart-3);

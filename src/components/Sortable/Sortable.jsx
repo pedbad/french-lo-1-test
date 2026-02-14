@@ -485,36 +485,36 @@ export class Sortable extends React.Component {
 					{showReveal ? (
 						<IconButton
 							ariaLabel={cheatText}
-							className="btn-ped-warn max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+							className="btn-ped-warn exercise-icon-button"
 							onClick={this.autoSolve}
 							theme="eye"
 							title={cheatText}
 							variant="default"
 						>
-							<span className="hidden min-[560px]:inline">{cheatText}</span>
+							<span className="exercise-icon-button-label">{cheatText}</span>
 						</IconButton>
 					) : null}
 					{showReset ? (
 						<IconButton
 							ariaLabel="Reset"
-							className="btn-chart-2 max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+							className="btn-chart-2 exercise-icon-button"
 							onClick={this.reset}
 							theme="reset"
 							title="Reset"
 							variant="default"
 						>
-							<span className="hidden min-[560px]:inline">Reset</span>
+							<span className="exercise-icon-button-label">Reset</span>
 						</IconButton>
 					) : null}
 					<IconButton
 						ariaLabel="Check answers"
-						className="btn-hero-title max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+						className="btn-hero-title exercise-icon-button"
 						theme="check"
 						onClick={this.checkAnswer}
 						title="Check answers"
 						variant="default"
 					>
-						<span className="hidden min-[560px]:inline">Check answers</span>
+						<span className="exercise-icon-button-label">Check answers</span>
 					</IconButton>
 				</div>
 			</div>
