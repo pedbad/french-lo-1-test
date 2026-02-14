@@ -1,4 +1,3 @@
-import "./SequenceAudioController.scss";
 import React from "react";
 import { stopAllAudioPlayback } from "../../utility";
 
@@ -408,15 +407,15 @@ export class SequenceAudioController extends React.Component {
 
 		return (
 			<div
-				className="sequence-audio-controller"
+				className="sequence-audio-controller relative mt-4 w-full rounded-[0.6rem] border border-[var(--border)] bg-[var(--muted)] p-2"
 				onMouseDown={(e) => e.stopPropagation()}
 				onTouchStart={(e) => e.stopPropagation()}
 			>
 				<audio ref={this.audioRef} />
 
-				<div className="controls">
+				<div className="controls grid min-w-0 grid-cols-[0.1fr_2fr_0.1fr_1fr] [grid-template-rows:1fr] [grid-auto-flow:row] items-center gap-x-2 text-[var(--foreground)]">
 					<button
-						className={`play-pause text-base`}
+						className={`play-pause justify-self-end cursor-pointer text-base`}
 						onClick={this.toggleMasterPlay}
 						title={playState === "playing" ? "Pause" : "Play"}
 					>
@@ -435,7 +434,7 @@ export class SequenceAudioController extends React.Component {
 					</button>
 
 					<input
-						className={`play-scrubber`}
+						className={`play-scrubber min-w-0 w-full`}
 						type="range"
 						min="0"
 						max={masterDuration || 0}
@@ -448,7 +447,7 @@ export class SequenceAudioController extends React.Component {
 						title="Play progress"
 					/>
 
-					<svg className={`volume-icon`} width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.001 20">
+					<svg className={`volume-icon justify-self-end`} width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.001 20">
 						<path
 							className="vol1"
 							d="M98.024 132.952h3.269v2.513h-3.269z"
@@ -476,7 +475,7 @@ export class SequenceAudioController extends React.Component {
 					</svg>
 
 					<input
-						className={`volume-slider`}
+						className={`volume-slider min-w-0 w-full`}
 						type="range"
 						min="0"
 						max="1"
