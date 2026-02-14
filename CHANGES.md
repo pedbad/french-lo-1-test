@@ -394,6 +394,14 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: removes remaining hardcoded inline typography literals in CrossWord and aligns its text sizing with shared token scale.
 - Updated `TASKS_COMPLETED.md` with this completed sub-step.
 
+## 51) Typography Batch 5.12 (Residual Literal Cleanup)
+- Removed an unused Sass typography literal variable from `src/styles/_variables.module.scss`:
+  - deleted `$header-footer-font-size: 0.8rem` (no usages in repo)
+- Removed stale commented literal typography examples from `src/App.scss`:
+  - deleted old commented `h2` lines with `line-height: 2em` and `font-size: 1.6em`
+- Why: clears remaining literal typography references/drift points so tokenized rules are the only active source.
+- Updated `TASKS_COMPLETED.md` with this cleanup step.
+
 
 # Files Deleted (partial but comprehensive)
 
