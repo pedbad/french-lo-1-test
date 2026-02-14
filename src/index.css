@@ -359,6 +359,16 @@
 	.exercise-actions-row {
 		@apply flex flex-wrap justify-end gap-2;
 	}
+
+	/* Shared progressive reveal pattern used by exercise action controls. */
+	.hidden-help {
+		opacity: 0;
+		transition: opacity 4s;
+	}
+
+	.hidden-help.show {
+		opacity: 1;
+	}
 }
 
 @layer utilities {

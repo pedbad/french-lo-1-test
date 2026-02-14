@@ -67,15 +67,6 @@ html.debug {
 		}
 	}
 
-	.hidden-help {
-		opacity: 0;
-		transition: opacity 4s;
-		&.show {
-			opacity: 1;
-			transition: opacity 4s;
-		}
-	}
-
 	.word-space {
 		display: inline-block;
 		width: 0.5em; /* tweak to match old visual spacing */

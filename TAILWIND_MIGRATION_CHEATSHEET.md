@@ -180,6 +180,20 @@ Result:
 1. Safer edits (one source for variant composition rules).
 2. Less SCSS drift and fewer per-component class divergences.
 
+4. Real project pattern: centralize repeated helper classes
+
+Why:
+1. Legacy SCSS often repeats the same helper class in many component files.
+2. Repeating the same helper creates hidden ownership and inconsistent updates.
+
+Implementation example used here:
+1. Move shared progressive reveal helper (`.hidden-help`, `.hidden-help.show`) to `src/index.css` under `@layer components`.
+2. Delete duplicate helper definitions from individual component SCSS files.
+
+Maintenance win:
+1. One rule owner for shared behavior.
+2. Fewer regressions when changing transition/visibility behavior later.
+
 ## Token Usage Rules (Project-Specific)
 
 1. Use semantic token variables from `src/index.css`.

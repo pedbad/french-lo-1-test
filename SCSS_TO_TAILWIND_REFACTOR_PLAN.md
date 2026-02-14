@@ -170,6 +170,15 @@ These are accepted refinements from peer review, adapted to this repo:
     - `exercise-help-end`
     - `exercise-help-hints`
     - `exercise-help-actions`
+  - [x] centralized progressive reveal helper classes into global layered CSS:
+    - `.hidden-help`
+    - `.hidden-help.show`
+  - [x] removed duplicate `.hidden-help` rule ownership from:
+    - `src/components/Blanks/Blanks.scss`
+    - `src/components/DropDowns/DropDowns.scss`
+    - `src/components/WordParts/WordParts.scss`
+    - `src/components/Jigsaw/Jigsaw.scss`
+    - `src/components/WordGrid/WordGrid.scss`
   - [x] applied these shared classes across:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`

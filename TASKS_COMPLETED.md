@@ -164,6 +164,15 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - `exercise-help-end`
     - `exercise-help-hints`
     - `exercise-help-actions`
+  - [x] centralized shared progressive reveal helpers in `src/index.css`:
+    - `.hidden-help`
+    - `.hidden-help.show`
+  - [x] removed duplicate `.hidden-help` definitions from:
+    - `src/components/Blanks/Blanks.scss`
+    - `src/components/DropDowns/DropDowns.scss`
+    - `src/components/WordParts/WordParts.scss`
+    - `src/components/Jigsaw/Jigsaw.scss`
+    - `src/components/WordGrid/WordGrid.scss`
   - [x] replaced duplicated class bundles in:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`
