@@ -5,6 +5,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Migration guardrail: keep cascade deterministic while SCSS is reduced.
+ * Intended order: base < components < utilities (utilities should win last).
+ */
+@layer base, components, utilities;
+
 @custom-variant dark (&:is(.dark *));
 /* Optional: add any small project-wide tweaks here. */
 

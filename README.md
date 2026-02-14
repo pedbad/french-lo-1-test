@@ -155,6 +155,11 @@ Validator triage guidance:
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
+Migration cascade policy (while SCSS still exists):
+- explicit layer order is declared in `src/index.css`: `@layer base, components, utilities`
+- keep new tokenized app styles in `@layer components` or `@layer utilities` (utilities last)
+- avoid broad `!important`; use small temporary targeted overrides only during migration and remove them once legacy selectors are deleted
+
 ## SCSS Drift Guard
 
 To prevent refactor backsliding while legacy SCSS is being removed, this repo includes:

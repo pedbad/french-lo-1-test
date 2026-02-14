@@ -133,7 +133,9 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - `/Users/ped/Sites/french/french-lo-1-test/SCSS_TO_TAILWIND_REFACTOR_PLAN.md`
   - includes rationale, evidence links, baseline metrics, phased checklist, and per-PR definition of done
 - [ ] Phase 0: Guardrails first
-  - [ ] stabilize cascade/layer order for mixed SCSS + Tailwind state
+  - [x] stabilize cascade/layer order for mixed SCSS + Tailwind state
+    - explicit order declared in `src/index.css`: `@layer base, components, utilities`
+    - conflict policy documented in README (minimal temporary overrides, avoid broad `!important`)
   - [x] add `scripts/check-scss-guard.sh`
   - [x] add `yarn check:scss` and `yarn check:scss:branch`
   - [x] add SCSS guard to `.githooks/pre-commit` and `.github/workflows/pr-quality.yml`

@@ -100,9 +100,9 @@ These are accepted refinements from peer review, adapted to this repo:
 
 ### Phase 0: Guardrails First
 
-- [ ] Stabilize cascade/layer order for mixed migration state.
-  - confirm `@layer base/components/utilities` behavior in `src/index.css`
-  - document temporary conflict-resolution strategy (minimal, removable)
+- [x] Stabilize cascade/layer order for mixed migration state.
+  - implemented explicit layer order in `src/index.css`: `@layer base, components, utilities`
+  - documented temporary conflict-resolution strategy (minimal/removable overrides; avoid broad `!important`)
 - [x] Add `scripts/check-scss-guard.sh` to fail when new `.scss` or `.sass` files are introduced.
 - [x] Extend SCSS guard to fail when new SCSS imports are introduced in JSX/TSX/JS/TS.
 - [x] Add package scripts:
