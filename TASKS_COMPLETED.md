@@ -127,6 +127,42 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [ ] Add step-by-step README instructions for GitHub Actions usage
   - pending detail docs: initial enablement, required checks/branch protection setup, rerun/debug process, and local reproduction path
 
+## SCSS -> Tailwind Refactor
+
+- [x] Create dedicated refactor architecture plan
+  - `/Users/ped/Sites/french/french-lo-1-test/SCSS_TO_TAILWIND_REFACTOR_PLAN.md`
+  - includes rationale, evidence links, baseline metrics, phased checklist, and per-PR definition of done
+- [ ] Phase 0: Guardrails first
+  - stabilize cascade/layer order for mixed SCSS + Tailwind state
+  - add `scripts/check-scss-guard.sh`
+  - add `yarn check:scss` and `yarn check:scss:branch`
+  - add SCSS guard to `.githooks/pre-commit` and `.github/workflows/pr-quality.yml`
+- [ ] Phase 1: Quick-win SCSS removals
+  - migrate/remove small files first:
+    - `src/components/Attribution/Attribution.scss`
+    - `src/components/IconButton/IconButton.scss`
+    - `src/components/TopButton/TopButton.scss`
+    - `src/components/Explanation/Panel/Panel.scss`
+    - `src/components/Form/FieldSet/FieldSet.scss`
+- [ ] Phase 1.5: Publish migration cheatsheet
+  - add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
+- [ ] Phase 2: Shared utility consolidation
+  - move repeated SCSS visual patterns to tokenized Tailwind utility patterns
+  - standardize dynamic branches on `cn()`/`cva`
+- [ ] Phase 3: High-impact file migration (one major file per PR)
+  - `src/App.scss` (after migrating global/base rules to `src/index.css`)
+  - `src/components/Footer/Footer.scss`
+  - `src/components/Blanks/Blanks.scss`
+  - `src/components/CustomComponents_FR/CustomComponents_FR.scss`
+- [ ] Phase 4: Legacy style module rationalization
+  - reduce reliance on `_mixins`, `_variables`, `_colours`, `_media-queries`
+  - centralize keyframes strategy (Tailwind config or layered global CSS)
+- [ ] Phase 5: Completion targets
+  - reduce SCSS files from 54 to target threshold (e.g. <= 15)
+  - no new SCSS imports added
+  - new components ship with zero SCSS
+  - CI and local guards remain green
+
 ## Next Recommended Baby Step
 
 - [x] Typography batch 3: converted remaining small hardcoded text in `src/App.scss` (`figcaption`, `.footnote`) to token-based values.

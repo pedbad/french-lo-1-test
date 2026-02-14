@@ -119,6 +119,21 @@ Add these from day one to avoid late cleanup projects:
 9. Add branch-level "no new debt" checks (warnings/error budgets must not increase).
 10. Add a release checklist workflow for production preview validation (build + preview + smoke checks).
 
+## What To Avoid In Future Projects
+
+Use this as a hard "do not repeat" list.
+
+1. Do not start with mixed styling ownership (Tailwind + broad SCSS) without strict boundaries.
+2. Do not add new `.scss/.sass` files once Tailwind/token architecture is chosen.
+3. Do not add new SCSS imports in component files (`.jsx/.tsx/.js/.ts`).
+4. Do not rely on high-specificity legacy selectors that fight utility classes.
+5. Do not keep global app styling hidden in `App.scss`; keep global/base rules in `src/index.css` (`@layer base`).
+6. Do not encode component variants in Sass interpolation patterns when `cn()`/`cva` should handle variants.
+7. Do not leave animations scattered across many SCSS files; centralize keyframes/tokens in Tailwind config or layered global CSS.
+8. Do not allow new hardcoded typography/color literals outside token files.
+9. Do not skip branch protection + required CI checks for guard scripts.
+10. Do not start refactors without visual and accessibility regression checks in the PR definition of done.
+
 ## Recommended Directory Structure
 
 ```text
