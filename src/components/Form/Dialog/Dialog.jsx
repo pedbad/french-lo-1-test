@@ -1,4 +1,3 @@
-import './Dialog.scss';
 import React from 'react';
 
 export class Dialog extends React.PureComponent {
@@ -15,19 +14,19 @@ export class Dialog extends React.PureComponent {
 
 		return (
 			<dialog
-				className={`${className} dialog ${type} ${theme}`}
+				className={`${className} dialog ${type} ${theme} fixed inset-0 z-[999] m-0 flex h-full w-full cursor-not-allowed items-center justify-center border-0 bg-transparent p-0`}
 				{...id ? { id: id } : {}}
 			>
 				<div
-					className={`background`}
+					className="background absolute inset-0 m-0 h-full w-full"
 					key={`background`}
 				/>
 				<div
-					className={`dialog-box`}
+					className="dialog-box absolute z-[1000] w-[600px] border-4 border-solid border-[var(--border)] bg-[var(--card)]"
 					key={`dialog-box`}
 				>
-					<div key={`dialog-box-message`}>{message}</div>
-					<footer>
+					<div className="p-4" key={`dialog-box-message`}>{message}</div>
+					<footer className="m-[1vh] flex justify-end">
 						{type === 'clear' ?
 							<button
 								key='dialog-button-clear'
@@ -35,7 +34,7 @@ export class Dialog extends React.PureComponent {
 							>OK</button> : null}
 						{type === 'yesno' ?
 							<div
-								className='button-group'
+								className='button-group p-4'
 								key='button-group'
 							>
 								<button
