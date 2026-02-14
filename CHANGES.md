@@ -338,6 +338,12 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: removes the remaining literal size in that breakpoint and keeps desktop hero scaling tied to the shared typography token system.
 - Updated `TASKS_COMPLETED.md` under Typography batch 5 progress.
 
+## 43) Typography Batch 5.5 (Accordion Mobile Line-Height Tokenization)
+- Updated `src/components/Accordion/Accordion.scss` (`@media (max-width: 640px)`):
+  - heading `line-height` from hardcoded `1.2` -> `var(--line-height-2xl)` (with existing `!important`)
+- Why: removes one more hardcoded typography literal and keeps mobile accordion heading rhythm aligned with shared line-height tokens.
+- Updated `TASKS_COMPLETED.md` to record this completed sub-step.
+
 
 # Files Deleted (partial but comprehensive)
 

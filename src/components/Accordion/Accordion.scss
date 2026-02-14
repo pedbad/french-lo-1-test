@@ -212,7 +212,7 @@ $common-left-margin: 20px;
 	.accordion .accordion-article > header h2,
 	.accordion .accordion-article > header h2 > span {
 		font-size: calc(var(--font-size-lg) * 0.98415) !important; // another 10% down
-		line-height: 1.2 !important;
+		line-height: var(--line-height-2xl) !important;
 	}
 
 	.accordion .accordion-article > header h2 .accordion-title-before-colon {
