@@ -315,6 +315,13 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: this keeps overlay typography aligned with the shared token scale, so future global size tuning applies consistently and avoids isolated px-based drift.
 - Updated `TASKS_COMPLETED.md` with this sub-step under Typography batch 5.
 
+## 39) Typography Batch 5.3 (Mobile Title Token Expressions)
+- Updated `src/App.scss` mobile block (`@media (max-width: 650px)`):
+  - `.title-main` font-size from hardcoded `1.6em` -> `calc(var(--font-size-sm) * 1.6)`
+  - `.title-sub` font-size from hardcoded `0.9em` -> `calc(var(--font-size-sm) * 0.9)`
+- Why: this removes local `em` literals and ties mobile title sizing back to typography tokens, so a future base scale change updates these values consistently.
+- Updated `TASKS_COMPLETED.md` to reflect this sub-step under Typography batch 5.
+
 
 # Files Deleted (partial but comprehensive)
 

@@ -487,10 +487,10 @@ hr {
 			padding: 0 0.75rem;
 		}
 		.title-main {
-			font-size: 1.6em;
+			font-size: calc(var(--font-size-sm) * 1.6);
 		}
 		.title-sub {
-			font-size: 0.9em;
+			font-size: calc(var(--font-size-sm) * 0.9);
 			margin-top: 0.25rem;
 		}
 	}
