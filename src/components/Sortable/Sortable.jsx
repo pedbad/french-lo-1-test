@@ -394,7 +394,7 @@ export class Sortable extends React.Component {
 			<div className="w-full sortable space-y-4">
 				{prompt ? <p className="text-sm">{prompt}</p> : null}
 
-				<div className="space-y-1">
+				<div className="space-y-3">
 					{!suppressInfo && (informationText || informationTextHTML) ? (
 						<Info className={`text`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML} />
 					) : null}

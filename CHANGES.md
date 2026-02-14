@@ -327,6 +327,11 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Updated `src/components/Sortable/Sortable.jsx` to render content-only (no internal `Card`/`CardContent` shell).
 - Why: accordion content spacing/card chrome now come from one owner (`AccordionArticle`) for all exercise types, so the final listening exercise matches the other accordion panels.
 
+## 41) Sortable Info-to-Content Spacing Tweak
+- Updated `src/components/Sortable/Sortable.jsx`:
+  - increased spacing between the blue info panel and the sortable item container from `space-y-1` to `space-y-3`.
+- Why: the previous gap was visually too tight in the last exercise; this restores consistent breathing room with the other accordion exercises.
+
 
 # Files Deleted (partial but comprehensive)
 
