@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 38
-- current SCSS imports in JSX/JS: 37
+- current SCSS files in `src`: 37
+- current SCSS imports in JSX/JS: 36
 
 These counts give us a measurable baseline for reduction.
 
@@ -154,6 +154,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/Flag/Flag.scss` (deleted; pseudo-element/canvas layout migrated to tokenized utilities in `Flag.jsx`)
   - [x] `src/components/Explanation/Explanation.scss` (deleted; standard-table skin migrated to shared tokenized class in `index.css` and consumed by `Explanation.jsx`)
   - [x] `src/components/Form/TristateCheckBox/TristateCheckBox.scss` (deleted; checked/readonly/pseudo-mark states migrated to tokenized utilities in `TristateCheckBox.jsx`)
+  - [x] `src/components/LandingPage/LandingPage.scss` (deleted; landing cards/list gradients and spacing migrated to tokenized utilities in `LandingPage.jsx`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components
