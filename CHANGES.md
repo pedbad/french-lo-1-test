@@ -332,6 +332,12 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - increased spacing between the blue info panel and the sortable item container from `space-y-1` to `space-y-3`.
 - Why: the previous gap was visually too tight in the last exercise; this restores consistent breathing room with the other accordion exercises.
 
+## 42) Typography Batch 5.4 (Desktop Hero XL Tokenization)
+- Updated `src/App.scss` (`@include respond-above(xl)`, `#hero h1`):
+  - font-size from hardcoded `3rem` -> `calc(var(--font-size-3xl) * 0.75)`
+- Why: removes the remaining literal size in that breakpoint and keeps desktop hero scaling tied to the shared typography token system.
+- Updated `TASKS_COMPLETED.md` under Typography batch 5 progress.
+
 
 # Files Deleted (partial but comprehensive)
 

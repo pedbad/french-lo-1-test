@@ -65,3 +65,4 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: additional App line-height literals replaced with token expressions (`.app`, WordParts table text, responsive WordParts text, desktop paragraph line-height)
   - completed: `#SpeechSynthesisError` hardcoded `40px/60px` replaced with tokenized size/line-height
   - completed: mobile `.title-main` / `.title-sub` `em` sizes replaced with token expressions
+  - completed: desktop xl hero `h1` `3rem` literal replaced with token expression

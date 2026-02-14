@@ -795,7 +795,7 @@ hr {
 @include respond-above(xl) {
 	#hero {
 		h1 {
-			font-size: 3rem;
+			font-size: calc(var(--font-size-3xl) * 0.75);
 		}
 	}
 	#content {
