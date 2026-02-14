@@ -1,4 +1,3 @@
-import './ConnectFour.scss';
 import React, { PureComponent } from 'react';
 import { copyObject } from '../../utility.js';
 import DOMPurify from "dompurify";
