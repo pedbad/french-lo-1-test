@@ -141,6 +141,9 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] extracted duplicated exercise control button responsive sizing/label visibility into shared classes:
     - `exercise-icon-button`
     - `exercise-icon-button-label`
+  - [x] extracted duplicated progress divider/control row patterns into shared classes:
+    - `exercise-divider`
+    - `exercise-actions-row`
   - [x] applied these shared classes across:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`
@@ -152,6 +155,10 @@ These are accepted refinements from peer review, adapted to this repo:
   - spacing/layout helpers
 - [ ] Keep minimal compatibility SCSS only where utility extraction is not yet practical.
 - [ ] For dynamic style branches, standardize on `cn()` + tokenized utility variants.
+  - [x] migrated dynamic `show` class toggles to `cn()` in:
+    - `src/components/Blanks/Blanks.jsx`
+    - `src/components/DropDowns/DropDowns.jsx`
+    - `src/components/WordParts/WordParts.jsx`
 
 ### Phase 3: High-Impact File Migration (One at a Time)
 

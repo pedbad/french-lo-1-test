@@ -155,9 +155,16 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - [x] consolidated repeated exercise control button utility bundles into shared classes in `src/index.css`:
     - `exercise-icon-button`
     - `exercise-icon-button-label`
+  - [x] consolidated repeated exercise progress/control layout patterns into shared classes in `src/index.css`:
+    - `exercise-divider`
+    - `exercise-actions-row`
   - [x] replaced duplicated class bundles in:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`
+    - `src/components/Blanks/Blanks.jsx`
+    - `src/components/DropDowns/DropDowns.jsx`
+    - `src/components/WordParts/WordParts.jsx`
+  - [x] standardized dynamic `show` class toggles with `cn()` in:
     - `src/components/Blanks/Blanks.jsx`
     - `src/components/DropDowns/DropDowns.jsx`
     - `src/components/WordParts/WordParts.jsx`

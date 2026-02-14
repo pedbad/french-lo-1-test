@@ -10,6 +10,7 @@ import {
 	DraggableWordTile,
 } from '../../components';
 import { resolveAsset, shuffleArray } from '../../utility';
+import { cn } from "@/lib/utils";
 import {
 	Table,
 	TableBody,
@@ -1032,9 +1033,9 @@ export class Blanks extends React.Component {
 					</div>
 				</div>
 
-				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 				<ProgressDots correct={nPlaced} total={nToPlace} />
-				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 
 				<div className='help help-blanks'>
 						<div className="help-hints">
@@ -1055,7 +1056,7 @@ export class Blanks extends React.Component {
 							<div className="help-actions">
 								<IconButton
 									ariaLabel={cheatText}
-									className={`btn-ped-warn hidden-help exercise-icon-button ${failCount >= 2 ? 'show' : ''}`}
+									className={cn("btn-ped-warn hidden-help exercise-icon-button", failCount >= 2 && "show")}
 									onClick={this.autoSolve}
 									theme={`eye`}
 									title={cheatText}
@@ -1066,7 +1067,10 @@ export class Blanks extends React.Component {
 
 								<IconButton
 									ariaLabel="Reset"
-									className={`btn-chart-2 hidden-help exercise-icon-button ${nPlaced >= 1 || failCount >= 2 || complete ? 'show' : ''}`}
+									className={cn(
+										"btn-chart-2 hidden-help exercise-icon-button",
+										(nPlaced >= 1 || failCount >= 2 || complete) && "show"
+									)}
 									onClick={this.handleReset}
 									theme={`reset`}
 									title="Reset"
@@ -1077,7 +1081,7 @@ export class Blanks extends React.Component {
 
 								<IconButton
 									ariaLabel="Check answers"
-									className={`btn-hero-title btn-check-right exercise-icon-button ${assignedCount >= 1 ? 'show' : ''}`}
+									className={cn("btn-hero-title btn-check-right exercise-icon-button", assignedCount >= 1 && "show")}
 									onClick={this.handleCheckAnswers}
 									theme={`check`}
 									title="Check answers"

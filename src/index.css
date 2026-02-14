@@ -331,6 +331,14 @@
 	.exercise-icon-button-label {
 		@apply hidden min-[560px]:inline;
 	}
+
+	.exercise-divider {
+		@apply shrink-0 bg-border-subtle h-px w-full my-3;
+	}
+
+	.exercise-actions-row {
+		@apply flex flex-wrap justify-end gap-2;
+	}
 }
 
 @layer utilities {

@@ -251,11 +251,11 @@ export class SequenceOrder extends React.PureComponent {
 					</div>
 				</div>
 
-				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 				<ProgressDots correct={correctCount} total={total} />
-				<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 
-					<div className="flex flex-wrap justify-end gap-2">
+					<div className="exercise-actions-row">
 						{showReveal ? (
 							<IconButton
 								ariaLabel={cheatText}
