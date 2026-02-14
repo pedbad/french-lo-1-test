@@ -1,4 +1,3 @@
-import './Explanation.scss';
 // import {
 // 	resolveAsset,
 // 	speak,
@@ -39,7 +38,7 @@ export class Explanation extends React.PureComponent {
 		}
 		return (
 			<div
-				className={`explanation-container container`}
+				className={`explanation-container standard-table container`}
 				id={id || undefined}
 				key={`${id}PhraseTable`}
 			>

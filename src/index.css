@@ -360,6 +360,47 @@
 		@apply flex flex-wrap justify-end gap-2;
 	}
 
+	/* Shared table skin extracted from legacy SCSS standard-table() mixin. */
+	.standard-table .panel table {
+		text-align: left;
+		border-collapse: collapse;
+		background: linear-gradient(
+			45deg,
+			color-mix(in oklab, var(--muted) 85%, var(--background)) 0%,
+			var(--background) 50%,
+			color-mix(in oklab, var(--muted) 85%, var(--background)) 73%,
+			var(--background) 77%,
+			var(--muted) 100%
+		);
+	}
+
+	.standard-table .panel table td,
+	.standard-table .panel table th {
+		border: 1px solid var(--border);
+		font-weight: bold;
+	}
+
+	.standard-table .panel table tbody {
+		border: none;
+	}
+
+	.standard-table .panel table tbody tr.spacer td {
+		border-left: none;
+		border-right: none;
+	}
+
+	.standard-table .panel table td {
+		font-size: calc(var(--font-size-sm) * 0.7);
+		padding: 0.25rem 0.25rem;
+	}
+
+	@media (min-width: 640px) {
+		.standard-table .panel table td {
+			font-size: var(--font-size-sm);
+			padding: 0.25rem 1rem;
+		}
+	}
+
 	/* Header surface extracted from legacy Header.scss/mixin ownership. */
 	.header-main-surface {
 		background: linear-gradient(
