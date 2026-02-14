@@ -360,6 +360,17 @@
 		@apply flex flex-wrap justify-end gap-2;
 	}
 
+	/* Header surface extracted from legacy Header.scss/mixin ownership. */
+	.header-main-surface {
+		background: linear-gradient(
+			to right,
+			color-mix(in oklab, var(--primary) 85%, var(--foreground)) 0%,
+			var(--primary) 51%,
+			color-mix(in oklab, var(--primary) 85%, var(--foreground)) 100%
+		);
+		box-shadow: 0 8px 8px color-mix(in oklab, var(--foreground) 20%, transparent);
+	}
+
 	/* Shared legacy help-row layout; keep local overrides in component styles when needed. */
 	.help {
 		@apply w-full flex flex-row items-center gap-2;
