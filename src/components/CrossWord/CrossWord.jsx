@@ -253,7 +253,7 @@ export class CrossWord extends PureComponent {
 												}}
 											>
 												{number && (
-													<div className="text-muted-foreground" style={{ position: 'absolute', top: 1, left: 2, fontSize: 10 }}>{number}</div>
+													<div className="text-muted-foreground" style={{ position: 'absolute', top: 1, left: 2, fontSize: 'calc(var(--font-size-sm) * 0.625)' }}>{number}</div>
 												)}
 												{cell ? (
 													<input data-row={rIdx} data-col={cIdx}
@@ -280,7 +280,7 @@ export class CrossWord extends PureComponent {
 															height: '100%',
 															border: 'none',
 															textAlign: 'center',
-															fontSize: 16,
+															fontSize: 'var(--font-size-sm)',
 															backgroundColor:
 															(filled[rIdx][cIdx] || '').toLowerCase() ===
 															(grid[rIdx][cIdx] || '').toLowerCase()

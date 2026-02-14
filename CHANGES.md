@@ -387,6 +387,13 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: removes a remaining hardcoded SCSS font-family and keeps family selection aligned with the token source of truth.
 - Updated `TASKS_COMPLETED.md` with this completed sub-step.
 
+## 50) Typography Batch 5.11 (CrossWord Inline Font-Size Tokenization)
+- Updated `src/components/CrossWord/CrossWord.jsx` inline styles:
+  - clue-number marker `fontSize: 10` -> `fontSize: 'calc(var(--font-size-sm) * 0.625)'`
+  - cell input `fontSize: 16` -> `fontSize: 'var(--font-size-sm)'`
+- Why: removes remaining hardcoded inline typography literals in CrossWord and aligns its text sizing with shared token scale.
+- Updated `TASKS_COMPLETED.md` with this completed sub-step.
+
 
 # Files Deleted (partial but comprehensive)
 
