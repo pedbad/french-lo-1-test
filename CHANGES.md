@@ -322,6 +322,11 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: this removes local `em` literals and ties mobile title sizing back to typography tokens, so a future base scale change updates these values consistently.
 - Updated `TASKS_COMPLETED.md` to reflect this sub-step under Typography batch 5.
 
+## 40) Accordion Spacing Consistency (Sortable)
+- Removed the `noCard={true}` special case for `Sortable` in `src/App.jsx`.
+- Updated `src/components/Sortable/Sortable.jsx` to render content-only (no internal `Card`/`CardContent` shell).
+- Why: accordion content spacing/card chrome now come from one owner (`AccordionArticle`) for all exercise types, so the final listening exercise matches the other accordion panels.
+
 
 # Files Deleted (partial but comprehensive)
 

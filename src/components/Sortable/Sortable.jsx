@@ -6,7 +6,6 @@ import {
 	Info,
 	ProgressDots,
 } from "../../components";
-import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
 import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
@@ -392,146 +391,133 @@ export class Sortable extends React.Component {
 		const showReset = hasReordered || failCount >= 1 || isComplete || usedShowAnswer;
 
 		return (
-			<Card className="w-full sortable pt-4">
-				{/* <CardHeader>
-					<CardTitle className="text-base font-semibold">
-						{title}
-					</CardTitle>
-				</CardHeader> */}
+			<div className="w-full sortable space-y-4">
+				{prompt ? <p className="text-sm">{prompt}</p> : null}
 
-				<CardContent>
-					{prompt && (
-						<p className="mb-4 text-sm">
-							{prompt}
-						</p>
-					)}
+				<div className="space-y-1">
+					{!suppressInfo && (informationText || informationTextHTML) ? (
+						<Info className={`text`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML} />
+					) : null}
+					<div className="mx-auto w-[80%]">
+						{phrases.map((phrase, index) => {
+							let foreignLanguage = "";
+							let audio = null;
 
-					<div className="space-y-1">
-						{!suppressInfo && (informationText || informationTextHTML) ? (
-							<Info className={`text`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML}/>
-						) : null}
-						<div className="mx-auto w-[80%]">
-							{phrases.map((phrase, index) => {
-								let foreignLanguage = "";
-								let audio = null;
+							if (Array.isArray(phrase)) {
+								// [foreignLanguage, lang2, audio]
+								[foreignLanguage, , audio] = phrase;
+							} else {
+								foreignLanguage = phrase.original;
+								({ audio } = phrase);
+							}
 
-								if (Array.isArray(phrase)) {
-									// [foreignLanguage, lang2, audio]
-									[foreignLanguage, , audio] = phrase;
-								} else {
-									foreignLanguage = phrase.original;
-									({ audio } = phrase);
-								}
+							const lang2Item = lang2Items[index];
+							const isDragging =
+								lang2Item &&
+								lang2Item.id === draggingId;
 
-								const lang2Item = lang2Items[index];
-								const isDragging =
-									lang2Item &&
-									lang2Item.id === draggingId;
-
-								return (
-									<div
-										key={index}
-										className={`grid ${allLang1Blank ? "grid-cols-[auto_minmax(0,1fr)]" : "grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)]" } gap-3 items-center py-1`}
-									>
-										{/* LEFT: Audio */}
-										<div className="flex items-center justify-center pr-2">
-											{audio && (
-												<AudioClip className={`super-compact-speaker`} soundFile={audio} />
-											)}
-										</div>
-
-										{/* MIDDLE: lang1 phrase */}
-										{allLang1Blank ? null : <div className="flex items-center text-sm">
-											<span>{foreignLanguage}</span>
-										</div>}
-
-										{/* RIGHT: Sortable lang2 phrase + tick/cross */}
-										<SortableWordCard
-											className="cursor-ns-resize"
-											data-sortable-tile="1"
-											data-index={index}
-											data-item-id={lang2Item?.id || ""}
-											data-dragging={isDragging ? "true" : undefined}
-											direction="vertical"
-											/* Desktop HTML5 drag */
-											draggable
-											isDragging={isDragging}
-											isDropTarget={dropTargetId === lang2Item?.id && !isDragging}
-											label={lang2Item ? lang2Item.lang2 : ""}
-											ref={(element) => this.setCardRef(lang2Item?.id, element)}
-											onDragStart={
-												lang2Item
-													? this.handleDragStart(lang2Item.id)
-													: undefined
-											}
-											onDragEnter={
-												lang2Item
-													? this.handleDragEnter(lang2Item.id)
-													: undefined
-											}
-											onDragOver={this.handleDragOver}
-											onDrop={this.handleDrop(lang2Item?.id)}
-											onDragEnd={this.handleDragEnd}
-
-											/* Mobile / touch: pointer-driven reorder */
-											onPointerDown={this.handlePointerDown(index)}
-											onPointerMove={this.handlePointerMove}
-											onPointerUp={this.handlePointerUp}
-											onPointerCancel={this.handlePointerUp}
-											showIndex
-											slotLabel={index + 1}
-										/>
+							return (
+								<div
+									key={index}
+									className={`grid ${allLang1Blank ? "grid-cols-[auto_minmax(0,1fr)]" : "grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)]" } gap-3 items-center py-1`}
+								>
+									{/* LEFT: Audio */}
+									<div className="flex items-center justify-center pr-2">
+										{audio && (
+											<AudioClip className={`super-compact-speaker`} soundFile={audio} />
+										)}
 									</div>
-								);
-							})}
-						</div>
+
+									{/* MIDDLE: lang1 phrase */}
+									{allLang1Blank ? null : <div className="flex items-center text-sm">
+										<span>{foreignLanguage}</span>
+									</div>}
+
+									{/* RIGHT: Sortable lang2 phrase + tick/cross */}
+									<SortableWordCard
+										className="cursor-ns-resize"
+										data-sortable-tile="1"
+										data-index={index}
+										data-item-id={lang2Item?.id || ""}
+										data-dragging={isDragging ? "true" : undefined}
+										direction="vertical"
+										/* Desktop HTML5 drag */
+										draggable
+										isDragging={isDragging}
+										isDropTarget={dropTargetId === lang2Item?.id && !isDragging}
+										label={lang2Item ? lang2Item.lang2 : ""}
+										ref={(element) => this.setCardRef(lang2Item?.id, element)}
+										onDragStart={
+											lang2Item
+												? this.handleDragStart(lang2Item.id)
+												: undefined
+										}
+										onDragEnter={
+											lang2Item
+												? this.handleDragEnter(lang2Item.id)
+												: undefined
+										}
+										onDragOver={this.handleDragOver}
+										onDrop={this.handleDrop(lang2Item?.id)}
+										onDragEnd={this.handleDragEnd}
+
+										/* Mobile / touch: pointer-driven reorder */
+										onPointerDown={this.handlePointerDown(index)}
+										onPointerMove={this.handlePointerMove}
+										onPointerUp={this.handlePointerUp}
+										onPointerCancel={this.handlePointerUp}
+										showIndex
+										slotLabel={index + 1}
+									/>
+								</div>
+							);
+						})}
 					</div>
+				</div>
 
-					<div className="mt-4 flex flex-wrap gap-2">
-						<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
-						<ProgressDots correct={correctCount} total={total} />
-						<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
-					</div>
+				<div className="flex flex-wrap gap-2">
+					<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+					<ProgressDots correct={correctCount} total={total} />
+					<div className="shrink-0 bg-border-subtle h-px w-full my-3" role="none" data-orientation="horizontal" />
+				</div>
 
-						<div className="flex flex-wrap justify-end gap-2">
-							{showReveal ? (
-								<IconButton
-									ariaLabel={cheatText}
-									className="btn-ped-warn max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
-									onClick={this.autoSolve}
-									theme="eye"
-									title={cheatText}
-									variant="default"
-								>
-									<span className="hidden min-[560px]:inline">{cheatText}</span>
-								</IconButton>
-							) : null}
-							{showReset ? (
-								<IconButton
-									ariaLabel="Reset"
-									className="btn-chart-2 max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
-									onClick={this.reset}
-									theme="reset"
-									title="Reset"
-									variant="default"
-								>
-									<span className="hidden min-[560px]:inline">Reset</span>
-								</IconButton>
-							) : null}
-							<IconButton
-								ariaLabel="Check answers"
-								className="btn-hero-title max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
-								theme="check"
-								onClick={this.checkAnswer}
-								title="Check answers"
-								variant="default"
-							>
-								<span className="hidden min-[560px]:inline">Check answers</span>
-							</IconButton>
-						</div>
-
-				</CardContent>
-			</Card>
+				<div className="flex flex-wrap justify-end gap-2">
+					{showReveal ? (
+						<IconButton
+							ariaLabel={cheatText}
+							className="btn-ped-warn max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+							onClick={this.autoSolve}
+							theme="eye"
+							title={cheatText}
+							variant="default"
+						>
+							<span className="hidden min-[560px]:inline">{cheatText}</span>
+						</IconButton>
+					) : null}
+					{showReset ? (
+						<IconButton
+							ariaLabel="Reset"
+							className="btn-chart-2 max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+							onClick={this.reset}
+							theme="reset"
+							title="Reset"
+							variant="default"
+						>
+							<span className="hidden min-[560px]:inline">Reset</span>
+						</IconButton>
+					) : null}
+					<IconButton
+						ariaLabel="Check answers"
+						className="btn-hero-title max-[559px]:h-10 max-[559px]:w-10 max-[559px]:p-0 min-[420px]:max-[559px]:h-11 min-[420px]:max-[559px]:w-11"
+						theme="check"
+						onClick={this.checkAnswer}
+						title="Check answers"
+						variant="default"
+					>
+						<span className="hidden min-[560px]:inline">Check answers</span>
+					</IconButton>
+				</div>
+			</div>
 		);
 	}
 }
