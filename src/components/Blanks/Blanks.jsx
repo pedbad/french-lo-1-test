@@ -1037,8 +1037,8 @@ export class Blanks extends React.Component {
 				<ProgressDots correct={nPlaced} total={nToPlace} />
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 
-				<div className='help help-blanks'>
-						<div className="help-hints">
+				<div className="exercise-help exercise-help-wrap">
+						<div className="exercise-help-hints">
 							<Switch
 								aria-label="Show hints"
 								id={id ? `showHintsId-${id}` : undefined}
@@ -1053,7 +1053,7 @@ export class Blanks extends React.Component {
 							</span>
 						</div>
 
-							<div className="help-actions">
+							<div className="exercise-help-actions">
 								<IconButton
 									ariaLabel={cheatText}
 									className={cn("btn-ped-warn hidden-help exercise-icon-button", failCount >= 2 && "show")}

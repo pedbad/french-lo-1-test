@@ -248,7 +248,7 @@ export class WordParts extends React.PureComponent {
 				<ProgressDots correct={nPlaced} total={nToSolve} />
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 
-					<div className='help'>
+					<div className="exercise-help exercise-help-end">
 						<IconButton
 							ariaLabel={cheatText}
 							className={cn("wordparts-reveal btn-ped-warn hidden-help exercise-icon-button", failCount >= 2 && "show")}

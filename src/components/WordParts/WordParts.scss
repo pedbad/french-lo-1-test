@@ -22,15 +22,6 @@ html.debug {
 			perspective: 600px;
 		}
 	}
-	.help {
-		// padding: 0 1rem;
-		// display: flex;
-		// justify-content: space-between;
-		// width: 100%;
-		// align-items: center;
-		@include help();
-		justify-content: flex-end;
-	}
 
 		.wordparts-reset.icon-button {
 			border-color: var(--chart-2);

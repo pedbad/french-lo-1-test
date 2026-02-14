@@ -96,10 +96,6 @@ $max-tile-width: 360px;
 	/* --------------------------------------------------------
      Help / controls
 	-------------------------------------------------------- */
-	.help {
-		@include help();
-	}
-
 	.hidden-help {
 		opacity: 0;
 		transition: opacity 4s;
@@ -343,7 +339,7 @@ $max-tile-width: 360px;
 	box-shadow: 0 0 0 2px color-mix(in oklab, var(--ped-warn) 72%, transparent);
 }
 
-.blanks-container .help.help-blanks .help-hints .invalid-drop-hint {
+.blanks-container .exercise-help .exercise-help-hints .invalid-drop-hint {
 	opacity: 0;
 	pointer-events: none;
 	display: inline-flex;
@@ -360,7 +356,7 @@ $max-tile-width: 360px;
 	transform: translateY(0.08rem);
 }
 
-.blanks-container .help.help-blanks .help-hints .invalid-drop-hint.show {
+.blanks-container .exercise-help .exercise-help-hints .invalid-drop-hint.show {
 	opacity: 1;
 	transform: translateY(0);
 }

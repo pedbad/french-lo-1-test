@@ -158,6 +158,12 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - [x] consolidated repeated exercise progress/control layout patterns into shared classes in `src/index.css`:
     - `exercise-divider`
     - `exercise-actions-row`
+  - [x] consolidated exercise help/control wrapper patterns into shared classes in `src/index.css`:
+    - `exercise-help`
+    - `exercise-help-wrap`
+    - `exercise-help-end`
+    - `exercise-help-hints`
+    - `exercise-help-actions`
   - [x] replaced duplicated class bundles in:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`
@@ -168,6 +174,11 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - `src/components/Blanks/Blanks.jsx`
     - `src/components/DropDowns/DropDowns.jsx`
     - `src/components/WordParts/WordParts.jsx`
+  - [x] removed duplicated SCSS wrapper rules in:
+    - `src/App.scss`
+    - `src/components/Blanks/Blanks.scss`
+    - `src/components/DropDowns/DropDowns.scss`
+    - `src/components/WordParts/WordParts.scss`
   - move repeated SCSS visual patterns to tokenized Tailwind utility patterns
   - standardize dynamic branches on `cn()`/`cva`
 - [ ] Phase 3: High-impact file migration (one major file per PR)

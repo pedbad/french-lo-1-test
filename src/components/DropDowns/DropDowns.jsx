@@ -388,7 +388,7 @@ export class DropDowns extends React.PureComponent {
 					<span className="n-placed">{nCorrect}</span> correct out of{" "}
 					{`${this.nToSolve}`}
 				</p>
-					<div className="help">
+					<div className="exercise-help">
 						<IconButton
 							ariaLabel={cheatText}
 							className={cn("hidden-help exercise-icon-button", failCount >= 1 && "show")}

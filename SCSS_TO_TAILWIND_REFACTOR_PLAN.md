@@ -144,6 +144,12 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] extracted duplicated progress divider/control row patterns into shared classes:
     - `exercise-divider`
     - `exercise-actions-row`
+  - [x] extracted shared help/control wrapper patterns into shared classes:
+    - `exercise-help`
+    - `exercise-help-wrap`
+    - `exercise-help-end`
+    - `exercise-help-hints`
+    - `exercise-help-actions`
   - [x] applied these shared classes across:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`
@@ -154,6 +160,11 @@ These are accepted refinements from peer review, adapted to this repo:
   - card shells
   - spacing/layout helpers
 - [ ] Keep minimal compatibility SCSS only where utility extraction is not yet practical.
+  - [x] removed duplicated help-wrapper styling from:
+    - `src/App.scss` (`.help.help-blanks` block)
+    - `src/components/Blanks/Blanks.scss` (`.help` wrapper block)
+    - `src/components/DropDowns/DropDowns.scss` (`.help` wrapper block)
+    - `src/components/WordParts/WordParts.scss` (`.help` wrapper block)
 - [ ] For dynamic style branches, standardize on `cn()` + tokenized utility variants.
   - [x] migrated dynamic `show` class toggles to `cn()` in:
     - `src/components/Blanks/Blanks.jsx`
