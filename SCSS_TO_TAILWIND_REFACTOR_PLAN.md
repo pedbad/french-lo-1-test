@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 34
-- current SCSS imports in JSX/JS: 33
+- current SCSS files in `src`: 33
+- current SCSS imports in JSX/JS: 32
 
 These counts give us a measurable baseline for reduction.
 
@@ -158,6 +158,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/TreasureGrid/TreasureGrid.scss` (deleted; grid/cell/message layout and selection states migrated to tokenized utilities in `TreasureGrid.jsx`)
   - [x] `src/components/Form/Dialog/Dialog.scss` (deleted; dialog shell, backdrop, and box layout migrated to tokenized utilities in `Dialog.jsx`)
   - [x] `src/components/SequenceAudioController/SequenceAudioController.scss` (deleted; controller shell/grid/slider/icon alignment migrated to tokenized utilities in `SequenceAudioController.jsx`)
+  - [x] `src/components/Info/Info.scss` (deleted; information panel and icon skin migrated to tokenized utilities in `Info.jsx` while preserving `.information` hooks)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components
