@@ -32,6 +32,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `_mixins.module.scss` literal `font-family` (`Times New Roman`) replaced with tokenized `var(--font-heading)`
   - completed: `CrossWord.jsx` inline `fontSize` literals (`10`, `16`) replaced with token-based expressions
   - completed: removed unused Sass typography literal variable (`$header-footer-font-size: 0.8rem`) and stale commented literal examples in `App.scss`
+  - completed: centralized accordion title typography inline style into `ACCORDION_TITLE_STYLE` constant to avoid duplicated token rules
 
 ## Color
 

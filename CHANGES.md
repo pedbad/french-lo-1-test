@@ -402,6 +402,13 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: clears remaining literal typography references/drift points so tokenized rules are the only active source.
 - Updated `TASKS_COMPLETED.md` with this cleanup step.
 
+## 52) Typography Batch 5.13 (Accordion Title Style Consolidation)
+- Updated `src/components/Accordion/AccordionArticle.jsx`:
+  - extracted duplicated inline title typography object into a shared `ACCORDION_TITLE_STYLE` constant.
+  - both plain-title and HTML-title branches now use `style={ACCORDION_TITLE_STYLE}`.
+- Why: keeps tokenized accordion title typography defined once, reducing drift risk between render branches.
+- Updated `TASKS_COMPLETED.md` with this completed sub-step.
+
 
 # Files Deleted (partial but comprehensive)
 
