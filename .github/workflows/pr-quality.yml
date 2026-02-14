@@ -1,0 +1,42 @@
+name: PR Quality Gates
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Ensure origin/main exists for branch guards
+        run: git fetch --no-tags origin main:refs/remotes/origin/main
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typography guard (branch)
+        run: yarn check:typography:branch
+
+      - name: Color guard (branch)
+        run: yarn check:color:branch
+
+      - name: A11y guard (branch)
+        run: yarn check:a11y:branch
