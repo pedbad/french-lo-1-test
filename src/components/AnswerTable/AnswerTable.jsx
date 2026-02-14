@@ -1,4 +1,3 @@
-import './AnswerTable.scss';
 import {
 	AudioClip,
 	Monologue,

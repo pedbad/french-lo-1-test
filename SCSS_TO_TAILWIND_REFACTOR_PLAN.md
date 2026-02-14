@@ -69,8 +69,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 
 ## Current Baseline
 
-- SCSS files in `src`: 49
-- SCSS imports in JSX/JS: 48
+- SCSS files in `src`: 48
+- SCSS imports in JSX/JS: 47
 - baseline started at: 54 SCSS files / 53 SCSS imports
 
 These counts give us a measurable baseline for reduction.
@@ -143,6 +143,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/TopButton/TopButton.scss`
   - [x] `src/components/Explanation/Panel/Panel.scss`
   - [x] `src/components/Form/FieldSet/FieldSet.scss`
+  - [x] `src/components/AnswerTable/AnswerTable.scss` (deleted; import removed from `AnswerTable.jsx`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components
@@ -173,7 +174,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] centralized legacy `.help` base layout into global layered CSS:
     - `.help`
   - [x] removed duplicate `@include help()` ownership from:
-    - `src/components/AnswerTable/AnswerTable.scss`
+    - `src/components/AnswerTable/AnswerTable.scss` (deleted; import removed from `AnswerTable.jsx`)
     - `src/components/MemoryMatchGame/MemoryMatchGame.scss`
     - `src/components/Jigsaw/Jigsaw.scss`
     - `src/components/WordGrid/WordGrid.scss`

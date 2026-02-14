@@ -146,9 +146,14 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/TopButton/TopButton.scss`
     - [x] `src/components/Explanation/Panel/Panel.scss`
     - [x] `src/components/Form/FieldSet/FieldSet.scss`
+  - extended quick-win removal:
+    - [x] `src/components/AnswerTable/AnswerTable.scss` (deleted; import removed from `src/components/AnswerTable/AnswerTable.jsx`)
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
+  - current SCSS footprint now:
+    - SCSS files in `src`: 48 (from 54)
+    - SCSS imports in JSX/JS: 47 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
@@ -165,7 +170,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - `exercise-help-hints`
     - `exercise-help-actions`
   - [x] centralized legacy `.help` base layout in `src/index.css` and removed duplicate `@include help()` blocks from:
-    - `src/components/AnswerTable/AnswerTable.scss`
+    - `src/components/AnswerTable/AnswerTable.scss` (deleted; import removed from `src/components/AnswerTable/AnswerTable.jsx`)
     - `src/components/MemoryMatchGame/MemoryMatchGame.scss`
     - `src/components/Jigsaw/Jigsaw.scss`
     - `src/components/WordGrid/WordGrid.scss`
