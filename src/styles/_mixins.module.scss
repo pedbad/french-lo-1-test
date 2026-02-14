@@ -50,10 +50,11 @@ _mixins.module.scss
 			display: inline;
 		}
 	}
-			div {
+
+	div {
 		&.comparison-result {
 			background: var(--card);
-			line-height: 2rem;
+			line-height: calc(var(--font-size-sm) * 2);
 			span {
 				vertical-align: bottom;
 				padding: 4px;
@@ -74,6 +75,7 @@ _mixins.module.scss
 			}
 		}
 	}
+
 	&.compact {
 		flex-direction: row;
 		align-items: flex-start;
@@ -87,7 +89,6 @@ _mixins.module.scss
 			min-width: auto;
 			width: auto;
 			min-height: auto;
-
 			background: var(--card);
 		}
 
@@ -100,8 +101,8 @@ _mixins.module.scss
 				height: 20px;
 				padding: 0;
 				// border: 1px solid $button-border;
-				font-size: 1rem;
-				line-height: 20px;
+				font-size: var(--font-size-sm);
+				line-height: calc(var(--font-size-sm) * 1.25);
 				font-family: "Times New Roman", Times, serif;
 				font-weight: bold;
 				margin-left: 8px;
@@ -125,7 +126,7 @@ _mixins.module.scss
 }
 
 @mixin form-field-common-font-padding() {
-	font-size: 16px;
+	font-size: var(--font-size-sm);
 	padding: 8px 4px;
 }
 
@@ -160,14 +161,14 @@ _mixins.module.scss
 			}
 		}
 		td {
-			font-size: 0.7rem; //1rem;
+			font-size: calc(var(--font-size-sm) * 0.7); //1rem;
 			padding: 0.25rem 0.25rem;
 		}
 	}
 	@include respond-above(s) {
 		table {
 			td {
-				font-size: 1rem;
+				font-size: var(--font-size-sm);
 				padding: 0.25rem 1rem;
 			}
 		}

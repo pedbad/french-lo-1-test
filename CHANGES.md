@@ -371,6 +371,16 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - added `mt-2` to the `mx-auto w-[80%]` container below the blue info panel.
 - Why: increases separation between the instruction/info box and the sortable card container for the final listening exercise, after visual verification.
 
+## 48) Typography Batch 5.9 (Shared Mixins Tokenization)
+- Updated `src/styles/_mixins.module.scss` to remove remaining literal typography values in shared mixins:
+  - `line-height: 2rem` -> `line-height: calc(var(--font-size-sm) * 2)`
+  - `font-size: 1rem` -> `font-size: var(--font-size-sm)` (two locations)
+  - `line-height: 20px` -> `line-height: calc(var(--font-size-sm) * 1.25)`
+  - `font-size: 16px` -> `font-size: var(--font-size-sm)`
+  - `font-size: 0.7rem` -> `font-size: calc(var(--font-size-sm) * 0.7)`
+- Why: these mixins are reused across components, so tokenizing here reduces repeated literal typography and improves consistency at shared-style entry points.
+- Updated `TASKS_COMPLETED.md` with this completed step.
+
 
 # Files Deleted (partial but comprehensive)
 
