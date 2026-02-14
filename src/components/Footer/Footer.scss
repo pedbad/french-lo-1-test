@@ -60,17 +60,21 @@ footer {
 	}
 
 	.footer-container {
+		position: relative;
+		z-index: 1;
 		color: var(--foreground);
 		padding: 40px 36px 60px;
+		--footer-hover-color: var(--chart-3);
 
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto auto; //2fr 80px 45px 80px;
+		grid-template-rows: auto auto auto auto auto; //2fr 80px 45px 80px;
 		grid-column-gap: 20px;
 		grid-row-gap: 40px;
 		grid-template-areas:
 			"uclogo"
 			"square-logos"
+			"footer-links"
 			"license"
 			"copyright";
 
@@ -105,10 +109,17 @@ footer {
 
 		.square-logos {
 			display: flex;
+			flex-direction: column;
 			grid-area: square-logos;
-			justify-content: space-between;
+			align-items: center;
+			gap: 18px;
 			width: $common-width;
 			margin: auto;
+			.square-logos-row {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+			}
 			a {
 				display: block;
 				color: var(--foreground);
@@ -117,12 +128,58 @@ footer {
 					transform 180ms ease,
 					filter 180ms ease;
 				&:hover {
-					color: var(--chart-3);
-					transform: translateY(-2px) scale(1.04);
-					filter: drop-shadow(0 4px 10px color-mix(in oklab, var(--chart-3) 35%, transparent));
+					color: var(--footer-hover-color);
 				}
-				&:active {
-					transform: translateY(-1px) scale(1.01);
+			}
+		}
+		.footer-links {
+			display: flex;
+			grid-area: footer-links;
+			align-items: center;
+			justify-content: center;
+			width: $common-width;
+			margin: auto;
+			.footer-links-block {
+				width: 100%;
+				margin-top: 10px;
+				.footer-link-icons {
+					display: flex;
+					justify-content: center;
+					flex-wrap: nowrap;
+					gap: 14px;
+					width: 100%;
+					.footer-link-button {
+						display: inline-flex;
+						align-items: center;
+						justify-content: center;
+						color: oklch(1 0 0);
+						width: 38px;
+						height: 38px;
+						border-radius: 9999px;
+						border: 1px solid var(--foreground);
+						background: var(--foreground);
+						opacity: 1;
+						transition:
+							color 180ms ease,
+							transform 180ms ease,
+							filter 180ms ease;
+						.footer-link-glyph {
+							width: 20px;
+							height: 20px;
+							display: block;
+							stroke: currentColor;
+						}
+						&:hover {
+							color: oklch(1 0 0);
+							background: var(--footer-hover-color);
+							border-color: var(--footer-hover-color);
+							transform: translateY(-2px) scale(1.04);
+							filter: drop-shadow(0 4px 10px color-mix(in oklab, var(--footer-hover-color) 35%, transparent));
+						}
+						&:active {
+							transform: translateY(-1px) scale(1.01);
+						}
+					}
 				}
 			}
 		}
@@ -171,15 +228,19 @@ footer {
 			margin: 0;
 			color: var(--foreground);
 			a {
+				display: inline-block;
 				text-decoration-line: underline;
 				text-decoration-style: solid;
 				text-decoration-skip-ink: auto;
 				text-decoration-thickness: 1px;
 				text-underline-offset: 5px;
 				text-underline-position: from-font;
-				color: var(--primary);
+				color: var(--foreground);
+				transition: none;
+				transform: none;
+				filter: none;
 				&:hover {
-					color: var(--primary);
+					color: var(--footer-hover-color);
 				}
 			}
 			.developed {
@@ -201,6 +262,17 @@ footer {
 					filter: none;
 				}
 			}
+			.footer-links .footer-link-button {
+				transition: color 120ms ease;
+				&:hover,
+				&:active {
+					transform: none;
+					filter: none;
+				}
+			}
+			.copyright a {
+				transition: none;
+			}
 		}
 	}
 }
@@ -212,9 +284,90 @@ footer {
 		display: none;
 	}
 	.footer-container {
-		.square-logos a:hover {
-			color: var(--chart-4);
-			filter: drop-shadow(0 4px 10px color-mix(in oklab, var(--chart-4) 35%, transparent));
+		--footer-hover-color: var(--chart-4);
+		.footer-links {
+			--footer-hover-color: var(--chart-3);
+			.footer-link-button {
+				color: #fff;
+				border-color: rgb(255 255 255 / 86%);
+				background: linear-gradient(165deg, #1a1a1a 0%, #060606 100%);
+				box-shadow:
+					0 0 0 1px rgb(255 255 255 / 14%) inset,
+					0 8px 18px rgb(0 0 0 / 46%);
+				.footer-link-glyph {
+					stroke: #fff;
+				}
+				filter: drop-shadow(0 0 7px rgb(255 255 255 / 20%));
+				&:hover {
+					border-color: #fff;
+				}
+				&[data-variant="facebook"] {
+					background: linear-gradient(165deg, #4f7ff7 0%, #2053ce 100%) !important;
+					border-color: rgb(186 210 255 / 90%) !important;
+					filter: drop-shadow(0 0 9px rgb(79 127 247 / 52%)) !important;
+					&:hover {
+						background: linear-gradient(165deg, #6791ff 0%, #2e63df 100%) !important;
+						filter: drop-shadow(0 0 14px rgb(103 145 255 / 62%)) !important;
+					}
+					&:active {
+						background: linear-gradient(165deg, #3f6ee3 0%, #1846b9 100%) !important;
+					}
+				}
+				&[data-variant="x"] {
+					background:
+						radial-gradient(circle at 30% 24%, rgb(255 255 255 / 22%) 0%, transparent 52%),
+						linear-gradient(165deg, #1a1a1a 0%, #050505 100%) !important;
+					border-color: rgb(255 255 255 / 82%) !important;
+					filter: drop-shadow(0 0 8px rgb(255 255 255 / 30%)) !important;
+					&:hover {
+						background:
+							radial-gradient(circle at 28% 22%, rgb(255 255 255 / 28%) 0%, transparent 56%),
+							linear-gradient(165deg, #252525 0%, #0b0b0b 100%) !important;
+						filter: drop-shadow(0 0 13px rgb(255 255 255 / 48%)) !important;
+					}
+					&:active {
+						background:
+							radial-gradient(circle at 30% 24%, rgb(255 255 255 / 18%) 0%, transparent 52%),
+							linear-gradient(165deg, #121212 0%, #050505 100%) !important;
+					}
+				}
+				&[data-variant="youtube"] {
+					background: linear-gradient(165deg, #ff5151 0%, #c81919 100%) !important;
+					border-color: rgb(255 198 198 / 90%) !important;
+					filter: drop-shadow(0 0 9px rgb(255 81 81 / 52%)) !important;
+					&:hover {
+						background: linear-gradient(165deg, #ff6666 0%, #dc2525 100%) !important;
+						filter: drop-shadow(0 0 14px rgb(255 102 102 / 60%)) !important;
+					}
+					&:active {
+						background: linear-gradient(165deg, #eb3b3b 0%, #b10f0f 100%) !important;
+					}
+				}
+				&[data-variant="linkedin"] {
+					background: linear-gradient(165deg, #2f8de3 0%, #0b5fb0 100%) !important;
+					border-color: rgb(190 224 255 / 90%) !important;
+					filter: drop-shadow(0 0 9px rgb(47 141 227 / 52%)) !important;
+					&:hover {
+						background: linear-gradient(165deg, #47a0f0 0%, #1571c8 100%) !important;
+						filter: drop-shadow(0 0 14px rgb(71 160 240 / 60%)) !important;
+					}
+					&:active {
+						background: linear-gradient(165deg, #1f79cb 0%, #08549f 100%) !important;
+					}
+				}
+				&[data-variant="instagram"] {
+					background: linear-gradient(165deg, #ff8a46 0%, #d6429f 52%, #5b6dff 100%) !important;
+					border-color: rgb(255 219 199 / 92%) !important;
+					filter: drop-shadow(0 0 9px rgb(214 66 159 / 52%)) !important;
+					&:hover {
+						background: linear-gradient(165deg, #ff9d63 0%, #e056ad 52%, #6f80ff 100%) !important;
+						filter: drop-shadow(0 0 14px rgb(224 86 173 / 60%)) !important;
+					}
+					&:active {
+						background: linear-gradient(165deg, #ee7a39 0%, #c53190 52%, #4d5fe9 100%) !important;
+					}
+				}
+			}
 		}
 		.uclogo a img.logo.theme-light {
 			display: none;
@@ -287,6 +440,9 @@ footer {
 			.square-logos {
 				width: $common-width;
 			}
+			.footer-links {
+				width: $common-width;
+			}
 		}
 	}
 }
@@ -318,7 +474,7 @@ footer {
 			grid-template-areas:
 				"uclogo square-logos"
 				"license license"
-				"copyright copyright";
+				"copyright footer-links";
 			// grid-row-gap: 36px;
 
 			.uclogo {
@@ -328,19 +484,39 @@ footer {
 			// padding: 130px 80px; //2.5rem 0;
 			.square-logos {
 				// grid-area: square-logos;
-				justify-content: flex-end;
-				gap: 40px;
-				.lclogo,
-				.cclogo {
-					img,
-					svg {
-						height: 52px;
+				justify-content: flex-start;
+				align-items: flex-end;
+				gap: 16px;
+				width: auto;
+				.square-logos-row {
+					justify-content: flex-end;
+					gap: 40px;
+					width: auto;
+					.lclogo,
+					.cclogo {
+						img,
+						svg {
+							height: 52px;
+						}
+					}
+					.elearninglogo {
+						img,
+						svg {
+							height: 58px;
+						}
 					}
 				}
-				.elearninglogo {
-					img,
-					svg {
-						height: 58px;
+			}
+			.footer-links {
+				justify-content: flex-end;
+				align-items: flex-end;
+				width: auto;
+				.footer-links-block {
+					margin-top: 0;
+					width: auto;
+					.footer-link-icons {
+						justify-content: flex-end;
+						gap: 16px;
 					}
 				}
 			}

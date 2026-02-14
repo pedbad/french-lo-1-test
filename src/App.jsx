@@ -27,7 +27,6 @@ import {
 	ReadAloud,
 	Section,
 	SequenceOrder,
-	Social,
 	Sortable,
 	WordGrid,
 	WordParts,
@@ -951,7 +950,6 @@ export default class App extends React.Component {
 								</p>
 							</div>
 						)}
-						<Social />
 						<Footer />
 					</div>
 				</TooltipProvider>

@@ -409,6 +409,19 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Why: keeps tokenized accordion title typography defined once, reducing drift risk between render branches.
 - Updated `TASKS_COMPLETED.md` with this completed sub-step.
 
+## 53) Footer Social Links Row Added
+- Updated `src/components/Footer/Footer.jsx`:
+  - added a new `footer-social-links` row under the existing square logo row.
+  - footer now renders links through a dedicated `FooterSocialLinks` component.
+  - added `rel="noopener noreferrer"` to external `target="_blank"` links in the footer.
+- Added `src/components/Footer/FooterSocialLinks.jsx`:
+  - componentized Facebook, X, YouTube, LinkedIn, and Instagram links.
+  - uses Lucide icons where available and a custom inline SVG for X brand parity.
+- Updated `src/components/Footer/Footer.scss`:
+  - refactored `.square-logos` to a column layout with `.square-logos-row` + `.footer-social-links`.
+  - set social icon sizing/alignment for mobile and right-aligned placement under eLearning on desktop.
+- Why: places social links where users expect them (footer brand area) while preserving responsive layout and external-link safety.
+
 
 # Files Deleted (partial but comprehensive)
 
