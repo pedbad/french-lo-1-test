@@ -3,7 +3,7 @@ import { ArrowDownToLine } from "lucide-react";
 import React from 'react';
 
 const BLANK_WORD_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.2)] leading-[calc(var(--font-size-sm)*1.4)]";
-const DROP_TARGET_ICON_CLASS = "pointer-events-none absolute inset-0 m-auto h-4 w-4 text-[color-mix(in_oklab,var(--chart-3)_65%,white)] opacity-70 z-0";
+const DROP_TARGET_ICON_CLASS = "pointer-events-none absolute inset-0 m-auto h-4 w-4 text-[color-mix(in_oklab,var(--chart-3)_65%,var(--background))] opacity-70 z-0";
 const DRAGGABLE_WORD_TILE_CLASS = [
 	"inline-flex justify-center select-none transition-[left,top,box-shadow] duration-1000",
 	"[&.draggable]:cursor-pointer",
@@ -12,7 +12,7 @@ const DRAGGABLE_WORD_TILE_CLASS = [
 	"[&.dragging]:absolute [&.dragging]:z-[11] [&.dragging]:cursor-grab",
 	"[&.dragging]:transition-[left,top,box-shadow] [&.dragging]:duration-0",
 	"[&.dragging>span]:shadow-none",
-	"[&.dragging>span]:ring-2 [&.dragging>span]:ring-[color-mix(in_oklab,var(--chart-3)_55%,white)]",
+	"[&.dragging>span]:ring-2 [&.dragging>span]:ring-[color-mix(in_oklab,var(--chart-3)_55%,var(--background))]",
 	"[&.dragging>span]:transition-shadow [&.dragging>span]:duration-1000",
 	"[&.placed]:absolute [&.placed]:cursor-default [&.placed]:pointer-events-none [&.placed]:!opacity-100",
 	"[&.placed>span]:transition-[left,top] [&.placed>span]:duration-1000",
@@ -22,7 +22,7 @@ const DRAGGABLE_WORD_TILE_CLASS = [
 	"[&.blank>span]:my-1 [&.blank>span]:mx-1",
 	"[&.blank>span]:rounded-xl",
 	"[&.blank>span]:border-0",
-	"[&.blank>span]:border [&.blank>span]:border-[color-mix(in_oklab,var(--chart-3)_72%,black)]",
+	"[&.blank>span]:border [&.blank>span]:border-[color-mix(in_oklab,var(--chart-3)_72%,var(--foreground))]",
 	"[&.blank>span]:px-2 [&.blank>span]:py-1",
 	"sm:[&.blank>span]:px-4 sm:[&.blank>span]:py-[0.4rem]",
 	"[&.blank>span]:font-bold [&.blank>span]:min-h-[1.4rem] [&.blank>span]:inline-block",
@@ -32,7 +32,7 @@ const DRAGGABLE_WORD_TILE_CLASS = [
 	"[&.draggable>span]:transition-[box-shadow,filter,border-color] [&.draggable>span]:duration-200 [&.draggable>span]:ease-out",
 	"[&.draggable>span:hover]:text-[var(--ped-warn)]",
 	"[&.draggable>span:hover]:shadow-[0_4px_10px_color-mix(in_oklab,var(--foreground)_24%,transparent)]",
-	"[&.draggable>span:hover]:border-[color-mix(in_oklab,var(--chart-3)_78%,white)]",
+	"[&.draggable>span:hover]:border-[color-mix(in_oklab,var(--chart-3)_78%,var(--background))]",
 	"[&.draggable>span:active]:shadow-none",
 ].join(" ");
 
@@ -71,6 +71,6 @@ export class DraggableWordTile extends React.PureComponent {
 				{isTarget ? <ArrowDownToLine aria-hidden="true" className={DROP_TARGET_ICON_CLASS} /> : null}
 				<span className={BLANK_WORD_TEXT_CLASS}>{children}</span>
 			</div>
-			);
-		};
+		);
+	};
 }

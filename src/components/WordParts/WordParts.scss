@@ -32,11 +32,11 @@ html.debug {
 		justify-content: flex-end;
 	}
 
-	.wordparts-reset.icon-button {
-		border-color: var(--chart-2);
-		background-color: var(--chart-2);
-		color: var(--primary-foreground, #fff);
-	}
+		.wordparts-reset.icon-button {
+			border-color: var(--chart-2);
+			background-color: var(--chart-2);
+			color: var(--primary-foreground);
+		}
 	.wordparts-reset.icon-button:hover {
 		background-color: color-mix(in oklab, var(--chart-2) 85%, transparent);
 	}

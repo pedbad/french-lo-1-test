@@ -349,7 +349,7 @@ $max-tile-width: 360px;
 	display: inline-flex;
 	align-items: center;
 	margin-left: 0.45rem;
-	background: color-mix(in oklab, var(--ped-warn) 86%, black);
+	background: color-mix(in oklab, var(--ped-warn) 86%, var(--foreground));
 	color: var(--primary-foreground);
 	border-radius: 0.6rem;
 	padding: 0.35rem 0.7rem;

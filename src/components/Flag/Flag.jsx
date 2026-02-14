@@ -64,16 +64,14 @@ export class Flag extends PureComponent {
 
 			// Pull theme tokens once to keep canvas lighting aligned with the active palette.
 			const rootStyles = getComputedStyle(document.documentElement);
-			const foregroundToken = rootStyles.getPropertyValue('--foreground').trim().replace(/\s+/g, ', ');
-			const backgroundToken = rootStyles.getPropertyValue('--background').trim().replace(/\s+/g, ', ');
+			const foregroundRgb = rootStyles.getPropertyValue('--color-text-primary').trim().replace(/\s+/g, ', ');
+			const backgroundRgb = rootStyles.getPropertyValue('--color-surface-base').trim().replace(/\s+/g, ', ');
 
 			const draw = () => {
 				const { fix, shadow: showDropShadow } = this.props;
 
 				if (showDropShadow) {
-					ctx.shadowColor = foregroundToken
-						? `hsla(${foregroundToken}, 0.25)`
-						: 'rgba(0, 0, 0, 0.25)';
+					ctx.shadowColor = `rgba(${foregroundRgb}, 0.25)`;
 					ctx.shadowBlur = 8;
 					ctx.shadowOffsetX = 8;
 					ctx.shadowOffsetY = 6;
@@ -116,14 +114,10 @@ export class Flag extends PureComponent {
 							x, waveOffset + modAmplitude, 1, modHeight
 						);
 
-						ctx.fillStyle = backgroundToken
-							? `hsla(${backgroundToken}, ${0.15 * light})`
-							: `rgba(255, 255, 255, ${0.15 * light})`;
+						ctx.fillStyle = `rgba(${backgroundRgb}, ${0.15 * light})`;
 						ctx.fillRect(x, waveOffset + modAmplitude, 1, modHeight);
 
-						ctx.fillStyle = foregroundToken
-							? `hsla(${foregroundToken}, ${0.1 * (1 - light)})`
-							: `rgba(0, 0, 0, ${0.1 * (1 - light)})`;
+						ctx.fillStyle = `rgba(${foregroundRgb}, ${0.1 * (1 - light)})`;
 						ctx.fillRect(x, waveOffset + modAmplitude, 1, modHeight);
 					}
 

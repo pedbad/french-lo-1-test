@@ -9,9 +9,9 @@ _mixins.module.scss
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#00087c+0,0003d3+51,00087c+100 */
 	background: linear-gradient(
 		to right,
-		color-mix(in oklab, var(--primary) 85%, black) 0%,
+		color-mix(in oklab, var(--primary) 85%, var(--foreground)) 0%,
 		var(--primary) 51%,
-		color-mix(in oklab, var(--primary) 85%, black) 100%
+		color-mix(in oklab, var(--primary) 85%, var(--foreground)) 100%
 	); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
