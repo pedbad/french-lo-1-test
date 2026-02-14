@@ -107,6 +107,26 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [ ] Phase 4: ARIA cleanup (remove invalid aria usage, keep only needed labels)
 - [ ] Phase 5: SVG/image attribute/path cleanup and validation retest
 
+## CI / Guardrails
+
+- [x] Add GitHub Actions PR quality workflow
+  - added `/Users/ped/Sites/french/french-lo-1-test/.github/workflows/pr-quality.yml`
+  - workflow runs on `pull_request` + `workflow_dispatch`
+  - enforced checks: `yarn build`, `yarn lint`, `yarn check:typography:branch`, `yarn check:color:branch`, `yarn check:a11y:branch`
+- [x] Document CI quality gates in README
+  - added section: `## CI Quality Gates (GitHub Actions)` in `README.md`
+  - includes workflow location and enforced checks
+- [x] Add reusable future-project CI baseline
+  - added section: `## Out-of-the-Box GitHub Actions CI (Default)` in `FUTURE_PROJECTS.md`
+  - includes copy-paste workflow template and Bun command mapping
+- [x] Add future-project prevention checklist
+  - added section: `## Additional Prevention Defaults (Recommended)` in `FUTURE_PROJECTS.md`
+  - includes branch protection, CODEOWNERS, PR template, axe/Playwright, visual regression, dependency/security automation
+- [x] Mirror CI policy in agent docs
+  - added CI quality gate notes in `AGENTS.md`
+- [ ] Add step-by-step README instructions for GitHub Actions usage
+  - pending detail docs: initial enablement, required checks/branch protection setup, rerun/debug process, and local reproduction path
+
 ## Next Recommended Baby Step
 
 - [x] Typography batch 3: converted remaining small hardcoded text in `src/App.scss` (`figcaption`, `.footnote`) to token-based values.
