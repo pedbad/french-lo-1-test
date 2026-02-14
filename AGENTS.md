@@ -37,6 +37,16 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
   - blocks new literal `line-height` values with `px/rem/em`
   - allows tokenized `font-family: var(--font-...)`
   - blocks literal `font-family` declarations
+- Color guard policy (`scripts/check-color-guard.sh`):
+  - blocks new hex color literals outside allowlisted files
+  - blocks new named color literals outside allowlisted files
+  - blocks new color functions without token indirection (`rgb/hsl/oklch` without `var(--...)`)
+  - allows tokenized color usage via `var(--...)`
+  - allowlist is maintained in `scripts/color-allowlist.txt` (`src/index.css` is currently allowlisted)
+- Local quality gates:
+  - staged checks: `yarn check:typography` and `yarn check:color`
+  - branch checks: `yarn check:typography:branch` and `yarn check:color:branch`
+  - recommended pre-push: `yarn prepush:local`
 - Theme toggling briefly disables CSS transitions (`html.no-theme-transition`) to avoid flicker during light/dark switches.
 - WordParts includes a circle-based progress indicator and inline icon guidance (Show answer/Reset) powered by CSS-masked SVGs.
 - Modal links open shadcn/Radix dialogs. The dialog accepts React content (not just HTML strings) so `AudioClip` components can render; for key grammar links the modal renders React content from `src/components/CustomComponents_FR/CustomComponents_FR.jsx` so audio clips work and text stays in sync with the on-page content.

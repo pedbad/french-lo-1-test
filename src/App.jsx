@@ -52,6 +52,38 @@ import React from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 
+const splitDisplayTitle = (value) => {
+	if (typeof value !== "string") return null;
+
+	const title = value.trim();
+	if (!title) return null;
+
+	// Keep split rules explicit and conservative so hyphenated words
+	// (for example "café-crème") are not treated as title separators.
+	const splitPatterns = [
+		/:\s+/, // "Main: sub"
+		/\s+—\s+/, // "Main — sub"
+		/\s+–\s+/, // "Main – sub"
+		/\s+\|\s+/, // "Main | sub"
+		/\s+-\s+/, // "Main - sub"
+	];
+
+	for (const pattern of splitPatterns) {
+		const match = title.match(pattern);
+		if (!match || match.index === undefined) continue;
+
+		const { index } = match;
+		const [separator] = match;
+		const main = title.slice(0, index).trim();
+		const sub = title.slice(index + separator.length).trim();
+		if (!main || !sub) continue;
+
+		return { main, sub };
+	}
+
+	return null;
+};
+
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -846,18 +878,21 @@ export default class App extends React.Component {
 								</div>
 								<main id="content" key="content" role="main">
 									<h1>
-										{typeof title === 'string' && title.includes(':') ? (
-											<>
-												<span className="title-main">
-													{title.split(':')[0]} —
-												</span>
-												<span className="title-sub">
-													{title.split(':').slice(1).join(':').trim()}
-												</span>
-											</>
-										) : (
-											title
-										)}
+										{(() => {
+											const parts = splitDisplayTitle(title);
+											if (!parts) return title;
+
+											return (
+												<>
+													<span className="title-main">
+														{parts.main} —
+													</span>
+													<span className="title-sub">
+														{parts.sub}
+													</span>
+												</>
+											);
+										})()}
 									</h1>
 									<div id="fontSamples">
 										<h1>Heading 1 Feijoa Bold</h1>

@@ -625,6 +625,30 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - applied the same semantic replacements to mobile nav links.
 - Why: moves MainMenu away from palette-channel color references toward semantic token usage, improving theme readability and consistency.
 
+## 71) Docs Sync (AGENTS Guardrail Parity)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/AGENTS.md`:
+  - added color guard policy details to match current workflow (`scripts/check-color-guard.sh`, `scripts/color-allowlist.txt`).
+  - documented local quality gates (`check:typography`, `check:color`, branch checks, and `prepush:local`).
+- Why: keeps onboarding/operator docs aligned so contributors follow the same token guardrails documented in README and task trackers.
+
+## 72) Heading Separator Normalization (App Title)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - extracted title splitting into `splitDisplayTitle`.
+  - normalized heading split logic to support both `:` and `—` as source separators.
+  - preserved current rendered format (`title-main — title-sub`) and existing `title-main`/`title-sub` styling hooks.
+- Why: avoids title formatting drift when content sources mix colon and em-dash conventions.
+
+## 73) Heading Separator Coverage Expansion
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` (`splitDisplayTitle`):
+  - expanded supported source separators to include:
+    - `:`
+    - `—` (em dash)
+    - `–` (en dash)
+    - `|` (pipe)
+    - spaced hyphen (` - `)
+  - kept matching conservative for dash separators (requires surrounding spaces) to avoid splitting hyphenated words.
+- Why: improves resilience to mixed title punctuation while preventing accidental splits in normal hyphenated terms.
+
 
 # Files Deleted (partial but comprehensive)
 
