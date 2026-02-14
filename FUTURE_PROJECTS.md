@@ -48,6 +48,77 @@ Output required:
 - short checklist for adding new components safely
 ```
 
+## Out-of-the-Box GitHub Actions CI (Default)
+
+Use this as the default workflow in new repos (`.github/workflows/ci.yml`):
+
+```yaml
+name: PR Quality Gates
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Ensure origin/main exists for branch guards
+        run: git fetch --no-tags origin main:refs/remotes/origin/main
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typography guard (branch)
+        run: yarn check:typography:branch
+
+      - name: Color guard (branch)
+        run: yarn check:color:branch
+
+      - name: A11y guard (branch)
+        run: yarn check:a11y:branch
+```
+
+If the project uses Bun instead of Yarn, keep the same job shape and swap commands to:
+- install: `bun install --frozen-lockfile`
+- run scripts: `bun run <script>`
+
+## Additional Prevention Defaults (Recommended)
+
+Add these from day one to avoid late cleanup projects:
+
+1. Protect `main` with required status checks for CI workflows.
+2. Add `CODEOWNERS` for design tokens, accessibility-critical components, and build config.
+3. Add a PR template that requires:
+   - keyboard test confirmation
+   - screen-reader smoke check confirmation
+   - before/after screenshots for UI changes
+4. Add Playwright + axe smoke tests for key pages/states in CI.
+5. Add visual regression snapshots for top-level routes and core components.
+6. Add a path hygiene guard (ASCII-only names, no spaces) for `public/` assets.
+7. Add dependency update automation (Dependabot or Renovate) with weekly cadence.
+8. Add security scanning (CodeQL and `npm audit`/`yarn audit`) on schedule.
+9. Add branch-level "no new debt" checks (warnings/error budgets must not increase).
+10. Add a release checklist workflow for production preview validation (build + preview + smoke checks).
+
 ## Recommended Directory Structure
 
 ```text

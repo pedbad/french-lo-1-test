@@ -57,6 +57,10 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
   - staged checks: `yarn check:typography`, `yarn check:color`, and `yarn check:a11y`
   - branch checks: `yarn check:typography:branch`, `yarn check:color:branch`, and `yarn check:a11y:branch`
   - recommended pre-push: `yarn prepush:local`
+- CI quality gates:
+  - workflow file: `.github/workflows/pr-quality.yml`
+  - enforced on PRs: `yarn build`, `yarn lint`, `yarn check:typography:branch`, `yarn check:color:branch`, `yarn check:a11y:branch`
+  - future-project baseline and copy/paste template live in `FUTURE_PROJECTS.md` under "Out-of-the-Box GitHub Actions CI (Default)"
 - Theme toggling briefly disables CSS transitions (`html.no-theme-transition`) to avoid flicker during light/dark switches.
 - WordParts includes a circle-based progress indicator and inline icon guidance (Show answer/Reset) powered by CSS-masked SVGs.
 - Modal links open shadcn/Radix dialogs. The dialog accepts React content (not just HTML strings) so `AudioClip` components can render; for key grammar links the modal renders React content from `src/components/CustomComponents_FR/CustomComponents_FR.jsx` so audio clips work and text stays in sync with the on-page content.

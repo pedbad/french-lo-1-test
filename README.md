@@ -154,6 +154,21 @@ Validator triage guidance:
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
+## CI Quality Gates (GitHub Actions)
+
+This repo now includes a PR workflow at:
+- `/Users/ped/Sites/french/french-lo-1-test/.github/workflows/pr-quality.yml`
+
+It runs on every pull request and enforces:
+- `yarn build`
+- `yarn lint`
+- `yarn check:typography:branch`
+- `yarn check:color:branch`
+- `yarn check:a11y:branch`
+
+For future projects, copy the reusable CI baseline from:
+- `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md` (section: **Out-of-the-Box GitHub Actions CI (Default)**)
+
 ## Migration Trackers
 
 The active migration/audit trackers are:
