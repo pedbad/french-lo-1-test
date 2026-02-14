@@ -588,6 +588,43 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - marked color guard script + prepush wiring tasks complete.
 - Why: mirrors typography guardrails to prevent new non-token color drift while continuing hotspot-by-hotspot migration.
 
+## 68) Color Hotspot Migration (App/MainMenu/AudioClip) + Guard Compatibility Fix
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.scss`:
+  - replaced remaining literal warning/link accent color `oklch(0.646 0.222 41.116)` with semantic token `var(--ped-warn)` for modal links.
+  - replaced button text fallback `var(--primary-foreground, #fff)` with token-only `var(--primary-foreground)`.
+  - replaced hover darkening mixes from `black` to tokenized `var(--foreground)` in `.btn-ped-warn`, `.btn-chart-2`, and `.btn-hero-title`.
+  - replaced hero local custom property literal `oklch(0.398 0.07 227.392)` with semantic token `var(--chart-3)`.
+  - updated `.modal-link`/`:visited` text-decoration color mixes to derive from `var(--ped-warn)` token.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.scss`:
+  - replaced mobile toggle/menu separator literal `oklch(0 0 0 / 0.06)` with tokenized `color-mix(in oklab, var(--foreground) 6%, transparent)`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/AudioClip/AudioClip.scss`:
+  - replaced hover literal accent `oklch(0.646 0.222 41.116)` with semantic `var(--ped-warn)`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/check-color-guard.sh`:
+  - replaced Bash `mapfile` usage with a Bash-3-compatible read loop for macOS compatibility.
+  - replaced HTML-comment skip regex with a Bash-3-safe string match.
+- Why: removes the next high-impact cluster of literal color values in priority files while keeping visual behavior aligned to semantic tokens and ensuring the color guard works reliably on local macOS shells.
+
+## 69) Footer Color Tokenization (Crest + Social Dark Palettes)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Footer/Footer.scss`:
+  - replaced crest highlight `white` color-mix usage with semantic footer crest tokens.
+  - replaced footer social icon foreground `oklch(1 0 0)` with `var(--footer-social-icon-fg)`.
+  - replaced dark-mode social icon literal color/gradient/shadow values with token references:
+    - base dark styles: `--footer-social-dark-*`
+    - per-network variants: `--footer-social-facebook-*`, `--footer-social-x-*`, `--footer-social-youtube-*`, `--footer-social-linkedin-*`, `--footer-social-instagram-*`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - added centralized footer visual tokens:
+    - crest shading tokens (`--footer-crest-*`)
+    - social icon foreground token (`--footer-social-icon-fg`)
+    - dark social variant tokens (`--footer-social-...`)
+- Why: keeps current footer visuals intact while moving component-level literal color definitions into centralized token ownership, advancing the color single-source-of-truth model.
+
+## 70) MainMenu Semantic Color Cleanup
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.scss`:
+  - replaced `rgb(var(--color-text-secondary))` with semantic `var(--muted-foreground)` for nav links.
+  - replaced hover `rgb(var(--color-text-primary))` with semantic `var(--foreground)` for nav links.
+  - applied the same semantic replacements to mobile nav links.
+- Why: moves MainMenu away from palette-channel color references toward semantic token usage, improving theme readability and consistency.
+
 
 # Files Deleted (partial but comprehensive)
 

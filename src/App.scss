@@ -119,7 +119,7 @@ html {
 			#content {
 	.modal-link,
 	.modal-link:visited {
-		color: oklch(0.646 0.222 41.116);
+		color: var(--ped-warn);
 		text-decoration: underline;
 		text-underline-offset: 3px;
 		cursor: pointer;
@@ -209,31 +209,31 @@ html {
 .btn-ped-warn {
 	background-color: var(--ped-warn);
 	border-color: var(--ped-warn);
-	color: var(--primary-foreground, #fff);
+	color: var(--primary-foreground);
 }
 
 .btn-ped-warn:hover {
-	background-color: color-mix(in oklab, var(--ped-warn) 85%, black);
+	background-color: color-mix(in oklab, var(--ped-warn) 85%, var(--foreground));
 }
 
 .btn-chart-2 {
 	background-color: var(--chart-2);
 	border-color: var(--chart-2);
-	color: var(--primary-foreground, #fff);
+	color: var(--primary-foreground);
 }
 
 .btn-chart-2:hover {
-	background-color: color-mix(in oklab, var(--chart-2) 85%, black);
+	background-color: color-mix(in oklab, var(--chart-2) 85%, var(--foreground));
 }
 
 .btn-hero-title {
 	background-color: var(--chart-3);
 	border-color: var(--chart-3);
-	color: var(--primary-foreground, #fff);
+	color: var(--primary-foreground);
 }
 
 .btn-hero-title:hover {
-	background-color: color-mix(in oklab, var(--chart-3) 85%, black);
+	background-color: color-mix(in oklab, var(--chart-3) 85%, var(--foreground));
 }
 
 .help.help-blanks {
@@ -399,7 +399,7 @@ hr {
 }
 
 #hero {
-	--hero-banner-title-color: oklch(0.398 0.07 227.392);
+	--hero-banner-title-color: var(--hero-title-color);
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -781,11 +781,11 @@ hr {
 	}
 }
 .modal-link {
-	color: oklch(0.646 0.222 41.116);
-	text-decoration-color: color-mix(in oklab, oklch(0.646 0.222 41.116) 60%, transparent);
+	color: var(--ped-warn);
+	text-decoration-color: color-mix(in oklab, var(--ped-warn) 60%, transparent);
 	font-weight: 600;
 }
 .modal-link:visited {
-	color: oklch(0.646 0.222 41.116);
-	text-decoration-color: color-mix(in oklab, oklch(0.646 0.222 41.116) 60%, transparent);
+	color: var(--ped-warn);
+	text-decoration-color: color-mix(in oklab, var(--ped-warn) 60%, transparent);
 }

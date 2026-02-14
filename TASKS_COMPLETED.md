@@ -58,8 +58,14 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - `scripts/color-allowlist.txt`
 - [x] Add `check:color` to package scripts and include in local pre-push flow
 - [ ] Tune color guard allowlist/patterns based on real-world false positives (keep list minimal)
-- [ ] Migrate high-impact literal color hotspots
-  - Priority: `src/App.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/AudioClip/AudioClip.scss`
+- [x] Migrate high-impact literal color hotspots
+  - Priority: `src/App.scss`, `src/components/MainMenu/MainMenu.scss`, `src/components/AudioClip/AudioClip.scss`, `src/components/Footer/Footer.scss`
+  - completed: `App.scss` literal accent `oklch(...)` usage replaced with semantic tokens (`--ped-warn`, `--chart-3`)
+  - completed: `App.scss` button foreground fallback and hover darkening now tokenized (`--primary-foreground`, `--foreground`)
+  - completed: `MainMenu.scss` mobile hover/separator literal `oklch(0 0 0 / 0.06)` replaced with tokenized `color-mix(... var(--foreground) ...)`
+  - completed: `MainMenu.scss` nav link text colors moved from palette-channel `rgb(var(--color-text-*)))` usage to semantic tokens (`--muted-foreground`, `--foreground`)
+  - completed: `AudioClip.scss` hover accent literal `oklch(...)` replaced with semantic `--ped-warn`
+  - completed: `Footer.scss` literal white/hex/rgb dark social palette values moved to centralized footer tokens in `index.css` and consumed via `var(--footer-social-...)`
 
 ## Audio
 

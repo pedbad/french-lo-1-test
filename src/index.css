@@ -122,6 +122,15 @@
 		--ped-neutral: var(--muted-foreground);
 		--ped-accent: var(--primary);
 
+		/* Footer visual accents */
+		--footer-crest-conic-a-start: color-mix(in oklab, var(--footer-background) 68%, var(--card));
+		--footer-crest-conic-a-mid: color-mix(in oklab, var(--footer-background) 24%, transparent);
+		--footer-crest-conic-b-start: color-mix(in oklab, var(--footer-background) 66%, var(--card));
+		--footer-crest-conic-b-mid: color-mix(in oklab, var(--footer-background) 22%, transparent);
+		--footer-crest-linear-start: color-mix(in oklab, var(--footer-background) 50%, var(--card));
+		--footer-crest-linear-mid: color-mix(in oklab, var(--footer-background) 18%, transparent);
+		--footer-social-icon-fg: var(--primary-foreground);
+
 	}
 
 	.dark {
@@ -201,6 +210,52 @@
 		--footer-background: var(--sidebar);
 		--accordion-mist: oklch(0.9330 0.0055 183.0);
 		--accordion-hover-text: oklch(0.145 0 0);
+
+		/* Footer social dark-mode palettes */
+		--footer-social-dark-fg: #fff;
+		--footer-social-dark-border: rgb(255 255 255 / 86%);
+		--footer-social-dark-bg: linear-gradient(165deg, #1a1a1a 0%, #060606 100%);
+		--footer-social-dark-shadow: 0 0 0 1px rgb(255 255 255 / 14%) inset, 0 8px 18px rgb(0 0 0 / 46%);
+		--footer-social-dark-glow: drop-shadow(0 0 7px rgb(255 255 255 / 20%));
+		--footer-social-dark-border-hover: #fff;
+
+		--footer-social-facebook-bg: linear-gradient(165deg, #4f7ff7 0%, #2053ce 100%);
+		--footer-social-facebook-border: rgb(186 210 255 / 90%);
+		--footer-social-facebook-glow: drop-shadow(0 0 9px rgb(79 127 247 / 52%));
+		--footer-social-facebook-bg-hover: linear-gradient(165deg, #6791ff 0%, #2e63df 100%);
+		--footer-social-facebook-glow-hover: drop-shadow(0 0 14px rgb(103 145 255 / 62%));
+		--footer-social-facebook-bg-active: linear-gradient(165deg, #3f6ee3 0%, #1846b9 100%);
+
+		--footer-social-x-bg: radial-gradient(circle at 30% 24%, rgb(255 255 255 / 22%) 0%, transparent 52%),
+			linear-gradient(165deg, #1a1a1a 0%, #050505 100%);
+		--footer-social-x-border: rgb(255 255 255 / 82%);
+		--footer-social-x-glow: drop-shadow(0 0 8px rgb(255 255 255 / 30%));
+		--footer-social-x-bg-hover: radial-gradient(circle at 28% 22%, rgb(255 255 255 / 28%) 0%, transparent 56%),
+			linear-gradient(165deg, #252525 0%, #0b0b0b 100%);
+		--footer-social-x-glow-hover: drop-shadow(0 0 13px rgb(255 255 255 / 48%));
+		--footer-social-x-bg-active: radial-gradient(circle at 30% 24%, rgb(255 255 255 / 18%) 0%, transparent 52%),
+			linear-gradient(165deg, #121212 0%, #050505 100%);
+
+		--footer-social-youtube-bg: linear-gradient(165deg, #ff5151 0%, #c81919 100%);
+		--footer-social-youtube-border: rgb(255 198 198 / 90%);
+		--footer-social-youtube-glow: drop-shadow(0 0 9px rgb(255 81 81 / 52%));
+		--footer-social-youtube-bg-hover: linear-gradient(165deg, #ff6666 0%, #dc2525 100%);
+		--footer-social-youtube-glow-hover: drop-shadow(0 0 14px rgb(255 102 102 / 60%));
+		--footer-social-youtube-bg-active: linear-gradient(165deg, #eb3b3b 0%, #b10f0f 100%);
+
+		--footer-social-linkedin-bg: linear-gradient(165deg, #2f8de3 0%, #0b5fb0 100%);
+		--footer-social-linkedin-border: rgb(190 224 255 / 90%);
+		--footer-social-linkedin-glow: drop-shadow(0 0 9px rgb(47 141 227 / 52%));
+		--footer-social-linkedin-bg-hover: linear-gradient(165deg, #47a0f0 0%, #1571c8 100%);
+		--footer-social-linkedin-glow-hover: drop-shadow(0 0 14px rgb(71 160 240 / 60%));
+		--footer-social-linkedin-bg-active: linear-gradient(165deg, #1f79cb 0%, #08549f 100%);
+
+		--footer-social-instagram-bg: linear-gradient(165deg, #ff8a46 0%, #d6429f 52%, #5b6dff 100%);
+		--footer-social-instagram-border: rgb(255 219 199 / 92%);
+		--footer-social-instagram-glow: drop-shadow(0 0 9px rgb(214 66 159 / 52%));
+		--footer-social-instagram-bg-hover: linear-gradient(165deg, #ff9d63 0%, #e056ad 52%, #6f80ff 100%);
+		--footer-social-instagram-glow-hover: drop-shadow(0 0 14px rgb(224 86 173 / 60%));
+		--footer-social-instagram-bg-active: linear-gradient(165deg, #ee7a39 0%, #c53190 52%, #4d5fe9 100%);
 
 
 

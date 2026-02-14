@@ -11,11 +11,13 @@ Non-negotiable architecture:
 1. Use Bun for install/dev/build/test scripts.
 2. Use Tailwind as the only styling system. Do not use SCSS/SASS.
 3. Implement strict single source of truth for design:
-   - All typography/color/radius/shadow/motion tokens live in one token file (for example: src/styles/tokens.css).
-   - Tailwind and shadcn consume those tokens.
+   - Keep one semantic token contract in `src/styles/tokens.css`.
+   - Keep locale/brand color palette overrides in `src/styles/themes/theme-<locale>.css`.
+   - Tailwind and shadcn consume semantic tokens only.
    - No hardcoded color/font-size/font-family values outside token files.
 4. Must support light and dark mode from day one using class-based theme switching.
 5. Ensure token parity across light/dark (no ad hoc per-component overrides).
+   - Include locale/brand theming from day one via `data-theme` on the root element.
 6. Set up shadcn so components are easy to theme and extend via cva variants.
 7. Add a cn utility and class-variance-authority pattern for all reusable custom components.
 8. Add accessibility defaults:
@@ -76,7 +78,11 @@ project-root/
       api/                  # fetch clients/endpoints
       audio/                # playback helpers/managers
     styles/
-      tokens.css            # single source of truth tokens
+      tokens.css            # semantic token contract
+      themes/
+        theme-french.css    # locale/brand palette overrides
+        theme-spanish.css
+        theme-russian.css
       base.css              # tailwind base imports + global utility glue
     assets/
       svg/                  # imported SVGs as modules/components
@@ -98,6 +104,49 @@ project-root/
   package.json
 ```
 
+## Where Tokens Live (Simple Model)
+
+Use this exact split so there is no confusion:
+
+1. `src/styles/tokens.css`:
+   Define the semantic token contract only (`--background`, `--foreground`, `--primary`, `--border`, typography tokens, spacing tokens).
+2. `src/styles/themes/theme-<locale>.css`:
+   Override token values for each locale/brand theme (French, Spanish, Russian).
+3. `tailwind.config.ts` (or `.js`):
+   Map Tailwind theme keys to CSS variables from `tokens.css` (for example `background: "var(--background)"`, `primary: "var(--primary)"`).
+4. Components:
+   Use Tailwind semantic utilities (`bg-background`, `text-foreground`, `border-border`, `text-primary`). Never use literal palette values in components.
+
+Minimal example:
+
+```css
+/* src/styles/tokens.css */
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+}
+```
+
+```css
+/* src/styles/themes/theme-french.css */
+:root[data-theme="french"] {
+  --background: oklch(0.976 0.023 90.7);
+  --primary: oklch(0.612 0.130 160.6);
+}
+
+:root[data-theme="french"].dark {
+  --background: oklch(0.145 0 0);
+  --primary: oklch(0.922 0 0);
+}
+```
+
+```ts
+// runtime switch (app init or ThemeProvider)
+document.documentElement.dataset.theme = localeThemeMap[locale];
+document.documentElement.classList.toggle("dark", isDarkMode);
+```
+
 ## Asset Placement Rules
 
 - Use `public/media/audio` and `public/media/video` for large runtime files referenced by URL.
@@ -109,9 +158,30 @@ project-root/
 ## Light/Dark Mode Rules
 
 - Theme controlled by root class (`.dark`) + token overrides.
+- Locale/brand theme controlled by root data attribute (`[data-theme="french"]`, etc.).
 - Do not hardcode component-level light/dark hex values.
 - All component colors must come from semantic tokens.
 - Add theme toggle only as class switch; never inline style swaps.
+
+## Multi-Theme Rules (Locale/Brand)
+
+- Do not create separate component CSS for each locale/theme.
+- Keep one semantic token set in `tokens.css` (example: `--background`, `--foreground`, `--primary`, `--border`, `--muted`).
+- Keep locale palettes in dedicated theme files only.
+- Theme files should only override tokens, for example:
+
+```css
+:root[data-theme="french"] { --primary: ...; --background: ...; }
+:root[data-theme="french"].dark { --primary: ...; --background: ...; }
+```
+
+- Select locale theme at runtime once, for example:
+
+```ts
+document.documentElement.dataset.theme = localeThemeMap[locale];
+```
+
+- Validate each locale theme for WCAG AA contrast (text, controls, focus ring, links).
 
 ## Component Extension Rules
 
@@ -126,8 +196,9 @@ project-root/
 2. Add/confirm needed tokens first (if new visual role is needed).
 3. Add variants with `cva`.
 4. Verify light and dark mode parity.
-5. Verify keyboard focus and reduced motion.
-6. Run guard checks and CI before merge.
+5. Verify locale/brand theme parity (French/Spanish/Russian or equivalents).
+6. Verify keyboard focus and reduced motion.
+7. Run guard checks and CI before merge.
 
 ## Copy-Only Prompt (Short)
 
@@ -136,9 +207,11 @@ Create a new React project using Bun + Tailwind CSS + shadcn/ui + Lucide.
 
 Must-haves:
 - No SCSS/SASS. Tailwind-only styling.
-- Single source of truth tokens in src/styles/tokens.css for colors, typography, spacing, radius, shadows, and motion.
-- Tailwind and shadcn consume these tokens.
+- Single source of truth semantic token contract in src/styles/tokens.css for colors, typography, spacing, radius, shadows, and motion.
+- Locale/brand palette overrides live in src/styles/themes/theme-<locale>.css.
+- Tailwind and shadcn consume semantic tokens only.
 - Light/dark mode from day one (class-based .dark), with token parity.
+- Locale/brand theming from day one via data-theme on the root element.
 - No hardcoded color/font-size/font-family values outside token files.
 - shadcn extension pattern: keep primitives in src/components/ui and build app variants in src/components/custom using cva + cn utility.
 - Accessibility defaults: visible focus, keyboard support, prefers-reduced-motion support.

@@ -79,7 +79,10 @@ if [[ -z "$DIFF_OUTPUT" ]]; then
 	exit 0
 fi
 
-mapfile -t ALLOWLIST_PATTERNS < <(grep -Ev '^[[:space:]]*(#|$)' "$ALLOWLIST_FILE" || true)
+ALLOWLIST_PATTERNS=()
+while IFS= read -r pattern; do
+	ALLOWLIST_PATTERNS+=("$pattern")
+done < <(grep -Ev '^[[:space:]]*(#|$)' "$ALLOWLIST_FILE" || true)
 
 is_allowlisted_file() {
 	local file="$1"
@@ -142,7 +145,7 @@ while IFS= read -r line; do
 	[[ "$added_line" =~ ^[[:space:]]*// ]] && continue
 	[[ "$added_line" =~ ^[[:space:]]*/\* ]] && continue
 	[[ "$added_line" =~ ^[[:space:]]*\* ]] && continue
-	[[ "$added_line" =~ ^[[:space:]]*<!-- ]] && continue
+	[[ "$added_line" == *"<!--"* ]] && continue
 
 	if is_allowlisted_file "$current_file"; then
 		continue

@@ -51,7 +51,7 @@ audio.super-compact {
 		color: var(--chart-2);
 	}
 	&:hover {
-		color: oklch(0.646 0.222 41.116);
+		color: var(--ped-warn);
 	}
 	svg {
 		display: inline-block;
