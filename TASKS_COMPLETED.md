@@ -169,12 +169,13 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/Form/Progress/Progress.scss` (deleted; progress indicator shell/bar/label and shine overlay migrated to tokenized utilities in `src/components/Form/Progress/Progress.jsx`)
     - [x] `src/components/LearningObjectMenu/LearningObjectMenu.scss` (deleted; menu list/item/link styling moved to tokenized utilities in `src/components/LearningObjectMenu/LearningObjectMenu.jsx` with debug visibility rule preserved in `src/index.css`)
     - [x] `src/components/Image/Image.scss` (deleted; image-anchor sizing/alignment and max-width class selectors migrated to layered global CSS in `src/index.css`)
+    - [x] `src/components/Figure/Figure.scss` (deleted; figure placement and caption layout selectors migrated to layered global CSS in `src/index.css`)
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 27 (from 54)
-    - SCSS imports in JSX/JS: 26 (from 53)
+    - SCSS files in `src`: 26 (from 54)
+    - SCSS imports in JSX/JS: 25 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation

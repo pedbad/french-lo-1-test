@@ -1,4 +1,3 @@
-import './Figure.scss';
 import {
 	Image,
 } from '../../components';
@@ -27,4 +26,3 @@ export class Figure extends React.PureComponent {
 		);
 	};
 }
-

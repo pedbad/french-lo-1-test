@@ -458,6 +458,83 @@
 		display: flex;
 	}
 
+	/* Figure layout extracted from Figure.scss to keep placement classes stable. */
+	figure {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		margin: 6vmin 0 0 0;
+		padding: 0;
+	}
+
+	figure.right,
+	figure.left,
+	figure.centre {
+		width: 100%;
+		margin: 0;
+	}
+
+	figure.right.space-before,
+	figure.left.space-before,
+	figure.centre.space-before {
+		margin: 4vh 0 4% 0;
+	}
+
+	figure a {
+		display: flex;
+	}
+
+	figure figcaption {
+		display: block;
+		clear: left;
+		margin-top: 1rem;
+		text-align: center;
+	}
+
+	@media (min-width: 640px) {
+		figure.right,
+		figure.left,
+		figure.centre {
+			width: auto;
+		}
+
+		figure.right {
+			float: right;
+			margin: 0 0 4% 4%;
+		}
+
+		figure.right.space-before {
+			margin: 4vh 0 4% 4%;
+		}
+
+		figure.right figcaption {
+			clear: right;
+		}
+
+		figure.left {
+			float: left;
+			margin: 0 4% 4% 0;
+		}
+
+		figure.left.space-before {
+			margin: 4vh 4% 4% 0;
+		}
+
+		figure.left figcaption {
+			clear: left;
+		}
+
+		figure.centre {
+			width: 100%;
+			margin: 0;
+		}
+
+		figure.centre.space-before {
+			margin: 4vh 0 4% 0;
+		}
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;
