@@ -159,12 +159,13 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/Explanation/Explanation.scss` (deleted; standard-table skin migrated to shared tokenized class in `src/index.css` and consumed by `src/components/Explanation/Explanation.jsx`)
     - [x] `src/components/Form/TristateCheckBox/TristateCheckBox.scss` (deleted; checked/readonly/pseudo-mark states migrated to tokenized utilities in `src/components/Form/TristateCheckBox/TristateCheckBox.jsx`)
     - [x] `src/components/LandingPage/LandingPage.scss` (deleted; landing cards/list gradients and spacing migrated to tokenized utilities in `src/components/LandingPage/LandingPage.jsx`)
+    - [x] `src/components/TreasureGrid/TreasureGrid.scss` (deleted; grid/cell/message layout and selection states migrated to tokenized utilities in `src/components/TreasureGrid/TreasureGrid.jsx`)
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 37 (from 54)
-    - SCSS imports in JSX/JS: 36 (from 53)
+    - SCSS files in `src`: 36 (from 54)
+    - SCSS imports in JSX/JS: 35 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation

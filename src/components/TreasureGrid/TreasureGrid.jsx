@@ -1,4 +1,3 @@
-import './TreasureGrid.scss';
 import React, { PureComponent } from 'react';
 
 const TREASURE_GRID_MESSAGE_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.2)] font-bold";
@@ -52,15 +51,15 @@ export class TreasureGrid extends PureComponent {
 
 	render = () => {
 		return (
-			<div className="treasure-grid">
+			<div className="mx-auto max-w-[600px] p-4 text-center">
 				<h2>Translation Treasure Grid</h2>
 				<p>Follow the translation trail to find the treasure! Start at "chat".</p>
-				<div className="grid">
+				<div className="mx-auto my-4 grid grid-cols-5 gap-2">
 					{gridData.map((row, rIdx) =>
 						row.map((cell, cIdx) => (
 							<div
 								key={`${rIdx}-${cIdx}`}
-								className={`cell ${this.isInPath(rIdx, cIdx) ? 'selected' : ''}`}
+								className={`cursor-pointer select-none rounded-[6px] border-2 border-[var(--border)] bg-[var(--muted)] p-[0.8rem] transition-all duration-200 ease-in-out hover:bg-[var(--accent)] ${this.isInPath(rIdx, cIdx) ? 'selected border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_25%,var(--card))] font-bold' : ''}`}
 								onClick={() => this.handleClick(rIdx, cIdx)}
 							>
 								{cell}
@@ -68,7 +67,7 @@ export class TreasureGrid extends PureComponent {
 						))
 					)}
 				</div>
-				{this.state.message && <p className={`message ${TREASURE_GRID_MESSAGE_TEXT_CLASS}`}>{this.state.message}</p>}
+				{this.state.message && <p className={`mt-4 text-[var(--foreground)] ${TREASURE_GRID_MESSAGE_TEXT_CLASS}`}>{this.state.message}</p>}
 			</div>
 			);
 		};
