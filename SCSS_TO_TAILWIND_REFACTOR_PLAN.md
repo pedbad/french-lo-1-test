@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 31
-- current SCSS imports in JSX/JS: 30
+- current SCSS files in `src`: 30
+- current SCSS imports in JSX/JS: 29
 
 These counts give us a measurable baseline for reduction.
 
@@ -161,6 +161,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/Info/Info.scss` (deleted; information panel and icon skin migrated to tokenized utilities in `Info.jsx` while preserving `.information` hooks)
   - [x] `src/components/Form/Select/Select.scss` (deleted; editable/multiple select layout and input overlay migrated to tokenized utilities in `Select.jsx`)
   - [x] `src/components/Form/TextField/TextField.scss` (deleted; text-field input sizing/placement and disabled/button-area behavior migrated to tokenized utilities in `TextField.jsx`)
+  - [x] `src/components/Blanks/DraggableWordTile/DraggableWordTile.scss` (deleted; hint-overlay and breakpoint spacing selectors migrated to layered global CSS in `index.css`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components

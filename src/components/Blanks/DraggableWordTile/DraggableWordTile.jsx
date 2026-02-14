@@ -1,4 +1,3 @@
-import './DraggableWordTile.scss';
 import { ArrowDownToLine } from "lucide-react";
 import React from 'react';
 

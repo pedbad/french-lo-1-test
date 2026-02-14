@@ -426,6 +426,28 @@
 	.hidden-help.show {
 		opacity: 1;
 	}
+
+	/* Shared draggable tile hint overlay + spacing extracted from DraggableWordTile.scss. */
+	.word.highlight span::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 14;
+	}
+
+	.show-hints .word.success.highlight span::after {
+		background: radial-gradient(circle, var(--chart-2) 0%, transparent 100%);
+	}
+
+	@media (min-width: 960px) {
+		.word.blank span {
+			margin: 0.2rem 1rem;
+		}
+
+		.type-group-table .word.blank span {
+			margin: 0.2rem 0.2rem;
+		}
+	}
 }
 
 @layer utilities {
