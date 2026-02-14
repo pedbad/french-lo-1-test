@@ -1,4 +1,3 @@
-import './Select.scss';
 import {
 	Info,
 } from '../..';
@@ -55,9 +54,10 @@ export class Select extends React.Component {
 				>{option.name}</option>
 			);
 		});
+		const selectClassName = `${renderedOptions.length <= 1 ? 'hidden' : ''} ${editable ? 'select-editable absolute left-0 top-0 m-0 h-full w-full border-0 outline-none' : ''} ${multiple ? 'select-multiple relative block h-[calc(38px*3)] w-full self-end [grid-area:device] border border-[var(--border)] bg-[var(--background)] p-0 outline-none' : ''} ${!editable && !multiple ? 'w-full self-end [grid-area:device] text-base outline-none' : ''} text-base`;
 		return (
 			<select
-				className={`${renderedOptions.length <= 1 ? 'hidden' : ''} ${editable ? 'select-editable' : ''} ${multiple ? 'select-multiple' : ''} text-base`}
+				className={selectClassName}
 				id={id}
 				key={`select-${id}`}
 				// onChange={(e) => {
@@ -109,12 +109,12 @@ export class Select extends React.Component {
 				/> : ""}:</label> : ''}
 				{editable ?
 					<div
-						className={`select-editable`}
+						className="select-editable relative block h-[38px] w-full self-end [grid-area:device] overflow-hidden border border-[var(--border)] bg-[var(--background)] p-0"
 						key={`select-editable-${id}`}
 					>
 						{this.renderSelect()}
 						<input
-							className="text-base"
+							className="text-base outline-none absolute left-0 top-0 z-[2] h-full w-[calc(100%-18px)] border-0 p-[8px_0_8px_4px]"
 							autoComplete="off"
 							id={`selectInput${id}`}
 							key={`select-input-${id}`}
