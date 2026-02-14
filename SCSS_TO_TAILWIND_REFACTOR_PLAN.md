@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 47
-- current SCSS imports in JSX/JS: 46
+- current SCSS files in `src`: 46
+- current SCSS imports in JSX/JS: 45
 
 These counts give us a measurable baseline for reduction.
 
@@ -145,6 +145,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/Form/FieldSet/FieldSet.scss`
   - [x] `src/components/AnswerTable/AnswerTable.scss` (deleted; import removed from `AnswerTable.jsx`)
   - [x] `src/components/ConnectFour/ConnectFour.scss` (deleted; import removed from `ConnectFour.jsx`)
+  - [x] `src/components/Form/OkCancel/OkCancel.scss` (deleted; styles migrated to JSX utilities in `OkCancel.jsx`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components

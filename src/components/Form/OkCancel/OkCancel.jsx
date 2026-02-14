@@ -1,4 +1,3 @@
-import './OkCancel.scss';
 import React from 'react';
 
 export class OkCancel extends React.PureComponent {
@@ -7,12 +6,14 @@ export class OkCancel extends React.PureComponent {
 		const { handleOk, handleCancel } = this.props;
 
 		return (
-			<div className='button-group ok-cancel'>
+			<div className="w-full flex flex-row justify-end">
 				<button
+					className="max-w-[100px] m-2"
 					id='ok'
 					onClick={handleOk}
 				>OK</button>
 				<button
+					className="max-w-[100px] mt-2 mb-2 ml-2 mr-0"
 					id='cancel'
 					onClick={handleCancel}
 				>Cancel</button>
@@ -20,5 +21,4 @@ export class OkCancel extends React.PureComponent {
 		);
 	}
 }
-
 
