@@ -22,8 +22,8 @@ export class Footer extends React.PureComponent{
 						<a href="https://www.langcen.cam.ac.uk/" target="_blank" rel="noopener noreferrer">
 							<img src="images/ucam_language_centre_h_black.png" className={`logo theme-light horizontal`} alt={ucLogoAlt}/>
 							<img src="images/ucam_language_centre_v_black.png" className={`logo theme-light vertical`} alt={ucLogoAlt} />
-							<img src="images/Language-Centre/Horizontal/Reversed colour/ucam_language_centre_h_rev_col.png" className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
-							<img src="images/Language-Centre/Vertical/Reversed colour/ucam_language_centre_v_rev_col.png" className={`logo theme-dark vertical`} alt={ucLogoAlt} />
+							<img src="images/Language-Centre/Horizontal/Reversed%20colour/ucam_language_centre_h_rev_col.png" className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
+							<img src="images/Language-Centre/Vertical/Reversed%20colour/ucam_language_centre_v_rev_col.png" className={`logo theme-dark vertical`} alt={ucLogoAlt} />
 						</a>
 					</div>
 

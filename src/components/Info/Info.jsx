@@ -23,6 +23,7 @@ export class Info extends React.PureComponent {
 			informationText,
 			informationTextHTML,
 		} = this.props;
+		const infoId = id ? `${id}-Info` : undefined;
 		// console.log("informationText", informationText);
 		// console.log("informationTextHTML", informationTextHTML);
 		// console.log("children", children);
@@ -45,7 +46,7 @@ export class Info extends React.PureComponent {
 			return (
 				<div
 					className="information"
-					id={`${id}-Info`}
+					id={infoId}
 				>
 					{infoIcon}
 					<div className={INFO_CONTENT_TEXT_CLASS} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(informationTextHTML) }}/>
@@ -55,7 +56,7 @@ export class Info extends React.PureComponent {
 			return (
 				<div
 					className="information"
-					id={`${id}-Info`}
+					id={infoId}
 				>
 					{infoIcon}
 					<div className={INFO_CONTENT_TEXT_CLASS}>
@@ -67,7 +68,7 @@ export class Info extends React.PureComponent {
 			return (
 				<div
 					className="information"
-					id={`${id}-Info`}
+					id={infoId}
 				>
 					{infoIcon}
 					<div className={INFO_CONTENT_TEXT_CLASS}>

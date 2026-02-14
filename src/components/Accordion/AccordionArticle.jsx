@@ -119,35 +119,24 @@ export class AccordionArticle extends React.PureComponent {
 			id,
 		} = this.state;
 
-		let h2 = (
-			<h2
-				onClick={this.toggleExpanded}
-				title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-				className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
-				id={`modal-link-${target}`}
-				style={ACCORDION_TITLE_STYLE}
-			>
+		let headingContent = (
+			<>
 				{this.renderSplitTitle(title)}
 				{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}
-			</h2>
+			</>
 		);
 
 		if (titleHTML !== '') {
-			h2 = (
-				<h2
-					onClick={this.toggleExpanded}
-					title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-					className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
-					id={`modal-link-${target}`}
-					style={ACCORDION_TITLE_STYLE}
-				>
+			headingContent = (
+				<>
 					<span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }} />
 					{info ? <Info infoTitle={info.infoTitle} infoMessage={info.infoMessage} /> : null}
-				</h2>
+				</>
 			);
 		}
 
 		const contentId = `${id}-content`;
+		const headingId = target ? `modal-link-${target}` : `section-title-${id}`;
 		const { informationText, informationTextHTML } = config || {};
 		const hasInfo = Boolean(informationText || informationTextHTML);
 		const shouldSuppressChildInfo = Boolean(informationText || informationTextHTML);
@@ -163,36 +152,39 @@ export class AccordionArticle extends React.PureComponent {
 				data-state={expanded ? 'open' : 'closed'}
 				id={`${id}`}
 				key={`article${id}`}
-				aria-labelledby={`section-title-${id}`}
+				aria-labelledby={headingId}
 			>
-				<header
-					onClick={this.toggleExpanded}
-					onKeyDown={(e) => {
-						if (e.key === 'Enter' || e.key === ' ') {
-							e.preventDefault();
-							this.toggleExpanded();
-						}
-					}}
-					title={`${expanded ? 'Click to close' : 'Click to expand'}`}
-					role="button"
-					tabIndex={0}
-					aria-expanded={expanded}
-					aria-controls={contentId}
-				>
-					<svg
-						aria-hidden="true"
-						xmlns="http://www.w3.org/2000/svg"
-						width="24" height="24"
-						viewBox="0 0 24 24" fill="none"
-						stroke="currentColor"
-						strokeWidth="2"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						className="arrow lucide lucide-chevron-down h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
+				<header>
+					<h2
+						className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
+						data-modal-target={target || undefined}
+						id={headingId}
+						style={ACCORDION_TITLE_STYLE}
 					>
-						<path d="m6 9 6 6 6-6"></path>
-					</svg>
-					{React.cloneElement(h2, { id: `section-title-${id}` })}
+						<button
+							type="button"
+							className="accordion-trigger"
+							onClick={this.toggleExpanded}
+							title={`${expanded ? 'Click to close' : 'Click to expand'}`}
+							aria-expanded={expanded}
+							aria-controls={contentId}
+						>
+							<svg
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24" height="24"
+								viewBox="0 0 24 24" fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								className="arrow lucide lucide-chevron-down h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
+							>
+								<path d="m6 9 6 6 6-6"></path>
+							</svg>
+							<span className="accordion-trigger-label">{headingContent}</span>
+						</button>
+					</h2>
 				</header>
 				{noCard ?
 					<div

@@ -16,7 +16,6 @@
 <body class="bg-background">
 	<div id="root"></div>
 	<script type="module" src="./src/main.jsx"></script>
-	<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
 	<script>
 		var config = {
 			apiKey: '9c3bd2a68162ba67b19f07e540747675bd136e66',
@@ -36,7 +35,20 @@
 			theme: 'LIGHT'
 		};
 
-		CookieControl.load(config);
+		// Skip cookie-control injection in local preview and explicit validation mode
+		// so DOM copy/paste validation is not polluted by third-party runtime styles.
+		var isLocalHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+		var skipCookieControl = isLocalHost || window.location.search.includes('skipCookieControl=1');
+		if (!skipCookieControl) {
+			var cookieControlScript = document.createElement('script');
+			cookieControlScript.src = 'https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
+			cookieControlScript.onload = function () {
+				if (window.CookieControl && typeof window.CookieControl.load === 'function') {
+					window.CookieControl.load(config);
+				}
+			};
+			document.head.appendChild(cookieControlScript);
+		}
 	</script>
 </body>
 

@@ -57,7 +57,7 @@ $transition-time: $memory-card-transition-time;
 
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(auto);
+		grid-auto-rows: auto;
 		gap: 0.5rem; /* spacing between items */
 		width: fit-content;
 	}

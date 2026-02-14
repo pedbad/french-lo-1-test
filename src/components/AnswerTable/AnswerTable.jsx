@@ -172,7 +172,7 @@ export class AnswerTable extends React.PureComponent {
 		return (
 			<div
 				className={`answer-table-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}PhraseTable`}
 			>
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}

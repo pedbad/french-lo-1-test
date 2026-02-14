@@ -979,7 +979,7 @@ export class Blanks extends React.Component {
 		return (
 			<div
 				className={`blanks-container type-${blanksType} container ${complete ? 'complete' : ''}`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				onPointerDown={this.handleMouseDown}
 				onPointerMove={this.handleMouseMove}
 				onPointerUp={this.handleMouseUp}
@@ -1040,11 +1040,11 @@ export class Blanks extends React.Component {
 						<div className="help-hints">
 							<Switch
 								aria-label="Show hints"
-								id={`showHintsId-${id ? id : ''}`}
+								id={id ? `showHintsId-${id}` : undefined}
 								checked={showHints}
 								onCheckedChange={this.handleToggle}
 							/>
-							<Label htmlFor={`showHintsId-${id ? id : ''}`} className="cursor-pointer">
+							<Label htmlFor={id ? `showHintsId-${id}` : undefined} className="cursor-pointer">
 								{showHintsText}
 							</Label>
 							<span className={`invalid-drop-hint ${showInvalidDropHint ? 'show' : ''}`} aria-live="polite">

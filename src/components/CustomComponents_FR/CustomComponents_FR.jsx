@@ -36,12 +36,12 @@ export class LO1Grammar1 extends PureComponent {
 		return (
 			<div
 				className={`lo1-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent1`}
 				>
 					<h3>1. Forms of address and politeness</h3>
@@ -84,12 +84,12 @@ export class LO1Grammar2 extends PureComponent {
 		return (
 			<div
 				className={`lo2-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel2` : ''}`}
+					id={id ? `${id}Panel2` : undefined}
 					key={`${id}CustomComponent2`}
 				>
 					<h3>2. The “tu” vs “vous” distinction</h3>
@@ -127,7 +127,7 @@ export class LO1Demystify1 extends PureComponent {
 		return (
 			<div
 				className={`lo1-demystify1-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<Info>
@@ -136,7 +136,7 @@ export class LO1Demystify1 extends PureComponent {
 				</Info>
 					<div
 						className={`panel`}
-						id={`${id ? `${id}Panel` : ''}`}
+						id={id ? `${id}Panel` : undefined}
 						key={`${id}Panel`}
 					>
 						<h3>1. Nasal vowels: "on / om"</h3>
@@ -157,7 +157,7 @@ export class LO1Demystify2 extends PureComponent {
 		return (
 			<div
 				className={`lo1-demystify2-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<Info>
@@ -165,7 +165,7 @@ export class LO1Demystify2 extends PureComponent {
 				</Info>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel2` : ''}`}
+					id={id ? `${id}Panel2` : undefined}
 					key={`${id}Panel2`}
 				>
 					<h3>2. The French "<AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation2/001-r.mp3`} >r</AudioClip>"</h3>
@@ -189,7 +189,7 @@ export class LO1Demystify3 extends PureComponent {
 		return (
 			<div
 				className={`lo1-demystify3-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<Info>
@@ -197,7 +197,7 @@ export class LO1Demystify3 extends PureComponent {
 				</Info>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}Panel`}
 				>
 					<h3>3. The sound "<AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation3/001-oi.mp3`} >oi</AudioClip>"</h3>
@@ -217,7 +217,7 @@ export class LO1Demystify4 extends PureComponent {
 		return (
 			<div
 				className={`lo1-demystify4-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<Info>
@@ -225,7 +225,7 @@ export class LO1Demystify4 extends PureComponent {
 				</Info>
 					<div
 						className={`panel`}
-						id={`${id ? `${id}Panel` : ''}`}
+						id={id ? `${id}Panel` : undefined}
 						key={`${id}Panel`}
 					>
 						<div className={`text`}>
@@ -246,12 +246,12 @@ export class LO2Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo2-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel1` : ''}`}
+					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
 					<p><strong>1. Verbs in French</strong></p>
@@ -307,7 +307,7 @@ export class LO2Grammar extends PureComponent {
 				</div>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel2` : ''}`}
+					id={id ? `${id}Panel2` : undefined}
 					key={`${id}Panel2`}
 				>
 					<p><strong>2. Grammatical genders</strong> ( I think this lends itself to illustration/pic ?)</p>
@@ -343,7 +343,7 @@ export class LO2Grammar extends PureComponent {
 				</div>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel3` : ''}`}
+					id={id ? `${id}Panel3` : undefined}
 					key={`${id}Panel3`}
 				>
 					<p><a className={`modal-link-target`} id={`subject-pronouns`} ><strong>3. Subject pronouns</strong>.</a></p>
@@ -366,12 +366,12 @@ export class LO2Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo2-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel1` : ''}`}
+					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
 					<p>1 Silent letters at the end of a word&nbsp;
@@ -427,12 +427,12 @@ export class LO3Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo3-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel1` : ''}`}
+					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
 					<p><strong>1. A bit about verbs in French:</strong></p>
@@ -553,7 +553,7 @@ export class LO3Grammar extends PureComponent {
 				</div>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel2` : ''}`}
+					id={id ? `${id}Panel2` : undefined}
 					key={`${id}Panel2`}
 				>
 					<p><strong>2 De</strong></p>
@@ -566,7 +566,7 @@ export class LO3Grammar extends PureComponent {
 				</div>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel3` : ''}`}
+					id={id ? `${id}Panel3` : undefined}
 					key={`${id}Panel3`}
 				>
 					<p><strong>3 Feminine forms of professions and adjectives</strong></p>
@@ -609,12 +609,12 @@ export class LO3Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo3-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel1` : ''}`}
+					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
 					<p><strong>To sound or not to sound?</strong><img
@@ -674,12 +674,12 @@ export class LO4Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo4-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel1` : ''}`}
+					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
 					<p><strong>How to pronounce:</strong></p>
@@ -717,12 +717,12 @@ export class LO4EX1 extends PureComponent{
 		return (
 			<div
 				className={`lo4-ex1`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel1` : ''}`}
+					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
 					<p>Listen to the following nonsense rhyme. You should be able to identify numerous examples of the sound&nbsp;
@@ -762,12 +762,12 @@ export class LO5Grammar extends PureComponent{
 		return (
 			<div
 				className={`lo5-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -812,12 +812,12 @@ export class LO5Demystify extends PureComponent{
 		return (
 			<div
 				className={`lo5-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p><strong>How to pronounce:</strong></p>
@@ -844,12 +844,12 @@ export class LO6Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo6-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p>In French, the gender of the noun has implications for the <strong>possessive adjectives</strong>.
@@ -995,12 +995,12 @@ export class LO6Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo6-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p><strong>How to pronounce double l in French:</strong></p>
@@ -1041,12 +1041,12 @@ export class LO7Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo7-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -1097,12 +1097,12 @@ export class LO7Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo7-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p>Words that are borrowed from another language tend to retain much of the pronunciation of their language of origin. Here are some examples:</p>
@@ -1126,12 +1126,12 @@ export class LO8Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo8-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -1270,12 +1270,12 @@ export class LO8Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo8-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p>How to pronounce: <strong>–tion</strong> in French. In this combination the letter t is pronounced as if it were an s.
@@ -1355,7 +1355,7 @@ export class LO9Grammar extends PureComponent {
 			>
 				{/* <div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				> */}
 				<p>Within France telephone numbers have 10 digits. For landlines the first two are the area code. These are:</p>
@@ -1556,12 +1556,12 @@ export class LO9Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo9-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p><strong>How to pronounce: 5, 6, 7, 8, 9, 10</strong></p>
@@ -1593,12 +1593,12 @@ export class L10Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo10-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -1695,12 +1695,12 @@ export class L10Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo9-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p><strong>How to pronounce</strong>: <strong>ui</strong></p>
@@ -1724,12 +1724,12 @@ export class L11Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo11-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -1912,12 +1912,12 @@ export class L12Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo12-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -2076,12 +2076,12 @@ export class L12Demystify extends PureComponent {
 		return (
 			<div
 				className={`lo12-demystify-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<p>How to pronounce: <AudioClip className={`link`} soundFile={`sounds/fr/u.mp3`}><strong>u</strong></AudioClip> and <AudioClip className={`link`} soundFile={`sounds/fr/ou.mp3`}><strong>ou</strong></AudioClip></p>
@@ -2110,12 +2110,12 @@ export class L13Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo13-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -2369,7 +2369,7 @@ export class L13ASummersDay extends Component {
 		return (
 			<div
 				className={`panel`}
-				id={`${id ? `${id}Panel` : ''}`}
+				id={id ? `${id}Panel` : undefined}
 				key={`${id}CustomComponent`}
 			>
 				<img src={resolveAsset(`images/girl_breakfast.png`)} title={`Girl having breakfast in the garden`} />
@@ -2405,12 +2405,12 @@ export class L14Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo14-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -2552,12 +2552,12 @@ export class L15Grammar extends PureComponent {
 		return (
 			<div
 				className={`lo15-grammar-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<ol>
@@ -2593,12 +2593,12 @@ export class AudioClipSamples extends PureComponent {
 		return (
 			<div
 				className={`audio-clip-samples-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
 					className={`panel`}
-					id={`${id ? `${id}Panel` : ''}`}
+					id={id ? `${id}Panel` : undefined}
 					key={`${id}CustomComponent`}
 				>
 					<h2>AudioClip Samples</h2>

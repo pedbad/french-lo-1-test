@@ -22,6 +22,7 @@ export const HeroSection = ({
 		stackInfo = false,
 		transparentCard = false,
 	} = config || {};
+	const headingId = target ? `modal-link-${target}` : `section-title-${id}`;
 	const hasInfo = Boolean(informationText || informationTextHTML);
 	const sideBySide = hasInfo && !stackInfo;
 	const splitInfoImage = stackInfo && Boolean(instructionsLayout?.image);
@@ -37,7 +38,8 @@ export const HeroSection = ({
 					<CardTitle className="text-base [&_h2]:m-0">
 						<h2
 							className="modal-link-target"
-							id={`modal-link-${target}`}
+							data-modal-target={target || undefined}
+							id={headingId}
 						>
 							{titleHTML ? (
 								<span

@@ -115,6 +115,7 @@ export default class App extends React.Component {
 		// this.toggleDark = this.toggleDark.bind(this);
 
 		window.refs = [];
+		this.autoComponentIdCounter = 0;
 	}
 
 	clearError = (index) => {
@@ -285,7 +286,7 @@ export default class App extends React.Component {
 
 		const targetEl =
 			document.getElementById(targetId) ||
-			document.querySelector(`.modal-link-target[name="${targetId}"]`);
+			document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
 		if (targetEl) {
 			const container = targetEl.closest("p, li, div, section") || targetEl;
 			return {
@@ -601,6 +602,19 @@ export default class App extends React.Component {
 			.filter(Boolean);
 	};
 
+	getResolvedComponentId = (id, component) => {
+		if (typeof id === "string" && id.trim() !== "") {
+			return id.trim();
+		}
+
+		const safeComponent =
+			typeof component === "string" && component.trim() !== ""
+				? component.trim()
+				: "component";
+		this.autoComponentIdCounter += 1;
+		return `auto-${safeComponent}-${this.autoComponentIdCounter}`;
+	};
+
 
 	/**
 	 * renderComponentForTab
@@ -610,12 +624,13 @@ export default class App extends React.Component {
 	renderComponentForTab = (value) => {
 		const {
 			component,
-			id,
+			id: valueId,
 			infoText,
 			infoTextHTML,
 			// titleText = "",
 			// titleTextHTML = "",
 		} = value;
+		const id = this.getResolvedComponentId(valueId, component);
 
 		const { languageCode } = this.state;
 
@@ -782,6 +797,7 @@ export default class App extends React.Component {
 			siteTitle,
 		} = this.state;
 		const articles = [];
+		this.autoComponentIdCounter = 0;
 		let intro, introHTML, informationHTML;
 		if (settings) {
 			({ intro, introHTML, informationHTML } = settings);
@@ -851,6 +867,7 @@ export default class App extends React.Component {
 							className={`${showDialog ? "show" : ""}`}
 							enabled={settings ? settings.showCongratulations : null}
 							hideDialog={this.hideDialog}
+							id="congratulate-success"
 							content={dialogContent}
 						/>
 						<Congratulate
@@ -875,7 +892,7 @@ export default class App extends React.Component {
 									/>
 									<h2 className="hero-title text-stroke-chart-3">{siteTitle}</h2>
 								</div>
-								<main id="content" key="content" role="main">
+								<main id="content" key="content">
 									<h1>
 										{(() => {
 											const parts = splitDisplayTitle(title);
@@ -993,7 +1010,7 @@ export default class App extends React.Component {
 
 	renderComponent = (value, articles) => {
 		const {
-			id,
+			id: valueId,
 			component,
 			infoText,
 			infoTextHTML,
@@ -1003,6 +1020,7 @@ export default class App extends React.Component {
 		const { expandable = true } = value;
 
 		const { currentLearningObject, languageCode } = this.state;
+		const id = this.getResolvedComponentId(valueId, component);
 		const compoundID = `LO${currentLearningObject}-${id}`;
 
 		switch (component) {

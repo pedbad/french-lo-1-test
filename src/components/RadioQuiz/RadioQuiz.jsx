@@ -192,7 +192,7 @@ export class RadioQuiz extends React.Component {
 		return (
 			<div
 				className={`radio-quiz-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}PhraseTable`}
 			>
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}

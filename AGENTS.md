@@ -44,9 +44,18 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
   - blocks new color functions without token indirection (`rgb/hsl/oklch` without `var(--...)`)
   - allows tokenized color usage via `var(--...)`
   - allowlist is maintained in `scripts/color-allowlist.txt` (`src/index.css` is currently allowlisted)
+- A11y/HTML guard policy (`scripts/check-a11y-guard.sh`):
+  - blocks `role="button"` on `<header>`
+  - blocks `aria-label` on generic `<span>` and `<div>` misuse patterns
+  - blocks `title` on `<svg>`
+  - blocks spaces in `<img src>` path segments
+  - blocks repeated literal `id="..."` values inside added diff lines
+  - blocks newly introduced duplicate literal `id="..."` values (staged index count increase vs `HEAD`)
+  - rationale: invalid semantics/duplicate IDs are high-impact defects because they break keyboard/screen-reader and DOM/ARIA targeting
 - Local quality gates:
-  - staged checks: `yarn check:typography` and `yarn check:color`
-  - branch checks: `yarn check:typography:branch` and `yarn check:color:branch`
+  - one-time hook setup: `bash scripts/setup-githooks.sh`
+  - staged checks: `yarn check:typography`, `yarn check:color`, and `yarn check:a11y`
+  - branch checks: `yarn check:typography:branch`, `yarn check:color:branch`, and `yarn check:a11y:branch`
   - recommended pre-push: `yarn prepush:local`
 - Theme toggling briefly disables CSS transitions (`html.no-theme-transition`) to avoid flicker during light/dark switches.
 - WordParts includes a circle-based progress indicator and inline icon guidance (Show answer/Reset) powered by CSS-masked SVGs.

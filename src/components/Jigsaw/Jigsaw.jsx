@@ -14,7 +14,14 @@ import {
 	mouseRelativeTo,
 } from "../../mouseUtility";
 import React from "react";
-import Variables from "../../styles/_variables.module.scss";
+import {
+	BOARD_HEIGHT,
+	BOARD_WIDTH,
+	JIGSAW_BORDER_WIDTH,
+	PIECES_PER_BOARD,
+	TAB_SIZE,
+	TILE_SIZE,
+} from "../../constants/layout";
 
 const JIGSAW_CLUE_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.4)] font-bold";
 const JIGSAW_TIME_TEXT_CLASS = "text-[calc(var(--font-size-sm)*2)]";
@@ -32,13 +39,13 @@ export class Jigsaw extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
-		// Import some variables from scss (they are also used in other scss files and so should never get out of step unlike duplicated variables).
-		const piecesPerBoard = parseInt(Variables.piecesPerBoard);
-		const boardWidth = parseInt(Variables.boardWidth);
-		const boardHeight = parseInt(Variables.boardHeight);
-		const tabSize = parseInt(Variables.tabSize);
-		const tileSize = parseInt(Variables.tileSize);
-		const jigsawBorderWidth = parseInt(Variables.jigsawBorderWidth);
+		// Keep puzzle geometry in one JS constants module for runtime use.
+		const piecesPerBoard = PIECES_PER_BOARD;
+		const boardWidth = BOARD_WIDTH;
+		const boardHeight = BOARD_HEIGHT;
+		const tabSize = TAB_SIZE;
+		const tileSize = TILE_SIZE;
+		const jigsawBorderWidth = JIGSAW_BORDER_WIDTH;
 
 		// We will use Pieces to build up our JSX for the pieces
 		const Pieces = [];
@@ -378,7 +385,7 @@ export class Jigsaw extends React.PureComponent {
 		return (
 			<div
 				className='jigsaw-container container'
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}Jigsaw`}
 				onTouchStart={this.handleMouseDown}
 				onTouchMove={this.handleMouseMove}
@@ -391,7 +398,7 @@ export class Jigsaw extends React.PureComponent {
 				<p className={`clue ${JIGSAW_CLUE_TEXT_CLASS}`}>{descriptionText}&nbsp;</p>
 
 				<AudioClip
-					id={`AudioClipFor${id ? id : ''}`}
+					id={id ? `AudioClipFor${id}` : undefined}
 					listenText={listenDescriptionText}
 					soundFile={resolveAsset(soundFile)}
 				/>

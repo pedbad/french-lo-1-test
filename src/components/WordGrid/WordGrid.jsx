@@ -2,7 +2,6 @@ import "./WordGrid.scss";
 // import "../../styles/variables.module.scss";
 import React, { PureComponent } from "react";
 import { Button } from "@/components/ui/button";
-import colours from "../../styles/_colours.module.scss";
 import DOMPurify from "dompurify";
 import { IconButton } from "..";
 import {resolveAsset} from "../../utility";
@@ -408,7 +407,7 @@ export class WordGrid extends PureComponent {
 		const renderedFoundLines = [];
 		const strokeWidth = cellDimension / 1.2;
 
-		const {highlight} = colours;
+		const highlight = "var(--ring)";
 
 		foundLines.forEach((l, index) => renderedFoundLines.push(
 			<line

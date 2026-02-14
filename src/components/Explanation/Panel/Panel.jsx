@@ -17,7 +17,7 @@ export class Panel extends React.PureComponent {
 			<div
 				className={`panel`}
 				dangerouslySetInnerHTML={{ __html: resolveAssetHTML(content) }}
-				id={`${id ? `${id}Panel` : ''}`}
+				id={id ? `${id}Panel` : undefined}
 				key={`${id}PhraseTable`}
 			>
 			</div>

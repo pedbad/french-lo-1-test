@@ -49,6 +49,7 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 			inline = false,
 			className = '',
 			title,
+			interactive = true,
 		} = this.props;
 
 		const strokeWidth = 2;
@@ -70,65 +71,125 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 		return (
 			<Tooltip>
 				<TooltipTrigger asChild>
-					<span
-						aria-label={tooltipText}
-						className={`audio-container ${inline ? 'inline' : ''} super-compact-speaker circular-audio-progress-speaker ${status} ${className}`}
-						onClick={handleClick}
-						role="button"
-					>
-						<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-							{/* Background ring */}
-							<circle
-								cx={size / 2}
-								cy={size / 2}
-								r={radius}
-								stroke={bgColour}
-								strokeWidth={strokeWidth}
-								fill="none"
-							/>
+					{interactive ? (
+						<button
+							type="button"
+							aria-label={tooltipText}
+							className={`audio-container ${inline ? 'inline' : ''} super-compact-speaker circular-audio-progress-speaker ${status} ${className}`}
+							onClick={handleClick}
+						>
+							<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+								{/* Background ring */}
+								<circle
+									cx={size / 2}
+									cy={size / 2}
+									r={radius}
+									stroke={bgColour}
+									strokeWidth={strokeWidth}
+									fill="none"
+								/>
 
-							{/* Progress ring */}
-							<circle
-								ref={this.circleRef}
-								cx={size / 2}
-								cy={size / 2}
-								r={radius}
-								stroke="currentColor"
-								strokeWidth={strokeWidth}
-								fill="none"
-								strokeDasharray={circumference}
-								strokeDashoffset={circumference}
-								transform={`rotate(-90 ${size / 2} ${size / 2})`}
-								style={{ transition: 'stroke-dashoffset 0.2s linear' }}
-							/>
+								{/* Progress ring */}
+								<circle
+									ref={this.circleRef}
+									cx={size / 2}
+									cy={size / 2}
+									r={radius}
+									stroke="currentColor"
+									strokeWidth={strokeWidth}
+									fill="none"
+									strokeDasharray={circumference}
+									strokeDashoffset={circumference}
+									transform={`rotate(-90 ${size / 2} ${size / 2})`}
+									style={{ transition: 'stroke-dashoffset 0.2s linear' }}
+								/>
 
-							{/* Speaker */}
-							<path
-								fill="currentColor"
-								d="m 13.43611,6.201 a 0.705,0.705 0 0 0 -1.203,-0.498 L 8.8491185,9.086 a 1.4,1.4 0 0 1 -0.997,0.413 H 5.4361182 a 1,1 0 0 0 -1,1 v 6 a 1,1 0 0 0 1,1 h 2.4160003 a 1.4,1.4 0 0 1 0.997,0.413 l 3.3829915,3.384 a 0.705,0.705 0 0 0 1.204,-0.499 z"
-							/>
+								{/* Speaker */}
+								<path
+									fill="currentColor"
+									d="m 13.43611,6.201 a 0.705,0.705 0 0 0 -1.203,-0.498 L 8.8491185,9.086 a 1.4,1.4 0 0 1 -0.997,0.413 H 5.4361182 a 1,1 0 0 0 -1,1 v 6 a 1,1 0 0 0 1,1 h 2.4160003 a 1.4,1.4 0 0 1 0.997,0.413 l 3.3829915,3.384 a 0.705,0.705 0 0 0 1.204,-0.499 z"
+								/>
 
-							{/* Arcs */}
-							<path
-								className="speaker-arc speaker-arc1"
-								fill="none"
-								stroke="currentColor"
-								strokeLinecap="round"
-								strokeWidth={arcStrokeWidth}
-								vectorEffect="non-scaling-stroke"
-								d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
-							/>
-							<path
-								className="speaker-arc speaker-arc2"
-								fill="none"
-								stroke="currentColor"
-								strokeLinecap="round"
-								strokeWidth={arcStrokeWidth}
-								vectorEffect="non-scaling-stroke"
-								d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
-							/>
-						</svg>
-					</span>
+								{/* Arcs */}
+								<path
+									className="speaker-arc speaker-arc1"
+									fill="none"
+									stroke="currentColor"
+									strokeLinecap="round"
+									strokeWidth={arcStrokeWidth}
+									vectorEffect="non-scaling-stroke"
+									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+								/>
+								<path
+									className="speaker-arc speaker-arc2"
+									fill="none"
+									stroke="currentColor"
+									strokeLinecap="round"
+									strokeWidth={arcStrokeWidth}
+									vectorEffect="non-scaling-stroke"
+									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+								/>
+							</svg>
+						</button>
+					) : (
+						<span
+							aria-hidden="true"
+							className={`audio-container ${inline ? 'inline' : ''} super-compact-speaker circular-audio-progress-speaker ${status} ${className}`}
+						>
+							<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+								{/* Background ring */}
+								<circle
+									cx={size / 2}
+									cy={size / 2}
+									r={radius}
+									stroke={bgColour}
+									strokeWidth={strokeWidth}
+									fill="none"
+								/>
+
+								{/* Progress ring */}
+								<circle
+									ref={this.circleRef}
+									cx={size / 2}
+									cy={size / 2}
+									r={radius}
+									stroke="currentColor"
+									strokeWidth={strokeWidth}
+									fill="none"
+									strokeDasharray={circumference}
+									strokeDashoffset={circumference}
+									transform={`rotate(-90 ${size / 2} ${size / 2})`}
+									style={{ transition: 'stroke-dashoffset 0.2s linear' }}
+								/>
+
+								{/* Speaker */}
+								<path
+									fill="currentColor"
+									d="m 13.43611,6.201 a 0.705,0.705 0 0 0 -1.203,-0.498 L 8.8491185,9.086 a 1.4,1.4 0 0 1 -0.997,0.413 H 5.4361182 a 1,1 0 0 0 -1,1 v 6 a 1,1 0 0 0 1,1 h 2.4160003 a 1.4,1.4 0 0 1 0.997,0.413 l 3.3829915,3.384 a 0.705,0.705 0 0 0 1.204,-0.499 z"
+								/>
+
+								{/* Arcs */}
+								<path
+									className="speaker-arc speaker-arc1"
+									fill="none"
+									stroke="currentColor"
+									strokeLinecap="round"
+									strokeWidth={arcStrokeWidth}
+									vectorEffect="non-scaling-stroke"
+									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+								/>
+								<path
+									className="speaker-arc speaker-arc2"
+									fill="none"
+									stroke="currentColor"
+									strokeLinecap="round"
+									strokeWidth={arcStrokeWidth}
+									vectorEffect="non-scaling-stroke"
+									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+								/>
+							</svg>
+						</span>
+					)}
 				</TooltipTrigger>
 				<TooltipContent className="bg-[var(--footer-background)] text-foreground">
 					{tooltipText}

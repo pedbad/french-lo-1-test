@@ -4,3 +4,8 @@ set -euo pipefail
 echo "[pre-commit] Running typography guard on staged changes..."
 yarn -s check:typography
 
+echo "[pre-commit] Running color guard on staged changes..."
+yarn -s check:color
+
+echo "[pre-commit] Running a11y/W3C guard on staged changes..."
+yarn -s check:a11y

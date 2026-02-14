@@ -61,6 +61,7 @@ export class Section extends React.PureComponent {
 		const {
 			id,
 		} = this.state;
+		const headingId = target ? `modal-link-${target}` : `section-title-${id}`;
 
 		// console.log("target", target);
 
@@ -89,7 +90,8 @@ export class Section extends React.PureComponent {
 						<CardTitle className="text-base [&_h2]:m-0">{/* font-semibold">*/}
 							<h2
 								className="modal-link-target"
-								id={`modal-link-${target}`}
+								data-modal-target={target || undefined}
+								id={headingId}
 							>
 								{titleHTML ? (
 									<span
@@ -120,10 +122,7 @@ export class Section extends React.PureComponent {
 
 					<CardContent>
 
-						<div
-							id={`${id}`}
-							key={`article-${id}`}
-						>
+						<div key={`article-${id}`}>
 							<div
 								id={`content-${id}`}
 								onClick={this.doNowt}

@@ -463,7 +463,7 @@
           "congratulationsText": "Très bien !",
           "id": "phrases4",
           "informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-          "instructionsTextHTMLXXX": "<a name='nested' class='modal-link-target'>nested target, how are we doing?</a>",
+          "instructionsTextHTMLXXX": "<a id='nested' class='modal-link-target' data-modal-target='nested'>nested target, how are we doing?</a>",
           "showHintsText": "Hints",
           "items": [
             {

@@ -36,11 +36,3 @@ $body-back: var(--background);
 // $attention-red: #e72929;
 $highlight: var(--ring);
 $text: var(--foreground);
-
-:export {
-	// text: $text; /* stylelint-disable-line */
-	// attentionGreen: $attention-green;
-	// amber: $amber;
-	// attentionRed: $attention-red;
-	highlight: var(--ring);
-}

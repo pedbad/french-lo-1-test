@@ -282,10 +282,10 @@ class CircularAudioProgress extends AudioClip {
 			return null;
 		} else {
 			return (
-				<span
+				<button
+					type="button"
 					className={`audio-container ${inline ? 'inline' : ''} super-compact circular-audio-progress ${status}`}
 					onClick={this.handleClick}
-					onPlay={(e) => this.notePlaying(e, false)}
 					ref={this.audioRef}
 					aria-label={`${status !== 'playing' ? 'Click to play' : 'Click to pause'}`}
 				>
@@ -320,7 +320,7 @@ class CircularAudioProgress extends AudioClip {
 
 						<path fill="currentColor" className="pause" d="M6.501 6.617h4.611v13.765H6.501zM14.966 6.617h4.611v13.765h-4.611z"/>
 					</svg>
-				</span>
+				</button>
 			);
 		}
 	};
@@ -376,10 +376,10 @@ class LinkAudioProgress extends CircularAudioProgress {
 		const { status = 'stopped', progress = 0, duration = 0 } = this.state;
 
 		return (
-			<span
+			<button
+				type="button"
 				className={`audio-link ${status}`}
 				onClick={this.handleClick}
-				onPlay={(e) => this.notePlaying(e, false)}
 				ref={this.linkRef}
 				aria-label={`${status !== 'playing' ? 'Click to play' : 'Click to pause'}`}>
 				<CircularAudioProgressAnimatedSpeakerDisplay
@@ -387,7 +387,7 @@ class LinkAudioProgress extends CircularAudioProgress {
 					status={status}
 					progress={progress}
 					duration={duration}
-					handleClick={this.handleClick}
+					interactive={false}
 				/>
 				{/* Simple compact link SVG speaker icon <svg xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -399,8 +399,8 @@ class LinkAudioProgress extends CircularAudioProgress {
 					strokeLinecap="round"
 					strokeLinejoin="round"
 				><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /></svg> */}
-				{children}
-			</span>
+				<span className="audio-link-text">{children}</span>
+			</button>
 		);
 	};
 }

@@ -28,7 +28,7 @@ export class ButtonSelect extends React.PureComponent {
 		return (
 			<button
 				className={`${className} button-select ${expanded ? 'expanded' : ''}`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				title={`${title ? title : ''}`}
 				onClick={this.handleClick}
 				onMouseLeave={this.closeMenu}

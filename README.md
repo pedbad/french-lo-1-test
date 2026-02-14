@@ -54,6 +54,8 @@ This configures git to use `.githooks/` in this repo, where pre-commit runs:
 
 ```bash
 yarn -s check:typography
+yarn -s check:color
+yarn -s check:a11y
 ```
 
 ### Manual checks
@@ -100,6 +102,57 @@ Check all changes introduced by your branch vs `origin/main`:
 ```bash
 yarn check:color:branch
 ```
+
+## Accessibility & HTML Guardrails
+
+To prevent common W3C/a11y validation regressions from being introduced, this repo includes an accessibility/HTML guard script.
+
+Current policy (added lines only):
+- Blocks `role="button"` on `<header>`.
+- Blocks `aria-label` on `<span>`.
+- Blocks `aria-label` on `<div>` without an explicit non-generic role.
+- Blocks `title` attributes on `<svg>`.
+- Blocks `<img src>` values containing spaces in path segments.
+- Blocks repeated literal `id="..."` values within added diff lines.
+- Blocks newly introduced duplicate literal `id="..."` attributes (compares staged index vs `HEAD` counts and fails when duplicates increase).
+
+Why these checks matter:
+- `role="button"` on non-button containers can degrade keyboard and screen-reader behavior.
+- generic `aria-label` misuse on `span`/`div` adds accessibility noise and can violate HTML/ARIA conformance.
+- duplicate literal IDs break anchor/ARIA/control targeting and produce unstable DOM behavior.
+- bad image URL paths (spaces) can break asset loading depending on environment/encoding.
+- SVG/title misuse is frequently validator-invalid when applied in the wrong place.
+
+### Manual checks
+
+Check staged changes:
+
+```bash
+yarn check:a11y
+```
+
+Check all changes introduced by your branch vs `origin/main`:
+
+```bash
+yarn check:a11y:branch
+```
+
+Typical workflow:
+
+```bash
+# one-time
+bash scripts/setup-githooks.sh
+
+# per change
+git add <files>
+yarn check:a11y
+git commit -m "..."
+```
+
+Validator triage guidance:
+- Fix first: invalid values (for example `align-items: space-between`, `word-break: keep-word`) and duplicate IDs.
+- Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
+- Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
 ## Migration Trackers
 

@@ -15,17 +15,24 @@ export class Congratulate extends React.PureComponent {
 			content,
 			enabled,
 			hideDialog,
+			id,
 		} = this.props;
+		const dialogId = id || undefined;
 
 		if (enabled) {
 			return (
 				<div className={`dialog-mask ${className}`}>
-					<dialog id='congratulate' className={`${className} ${CONGRATULATE_TEXT_CLASS} ring ring-1 shadow-xs`}>
-						<button className={`close`} onClick={hideDialog} >X</button>
+					<dialog
+						id={dialogId}
+						className={`congratulate-dialog ${className} ${CONGRATULATE_TEXT_CLASS} ring ring-1 shadow-xs`}
+					>
+						<button type="button" className="close" onClick={hideDialog}>X</button>
 						{content}
 					</dialog>
 				</div>
 			);
-		};
+		}
+
+		return null;
 	};
 }

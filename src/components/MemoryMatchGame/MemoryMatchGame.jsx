@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from "react";
 import {resolveAsset} from "../../utility";
-import Variables from "../../styles/_variables.module.scss";
+import { MEMORY_CARD_TRANSITION_TIME_MS } from "../../constants/layout";
 
 const getShuffledDeck = (cards, nCards) => {
 	cards = cards.sort(() => Math.random() - 0.5);
@@ -79,8 +79,7 @@ export class MemoryMatchGame extends React.PureComponent {
 
 		const newFlipped = [...flipped, card.id];
 		beenFlipped.push(card.id);
-		let { memoryCardTransitionTime } = Variables;
-		memoryCardTransitionTime = parseInt(memoryCardTransitionTime.replace('s', '')) * 1000;
+		const memoryCardTransitionTime = MEMORY_CARD_TRANSITION_TIME_MS;
 		this.setState({
 			beenFlipped: beenFlipped,
 			flipped: newFlipped,

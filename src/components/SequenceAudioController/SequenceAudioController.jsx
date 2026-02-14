@@ -425,7 +425,7 @@ export class SequenceAudioController extends React.Component {
 								<path d="M.682.003H7v19.994H.682ZM13 .003h6.318v19.994H13z" style={{ fill: "currentColor" }} />
 							</svg>
 						) : (
-							<svg width="16" height="16" viewBox="0 0 14 17" xmlns="http://www.w3.org/2000/svg" title="Play">
+							<svg width="16" height="16" viewBox="0 0 14 17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 								<path
 									d="M12.8378 7.01827L2.19005 0.21473C1.32492 -0.337792 0 0.198383 0 1.56498V15.1688C0 16.3948 1.23114 17.1337 2.19005 16.519L12.8378 9.71877C13.7876 9.11394 13.7906 7.62311 12.8378 7.01827Z"
 									fill="currentColor"

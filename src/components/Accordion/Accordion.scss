@@ -107,7 +107,6 @@ $common-left-margin: 20px;
 		header {
 			@include hideHeader;
 			display: flex;
-			cursor: pointer;
 			margin-top: 2.4rem;
 			padding: 20px 0;
 			flex-direction: row;
@@ -140,10 +139,37 @@ $common-left-margin: 20px;
 			}
 
 			h2 {
-				cursor: pointer;
+				width: 100%;
 				margin: 0;
 				color: inherit;
 				transition: color 800ms ease-in-out;
+			}
+
+			.accordion-trigger {
+				appearance: none;
+				background: transparent;
+				border: 0;
+				color: inherit;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 0.2rem;
+				margin: 0;
+				padding: 0;
+				text-align: left;
+				width: 100%;
+			}
+
+			.accordion-trigger:focus-visible {
+				outline: 2px solid var(--ring);
+				outline-offset: 4px;
+			}
+
+			.accordion-trigger-label {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				flex-wrap: wrap;
 			}
 		}
 		&.expanded {

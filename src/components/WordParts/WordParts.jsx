@@ -228,7 +228,7 @@ export class WordParts extends React.PureComponent {
 		return (
 			<div
 				className={`word-parts-container container`}
-				id={`${id ? id : ''}`}
+				id={id || undefined}
 				key={`${id}WordParts`}
 			>
 				{!this.props.suppressInfo && (informationText || informationTextHTML) ? (

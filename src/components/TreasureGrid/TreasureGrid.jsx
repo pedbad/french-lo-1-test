@@ -1,6 +1,5 @@
 import './TreasureGrid.scss';
 import React, { PureComponent } from 'react';
-import Colours from '../../styles/colours.module.scss';
 
 const TREASURE_GRID_MESSAGE_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.2)] font-bold";
 

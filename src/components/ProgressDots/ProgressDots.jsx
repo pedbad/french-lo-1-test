@@ -6,10 +6,7 @@ export const ProgressDots = ({ correct = 0, total = 0 }) => {
 
 	return (
 		<div className="flex flex-wrap items-center gap-2">
-			<div
-				className="flex flex-nowrap items-center gap-2 overflow-x-auto"
-				aria-label={`${safeCorrect} correct out of ${safeTotal}`}
-			>
+			<div className="flex flex-nowrap items-center gap-2 overflow-x-auto">
 				{Array.from({ length: safeTotal }).map((_, index) => {
 					const filled = index < safeCorrect;
 					return (
@@ -25,8 +22,7 @@ export const ProgressDots = ({ correct = 0, total = 0 }) => {
 					);
 				})}
 			</div>
-			<p className="m-0">{safeCorrect} correct out of {safeTotal}</p>
+			<p className="m-0" aria-live="polite">{safeCorrect} correct out of {safeTotal}</p>
 		</div>
 	);
 };
-

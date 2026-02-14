@@ -34,7 +34,7 @@ _mixins.module.scss
 		// border: 1px solid black;
 		white-space: break-spaces; // normal; /* allow wrapping at word boundaries */
 		overflow-wrap: anywhere; /* if a word is very long, break if needed */
-		word-break: keep-word; /* experimental: fallback is overflow-wrap */
+		word-break: normal; /* keep validator-compliant; overflow-wrap handles long tokens */
 		span {
 			display: inline;
 		}

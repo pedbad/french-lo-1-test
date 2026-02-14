@@ -39,6 +39,11 @@ audio.super-compact {
 }
 
 .audio-link {
+	appearance: none;
+	background: transparent;
+	border: 0;
+	font: inherit;
+	padding: 0;
 	display: inline-flex;
 	align-items: baseline;
 	gap: 0.25em;
@@ -144,10 +149,8 @@ $circle-duration: 0.2s;
 	}
 }
 
-span.audio-link {
-	// color: blue;
-	cursor: pointer;
-	// text-decoration: underline;
+button.audio-link .audio-link-text {
+	display: inline;
 }
 
 $cycle: 1600ms;

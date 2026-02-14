@@ -35,21 +35,6 @@ $main-menu-height: 80px;
 	}
 }
 
-// :export on the other hand is a preprocessor function.
-:export {
-	borderWidth: $border-width;
-	jigsawBorderWidth: $border-width;
-	mainMenuHeight: $main-menu-height;
-	tabSize: $tab-size;
-	tileSize: $tile-size;
-	piecesPerBoard: $pieces-per-board;
-	totalPieces: $total-pieces;
-	boardWidth: $board-width;
-	boardHeight: $board-height;
-	memoryCardTransitionTime: $memory-card-transition-time;
-	wordTransitionTime: $word-transition-time;
-}
-
 $button-border-radius: 4px;
 $button-height: 36px;
 $button-space: 2px;

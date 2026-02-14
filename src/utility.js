@@ -236,7 +236,7 @@ export const handleModalLinkClick = (e, options = {}) => {
 	if (mode === "scroll") {
 		const targetEl =
 			document.getElementById(targetId) ||
-			document.querySelector(`.modal-link-target[name="${targetId}"]`);
+			document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
 		if (targetEl) scrollToElement(targetEl);
 		return;
 	}

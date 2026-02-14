@@ -18,7 +18,7 @@
 		cursor: not-allowed;
 	}
 }
-#congratulate {
+.congratulate-dialog {
 	background-color: var(--card);
 	background: var(--card);
 	border-radius: 16px;
@@ -81,7 +81,7 @@
 	}
 }
 @include respond-above(m) {
-	#congratulate {
+	.congratulate-dialog {
 		margin: auto 10%;
 		padding: 2rem;
 		button {
@@ -91,7 +91,7 @@
 	}
 }
 @include respond-above(l) {
-	#congratulate {
+	.congratulate-dialog {
 		padding: 4rem;
 	}
 }
