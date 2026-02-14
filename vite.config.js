@@ -59,30 +59,18 @@ export default defineConfig(() => ({
 		},
 		react(),
 		tailwindcss(),
-		viteStaticCopy({
-			targets: [
-				{
-					dest: './src/learningObjectConfigurations/fr', // destination inside dist/
-					src: 'src/learningObjectConfigurations/fr/*.json' // path to your file
-				},
-				{
-					dest: './src', // destination inside dist/
-					src: 'src/index*.json' // path to your file
-				},
-				{
-					dest: 'sounds',
-					src: './public/sounds'
-				},
-				{
-					dest: 'images',
-					src: './public/images'
-				},
-				{
-					dest: 'fonts',
-					src: './public/fonts'
-				}
-			]
-		})
+			viteStaticCopy({
+				targets: [
+					{
+						dest: './src/learningObjectConfigurations/fr', // destination inside dist/
+						src: 'src/learningObjectConfigurations/fr/*.json' // path to your file
+					},
+					{
+						dest: './src', // destination inside dist/
+						src: 'src/index*.json' // path to your file
+					}
+				]
+			})
 	],
 	resolve: {
 		alias: {
