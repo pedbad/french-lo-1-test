@@ -129,7 +129,7 @@ These are accepted refinements from peer review, adapted to this repo:
 
 ### Phase 1.5: Migration Cheatsheet
 
-- [ ] Create `TAILWIND_MIGRATION_CHEATSHEET.md` with common conversions, for example:
+- [x] Create `TAILWIND_MIGRATION_CHEATSHEET.md` with common conversions, for example:
   - SCSS mixins (`flex-center`, etc.) -> utility combinations
   - SCSS variables -> semantic tokens
   - variant modifiers -> `cn()`/`cva` patterns

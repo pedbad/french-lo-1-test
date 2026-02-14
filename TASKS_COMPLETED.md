@@ -150,7 +150,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
-  - add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
+  - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
   - move repeated SCSS visual patterns to tokenized Tailwind utility patterns
   - standardize dynamic branches on `cn()`/`cva`
