@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import { resolveAsset } from "../../utility";
 
-export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-xl)] leading-[var(--body-line-height)] [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--body-line-height)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--body-line-height)]";
+export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-xl)] leading-[var(--line-height-body)] [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--line-height-body)]";
 export const applyInstructionTypographyToHTML = (html) => {
 	if (typeof DOMParser === "undefined") {
 		return html;
@@ -9,7 +9,7 @@ export const applyInstructionTypographyToHTML = (html) => {
 	const doc = new DOMParser().parseFromString(html, "text/html");
 	doc.querySelectorAll("p, li").forEach((node) => {
 		node.style.fontSize = "var(--font-size-xl)";
-		node.style.lineHeight = "var(--body-line-height)";
+		node.style.lineHeight = "var(--line-height-body)";
 	});
 	return doc.body.innerHTML;
 };
@@ -37,7 +37,7 @@ export const InstructionsMedia = ({
 			style={{
 				margin: 0,
 				fontSize: "var(--font-size-xl)",
-				lineHeight: "var(--body-line-height)",
+				lineHeight: "var(--line-height-body)",
 			}}
 		>
 			{paragraph}

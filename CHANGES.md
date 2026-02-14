@@ -453,6 +453,41 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Updated `/Users/ped/Sites/french/french-lo-1-test/README.md` guardrails to document that narrow exception.
 - Why: separates font-asset loading from component styling while preserving token-based font usage as the single source for typography application.
 
+## 57) Typography Batch 5.17 (Dark-Mode Token De-duplication)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - removed duplicate dark-mode typography token assignments (`--font-size-*`, `--line-height-*`, `--body-line-height`) from `.dark`.
+  - typography tokens now remain defined once in `:root` and are shared by both themes.
+- Why: reduces token drift risk and reinforces one source of truth for typography scale across light/dark mode.
+
+## 58) Typography Batch 5.18 (Semantic Line-Height Tokens)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css` typography tokens:
+  - added semantic line-height tokens:
+    - `--line-height-body`
+    - `--line-height-body-tight`
+    - `--line-height-body-loose`
+    - `--line-height-app`
+    - `--line-height-wordparts`
+    - `--line-height-wordparts-mobile`
+  - kept `--body-line-height` as backward-compatible alias to `--line-height-body`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.scss`:
+  - replaced ad-hoc arithmetic line-height expressions with semantic token usage in:
+    - `.app`
+    - `#content .abbreviations`
+    - `#content :where(p, li, td, th, figcaption, caption)`
+    - WordParts table text (desktop + mobile)
+    - intro paragraph block
+    - medium-breakpoint paragraph rhythm
+- Why: removes inline line-height math, clarifies intent by context, and keeps line-height tuning centralized in tokens.
+
+## 59) Typography Batch 5.19 (Component Consumers to Semantic Line-Height Tokens)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Info/Info.jsx`:
+  - migrated `INFO_CONTENT_TEXT_CLASS` line-height utilities from `var(--body-line-height)` to `var(--line-height-body)`.
+  - replaced `[_h3]:leading-[1.4]` with tokenized `[_h3]:leading-[var(--line-height-app)]`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/instructions-media.jsx`:
+  - migrated Tailwind utility and inline style line-heights from `var(--body-line-height)` to `var(--line-height-body)`.
+  - updated HTML normalization helper to inject `var(--line-height-body)` for paragraph/list nodes.
+- Why: completes consumer migration to semantic line-height tokens and reduces dependence on the backward-compat alias.
+
 
 # Files Deleted (partial but comprehensive)
 

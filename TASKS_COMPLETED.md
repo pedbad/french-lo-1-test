@@ -37,6 +37,9 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `Congratulate.jsx` and `Footer.jsx` Tailwind typography literals (`text-[40px]`, `leading-[60px]`, `md:text-[80px]`, `md:leading-[90px]`, `leading-[26px]`) replaced with token-based arbitrary values
   - completed: `CustomComponents_FR.scss` regional map label custom properties (`74.6667px`, `40px`) replaced with token-based expressions from `--font-size-base`
   - completed: typography guard now allows literal `font-family` only in `src/styles/fonts.css` for `@font-face`; guard remains strict elsewhere
+  - completed: duplicate dark-mode typography token assignments removed from `src/index.css` so typography scale remains defined once in `:root`
+  - completed: ad-hoc line-height arithmetic in `App.scss` replaced with semantic line-height tokens from `index.css` (`--line-height-app`, `--line-height-body-tight/loose`, `--line-height-wordparts*`)
+  - completed: component consumers (`Info.jsx`, `instructions-media.jsx`) migrated from `--body-line-height` to `--line-height-body`; heading utility `leading-[1.4]` replaced with tokenized `--line-height-app`
 
 ## Color
 
@@ -82,3 +85,6 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `Congratulate.jsx` + `Footer.jsx` Tailwind px typography literals replaced with tokenized arbitrary values
   - completed: regional map SVG label custom properties in `CustomComponents_FR.scss` tokenized from px to `var(--font-size-base)` expressions
   - completed: font-face declarations extracted to `src/styles/fonts.css` (global import via `src/main.jsx`) with `font-display: swap`
+  - completed: dark-mode typography token duplicates removed in `src/index.css` (`--font-size-*`, `--line-height-*`, `--body-line-height`)
+  - completed: semantic line-height token pass in `index.css` and `App.scss` to replace inline `calc(var(--body-line-height) +/- ...)` usage
+  - completed: downstream component migration (`Info.jsx`, `instructions-media.jsx`) to semantic `--line-height-body` token

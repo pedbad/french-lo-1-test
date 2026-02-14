@@ -3,7 +3,7 @@ import DOMPurify from "dompurify";
 import { Info as InfoIcon } from "lucide-react";
 import React from 'react';
 
-const INFO_CONTENT_TEXT_CLASS = "info-content text-sm leading-[var(--body-line-height)] [&_li]:text-sm [&_li]:leading-[var(--body-line-height)] [&_h3]:mt-0 [&_h3]:text-base [&_h3]:leading-[1.4] [&_h4]:mt-0 [&_h4]:text-sm";
+const INFO_CONTENT_TEXT_CLASS = "info-content text-sm leading-[var(--line-height-body)] [&_li]:text-sm [&_li]:leading-[var(--line-height-body)] [&_h3]:mt-0 [&_h3]:text-base [&_h3]:leading-[var(--line-height-app)] [&_h4]:mt-0 [&_h4]:text-sm";
 
 export class Info extends React.PureComponent {
 	// constructor(props) {

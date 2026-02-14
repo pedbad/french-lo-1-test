@@ -368,7 +368,7 @@ html {
 
 .app {
 	box-sizing: border-box;
-	line-height: calc(var(--body-line-height) - 0.3);
+	line-height: var(--line-height-app);
 	margin: 0;
 	overflow: hidden;
 }
@@ -494,12 +494,12 @@ hr {
 	}
 	.abbreviations {
 		font-size: var(--font-size-base);
-		line-height: var(--body-line-height);
+		line-height: var(--line-height-body);
 		margin-top: 0.75rem;
 	}
 	:where(p, li, td, th, figcaption, caption) {
 		font-size: var(--font-size-base);
-		line-height: var(--body-line-height);
+		line-height: var(--line-height-body);
 	}
 	.inline-icon {
 		display: inline-block;
@@ -534,7 +534,7 @@ hr {
 	.word-parts-container table td,
 	.word-parts-container table span {
 		font-size: calc(var(--font-size-base) * 1.5);
-		line-height: calc(var(--body-line-height) - 0.4);
+		line-height: var(--line-height-wordparts);
 	}
 	h1,
 	h2,
@@ -549,7 +549,7 @@ hr {
 		}
 		p {
 			font-size: var(--font-size-xl);
-			line-height: calc(var(--body-line-height) + 0.1);
+			line-height: var(--line-height-body-loose);
 		}
 	}
 	.hero-section {
@@ -653,12 +653,12 @@ hr {
 
 @media (max-width: 959px) {
 	#content {
-		.word-parts-container table td,
-		.word-parts-container table span {
-			font-size: calc(var(--font-size-base) * 1.15);
-			line-height: calc(var(--body-line-height) - 0.35);
-		}
+	.word-parts-container table td,
+	.word-parts-container table span {
+		font-size: calc(var(--font-size-base) * 1.15);
+		line-height: var(--line-height-wordparts-mobile);
 	}
+}
 }
 
 .lo-15 {
@@ -736,7 +736,7 @@ hr {
 	}
 
 	p {
-		line-height: calc(var(--body-line-height) - 0.1);
+		line-height: var(--line-height-body-tight);
 	}
 	.spinning-globe {
 		width: 256px;

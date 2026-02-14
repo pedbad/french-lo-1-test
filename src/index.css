@@ -60,7 +60,14 @@
 		--font-size-3xl: clamp(2.25rem, 4vw, 3rem);
 		--line-height-2xl: 1.2;
 		--line-height-3xl: 1.15;
-		--body-line-height: 1.7;
+		--line-height-body: 1.7;
+		--line-height-body-tight: 1.6;
+		--line-height-body-loose: 1.8;
+		--line-height-app: 1.4;
+		--line-height-wordparts: 1.3;
+		--line-height-wordparts-mobile: 1.35;
+		/* Backward-compatible alias; prefer --line-height-body going forward. */
+		--body-line-height: var(--line-height-body);
 		--nav-title-size: 1.85rem;
 		--nav-link-size: var(--font-size-lg);
 
@@ -151,18 +158,6 @@
 		--color-traffic-red: 248 113 113;
 		--color-traffic-amber: 251 191 36;
 		--color-traffic-green: 74 222 128;
-
-		/* Typography */
-		--font-size-xs: 0.85rem;
-		--font-size-sm: 1rem;
-		--font-size-base: 1.15rem;
-		--font-size-lg: 1.35rem;
-		--font-size-xl: 1.6rem;
-		--font-size-2xl: clamp(1.75rem, 3vw, 2.25rem);
-		--font-size-3xl: clamp(2.25rem, 4vw, 3rem);
-		--line-height-2xl: 1.2;
-		--line-height-3xl: 1.15;
-		--body-line-height: 1.7;
 
 		/* shadcn */
 
