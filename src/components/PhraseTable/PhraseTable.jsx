@@ -1,4 +1,3 @@
-import "./PhraseTable.scss";
 import {
 	AudioClip,
 	IconButton,
