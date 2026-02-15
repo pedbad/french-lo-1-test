@@ -132,6 +132,10 @@ Progress:
 - [x] Added dedicated accordion completion tracker.
 - [x] Add shadcn accordion primitive in `src/components/ui/accordion.jsx`.
 - [x] Migrate debug accordion UI first (approved plan).
+- [x] Add main-app compatibility wrapper scaffold:
+  - `src/components/Accordion/AppAccordionArticle.jsx` (Radix-based internals preserving current prop/data contracts)
+- [x] Begin incremental main-app adoption:
+  - `src/App.jsx` uses `AppAccordionArticle` for `AnswerTable` branch as a pilot migration path.
 - [ ] Migrate main app accordion path with parity checks.
 - [ ] Remove obsolete custom accordion/dead pathways after cutover.
 

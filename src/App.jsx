@@ -1,5 +1,6 @@
 import {
 	Accordion,
+	AppAccordionArticle,
 	AccordionArticle,
 	AnswerTable,
 	AudioClip,
@@ -984,28 +985,25 @@ export default class App extends React.Component {
 		const compoundID = `LO${currentLearningObject}-${id}`;
 
 		switch (component) {
-			case "AnswerTable": {
-				articles.push(
-					<AccordionArticle
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
-						target={id}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<AnswerTable
+				case "AnswerTable": {
+					articles.push(
+						<AppAccordionArticle
 							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>
-				);
-				break;
-			}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={id}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<AnswerTable
+								config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AppAccordionArticle>
+					);
+					break;
+				}
 			case "Blanks": {
 				articles.push(
 					<AccordionArticle

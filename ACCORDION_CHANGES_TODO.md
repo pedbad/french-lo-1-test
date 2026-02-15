@@ -81,8 +81,8 @@ Acceptance checks:
 
 ## Phase 3: Build Main-App Compatibility Wrapper
 
-- [ ] Create `AppAccordionArticle` wrapper using shadcn accordion internals.
-- [ ] Map old props to new internals:
+- [x] Create `AppAccordionArticle` wrapper using shadcn accordion internals.
+- [x] Map old props to new internals:
   - `id`
   - `target`
   - `title` / `titleHTML`
@@ -90,10 +90,10 @@ Acceptance checks:
   - `className`
   - `noCard`
   - `children`
-- [ ] Preserve session persistence (`${id}-expanded`) with clean state sync.
-- [ ] Preserve heading/link target contract (`modal-link-*`, `data-modal-target`).
-- [ ] Preserve `(part N)` split-title formatting.
-- [ ] Preserve `Info` injection + child-info suppression.
+- [x] Preserve session persistence (`${id}-expanded`) with clean state sync.
+- [x] Preserve heading/link target contract (`modal-link-*`, `data-modal-target`).
+- [x] Preserve `(part N)` split-title formatting.
+- [x] Preserve `Info` injection + child-info suppression.
 
 Acceptance checks:
 - [ ] Wrapper can render one migrated panel with parity.
@@ -103,6 +103,8 @@ Acceptance checks:
 ## Phase 4: Incremental Main App Migration
 
 - [ ] Replace current custom `AccordionArticle` usage in `App.jsx` with wrapper.
+- [x] Start with one low-risk pilot path in `App.jsx`:
+  - `AnswerTable` branch now uses `AppAccordionArticle`.
 - [ ] Migrate by groups to reduce risk:
   - Group A: static text/content sections
   - Group B: phrase/explanation sections

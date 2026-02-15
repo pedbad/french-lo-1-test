@@ -826,6 +826,25 @@ Why this was important:
   - `/Users/ped/Sites/french/french-lo-1-test/README.md`
 - Why: executes the approved debug-first migration step in a low-risk surface, validates shared primitive wiring, and reduces drift before main-app accordion cutover.
 
+## 86) Accordion Main-App Wrapper Scaffold (Compatibility First)
+- Added compatibility wrapper:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+- Wrapper preserves existing app contracts while using Radix accordion internals:
+  - `id`, `target`, `title/titleHTML`, `config`, `noCard`, `expandNow`, and children rendering contracts
+  - session persistence via `${id}-expanded`
+  - heading/deep-link compatibility (`modal-link-*`, `data-modal-target`)
+  - `(part N)` title suffix split styling
+  - info injection + child `suppressInfo` behavior
+- Exported wrapper via:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/index.js`
+- Why: prepares a low-risk migration path for incremental `App.jsx` adoption without forcing a full accordion cutover in one step.
+
+## 87) Accordion Incremental Adoption Pilot (`AnswerTable`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - the `AnswerTable` render branch now uses `AppAccordionArticle` instead of the legacy `AccordionArticle`.
+  - removed legacy `ref` handoff for that pilot path (function component wrapper is refless by design).
+- Why: validates the incremental migration strategy on a low-risk path before expanding wrapper adoption to higher-traffic accordion branches.
+
 
 # Files Deleted (partial but comprehensive)
 

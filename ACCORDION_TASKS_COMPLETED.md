@@ -27,6 +27,11 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
 - [x] Migrated debug structure view to shadcn accordion:
   - `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
   - replaced native `details/summary` usage while keeping row layout (LO link left, structure accordion right)
+- [x] Added main-app compatibility wrapper scaffold (not wired globally yet):
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+  - preserves core contracts (`id`, `target`, `title/titleHTML`, `config`, `noCard`, `expandNow`, session persistence)
+- [x] Started incremental main-app wiring using the compatibility wrapper:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for the `AnswerTable` branch as a low-risk pilot.
 
 ## In Progress
 
@@ -34,7 +39,7 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
 
 ## Pending
 
-- [ ] Build compatibility wrapper for main app accordion semantics.
+- [ ] Wire compatibility wrapper into `App.jsx` incrementally and run parity checks.
 - [ ] Migrate `App.jsx` accordion usage incrementally to wrapper.
 - [ ] Remove legacy/dead accordion pathways.
 - [ ] Final regression pass and docs closeout.
