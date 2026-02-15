@@ -136,6 +136,28 @@ Use this as a hard "do not repeat" list.
 10. Do not start refactors without visual and accessibility regression checks in the PR definition of done.
 11. Do not keep debug/sample scaffolding hidden in production markup; isolate it in a dev-only sandbox entrypoint.
 
+## Dev-Only Debug Sandbox Pattern (Best Practice)
+
+Use this pattern by default:
+
+1. Keep debug fixtures in a dedicated dev area (for example `src/debug/`) instead of `src/App` or route components used by production pages.
+2. Use a separate sandbox entry page (for example `debug-sandbox.html`) and a dedicated entry script (for example `src/debug/sandbox-main.jsx`).
+3. Add a hard runtime guard in sandbox entry code:
+   - `if (!import.meta.env.DEV) throw new Error(...)`
+4. Keep sandbox-only React components either:
+   - nested/private inside the sandbox page component file, or
+   - colocated under `src/debug/components/` (not exported from app component barrels).
+5. Do not import sandbox components into production app trees (`src/App.*`, production routes, shared exports).
+6. Naming convention:
+   - React component names: PascalCase (`DebugSandbox`, `TypographySample`)
+   - folders/paths: lowercase or kebab-case (`src/debug`, `src/debug/components`)
+
+Why this is best practice:
+- prevents validator noise from hidden debug DOM in production HTML
+- keeps production markup deterministic and easier to maintain
+- avoids debug component sprawl in core app component namespaces
+- makes intent explicit: sandbox code is for developer diagnostics only
+
 ## Recommended Directory Structure
 
 ```text
@@ -147,6 +169,9 @@ project-root/
       images/               # static images used by content/config
       icons/                # static favicon/pwa/icon assets
   src/
+    debug/                  # dev-only sandbox pages and fixtures (not imported by production app)
+      components/           # optional sandbox-only components
+      sandbox-main.tsx      # sandbox entry point
     app/
       providers/            # ThemeProvider, QueryProvider, etc.
       routes/               # route-level pages/layouts
