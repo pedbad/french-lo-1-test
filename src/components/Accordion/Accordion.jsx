@@ -1,4 +1,3 @@
-import './Accordion.scss';
 import React from 'react';
 
 export class Accordion extends React.PureComponent {

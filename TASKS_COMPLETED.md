@@ -195,13 +195,14 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/WordParts/WordParts.scss` (deleted; word-part animation/highlight/reset styles moved to layered global CSS in `src/index.css`, including shared keyframes used by word-part and crossword interactions)
     - [x] `src/components/DropDowns/DropDowns.scss` (deleted; dropdown row feedback, icon visibility, and select-state styles migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/MemoryMatchGame/MemoryMatchGame.scss` (deleted; memory board layout, match-grid transitions, and responsive breakpoint behavior migrated to layered global CSS in `src/index.css`)
+    - [x] `src/components/Accordion/Accordion.scss` (deleted; accordion expand/collapse transitions, trigger/header states, and responsive heading rules migrated to layered global CSS in `src/index.css`)
     - [x] debug/sample scaffolding removed from `src/App.jsx` (`#fontSamples`, in-app `LearningObjectMenu`) and moved to dev-only sandbox (`debug-sandbox.html`, `src/debug/DebugSandbox.jsx`) so production HTML stays clean for validation
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 9 (from 54)
-    - SCSS imports in JSX/JS: 6 (from 53)
+    - SCSS files in `src`: 8 (from 54)
+    - SCSS imports in JSX/JS: 5 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
