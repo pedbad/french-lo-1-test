@@ -343,7 +343,7 @@ Why it is feasible here:
 - New or refactored layout wrappers should default to Tailwind for flex/grid and breakpoints.
 - Migrate the custom accordion (`src/components/Accordion/*`) to shadcn/Radix Accordion; execution is tracked in `ACCORDION_CHANGES_TODO.md` with a debug-first rollout before main-app migration.
   - current status: debug migration is complete and a main-app compatibility scaffold exists at `src/components/Accordion/AppAccordionArticle.jsx`.
-  - pilot adoption is active in `src/App.jsx` for the `AnswerTable` branch; next step is expanding wiring batch-by-batch with parity checks.
+  - pilot adoption is active in `src/App.jsx` for the `AnswerTable` and expandable `PhraseTable` branches; next step is expanding wiring batch-by-batch with parity checks.
 - Special anchors currently wait ~500 ms before scrolling so accordion panels can expand; smoothing that interaction (without the lag) remains a TODO.
 
 ### Additional guidance (agreed)

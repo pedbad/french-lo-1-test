@@ -105,6 +105,8 @@ Acceptance checks:
 - [ ] Replace current custom `AccordionArticle` usage in `App.jsx` with wrapper.
 - [x] Start with one low-risk pilot path in `App.jsx`:
   - `AnswerTable` branch now uses `AppAccordionArticle`.
+- [x] Expand pilot to high-visibility content path:
+  - expandable `PhraseTable` branch now uses `AppAccordionArticle`.
 - [ ] Migrate by groups to reduce risk:
   - Group A: static text/content sections
   - Group B: phrase/explanation sections

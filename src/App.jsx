@@ -1312,29 +1312,26 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "PhraseTable": {
-				if (expandable) {
-					articles.push(
-						<AccordionArticle
-							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							ref={(AccordionArticle) => {
-								window.refs.push(AccordionArticle);
-							}}
-							target={id}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<PhraseTable
+				case "PhraseTable": {
+					if (expandable) {
+						articles.push(
+							<AppAccordionArticle
+								config={value}
+								id={`${compoundID}-Accordion`}
+								key={`${compoundID}-Accordion`}
+								target={id}
+								title={titleText}
+								titleHTML={titleTextHTML}
+							>
+								<PhraseTable
 								config={value}
 								logError={this.logError}
-								showDialog={this.showDialog}
-								languageCode={languageCode}
-							/>
-						</AccordionArticle>
-					);
-				} else {
+									showDialog={this.showDialog}
+									languageCode={languageCode}
+								/>
+							</AppAccordionArticle>
+						);
+					} else {
 					articles.push(
 						<Section
 							config={value}

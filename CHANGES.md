@@ -853,6 +853,16 @@ Why this was important:
   - added slower color/shadow transitions (`duration-700`) to match the app’s intentional interaction feel.
 - Why: improves clarity and consistency while keeping these visual tweaks scoped to the debug migration surface.
 
+## 89) Accordion Incremental Adoption Batch 2 (`PhraseTable`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - migrated expandable `PhraseTable` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
+  - removed legacy `ref` handoff for this wrapper-driven branch.
+- Updated migration trackers:
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Why: expands wrapper adoption to a high-visibility content path (dialogues/vocabulary) while preserving compatibility contracts before broader cutover.
+
 
 # Files Deleted (partial but comprehensive)
 

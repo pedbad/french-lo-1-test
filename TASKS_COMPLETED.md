@@ -136,6 +136,7 @@ Progress:
   - `src/components/Accordion/AppAccordionArticle.jsx` (Radix-based internals preserving current prop/data contracts)
 - [x] Begin incremental main-app adoption:
   - `src/App.jsx` uses `AppAccordionArticle` for `AnswerTable` branch as a pilot migration path.
+  - `src/App.jsx` uses `AppAccordionArticle` for expandable `PhraseTable` branch as the next pilot expansion.
 - [ ] Migrate main app accordion path with parity checks.
 - [ ] Remove obsolete custom accordion/dead pathways after cutover.
 

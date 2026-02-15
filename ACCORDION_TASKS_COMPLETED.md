@@ -32,6 +32,8 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
   - preserves core contracts (`id`, `target`, `title/titleHTML`, `config`, `noCard`, `expandNow`, session persistence)
 - [x] Started incremental main-app wiring using the compatibility wrapper:
   - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for the `AnswerTable` branch as a low-risk pilot.
+- [x] Expanded pilot wiring to the `PhraseTable` expandable branch:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for expandable `PhraseTable` rendering.
 
 ## In Progress
 
