@@ -183,9 +183,7 @@ export function AppAccordionArticle({
 					</header>
 
 					<AccordionPrimitive.Content
-						className={`content ${expanded ? "animate-accordion-down" : ""}`}
-						data-state={expanded ? "open" : "closed"}
-						forceMount
+						className="content overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
 						id={contentId}
 						ref={contentRef}
 					>

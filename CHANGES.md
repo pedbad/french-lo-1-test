@@ -897,6 +897,14 @@ Why this was important:
   - avoids preventing default on non-anchor heading targets used by accordion triggers.
 - Why: fixes a migration regression where accordion headings could become non-clickable after wrapper adoption.
 
+## 93) Accordion Collapse Animation Fix (Second-Click Did Not Close)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+  - removed `forceMount` from `AccordionPrimitive.Content` so Radix can manage open/close presence correctly.
+  - switched content animation classes to state-based variants:
+    - `data-[state=open]:animate-accordion-down`
+    - `data-[state=closed]:animate-accordion-up`
+- Why: `forceMount` kept wrapper content effectively always present, so close interactions could appear to reopen instead of collapsing.
+
 
 # Files Deleted (partial but comprehensive)
 
