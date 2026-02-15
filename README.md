@@ -57,6 +57,7 @@ Files:
 
 Sandbox includes:
 - LO navigation links for all French Basic learning objects.
+- Full app color-token inventory (token names + light/dark resolved values + swatches).
 - A per-LO structure summary (sections, accordion titles, and exercise component types) for quick content QA.
   - UI pattern: each LO renders as one row with the index link first and its structure accordion immediately next to it.
   - Accordion content uses ordered lists (`ol`) with item counts (for example exercise entries) to make auditing easier.

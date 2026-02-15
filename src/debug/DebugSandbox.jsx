@@ -1,5 +1,6 @@
 import React from 'react';
 import { Info } from '../components';
+import { DebugColorTokens } from './components/DebugColorTokens';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
 
 /*
@@ -83,6 +84,8 @@ export function DebugSandbox() {
 					<Info informationTextHTML="<p>Information Text <strong>HTML</strong></p>" />
 				</div>
 			</section>
+
+			<DebugColorTokens />
 
 			<LearningObjectStructureSummary
 				appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
