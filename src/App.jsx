@@ -112,6 +112,9 @@ export default class App extends React.Component {
 		// this.toggleDark = this.toggleDark.bind(this);
 
 		this.autoComponentIdCounter = 0;
+		this.modalLinkDelegationSetup = false;
+		this.handleDelegatedModalLinkClick = null;
+		this.handleDelegatedModalTargetClick = null;
 	}
 
 	clearError = (index) => {
@@ -182,6 +185,14 @@ export default class App extends React.Component {
 
 	componentDidUpdate = () => {
 		this.initialiseModalLinks();
+	};
+
+	componentWillUnmount = () => {
+		if (this.modalLinkDelegationSetup) {
+			document.removeEventListener("click", this.handleDelegatedModalLinkClick);
+			document.removeEventListener("click", this.handleDelegatedModalTargetClick);
+			this.modalLinkDelegationSetup = false;
+		}
 	};
 
 	hideDialog = () => {
@@ -276,9 +287,9 @@ export default class App extends React.Component {
 
 		if (entries.has(targetId)) return entries.get(targetId);
 
-			const targetEl =
-				document.getElementById(targetId) ||
-				document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
+		const targetEl =
+			document.getElementById(targetId) ||
+			document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
 		if (targetEl) {
 			const container = targetEl.closest("p, li, article, section, div") || targetEl;
 			return {
@@ -296,36 +307,34 @@ export default class App extends React.Component {
 	initialiseModalLinks = () => {
 		// `modal-link` is reserved for content links that open the modal dialog.
 		// Main navigation uses `nav-scroll-link` and handles scroll behavior in MainMenu.
-		const anchors = document.querySelectorAll(".modal-link");
-		anchors.forEach((anchor) => {
-			// console.log("anchor", anchor);
-			if (anchor.setup) {
-				// do nothing
-				// console.log("already set up");
-			} else {
-				anchor.addEventListener("click", (e) =>
-					handleModalLinkClick(e, {
-						mode: "modal",
-						findModalLinkContent: this.findModalLinkContent,
-						showModalLinkDialog: this.showModalLinkDialog,
-					})
-				);
-			}
-			anchor.setup = true;
-		});
-		const targets = document.querySelectorAll(".modal-link-target");
-		targets.forEach((target) => {
-			if (target.setup) {
-				// do nothing
-			} else {
-				// Only suppress default browser navigation for anchor targets.
-				// Non-anchor heading targets are interactive containers for accordion triggers.
-				if (target.tagName.toLowerCase() === "a") {
-					target.addEventListener("click", (e) => e.preventDefault());
-				}
-			}
-			target.setup = true;
-		});
+		// Use delegated listeners so links created by child re-renders are always wired.
+		if (this.modalLinkDelegationSetup) return;
+
+		this.handleDelegatedModalLinkClick = (e) => {
+			const anchor = e.target instanceof Element
+				? e.target.closest("a.modal-link")
+				: null;
+			if (!anchor) return;
+
+			handleModalLinkClick(e, {
+				mode: "modal",
+				findModalLinkContent: this.findModalLinkContent,
+				linkEl: anchor,
+				showModalLinkDialog: this.showModalLinkDialog,
+			});
+		};
+
+		this.handleDelegatedModalTargetClick = (e) => {
+			const targetAnchor = e.target instanceof Element
+				? e.target.closest("a.modal-link-target")
+				: null;
+			if (!targetAnchor) return;
+			e.preventDefault();
+		};
+
+		document.addEventListener("click", this.handleDelegatedModalLinkClick);
+		document.addEventListener("click", this.handleDelegatedModalTargetClick);
+		this.modalLinkDelegationSetup = true;
 	};
 
 	initialiseSpeeches = (synth, targetLanguageCode, voices) => {

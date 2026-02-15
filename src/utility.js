@@ -225,7 +225,11 @@ export const scrollToElement = (element) => {
 export const handleModalLinkClick = (e, options = {}) => {
 	e.preventDefault();
 
-	const linkEl = e.currentTarget;
+	const linkEl =
+		options.linkEl ||
+		(e.currentTarget instanceof Element ? e.currentTarget : null) ||
+		(e.target instanceof Element ? e.target.closest("a[href]") : null);
+	if (!linkEl) return;
 	const href = linkEl.getAttribute("href");
 	if (!href) return;
 

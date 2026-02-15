@@ -199,6 +199,10 @@ Progress:
 - [x] Unify desktop/mobile nav link source to prevent behavior drift:
   - `MainMenu` now builds one shared `navEntries` list and renders both desktop and mobile link sets from that same source
   - both layouts now use the same href targets and the same click handler path (`handleNavClick` -> `handleModalLinkClick(..., { mode: "scroll" })`)
+- [x] Fix intermittent modal-link activation via delegated event wiring:
+  - replaced per-node `.modal-link` setup loops with one delegated document click handler in `src/App.jsx`
+  - delegated handler now catches modal links created by child/local re-renders (not only links present during App update cycles)
+  - updated `handleModalLinkClick` in `src/utility.js` to accept an explicit resolved link element (`options.linkEl`) for delegation-safe target resolution
 
 ## CI / Guardrails
 

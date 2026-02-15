@@ -1198,6 +1198,27 @@ Why this was important:
   - removes a known drift surface where desktop and mobile nav links could diverge over time.
   - guarantees both breakpoints use the same section targets and scroll-only interaction path.
 
+## 112) Modal Link Reliability Fix (Delegated Wiring)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - replaced per-element `.modal-link` listener setup with delegated document click handlers.
+  - this ensures modal links created after child-local re-renders are still handled.
+  - added cleanup in `componentWillUnmount` for delegated listeners.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/utility.js`:
+  - `handleModalLinkClick` now supports an explicit link element (`options.linkEl`) for delegation-safe href/target extraction.
+- Updated tracking doc:
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Validation:
+  - `yarn build` passes.
+  - targeted lint on changed files passes with no errors (`src/App.jsx`, `src/utility.js`).
+  - branch guards pass:
+    - `yarn check:typography:branch`
+    - `yarn check:color:branch`
+    - `yarn check:a11y:branch`
+    - `yarn check:scss:branch`
+    - `yarn check:audio-unicode`
+- Why:
+  - fixes intermittent behavior where some modal links worked and others failed after UI updates that re-created link DOM nodes without re-running direct listener attachment.
+
 
 # Files Deleted (partial but comprehensive)
 
