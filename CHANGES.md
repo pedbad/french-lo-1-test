@@ -1234,6 +1234,18 @@ Why this was important:
   - removes browser-default blue slider accent and aligns audio controls with your existing footer green token.
   - improves contrast/readability by softening the controller background without drifting from theme tokens.
 
+## 114) Accordion Hover/Open States Tinted to Footer Green
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - changed `--accordion-mist` from neutral grey to a footer-green-tinted mix in light mode:
+    - `color-mix(in oklab, var(--footer-background) 40%, var(--card))`
+  - changed `--accordion-mist` in dark mode to a subtle green-tinted mix:
+    - `color-mix(in oklab, var(--chart-2) 18%, var(--card))`
+  - aligned `--accordion-hover-text` to `var(--foreground)` for safe contrast in both themes.
+- Validation:
+  - `yarn build` passes.
+- Why:
+  - replaces neutral grey hover/open accordions with the same green visual language used in footer branding while preserving readability.
+
 
 # Files Deleted (partial but comprehensive)
 

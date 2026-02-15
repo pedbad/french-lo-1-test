@@ -118,8 +118,8 @@
 		--page-background: oklch(0.976 0.023 90.7);
 		--hero-title-color: oklch(0.612 0.130 160.6);
 		--footer-background: oklch(0.851 0.089 178.8);
-		--accordion-mist: oklch(0.9330 0.0055 183.0);
-		--accordion-hover-text: oklch(0.145 0 0);
+		--accordion-mist: color-mix(in oklab, var(--footer-background) 40%, var(--card));
+		--accordion-hover-text: var(--foreground);
 
 		/* Pedagogical (content) accents: semantic, not brand-specific. */
 		--ped-affirm: var(--chart-2);
@@ -214,8 +214,8 @@
 		--page-background: var(--background);
 		--hero-title-color: oklch(0.612 0.130 160.6);
 		--footer-background: var(--sidebar);
-		--accordion-mist: oklch(0.9330 0.0055 183.0);
-		--accordion-hover-text: oklch(0.145 0 0);
+		--accordion-mist: color-mix(in oklab, var(--chart-2) 18%, var(--card));
+		--accordion-hover-text: var(--foreground);
 
 		/* Footer social dark-mode palettes */
 		--footer-social-dark-fg: #fff;
