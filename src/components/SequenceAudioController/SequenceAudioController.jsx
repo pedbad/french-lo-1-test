@@ -404,6 +404,7 @@ export class SequenceAudioController extends React.Component {
 		const { masterTime, masterDuration, scrubTime, playState, volume } = this.state;
 
 		const displayTime = scrubTime !== null ? scrubTime : masterTime;
+		const sliderAccentStyle = { accentColor: "var(--footer-background)" };
 
 		return (
 			<div
@@ -444,6 +445,7 @@ export class SequenceAudioController extends React.Component {
 						onPointerMove={this.moveScrub}
 						onPointerUp={this.endScrub}
 						onChange={this.changeScrub}
+						style={sliderAccentStyle}
 						title="Play progress"
 					/>
 
@@ -484,6 +486,7 @@ export class SequenceAudioController extends React.Component {
 						onChange={(e) => this.setVolume(parseFloat(e.target.value))}
 						onPointerDown={(e) => e.stopPropagation()}
 						onPointerUp={(e) => e.stopPropagation()}
+						style={sliderAccentStyle}
 						title="Volume"
 					/>
 				</div>

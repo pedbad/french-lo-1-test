@@ -1219,6 +1219,18 @@ Why this was important:
 - Why:
   - fixes intermittent behavior where some modal links worked and others failed after UI updates that re-created link DOM nodes without re-running direct listener attachment.
 
+## 113) Sequence Audio Slider Color Alignment (Footer Green)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/SequenceAudioController/SequenceAudioController.jsx`:
+  - added shared slider style token: `accentColor: "var(--footer-background)"`.
+  - applied to both range controls:
+    - playback scrubber (`.play-scrubber`)
+    - volume slider (`.volume-slider`)
+- Validation:
+  - targeted lint on changed file passes.
+  - `yarn build` passes.
+- Why:
+  - removes browser-default blue slider accent and aligns audio controls with your existing footer green token.
+
 
 # Files Deleted (partial but comprehensive)
 
