@@ -67,6 +67,11 @@ Sandbox includes:
   - Accordion content uses ordered lists (`ol`) with item counts (for example exercise entries) to make auditing easier.
   - Data is loaded via runtime JSON fetch (matching app config loading) to keep debug entry stable with Vite base-path handling.
 
+Debug sandbox guardrails:
+- Panels should fail independently (show local error text) so one broken diagnostic module does not blank the page.
+- Prefer direct component imports in debug code over app-wide barrels to reduce module-graph coupling.
+- Keep debug inventories deterministic (manifest/snapshot) when runtime source scanning is unstable in dev.
+
 Troubleshooting (stale Vite HMR overlay after asset deletes):
 - If you see an ENOENT overlay for an old file that was already removed, restart dev with a forced scan:
 

@@ -158,6 +158,31 @@ Why this is best practice:
 - avoids debug component sprawl in core app component namespaces
 - makes intent explicit: sandbox code is for developer diagnostics only
 
+### What To Include In Debug Sandbox (Default Scope)
+
+Include these by default in new projects:
+
+1. Typography contract preview
+   - heading/body/caption samples that consume the same global tokenized styles as production pages.
+2. Token inventories
+   - color token list with light/dark resolved values and swatches.
+   - font token and `@font-face` inventory with used/unused status.
+3. Asset diagnostics
+   - SVG/image usage panel rendered in UI cards.
+   - prefer manifest/snapshot input over browser-time source scanning for stability.
+4. Navigation helpers for QA
+   - index links to key pages/learning objects.
+   - high-level structure summary (sections/accordions/component types).
+5. Explicit diagnostics state
+   - clear loading/error messages per panel so one failing panel does not blank the entire sandbox.
+
+### What Not To Include In Debug Sandbox
+
+1. No imports from production component barrels if direct imports are possible.
+2. No hidden debug DOM inside production app trees (`App`, route pages, shared layout).
+3. No analytics/telemetry side effects.
+4. No write-path behavior (localStorage mutation, data writes) unless intentionally testing that behavior.
+
 ## Recommended Directory Structure
 
 ```text

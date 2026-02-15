@@ -125,6 +125,11 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [x] Add future-project prevention checklist
   - added section: `## Additional Prevention Defaults (Recommended)` in `FUTURE_PROJECTS.md`
   - includes branch protection, CODEOWNERS, PR template, axe/Playwright, visual regression, dependency/security automation
+- [x] Document debug-sandbox inclusion contract for future projects
+  - expanded `## Dev-Only Debug Sandbox Pattern (Best Practice)` in `FUTURE_PROJECTS.md` with:
+    - default inclusions (typography, token inventories, asset diagnostics, QA navigation, fail-open panel errors)
+    - exclusions (no production hidden debug DOM, avoid barrel imports, avoid side-effect behavior)
+  - mirrored current-project sandbox guardrails in `README.md` to keep docs aligned
 - [x] Mirror CI policy in agent docs
   - added CI quality gate notes in `AGENTS.md`
 - [ ] Add step-by-step README instructions for GitHub Actions usage
