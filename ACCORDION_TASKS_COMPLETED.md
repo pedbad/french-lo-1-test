@@ -18,6 +18,9 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
   - `/Users/ped/Sites/french/french-lo-1-test/README.md`
   - `/Users/ped/Sites/french/french-lo-1-test/CHANGES.md`
   - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- [x] Clarified link interaction contract to remove legacy overload:
+  - top navigation now uses `nav-scroll-link` (scroll-only)
+  - content explanation links keep `modal-link` (modal-only)
 
 ## In Progress
 
@@ -36,4 +39,3 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
 
 - Debug-first migration is the approved first implementation step.
 - Debug-first is necessary but not sufficient; production parity validation remains required because main app accordion behavior is config-driven and more complex.
-

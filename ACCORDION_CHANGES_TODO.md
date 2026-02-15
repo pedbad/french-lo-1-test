@@ -31,6 +31,9 @@ Debug-first is approved:
   - keep content mounted (current custom behavior) or unmount hidden panel content for stricter focus isolation.
 - [ ] Lock deep-link/hash behavior contract:
   - document whether opening `/...#modal-link-*` must auto-expand the target section.
+- [ ] Lock link-class responsibility contract:
+  - navigation links use `nav-scroll-link` (scroll-only)
+  - content explanation links use `modal-link` (modal-only)
 - [ ] Lock QA selector/id contract:
   - keep existing stable ids/data attributes used by tests and modal-link targeting.
 
@@ -47,6 +50,7 @@ Debug-first is approved:
 - [ ] Confirm current modal-link target contract:
   - heading ID format `modal-link-${target}`
   - target marker `data-modal-target`
+  - nav links must not use `modal-link`; they should use `nav-scroll-link`
 
 Acceptance checks:
 - [ ] Baseline artifacts are attached/linked in PR.

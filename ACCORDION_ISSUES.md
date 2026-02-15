@@ -60,6 +60,13 @@ Accordion is an exception. It remains a bespoke stateful system with custom DOM/
 ### 5) Harder long-term design-system alignment
 - As shadcn/Radix evolves, this custom accordion will not inherit primitive fixes, docs patterns, or standard behavior by default.
 
+### 6) Legacy link-class overload (now corrected)
+- Historically, top navigation links and modal-content links both used `.modal-link`.
+- This overloaded one class with two interaction models (scroll vs modal), increasing confusion and regression risk.
+- Contract moving forward:
+  - navigation links use `nav-scroll-link` and are scroll-only
+  - content links use `modal-link` and are modal-only
+
 ## Why This Matters
 
 Without refactor, accordion remains a high-churn exception in a repo that otherwise consolidated around a single styling/component architecture.

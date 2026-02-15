@@ -296,6 +296,13 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 - Introduction + Grammar now use a dedicated hero-style Section so instruction text and imagery share the same baseline and card framing as the rest of the UI.
 - Special anchors currently add a short delay before scrolling so accordion panels have time to expand; TODO: smooth that interaction so the highlight feels more immediate once we refactor the anchor logic.
 - Modal links open a shadcn/Radix modal (no scrolling). The modal now accepts **React content** (not just HTML strings) so inline `AudioClip` components can render and function. For core grammar modals (e.g. `tuvous`, `madame`), it renders the same React content used in `CustomComponents_FR.jsx` so audio clips work and there’s no duplicated copy. JSON `infoTextHTML` is still used for simpler modal text. Optional highlight styles are applied via CSS animation and fade out after flashing.
+- Link interaction contract (explicit, to avoid legacy overload):
+  - top navigation uses `nav-scroll-link` and is scroll-only
+  - content explanation links use `modal-link` and are modal-only
+  - heading targets remain `id="modal-link-*"` with optional `data-modal-target` for fallback targeting
+- Engineering rule: one class, one behavior.
+  - do not reuse a single class for both modal and scroll interactions.
+  - this reduces accidental regressions, keeps event wiring predictable, and makes future refactors/debugging faster.
 - Inline audio icons are normalized via CSS variables/rules in `src/index.css` to keep size and baseline alignment consistent across paragraph text.
 - The Introduction `HeroSection` can opt out of the default card styling via `transparentCard`, so it can sit directly on the page background (no white card or border) while other sections remain carded.
 - The Info panel now uses the Lucide `Info` icon (via `lucide-react`) instead of a custom masked SVG.

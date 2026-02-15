@@ -798,6 +798,18 @@ Why this was important:
   - then migrate main app accordion with parity checks for config-driven behavior and modal-link/deep-link contracts
 - Why: the current accordion path is a design-system exception and long-term maintenance risk; planning docs make the refactor explicit, testable, and measurable.
 
+## 84) Link Contract Split (Nav Scroll vs Modal Content)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+  - replaced legacy `modal-link` class usage on top-nav anchors with `nav-scroll-link`.
+  - top navigation remains explicitly scroll-only via `handleModalLinkClick(..., { mode: "scroll" })`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - `initialiseModalLinks()` now treats `.modal-link` as modal-only; removed legacy branch that switched behavior by checking `.nav`.
+  - added code comments clarifying class responsibility and avoiding future overload.
+- Updated documentation:
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md` now documents the explicit link contract.
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md` now includes link-class contract lock as a migration decision.
+- Why: removes a confusing legacy naming pattern where one class (`modal-link`) represented two different interaction models (scroll + modal), reducing maintenance risk and accidental regressions.
+
 
 # Files Deleted (partial but comprehensive)
 

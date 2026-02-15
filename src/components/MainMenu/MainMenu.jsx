@@ -136,7 +136,7 @@ export class MainMenu extends React.Component {
 
 	/**
    * Shared nav click handler for desktop + mobile.
-   * Uses your existing handleModalLinkClick for smart scrolling,
+   * Uses shared link handling in explicit scroll mode,
    * and closes the mobile menu if it’s open.
    */
 	handleNavClick = (e) => {
@@ -158,7 +158,7 @@ export class MainMenu extends React.Component {
 			}
 		}
 
-		// Use your global modal link handler (handles preventDefault internally)
+		// Main navigation is scroll-only (never modal).
 		handleModalLinkClick(e, { mode: "scroll" });
 
 		// Close mobile menu if open
@@ -195,7 +195,7 @@ export class MainMenu extends React.Component {
 					>
 						<NavigationMenuLink asChild>
 								<a
-								className="modal-link nav nav-link text-[var(--nav-link-size)]"
+								className="nav-scroll-link nav nav-link text-[var(--nav-link-size)]"
 								href={href}
 								onClick={this.handleNavClick}
 							>
@@ -210,7 +210,7 @@ export class MainMenu extends React.Component {
 					<li key={`mobile-${id}`} className={highlight ? "highlight" : ""}>
 						<a
 							href={href}
-							className="nav-link nav-link-mobile nav modal-link text-[var(--nav-link-size)]"
+							className="nav-link nav-link-mobile nav nav-scroll-link text-[var(--nav-link-size)]"
 							onClick={this.handleNavClick}
 						>
 							{label}
@@ -238,7 +238,7 @@ export class MainMenu extends React.Component {
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-title text-[var(--nav-title-size)] font-semibold"
+										className="nav-scroll-link nav nav-title text-[var(--nav-title-size)] font-semibold"
 										href="#modal-link-top"
 										onClick={this.handleNavClick}
 									>
@@ -258,7 +258,7 @@ export class MainMenu extends React.Component {
 							>
 								<NavigationMenuLink asChild>
 									<a
-										className="modal-link nav nav-link text-[var(--nav-link-size)]"
+										className="nav-scroll-link nav nav-link text-[var(--nav-link-size)]"
 										href={introHref}
 										onClick={this.handleNavClick}
 									>
@@ -327,7 +327,7 @@ export class MainMenu extends React.Component {
 						<li className={introHighlight ? "highlight" : ""}>
 							<a
 								href={introHref}
-								className="nav-link nav-link-mobile nav modal-link text-[var(--nav-link-size)]"
+								className="nav-link nav-link-mobile nav nav-scroll-link text-[var(--nav-link-size)]"
 								onClick={this.handleNavClick}
 							>
 								Introduction

@@ -300,6 +300,8 @@ export default class App extends React.Component {
 	};
 
 	initialiseModalLinks = () => {
+		// `modal-link` is reserved for content links that open the modal dialog.
+		// Main navigation uses `nav-scroll-link` and handles scroll behavior in MainMenu.
 		const anchors = document.querySelectorAll(".modal-link");
 		anchors.forEach((anchor) => {
 			// console.log("anchor", anchor);
@@ -307,19 +309,13 @@ export default class App extends React.Component {
 				// do nothing
 				// console.log("already set up");
 			} else {
-				if (anchor.classList.contains('nav')) {
-					anchor.addEventListener("click", (e) =>
-						handleModalLinkClick(e, { mode: "scroll" })
-					);
-				} else {
-					anchor.addEventListener("click", (e) =>
-						handleModalLinkClick(e, {
-							mode: "modal",
-							findModalLinkContent: this.findModalLinkContent,
-							showModalLinkDialog: this.showModalLinkDialog,
-						})
-					);
-				}
+				anchor.addEventListener("click", (e) =>
+					handleModalLinkClick(e, {
+						mode: "modal",
+						findModalLinkContent: this.findModalLinkContent,
+						showModalLinkDialog: this.showModalLinkDialog,
+					})
+				);
 			}
 			anchor.setup = true;
 		});

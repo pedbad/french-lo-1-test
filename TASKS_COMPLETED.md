@@ -109,6 +109,10 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [ ] Phase 3: improve interactive semantics (accordion/button patterns)
 - [ ] Phase 4: ARIA cleanup (remove invalid aria usage, keep only needed labels)
 - [ ] Phase 5: SVG/image attribute/path cleanup and validation retest
+  - completed Phase 5A (link contract clarity):
+    - separated link semantics to remove legacy overload
+    - `MainMenu` now uses `nav-scroll-link` for top navigation (scroll-only)
+    - `App.initialiseModalLinks` now treats `.modal-link` as modal-only
 
 ## Accordion Migration (shadcn/Radix)
 
