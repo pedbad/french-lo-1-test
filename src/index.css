@@ -615,9 +615,9 @@
 
 	.main-menu .menu-flex {
 		width: 100%;
-		display: flex;
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr) auto;
 		align-items: center;
-		flex-wrap: nowrap;
 		gap: 0.75rem;
 	}
 
@@ -628,32 +628,44 @@
 		flex: 0 0 auto !important;
 		min-width: 0;
 		justify-content: flex-start !important;
+		justify-self: start;
 	}
 
 	.main-menu .menu-right {
 		display: flex;
 		align-items: center;
 		gap: 0;
-		justify-content: center;
+		justify-content: space-between;
 		flex-wrap: nowrap;
-		flex: 1 1 auto !important;
+		flex: 1 1 auto;
 		margin: 0 !important;
 		padding: 0 1rem;
 		min-width: 0;
+		width: 100%;
 	}
 
 	.main-menu .menu-right li {
-		border-bottom: 3px solid transparent;
+		border-bottom: none;
 		transition: border-color 0.15s ease;
+		flex: 1 1 0;
+		display: flex;
+		justify-content: center;
+		min-width: 0;
+	}
+
+	.main-menu .menu-right li > a {
+		border-bottom: 3px solid transparent;
+		padding-bottom: 2px;
 	}
 
 	.main-menu .menu-right li.highlight {
-		border-bottom-color: var(--hero-title-color);
+		border-bottom-color: transparent;
 	}
 
 	.main-menu .menu-right li.highlight > a {
 		color: var(--hero-title-color);
 		font-weight: 600;
+		border-bottom-color: var(--hero-title-color);
 	}
 
 	.main-menu .menu-actions {
@@ -663,6 +675,7 @@
 		flex: 0 0 auto;
 		margin-left: 0;
 		justify-content: flex-end;
+		justify-self: end;
 	}
 
 	.main-menu .nav-title {
@@ -800,6 +813,7 @@
 
 		.main-menu .menu-actions {
 			margin-left: auto;
+			justify-self: end;
 		}
 
 		.main-menu .menu-toggle-button {
