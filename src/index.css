@@ -633,12 +633,12 @@
 	.main-menu .menu-right {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 0;
 		justify-content: center;
 		flex-wrap: nowrap;
 		flex: 1 1 auto !important;
 		margin: 0 !important;
-		padding: 0 0.75rem;
+		padding: 0 1rem;
 		min-width: 0;
 	}
 
@@ -820,6 +820,8 @@
 
 		.main-menu .menu-right {
 			display: flex !important;
+			justify-content: space-evenly;
+			width: 100%;
 		}
 
 		.main-menu .menu-toggle-button {
