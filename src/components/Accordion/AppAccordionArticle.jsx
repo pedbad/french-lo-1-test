@@ -59,7 +59,6 @@ export function AppAccordionArticle({
 	className,
 	config,
 	expandedByDefault = false,
-	expandNow,
 	id,
 	info,
 	noCard = false,
@@ -71,7 +70,6 @@ export function AppAccordionArticle({
 		parsePersistedExpandedState(id, expandedByDefault)
 	);
 	const contentRef = React.useRef(null);
-	const previousExpandNow = React.useRef(expandNow);
 
 	const syncContentHeight = React.useCallback(() => {
 		if (!contentRef.current) return;
@@ -84,14 +82,6 @@ export function AppAccordionArticle({
 	React.useEffect(() => {
 		syncContentHeight();
 	});
-
-	React.useEffect(() => {
-		if (expandNow !== previousExpandNow.current) {
-			setExpanded(true);
-			persistExpandedState(id, true);
-		}
-		previousExpandNow.current = expandNow;
-	}, [expandNow, id]);
 
 	const handleValueChange = React.useCallback(
 		(values) => {

@@ -27,9 +27,9 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
 - [x] Migrated debug structure view to shadcn accordion:
   - `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
   - replaced native `details/summary` usage while keeping row layout (LO link left, structure accordion right)
-- [x] Added main-app compatibility wrapper scaffold (not wired globally yet):
+- [x] Added main-app compatibility wrapper scaffold:
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
-  - preserves core contracts (`id`, `target`, `title/titleHTML`, `config`, `noCard`, `expandNow`, session persistence)
+  - preserves core contracts (`id`, `target`, `title/titleHTML`, `config`, `noCard`, session persistence)
 - [x] Started incremental main-app wiring using the compatibility wrapper:
   - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for the `AnswerTable` branch as a low-risk pilot.
 - [x] Expanded pilot wiring to the `PhraseTable` expandable branch:
@@ -38,19 +38,28 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
   - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for `Blanks` and `WordParts`.
 - [x] Expanded pilot wiring to additional interactive branches:
   - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for `DropDowns`, `Monologue`, and `RadioQuiz`.
+- [x] Completed main-app accordion cutover to wrapper:
+  - all expandable branches in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now use `AppAccordionArticle`.
+- [x] Removed legacy accordion/dead pathways:
+  - deleted `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
+  - deleted `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+  - removed `window.refs` write pattern and `expandAllAccordions` from `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`
+  - removed stale `expandNow` path from `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+- [x] Unified chevron visual contract across app/debug:
+  - shared `.accordion-chevron` class in `/Users/ped/Sites/french/french-lo-1-test/src/index.css`
+  - applied in `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`
+  - applied in `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
 
 ## In Progress
 
 - [ ] Phase 0 baseline capture for accordion parity (screenshots/video + manual checklist artifacts).
+- [ ] Final cross-LO regression pass (LO1 + additional LOs).
 
 ## Pending
 
-- [ ] Wire compatibility wrapper into `App.jsx` incrementally and run parity checks.
-- [ ] Migrate `App.jsx` accordion usage incrementally to wrapper.
-- [ ] Remove legacy/dead accordion pathways.
-- [ ] Final regression pass and docs closeout.
+- [ ] Complete manual parity checklist evidence capture and archive.
 
 ## Notes
 
 - Debug-first migration is the approved first implementation step.
-- Debug-first is necessary but not sufficient; production parity validation remains required because main app accordion behavior is config-driven and more complex.
+- Debug-first is complete; production cutover is complete; final manual parity evidence capture remains recommended because main app accordion behavior is config-driven and complex.

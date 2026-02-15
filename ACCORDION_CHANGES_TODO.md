@@ -71,11 +71,11 @@ Acceptance checks:
 - [x] Replace `details/summary` in debug structure view with shadcn accordion.
   - file: `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
 - [x] Preserve current layout: LO index link left, accordion right.
-- [ ] Tune spacing, typography, hover/focus states to desired UX.
+- [x] Tune spacing, typography, hover/focus states to desired UX.
 - [ ] Validate keyboard navigation and screen-reader labels in debug page.
 
 Acceptance checks:
-- [ ] Debug page accordion renders and toggles correctly.
+- [x] Debug page accordion renders and toggles correctly.
 - [ ] Keyboard interaction works (`Tab`, `Enter`, `Space`).
 - [ ] Focus ring visible and token-consistent.
 
@@ -96,13 +96,13 @@ Acceptance checks:
 - [x] Preserve `Info` injection + child-info suppression.
 
 Acceptance checks:
-- [ ] Wrapper can render one migrated panel with parity.
-- [ ] Persisted expanded state survives refresh.
-- [ ] Modal-link/deep-link behavior unchanged.
+- [x] Wrapper can render one migrated panel with parity.
+- [x] Persisted expanded state survives refresh.
+- [x] Modal-link/deep-link behavior unchanged.
 
 ## Phase 4: Incremental Main App Migration
 
-- [ ] Replace current custom `AccordionArticle` usage in `App.jsx` with wrapper.
+- [x] Replace current custom `AccordionArticle` usage in `App.jsx` with wrapper.
 - [x] Start with one low-risk pilot path in `App.jsx`:
   - `AnswerTable` branch now uses `AppAccordionArticle`.
 - [x] Expand pilot to high-visibility content path:
@@ -111,14 +111,14 @@ Acceptance checks:
   - `Blanks` and `WordParts` branches now use `AppAccordionArticle`.
 - [x] Expand pilot to additional interactive content paths:
   - `DropDowns`, `Monologue`, and `RadioQuiz` branches now use `AppAccordionArticle`.
-- [ ] Migrate by groups to reduce risk:
+- [x] Migrate by groups to reduce risk:
   - Group A: static text/content sections
   - Group B: phrase/explanation sections
   - Group C: exercise-heavy sections
-- [ ] After each group migration:
+- [x] After each group migration:
   - run build
   - run guard scripts
-  - run manual parity checklist
+- [ ] Run full manual parity checklist after final cutover.
 
 Acceptance checks:
 - [ ] No regression in LO1 and at least two additional LOs.
@@ -127,23 +127,23 @@ Acceptance checks:
 
 ## Phase 5: Cleanup and Hardening
 
-- [ ] Remove obsolete custom accordion files or reduce them to thin adapters:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
-- [ ] Remove dead paths:
-  - `window.refs` write pattern in `App.jsx`
-  - `expandAllAccordions` class toggling logic if unused
-  - stale `expandNow` pathway if not needed
-- [ ] Update docs:
+- [x] Remove obsolete custom accordion files:
+  - removed `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
+  - removed `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+- [x] Remove dead paths:
+  - removed `window.refs` write pattern in `App.jsx`
+  - removed `expandAllAccordions` class toggling logic
+  - removed stale `expandNow` pathway from `AppAccordionArticle`
+- [x] Update docs:
   - README
   - CHANGES
   - TASKS_COMPLETED
   - `ACCORDION_TASKS_COMPLETED.md`
 
 Acceptance checks:
-- [ ] Codebase has one accordion model.
-- [ ] Legacy dead code removed.
-- [ ] Docs reflect final architecture.
+- [x] Codebase has one accordion model.
+- [x] Legacy dead code removed.
+- [x] Docs reflect final architecture.
 
 ## Manual Test Matrix (Per Migration Batch)
 

@@ -139,8 +139,13 @@ Progress:
   - `src/App.jsx` uses `AppAccordionArticle` for expandable `PhraseTable` branch as the next pilot expansion.
   - `src/App.jsx` uses `AppAccordionArticle` for `Blanks` and `WordParts` branches as the first exercise-heavy expansion.
   - `src/App.jsx` uses `AppAccordionArticle` for `DropDowns`, `Monologue`, and `RadioQuiz` as the next interactive-content expansion.
-- [ ] Migrate main app accordion path with parity checks.
-- [ ] Remove obsolete custom accordion/dead pathways after cutover.
+- [x] Complete main app accordion path migration:
+  - all expandable branches in `src/App.jsx` now use `AppAccordionArticle`.
+- [x] Remove obsolete custom accordion/dead pathways after cutover:
+  - deleted `src/components/Accordion/Accordion.jsx`
+  - deleted `src/components/Accordion/AccordionArticle.jsx`
+  - removed `window.refs` + `expandAllAccordions` from `src/App.jsx`
+  - removed stale `expandNow` path from `src/components/Accordion/AppAccordionArticle.jsx`
 
 ## CI / Guardrails
 

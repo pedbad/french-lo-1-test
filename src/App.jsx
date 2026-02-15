@@ -1,7 +1,5 @@
 import {
-	Accordion,
 	AppAccordionArticle,
-	AccordionArticle,
 	AnswerTable,
 	AudioClip,
 	Blanks,
@@ -113,7 +111,6 @@ export default class App extends React.Component {
 		// this.selectLearningObject = this.selectLearningObject.bind(this);
 		// this.toggleDark = this.toggleDark.bind(this);
 
-		window.refs = [];
 		this.autoComponentIdCounter = 0;
 	}
 
@@ -173,22 +170,6 @@ export default class App extends React.Component {
 
 	componentDidUpdate = () => {
 		this.initialiseModalLinks();
-	};
-
-	expandAllAccordions = () => {
-    console.log("expandAllAccordions"); // eslint-disable-line
-		const closedArticles = document.querySelectorAll(
-			"section.accordion-article:not(.expanded)"
-		);
-		const closedArrows = document.querySelectorAll(
-			"div.arrow:not(.expanded)"
-		);
-		closedArticles.forEach((closedArticle) => {
-			closedArticle.classList.add("expanded");
-		});
-		closedArrows.forEach((closedArrow) => {
-			closedArrow.classList.add("expanded");
-		});
 	};
 
 	hideDialog = () => {
@@ -616,7 +597,7 @@ export default class App extends React.Component {
 
 	/**
 	 * renderComponentForTab
-	 * Returns "bare" content for a component (no AccordionArticle / Section wrapper)
+	 * Returns "bare" content for a component (no AppAccordionArticle / Section wrapper)
 	 * so that we can render it as a tab panel inside a Group.
 	*/
 	renderComponentForTab = (value) => {
@@ -941,11 +922,11 @@ export default class App extends React.Component {
 
 
 
-									{currentLearningObject !== -1 ? (
-										<Accordion id={`accordion1`} key={`accordion1`}>
-											{articles}
-										</Accordion>
-									) : null}
+										{currentLearningObject !== -1 ? (
+											<div className="accordion" id="accordion1" key="accordion1">
+												{articles}
+											</div>
+										) : null}
 									{learningObjects.length > 0 &&
                 currentLearningObject === -1 ? (
 											<LandingPage
@@ -1049,13 +1030,10 @@ export default class App extends React.Component {
 			case "Explanation": {
 				if (expandable) {
 					articles.push(
-						<AccordionArticle
+						<AppAccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
-							ref={(AccordionArticle) => {
-								window.refs.push(AccordionArticle);
-							}}
 							target={id}
 							title={titleText}
 							titleHTML={titleTextHTML}
@@ -1065,7 +1043,7 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AccordionArticle>
+						</AppAccordionArticle>
 					);
 				} else {
 					articles.push(
@@ -1100,14 +1078,11 @@ export default class App extends React.Component {
 
 					if (expandable) {
 						articles.push(
-							<AccordionArticle
+							<AppAccordionArticle
 								config={value}
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
 								key={`${compoundID}-Group-Accordion`}
-								ref={(AccordionArticle) => {
-									window.refs.push(AccordionArticle);
-								}}
 								target={groupId}
 								title={titleText}
 								titleHTML={titleTextHTML}
@@ -1117,7 +1092,7 @@ export default class App extends React.Component {
 									informationTextHTML={infoTextHTML}
 								/>
 								{renderedGroupContent}
-							</AccordionArticle>
+							</AppAccordionArticle>
 						);
 					} else {
 						const GroupSectionComponent = value.heroSection ? HeroSection : Section;
@@ -1169,14 +1144,11 @@ export default class App extends React.Component {
 
 					const outerWrapper = (inner) =>
 						expandable ? (
-							<AccordionArticle
+							<AppAccordionArticle
 								config={value}
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
 								key={`${compoundID}-Group-Accordion`}
-								ref={(AccordionArticle) => {
-									window.refs.push(AccordionArticle);
-								}}
 								target={groupId}
 								title={titleText}
 								titleHTML={titleTextHTML}
@@ -1186,7 +1158,7 @@ export default class App extends React.Component {
 									informationTextHTML={infoTextHTML}
 								/>
 								{inner}
-							</AccordionArticle>
+							</AppAccordionArticle>
 						) : (
 							(() => {
 								const GroupSectionComponent = value.heroSection ? HeroSection : Section;
@@ -1246,13 +1218,10 @@ export default class App extends React.Component {
 			}
 			case "Jigsaw": {
 				articles.push(
-					<AccordionArticle
+					<AppAccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
 						target={id}
 						title={titleText}
 						titleHTML={titleTextHTML}
@@ -1262,19 +1231,16 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AccordionArticle>
+					</AppAccordionArticle>
 				);
 				break;
 			}
 			case "MemoryMatchGame": {
 				articles.push(
-					<AccordionArticle
+					<AppAccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
 						target={id}
 						title={titleText}
 						titleHTML={titleTextHTML}
@@ -1284,7 +1250,7 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AccordionArticle>
+					</AppAccordionArticle>
 				);
 				break;
 			}
@@ -1368,13 +1334,10 @@ export default class App extends React.Component {
 				}
 			case "ReadAloud": {
 				articles.push(
-					<AccordionArticle
+					<AppAccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
 						target={id}
 						title={titleText}
 						titleHTML={titleTextHTML}
@@ -1384,19 +1347,16 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AccordionArticle>
+					</AppAccordionArticle>
 				);
 				break;
 			}
 			case "SequenceOrder": {
 				articles.push(
-					<AccordionArticle
+					<AppAccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
 						target={id}
 						title={titleText}
 						titleHTML={titleTextHTML}
@@ -1406,7 +1366,7 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AccordionArticle>
+					</AppAccordionArticle>
 				);
 				break;
 			}
@@ -1435,13 +1395,10 @@ export default class App extends React.Component {
 			}
 			case "Sortable": {
 				articles.push(
-					<AccordionArticle
+					<AppAccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
 						target={id}
 						title={titleText}
 						titleHTML={titleTextHTML}
@@ -1451,19 +1408,16 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AccordionArticle>
+					</AppAccordionArticle>
 				);
 				break;
 			}
 			case "WordGrid": {
 				articles.push(
-					<AccordionArticle
+					<AppAccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
 						target={id}
 						title={titleText}
 						titleHTML={titleTextHTML}
@@ -1473,7 +1427,7 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AccordionArticle>
+					</AppAccordionArticle>
 				);
 				break;
 			}
@@ -1509,13 +1463,10 @@ export default class App extends React.Component {
 				if (CustomComponent) {
 					if (expandable) {
 						articles.push(
-							<AccordionArticle
+							<AppAccordionArticle
 								config={value}
 								id={`${compoundID}-Accordion`}
 								key={`${compoundID}-Accordion`}
-								ref={(AccordionArticle) => {
-									window.refs.push(AccordionArticle);
-								}}
 								target={id}
 								title={titleText}
 								titleHTML={titleTextHTML}
@@ -1525,7 +1476,7 @@ export default class App extends React.Component {
 									informationTextHTML={infoTextHTML}
 								/>
 								<CustomComponent id={id} showDialog={this.showDialog} />
-							</AccordionArticle>
+							</AppAccordionArticle>
 						);
 					} else {
 						articles.push(

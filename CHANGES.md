@@ -926,6 +926,30 @@ Why this was important:
   - switched app accordion chevrons to use the same shared class.
 - Why: keeps chevron styling in one place so debug and production accordions stay visually identical during and after migration.
 
+## 96) Accordion Main-App Full Cutover + Legacy Removal
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - migrated all remaining expandable branches from legacy `AccordionArticle` to `AppAccordionArticle`.
+  - removed legacy `window.refs` setup and deleted unused `expandAllAccordions` helper.
+  - replaced top-level `<Accordion />` wrapper usage with a plain `.accordion` container div.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+  - removed stale `expandNow` pathway (no active callers remained).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/index.js`:
+  - removed exports of deleted legacy accordion components.
+- Deleted legacy files:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+- Why: completes production cutover to one active accordion behavior path and removes dead legacy code that was creating architecture drift.
+
+## 97) Accordion Docs Sync (No Drift)
+- Updated migration/architecture trackers:
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
+- Updated project-level status docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+- Why: keeps task boards and architecture docs aligned with the actual codebase after full accordion cutover.
+
 
 # Files Deleted (partial but comprehensive)
 
