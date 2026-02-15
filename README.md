@@ -61,6 +61,7 @@ Sandbox includes:
   - Includes source-reference status (`Used` / `Unused`) based on `var(--token)` usage in `src/` (excluding `src/debug/`), shown with outlined shadcn `Badge` pills for stronger contrast.
 - Full app font-token and `@font-face` inventory with `Used` / `Unused` status.
 - SVG asset inventory rendered in shadcn `Card` components, with per-asset preview, source-file references, and found/missing status.
+  - Implemented as a manifest snapshot (not browser-time source scanning) to keep debug sandbox loading stable across Vite/base-path differences.
 - A per-LO structure summary (sections, accordion titles, and exercise component types) for quick content QA.
   - UI pattern: each LO renders as one row with the index link first and its structure accordion immediately next to it.
   - Accordion content uses ordered lists (`ol`) with item counts (for example exercise entries) to make auditing easier.

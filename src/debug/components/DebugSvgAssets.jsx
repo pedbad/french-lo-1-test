@@ -8,135 +8,104 @@ import {
 import { Badge } from '@/components/ui/badge';
 import React from 'react';
 
-const SOURCE_TEXT_MODULES = import.meta.glob('/src/**/*.{js,jsx,ts,tsx,css,scss,json}', {
-	eager: true,
-	import: 'default',
-	query: '?raw',
-});
-const SVG_REFERENCE_PATTERN = /url\(\s*['"]?([^'"()\s]+\.svg(?:[?#][^'")\s]*)?)['"]?\s*\)|['"`]([^'"`\n\r]*\.svg(?:[?#][^'"`\n\r]*)?)['"`]/gi;
 const USED_BADGE_CLASS = 'border-emerald-500/70 bg-transparent text-emerald-700 dark:text-emerald-300';
-const UNUSED_BADGE_CLASS = 'border-amber-500/70 bg-transparent text-amber-700 dark:text-amber-300';
+const MISSING_BADGE_CLASS = 'border-amber-500/70 bg-transparent text-amber-700 dark:text-amber-300';
 
-function getSourceDirectory(sourcePath) {
-	const lastSlash = sourcePath.lastIndexOf('/');
-	if (lastSlash < 0) return '/';
-	return sourcePath.slice(0, lastSlash + 1);
-}
+/*
+Why manifest-based:
+- The previous runtime source scanner used `import.meta.glob(...?raw)` in the browser.
+- In this project/base-path setup that caused intermittent dev-module fetch failures.
+- A static manifest keeps debug sandbox reliable while still showing real app SVG usage.
 
-function toDisplayPath(pathValue) {
-	return pathValue.replace(/^\/public\//, '/').replace(/^\/src\//, '/src/');
-}
-
-function normalizeReference(rawReference, sourcePath) {
-	if (!rawReference) return '';
-	const trimmed = rawReference.trim();
-	if (!trimmed || trimmed.startsWith('data:')) return '';
-	if (trimmed.includes('${')) return '';
-
-	const withoutQuery = trimmed.replace(/[?#].*$/, '');
-	if (!withoutQuery.toLowerCase().endsWith('.svg')) return '';
-
-	if (withoutQuery.startsWith('http://') || withoutQuery.startsWith('https://')) {
-		return withoutQuery;
-	}
-	if (withoutQuery.startsWith('/')) {
-		return toDisplayPath(withoutQuery);
-	}
-	if (withoutQuery.startsWith('@/')) {
-		return toDisplayPath(`/src/${withoutQuery.slice(2)}`);
-	}
-	if (withoutQuery.startsWith('./') || withoutQuery.startsWith('../')) {
-		try {
-			const absolute = new URL(withoutQuery, `http://localhost${getSourceDirectory(sourcePath)}`).pathname;
-			return toDisplayPath(absolute);
-		} catch {
-			return '';
-		}
-	}
-	if (/^[a-zA-Z0-9_-]+\//.test(withoutQuery)) {
-		return toDisplayPath(`/${withoutQuery}`);
-	}
-	return toDisplayPath(`/${withoutQuery}`);
-}
-
-function collectSvgReferences() {
-	const entriesByPath = new Map();
-
-	Object.entries(SOURCE_TEXT_MODULES).forEach(([sourcePath, sourceText]) => {
-		if (sourcePath.startsWith('/src/debug/')) return;
-		if (typeof sourceText !== 'string') return;
-
-		SVG_REFERENCE_PATTERN.lastIndex = 0;
-		let match = SVG_REFERENCE_PATTERN.exec(sourceText);
-		while (match) {
-			const rawReference = match[1] || match[2] || '';
-			const normalizedPath = normalizeReference(rawReference, sourcePath);
-			if (normalizedPath) {
-				const existing = entriesByPath.get(normalizedPath) || {
-					path: normalizedPath,
-					referenceCount: 0,
-					sources: new Set(),
-				};
-				existing.referenceCount += 1;
-				existing.sources.add(sourcePath);
-				entriesByPath.set(normalizedPath, existing);
-			}
-			match = SVG_REFERENCE_PATTERN.exec(sourceText);
-		}
-	});
-
-	return Array.from(entriesByPath.values())
-		.map((entry) => ({
-			...entry,
-			sources: Array.from(entry.sources).sort((left, right) => left.localeCompare(right)),
-		}))
-		.sort((left, right) => left.path.localeCompare(right.path));
-}
+Refresh command:
+Use ripgrep to list `.svg` references under `src/`, then update this manifest.
+*/
+const SVG_USAGE_MANIFEST = [
+	{
+		path: '/images/cross.svg',
+		referenceCount: 1,
+		sources: ['/src/index.css'],
+	},
+	{
+		path: '/images/first-contact.svg',
+		referenceCount: 2,
+		sources: ['/src/App.jsx', '/src/learningObjectConfigurations/fr/1.json'],
+	},
+	{
+		path: '/images/fr_banner.svg',
+		referenceCount: 1,
+		sources: ['/src/App.jsx'],
+	},
+	{
+		path: '/images/grammar.svg',
+		referenceCount: 1,
+		sources: ['/src/learningObjectConfigurations/fr/1.json'],
+	},
+	{
+		path: '/images/icons/circle-check.svg',
+		referenceCount: 2,
+		sources: ['/src/App.scss'],
+	},
+	{
+		path: '/images/icons/eye.svg',
+		referenceCount: 2,
+		sources: ['/src/App.scss'],
+	},
+	{
+		path: '/images/icons/message-square-warning.svg',
+		referenceCount: 2,
+		sources: ['/src/App.scss'],
+	},
+	{
+		path: '/images/icons/reset.svg',
+		referenceCount: 2,
+		sources: ['/src/App.scss'],
+	},
+	{
+		path: '/src/components/ErrorLog/copy.svg',
+		referenceCount: 1,
+		sources: ['/src/index.css'],
+	},
+	{
+		path: '/src/components/ErrorLog/upArrow.svg',
+		referenceCount: 1,
+		sources: ['/src/index.css'],
+	},
+	{
+		path: '/src/components/ErrorLog/whiteCross.svg',
+		referenceCount: 1,
+		sources: ['/src/index.css'],
+	},
+].sort((left, right) => left.path.localeCompare(right.path));
 
 export function DebugSvgAssets() {
-	const [rows, setRows] = React.useState([]);
-	const [errorMessage, setErrorMessage] = React.useState('');
 	const [brokenPaths, setBrokenPaths] = React.useState(() => new Set());
 
-	React.useEffect(() => {
-		try {
-			setRows(collectSvgReferences());
-			setErrorMessage('');
-		} catch (error) {
-			setErrorMessage(`Failed to collect SVG asset references: ${error?.message || error}`);
-		}
-	}, []);
-
-	const missingCount = rows.filter((row) => brokenPaths.has(row.path)).length;
-	const existingCount = rows.length - missingCount;
+	const missingCount = SVG_USAGE_MANIFEST.filter((entry) => brokenPaths.has(entry.path)).length;
+	const foundCount = SVG_USAGE_MANIFEST.length - missingCount;
 
 	return (
 		<section aria-labelledby="sandbox-svg-assets">
 			<h2 id="sandbox-svg-assets">SVG Assets Referenced in App Source</h2>
 			<p className="mb-3 text-base text-[var(--muted-foreground)]">
-				Source-reference inventory of SVG paths used across `src/` (excluding `src/debug/`). Found/missing
-				status is determined by runtime image loading in this debug page.
+				Manifest-based inventory of SVG paths referenced by production app source.
 			</p>
-			{errorMessage ? (
-				<p className="mb-3 text-base text-[var(--destructive)]">{errorMessage}</p>
-			) : null}
 			<div className="mb-3 flex flex-wrap items-center gap-2">
-				<Badge className={`text-sm font-medium ${USED_BADGE_CLASS}`} variant="outline">{`Found: ${existingCount}`}</Badge>
-				<Badge className={`text-sm font-medium ${UNUSED_BADGE_CLASS}`} variant="outline">{`Missing: ${missingCount}`}</Badge>
-				<Badge className="text-sm font-medium" variant="outline">{`Total: ${rows.length}`}</Badge>
+				<Badge className={`text-sm font-medium ${USED_BADGE_CLASS}`} variant="outline">{`Found: ${foundCount}`}</Badge>
+				<Badge className={`text-sm font-medium ${MISSING_BADGE_CLASS}`} variant="outline">{`Missing: ${missingCount}`}</Badge>
+				<Badge className="text-sm font-medium" variant="outline">{`Total: ${SVG_USAGE_MANIFEST.length}`}</Badge>
 			</div>
 			<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-				{rows.map((row) => {
-					const isBroken = brokenPaths.has(row.path);
-					const isMissing = isBroken;
+				{SVG_USAGE_MANIFEST.map((entry) => {
+					const isMissing = brokenPaths.has(entry.path);
 					return (
-						<Card className="overflow-hidden" key={row.path}>
+						<Card className="overflow-hidden" key={entry.path}>
 							<CardHeader className="px-4 pb-2 pt-4">
 								<CardTitle className="break-all text-sm">
-									<code>{row.path}</code>
+									<code>{entry.path}</code>
 								</CardTitle>
 								<CardDescription className="text-xs">
-									{`References: ${row.referenceCount} · Files: ${row.sources.length}`}
+									{`References: ${entry.referenceCount} · Files: ${entry.sources.length}`}
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-3 px-4 pb-4 pt-0">
@@ -151,19 +120,19 @@ export function DebugSvgAssets() {
 											loading="lazy"
 											onError={() => {
 												setBrokenPaths((previous) => {
-													if (previous.has(row.path)) return previous;
+													if (previous.has(entry.path)) return previous;
 													const next = new Set(previous);
-													next.add(row.path);
+													next.add(entry.path);
 													return next;
 												});
 											}}
-											src={row.path}
+											src={entry.path}
 										/>
 									)}
 								</div>
 								<div className="flex flex-wrap items-center gap-2">
 									<Badge
-										className={`text-xs font-medium ${isMissing ? UNUSED_BADGE_CLASS : USED_BADGE_CLASS}`}
+										className={`text-xs font-medium ${isMissing ? MISSING_BADGE_CLASS : USED_BADGE_CLASS}`}
 										variant="outline"
 									>
 										{isMissing ? 'Missing' : 'Found'}
@@ -171,11 +140,11 @@ export function DebugSvgAssets() {
 								</div>
 								<details className="rounded-md border border-border/70 p-2 text-xs">
 									<summary className="cursor-pointer font-semibold">
-										{`Source files (${row.sources.length})`}
+										{`Source files (${entry.sources.length})`}
 									</summary>
 									<ol className="mt-2 list-decimal space-y-1 pl-4">
-										{row.sources.map((sourcePath) => (
-											<li className="break-all" key={`${row.path}-${sourcePath}`}>
+										{entry.sources.map((sourcePath) => (
+											<li className="break-all" key={`${entry.path}-${sourcePath}`}>
 												<code>{sourcePath}</code>
 											</li>
 										))}
