@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 7
-- current SCSS imports in JSX/JS: 3
+- current SCSS files in `src`: 6
+- current SCSS imports in JSX/JS: 2
 
 These counts give us a measurable baseline for reduction.
 
@@ -175,6 +175,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/WordGrid/WordGrid.scss` (deleted; word-grid board/list/hint selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Jigsaw/Jigsaw.scss` (deleted; jigsaw board/target geometry and responsive scale selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Jigsaw/Piece/Piece.scss` (deleted; piece slot/mask/rotation/highlight styling migrated to layered global CSS in `index.css`, with slot mapping now set by `Piece.jsx`)
+  - [x] `src/components/Blanks/Blanks.scss` (deleted; blanks container/target board/drag states/invalid-drop animations and responsive selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/AudioClip/AudioClip.scss` (deleted; audio control/link/progress/speaker animation selectors and root sizing tokens migrated to layered global CSS in `index.css`)
   - [x] Debug/sample scaffolding removed from `App.jsx` (`#fontSamples`, in-app `LearningObjectMenu`) and moved to dev-only sandbox (`debug-sandbox.html`, `src/debug/DebugSandbox.jsx`) so production HTML stays clean for validation
 - [ ] Validate each removal with:
@@ -261,7 +262,9 @@ These are accepted refinements from peer review, adapted to this repo:
 - [x] `src/components/Jigsaw/Piece/Piece.scss`
   - migrated piece slot/mask/rotation/highlight styling into `src/index.css` (`@layer components`)
   - removed `import './Piece.scss'` from `src/components/Jigsaw/Piece/Piece.jsx`
-- [ ] `src/components/Blanks/Blanks.scss`
+- [x] `src/components/Blanks/Blanks.scss`
+  - migrated blanks container/target board/drag states/invalid-drop animations and responsive selectors into `src/index.css` (`@layer components`)
+  - removed `import './Blanks.scss'` from `src/components/Blanks/Blanks.jsx`
 - [ ] `src/components/CustomComponents_FR/CustomComponents_FR.scss`
 
 Rule: one major file per PR, with before/after screenshots.
