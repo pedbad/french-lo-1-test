@@ -159,6 +159,9 @@ Progress:
   - converted mobile menu wrapper from second `nav` landmark to a labeled region container in `src/components/MainMenu/MainMenu.jsx`
   - added `aria-controls` to mobile toggle and `Escape` close handling for mobile menu panel
   - added keyboard-first skip link to `#content` in `src/App.jsx` and focus-visible skip-link styles in `src/index.css`
+- [x] Complete phase 1.5 heading-order guardrail:
+  - replaced hero title heading (`h2`) with non-heading text (`p.hero-title`) in `src/App.jsx` so page `h1` remains the first content heading
+  - marked hero banner image as decorative (`alt=""` + `aria-hidden="true"`) because title text is already rendered in adjacent text
 
 ## CI / Guardrails
 

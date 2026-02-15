@@ -56,30 +56,30 @@ This `div#accordion1.accordion` wrapper is the key bad structure:
 
 ```text
 body
+|- a.skip-link[href="#content"]
 |- div.app
    |- span#modal-link-top.modal-link-target (hidden anchor)
    |- header#mainMenu.main-menu
    |  |- nav[aria-label="Main"]                      (Radix NavigationMenu root)
-   |  |- nav.mobile-menu[aria-label="Main navigation mobile"]
+   |  |- div.mobile-menu[role="region"][aria-label="Main navigation mobile"]
    |- div#hero
-   |  |- img.hero-image
-   |  |- h2.hero-title
+   |  |- img.hero-image[alt=""][aria-hidden="true"]
+   |  |- p.hero-title
    |- main#content
       |- h1
 ```
 
 Key observations:
-1. Two nav landmarks currently represent the same primary menu (desktop + mobile).
-2. Hero heading (`h2`) appears before the page heading (`h1`), which weakens heading order semantics.
-3. Hero currently sits outside `main`, even though it is page content for the LO.
+1. Primary navigation landmark duplication has been resolved (one semantic nav landmark for the shared IA).
+2. Hero heading-order issue has been resolved (hero title is non-heading text; page title remains the `h1` inside `main`).
+3. Hero currently still sits outside `main`, even though it is page content for the LO.
 
 ## Why This Is A Problem
 1. `#accordion1` is a misleading top-level name.
 2. It is not a single accordion item; it is the thematic container for all major sections.
 3. Top-level thematic blocks are currently `div.section` instead of semantic `section`.
 4. Section header content (title + instructions) is not consistently represented as semantic section headers.
-5. Duplicated primary nav landmarks can create noisy landmark navigation for assistive tech.
-6. Hero `h2` before page `h1` creates avoidable heading-order ambiguity.
+5. Hero content outside `main` weakens landmark-based content scoping for assistive navigation.
 
 ## Does Your Target Make Sense?
 Yes. It is cleaner and more semantic.

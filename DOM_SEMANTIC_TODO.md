@@ -24,9 +24,7 @@ Why this must change:
 3. It prevents clean semantic landmarks under `<main>`.
 
 Current page-top semantic risks:
-1. Duplicate nav landmarks for the same primary IA (`nav` + mobile `nav`).
-2. Hero `h2` appears before page `h1`.
-3. Hero content currently sits outside `main`.
+1. Hero content currently sits outside `main`.
 
 ## Phase 0: Contracts Lock
 - [ ] Confirm final top-level section IDs:
@@ -68,8 +66,8 @@ Current page-top semantic risks:
   - add `aria-controls` on the mobile menu toggle.
   - support `Escape` key to close the mobile menu panel.
 - [ ] Move hero into semantic page-content flow under `main` (intro section), or make hero decorative if kept outside content.
-- [ ] Enforce heading order:
-  - no hero `h2` before page `h1`.
+- [x] Enforce heading order:
+  - replaced hero `<h2>` with non-heading text in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` so no heading appears before page `<h1>`.
 - [ ] Keep nav/scroll behavior unchanged for users while semantics improve.
 
 ## Phase 2: Nav + Scroll Compatibility

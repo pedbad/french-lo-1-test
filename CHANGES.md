@@ -995,6 +995,18 @@ Why this was important:
   - improves screen-reader landmark clarity and keyboard navigation immediately.
   - reduces risk before broader semantic DOM restructuring.
 
+## 101) Hero Heading Semantics Fix (`h2` -> non-heading text)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - replaced hero title `<h2 className="hero-title ...">` with `<p className="hero-title ...">`.
+  - changed hero banner image to decorative semantics (`alt=""` + `aria-hidden="true"`).
+- Updated semantic tracking docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Why:
+  - removes heading-order ambiguity (no `h2` before page `h1`).
+  - keeps visual hero text unchanged while improving document outline semantics.
+
 
 # Files Deleted (partial but comprehensive)
 

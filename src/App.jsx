@@ -865,14 +865,15 @@ export default class App extends React.Component {
 
 								<div id="hero">
 									<img
-										alt="French Basic banner illustration"
+										alt=""
+										aria-hidden="true"
 										className="hero-image"
 										decoding="async"
 										fetchPriority="high"
 										loading="eager"
 										src="images/fr_banner.svg"
 									/>
-									<h2 className="hero-title text-stroke-chart-3">{siteTitle}</h2>
+									<p className="hero-title text-stroke-chart-3">{siteTitle}</p>
 								</div>
 								<main id="content" key="content">
 									<h1>
