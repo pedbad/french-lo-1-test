@@ -11,13 +11,14 @@ export class LearningObjectMenu extends React.Component {
 	render = () => {
 		const {
 			currentLearningObject = 0,
+			appHrefBase,
 			languageCode,
 			learningObjects
 		} = this.props;
 		const renderedMenu = [];
 		if (learningObjects !== undefined) {
-			const { href } = window.location;
-			const [baseURL] = href.split('?');
+			const defaultAppHrefBase = `${window.location.origin}${import.meta.env.BASE_URL}`;
+			const baseURL = appHrefBase || defaultAppHrefBase;
 			learningObjects.forEach((learningObject, index) => {
 				renderedMenu.push(
 					<li

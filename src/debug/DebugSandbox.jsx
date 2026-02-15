@@ -74,6 +74,7 @@ export function DebugSandbox() {
 				<h2 id="sandbox-lo-menu">Learning Object Menu (All Index Links)</h2>
 				<div className="rounded-xl border border-border bg-card p-4">
 					<LearningObjectMenu
+						appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
 						currentLearningObject={0}
 						languageCode="fr"
 						learningObjects={DEBUG_LEARNING_OBJECTS}
