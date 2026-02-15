@@ -1,4 +1,3 @@
-import "./Jigsaw.scss";
 import {
 	arrayIncludesObject,
 	resolveAsset,

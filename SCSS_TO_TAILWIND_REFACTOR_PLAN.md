@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 19
-- current SCSS imports in JSX/JS: 18
+- current SCSS files in `src`: 18
+- current SCSS imports in JSX/JS: 17
 
 These counts give us a measurable baseline for reduction.
 
@@ -173,6 +173,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/CrossWord/CrossWord.scss` (deleted; crossword board/clue layout and state span selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/ErrorLog/ErrorLog.scss` (deleted; error-log panel/header/button/table selectors and local icon masks migrated to layered global CSS in `index.css`)
   - [x] `src/components/WordGrid/WordGrid.scss` (deleted; word-grid board/list/hint selectors migrated to layered global CSS in `index.css`)
+  - [x] `src/components/Jigsaw/Jigsaw.scss` (deleted; jigsaw board/target geometry and responsive scale selectors migrated to layered global CSS in `index.css`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components

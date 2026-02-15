@@ -1201,6 +1201,112 @@
 		transition: opacity 4s;
 	}
 
+	/* Jigsaw board layout extracted from Jigsaw.scss (geometry matches src/constants/layout.js). */
+	.jigsaw-container {
+		max-height: 790px;
+	}
+
+	.jigsaw-container .jigsaw,
+	.jigsaw-container .target {
+		touch-action: none;
+		display: block;
+		z-index: 1;
+	}
+
+	.jigsaw-container .jigsaw {
+		position: relative;
+		overflow: visible;
+		width: 1810px;
+		height: 1448px;
+		max-height: 1300px;
+		transform: scale(0.2);
+		transform-origin: left top;
+		margin-bottom: -434.4px;
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.jigsaw-container .jigsaw::before {
+		content: "";
+		width: 1810px;
+		height: 724px;
+		background: var(--muted);
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.jigsaw-container p.clue {
+		font-weight: bold;
+	}
+
+	.jigsaw-container .audio-clip {
+		display: flex;
+		align-items: center;
+	}
+
+	.jigsaw-container .target {
+		width: 621px;
+		height: 504px;
+		background: var(--muted);
+		border: 14px var(--border) ridge;
+		box-sizing: border-box;
+	}
+
+	.jigsaw-container .target,
+	.jigsaw-container .time-taken {
+		position: absolute;
+		top: 766px;
+	}
+
+	.jigsaw-container .time-taken {
+		right: 0;
+	}
+
+	@media (min-width: 768px) {
+		.jigsaw-container {
+			max-height: 870px;
+		}
+
+		.jigsaw-container .jigsaw {
+			transform: scale(0.4);
+		}
+	}
+
+	@media (min-width: 960px) {
+		.jigsaw-container {
+			max-height: 990px;
+		}
+
+		.jigsaw-container .jigsaw {
+			transform: scale(0.45);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.jigsaw-container {
+			max-height: 990px;
+		}
+
+		.jigsaw-container .jigsaw {
+			transform: scale(0.45);
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.jigsaw-container {
+			max-height: 1100px;
+		}
+
+		.jigsaw-container .jigsaw {
+			transform: scale(0.6);
+		}
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;
