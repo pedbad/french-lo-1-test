@@ -163,7 +163,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/Form/TextField/TextField.scss` (deleted; text-field input sizing/placement and disabled/button-area behavior migrated to tokenized utilities in `TextField.jsx`)
   - [x] `src/components/Blanks/DraggableWordTile/DraggableWordTile.scss` (deleted; hint-overlay and breakpoint spacing selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Form/Progress/Progress.scss` (deleted; progress indicator shell/bar/label and shine overlay migrated to tokenized utilities in `Progress.jsx`)
-  - [x] `src/components/LearningObjectMenu/LearningObjectMenu.scss` (deleted; menu list/item/link styling moved to tokenized utilities in `LearningObjectMenu.jsx` with debug visibility rule preserved in `index.css`)
+  - [x] `src/components/LearningObjectMenu/LearningObjectMenu.scss` (deleted; menu list/item/link styling moved to tokenized utilities in `LearningObjectMenu.jsx`; debug-only menu usage later moved to a dedicated dev sandbox so it does not pollute production DOM)
   - [x] `src/components/Image/Image.scss` (deleted; image-anchor sizing/alignment and max-width class selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Figure/Figure.scss` (deleted; figure placement and caption layout selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Congratulate/Congratulate.scss` (deleted; modal mask/dialog/close-button selectors migrated to layered global CSS in `index.css`)
@@ -175,6 +175,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/WordGrid/WordGrid.scss` (deleted; word-grid board/list/hint selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Jigsaw/Jigsaw.scss` (deleted; jigsaw board/target geometry and responsive scale selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/AudioClip/AudioClip.scss` (deleted; audio control/link/progress/speaker animation selectors and root sizing tokens migrated to layered global CSS in `index.css`)
+  - [x] Debug/sample scaffolding removed from `App.jsx` (`#fontSamples`, in-app `LearningObjectMenu`) and moved to dev-only sandbox (`debug-sandbox.html`, `src/debug/DebugSandbox.jsx`) so production HTML stays clean for validation
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components

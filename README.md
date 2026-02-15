@@ -27,6 +27,32 @@ By default the app is served under `/french-basic/`. Example:
 http://localhost:5173/french-basic/?lang=fr&lo=1
 ```
 
+## Dev-Only Debug Sandbox
+
+Debug/sample UI has been moved out of the production app tree into a dedicated sandbox page.
+
+Why:
+- Hidden debug markup in `App.jsx` still ships in rendered DOM and appears in copied HTML validation payloads.
+- This creates validator noise and makes production markup harder to reason about.
+- A dedicated sandbox keeps developer test fixtures available without polluting user-facing HTML.
+
+How to use:
+
+```bash
+yarn dev
+```
+
+Then open:
+
+```
+http://localhost:5173/french-basic/debug-sandbox.html
+```
+
+Files:
+- `/Users/ped/Sites/french/french-lo-1-test/debug-sandbox.html`
+- `/Users/ped/Sites/french/french-lo-1-test/src/debug/sandbox-main.jsx`
+- `/Users/ped/Sites/french/french-lo-1-test/src/debug/DebugSandbox.jsx`
+
 ## Build app
 
 ```bash
@@ -234,7 +260,7 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 - Introduction + Grammar now use a dedicated hero-style Section so instruction text and imagery share the same baseline and card framing as the rest of the UI.
 - Special anchors currently add a short delay before scrolling so accordion panels have time to expand; TODO: smooth that interaction so the highlight feels more immediate once we refactor the anchor logic.
 - Modal links open a shadcn/Radix modal (no scrolling). The modal now accepts **React content** (not just HTML strings) so inline `AudioClip` components can render and function. For core grammar modals (e.g. `tuvous`, `madame`), it renders the same React content used in `CustomComponents_FR.jsx` so audio clips work and there’s no duplicated copy. JSON `infoTextHTML` is still used for simpler modal text. Optional highlight styles are applied via CSS animation and fade out after flashing.
-- Inline audio icons are normalized via CSS variables in `src/components/AudioClip/AudioClip.scss` to keep size and baseline alignment consistent across paragraph text.
+- Inline audio icons are normalized via CSS variables/rules in `src/index.css` to keep size and baseline alignment consistent across paragraph text.
 - The Introduction `HeroSection` can opt out of the default card styling via `transparentCard`, so it can sit directly on the page background (no white card or border) while other sections remain carded.
 - The Info panel now uses the Lucide `Info` icon (via `lucide-react`) instead of a custom masked SVG.
 - The favicon now uses the eLearning logo SVG (from the footer) via `public/favicon.svg`.

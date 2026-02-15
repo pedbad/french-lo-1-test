@@ -6,6 +6,11 @@ This audit is based on your validator output from the Vite dev-rendered page.
 
 Important: that output includes **many false positives/noise** from Tailwind v4, SCSS module internals, and Vite-injected `<style>` tags. We should validate built HTML (`yarn build && yarn preview`) and then fix only real app markup/a11y issues.
 
+Update (2026-02-15):
+- Legacy debug/sample fixtures (`#fontSamples` and in-app `LearningObjectMenu`) were removed from `App.jsx`.
+- They now live in a dedicated dev-only sandbox (`debug-sandbox.html`, `src/debug/DebugSandbox.jsx`).
+- Rationale: hidden debug DOM in the main app polluted copied HTML payloads and created avoidable validator confusion.
+
 ## Completed Semantic Upgrades (Already Applied)
 
 - Added semantic main landmark: the primary content wrapper now uses `<main id="content">` (replacing a generic container).
@@ -324,6 +329,7 @@ Notes:
 - If extension-related script noise appears, use incognito with extensions disabled in incognito permissions.
 - If you still see injected cookie-banner CSS noise, validate with:
   `http://localhost:4173/french-basic/?lang=fr&lo=1&skipCookieControl=1`
+- Validate the real app URL (`?lang=fr&lo=...`), not the dev sandbox page (`/debug-sandbox.html`), which is for internal fixture checks only.
 
 How to verify:
 

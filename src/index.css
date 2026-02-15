@@ -449,15 +449,6 @@
 		}
 	}
 
-	/* Legacy LO menu visibility contract: hidden by default, visible only in debug mode. */
-	#learningObjectMenu {
-		display: none;
-	}
-
-	html.debug #learningObjectMenu {
-		display: flex;
-	}
-
 	/* Figure layout extracted from Figure.scss to keep placement classes stable. */
 	figure {
 		display: flex;

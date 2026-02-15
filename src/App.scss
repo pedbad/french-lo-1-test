@@ -73,12 +73,6 @@ h6 {
 	font-size: calc(var(--font-size-3xl) * 0.4167);
 	margin-top: calc(var(--line-height-2xl) * var(--font-size-3xl) * 0.4167);
 }
-#fontSamples {
-	border: 1px solid var(--destructive);
-	margin: 3rem;
-	padding: 3rem;
-	display: none;
-}
 figure {
 	figcaption {
 		font-family: var(--font-sans);
@@ -109,9 +103,6 @@ html {
 	&.debug {
 		.blanks-container .target-board .word.blank span {
 			opacity: 0.2;
-		}
-		#fontSamples {
-			// display: block;
 		}
 	}
 

@@ -17,7 +17,6 @@ import {
 	Info,
 	Jigsaw,
 	LandingPage,
-	LearningObjectMenu,
 	MainMenu,
 	MemoryMatchGame,
 	ModalLinkDialog,
@@ -910,39 +909,6 @@ export default class App extends React.Component {
 											);
 										})()}
 									</h1>
-									<div id="fontSamples">
-										<h1>Heading 1 Feijoa Bold</h1>
-										<h2>Heading 2 Feijoa Medium</h2>
-										<h3>Heading 3 Feijoa Medium</h3>
-										<h4>Heading 4 Feijoa Medium</h4>
-										<h5>Heading 5 OpenSans SemiBold</h5>
-										<h6>Heading 6 OpenSans SemiBold</h6>
-										<p>Bodycopy, Hyperlinks Opensans Regular</p>
-										<figure>
-											<img
-												src={`images/bsc_logo_flat.svg`}
-												title={`BSC logo`}
-												style={{ width: "60px" }}
-											/>
-											<figcaption>Captions Opensans Regular</figcaption>
-										</figure>
-										<Info>
-											<p>Children</p>
-										</Info>
-										<Info informationText={"Information Text"} />
-										<Info
-											informationTextHTML={
-												"<p>Information Text <strong>HTML</strong></p>"
-											}
-										/>
-									</div>
-
-									<LearningObjectMenu
-										currentLearningObject={currentLearningObject}
-										languageCode={languageCode}
-										learningObjects={learningObjects}
-									/>
-
 									{(() => {
 										const introLayout = introHTML
 											? { paragraphHTML: introHTML }

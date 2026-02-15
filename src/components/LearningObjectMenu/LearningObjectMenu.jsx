@@ -1,6 +1,13 @@
 import React from 'react';
 
 export class LearningObjectMenu extends React.Component {
+	selectLearningObject = (index) => {
+		const { onSelectLearningObject } = this.props;
+		if (typeof onSelectLearningObject === 'function') {
+			onSelectLearningObject(index);
+		}
+	};
+
 	render = () => {
 		// console.log("LearningObjectMenu render");
 		const {

@@ -1,0 +1,76 @@
+import React from 'react';
+import { Info, LearningObjectMenu } from '../components';
+
+const SAMPLE_LEARNING_OBJECTS = [
+	{ file: 1 },
+	{ file: 2 },
+	{ file: 3 },
+	{ file: 'demo' },
+	{ file: 'answer' },
+];
+
+export function DebugSandbox() {
+	/*
+	Why this file exists:
+	- Debug/sample UI used to be rendered inside App.jsx and only hidden with CSS.
+	- Hidden debug DOM still ships in the main app output, pollutes HTML validation,
+	  and makes production markup harder to reason about.
+	- Keeping these examples in a dedicated dev-only sandbox preserves developer tooling
+	  without mixing test scaffolding into user-facing DOM.
+	*/
+	return (
+		<main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 p-6" id="debug-sandbox-page">
+			<header className="space-y-2">
+				<h1>Debug Sandbox (Development Only)</h1>
+				<p>
+					This page is intentionally separated from the production app tree. Use it for
+					typography and component visual checks only.
+				</p>
+			</header>
+
+			<section aria-labelledby="sandbox-typography">
+				<h2 id="sandbox-typography">Typography Samples</h2>
+				<div className="rounded-xl border border-border bg-card p-4">
+					<h1>Heading 1 Feijoa Bold</h1>
+					<h2>Heading 2 Feijoa Medium</h2>
+					<h3>Heading 3 Feijoa Medium</h3>
+					<h4>Heading 4 Feijoa Medium</h4>
+					<h5>Heading 5 OpenSans SemiBold</h5>
+					<h6>Heading 6 OpenSans SemiBold</h6>
+					<p>Bodycopy, Hyperlinks Opensans Regular</p>
+					<figure className="mt-4">
+						<img
+							alt="BSC logo"
+							src="images/bsc_logo_flat.svg"
+							style={{ width: '60px' }}
+						/>
+						<figcaption>Captions Opensans Regular</figcaption>
+					</figure>
+				</div>
+			</section>
+
+			<section aria-labelledby="sandbox-info">
+				<h2 id="sandbox-info">Info Variants</h2>
+				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
+					<Info>
+						<p>Children</p>
+					</Info>
+					<Info informationText="Information Text" />
+					<Info informationTextHTML="<p>Information Text <strong>HTML</strong></p>" />
+				</div>
+			</section>
+
+			<section aria-labelledby="sandbox-lo-menu">
+				<h2 id="sandbox-lo-menu">Learning Object Menu Sample</h2>
+				<div className="rounded-xl border border-border bg-card p-4">
+					<LearningObjectMenu
+						currentLearningObject={0}
+						languageCode="fr"
+						learningObjects={SAMPLE_LEARNING_OBJECTS}
+						onSelectLearningObject={() => {}}
+					/>
+				</div>
+			</section>
+		</main>
+	);
+}

@@ -118,6 +118,7 @@ Add these from day one to avoid late cleanup projects:
 8. Add security scanning (CodeQL and `npm audit`/`yarn audit`) on schedule.
 9. Add branch-level "no new debt" checks (warnings/error budgets must not increase).
 10. Add a release checklist workflow for production preview validation (build + preview + smoke checks).
+11. Keep developer fixtures in a separate dev-only sandbox page (do not render hidden debug DOM in the production app tree).
 
 ## What To Avoid In Future Projects
 
@@ -133,6 +134,7 @@ Use this as a hard "do not repeat" list.
 8. Do not allow new hardcoded typography/color literals outside token files.
 9. Do not skip branch protection + required CI checks for guard scripts.
 10. Do not start refactors without visual and accessibility regression checks in the PR definition of done.
+11. Do not keep debug/sample scaffolding hidden in production markup; isolate it in a dev-only sandbox entrypoint.
 
 ## Recommended Directory Structure
 
