@@ -2147,6 +2147,247 @@
 			height: 80px;
 		}
 	}
+
+	/* MemoryMatch card skin migrated from MemoryMatchGame/Card/Card.scss. */
+	#MemoryMatchGame4 .card .card-contents-container .card-image-container {
+		background-size: 80%;
+	}
+
+	#MemoryMatchGame4 .card.aeroplane .card-contents-container .card-image-container,
+	#MemoryMatchGame4 .card.airship .card-contents-container .card-image-container,
+	#MemoryMatchGame4 .card.car .card-contents-container .card-image-container,
+	#MemoryMatchGame4 .card.hang-glider .card-contents-container .card-image-container,
+	#MemoryMatchGame4 .card.hovercraft .card-contents-container .card-image-container,
+	#MemoryMatchGame4 .card.narrowboat .card-contents-container .card-image-container {
+		background-size: 100%;
+	}
+
+	#MemoryMatchGame4 .card.monorail .card-contents-container .card-image-container,
+	#MemoryMatchGame4 .card.bicycle .card-contents-container .card-image-container {
+		background-size: 86%;
+	}
+
+	#MemoryMatchGame4 .card.tram .card-contents-container .card-image-container,
+	#MemoryMatchGame4 .card.balloon .card-contents-container .card-image-container {
+		background-size: 68%;
+	}
+
+	#MemoryMatchGame4 .card.cablecar .card-contents-container .card-image-container {
+		background-size: 60%;
+	}
+
+	#MemoryMatchGame4 .card.rocket .card-contents-container .card-image-container {
+		background-size: 40%;
+	}
+
+	.memory-match-game .card {
+		background-color: var(--card);
+		background-image: radial-gradient(
+			circle,
+			var(--card) 0%,
+			var(--card) 79%,
+			color-mix(in oklab, var(--card) 90%, var(--muted)) 100%
+		);
+		border-radius: 10px;
+		border: 1px solid var(--border);
+		box-shadow: 2px 2px 2px color-mix(in oklab, var(--foreground) 60%, transparent);
+		cursor: pointer;
+		height: 50px;
+		width: 80px;
+		padding: 10px;
+		position: relative;
+		text-align: center;
+		font-weight: bold;
+		transform: rotateX(0deg);
+		transform-style: preserve-3d;
+		transition:
+			transform 1s,
+			box-shadow 1s;
+	}
+
+	.memory-match-game .card .card-contents-container {
+		top: 0;
+		left: 0;
+		border-radius: 10px;
+		position: absolute;
+		backface-visibility: hidden;
+		transform: rotateX(180deg);
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.memory-match-game .card .card-contents-container::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		border-radius: 10px;
+	}
+
+	.memory-match-game .card .card-contents-container .card-image-container {
+		max-height: 100px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+		width: calc(100% - 20px);
+		height: calc(100% - 20px);
+		display: inline-block;
+	}
+
+	.memory-match-game .card .card-back {
+		border-radius: 10px;
+		position: absolute;
+		backface-visibility: hidden;
+		top: 0;
+		left: 0;
+		height: 100%;
+		z-index: 1;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		display: flex;
+		border: 8px solid var(--background);
+		box-sizing: border-box;
+		background-image:
+			repeating-linear-gradient(45deg, transparent, transparent 4px, var(--primary) 4px, var(--primary) 8px),
+			repeating-linear-gradient(-45deg, transparent, transparent 4px, var(--primary) 4px, var(--primary) 8px);
+	}
+
+	.memory-match-game .card .card-back span {
+		display: none;
+	}
+
+	.memory-match-game .card .card-back::before,
+	.memory-match-game .card .card-back::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.memory-match-game .card .card-back::after {
+		background-image: url("/images/memory/yorkshire-rose.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 60px;
+		backface-visibility: hidden;
+		z-index: -1;
+		border: 3px solid var(--primary);
+		box-sizing: border-box;
+	}
+
+	.memory-match-game .card.been-flipped .card-back::before {
+		animation: memory-card-shade-half 0.25s ease-in-out 0.25s;
+	}
+
+	.memory-match-game .card.been-flipped .card-contents-container::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		animation: memory-card-shade 0.5s ease-in-out;
+	}
+
+	.memory-match-game .card.flipped {
+		transform: rotateX(180deg);
+		transition:
+			transform 1s,
+			box-shadow 1s;
+		box-shadow: 2px -2px 2px color-mix(in oklab, var(--foreground) 60%, transparent);
+	}
+
+	.memory-match-game .card.flipped .card-back::before {
+		animation: memory-card-shade 0.5s ease-in-out;
+	}
+
+	.memory-match-game .card.flipped .card-contents-container::before {
+		animation: memory-card-shade-half 0.5s ease-in-out 0.25s;
+	}
+
+	.memory-match-game .cards .card {
+		height: 70px;
+		width: 112px;
+	}
+
+	.memory-match-game .matches .card {
+		height: 60px;
+		width: 96px;
+	}
+
+	@media (min-width: 1024px) {
+		.memory-match-game .cards .card {
+			height: 80px;
+			width: 128px;
+		}
+
+		.memory-match-game .matches .card {
+			height: 60px;
+			width: 96px;
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.memory-match-game .cards .card {
+			height: 100px;
+			width: 160px;
+		}
+
+		.memory-match-game .matches .card {
+			height: 70px;
+			width: 112px;
+		}
+	}
+
+	@keyframes memory-card-shade {
+		0% {
+			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+		}
+
+		45% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		50% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		55% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		100% {
+			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+		}
+	}
+
+	@keyframes memory-card-shade-half {
+		0% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		15% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		16% {
+			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+		}
+
+		100% {
+			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+		}
+	}
 }
 
 @layer utilities {

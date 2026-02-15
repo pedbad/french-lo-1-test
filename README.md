@@ -353,9 +353,9 @@ Proposed approach:
 4. Remove the component’s SCSS once parity is reached and UI is visually verified.
 5. Repeat in batches (start with high-traffic components: Accordion, PhraseTable, WordParts, Info).
 
-Current SCSS footprint (15 files), grouped by area:
+Current SCSS footprint (14 files), grouped by area:
 - Core/layout: `src/App.scss`, `src/components/Accordion/Accordion.scss`, `src/components/MainMenu/MainMenu.scss`
-- Activities & exercises: `src/components/Blanks/Blanks.scss`, `src/components/DropDowns/DropDowns.scss`, `src/components/Jigsaw/Piece/Piece.scss`, `src/components/MemoryMatchGame/MemoryMatchGame.scss`, `src/components/MemoryMatchGame/Card/Card.scss`, `src/components/RadioQuiz/RadioQuiz.scss`, `src/components/WordParts/WordParts.scss`, `src/components/CustomComponents_FR/CustomComponents_FR.scss`
+- Activities & exercises: `src/components/Blanks/Blanks.scss`, `src/components/DropDowns/DropDowns.scss`, `src/components/Jigsaw/Piece/Piece.scss`, `src/components/MemoryMatchGame/MemoryMatchGame.scss`, `src/components/RadioQuiz/RadioQuiz.scss`, `src/components/WordParts/WordParts.scss`, `src/components/CustomComponents_FR/CustomComponents_FR.scss`
 - Legacy style modules: `src/styles/_colours.module.scss`, `src/styles/_media-queries.scss`, `src/styles/_mixins.module.scss`, `src/styles/_variables.module.scss`
 
 ## Semantics

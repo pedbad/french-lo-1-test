@@ -1,4 +1,3 @@
-import './Card.scss';
 import { AudioClip } from '../..';
 import React from 'react';
 
