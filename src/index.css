@@ -661,17 +661,13 @@
 		border-radius: 0.5rem;
 		transition:
 			color 180ms ease,
-			background-color 180ms ease,
-			box-shadow 180ms ease,
-			transform 180ms ease,
+			text-shadow 180ms ease,
 			border-color 180ms ease;
 	}
 
 	.main-menu .menu-right li > a:hover {
 		color: var(--foreground);
-		background-color: color-mix(in oklab, var(--muted) 72%, transparent);
-		box-shadow: 0 4px 10px color-mix(in oklab, var(--foreground) 12%, transparent);
-		transform: translateY(-1px);
+		text-shadow: 0 0 10px color-mix(in oklab, var(--chart-3) 42%, transparent);
 	}
 
 	.main-menu .menu-right li.highlight {
@@ -682,14 +678,12 @@
 		color: var(--hero-title-color);
 		font-weight: 600;
 		border-bottom-color: var(--hero-title-color);
-		box-shadow: 0 2px 6px color-mix(in oklab, var(--hero-title-color) 22%, transparent);
 	}
 
 	.main-menu .menu-right li.highlight > a:hover {
 		color: var(--hero-title-color);
-		background-color: color-mix(in oklab, var(--hero-title-color) 10%, transparent);
+		text-shadow: 0 0 11px color-mix(in oklab, var(--hero-title-color) 45%, transparent);
 		border-bottom-color: var(--hero-title-color);
-		box-shadow: 0 5px 12px color-mix(in oklab, var(--hero-title-color) 30%, transparent);
 	}
 
 	.main-menu .menu-actions {
