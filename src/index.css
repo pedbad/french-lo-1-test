@@ -680,19 +680,18 @@
 		align-items: center;
 		border-bottom: 3px solid transparent;
 		padding: 0.18rem 0.5rem 0.22rem;
-		border-radius: 0.5rem;
+		border-radius: 0;
 		font-weight: 500;
 		transition:
 			color 180ms ease,
-			text-shadow 180ms ease,
 			font-weight 180ms ease,
 			border-color 180ms ease;
 	}
 
 	.main-menu .menu-right li > a:hover {
-		color: var(--foreground);
+		color: rgb(var(--color-primary-400));
 		font-weight: 600;
-		text-shadow: 0 0 10px color-mix(in oklab, var(--chart-3) 42%, transparent);
+		border-bottom-color: rgb(var(--color-primary-400));
 	}
 
 	.main-menu .menu-right li.highlight {
@@ -700,15 +699,14 @@
 	}
 
 	.main-menu .menu-right li.highlight > a {
-		color: var(--hero-title-color);
+		color: rgb(var(--color-primary-400));
 		font-weight: 600;
-		border-bottom-color: var(--hero-title-color);
+		border-bottom-color: rgb(var(--color-primary-400));
 	}
 
 	.main-menu .menu-right li.highlight > a:hover {
-		color: var(--hero-title-color);
-		text-shadow: 0 0 11px color-mix(in oklab, var(--hero-title-color) 45%, transparent);
-		border-bottom-color: var(--hero-title-color);
+		color: rgb(var(--color-primary-400));
+		border-bottom-color: rgb(var(--color-primary-400));
 	}
 
 	.main-menu .menu-actions {
@@ -811,12 +809,12 @@
 	}
 
 	.main-menu .mobile-menu .mobile-menu-list li.highlight > a {
-		color: var(--hero-title-color);
+		color: rgb(var(--color-primary-400));
 		font-weight: 600;
 	}
 
 	.main-menu .mobile-menu .mobile-menu-list li.highlight {
-		border-left: 2px solid var(--hero-title-color);
+		border-left: 2px solid rgb(var(--color-primary-400));
 	}
 
 	.main-menu .mobile-menu .nav-link-mobile {
@@ -829,7 +827,7 @@
 	}
 
 	.main-menu .mobile-menu .nav-link-mobile:hover {
-		color: var(--foreground);
+		color: rgb(var(--color-primary-400));
 	}
 
 	.main-menu .mobile-menu.open {
@@ -838,22 +836,21 @@
 
 	.dark .main-menu .menu-right li.highlight > a,
 	.dark .main-menu .mobile-menu .mobile-menu-list li.highlight > a {
-		color: var(--hero-title-color);
+		color: rgb(var(--color-primary-400));
 	}
 
 	.dark .main-menu .menu-right li > a:hover {
-		color: var(--foreground);
+		color: rgb(var(--color-primary-400));
 		font-weight: 600;
-		text-shadow: 0 0 10px color-mix(in oklab, var(--chart-4) 48%, transparent);
+		border-bottom-color: rgb(var(--color-primary-400));
 	}
 
 	.dark .main-menu .menu-right li.highlight > a:hover {
-		color: var(--hero-title-color);
-		text-shadow: 0 0 12px color-mix(in oklab, var(--hero-title-color) 55%, transparent);
+		color: rgb(var(--color-primary-400));
 	}
 
 	.dark .main-menu .mobile-menu .mobile-menu-list li.highlight {
-		border-left-color: var(--hero-title-color);
+		border-left-color: rgb(var(--color-primary-400));
 	}
 
 	@media (max-width: 1199.98px) {
