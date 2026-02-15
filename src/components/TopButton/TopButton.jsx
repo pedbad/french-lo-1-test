@@ -36,7 +36,7 @@ export function TopButton() {
 		>
 			<Button
 				aria-label="Back to top"
-				className={`cursor-pointer rounded-full transition-all ease-out hover:-translate-y-0.5 ${showButton ? "opacity-100 translate-y-0 duration-700" : "pointer-events-none opacity-0 translate-y-1 duration-300"}`}
+				className={`cursor-pointer rounded-full transition-all ease-out hover:-translate-y-0.5 ${showButton ? "opacity-100 translate-y-0 duration-[1200ms]" : "pointer-events-none opacity-0 translate-y-1 duration-300"}`}
 				size="icon"
 				tabIndex={showButton ? 0 : -1}
 				onClick={() => {
