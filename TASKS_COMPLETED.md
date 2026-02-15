@@ -190,13 +190,14 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/Footer/Footer.scss` (deleted; footer layout/logo visibility/social-link skins and breakpoint behavior migrated to layered global CSS in `src/index.css`, preserving dark-mode social variants)
     - [x] `src/components/Form/RadioC/RadioC.scss` (deleted; radio input visuals/layout migrated to tokenized utility classes in `src/components/Form/RadioC/RadioC.jsx`)
     - [x] `src/components/MemoryMatchGame/Card/Card.scss` (deleted; memory-card face/back skin, flip shading, and responsive card dimensions migrated to layered global CSS in `src/index.css`)
+    - [x] `src/components/RadioQuiz/RadioQuiz.scss` (deleted; quiz table/explanation/checkbox skin moved to layered global CSS in `src/index.css`, import removed from `src/components/RadioQuiz/RadioQuiz.jsx`, and stale cross-import removed from `src/components/CustomComponents_FR/CustomComponents_FR.jsx`)
     - [x] debug/sample scaffolding removed from `src/App.jsx` (`#fontSamples`, in-app `LearningObjectMenu`) and moved to dev-only sandbox (`debug-sandbox.html`, `src/debug/DebugSandbox.jsx`) so production HTML stays clean for validation
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 14 (from 54)
-    - SCSS imports in JSX/JS: 12 (from 53)
+    - SCSS files in `src`: 13 (from 54)
+    - SCSS imports in JSX/JS: 10 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation

@@ -461,6 +461,120 @@
 		}
 	}
 
+	/* RadioQuiz skin migrated from RadioQuiz.scss to central token CSS ownership. */
+	.radio-quiz-container .radio-quiz-table {
+		max-width: 100%;
+		text-align: left;
+		border-collapse: collapse;
+	}
+
+	.radio-quiz-container .radio-quiz-phrase {
+		color: var(--muted-foreground);
+	}
+
+	.radio-quiz-container .radio-quiz-explanation {
+		display: inline-flex;
+		opacity: 0;
+		transition: opacity 1s ease-in-out;
+	}
+
+	.radio-quiz-container .radio-quiz-explanation.show {
+		opacity: 1;
+	}
+
+	.radio-quiz-container .radio-quiz-option {
+		margin-right: 24px;
+		min-height: 26px;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.radio-quiz-container .radio-quiz-option.disabled,
+	.radio-quiz-container .radio-quiz-option:has(.radio-quiz-checkbox:disabled) {
+		cursor: not-allowed;
+	}
+
+	.radio-quiz-container .radio-quiz-checkbox {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		cursor: pointer;
+		width: 17px;
+		height: 17px;
+		border-radius: 9999px;
+		border: 1px solid var(--border);
+		background-color: var(--background);
+		vertical-align: top;
+		display: inline-grid;
+		place-content: center;
+	}
+
+	.radio-quiz-container .radio-quiz-checkbox::before {
+		content: "";
+		width: 7px;
+		height: 7px;
+		border-radius: 9999px;
+		transform: scale(0);
+		transition: transform 120ms ease-in-out;
+		background-color: var(--foreground);
+	}
+
+	.radio-quiz-container .radio-quiz-checkbox:hover {
+		background: radial-gradient(
+			circle,
+			var(--muted) 0%,
+			var(--muted) 30%,
+			var(--background) 31%,
+			var(--background) 100%
+		);
+	}
+
+	.radio-quiz-container .radio-quiz-checkbox:checked::before {
+		transform: scale(1);
+	}
+
+	.radio-quiz-container .radio-quiz-checkbox:disabled {
+		cursor: not-allowed;
+		background-color: var(--muted);
+		opacity: 1;
+	}
+
+	.radio-quiz-container .radio-quiz-checkbox:checked:disabled {
+		background-color: var(--background);
+	}
+
+	.radio-quiz-container .radio-quiz-table td,
+	.radio-quiz-container .radio-quiz-table th {
+		height: 3rem;
+		color: var(--foreground);
+		font-weight: normal;
+		border: none;
+		padding: 5px 4px;
+	}
+
+	.radio-quiz-container .radio-quiz-table td span.inline-monologue {
+		white-space: nowrap;
+	}
+
+	.radio-quiz-container .radio-quiz-table td span.inline-monologue .monologue-container {
+		display: inline-flex;
+	}
+
+	.radio-quiz-container .radio-quiz-table tbody,
+	.radio-quiz-container .radio-quiz-table tr {
+		border: none;
+	}
+
+	.radio-quiz-container .radio-quiz-table td {
+		padding: 0.1rem;
+	}
+
+	@media (min-width: 768px) {
+		.radio-quiz-container .radio-quiz-table td {
+			padding: 0.25rem 1rem;
+		}
+	}
+
 	/* Header surface extracted from legacy Header.scss/mixin ownership. */
 	.header-main-surface {
 		background: linear-gradient(

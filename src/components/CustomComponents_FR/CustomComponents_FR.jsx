@@ -1,5 +1,4 @@
 import './CustomComponents_FR.scss';
-import '../RadioQuiz/RadioQuiz.scss';
 import {
 	Attribution,
 	AudioClip,

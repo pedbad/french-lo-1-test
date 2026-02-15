@@ -1,4 +1,3 @@
-import './RadioQuiz.scss';
 import {
 	AudioClip,
 	IconButton,
@@ -23,7 +22,7 @@ import {
 	resolveAsset,
 } from '../../utility';
 
-const RADIO_QUIZ_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base";
+const RADIO_QUIZ_TABLE_TEXT_CLASS = "radio-quiz-table text-[var(--font-size-sm)] md:text-base";
 
 export class RadioQuiz extends React.Component {
 
@@ -154,16 +153,16 @@ export class RadioQuiz extends React.Component {
 				radios.push(
 					<TableCell key={`radio-${id}-${i}-2-${j}`}>
 						<label
-							className={disabled[i] ? 'disabled' : ''}
+							className={disabled[i] ? 'radio-quiz-option disabled' : 'radio-quiz-option'}
 							key={`label-${id}-${i}-${j}`}
 							onClick={(e) => this.handleChange(e, i, j)}
-							forhtml={`${id}-${i}-${j}`}>{options[j]}:&nbsp;
+							htmlFor={`${id}-${i}-${j}`}>{options[j]}:&nbsp;
 							<input
+								className={`radio-quiz-checkbox`}
 								checked={answers && answers[i] && answers[i][j] ? true : ''}
 								disabled={disabled[i] === true}
 								id={`${id}-${i}-${j}`}
 								key={`input-${id}-${i}-${j}`}
-								visible-key={`input-${id}-${i}-${j}`}
 								name={`${id}-${i}`}
 								type={`checkbox`}
 								onChange={(e) => this.handleChange(e, i, j)}
@@ -181,10 +180,10 @@ export class RadioQuiz extends React.Component {
 			}
 			rows.push(
 				<TableRow key={`radio-${id}-${i}`}>
-					<TableCell key={`radio-${id}-${i}-1`}><span className={`text-slate-400`}>{phrase}</span></TableCell>
+					<TableCell key={`radio-${id}-${i}-1`}><span className={`radio-quiz-phrase`}>{phrase}</span></TableCell>
 					{radios}
 					<TableCell key={`radio-${id}-${i}-3`}>{sound}</TableCell>
-					<TableCell key={`radio-${id}-${i}-4`}><span className={`explanation ${showExplanation[i] ? 'show' : ''}`}>{explanation}</span></TableCell>
+					<TableCell key={`radio-${id}-${i}-4`}><span className={`radio-quiz-explanation ${showExplanation[i] ? 'show' : ''}`}>{explanation}</span></TableCell>
 				</TableRow>
 			);
 		}
