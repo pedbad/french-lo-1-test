@@ -197,7 +197,7 @@ export class PhraseTable extends React.PureComponent {
 								<span className="inline-flex">
 									<IconButton
 										theme="natural"
-										size="sm"
+										size="lg"
 										onClick={() => this.setState({ tableSort: "natural" })}
 										ariaLabel={`Vocabulary organised semantically`}
 									>
@@ -215,7 +215,7 @@ export class PhraseTable extends React.PureComponent {
 									<span className="inline-flex">
 										<IconButton
 											theme="reverse"
-											size="sm"
+											size="lg"
 											onClick={() => this.setState({ tableSort: "reverse" })}
 											ariaLabel={`Vocabulary organised alphabetically`}
 										>
@@ -233,7 +233,7 @@ export class PhraseTable extends React.PureComponent {
 									<span className="inline-flex">
 										<IconButton
 											theme="alphabetic"
-											size="sm"
+											size="lg"
 											onClick={() => this.setState({ tableSort: "alphabetical" })}
 											ariaLabel={`Vocabulary organised alphabetically`}
 										>
