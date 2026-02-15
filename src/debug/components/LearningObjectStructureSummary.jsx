@@ -1,7 +1,5 @@
 import React from 'react';
 
-const CONFIG_MODULES = import.meta.glob('../../learningObjectConfigurations/fr/*.json', { eager: true });
-
 const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'AnswerTable',
 	'Blanks',
@@ -113,19 +111,6 @@ function toUnique(values) {
 	return ordered;
 }
 
-function getConfigByFileMap() {
-	const map = new Map();
-	Object.entries(CONFIG_MODULES).forEach(([path, module]) => {
-		const match = path.match(/\/([^/]+)\.json$/);
-		if (!match) return;
-		const file = match[1];
-		const data = module?.default ?? module;
-		if (!data || typeof data !== 'object') return;
-		map.set(file, data);
-	});
-	return map;
-}
-
 function getSectionSummaries(config) {
 	if (!config || typeof config !== 'object') return [];
 	const sections = [];
@@ -157,7 +142,63 @@ function getSectionSummaries(config) {
 }
 
 export function LearningObjectStructureSummary({ learningObjects = [] }) {
-	const configByFile = React.useMemo(() => getConfigByFileMap(), []);
+	const [configByFile, setConfigByFile] = React.useState(() => new Map());
+	const [loadError, setLoadError] = React.useState('');
+	const [loading, setLoading] = React.useState(false);
+
+	React.useEffect(() => {
+		let cancelled = false;
+		const loadConfigs = async () => {
+			setLoading(true);
+			setLoadError('');
+			const nextMap = new Map();
+			const files = learningObjects
+				.map((learningObject) => String(learningObject?.file ?? ''))
+				.filter(Boolean);
+
+			const results = await Promise.all(files.map(async (file) => {
+				const configUrl = `./src/learningObjectConfigurations/fr/${file}.json`;
+				try {
+					const response = await fetch(configUrl);
+					if (!response.ok) {
+						throw new Error(`HTTP ${response.status}`);
+					}
+					const config = await response.json();
+					return { config, file };
+				} catch (error) {
+					return { error, file };
+				}
+			}));
+
+			let firstErrorMessage = '';
+			results.forEach(({ config, error, file }) => {
+				if (config && typeof config === 'object') {
+					nextMap.set(file, config);
+				}
+				if (error && !firstErrorMessage) {
+					firstErrorMessage = `Failed to load one or more LO config files (for example LO ${file}).`;
+				}
+			});
+
+			if (!cancelled) {
+				setConfigByFile(nextMap);
+				setLoadError(firstErrorMessage);
+				setLoading(false);
+			}
+		};
+
+		loadConfigs().catch((error) => {
+			if (!cancelled) {
+				setLoadError(`Failed to load LO summary data: ${error?.message || error}`);
+				setLoading(false);
+			}
+		});
+
+		return () => {
+			cancelled = true;
+		};
+	}, [learningObjects]);
+
 	const summaries = React.useMemo(() => {
 		return learningObjects.map((learningObject, index) => {
 			const file = String(learningObject?.file ?? '');
@@ -177,6 +218,12 @@ export function LearningObjectStructureSummary({ learningObjects = [] }) {
 			<p className="mb-3 text-sm text-[var(--muted-foreground)]">
 				Debug-only overview of each LO: sections, accordion titles, and component types.
 			</p>
+			{loading ? (
+				<p className="mb-3 text-sm text-[var(--muted-foreground)]">Loading LO structure data…</p>
+			) : null}
+			{loadError ? (
+				<p className="mb-3 text-sm text-[var(--destructive)]">{loadError}</p>
+			) : null}
 			<div className="space-y-3">
 				{summaries.map((summary) => (
 					<details className="rounded-xl border border-border bg-card p-4" key={`lo-summary-${summary.file}`}>

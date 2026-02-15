@@ -58,6 +58,7 @@ Files:
 Sandbox includes:
 - LO navigation links for all French Basic learning objects.
 - A per-LO structure summary (sections, accordion titles, and exercise component types) for quick content QA.
+  - Data is loaded via runtime JSON fetch (matching app config loading) to keep debug entry stable with Vite base-path handling.
 
 Troubleshooting (stale Vite HMR overlay after asset deletes):
 - If you see an ENOENT overlay for an old file that was already removed, restart dev with a forced scan:
