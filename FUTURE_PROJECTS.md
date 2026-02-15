@@ -19,6 +19,8 @@ Non-negotiable architecture:
 5. Ensure token parity across light/dark (no ad hoc per-component overrides).
    - Include locale/brand theming from day one via `data-theme` on the root element.
 6. Set up shadcn so components are easy to theme and extend via cva variants.
+   - Default primitive backend: Radix UI.
+   - Only switch to Base UI if you have a clear strategic reason (for example org-wide standardization or a specific missing capability).
 7. Add a cn utility and class-variance-authority pattern for all reusable custom components.
 8. Add accessibility defaults:
    - visible focus states
@@ -135,6 +137,7 @@ Use this as a hard "do not repeat" list.
 9. Do not skip branch protection + required CI checks for guard scripts.
 10. Do not start refactors without visual and accessibility regression checks in the PR definition of done.
 11. Do not keep debug/sample scaffolding hidden in production markup; isolate it in a dev-only sandbox entrypoint.
+12. Do not switch shadcn primitive backend (Radix -> Base UI) without a documented strategic reason.
 
 ## Dev-Only Debug Sandbox Pattern (Best Practice)
 
