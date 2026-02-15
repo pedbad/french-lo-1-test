@@ -1,6 +1,6 @@
+import React from 'react';
 import { DebugColorTokens } from './components/DebugColorTokens';
 import { DebugFontTokens } from './components/DebugFontTokens';
-import { DebugSvgAssets } from './components/DebugSvgAssets';
 import { Info } from '../components/Info';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
 
@@ -30,6 +30,27 @@ const DEBUG_LEARNING_OBJECTS = [
 ];
 
 export function DebugSandbox() {
+	const [DebugSvgAssetsComponent, setDebugSvgAssetsComponent] = React.useState(null);
+	const [svgAssetsLoadError, setSvgAssetsLoadError] = React.useState('');
+
+	React.useEffect(() => {
+		let mounted = true;
+		import('./components/DebugSvgAssets')
+			.then((module) => {
+				if (!mounted) return;
+				setDebugSvgAssetsComponent(() => module.DebugSvgAssets);
+				setSvgAssetsLoadError('');
+			})
+			.catch((error) => {
+				if (!mounted) return;
+				setSvgAssetsLoadError(error?.message || String(error));
+			});
+
+		return () => {
+			mounted = false;
+		};
+	}, []);
+
 	/*
 	Why this file exists:
 	- Debug/sample UI used to be rendered inside App.jsx and only hidden with CSS.
@@ -88,7 +109,23 @@ export function DebugSandbox() {
 
 			<DebugColorTokens />
 			<DebugFontTokens />
-			<DebugSvgAssets />
+			{DebugSvgAssetsComponent ? (
+				<DebugSvgAssetsComponent />
+			) : svgAssetsLoadError ? (
+				<section aria-labelledby="sandbox-svg-assets-error">
+					<h2 id="sandbox-svg-assets-error">SVG Assets Referenced in App Source</h2>
+					<p className="rounded-xl border border-[var(--destructive)]/40 bg-card p-4 text-[var(--destructive)]">
+						{`SVG inventory failed to load: ${svgAssetsLoadError}`}
+					</p>
+				</section>
+			) : (
+				<section aria-labelledby="sandbox-svg-assets-loading">
+					<h2 id="sandbox-svg-assets-loading">SVG Assets Referenced in App Source</h2>
+					<p className="rounded-xl border border-border bg-card p-4 text-[var(--muted-foreground)]">
+						Loading SVG inventory...
+					</p>
+				</section>
+			)}
 
 			<LearningObjectStructureSummary
 				appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
