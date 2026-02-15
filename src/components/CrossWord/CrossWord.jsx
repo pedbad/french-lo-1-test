@@ -1,4 +1,3 @@
-import './CrossWord.scss';
 import React, { PureComponent } from 'react';
 import DOMPurify from "dompurify";
 

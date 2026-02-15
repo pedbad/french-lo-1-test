@@ -903,6 +903,92 @@
 		}
 	}
 
+	/* Crossword board/clue layout extracted from CrossWord.scss. */
+	.crossword-container {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 8px;
+		grid-template-areas:
+			"instructions instructions"
+			"board clues";
+	}
+
+	.crossword-container table p {
+		margin: 0;
+		letter-spacing: 0.5rem;
+	}
+
+	.crossword-container span {
+		padding: 0.5rem 0;
+		cursor: pointer;
+		display: inline-block;
+		border: 1px solid var(--border);
+		user-select: none;
+	}
+
+	.crossword-container span.animate {
+		animation-name: vertical-rotate;
+		animation-duration: 0.5s;
+		animation-timing-function: linear;
+		animation-iteration-count: 8;
+		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		border: 1px solid var(--chart-2);
+		box-sizing: border-box;
+	}
+
+	.crossword-container span.error {
+		border: 1px solid var(--destructive);
+		background: color-mix(in oklab, var(--destructive) 20%, transparent);
+	}
+
+	.crossword-container .instructions {
+		padding: 1rem;
+		grid-area: instructions;
+	}
+
+	.crossword-container .clues {
+		padding: 1rem 0 0 20px;
+		grid-area: clues;
+	}
+
+	.crossword-container table.board {
+		grid-area: board;
+		text-align: left;
+		border-collapse: collapse;
+		margin: 10px;
+	}
+
+	.crossword-container table.board tr {
+		width: auto;
+	}
+
+	.crossword-container table.board td,
+	.crossword-container table.board th {
+		display: inline-block;
+		border: 1px solid var(--border);
+		padding: 5px 4px;
+		font-weight: bold;
+	}
+
+	.crossword-container table.board tbody {
+		border: none;
+	}
+
+	.crossword-container table.board tbody tr.spacer {
+		border-left: none;
+		border-right: none;
+	}
+
+	.crossword-container table.board tbody tr.spacer td {
+		border-left: none;
+		border-right: none;
+	}
+
+	.crossword-container table.board td {
+		padding: 0.25rem 1rem;
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;
