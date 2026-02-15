@@ -917,14 +917,16 @@
 		transition: all 0.35s ease-in-out;
 	}
 
-	.accordion .accordion-article > .content {
+	.accordion .accordion-article > .content,
+	.accordion .accordion-article .accordion-item > .content {
 		transition: all 0.35s ease-in-out;
 		max-height: 0;
 		overflow: hidden;
 		outline: none;
 	}
 
-	.accordion .accordion-article > header {
+	.accordion .accordion-article > header,
+	.accordion .accordion-article .accordion-item > header {
 		display: flex;
 		margin-top: 2.4rem;
 		padding: 20px 0;
@@ -942,17 +944,20 @@
 			box-shadow 800ms ease-in-out;
 	}
 
-	.accordion .accordion-article > header:hover {
+	.accordion .accordion-article > header:hover,
+	.accordion .accordion-article .accordion-item > header:hover {
 		background-color: var(--accordion-mist);
 		color: var(--accordion-hover-text);
 		box-shadow: 0 8px 18px color-mix(in oklab, var(--foreground) 10%, transparent);
 	}
 
-	.accordion .accordion-article > header:hover h2 {
+	.accordion .accordion-article > header:hover h2,
+	.accordion .accordion-article .accordion-item > header:hover h2 {
 		color: var(--accordion-hover-text) !important;
 	}
 
-	.accordion .accordion-article > header svg.arrow {
+	.accordion .accordion-article > header svg.arrow,
+	.accordion .accordion-article .accordion-item > header svg.arrow {
 		transition: all 0.35s ease-in-out;
 		margin-right: 0.5em;
 		cursor: pointer;
@@ -961,20 +966,23 @@
 		display: block;
 	}
 
-	.accordion .accordion-article > header h2 {
+	.accordion .accordion-article > header h2,
+	.accordion .accordion-article .accordion-item > header h2 {
 		width: 100%;
 		margin: 0;
 		color: inherit;
 		transition: color 800ms ease-in-out;
 	}
 
-	.accordion .accordion-article > header h2 .accordion-title-part {
+	.accordion .accordion-article > header h2 .accordion-title-part,
+	.accordion .accordion-article .accordion-item > header h2 .accordion-title-part {
 		font-size: calc(var(--font-size-sm) * 1.08);
 		opacity: 0.62;
 		font-weight: 500;
 	}
 
-	.accordion .accordion-article > header h2 {
+	.accordion .accordion-article > header h2,
+	.accordion .accordion-article .accordion-item > header h2 {
 		font-variant-numeric: lining-nums tabular-nums;
 	}
 
@@ -1014,24 +1022,29 @@
 		transition: all 0.35s ease-in-out;
 	}
 
-	.accordion .accordion-article.expanded > header {
+	.accordion .accordion-article.expanded > header,
+	.accordion .accordion-article.expanded .accordion-item > header {
 		background-color: var(--accordion-mist);
 		color: var(--accordion-hover-text);
 	}
 
-	.accordion .accordion-article.expanded > header h2 {
+	.accordion .accordion-article.expanded > header h2,
+	.accordion .accordion-article.expanded .accordion-item > header h2 {
 		color: var(--accordion-hover-text) !important;
 	}
 
-	.accordion .accordion-article.expanded > header svg.arrow {
+	.accordion .accordion-article.expanded > header svg.arrow,
+	.accordion .accordion-article.expanded .accordion-item > header svg.arrow {
 		transform: rotate(180deg);
 	}
 
-	.accordion .accordion-article.expanded.group > .content {
+	.accordion .accordion-article.expanded.group > .content,
+	.accordion .accordion-article.expanded.group .accordion-item > .content {
 		max-height: 5600px;
 	}
 
-	.accordion .accordion-article.expanded > .content {
+	.accordion .accordion-article.expanded > .content,
+	.accordion .accordion-article.expanded .accordion-item > .content {
 		max-height: var(--radix-accordion-content-height, 2300px);
 		border-top: none !important;
 		border-top-color: transparent !important;
@@ -1056,16 +1069,20 @@
 
 	@media (max-width: 640px) {
 		.accordion .accordion-article > header h2,
-		.accordion .accordion-article > header h2 > span {
+		.accordion .accordion-article > header h2 > span,
+		.accordion .accordion-article .accordion-item > header h2,
+		.accordion .accordion-article .accordion-item > header h2 > span {
 			font-size: calc(var(--font-size-lg) * 0.98415) !important;
 			line-height: var(--line-height-2xl) !important;
 		}
 
-		.accordion .accordion-article > header h2 .accordion-title-before-colon {
+		.accordion .accordion-article > header h2 .accordion-title-before-colon,
+		.accordion .accordion-article .accordion-item > header h2 .accordion-title-before-colon {
 			display: inline;
 		}
 
-		.accordion .accordion-article > header h2 .accordion-title-after-colon {
+		.accordion .accordion-article > header h2 .accordion-title-after-colon,
+		.accordion .accordion-article .accordion-item > header h2 .accordion-title-after-colon {
 			display: block;
 		}
 	}

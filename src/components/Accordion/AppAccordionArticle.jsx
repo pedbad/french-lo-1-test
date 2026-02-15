@@ -146,7 +146,7 @@ export function AppAccordionArticle({
 				type="multiple"
 				value={expanded ? [id] : []}
 			>
-				<AccordionPrimitive.Item className="border-none" value={id}>
+				<AccordionPrimitive.Item className="accordion-item border-none" value={id}>
 					<header>
 						<AccordionPrimitive.Header asChild>
 							<h2

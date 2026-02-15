@@ -905,6 +905,16 @@ Why this was important:
     - `data-[state=closed]:animate-accordion-up`
 - Why: `forceMount` kept wrapper content effectively always present, so close interactions could appear to reopen instead of collapsing.
 
+## 94) Accordion Visual Parity Fix (Legacy + Wrapper Selector Alignment)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+  - tagged Radix item node with `accordion-item` to provide a stable CSS hook during incremental migration.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - expanded accordion selectors to target both DOM shapes:
+    - legacy (`.accordion-article > header`, `.accordion-article > .content`)
+    - wrapper/Radix (`.accordion-article .accordion-item > header`, `.accordion-article .accordion-item > .content`)
+  - applied this to normal, hover, expanded, and mobile typography selectors.
+- Why: migrated accordion sections (for example dialogues) were no longer matching direct-child legacy selectors, causing style drift versus non-migrated sections.
+
 
 # Files Deleted (partial but comprehensive)
 
