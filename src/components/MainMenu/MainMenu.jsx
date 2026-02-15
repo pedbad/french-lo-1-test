@@ -1,4 +1,3 @@
-import "./MainMenu.scss";
 import {
 	NavigationMenu,
 	NavigationMenuItem,

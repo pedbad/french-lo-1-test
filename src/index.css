@@ -586,6 +586,247 @@
 		box-shadow: 0 8px 8px color-mix(in oklab, var(--foreground) 20%, transparent);
 	}
 
+	/* MainMenu layout extracted from MainMenu.scss. */
+	.main-menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 9998;
+		width: 100%;
+		padding: 0.75rem 1rem;
+		background-color: var(--background);
+		color: var(--foreground);
+		border-bottom: 1px solid var(--border);
+		backdrop-filter: blur(12px);
+	}
+
+	.main-menu nav {
+		max-width: none;
+	}
+
+	.main-menu .menu-root {
+		width: 100%;
+		display: block;
+	}
+
+	.main-menu .menu-flex {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		justify-content: space-between;
+	}
+
+	.main-menu .menu-left {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex: 0 0 auto;
+	}
+
+	.main-menu .menu-right {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-left: auto;
+		justify-content: flex-end;
+		flex-wrap: nowrap;
+	}
+
+	.main-menu .menu-right li {
+		border-bottom: 3px solid transparent;
+		transition: border-color 0.15s ease;
+	}
+
+	.main-menu .menu-right li.highlight {
+		border-bottom-color: var(--hero-title-color);
+	}
+
+	.main-menu .menu-right li.highlight > a {
+		color: var(--hero-title-color);
+		font-weight: 600;
+	}
+
+	.main-menu .menu-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-left: 0.75rem;
+	}
+
+	.main-menu .nav-title {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		font-size: var(--nav-title-size);
+		color: var(--foreground);
+		white-space: nowrap;
+	}
+
+	.main-menu .nav-title-icon {
+		width: 1.05em;
+		height: 1.05em;
+		flex: 0 0 auto;
+	}
+
+	.main-menu .nav-link {
+		font-size: var(--nav-link-size);
+		color: var(--muted-foreground);
+		transition: color 0.15s ease;
+	}
+
+	.main-menu .nav-link:hover {
+		color: var(--foreground);
+	}
+
+	.main-menu .icon-button {
+		padding: 0;
+		border-radius: 9999px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+	}
+
+	.main-menu .icon-button svg {
+		width: 1.25rem;
+		height: 1.25rem;
+		display: block;
+		stroke: currentColor;
+		fill: none;
+	}
+
+	.main-menu .menu-toggle-button {
+		padding: 0.35rem;
+		border-radius: 9999px;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		display: none;
+	}
+
+	.main-menu .menu-toggle-button svg {
+		width: 1.5rem;
+		height: 1.5rem;
+		stroke: currentColor;
+		fill: none;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		display: block;
+	}
+
+	.main-menu .menu-toggle-button:hover {
+		background-color: color-mix(in oklab, var(--foreground) 6%, transparent);
+	}
+
+	.main-menu .mobile-menu {
+		border-top: 1px solid var(--border);
+		background-color: var(--background);
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.25s ease;
+	}
+
+	.main-menu .mobile-menu .mobile-menu-list {
+		list-style: none;
+		margin: 0;
+		padding: 0.35rem 0;
+	}
+
+	.main-menu .mobile-menu .mobile-menu-list li {
+		border-bottom: 1px solid color-mix(in oklab, var(--foreground) 6%, transparent);
+		padding-left: 12px;
+	}
+
+	.main-menu .mobile-menu .mobile-menu-list li:last-child {
+		border-bottom: none;
+	}
+
+	.main-menu .mobile-menu .mobile-menu-list li.highlight > a {
+		color: var(--hero-title-color);
+		font-weight: 600;
+	}
+
+	.main-menu .mobile-menu .mobile-menu-list li.highlight {
+		border-left: 2px solid var(--hero-title-color);
+	}
+
+	.main-menu .mobile-menu .nav-link-mobile {
+		display: block;
+		padding: 0.5rem 0;
+		font-size: var(--nav-link-size);
+		color: var(--muted-foreground);
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+
+	.main-menu .mobile-menu .nav-link-mobile:hover {
+		color: var(--foreground);
+	}
+
+	.main-menu .mobile-menu.open {
+		max-height: 500px;
+	}
+
+	.dark .main-menu .menu-right li.highlight > a,
+	.dark .main-menu .mobile-menu .mobile-menu-list li.highlight > a {
+		color: var(--hero-title-color);
+	}
+
+	.dark .main-menu .mobile-menu .mobile-menu-list li.highlight {
+		border-left-color: var(--hero-title-color);
+	}
+
+	@media (max-width: 1199.98px) {
+		.main-menu nav {
+			max-width: none;
+		}
+
+		.main-menu .menu-right {
+			display: none;
+		}
+
+		.main-menu .menu-actions {
+			margin-left: auto;
+		}
+
+		.main-menu .menu-toggle-button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.main-menu .mobile-menu {
+			display: block;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.main-menu nav {
+			max-width: none;
+		}
+
+		.main-menu .menu-right {
+			display: flex;
+		}
+
+		.main-menu .menu-toggle-button {
+			display: none !important;
+		}
+
+		.main-menu .mobile-menu {
+			display: none !important;
+		}
+	}
+
+	@media (min-width: 1200px) and (max-width: 1399.98px) {
+		.main-menu .menu-right .nav-link {
+			font-size: calc(var(--nav-link-size) * 0.8);
+		}
+	}
+
 	/* Shared legacy help-row layout; keep local overrides in component styles when needed. */
 	.help {
 		@apply w-full flex flex-row items-center gap-2;
