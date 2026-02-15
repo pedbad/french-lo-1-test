@@ -608,14 +608,15 @@
 	.main-menu .menu-root {
 		width: 100%;
 		display: block;
+		max-width: none;
 	}
 
 	.main-menu .menu-flex {
 		width: 100%;
-		display: flex;
+		display: grid;
+		grid-template-columns: auto 1fr auto;
 		align-items: center;
 		gap: 0.75rem;
-		justify-content: space-between;
 	}
 
 	.main-menu .menu-left {
@@ -623,15 +624,20 @@
 		align-items: center;
 		gap: 1rem;
 		flex: 0 0 auto;
+		justify-self: start;
 	}
 
 	.main-menu .menu-right {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		margin-left: auto;
-		justify-content: flex-end;
+		justify-content: center;
 		flex-wrap: nowrap;
+		justify-self: stretch;
+		flex: 0 0 auto;
+		margin: 0;
+		padding: 0 0.75rem;
+		min-width: 0;
 	}
 
 	.main-menu .menu-right li {
@@ -652,7 +658,8 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		margin-left: 0.75rem;
+		margin-left: 0;
+		justify-self: end;
 	}
 
 	.main-menu .nav-title {
@@ -784,12 +791,16 @@
 			max-width: none;
 		}
 
+		.main-menu .menu-flex {
+			grid-template-columns: 1fr auto;
+		}
+
 		.main-menu .menu-right {
-			display: none;
+			display: none !important;
 		}
 
 		.main-menu .menu-actions {
-			margin-left: auto;
+			margin-left: 0;
 		}
 
 		.main-menu .menu-toggle-button {
@@ -809,7 +820,7 @@
 		}
 
 		.main-menu .menu-right {
-			display: flex;
+			display: flex !important;
 		}
 
 		.main-menu .menu-toggle-button {
