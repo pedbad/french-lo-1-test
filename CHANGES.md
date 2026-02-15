@@ -845,6 +845,14 @@ Why this was important:
   - removed legacy `ref` handoff for that pilot path (function component wrapper is refless by design).
 - Why: validates the incremental migration strategy on a low-risk path before expanding wrapper adoption to higher-traffic accordion branches.
 
+## 88) Debug Accordion Visual Parity Tuning (Chevron + Hover/Open Skin)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`:
+  - moved chevron to the left of heading text and increased icon size/contrast for clearer affordance.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`:
+  - applied main-app style parity for accordion trigger hover/open states using `--accordion-mist` and `--accordion-hover-text`.
+  - added slower color/shadow transitions (`duration-700`) to match the app’s intentional interaction feel.
+- Why: improves clarity and consistency while keeping these visual tweaks scoped to the debug migration surface.
+
 
 # Files Deleted (partial but comprehensive)
 

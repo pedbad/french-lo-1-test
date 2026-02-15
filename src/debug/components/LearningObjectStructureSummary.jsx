@@ -270,7 +270,9 @@ export function LearningObjectStructureSummary({ appHrefBase, languageCode = 'fr
 								type="single"
 							>
 								<AccordionItem className="border-none" value={`${summary.file}-structure`}>
-									<AccordionTrigger className="text-base font-semibold min-[1180px]:text-lg hover:no-underline">
+									<AccordionTrigger
+										className="rounded-md px-2 text-base font-semibold min-[1180px]:text-lg transition-[background-color,color,box-shadow] duration-700 ease-in-out hover:no-underline hover:bg-[var(--accordion-mist)] hover:text-[var(--accordion-hover-text)] hover:shadow-[0_8px_18px_color-mix(in_oklab,var(--foreground)_10%,transparent)] data-[state=open]:bg-[var(--accordion-mist)] data-[state=open]:text-[var(--accordion-hover-text)] data-[state=open]:shadow-[0_8px_18px_color-mix(in_oklab,var(--foreground)_10%,transparent)]"
+									>
 										{`Structure: ${summary.sections.length} section${summary.sections.length === 1 ? '' : 's'}`}
 									</AccordionTrigger>
 									<AccordionContent>
