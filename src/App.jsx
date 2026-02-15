@@ -321,7 +321,6 @@ export default class App extends React.Component {
 						})
 					);
 				}
-				anchor.setAttribute('title', 'Click to find out more');
 			}
 			anchor.setup = true;
 		});
