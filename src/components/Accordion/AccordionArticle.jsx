@@ -178,7 +178,7 @@ export class AccordionArticle extends React.PureComponent {
 								strokeWidth="2"
 								strokeLinecap="round"
 								strokeLinejoin="round"
-								className="arrow lucide lucide-chevron-down h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
+								className="arrow accordion-chevron"
 							>
 								<path d="m6 9 6 6 6-6"></path>
 							</svg>

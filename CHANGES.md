@@ -915,6 +915,17 @@ Why this was important:
   - applied this to normal, hover, expanded, and mobile typography selectors.
 - Why: migrated accordion sections (for example dialogues) were no longer matching direct-child legacy selectors, causing style drift versus non-migrated sections.
 
+## 95) Accordion Chevron Single Source of Truth (App + Debug)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - introduced shared `.accordion-chevron` style for icon size, shrink behavior, color inheritance, and transform transition.
+  - removed legacy hardcoded arrow width/height and side margins that were forcing app chevrons smaller than debug chevrons.
+  - aligned app trigger spacing (`gap`) with debug accordion trigger spacing for visual consistency.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`:
+  - switched debug accordion chevron to the shared `.accordion-chevron` class.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx` and `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
+  - switched app accordion chevrons to use the same shared class.
+- Why: keeps chevron styling in one place so debug and production accordions stay visually identical during and after migration.
+
 
 # Files Deleted (partial but comprehensive)
 

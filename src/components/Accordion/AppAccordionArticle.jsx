@@ -163,7 +163,7 @@ export function AppAccordionArticle({
 								>
 									<svg
 										aria-hidden="true"
-										className="arrow lucide lucide-chevron-down h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
+										className="arrow accordion-chevron"
 										fill="none"
 										height="24"
 										stroke="currentColor"
