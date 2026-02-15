@@ -72,14 +72,14 @@ body
 Key observations:
 1. Primary navigation landmark duplication has been resolved (one semantic nav landmark for the shared IA).
 2. Hero heading-order issue has been resolved (hero title is non-heading text; page title remains the `h1` inside `main`).
-3. Hero currently still sits outside `main`, even though it is page content for the LO.
+3. Hero remains outside `main` intentionally, classified as decorative page chrome in this app.
 
 ## Why This Is A Problem
 1. `#accordion1` is a misleading top-level name.
 2. It is not a single accordion item; it is the thematic container for all major sections.
 3. Top-level thematic blocks are currently `div.section` instead of semantic `section`.
 4. Section header content (title + instructions) is not consistently represented as semantic section headers.
-5. Hero content outside `main` weakens landmark-based content scoping for assistive navigation.
+5. Hero placement is no longer treated as a semantic defect in this project because hero content is intentionally decorative.
 
 ## Does Your Target Make Sense?
 Yes. It is cleaner and more semantic.
@@ -175,7 +175,7 @@ Notes:
 3. Leaf accordion panels should be `article`; grouping wrappers remain `section`.
 4. Section intro/instructions text belongs in the section header with the section title, not as detached content.
 5. "Single nav landmark" means one semantic primary `<nav>` for this IA. Responsive mobile behavior still exists; only the mobile container should be non-`nav` (or a labeled region) to avoid duplicate landmarks for the same menu.
-6. Hero should be treated as page content in `main`; avoid placing a hero `h2` before page `h1`.
+6. Hero is intentionally treated as decorative page chrome and stays outside `main`; keep hero text non-heading and image decorative.
 
 ## Recommended Full DOM Tree (Target)
 

@@ -4,7 +4,7 @@ Last updated: 2026-02-15
 Repo: `/Users/ped/Sites/french/french-lo-1-test`
 
 ## Structure Checks
-- [ ] Exactly one `<main>` in page content.
+- [x] Exactly one `<main>` in page content.
 - [ ] Legacy top-level wrapper `<div id="accordion1" class="accordion">` no longer exists.
 - [ ] Top-level thematic sections exist as real `<section>` elements with IDs:
   - `dialogues`
@@ -18,19 +18,19 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 - [ ] Each top-level section has a semantic `<header>` that contains:
   - section `h2`
   - section intro/instructions block
-- [ ] Leaf accordion panels are `<article>` (or justified as `<section>` if not standalone).
+- [x] Leaf accordion panels are `<article>` (or justified as `<section>` if not standalone).
 
 ## Navigation Checks
-- [ ] Exactly one primary nav landmark exists for the main IA.
-- [ ] Mobile menu remains responsive without introducing a second primary `<nav>` for the same links.
+- [x] Exactly one primary nav landmark exists for the main IA.
+- [x] Mobile menu remains responsive without introducing a second primary `<nav>` for the same links.
 - [ ] Top nav links scroll to the correct top-level section.
 - [ ] Scroll spy/highlight still updates correctly while scrolling.
 - [ ] Mobile menu links behave exactly like desktop links.
 - [ ] `#modal-link-*` backward compatibility (if retained during rollout) still works.
 
 ## Hero + Heading Checks
-- [ ] Hero content is in semantic page-content flow (prefer `main > section#introduction`).
-- [ ] No hero `h2` appears before the page `h1`.
+- [x] Hero is explicitly treated as decorative page chrome and is intentionally outside `main`.
+- [x] No hero `h2` appears before the page `h1`.
 - [ ] Intro section heading/instructions are grouped in a semantic section header.
 
 ## Accordion Behavior Checks
@@ -59,6 +59,6 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 - [ ] No mobile layout regressions.
 
 ## Build/Quality Gates
-- [ ] `yarn build` passes.
+- [x] `yarn build` passes.
 - [ ] `yarn prepush:local` passes.
 - [ ] W3C validator run on preview HTML shows no new semantic/structure errors.

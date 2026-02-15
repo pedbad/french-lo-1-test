@@ -1038,6 +1038,21 @@ Why this was important:
 - Why:
   - clearer component naming and improved semantic HTML alignment for accordion content units.
 
+## 104) Hero Semantics Contract Lock + Checklist Drift Fix
+- Updated semantic DOM trackers to remove drift and lock final hero behavior:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+- Updated project docs to align with the same contract:
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Locked decision:
+  - hero remains outside `main` intentionally as decorative page chrome.
+  - hero text remains non-heading (`p.hero-title`) and hero image remains decorative (`alt=""`, `aria-hidden="true"`).
+- Why:
+  - avoids semantic-outline drift (`h2` before page `h1`) without forcing decorative page chrome into core content landmarks.
+  - keeps accessibility/structure documentation consistent with actual implementation.
+
 
 # Files Deleted (partial but comprehensive)
 

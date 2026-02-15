@@ -276,7 +276,7 @@ DOM semantics contract (current migration target):
 - one primary nav landmark for the main IA (`header > nav`), while preserving responsive behavior
 - mobile dropdown remains responsive but should not be a second primary `nav` for the same links (use a region/container)
 - avoid heading-order inversion (`h2` before page `h1`)
-- hero/intro content should be in semantic page-content flow under `main` (prefer `section#introduction`)
+- hero is intentionally decorative page chrome outside `main` in this app; keep hero text non-heading and hero image decorative (`alt=""`, `aria-hidden="true"`)
 - top-level learning areas under `main` should be semantic `section` landmarks (`dialogues`, `vocabulary`, `grammar`, `pronunciation`, `exercises`)
 
 Recommended before push:

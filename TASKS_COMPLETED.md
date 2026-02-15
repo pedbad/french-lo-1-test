@@ -154,7 +154,7 @@ Progress:
 - [x] Sync DOM semantics docs with top-of-page contracts (no drift):
   - documented current page-top structure (`header/nav/hero/main`) and why duplicate nav landmarks are problematic for the same IA
   - documented responsive-safe rule: keep one primary nav landmark, keep mobile UX via non-nav mobile region/container
-  - documented hero semantics rule: no hero `h2` before page `h1`, and keep hero/intro in semantic page-content flow under `main`
+  - documented hero semantics rule: no hero `h2` before page `h1`, and classify hero as decorative page chrome (outside `main`) for this app
   - mirrored these contracts in `README.md` and `CHANGES.md`
 - [x] Complete phase 1.5 accessibility-first nav pass before major DOM refactor:
   - converted mobile menu wrapper from second `nav` landmark to a labeled region container in `src/components/MainMenu/MainMenu.jsx`
@@ -165,6 +165,9 @@ Progress:
   - marked hero banner image as decorative (`alt=""` + `aria-hidden="true"`) because title text is already rendered in adjacent text
 - [x] Restore hero title visual parity after heading semantic fix:
   - explicitly set `#hero .hero-title` to `"Feijoa Bold"` + `font-weight: 700` in `src/index.css` so typography matches previous visual styling while keeping semantic `<p>` markup
+- [x] Resolve DOM checklist drift for hero semantics:
+  - locked decision: hero is decorative page chrome and intentionally remains outside `main`
+  - updated `DOM_SEMANTIC_AUDIT.md`, `DOM_SEMANTIC_TODO.md`, and `DOM_SEMANTIC_CHECKLIST.md` to reflect this explicitly
 
 ## CI / Guardrails
 

@@ -24,7 +24,8 @@ Why this must change:
 3. It prevents clean semantic landmarks under `<main>`.
 
 Current page-top semantic risks:
-1. Hero content currently sits outside `main`.
+1. No unresolved hero-heading or nav-landmark issues in phase 1.5.
+2. Hero remains outside `main` by design because it is decorative page chrome (not core instructional content).
 
 ## Phase 0: Contracts Lock
 - [ ] Confirm final top-level section IDs:
@@ -65,10 +66,12 @@ Current page-top semantic risks:
 - [x] Improve mobile-menu accessibility wiring:
   - add `aria-controls` on the mobile menu toggle.
   - support `Escape` key to close the mobile menu panel.
-- [ ] Move hero into semantic page-content flow under `main` (intro section), or make hero decorative if kept outside content.
+- [x] Classify hero semantics explicitly:
+  - keep hero outside `main` as decorative page chrome for this app.
+  - keep hero non-heading text + decorative image semantics (`p.hero-title`, `alt=""`, `aria-hidden="true"`).
 - [x] Enforce heading order:
   - replaced hero `<h2>` with non-heading text in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` so no heading appears before page `<h1>`.
-- [ ] Keep nav/scroll behavior unchanged for users while semantics improve.
+- [x] Keep nav/scroll behavior unchanged for users while semantics improve.
 
 ## Phase 2: Nav + Scroll Compatibility
 - [ ] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx` to support section-ID targeting.
