@@ -181,6 +181,10 @@ Progress:
   - nav highlight activation now resolves semantic heading anchors first (`${sectionId}-heading`) for more accurate section detection
   - reduced scroll overshoot/undershoot by replacing legacy large offset fudge with tight fixed-menu offset in `scrollToElement`
   - nav scroll mode now targets section heading anchors first, then section IDs (for tighter section alignment)
+- [x] Enforce top-of-page reset on browser refresh/load:
+  - added explicit `history.scrollRestoration = "manual"` + immediate `scrollTo(0,0)` in `App.componentDidMount`
+  - clarified contract: persist accordion open/closed state only; do not persist/restore page scroll position
+  - removed obsolete global scroll tracking writes from `MainMenu` (`window.__lastKnownScrollPosition`)
 
 ## CI / Guardrails
 

@@ -129,6 +129,18 @@ export default class App extends React.Component {
 	};
 
 	componentDidMount = () => {
+		// Always start at the top on hard refresh/navigation load.
+		// We intentionally persist accordion open/closed state only, not page scroll position.
+		if (typeof window !== "undefined") {
+			if ("scrollRestoration" in window.history) {
+				window.history.scrollRestoration = "manual";
+			}
+			window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+			window.requestAnimationFrame(() => {
+				window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+			});
+		}
+
 		const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
 

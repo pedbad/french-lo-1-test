@@ -1102,6 +1102,21 @@ Why this was important:
   - fixes initial incorrect menu highlight state on first load.
   - improves scroll landing accuracy so target sections align cleanly under the fixed nav without leftover content from the previous section.
 
+## 107) Disable Scroll Restoration On Refresh (Top-of-Page Contract)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - added explicit refresh/load scroll reset in `componentDidMount`:
+    - `history.scrollRestoration = "manual"`
+    - immediate `scrollTo(0,0)` plus one `requestAnimationFrame` follow-up `scrollTo(0,0)`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+  - removed obsolete global scroll-position tracking writes (`window.__lastKnownScrollPosition`).
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+  - documented contract clearly: only accordion open/closed state persists; page scroll position must not persist across refresh.
+- Validation:
+  - `yarn build` passes.
+- Why:
+  - browser native scroll restoration caused refresh to reopen mid-page context, conflicting with expected “start at top” behavior.
+  - this keeps refresh behavior deterministic while preserving useful session persistence for accordion state.
+
 
 # Files Deleted (partial but comprehensive)
 

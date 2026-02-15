@@ -18,7 +18,6 @@ export class MainMenu extends React.Component {
 		};
 		this.mobileMenuPanelId = "main-navigation-mobile-panel";
 		this.pendingNavTarget = null;
-		window.__lastKnownScrollPosition = 0;
 	}
 
 	componentDidMount = () => {
@@ -100,8 +99,6 @@ export class MainMenu extends React.Component {
 		let running = false;
 
 		this.scrollHandler = () => {
-			window.__lastKnownScrollPosition = window.scrollY;
-
 			if (running) return;
 			running = true;
 
