@@ -1,33 +1,52 @@
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from 'react';
 
+const VISIBILITY_OFFSET = 120;
+
+const getScrollTop = () => {
+	const scrollingElement = document.scrollingElement || document.documentElement;
+	return Math.max(window.scrollY || 0, scrollingElement ? scrollingElement.scrollTop : 0);
+};
+
 export function TopButton() {
 	const [showButton, setShowButton] = useState(false);
 
 	useEffect(() => {
 		const topAnchor = document.querySelector("main h1, h1");
+		let observer = null;
+		const updateVisibility = () => {
+			const scrollTop = getScrollTop();
+			const anchorBottom = topAnchor ? topAnchor.getBoundingClientRect().bottom : Number.POSITIVE_INFINITY;
+			setShowButton(scrollTop > VISIBILITY_OFFSET || anchorBottom < 0);
+		};
 
-		if (!topAnchor || !("IntersectionObserver" in window)) {
-			const updateFromScroll = () => setShowButton(window.scrollY > 120);
-			updateFromScroll();
-			window.addEventListener("scroll", updateFromScroll, { passive: true });
-			return () => window.removeEventListener("scroll", updateFromScroll);
+		updateVisibility();
+
+		if (topAnchor && "IntersectionObserver" in window) {
+			observer = new IntersectionObserver(
+				([entry]) => {
+					const scrollTop = getScrollTop();
+					setShowButton(scrollTop > VISIBILITY_OFFSET || !entry.isIntersecting);
+				},
+				{
+					root: null,
+					threshold: 0,
+					rootMargin: `-${VISIBILITY_OFFSET}px 0px 0px 0px`,
+				}
+			);
+			observer.observe(topAnchor);
 		}
 
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				// Show button once top sentinel has moved out of view.
-				setShowButton(!entry.isIntersecting);
-			},
-			{
-				root: null,
-				threshold: 0,
-				rootMargin: "-96px 0px 0px 0px",
-			}
-		);
+		window.addEventListener("scroll", updateVisibility, { passive: true });
+		window.addEventListener("resize", updateVisibility);
+		document.addEventListener("scroll", updateVisibility, true);
 
-		observer.observe(topAnchor);
-		return () => observer.disconnect();
+		return () => {
+			if (observer) observer.disconnect();
+			window.removeEventListener("scroll", updateVisibility);
+			window.removeEventListener("resize", updateVisibility);
+			document.removeEventListener("scroll", updateVisibility, true);
+		};
 	}, []);
 
 	return (
