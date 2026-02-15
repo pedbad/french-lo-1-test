@@ -188,13 +188,14 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/Jigsaw/Jigsaw.scss` (deleted; jigsaw board/target geometry and responsive scale selectors migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/AudioClip/AudioClip.scss` (deleted; audio control/link/progress/speaker animation selectors and root sizing tokens migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/Footer/Footer.scss` (deleted; footer layout/logo visibility/social-link skins and breakpoint behavior migrated to layered global CSS in `src/index.css`, preserving dark-mode social variants)
+    - [x] `src/components/Form/RadioC/RadioC.scss` (deleted; radio input visuals/layout migrated to tokenized utility classes in `src/components/Form/RadioC/RadioC.jsx`)
     - [x] debug/sample scaffolding removed from `src/App.jsx` (`#fontSamples`, in-app `LearningObjectMenu`) and moved to dev-only sandbox (`debug-sandbox.html`, `src/debug/DebugSandbox.jsx`) so production HTML stays clean for validation
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 16 (from 54)
-    - SCSS imports in JSX/JS: 14 (from 53)
+    - SCSS files in `src`: 15 (from 54)
+    - SCSS imports in JSX/JS: 13 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
