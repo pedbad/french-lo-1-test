@@ -352,8 +352,9 @@ Why it is feasible here:
 - Intro section layout in `src/App.jsx`: replace `intro-layout` and `intro-secondary` layout rules with responsive Tailwind classes.
 - New or refactored layout wrappers should default to Tailwind for flex/grid and breakpoints.
 - Migrate the custom accordion (`src/components/Accordion/*`) to shadcn/Radix Accordion; execution is tracked in `ACCORDION_CHANGES_TODO.md` with a debug-first rollout before main-app migration.
-  - current status: debug migration and main-app cutover are complete via `src/components/Accordion/AppAccordionArticle.jsx`.
-  - legacy app accordion files (`src/components/Accordion/Accordion.jsx` and `src/components/Accordion/AccordionArticle.jsx`) were removed, and dead pathways (`window.refs`, `expandAllAccordions`, stale `expandNow`) were deleted.
+  - current status: debug migration and main-app cutover are complete via `src/components/Accordion/AccordionArticle.jsx`.
+  - legacy app accordion container (`src/components/Accordion/Accordion.jsx`) was removed, and dead pathways (`window.refs`, `expandAllAccordions`, stale `expandNow`) were deleted.
+  - naming cleanup: wrapper was renamed from `AppAccordionArticle` to `AccordionArticle`; root semantic tag is now `<article>`.
 - Special anchors currently wait ~500 ms before scrolling so accordion panels can expand; smoothing that interaction (without the lag) remains a TODO.
 
 ### Additional guidance (agreed)

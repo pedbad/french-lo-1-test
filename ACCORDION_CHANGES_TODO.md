@@ -81,7 +81,7 @@ Acceptance checks:
 
 ## Phase 3: Build Main-App Compatibility Wrapper
 
-- [x] Create `AppAccordionArticle` wrapper using shadcn accordion internals.
+- [x] Create `AccordionArticle` wrapper using shadcn accordion internals.
 - [x] Map old props to new internals:
   - `id`
   - `target`
@@ -104,13 +104,13 @@ Acceptance checks:
 
 - [x] Replace current custom `AccordionArticle` usage in `App.jsx` with wrapper.
 - [x] Start with one low-risk pilot path in `App.jsx`:
-  - `AnswerTable` branch now uses `AppAccordionArticle`.
+  - `AnswerTable` branch now uses `AccordionArticle`.
 - [x] Expand pilot to high-visibility content path:
-  - expandable `PhraseTable` branch now uses `AppAccordionArticle`.
+  - expandable `PhraseTable` branch now uses `AccordionArticle`.
 - [x] Expand pilot to exercise-heavy paths:
-  - `Blanks` and `WordParts` branches now use `AppAccordionArticle`.
+  - `Blanks` and `WordParts` branches now use `AccordionArticle`.
 - [x] Expand pilot to additional interactive content paths:
-  - `DropDowns`, `Monologue`, and `RadioQuiz` branches now use `AppAccordionArticle`.
+  - `DropDowns`, `Monologue`, and `RadioQuiz` branches now use `AccordionArticle`.
 - [x] Migrate by groups to reduce risk:
   - Group A: static text/content sections
   - Group B: phrase/explanation sections
@@ -129,11 +129,11 @@ Acceptance checks:
 
 - [x] Remove obsolete custom accordion files:
   - removed `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
-  - removed `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+  - removed legacy class-toggle `AccordionArticle` implementation (replaced by current Radix wrapper at the same canonical path)
 - [x] Remove dead paths:
   - removed `window.refs` write pattern in `App.jsx`
   - removed `expandAllAccordions` class toggling logic
-  - removed stale `expandNow` pathway from `AppAccordionArticle`
+  - removed stale `expandNow` pathway from `AccordionArticle`
 - [x] Update docs:
   - README
   - CHANGES

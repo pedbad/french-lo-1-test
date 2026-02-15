@@ -54,7 +54,7 @@ const renderSplitTitle = (rawTitle) => {
 	);
 };
 
-export function AppAccordionArticle({
+export function AccordionArticle({
 	children,
 	className,
 	config,
@@ -123,7 +123,7 @@ export function AppAccordionArticle({
 		: children;
 
 	return (
-		<section
+		<article
 			aria-labelledby={headingId}
 			className={`accordion-article ${expanded ? "expanded" : ""} ${className || ""}`}
 			data-state={expanded ? "open" : "closed"}
@@ -205,6 +205,6 @@ export function AppAccordionArticle({
 					</AccordionPrimitive.Content>
 				</AccordionPrimitive.Item>
 			</AccordionPrimitive.Root>
-		</section>
+		</article>
 	);
 }

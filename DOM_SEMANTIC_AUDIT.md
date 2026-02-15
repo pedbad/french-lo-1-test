@@ -24,8 +24,8 @@ Inside each top-level section, accordion items should be semantic content units 
 2. Top-level LO blocks are currently rendered through `Section`/`HeroSection`, but these wrappers are `<div className="section">`, not `<section>`.
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`
-3. Accordion item wrapper currently renders as `<section class="accordion-article">`.
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+3. Accordion item wrapper currently renders as `<article class="accordion-article">`.
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
 4. Navigation currently targets heading IDs (`#modal-link-*`), not top-level section IDs.
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`
 

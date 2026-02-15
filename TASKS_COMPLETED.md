@@ -133,19 +133,20 @@ Progress:
 - [x] Add shadcn accordion primitive in `src/components/ui/accordion.jsx`.
 - [x] Migrate debug accordion UI first (approved plan).
 - [x] Add main-app compatibility wrapper scaffold:
-  - `src/components/Accordion/AppAccordionArticle.jsx` (Radix-based internals preserving current prop/data contracts)
+  - `src/components/Accordion/AccordionArticle.jsx` (Radix-based internals preserving current prop/data contracts)
 - [x] Begin incremental main-app adoption:
-  - `src/App.jsx` uses `AppAccordionArticle` for `AnswerTable` branch as a pilot migration path.
-  - `src/App.jsx` uses `AppAccordionArticle` for expandable `PhraseTable` branch as the next pilot expansion.
-  - `src/App.jsx` uses `AppAccordionArticle` for `Blanks` and `WordParts` branches as the first exercise-heavy expansion.
-  - `src/App.jsx` uses `AppAccordionArticle` for `DropDowns`, `Monologue`, and `RadioQuiz` as the next interactive-content expansion.
+  - `src/App.jsx` uses `AccordionArticle` for `AnswerTable` branch as a pilot migration path.
+  - `src/App.jsx` uses `AccordionArticle` for expandable `PhraseTable` branch as the next pilot expansion.
+  - `src/App.jsx` uses `AccordionArticle` for `Blanks` and `WordParts` branches as the first exercise-heavy expansion.
+  - `src/App.jsx` uses `AccordionArticle` for `DropDowns`, `Monologue`, and `RadioQuiz` as the next interactive-content expansion.
 - [x] Complete main app accordion path migration:
-  - all expandable branches in `src/App.jsx` now use `AppAccordionArticle`.
+  - all expandable branches in `src/App.jsx` now use `AccordionArticle`.
 - [x] Remove obsolete custom accordion/dead pathways after cutover:
   - deleted `src/components/Accordion/Accordion.jsx`
-  - deleted `src/components/Accordion/AccordionArticle.jsx`
   - removed `window.refs` + `expandAllAccordions` from `src/App.jsx`
-  - removed stale `expandNow` path from `src/components/Accordion/AppAccordionArticle.jsx`
+  - removed stale `expandNow` path from `src/components/Accordion/AccordionArticle.jsx`
+  - renamed `AppAccordionArticle` -> `AccordionArticle` and updated all usages in `src/App.jsx`
+  - `AccordionArticle` root semantic tag updated from `<section>` to `<article>`
 - [x] Add semantic DOM refactor planning docs (pre-implementation):
   - `DOM_SEMANTIC_AUDIT.md` (target structure + risk analysis)
   - `DOM_SEMANTIC_TODO.md` (phased migration plan)

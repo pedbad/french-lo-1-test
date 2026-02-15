@@ -1,5 +1,5 @@
 import {
-	AppAccordionArticle,
+	AccordionArticle,
 	AnswerTable,
 	AudioClip,
 	Blanks,
@@ -597,7 +597,7 @@ export default class App extends React.Component {
 
 	/**
 	 * renderComponentForTab
-	 * Returns "bare" content for a component (no AppAccordionArticle / Section wrapper)
+	 * Returns "bare" content for a component (no AccordionArticle / Section wrapper)
 	 * so that we can render it as a tab panel inside a Group.
 	*/
 	renderComponentForTab = (value) => {
@@ -976,7 +976,7 @@ export default class App extends React.Component {
 		switch (component) {
 				case "AnswerTable": {
 					articles.push(
-						<AppAccordionArticle
+						<AccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -989,13 +989,13 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AppAccordionArticle>
+						</AccordionArticle>
 					);
 					break;
 				}
 				case "Blanks": {
 					articles.push(
-						<AppAccordionArticle
+						<AccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1008,13 +1008,13 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AppAccordionArticle>
+						</AccordionArticle>
 					);
 					break;
 				}
 				case "DropDowns": {
 					articles.push(
-						<AppAccordionArticle
+						<AccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1027,14 +1027,14 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AppAccordionArticle>
+						</AccordionArticle>
 					);
 					break;
 				}
 			case "Explanation": {
 				if (expandable) {
 					articles.push(
-						<AppAccordionArticle
+						<AccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1047,7 +1047,7 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AppAccordionArticle>
+						</AccordionArticle>
 					);
 				} else {
 					articles.push(
@@ -1082,7 +1082,7 @@ export default class App extends React.Component {
 
 					if (expandable) {
 						articles.push(
-							<AppAccordionArticle
+							<AccordionArticle
 								config={value}
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
@@ -1096,7 +1096,7 @@ export default class App extends React.Component {
 									informationTextHTML={infoTextHTML}
 								/>
 								{renderedGroupContent}
-							</AppAccordionArticle>
+							</AccordionArticle>
 						);
 					} else {
 						const GroupSectionComponent = value.heroSection ? HeroSection : Section;
@@ -1148,7 +1148,7 @@ export default class App extends React.Component {
 
 					const outerWrapper = (inner) =>
 						expandable ? (
-							<AppAccordionArticle
+							<AccordionArticle
 								config={value}
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
@@ -1162,7 +1162,7 @@ export default class App extends React.Component {
 									informationTextHTML={infoTextHTML}
 								/>
 								{inner}
-							</AppAccordionArticle>
+							</AccordionArticle>
 						) : (
 							(() => {
 								const GroupSectionComponent = value.heroSection ? HeroSection : Section;
@@ -1222,7 +1222,7 @@ export default class App extends React.Component {
 			}
 			case "Jigsaw": {
 				articles.push(
-					<AppAccordionArticle
+					<AccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1235,13 +1235,13 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AppAccordionArticle>
+					</AccordionArticle>
 				);
 				break;
 			}
 			case "MemoryMatchGame": {
 				articles.push(
-					<AppAccordionArticle
+					<AccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1254,13 +1254,13 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AppAccordionArticle>
+					</AccordionArticle>
 				);
 				break;
 			}
 				case "Monologue": {
 					articles.push(
-						<AppAccordionArticle
+						<AccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1273,14 +1273,14 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AppAccordionArticle>
+						</AccordionArticle>
 					);
 					break;
 				}
 				case "PhraseTable": {
 					if (expandable) {
 						articles.push(
-							<AppAccordionArticle
+							<AccordionArticle
 								config={value}
 								id={`${compoundID}-Accordion`}
 								key={`${compoundID}-Accordion`}
@@ -1294,7 +1294,7 @@ export default class App extends React.Component {
 									showDialog={this.showDialog}
 									languageCode={languageCode}
 								/>
-							</AppAccordionArticle>
+							</AccordionArticle>
 						);
 					} else {
 					articles.push(
@@ -1319,7 +1319,7 @@ export default class App extends React.Component {
 			}
 				case "RadioQuiz": {
 					articles.push(
-						<AppAccordionArticle
+						<AccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1332,13 +1332,13 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AppAccordionArticle>
+						</AccordionArticle>
 					);
 					break;
 				}
 			case "ReadAloud": {
 				articles.push(
-					<AppAccordionArticle
+					<AccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1351,13 +1351,13 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AppAccordionArticle>
+					</AccordionArticle>
 				);
 				break;
 			}
 			case "SequenceOrder": {
 				articles.push(
-					<AppAccordionArticle
+					<AccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1370,7 +1370,7 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AppAccordionArticle>
+					</AccordionArticle>
 				);
 				break;
 			}
@@ -1399,7 +1399,7 @@ export default class App extends React.Component {
 			}
 			case "Sortable": {
 				articles.push(
-					<AppAccordionArticle
+					<AccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1412,13 +1412,13 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AppAccordionArticle>
+					</AccordionArticle>
 				);
 				break;
 			}
 			case "WordGrid": {
 				articles.push(
-					<AppAccordionArticle
+					<AccordionArticle
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1431,13 +1431,13 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AppAccordionArticle>
+					</AccordionArticle>
 				);
 				break;
 			}
 				case "WordParts": {
 					articles.push(
-						<AppAccordionArticle
+						<AccordionArticle
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1450,7 +1450,7 @@ export default class App extends React.Component {
 								logError={this.logError}
 								showDialog={this.showDialog}
 							/>
-						</AppAccordionArticle>
+						</AccordionArticle>
 					);
 					break;
 				}
@@ -1467,7 +1467,7 @@ export default class App extends React.Component {
 				if (CustomComponent) {
 					if (expandable) {
 						articles.push(
-							<AppAccordionArticle
+							<AccordionArticle
 								config={value}
 								id={`${compoundID}-Accordion`}
 								key={`${compoundID}-Accordion`}
@@ -1480,7 +1480,7 @@ export default class App extends React.Component {
 									informationTextHTML={infoTextHTML}
 								/>
 								<CustomComponent id={id} showDialog={this.showDialog} />
-							</AppAccordionArticle>
+							</AccordionArticle>
 						);
 					} else {
 						articles.push(

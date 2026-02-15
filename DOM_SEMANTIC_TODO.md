@@ -76,7 +76,7 @@ Current page-top semantic risks:
 - [ ] Verify highlight logic still marks active section correctly on scroll.
 
 ## Phase 3: Accordion Panel Semantics
-- [ ] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+- [x] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
   - render leaf items as `article`.
   - keep `.accordion-article` class stable.
 - [ ] Add a wrapper/group override so structural containers remain `section` where needed.

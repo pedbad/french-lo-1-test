@@ -1,1 +1,1 @@
-export * from './AppAccordionArticle';
+export * from './AccordionArticle';

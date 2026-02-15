@@ -1018,6 +1018,26 @@ Why this was important:
 - Why:
   - preserves intended design while maintaining corrected semantic heading structure.
 
+## 103) Accordion Wrapper Naming + Semantic Root Update
+- Updated app accordion wrapper naming:
+  - renamed component `AppAccordionArticle` -> `AccordionArticle`.
+  - updated imports/usages in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`.
+  - updated accordion barrel export in `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/index.js`.
+- Updated wrapper file path:
+  - moved `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+  - to `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`.
+- Updated semantic root element in wrapper:
+  - root changed from `<section>` to `<article>` while retaining `.accordion-article` class.
+- Synced docs/trackers to avoid drift:
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+- Why:
+  - clearer component naming and improved semantic HTML alignment for accordion content units.
+
 
 # Files Deleted (partial but comprehensive)
 

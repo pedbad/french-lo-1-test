@@ -9,18 +9,18 @@ Document why the current accordion implementation is a maintenance risk, where i
 ## Current State (What Exists Today)
 
 1. Main app accordion path now uses:
-   - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+   - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
    - wired globally from `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`
 2. Debug structure summary uses shadcn/Radix accordion:
    - `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
    - shared primitive in `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`
 3. Legacy custom accordion files were removed:
    - deleted `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
-   - deleted `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+   - deleted legacy class-toggle `AccordionArticle` implementation (replaced by current Radix wrapper at the same canonical path)
 4. Legacy dead paths were removed:
    - removed `window.refs` pattern in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`
    - removed `expandAllAccordions` class-toggle helper from `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`
-   - removed stale `expandNow` path from `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+   - removed stale `expandNow` path from `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
 
 ## Why This Is Architecture Drift
 
@@ -29,7 +29,7 @@ The project standard has moved to:
 - tokenized styling in `src/index.css`
 - predictable utility/component composition
 
-The major drift risk has been removed (no more legacy custom accordion model in production flow). The remaining architectural nuance is that app accordion behavior is handled in `AppAccordionArticle` while debug uses the shared `ui/accordion` wrapper directly.
+The major drift risk has been removed (no more legacy custom accordion model in production flow). The remaining architectural nuance is that app accordion behavior is handled in `AccordionArticle` while debug uses the shared `ui/accordion` wrapper directly.
 
 ## What The Custom Accordion Is Doing (Special Behavior To Preserve)
 
@@ -45,7 +45,7 @@ The major drift risk has been removed (no more legacy custom accordion model in 
 ## Problems and Risks
 
 ### 1) Residual wrapper split (app vs ui primitive)
-- App uses a compatibility wrapper (`AppAccordionArticle`) with direct Radix primitives.
+- App uses a compatibility wrapper (`AccordionArticle`) with direct Radix primitives.
 - Debug uses the shared shadcn-style wrapper (`src/components/ui/accordion.jsx`).
 - Cost: two implementation surfaces still exist, even though behavior is now aligned.
 
