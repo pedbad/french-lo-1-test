@@ -681,12 +681,12 @@ hr {
 		display: none;
 	}
 }
-.modal-link {
+#content .modal-link {
 	color: var(--ped-warn);
 	text-decoration-color: color-mix(in oklab, var(--ped-warn) 60%, transparent);
 	font-weight: 600;
 }
-.modal-link:visited {
+#content .modal-link:visited {
 	color: var(--ped-warn);
 	text-decoration-color: color-mix(in oklab, var(--ped-warn) 60%, transparent);
 }
