@@ -47,8 +47,8 @@ export function DebugSandbox() {
 					<p>Bodycopy, Hyperlinks Opensans Regular</p>
 					<figure className="mt-4">
 						<img
-							alt="BSC logo"
-							src="images/bsc_logo_flat.svg"
+							alt="eLearning logo"
+							src="favicon.svg"
 							style={{ width: '60px' }}
 						/>
 						<figcaption>Captions Opensans Regular</figcaption>
