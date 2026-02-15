@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 26
-- current SCSS imports in JSX/JS: 25
+- current SCSS files in `src`: 25
+- current SCSS imports in JSX/JS: 24
 
 These counts give us a measurable baseline for reduction.
 
@@ -166,6 +166,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - [x] `src/components/LearningObjectMenu/LearningObjectMenu.scss` (deleted; menu list/item/link styling moved to tokenized utilities in `LearningObjectMenu.jsx` with debug visibility rule preserved in `index.css`)
   - [x] `src/components/Image/Image.scss` (deleted; image-anchor sizing/alignment and max-width class selectors migrated to layered global CSS in `index.css`)
   - [x] `src/components/Figure/Figure.scss` (deleted; figure placement and caption layout selectors migrated to layered global CSS in `index.css`)
+  - [x] `src/components/Congratulate/Congratulate.scss` (deleted; modal mask/dialog/close-button selectors migrated to layered global CSS in `index.css`)
 - [ ] Validate each removal with:
   - `yarn build`
   - focused UI smoke check for touched components

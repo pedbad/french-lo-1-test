@@ -1,4 +1,3 @@
-import './Congratulate.scss';
 import React from 'react';
 
 const CONGRATULATE_TEXT_CLASS =

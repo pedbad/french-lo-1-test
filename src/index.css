@@ -535,6 +535,109 @@
 		}
 	}
 
+	/* Congratulate modal shell extracted from Congratulate.scss. */
+	.dialog-mask {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: color-mix(in oklab, var(--foreground) 25%, transparent);
+		z-index: 999;
+		display: none;
+	}
+
+	.dialog-mask.show {
+		display: block;
+		cursor: not-allowed;
+	}
+
+	.congratulate-dialog {
+		background-color: var(--card);
+		border-radius: 16px;
+		box-sizing: border-box;
+		display: flex;
+		height: fit-content;
+		inset: 0;
+		margin: auto;
+		min-height: 22vh;
+		justify-self: center;
+		opacity: 0;
+		padding: 32px;
+		position: fixed;
+		text-align: center;
+		transform-origin: center center;
+		transform: scale(0.01);
+		transition-duration: 1s;
+		transition-property: transform, opacity, box-shadow;
+		box-shadow: 0 0 0 rgb(0 0 0 / 10%);
+		width: fit-content;
+		z-index: 1000;
+	}
+
+	.congratulate-dialog.show {
+		justify-content: center;
+		align-items: center;
+		transform: scale(1);
+		opacity: 1;
+		transition-property: transform, opacity, box-shadow;
+	}
+
+	.congratulate-dialog button.close {
+		top: 10px;
+		right: 10px;
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		font-weight: bold;
+		color: transparent;
+		border: 4px outset var(--primary);
+		text-indent: -9999px;
+		border-radius: 8px;
+		z-index: 1001;
+		cursor: pointer;
+	}
+
+	.congratulate-dialog button.close::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		mask-image: url(/images/cross.svg);
+		mask-position: center center;
+		mask-repeat: no-repeat;
+		background-color: var(--primary);
+	}
+
+	.congratulate-dialog button.close:active::after {
+		margin-top: 1px;
+		margin-left: 1px;
+	}
+
+	.congratulate-dialog button.close:active {
+		border-style: inset;
+	}
+
+	@media (min-width: 768px) {
+		.congratulate-dialog {
+			margin: auto 10%;
+			padding: 2rem;
+		}
+
+		.congratulate-dialog button.close {
+			top: 20px;
+			right: 20px;
+		}
+	}
+
+	@media (min-width: 960px) {
+		.congratulate-dialog {
+			padding: 4rem;
+		}
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;
