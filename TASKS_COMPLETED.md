@@ -186,6 +186,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/ErrorLog/ErrorLog.scss` (deleted; error-log panel/header/button/table selectors and local icon masks migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/WordGrid/WordGrid.scss` (deleted; word-grid board/list/hint selectors migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/Jigsaw/Jigsaw.scss` (deleted; jigsaw board/target geometry and responsive scale selectors migrated to layered global CSS in `src/index.css`)
+    - [x] `src/components/Jigsaw/Piece/Piece.scss` (deleted; piece slot/mask/rotation/highlight styling migrated to layered global CSS in `src/index.css` with slot mapping now set in `src/components/Jigsaw/Piece/Piece.jsx`)
     - [x] `src/components/AudioClip/AudioClip.scss` (deleted; audio control/link/progress/speaker animation selectors and root sizing tokens migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/Footer/Footer.scss` (deleted; footer layout/logo visibility/social-link skins and breakpoint behavior migrated to layered global CSS in `src/index.css`, preserving dark-mode social variants)
     - [x] `src/components/Form/RadioC/RadioC.scss` (deleted; radio input visuals/layout migrated to tokenized utility classes in `src/components/Form/RadioC/RadioC.jsx`)
@@ -201,8 +202,8 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 8 (from 54)
-    - SCSS imports in JSX/JS: 5 (from 53)
+    - SCSS files in `src`: 7 (from 54)
+    - SCSS imports in JSX/JS: 3 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation

@@ -2186,6 +2186,227 @@
 		}
 	}
 
+	/* Jigsaw piece skin extracted from Piece.scss and normalized to slot classes. */
+	.show-hints .piece.highlight::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		inset: 0;
+		z-index: 14;
+		background: radial-gradient(circle, var(--chart-2) 0%, transparent 100%);
+	}
+
+	.show-hints .piece.wrong-set::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		inset: 0;
+		z-index: 14;
+		background: radial-gradient(circle, var(--destructive) 0%, transparent 100%);
+	}
+
+	.piece {
+		--piece-rotation: 0deg;
+		position: absolute;
+		width: 181px;
+		height: 181px;
+		box-sizing: content-box;
+		z-index: 10;
+		mask-repeat: no-repeat;
+		mask-size: auto;
+		mask-position: center center;
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-size: auto;
+		-webkit-mask-position: center center;
+		transform-origin: center center;
+		transform-style: preserve-3d;
+		transition-property: left, top, transform;
+		transition-duration: 1s;
+		transform: rotate(var(--piece-rotation));
+	}
+
+	.piece.correct-set {
+		background-color: var(--chart-2);
+	}
+
+	.piece:not(.correct-set) {
+		background-color: var(--destructive);
+	}
+
+	.piece.dragging {
+		z-index: 11;
+		transition-property: transform;
+		cursor: grab;
+		transform: rotate(0deg);
+	}
+
+	.piece.placed {
+		transition-property: left, top, transform;
+		transform: rotate(0deg);
+	}
+
+	.piece-slot-1 {
+		--piece-rotation: -13deg;
+		--piece-mask: url("./components/Jigsaw/images/fiof.png");
+		background-position: 0 0;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-2 {
+		--piece-rotation: 10deg;
+		--piece-mask: url("./components/Jigsaw/images/foio.png");
+		background-position: -119px 0;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-3 {
+		--piece-rotation: -6deg;
+		--piece-mask: url("./components/Jigsaw/images/fioi.png");
+		background-position: -238px 0;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-4 {
+		--piece-rotation: 14deg;
+		--piece-mask: url("./components/Jigsaw/images/fioo.png");
+		background-position: -357px 0;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-5 {
+		--piece-rotation: -3deg;
+		--piece-mask: url("./components/Jigsaw/images/ffio.png");
+		background-position: -476px 0;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-6 {
+		--piece-rotation: 12deg;
+		--piece-mask: url("./components/Jigsaw/images/ioof.png");
+		background-position: 0 -119px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-7 {
+		--piece-rotation: -11deg;
+		--piece-mask: url("./components/Jigsaw/images/oooi.png");
+		background-position: -119px -119px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-8 {
+		--piece-rotation: 7deg;
+		--piece-mask: url("./components/Jigsaw/images/ioii.png");
+		background-position: -238px -119px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-9 {
+		--piece-rotation: -9deg;
+		--piece-mask: url("./components/Jigsaw/images/iioi.png");
+		background-position: -357px -119px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-10 {
+		--piece-rotation: 5deg;
+		--piece-mask: url("./components/Jigsaw/images/ofio.png");
+		background-position: -476px -119px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-11 {
+		--piece-rotation: -4deg;
+		--piece-mask: url("./components/Jigsaw/images/ioof.png");
+		background-position: 0 -238px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-12 {
+		--piece-rotation: 13deg;
+		--piece-mask: url("./components/Jigsaw/images/ioii.png");
+		background-position: -119px -238px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-13 {
+		--piece-rotation: -8deg;
+		--piece-mask: url("./components/Jigsaw/images/oioi.png");
+		background-position: -238px -238px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-14 {
+		--piece-rotation: 9deg;
+		--piece-mask: url("./components/Jigsaw/images/iioo.png");
+		background-position: -357px -238px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-15 {
+		--piece-rotation: -2deg;
+		--piece-mask: url("./components/Jigsaw/images/ofio.png");
+		background-position: -476px -238px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-16 {
+		--piece-rotation: 11deg;
+		--piece-mask: url("./components/Jigsaw/images/iiff.png");
+		background-position: 0 -357px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-17 {
+		--piece-rotation: -12deg;
+		--piece-mask: url("./components/Jigsaw/images/oifo.png");
+		background-position: -119px -357px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-18 {
+		--piece-rotation: 6deg;
+		--piece-mask: url("./components/Jigsaw/images/iofo.png");
+		background-position: -238px -357px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-19 {
+		--piece-rotation: -10deg;
+		--piece-mask: url("./components/Jigsaw/images/iifi.png");
+		background-position: -357px -357px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
+	.piece-slot-20 {
+		--piece-rotation: 4deg;
+		--piece-mask: url("./components/Jigsaw/images/offo.png");
+		background-position: -476px -357px;
+		mask-image: var(--piece-mask);
+		-webkit-mask-image: var(--piece-mask);
+	}
+
 	/* Audio clip controls extracted from AudioClip.scss. */
 	.audio-clip {
 		display: flex;

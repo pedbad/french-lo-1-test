@@ -1,6 +1,7 @@
-import './Piece.scss';
 import React from 'react';
 import {resolveAsset} from '../../../utility';
+
+const PIECE_SLOT_COUNT = 20;
 
 export class Piece extends React.PureComponent {
 
@@ -21,6 +22,9 @@ export class Piece extends React.PureComponent {
 			y
 		} = this.props;
 
+		const normalizedIndex = ((index - 1) % PIECE_SLOT_COUNT) + 1;
+		const pieceSlotClass = `piece-slot-${normalizedIndex}`;
+
 		const styles = {};
 		if (x !== undefined) styles.left = `${x}px`;
 		if (y !== undefined) styles.top = `${y}px`;
@@ -34,7 +38,7 @@ export class Piece extends React.PureComponent {
 
 		return (
 			<div
-				className={`piece ${correctSet ? 'correct-set' : ''} ${className ? className : ''} ${index}`}
+				className={`piece ${pieceSlotClass} ${correctSet ? 'correct-set' : ''} ${className ? className : ''} ${index}`}
 				onMouseDown={handleMouseDown}
 				onMouseMove={handleMouseMove}
 				onMouseUp={handleMouseUp}
