@@ -1023,28 +1023,25 @@ export default class App extends React.Component {
 					);
 					break;
 				}
-			case "DropDowns": {
-				articles.push(
-					<AccordionArticle
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
-						target={id}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<DropDowns
+				case "DropDowns": {
+					articles.push(
+						<AppAccordionArticle
 							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>
-				);
-				break;
-			}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={id}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<DropDowns
+							config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AppAccordionArticle>
+					);
+					break;
+				}
 			case "Explanation": {
 				if (expandable) {
 					articles.push(
@@ -1287,28 +1284,25 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "Monologue": {
-				articles.push(
-					<AccordionArticle
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
-						target={id}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<Monologue
+				case "Monologue": {
+					articles.push(
+						<AppAccordionArticle
 							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>
-				);
-				break;
-			}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={id}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<Monologue
+							config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AppAccordionArticle>
+					);
+					break;
+				}
 				case "PhraseTable": {
 					if (expandable) {
 						articles.push(
@@ -1349,28 +1343,25 @@ export default class App extends React.Component {
 				}
 				break;
 			}
-			case "RadioQuiz": {
-				articles.push(
-					<AccordionArticle
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
-						target={id}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<RadioQuiz
+				case "RadioQuiz": {
+					articles.push(
+						<AppAccordionArticle
 							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>
-				);
-				break;
-			}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={id}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<RadioQuiz
+							config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AppAccordionArticle>
+					);
+					break;
+				}
 			case "ReadAloud": {
 				articles.push(
 					<AccordionArticle

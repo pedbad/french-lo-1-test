@@ -109,6 +109,8 @@ Acceptance checks:
   - expandable `PhraseTable` branch now uses `AppAccordionArticle`.
 - [x] Expand pilot to exercise-heavy paths:
   - `Blanks` and `WordParts` branches now use `AppAccordionArticle`.
+- [x] Expand pilot to additional interactive content paths:
+  - `DropDowns`, `Monologue`, and `RadioQuiz` branches now use `AppAccordionArticle`.
 - [ ] Migrate by groups to reduce risk:
   - Group A: static text/content sections
   - Group B: phrase/explanation sections

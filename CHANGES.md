@@ -875,6 +875,19 @@ Why this was important:
   - `/Users/ped/Sites/french/french-lo-1-test/README.md`
 - Why: extends the compatibility-wrapper rollout into exercise-heavy flows, reducing remaining legacy accordion surface while preserving behavior contracts.
 
+## 91) Accordion Incremental Adoption Batch 4 (`DropDowns` + `Monologue` + `RadioQuiz`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - migrated `DropDowns` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
+  - migrated `Monologue` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
+  - migrated `RadioQuiz` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
+  - removed legacy `ref` handoffs for these wrapper-driven branches.
+- Updated migration trackers:
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+- Why: continues batch-by-batch migration of interactive sections to the compatibility wrapper while preserving deep-link, info-suppression, and persisted-expansion contracts.
+
 
 # Files Deleted (partial but comprehensive)
 

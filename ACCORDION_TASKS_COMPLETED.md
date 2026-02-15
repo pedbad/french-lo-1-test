@@ -36,6 +36,8 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
   - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for expandable `PhraseTable` rendering.
 - [x] Expanded pilot wiring to exercise-heavy branches:
   - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for `Blanks` and `WordParts`.
+- [x] Expanded pilot wiring to additional interactive branches:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` now uses `AppAccordionArticle` for `DropDowns`, `Monologue`, and `RadioQuiz`.
 
 ## In Progress
 
