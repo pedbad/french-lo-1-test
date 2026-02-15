@@ -3,6 +3,11 @@ import React from 'react';
 const COLOR_PATTERN = /(oklch|rgb|hsl|#|color-mix|linear-gradient|radial-gradient|conic-gradient)/i;
 const CHANNEL_RGB_PATTERN = /^-?\d+(\.\d+)?\s+-?\d+(\.\d+)?\s+-?\d+(\.\d+)?$/;
 const MAX_RESOLVE_DEPTH = 10;
+const SOURCE_TEXT_MODULES = import.meta.glob('/src/**/*.{js,jsx,ts,tsx,css,scss}', {
+	eager: true,
+	import: 'default',
+	query: '?raw',
+});
 
 function getTokenMap(scopeClassName) {
 	const probe = document.createElement('div');
@@ -79,11 +84,32 @@ function collectColorRows() {
 	return rows;
 }
 
+function getTokenUsageCounts(tokenNames) {
+	const counts = new Map(tokenNames.map((token) => [token, 0]));
+	const tokenReferencePattern = /var\(\s*(--[\w-]+)\s*[,)]/g;
+
+	Object.entries(SOURCE_TEXT_MODULES).forEach(([sourcePath, sourceText]) => {
+		if (sourcePath.startsWith('/src/debug/')) return;
+		if (typeof sourceText !== 'string') return;
+		tokenReferencePattern.lastIndex = 0;
+		let match = tokenReferencePattern.exec(sourceText);
+		while (match) {
+			const token = match[1];
+			if (counts.has(token)) {
+				counts.set(token, (counts.get(token) || 0) + 1);
+			}
+			match = tokenReferencePattern.exec(sourceText);
+		}
+	});
+
+	return counts;
+}
+
 function Swatch({ value }) {
 	return (
 		<span
 			aria-hidden="true"
-			className="h-7 w-7 shrink-0 rounded border border-border/70 shadow-sm"
+			className="h-9 w-9 shrink-0 rounded border border-border/70 shadow-sm"
 			style={{ background: value || 'transparent' }}
 		/>
 	);
@@ -95,33 +121,50 @@ export function DebugColorTokens() {
 
 	React.useEffect(() => {
 		try {
-			setRows(collectColorRows());
+			const baseRows = collectColorRows();
+			const usageCounts = getTokenUsageCounts(baseRows.map((row) => row.token));
+			setRows(baseRows.map((row) => ({
+				...row,
+				usageCount: usageCounts.get(row.token) || 0,
+			})));
 			setErrorMessage('');
 		} catch (error) {
 			setErrorMessage(`Failed to collect color tokens: ${error?.message || error}`);
 		}
 	}, []);
 
+	const usedCount = rows.filter((row) => row.usageCount > 0).length;
+	const unusedCount = rows.length - usedCount;
+
 	return (
 		<section aria-labelledby="sandbox-color-tokens">
 			<h2 id="sandbox-color-tokens">Color Tokens (Light + Dark)</h2>
-			<p className="mb-3 text-sm text-[var(--muted-foreground)]">
+			<p className="mb-3 text-base text-[var(--muted-foreground)]">
 				Debug inventory of app color token names and resolved values in both themes.
 			</p>
+			<p className="mb-3 text-sm text-[var(--muted-foreground)]">
+				Usage is source-reference based (`var(--token)` across `src/`, excluding `src/debug/`).
+			</p>
 			{errorMessage ? (
-				<p className="mb-3 text-sm text-[var(--destructive)]">{errorMessage}</p>
+				<p className="mb-3 text-base text-[var(--destructive)]">{errorMessage}</p>
 			) : null}
 			<div className="rounded-xl border border-border bg-card p-3">
-				<p className="mb-2 text-sm font-semibold">
+				<p className="mb-2 text-base font-semibold">
 					{`Total color tokens detected: ${rows.length}`}
 				</p>
+				<p className="mb-3 text-sm">
+					<span className="font-semibold text-[var(--chart-2)]">{`Used: ${usedCount}`}</span>
+					{' · '}
+					<span className="font-semibold text-[var(--destructive)]">{`Unused: ${unusedCount}`}</span>
+				</p>
 				<div className="overflow-x-auto">
-					<table className="min-w-full border-collapse text-sm">
+					<table className="min-w-full border-collapse text-base">
 						<thead>
 							<tr className="border-b border-border/70 text-left">
 								<th className="px-2 py-2 font-semibold">Token</th>
 								<th className="px-2 py-2 font-semibold">Light</th>
 								<th className="px-2 py-2 font-semibold">Dark</th>
+								<th className="px-2 py-2 font-semibold">Usage</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -141,6 +184,11 @@ export function DebugColorTokens() {
 											<Swatch value={row.darkSwatch} />
 											<code className="break-all">{row.darkRaw || '(unset)'}</code>
 										</div>
+									</td>
+									<td className="px-2 py-2">
+										<span className={row.usageCount > 0 ? 'font-semibold text-[var(--chart-2)]' : 'font-semibold text-[var(--destructive)]'}>
+											{row.usageCount > 0 ? `Used (${row.usageCount})` : 'Unused (0)'}
+										</span>
 									</td>
 								</tr>
 							))}
