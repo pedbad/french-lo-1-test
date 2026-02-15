@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Lockfile policy:
+# - This repo uses Yarn, so track `yarn.lock`.
+# - Ignore npm lockfile to avoid mixed package-manager state.
 package-lock.json
 
 node_modules
@@ -29,5 +32,4 @@ Screenshot *.png
 *.sw?
 *.bak
 public/images/table-top.png
-yarn.lock
 .vite-index-backup.html
