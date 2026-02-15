@@ -17,6 +17,12 @@ export function DebugSandbox() {
 	  and makes production markup harder to reason about.
 	- Keeping these examples in a dedicated dev-only sandbox preserves developer tooling
 	  without mixing test scaffolding into user-facing DOM.
+
+	Structure guidance:
+	- This sandbox is currently small, so fixtures remain in this single file.
+	- If debug UI grows, move debug-only fixtures into `src/debug/components/`
+	  and keep them out of app-wide component barrels/exports.
+	- Production app trees (`App.jsx`, route pages) must not import sandbox-only components.
 	*/
 	return (
 		<main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 p-6" id="debug-sandbox-page">
