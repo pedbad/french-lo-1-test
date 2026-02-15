@@ -162,6 +162,8 @@ Progress:
 - [x] Complete phase 1.5 heading-order guardrail:
   - replaced hero title heading (`h2`) with non-heading text (`p.hero-title`) in `src/App.jsx` so page `h1` remains the first content heading
   - marked hero banner image as decorative (`alt=""` + `aria-hidden="true"`) because title text is already rendered in adjacent text
+- [x] Restore hero title visual parity after heading semantic fix:
+  - explicitly set `#hero .hero-title` to `"Feijoa Bold"` + `font-weight: 700` in `src/index.css` so typography matches previous visual styling while keeping semantic `<p>` markup
 
 ## CI / Guardrails
 

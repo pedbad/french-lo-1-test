@@ -14,11 +14,12 @@
 /* Optional: add any small project-wide tweaks here. */
 
 @layer base {
-	:root {
-		color-scheme: light;
-		--font-sans: 'OpenSans Regular', sans-serif;
-		--font-heading: 'Feijoa Medium', serif;
-		--font-mono: 'JetBrains Mono', monospace;
+		:root {
+			color-scheme: light;
+			--font-sans: 'OpenSans Regular', sans-serif;
+			--font-heading: 'Feijoa Medium', serif;
+			--font-heading-bold: 'Feijoa Bold', serif;
+			--font-mono: 'JetBrains Mono', monospace;
 
 		--color-primary-50: 239 246 255;
 		--color-primary-100: 219 234 254;
@@ -4829,6 +4830,9 @@ hr {
   position: relative;
   z-index: 1;
   margin: 0;
+  font-family: var(--font-heading-bold);
+  font-weight: 700;
+  line-height: var(--line-height-2xl);
   color: var(--hero-banner-title-color);
   text-align: right;
   align-self: flex-end;

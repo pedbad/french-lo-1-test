@@ -1007,6 +1007,17 @@ Why this was important:
   - removes heading-order ambiguity (no `h2` before page `h1`).
   - keeps visual hero text unchanged while improving document outline semantics.
 
+## 102) Hero Typography Parity Fix (Feijoa Bold Restored)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - added explicit hero-title typography rules after converting semantic tag from `h2` to `p`:
+    - `font-family: "Feijoa Bold", var(--font-heading)`
+    - `font-weight: 700`
+    - `line-height: var(--line-height-2xl)`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+  - checked off visual parity restoration for hero title styling.
+- Why:
+  - preserves intended design while maintaining corrected semantic heading structure.
+
 
 # Files Deleted (partial but comprehensive)
 
