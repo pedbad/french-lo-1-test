@@ -24,7 +24,6 @@ export * from './HeroSection/HeroSection';
 export * from './Jigsaw';
 export * from './Jigsaw/Piece';
 export * from './LandingPage';
-export * from './LearningObjectMenu';
 export * from './MainMenu';
 export * from './MemoryMatchGame';
 export * from './MemoryMatchGame/Card';

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Info, LearningObjectMenu } from '../components';
+import { Info } from '../components';
+import { LearningObjectMenu } from './components/LearningObjectMenu';
 
 const SAMPLE_LEARNING_OBJECTS = [
 	{ file: 1 },

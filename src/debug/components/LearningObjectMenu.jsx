@@ -9,7 +9,6 @@ export class LearningObjectMenu extends React.Component {
 	};
 
 	render = () => {
-		// console.log("LearningObjectMenu render");
 		const {
 			currentLearningObject = 0,
 			languageCode,
@@ -17,7 +16,6 @@ export class LearningObjectMenu extends React.Component {
 		} = this.props;
 		const renderedMenu = [];
 		if (learningObjects !== undefined) {
-			// const nLearningObjects = learningObjects.length;
 			const { href } = window.location;
 			const [baseURL] = href.split('?');
 			learningObjects.forEach((learningObject, index) => {
@@ -32,8 +30,7 @@ export class LearningObjectMenu extends React.Component {
 						>{index <= 14 ? index + 1 : index === 15 ? 'Demo' : "Answer"}</a>
 					</li>
 				);
-			}
-			);
+			});
 		}
 		return (
 			<ul id={`learningObjectMenu`} className={`lo-menu mb-2 w-full flex-row flex-wrap items-center justify-evenly list-none p-0`}>
