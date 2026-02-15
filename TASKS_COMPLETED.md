@@ -137,6 +137,7 @@ Progress:
 - [x] Begin incremental main-app adoption:
   - `src/App.jsx` uses `AppAccordionArticle` for `AnswerTable` branch as a pilot migration path.
   - `src/App.jsx` uses `AppAccordionArticle` for expandable `PhraseTable` branch as the next pilot expansion.
+  - `src/App.jsx` uses `AppAccordionArticle` for `Blanks` and `WordParts` branches as the first exercise-heavy expansion.
 - [ ] Migrate main app accordion path with parity checks.
 - [ ] Remove obsolete custom accordion/dead pathways after cutover.
 

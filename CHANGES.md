@@ -863,6 +863,18 @@ Why this was important:
   - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
 - Why: expands wrapper adoption to a high-visibility content path (dialogues/vocabulary) while preserving compatibility contracts before broader cutover.
 
+## 90) Accordion Incremental Adoption Batch 3 (`Blanks` + `WordParts`)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - migrated `Blanks` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
+  - migrated `WordParts` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
+  - removed legacy `ref` handoffs for these wrapper-driven branches.
+- Updated migration trackers:
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+- Why: extends the compatibility-wrapper rollout into exercise-heavy flows, reducing remaining legacy accordion surface while preserving behavior contracts.
+
 
 # Files Deleted (partial but comprehensive)
 

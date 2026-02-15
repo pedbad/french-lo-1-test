@@ -1004,28 +1004,25 @@ export default class App extends React.Component {
 					);
 					break;
 				}
-			case "Blanks": {
-				articles.push(
-					<AccordionArticle
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
-						target={id}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<Blanks
+				case "Blanks": {
+					articles.push(
+						<AppAccordionArticle
 							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>
-				);
-				break;
-			}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={id}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<Blanks
+							config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AppAccordionArticle>
+					);
+					break;
+				}
 			case "DropDowns": {
 				articles.push(
 					<AccordionArticle
@@ -1485,28 +1482,25 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "WordParts": {
-				articles.push(
-					<AccordionArticle
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						ref={(AccordionArticle) => {
-							window.refs.push(AccordionArticle);
-						}}
-						target={id}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<WordParts
+				case "WordParts": {
+					articles.push(
+						<AppAccordionArticle
 							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>
-				);
-				break;
-			}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={id}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<WordParts
+							config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AppAccordionArticle>
+					);
+					break;
+				}
 			default: {
 				let CustomComponent;
 				switch (languageCode) {
