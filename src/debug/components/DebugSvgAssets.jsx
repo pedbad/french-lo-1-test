@@ -6,10 +6,18 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import copyIconUrl from '@/components/ErrorLog/copy.svg';
+import upArrowIconUrl from '@/components/ErrorLog/upArrow.svg';
+import whiteCrossIconUrl from '@/components/ErrorLog/whiteCross.svg';
 import React from 'react';
 
 const USED_BADGE_CLASS = 'border-emerald-500/70 bg-transparent text-emerald-700 dark:text-emerald-300';
 const MISSING_BADGE_CLASS = 'border-amber-500/70 bg-transparent text-amber-700 dark:text-amber-300';
+const SRC_PREVIEW_URL_BY_PATH = {
+	'/src/components/ErrorLog/copy.svg': copyIconUrl,
+	'/src/components/ErrorLog/upArrow.svg': upArrowIconUrl,
+	'/src/components/ErrorLog/whiteCross.svg': whiteCrossIconUrl,
+};
 
 /*
 Why manifest-based:
@@ -78,6 +86,15 @@ const SVG_USAGE_MANIFEST = [
 	},
 ].sort((left, right) => left.path.localeCompare(right.path));
 
+function toPreviewUrl(path) {
+	const srcMapped = SRC_PREVIEW_URL_BY_PATH[path];
+	if (srcMapped) return srcMapped;
+	if (path.startsWith('/')) {
+		return `${import.meta.env.BASE_URL}${path.slice(1)}`;
+	}
+	return path;
+}
+
 export function DebugSvgAssets() {
 	const [brokenPaths, setBrokenPaths] = React.useState(() => new Set());
 
@@ -98,6 +115,7 @@ export function DebugSvgAssets() {
 			<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
 				{SVG_USAGE_MANIFEST.map((entry) => {
 					const isMissing = brokenPaths.has(entry.path);
+					const previewUrl = toPreviewUrl(entry.path);
 					return (
 						<Card className="overflow-hidden" key={entry.path}>
 							<CardHeader className="px-4 pb-2 pt-4">
@@ -126,7 +144,7 @@ export function DebugSvgAssets() {
 													return next;
 												});
 											}}
-											src={entry.path}
+											src={previewUrl}
 										/>
 									)}
 								</div>
