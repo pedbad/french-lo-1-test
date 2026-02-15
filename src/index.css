@@ -638,6 +638,82 @@
 		}
 	}
 
+	/* Monologue shell + comparison styling extracted from Monologue.scss. */
+	.monologue-container {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		position: relative;
+	}
+
+	.monologue-container.compact {
+		padding: 8px 12px;
+	}
+
+	.monologue-container.compact form {
+		display: flex;
+		justify-content: space-between;
+		column-gap: 20px;
+	}
+
+	.monologue-container textarea,
+	.monologue-container .comparison-result {
+		min-height: 30vh;
+		white-space: break-spaces;
+		overflow-wrap: anywhere;
+		word-break: normal;
+	}
+
+	.monologue-container textarea span,
+	.monologue-container .comparison-result span {
+		display: inline;
+	}
+
+	.monologue-container div.comparison-result {
+		background-color: var(--card);
+		line-height: calc(var(--font-size-sm) * 2);
+	}
+
+	.monologue-container div.comparison-result span {
+		vertical-align: bottom;
+		padding: 4px;
+		min-width: 12px;
+		min-height: 24px;
+		border: 1px solid transparent;
+	}
+
+	.monologue-container div.comparison-result .deleted,
+	.monologue-container div.comparison-result .inserted {
+		cursor: pointer;
+	}
+
+	.monologue-container div.comparison-result .deleted {
+		border: 1px solid var(--destructive);
+		background: color-mix(in oklab, var(--destructive) 20%, transparent);
+		text-decoration: line-through;
+	}
+
+	.monologue-container div.comparison-result .inserted {
+		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		border: 1px solid var(--chart-2);
+	}
+
+	.monologue-container .comparison-result {
+		border-radius: 8px;
+		padding: 2px 4px;
+		border-color: var(--border);
+		box-shadow: 0 1px 2px color-mix(in oklab, var(--foreground) 20%, transparent);
+	}
+
+	.monologue-container.compact .comparison-result {
+		margin: auto 0;
+		min-width: auto;
+		width: auto;
+		min-height: auto;
+		background-color: var(--card);
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;

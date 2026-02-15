@@ -1,4 +1,3 @@
-import './Monologue.scss';
 import {
 	AudioClip,
 	IconButton,
