@@ -16,17 +16,39 @@
 	</div>
 	<script type="module">
 		const root = document.getElementById('debug-sandbox-root');
-		import('/src/debug/sandbox-main.jsx').catch((error) => {
+
+		// Base-path behavior differs across local Vite setups. Try both candidate
+		// module URLs so debug sandbox stays reachable even if base rewriting changes.
+		const basePrefix = window.location.pathname.replace(/[^/]*$/, '');
+		const candidates = Array.from(new Set([
+			new URL(`${basePrefix}src/debug/sandbox-main.jsx`, window.location.origin).href,
+			new URL('/src/debug/sandbox-main.jsx', window.location.origin).href,
+		]));
+
+		const errors = [];
+		let loaded = false;
+		for (const specifier of candidates) {
+			try {
+				// eslint-disable-next-line no-await-in-loop
+				await import(/* @vite-ignore */ specifier);
+				loaded = true;
+				break;
+			} catch (error) {
+				errors.push(`${specifier}\n${error?.message || error}`);
+			}
+		}
+
+		if (!loaded) {
 			if (root) {
 				const pre = document.createElement('pre');
 				pre.style.whiteSpace = 'pre-wrap';
 				pre.style.padding = '1rem';
 				pre.style.color = 'crimson';
-				pre.textContent = `Failed to load debug sandbox entry.\n\n${error?.message || error}`;
+				pre.textContent = `Failed to load debug sandbox entry.\n\n${errors.join('\n\n')}`;
 				root.replaceChildren(pre);
 			}
-			console.error('Debug sandbox entry failed to load:', error);
-		});
+			console.error('Debug sandbox entry failed to load (all candidates):', errors);
+		}
 	</script>
 </body>
 </html>
