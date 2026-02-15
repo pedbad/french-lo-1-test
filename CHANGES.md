@@ -1053,6 +1053,38 @@ Why this was important:
   - avoids semantic-outline drift (`h2` before page `h1`) without forcing decorative page chrome into core content landmarks.
   - keeps accessibility/structure documentation consistent with actual implementation.
 
+## 105) Semantic Section-ID Nav Cutover + Top-Level DOM Cleanup
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - removed legacy top-level wrapper `<div class="accordion" id="accordion1">`.
+  - introduced semantic top-level section siblings directly under `main`:
+    - `#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`.
+  - removed hidden `#modal-link-top` anchor.
+  - hardened modal fallback extraction container lookup to include `article`:
+    - `closest("p, li, article, section, div")`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+  - nav links now use semantic section hashes (`#introduction`, `#dialogues`, etc.) instead of legacy `#modal-link-*`.
+  - scroll-spy/highlight lookup now targets section IDs directly.
+- Updated heading-ID strategy:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+  - section headings now use semantic IDs (`${sectionId}-heading`) instead of legacy `modal-link-*` naming.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - accordion interaction selectors now scope from `#content` (no dependency on removed `.accordion` wrapper).
+- Updated docs to avoid drift:
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Validation:
+  - `yarn build` passes.
+- Why:
+  - removes the misleading “one accordion” top wrapper from page-level structure.
+  - establishes semantic section IDs as the single source of truth for navigation and scroll behavior.
+  - eliminates legacy naming ambiguity (`modal-link-*`) for top-level content landmarks.
+
 
 # Files Deleted (partial but comprehensive)
 

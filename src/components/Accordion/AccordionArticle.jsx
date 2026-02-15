@@ -112,7 +112,7 @@ export function AccordionArticle({
 		);
 
 	const contentId = `${id}-content`;
-	const headingId = target ? `modal-link-${target}` : `section-title-${id}`;
+	const headingId = target ? `${target}-heading` : `section-title-${id}`;
 	const { informationText, informationTextHTML } = config || {};
 	const hasInfo = Boolean(informationText || informationTextHTML);
 	const shouldSuppressChildInfo = hasInfo;

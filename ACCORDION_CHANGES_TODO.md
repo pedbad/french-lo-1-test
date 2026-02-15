@@ -30,7 +30,7 @@ Debug-first is approved:
 - [ ] Decide collapsed-content mount policy:
   - keep content mounted (current custom behavior) or unmount hidden panel content for stricter focus isolation.
 - [ ] Lock deep-link/hash behavior contract:
-  - document whether opening `/...#modal-link-*` must auto-expand the target section.
+  - document whether opening `/...#dialogues` / `#grammar` etc. must auto-expand target content.
 - [x] Lock link-class responsibility contract:
   - navigation links use `nav-scroll-link` (scroll-only)
   - content explanation links use `modal-link` (modal-only)
@@ -48,7 +48,7 @@ Debug-first is approved:
   - dark mode behavior
   - deep-link to section behavior
 - [ ] Confirm current modal-link target contract:
-  - heading ID format `modal-link-${target}`
+  - heading ID format `${target}-heading`
   - target marker `data-modal-target`
   - nav links must not use `modal-link`; they should use `nav-scroll-link`
 
@@ -91,7 +91,7 @@ Acceptance checks:
   - `noCard`
   - `children`
 - [x] Preserve session persistence (`${id}-expanded`) with clean state sync.
-- [x] Preserve heading/link target contract (`modal-link-*`, `data-modal-target`).
+- [x] Preserve heading/link target contract (semantic `${sectionId}-heading` IDs + `data-modal-target` where required).
 - [x] Preserve `(part N)` split-title formatting.
 - [x] Preserve `Info` injection + child-info suppression.
 
@@ -169,7 +169,7 @@ Total: ~6 working days (can compress to 3-4 days if no regressions appear).
 
 ## Risks to Watch
 
-1. Deep-link and modal-link contract breakage (`modal-link-*` IDs).
+1. Deep-link and modal-link contract breakage (semantic section hashes / heading IDs).
 2. Hidden-focus regressions during transition.
 3. Group/Section recursive render edge cases from JSON configs.
 4. Visual parity drift in dense exercise sections.

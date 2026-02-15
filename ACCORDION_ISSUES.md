@@ -35,7 +35,7 @@ The major drift risk has been removed (no more legacy custom accordion model in 
 
 1. Per-panel persistence in session storage (`${id}-expanded`).
 2. Dynamic content-height animation using `--radix-accordion-content-height`.
-3. Deep-link/modal targeting via `modal-link-*` IDs and `data-modal-target`.
+3. Deep-link/modal targeting via semantic heading IDs (`${sectionId}-heading`) and `data-modal-target`.
 4. Support for text and HTML titles (`title` and `titleHTML`).
 5. Optional title formatting for `(part N)` suffix.
 6. Optional `Info` injection from `config` and suppression of duplicated child info.

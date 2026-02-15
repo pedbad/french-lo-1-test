@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Info, BackToTopButton } from "..";
+import { BackToTopButton, Info } from "..";
 import DOMPurify from "dompurify";
 import React from "react";
 import { INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
@@ -22,13 +22,13 @@ export const HeroSection = ({
 		stackInfo = false,
 		transparentCard = false,
 	} = config || {};
-	const headingId = target ? `modal-link-${target}` : `section-title-${id}`;
+	const headingId = target ? `${target}-heading` : `section-title-${id}`;
 	const hasInfo = Boolean(informationText || informationTextHTML);
 	const sideBySide = hasInfo && !stackInfo;
 	const splitInfoImage = stackInfo && Boolean(instructionsLayout?.image);
 
 	return (
-		<div className="section hero-section" id={id}>
+		<section className="section hero-section" id={id}>
 			<Card
 				className={`w-full sortable mt-6 ${
 					transparentCard ? "bg-transparent border-0 shadow-none" : ""
@@ -122,6 +122,6 @@ export const HeroSection = ({
 					) : null}
 				</CardContent>
 			</Card>
-		</div>
+		</section>
 	);
 };

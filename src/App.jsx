@@ -264,11 +264,11 @@ export default class App extends React.Component {
 
 		if (entries.has(targetId)) return entries.get(targetId);
 
-		const targetEl =
-			document.getElementById(targetId) ||
-			document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
+			const targetEl =
+				document.getElementById(targetId) ||
+				document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
 		if (targetEl) {
-			const container = targetEl.closest("p, li, div, section") || targetEl;
+			const container = targetEl.closest("p, li, article, section, div") || targetEl;
 			return {
 				title: targetId,
 				contentHTML: container.outerHTML,
@@ -775,7 +775,7 @@ export default class App extends React.Component {
 			showSpeechError = false,
 			siteTitle,
 		} = this.state;
-		const articles = [];
+		const topLevelSections = [];
 		this.autoComponentIdCounter = 0;
 		let intro, introHTML, informationHTML;
 		if (settings) {
@@ -783,10 +783,23 @@ export default class App extends React.Component {
 		}
 
 		if (config) {
-			for (const [/* key */, value] of Object.entries(config)) {
+			for (const [sectionKey, value] of Object.entries(config)) {
 				const { component } = value;
 				if (component) {
-					this.renderComponent(value, articles);
+					const renderedTopLevelContent = [];
+					this.renderComponent(value, renderedTopLevelContent);
+					const semanticSectionId = value.id || sectionKey;
+					const headingId = `${semanticSectionId}-heading`;
+					topLevelSections.push(
+						<section
+							aria-labelledby={headingId}
+							className="lo-top-section"
+							id={semanticSectionId}
+							key={`top-section-${semanticSectionId}`}
+						>
+							{renderedTopLevelContent}
+						</section>
+					);
 				}
 			}
 		}
@@ -817,13 +830,6 @@ export default class App extends React.Component {
 						</a>
 
 
-						<span
-							aria-hidden="true"
-							className={`modal-link-target`}
-							id="modal-link-top"
-							style={{ "position": "absolute", "top": "-4rem" }}
-							tabIndex="-1"
-						/>
 						<ErrorLog
 							dialog={this.dialog}
 							errors={errors}
@@ -907,30 +913,32 @@ export default class App extends React.Component {
 											introLayout.stackOnDesktop = true;
 										}
 										return (introLayout || informationHTML) ? (
-											<HeroSection
-												config={{
-													id: "intro-section",
-													expandable: false,
-													heroSection: true,
-													transparentCard: true,
-													instructionsLayout: introLayout || undefined,
-													informationTextHTML: informationHTML,
-													stackInfo: true,
-												}}
-												id="LO-intro-section"
-												target="intro"
-												title="Introduction"
-											/>
+											<section
+												aria-labelledby="introduction-heading"
+												className="lo-top-section"
+												id="introduction"
+											>
+												<HeroSection
+													config={{
+														id: "intro-section",
+														expandable: false,
+														heroSection: true,
+														transparentCard: true,
+														instructionsLayout: introLayout || undefined,
+														informationTextHTML: informationHTML,
+														stackInfo: true,
+													}}
+													id="LO-intro-section"
+													target="introduction"
+													title="Introduction"
+												/>
+											</section>
 										) : null;
 									})()}
 
 
 
-										{currentLearningObject !== -1 ? (
-											<div className="accordion" id="accordion1" key="accordion1">
-												{articles}
-											</div>
-										) : null}
+									{currentLearningObject !== -1 ? topLevelSections : null}
 									{learningObjects.length > 0 &&
                 currentLearningObject === -1 ? (
 											<LandingPage
@@ -974,63 +982,63 @@ export default class App extends React.Component {
 		const compoundID = `LO${currentLearningObject}-${id}`;
 
 		switch (component) {
-				case "AnswerTable": {
-					articles.push(
-						<AccordionArticle
+			case "AnswerTable": {
+				articles.push(
+					<AccordionArticle
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={id}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<AnswerTable
 							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							target={id}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<AnswerTable
-								config={value}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
-						</AccordionArticle>
-					);
-					break;
-				}
-				case "Blanks": {
-					articles.push(
-						<AccordionArticle
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
+			case "Blanks": {
+				articles.push(
+					<AccordionArticle
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={id}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<Blanks
 							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							target={id}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<Blanks
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
+			case "DropDowns": {
+				articles.push(
+					<AccordionArticle
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={id}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<DropDowns
 							config={value}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
-						</AccordionArticle>
-					);
-					break;
-				}
-				case "DropDowns": {
-					articles.push(
-						<AccordionArticle
-							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							target={id}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<DropDowns
-							config={value}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
-						</AccordionArticle>
-					);
-					break;
-				}
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
 			case "Explanation": {
 				if (expandable) {
 					articles.push(
@@ -1258,7 +1266,27 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-				case "Monologue": {
+			case "Monologue": {
+				articles.push(
+					<AccordionArticle
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={id}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<Monologue
+							config={value}
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
+			case "PhraseTable": {
+				if (expandable) {
 					articles.push(
 						<AccordionArticle
 							config={value}
@@ -1268,35 +1296,15 @@ export default class App extends React.Component {
 							title={titleText}
 							titleHTML={titleTextHTML}
 						>
-							<Monologue
-							config={value}
+							<PhraseTable
+								config={value}
 								logError={this.logError}
 								showDialog={this.showDialog}
+								languageCode={languageCode}
 							/>
 						</AccordionArticle>
 					);
-					break;
-				}
-				case "PhraseTable": {
-					if (expandable) {
-						articles.push(
-							<AccordionArticle
-								config={value}
-								id={`${compoundID}-Accordion`}
-								key={`${compoundID}-Accordion`}
-								target={id}
-								title={titleText}
-								titleHTML={titleTextHTML}
-							>
-								<PhraseTable
-								config={value}
-								logError={this.logError}
-									showDialog={this.showDialog}
-									languageCode={languageCode}
-								/>
-							</AccordionArticle>
-						);
-					} else {
+				} else {
 					articles.push(
 						<Section
 							config={value}
@@ -1317,25 +1325,25 @@ export default class App extends React.Component {
 				}
 				break;
 			}
-				case "RadioQuiz": {
-					articles.push(
-						<AccordionArticle
+			case "RadioQuiz": {
+				articles.push(
+					<AccordionArticle
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={id}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<RadioQuiz
 							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							target={id}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<RadioQuiz
-							config={value}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
-						</AccordionArticle>
-					);
-					break;
-				}
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
 			case "ReadAloud": {
 				articles.push(
 					<AccordionArticle
@@ -1435,25 +1443,25 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-				case "WordParts": {
-					articles.push(
-						<AccordionArticle
+			case "WordParts": {
+				articles.push(
+					<AccordionArticle
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={id}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<WordParts
 							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							target={id}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<WordParts
-							config={value}
-								logError={this.logError}
-								showDialog={this.showDialog}
-							/>
-						</AccordionArticle>
-					);
-					break;
-				}
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
 			default: {
 				let CustomComponent;
 				switch (languageCode) {

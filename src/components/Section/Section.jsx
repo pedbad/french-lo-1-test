@@ -1,13 +1,13 @@
 // src/components/Accordion/Section.jsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-	Info,
-	BackToTopButton
+	BackToTopButton,
+	Info
 } from '..';
 import { Separator } from "@/components/ui/separator";
 import DOMPurify from "dompurify";
 import React from 'react';
-import { INSTRUCTION_TEXT_CLASS, InstructionsMedia, applyInstructionTypographyToHTML } from "./instructions-media";
+import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "./instructions-media";
 
 export class Section extends React.PureComponent {
 	constructor(props) {
@@ -61,7 +61,7 @@ export class Section extends React.PureComponent {
 		const {
 			id,
 		} = this.state;
-		const headingId = target ? `modal-link-${target}` : `section-title-${id}`;
+		const headingId = target ? `${target}-heading` : `section-title-${id}`;
 
 		// console.log("target", target);
 
@@ -81,7 +81,7 @@ export class Section extends React.PureComponent {
 		});
 
 		return (
-			<div
+			<section
 				className={`section ${className ? className : ''}`}
 				id={`${id}`}
 			>
@@ -144,7 +144,7 @@ export class Section extends React.PureComponent {
 						<BackToTopButton />
 					</CardContent>
 				</Card>
-			</div>
+			</section>
 		);
 	};
 }

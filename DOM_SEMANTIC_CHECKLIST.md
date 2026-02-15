@@ -5,16 +5,16 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 
 ## Structure Checks
 - [x] Exactly one `<main>` in page content.
-- [ ] Legacy top-level wrapper `<div id="accordion1" class="accordion">` no longer exists.
-- [ ] Top-level thematic sections exist as real `<section>` elements with IDs:
+- [x] Legacy top-level wrapper `<div id="accordion1" class="accordion">` no longer exists.
+- [x] Top-level thematic sections exist as real `<section>` elements with IDs:
   - `dialogues`
   - `vocabulary`
   - `grammar`
   - `pronunciation`
   - `exercises`
-- [ ] Page title remains:
+- [x] Page title remains:
   - `<h1><span class="title-main">First Contact —</span><span class="title-sub">greetings, farewells and social niceties</span></h1>`
-- [ ] Each top-level section has an accessible heading.
+- [x] Each top-level section has an accessible heading.
 - [ ] Each top-level section has a semantic `<header>` that contains:
   - section `h2`
   - section intro/instructions block
@@ -23,10 +23,11 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 ## Navigation Checks
 - [x] Exactly one primary nav landmark exists for the main IA.
 - [x] Mobile menu remains responsive without introducing a second primary `<nav>` for the same links.
+- [x] Top nav links target semantic top-level section hashes (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`).
 - [ ] Top nav links scroll to the correct top-level section.
 - [ ] Scroll spy/highlight still updates correctly while scrolling.
 - [ ] Mobile menu links behave exactly like desktop links.
-- [ ] `#modal-link-*` backward compatibility (if retained during rollout) still works.
+- [x] Legacy `#modal-link-*` nav hash compatibility is intentionally removed (explicit project decision).
 
 ## Hero + Heading Checks
 - [x] Hero is explicitly treated as decorative page chrome and is intentionally outside `main`.

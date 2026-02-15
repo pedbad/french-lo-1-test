@@ -168,6 +168,14 @@ Progress:
 - [x] Resolve DOM checklist drift for hero semantics:
   - locked decision: hero is decorative page chrome and intentionally remains outside `main`
   - updated `DOM_SEMANTIC_AUDIT.md`, `DOM_SEMANTIC_TODO.md`, and `DOM_SEMANTIC_CHECKLIST.md` to reflect this explicitly
+- [x] Remove legacy `modal-link-*` top-nav hashes and move to semantic section IDs:
+  - removed legacy top-level wrapper `<div id="accordion1" class="accordion">` in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`
+  - top-level content now renders as semantic section siblings under `main` (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`)
+  - updated nav links + scroll/highlight targeting in `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx` to use semantic section hashes only
+  - migrated section heading IDs from legacy `modal-link-*` naming to `${sectionId}-heading` in `Section`, `HeroSection`, and `AccordionArticle`
+  - removed hidden `#modal-link-top` anchor from `App.jsx`
+  - hardened modal fallback extraction selector in `App.findModalLinkContent` to include `article`
+  - updated DOM semantic tracker docs (`DOM_SEMANTIC_AUDIT.md`, `DOM_SEMANTIC_TODO.md`, `DOM_SEMANTIC_CHECKLIST.md`) and README contract text
 
 ## CI / Guardrails
 

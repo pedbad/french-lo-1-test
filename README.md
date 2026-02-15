@@ -309,8 +309,9 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 - Modal links open a shadcn/Radix modal (no scrolling). The modal now accepts **React content** (not just HTML strings) so inline `AudioClip` components can render and function. For core grammar modals (e.g. `tuvous`, `madame`), it renders the same React content used in `CustomComponents_FR.jsx` so audio clips work and there’s no duplicated copy. JSON `infoTextHTML` is still used for simpler modal text. Optional highlight styles are applied via CSS animation and fade out after flashing.
 - Link interaction contract (explicit, to avoid legacy overload):
   - top navigation uses `nav-scroll-link` and is scroll-only
+  - top navigation hashes are semantic section IDs (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`)
   - content explanation links use `modal-link` and are modal-only
-  - heading targets remain `id="modal-link-*"` with optional `data-modal-target` for fallback targeting
+  - section headings now use semantic IDs (`${sectionId}-heading`) instead of legacy `modal-link-*` naming
 - Engineering rule: one class, one behavior.
   - do not reuse a single class for both modal and scroll interactions.
   - this reduces accidental regressions, keeps event wiring predictable, and makes future refactors/debugging faster.

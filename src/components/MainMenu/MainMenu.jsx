@@ -13,7 +13,7 @@ export class MainMenu extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			menuHighlight: "menuItem-intro",
+			menuHighlight: "menuItem-introduction",
 			mobileOpen: false,
 		};
 		this.mobileMenuPanelId = "main-navigation-mobile-panel";
@@ -21,8 +21,8 @@ export class MainMenu extends React.Component {
 		window.__lastKnownScrollPosition = 0;
 	}
 
-	componentDidMount = () => {
-		// Helper: choose the section whose heading is just below the menu
+		componentDidMount = () => {
+			// Helper: choose the section whose top is just below the menu
 		const updateHighlight = () => {
 			const { config } = this.props;
 			const mainMenu = document.getElementById("mainMenu");
@@ -30,24 +30,22 @@ export class MainMenu extends React.Component {
 
 			const mainMenuRect = mainMenu.getBoundingClientRect();
 			const mainMenuBottom = mainMenuRect.bottom;
-			// A heading becomes "active" only once it reaches this line.
+				// A section becomes "active" only once it reaches this line.
 			// This prevents intro from highlighting while the hero banner is still in view.
 			const activationLine = mainMenuBottom + 140;
 			const passed = [];
 
 			// While smooth-scrolling from a nav click, keep the clicked section active
-			// until its heading reaches the activation line.
+			// until its top reaches the activation line.
 			if (this.pendingNavTarget) {
-				const pendingTarget = document.getElementById(
-					`modal-link-${this.pendingNavTarget}`
-				);
+				const pendingTarget = document.getElementById(this.pendingNavTarget);
 				if (pendingTarget) {
 					const pendingRect = pendingTarget.getBoundingClientRect();
 					if (pendingRect.top > activationLine + 8) {
 						const pendingKey =
-							this.pendingNavTarget === "intro"
-								? "menuItem-intro"
-								: `menuItem-${this.pendingNavTarget}`;
+								this.pendingNavTarget === "introduction"
+									? "menuItem-introduction"
+									: `menuItem-${this.pendingNavTarget}`;
 						if (this.state.menuHighlight !== pendingKey) {
 							this.setState({ menuHighlight: pendingKey });
 						}
@@ -58,12 +56,12 @@ export class MainMenu extends React.Component {
 			}
 
 			// 1. Intro
-			const introEl = document.getElementById("modal-link-intro");
+			const introEl = document.getElementById("introduction");
 			if (introEl) {
 				const rect = introEl.getBoundingClientRect();
 				if (rect.top <= activationLine) {
 					passed.push({
-						key: "menuItem-intro",
+						key: "menuItem-introduction",
 						top: rect.top,
 					});
 				}
@@ -72,7 +70,7 @@ export class MainMenu extends React.Component {
 			// 2. Config sections (including Monologues)
 			for (const [, value] of Object.entries(config)) {
 				const { id } = value;
-				const target = document.getElementById(`modal-link-${id}`);
+				const target = document.getElementById(id);
 				if (!target) continue;
 
 				const rect = target.getBoundingClientRect();
@@ -84,7 +82,7 @@ export class MainMenu extends React.Component {
 				}
 			}
 
-			// Pick the heading closest to the activation line from above.
+				// Pick the section closest to the activation line from above.
 			passed.sort((a, b) => b.top - a.top);
 			const best = passed.length > 0 ? passed[0].key : null;
 
@@ -150,9 +148,9 @@ export class MainMenu extends React.Component {
    */
 	handleNavClick = (e) => {
 		const href = e.currentTarget?.getAttribute("href") || "";
-		if (href.startsWith("#modal-link-")) {
-			const rawId = href.replace("#modal-link-", "");
-			if (rawId === "top") {
+		if (href.startsWith("#")) {
+			const rawId = href.slice(1);
+			if (rawId === "content") {
 				this.pendingNavTarget = null;
 				if (this.state.menuHighlight !== null) {
 					this.setState({ menuHighlight: null });
@@ -160,7 +158,7 @@ export class MainMenu extends React.Component {
 			} else {
 				this.pendingNavTarget = rawId;
 				const nextHighlight =
-					rawId === "intro" ? "menuItem-intro" : `menuItem-${rawId}`;
+					rawId === "introduction" ? "menuItem-introduction" : `menuItem-${rawId}`;
 				if (this.state.menuHighlight !== nextHighlight) {
 					this.setState({ menuHighlight: nextHighlight });
 				}
@@ -182,7 +180,7 @@ export class MainMenu extends React.Component {
 
 		if (!config) return null;
 
-		const introHighlight = menuHighlight === "menuItem-intro";
+		const introHighlight = menuHighlight === "menuItem-introduction";
 
 		const topMenu = [];
 		const mobileMenuItems = [];
@@ -193,7 +191,7 @@ export class MainMenu extends React.Component {
 			if (component) {
 				const highlight = menuHighlight === `menuItem-${id}`;
 				const label = menuText ? menuText : titleText;
-				const href = `#modal-link-${id}`;
+				const href = `#${id}`;
 
 				// Desktop item
 				topMenu.push(
@@ -203,7 +201,7 @@ export class MainMenu extends React.Component {
 						key={`menuItem-${id}`}
 					>
 						<NavigationMenuLink asChild>
-								<a
+							<a
 								className="nav-scroll-link nav nav-link text-[var(--nav-link-size)]"
 								href={href}
 								onClick={this.handleNavClick}
@@ -236,7 +234,7 @@ export class MainMenu extends React.Component {
 			}
 		}
 
-		const introHref = "#modal-link-intro";
+		const introHref = "#introduction";
 
 		return (
 			<header className="main-menu" id="mainMenu">
@@ -248,7 +246,7 @@ export class MainMenu extends React.Component {
 								<NavigationMenuLink asChild>
 									<a
 										className="nav-scroll-link nav nav-title text-[var(--nav-title-size)] font-semibold"
-										href="#modal-link-top"
+										href="#content"
 										onClick={this.handleNavClick}
 									>
 										<MessageCircleMore aria-hidden="true" className="nav-title-icon" />
@@ -262,8 +260,8 @@ export class MainMenu extends React.Component {
 						<NavigationMenuList className="menu-right">
 							<NavigationMenuItem
 								className={introHighlight ? "highlight" : ""}
-								id="menu-item-intro"
-								key="menu-item-intro"
+								id="menu-item-introduction"
+								key="menu-item-introduction"
 							>
 								<NavigationMenuLink asChild>
 									<a

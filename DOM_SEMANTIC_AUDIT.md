@@ -21,12 +21,12 @@ Inside each top-level section, accordion items should be semantic content units 
 ## Current State (Observed)
 1. Main content root already exists:
   - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` uses `<main id="content">`.
-2. Top-level LO blocks are currently rendered through `Section`/`HeroSection`, but these wrappers are `<div className="section">`, not `<section>`.
+2. Top-level LO blocks are rendered through `Section`/`HeroSection` wrappers that now use semantic `<section className="section">` roots.
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`
 3. Accordion item wrapper currently renders as `<article class="accordion-article">`.
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
-4. Navigation currently targets heading IDs (`#modal-link-*`), not top-level section IDs.
+4. Navigation now targets semantic top-level section IDs (`#introduction`, `#dialogues`, etc.).
   - `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`
 
 ## Current DOM Snapshot (First 3 Levels Inside `main`)
@@ -38,19 +38,21 @@ main#content
 |- h1
 |  |- span.title-main
 |  |- span.title-sub
-|- div#LO-intro-section.section.hero-section
-|  |- div.w-full.sortable.mt-6
-|- div#accordion1.accordion
-   |- div#LO1-dialogues-Group-Section.section
-   |- div#LO1-vocabulary-Section.section
-   |- div#LO1-grammar-Group-Section.section
-   |- div#LO1-pronunciation-Group-Section.section
-   |- div#LO1-exercises-Group-Section.section
+|- section#introduction.lo-top-section
+|  |- section#LO-intro-section.section.hero-section
+|- section#dialogues.lo-top-section
+|  |- section#LO1-dialogues-Group-Section.section.group
+|- section#vocabulary.lo-top-section
+|  |- section#LO1-vocabulary-Section.section
+|- section#grammar.lo-top-section
+|  |- section#LO1-grammar-Group-Section.section.group
+|- section#pronunciation.lo-top-section
+|  |- section#LO1-pronunciation-Group-Section.section.group
+|- section#exercises.lo-top-section
+   |- section#LO1-exercises-Group-Section.section.group
 ```
 
-This `div#accordion1.accordion` wrapper is the key bad structure:
-1. It is named like one accordion widget, but it actually wraps all major learning-object sections.
-2. It hides semantic meaning for top-level content areas that should be section landmarks.
+`div#accordion1.accordion` has now been removed. Top-level section landmarks sit directly under `main`.
 
 ## Current Page-Top Structure (Observed)
 
@@ -58,7 +60,6 @@ This `div#accordion1.accordion` wrapper is the key bad structure:
 body
 |- a.skip-link[href="#content"]
 |- div.app
-   |- span#modal-link-top.modal-link-target (hidden anchor)
    |- header#mainMenu.main-menu
    |  |- nav[aria-label="Main"]                      (Radix NavigationMenu root)
    |  |- div.mobile-menu[role="region"][aria-label="Main navigation mobile"]
@@ -74,12 +75,12 @@ Key observations:
 2. Hero heading-order issue has been resolved (hero title is non-heading text; page title remains the `h1` inside `main`).
 3. Hero remains outside `main` intentionally, classified as decorative page chrome in this app.
 
-## Why This Is A Problem
-1. `#accordion1` is a misleading top-level name.
-2. It is not a single accordion item; it is the thematic container for all major sections.
-3. Top-level thematic blocks are currently `div.section` instead of semantic `section`.
-4. Section header content (title + instructions) is not consistently represented as semantic section headers.
-5. Hero placement is no longer treated as a semantic defect in this project because hero content is intentionally decorative.
+## Why This Was A Problem
+1. `#accordion1` was a misleading top-level name.
+2. It implied one accordion widget while actually wrapping all major sections.
+3. Top-level thematic blocks previously rendered as generic wrappers instead of clear section landmarks.
+4. Section header content (title + instructions) still needs final normalization for consistent semantic headers.
+5. Hero placement is intentionally decorative in this project and is not treated as a semantic defect.
 
 ## Does Your Target Make Sense?
 Yes. It is cleaner and more semantic.
@@ -101,14 +102,9 @@ For LO1:
 2. Leaf accordion panels like `PhraseTable1`, `WordParts`, `Blanks`, `SequenceOrder`, `Sortable` are good `article` candidates.
 
 ## Inconsistencies To Fix
-1. Top-level content wrappers are `div.section`, not `section`.
-2. Main thematic container is currently `<div class="accordion" id="accordion1">`, which is misleading:
-  - it is not one accordion widget.
-  - it is the container for all major page sections (dialogues, vocabulary, grammar, pronunciation, exercises).
-  - semantically it should be a neutral sections wrapper (or direct section siblings under `main`), not named as a single accordion.
-3. Navigation and section activation logic are tied to `#modal-link-*` IDs on headings.
-4. Accordion naming still includes legacy `accordion-article` class regardless of element tag.
-5. Modal-link content extraction currently searches `closest("p, li, div, section")` and should include `article` if panels become articles.
+1. Top-level section landmarks are now present, but section-header normalization still needs a final pass (consistent `<header>` wrappers for all top-level sections).
+2. Accordion naming still includes legacy `.accordion-article` class naming (class name is cosmetic, not semantic).
+3. Modal-link content extraction has been hardened to include `article` containers.
 
 ## Recommended DOM Structure (Target)
 
@@ -134,30 +130,18 @@ Then structure content as:
 </header>
 
 <main id="content">
-  <section id="introduction">
-    <header>
-      <h1>
-        <span class="title-main">First Contact —</span>
-        <span class="title-sub">greetings, farewells and social niceties</span>
-      </h1>
-      <div class="instructions ...">...</div>
-    </header>
-    <div class="section-body">
-      <!-- hero artwork/text can live here as content -->
-    </div>
+  <h1>
+    <span class="title-main">First Contact —</span>
+    <span class="title-sub">greetings, farewells and social niceties</span>
+  </h1>
+
+  <section id="introduction" aria-labelledby="introduction-heading">
+    <!-- Introduction section content -->
   </section>
 
-  <section id="dialogues">
-    <header>
-      <h2 class="modal-link-target" data-modal-target="dialogues" id="modal-link-dialogues">
-        Dialogues
-      </h2>
-      <div class="instructions ...">...</div>
-    </header>
-    <div class="accordion">
-      <article class="accordion-article">...</article>
-      <article class="accordion-article">...</article>
-    </div>
+  <section id="dialogues" aria-labelledby="dialogues-heading">
+    <article class="accordion-article">...</article>
+    <article class="accordion-article">...</article>
   </section>
 
   <section id="vocabulary">...</section>
@@ -171,7 +155,7 @@ Then structure content as:
 
 Notes:
 1. Top-level nav should target section IDs (`#dialogues`, `#vocabulary`, etc.).
-2. During migration, keep `#modal-link-*` compatibility until nav and scroll-spy are fully moved.
+2. Legacy `#modal-link-*` nav hashes are intentionally removed (no compatibility shim required for this project).
 3. Leaf accordion panels should be `article`; grouping wrappers remain `section`.
 4. Section intro/instructions text belongs in the section header with the section title, not as detached content.
 5. "Single nav landmark" means one semantic primary `<nav>` for this IA. Responsive mobile behavior still exists; only the mobile container should be non-`nav` (or a labeled region) to avoid duplicate landmarks for the same menu.
@@ -195,10 +179,9 @@ body
 |  |  |- div.section-body
 |  |- section#dialogues
 |  |  |- header
-|  |  |  |- h2#modal-link-dialogues.modal-link-target
+|  |  |  |- h2#dialogues-heading.modal-link-target
 |  |  |  |- div.instructions
-|  |  |- div.accordion
-|  |     |- article.accordion-article
+|  |  |- article.accordion-article
 |  |- section#vocabulary
 |  |- section#grammar
 |  |- section#pronunciation
@@ -215,7 +198,7 @@ It can, unless done with compatibility steps.
 3. Risk appears when selectors are tag-dependent or parent-child assumptions change.
 
 ### JS Risk
-1. Main nav click + highlight logic expects `#modal-link-*` hashes and IDs.
+1. Main nav click + highlight logic now expects semantic section hashes (`#introduction`, `#dialogues`, ...).
 2. Modal/deep-link targeting uses `.modal-link-target[data-modal-target=...]`.
 3. Content extraction for modal fallback may miss new `article` containers if selector list is not updated.
 
@@ -225,7 +208,7 @@ It can, unless done with compatibility steps.
 
 ## Safe Refactor Principles
 1. Keep existing classes during semantic tag swaps (class stability first).
-2. Introduce top-level section IDs while preserving current `#modal-link-*` compatibility during transition.
+2. Use semantic section IDs as the single navigation source of truth (no legacy hash compatibility layer).
 3. Update JS selectors to include `article` where container lookup is used.
 4. Migrate in small batches and verify nav scroll, active-state highlight, modal links, and accordion behavior after each batch.
 
@@ -233,4 +216,4 @@ It can, unless done with compatibility steps.
 Proceed with semantic refactor using:
 1. `main > section#dialogues|vocabulary|grammar|pronunciation|exercises`
 2. Accordion leaf panels as `article` (wrapper/group nodes remain `section`)
-3. Backward-compatible ID/link strategy during rollout to avoid regressions.
+3. Direct semantic hash strategy (`#introduction/#dialogues/...`) with no legacy nav-hash compatibility shim.

@@ -906,18 +906,19 @@
 	}
 
 	/* Accordion interaction skin extracted from Accordion.scss. */
-	.accordion {
+	#content .lo-top-section {
 		width: 100%;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.accordion * {
+		#content .accordion-article,
+		#content .accordion-article * {
 			animation: none !important;
 			transition: none !important;
 		}
 	}
 
-	.accordion .section {
+	#content .section {
 		clear: both;
 	}
 
@@ -930,30 +931,30 @@
 		transition: transform 0.2s ease;
 	}
 
-	.accordion .arrow {
+	#content .arrow {
 		transition: all 0.35s ease-in-out;
 		display: inline-block;
 		zoom: 1;
 		margin: 0;
 	}
 
-	.accordion .accordion-article {
+	#content .accordion-article {
 		border-bottom: none;
 		overflow: hidden;
 		height: auto;
 		transition: all 0.35s ease-in-out;
 	}
 
-	.accordion .accordion-article > .content,
-	.accordion .accordion-article .accordion-item > .content {
+	#content .accordion-article > .content,
+	#content .accordion-article .accordion-item > .content {
 		transition: all 0.35s ease-in-out;
 		max-height: 0;
 		overflow: hidden;
 		outline: none;
 	}
 
-	.accordion .accordion-article > header,
-	.accordion .accordion-article .accordion-item > header {
+	#content .accordion-article > header,
+	#content .accordion-article .accordion-item > header {
 		display: flex;
 		margin-top: 2.4rem;
 		padding: 20px 0;
@@ -971,47 +972,47 @@
 			box-shadow 800ms ease-in-out;
 	}
 
-	.accordion .accordion-article > header:hover,
-	.accordion .accordion-article .accordion-item > header:hover {
+	#content .accordion-article > header:hover,
+	#content .accordion-article .accordion-item > header:hover {
 		background-color: var(--accordion-mist);
 		color: var(--accordion-hover-text);
 		box-shadow: 0 8px 18px color-mix(in oklab, var(--foreground) 10%, transparent);
 	}
 
-	.accordion .accordion-article > header:hover h2,
-	.accordion .accordion-article .accordion-item > header:hover h2 {
+	#content .accordion-article > header:hover h2,
+	#content .accordion-article .accordion-item > header:hover h2 {
 		color: var(--accordion-hover-text) !important;
 	}
 
-	.accordion .accordion-article > header svg.arrow,
-	.accordion .accordion-article .accordion-item > header svg.arrow {
+	#content .accordion-article > header svg.arrow,
+	#content .accordion-article .accordion-item > header svg.arrow {
 		transition: all 0.35s ease-in-out;
 		margin: 0;
 		cursor: pointer;
 		display: block;
 	}
 
-	.accordion .accordion-article > header h2,
-	.accordion .accordion-article .accordion-item > header h2 {
+	#content .accordion-article > header h2,
+	#content .accordion-article .accordion-item > header h2 {
 		width: 100%;
 		margin: 0;
 		color: inherit;
 		transition: color 800ms ease-in-out;
 	}
 
-	.accordion .accordion-article > header h2 .accordion-title-part,
-	.accordion .accordion-article .accordion-item > header h2 .accordion-title-part {
+	#content .accordion-article > header h2 .accordion-title-part,
+	#content .accordion-article .accordion-item > header h2 .accordion-title-part {
 		font-size: calc(var(--font-size-sm) * 1.08);
 		opacity: 0.62;
 		font-weight: 500;
 	}
 
-	.accordion .accordion-article > header h2,
-	.accordion .accordion-article .accordion-item > header h2 {
+	#content .accordion-article > header h2,
+	#content .accordion-article .accordion-item > header h2 {
 		font-variant-numeric: lining-nums tabular-nums;
 	}
 
-	.accordion .accordion-trigger {
+	#content .accordion-trigger {
 		appearance: none;
 		background: transparent;
 		border: 0;
@@ -1026,19 +1027,19 @@
 		width: 100%;
 	}
 
-	.accordion .accordion-trigger:focus-visible {
+	#content .accordion-trigger:focus-visible {
 		outline: 2px solid var(--ring);
 		outline-offset: 4px;
 	}
 
-	.accordion .accordion-trigger-label {
+	#content .accordion-trigger-label {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
 		flex-wrap: wrap;
 	}
 
-	.accordion .accordion-article.expanded {
+	#content .accordion-article.expanded {
 		page-break-inside: avoid;
 		clear: both;
 		height: auto;
@@ -1047,29 +1048,29 @@
 		transition: all 0.35s ease-in-out;
 	}
 
-	.accordion .accordion-article.expanded > header,
-	.accordion .accordion-article.expanded .accordion-item > header {
+	#content .accordion-article.expanded > header,
+	#content .accordion-article.expanded .accordion-item > header {
 		background-color: var(--accordion-mist);
 		color: var(--accordion-hover-text);
 	}
 
-	.accordion .accordion-article.expanded > header h2,
-	.accordion .accordion-article.expanded .accordion-item > header h2 {
+	#content .accordion-article.expanded > header h2,
+	#content .accordion-article.expanded .accordion-item > header h2 {
 		color: var(--accordion-hover-text) !important;
 	}
 
-	.accordion .accordion-article.expanded > header svg.arrow,
-	.accordion .accordion-article.expanded .accordion-item > header svg.arrow {
+	#content .accordion-article.expanded > header svg.arrow,
+	#content .accordion-article.expanded .accordion-item > header svg.arrow {
 		transform: rotate(180deg);
 	}
 
-	.accordion .accordion-article.expanded.group > .content,
-	.accordion .accordion-article.expanded.group .accordion-item > .content {
+	#content .accordion-article.expanded.group > .content,
+	#content .accordion-article.expanded.group .accordion-item > .content {
 		max-height: 5600px;
 	}
 
-	.accordion .accordion-article.expanded > .content,
-	.accordion .accordion-article.expanded .accordion-item > .content {
+	#content .accordion-article.expanded > .content,
+	#content .accordion-article.expanded .accordion-item > .content {
 		max-height: var(--radix-accordion-content-height, 2300px);
 		border-top: none !important;
 		border-top-color: transparent !important;
@@ -1078,36 +1079,36 @@
 		margin-top: 0;
 	}
 
-	.accordion .accordion-card-content {
+	#content .accordion-card-content {
 		outline: 2px solid rgb(var(--color-border-subtle) / 0.5);
 		background-color: rgb(var(--color-secondary-100) / 0.5);
 	}
 
-	.accordion .accordion-article .information {
+	#content .accordion-article .information {
 		margin-top: 0.25rem;
 		margin-bottom: 0;
 	}
 
-	.accordion .accordion-card-content .information + .panel h3 {
+	#content .accordion-card-content .information + .panel h3 {
 		margin-top: 0;
 	}
 
 	@media (max-width: 640px) {
-		.accordion .accordion-article > header h2,
-		.accordion .accordion-article > header h2 > span,
-		.accordion .accordion-article .accordion-item > header h2,
-		.accordion .accordion-article .accordion-item > header h2 > span {
+		#content .accordion-article > header h2,
+		#content .accordion-article > header h2 > span,
+		#content .accordion-article .accordion-item > header h2,
+		#content .accordion-article .accordion-item > header h2 > span {
 			font-size: calc(var(--font-size-lg) * 0.98415) !important;
 			line-height: var(--line-height-2xl) !important;
 		}
 
-		.accordion .accordion-article > header h2 .accordion-title-before-colon,
-		.accordion .accordion-article .accordion-item > header h2 .accordion-title-before-colon {
+		#content .accordion-article > header h2 .accordion-title-before-colon,
+		#content .accordion-article .accordion-item > header h2 .accordion-title-before-colon {
 			display: inline;
 		}
 
-		.accordion .accordion-article > header h2 .accordion-title-after-colon,
-		.accordion .accordion-article .accordion-item > header h2 .accordion-title-after-colon {
+		#content .accordion-article > header h2 .accordion-title-after-colon,
+		#content .accordion-article .accordion-item > header h2 .accordion-title-after-colon {
 			display: block;
 		}
 	}
