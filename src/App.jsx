@@ -311,9 +311,13 @@ export default class App extends React.Component {
 		if (this.modalLinkDelegationSetup) return;
 
 		this.handleDelegatedModalLinkClick = (e) => {
-			const anchor = e.target instanceof Element
-				? e.target.closest("a.modal-link")
-				: null;
+			const targetElement =
+				e.target instanceof Element
+					? e.target
+					: e.target && e.target.parentElement instanceof Element
+						? e.target.parentElement
+						: null;
+			const anchor = targetElement ? targetElement.closest("a.modal-link") : null;
 			if (!anchor) return;
 
 			handleModalLinkClick(e, {
@@ -325,8 +329,14 @@ export default class App extends React.Component {
 		};
 
 		this.handleDelegatedModalTargetClick = (e) => {
-			const targetAnchor = e.target instanceof Element
-				? e.target.closest("a.modal-link-target")
+			const targetElement =
+				e.target instanceof Element
+					? e.target
+					: e.target && e.target.parentElement instanceof Element
+						? e.target.parentElement
+						: null;
+			const targetAnchor = targetElement
+				? targetElement.closest("a.modal-link-target")
 				: null;
 			if (!targetAnchor) return;
 			e.preventDefault();
