@@ -1178,6 +1178,26 @@ Why this was important:
 - Why:
   - closes remaining code-side DOM semantic tasks before final manual visual/accessibility regression verification.
 
+## 111) Main Nav Parity Refactor (Desktop + Mobile)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+  - replaced separate desktop/mobile link construction with one shared `navEntries` source.
+  - both desktop and mobile menus now render from the same IDs/hrefs/labels.
+  - removed duplicate mobile-only hardcoded Introduction item.
+- Updated tracking docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Validation:
+  - `yarn build` passes.
+  - branch guards pass:
+    - `yarn check:typography:branch`
+    - `yarn check:color:branch`
+    - `yarn check:a11y:branch`
+    - `yarn check:scss:branch`
+    - `yarn check:audio-unicode`
+- Why:
+  - removes a known drift surface where desktop and mobile nav links could diverge over time.
+  - guarantees both breakpoints use the same section targets and scroll-only interaction path.
+
 
 # Files Deleted (partial but comprehensive)
 

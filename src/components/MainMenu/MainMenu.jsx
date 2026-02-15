@@ -189,52 +189,56 @@ export class MainMenu extends React.Component {
 
 		if (!config) return null;
 
-		const introHighlight = menuHighlight === "menuItem-introduction";
+		const navEntries = [
+			{
+				href: "#introduction",
+				id: "introduction",
+				label: "Introduction",
+			},
+			...Object.values(config)
+				.filter((value) => value.component && value.id)
+				.map((value) => ({
+					href: `#${value.id}`,
+					id: value.id,
+					label: value.menuText ? value.menuText : value.titleText,
+				})),
+		];
 
-		const topMenu = [];
-		const mobileMenuItems = [];
-
-		for (const [, value] of Object.entries(config)) {
-			const { component, menuText, titleText, id } = value;
-
-			if (component) {
-				const highlight = menuHighlight === `menuItem-${id}`;
-				const label = menuText ? menuText : titleText;
-				const href = `#${id}`;
-
-				// Desktop item
-				topMenu.push(
-					<NavigationMenuItem
-						className={highlight ? "highlight" : ""}
-						id={`menuItem-${id}`}
-						key={`menuItem-${id}`}
-					>
-						<NavigationMenuLink asChild>
-							<a
-								className="nav-scroll-link nav nav-link text-[var(--nav-link-size)]"
-								href={href}
-								onClick={this.handleNavClick}
-							>
-								{label}
-							</a>
-						</NavigationMenuLink>
-					</NavigationMenuItem>
-				);
-
-				// Mobile item
-				mobileMenuItems.push(
-					<li key={`mobile-${id}`} className={highlight ? "highlight" : ""}>
+		const topMenu = navEntries.map((item) => {
+			const highlight = menuHighlight === `menuItem-${item.id}`;
+			return (
+				<NavigationMenuItem
+					className={highlight ? "highlight" : ""}
+					id={`menuItem-${item.id}`}
+					key={`menuItem-${item.id}`}
+				>
+					<NavigationMenuLink asChild>
 						<a
-							href={href}
-							className="nav-link nav-link-mobile nav nav-scroll-link text-[var(--nav-link-size)]"
+							className="nav-scroll-link nav nav-link text-[var(--nav-link-size)]"
+							href={item.href}
 							onClick={this.handleNavClick}
 						>
-							{label}
+							{item.label}
 						</a>
-					</li>
-				);
-			}
-		}
+					</NavigationMenuLink>
+				</NavigationMenuItem>
+			);
+		});
+
+		const mobileMenuItems = navEntries.map((item) => {
+			const highlight = menuHighlight === `menuItem-${item.id}`;
+			return (
+				<li key={`mobile-${item.id}`} className={highlight ? "highlight" : ""}>
+					<a
+						href={item.href}
+						className="nav-link nav-link-mobile nav nav-scroll-link text-[var(--nav-link-size)]"
+						onClick={this.handleNavClick}
+					>
+						{item.label}
+					</a>
+				</li>
+			);
+		});
 
 		let theme = "moon"; // Going from light to dark hence moon
 		if (typeof document !== "undefined") {
@@ -242,8 +246,6 @@ export class MainMenu extends React.Component {
 				theme = "sun";
 			}
 		}
-
-		const introHref = "#introduction";
 
 		return (
 			<header className="main-menu" id="mainMenu">
@@ -267,22 +269,6 @@ export class MainMenu extends React.Component {
 
 						{/* DESKTOP — Right-hand nav */}
 						<NavigationMenuList className="menu-right">
-							<NavigationMenuItem
-								className={introHighlight ? "highlight" : ""}
-								id="menu-item-introduction"
-								key="menu-item-introduction"
-							>
-								<NavigationMenuLink asChild>
-									<a
-										className="nav-scroll-link nav nav-link text-[var(--nav-link-size)]"
-										href={introHref}
-										onClick={this.handleNavClick}
-									>
-										Introduction
-									</a>
-								</NavigationMenuLink>
-							</NavigationMenuItem>
-
 							{topMenu}
 						</NavigationMenuList>
 
@@ -344,15 +330,6 @@ export class MainMenu extends React.Component {
 					aria-hidden={!mobileOpen}
 				>
 					<ul className="mobile-menu-list">
-						<li className={introHighlight ? "highlight" : ""}>
-							<a
-								href={introHref}
-								className="nav-link nav-link-mobile nav nav-scroll-link text-[var(--nav-link-size)]"
-								onClick={this.handleNavClick}
-							>
-								Introduction
-							</a>
-						</li>
 						{mobileMenuItems}
 					</ul>
 				</div>

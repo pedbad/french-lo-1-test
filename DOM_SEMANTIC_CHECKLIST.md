@@ -27,7 +27,7 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 - [x] Top nav links target semantic top-level section hashes (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`).
 - [ ] Top nav links scroll to the correct top-level section.
 - [ ] Scroll spy/highlight still updates correctly while scrolling.
-- [ ] Mobile menu links behave exactly like desktop links.
+- [x] Mobile menu links behave exactly like desktop links.
 - [x] Legacy `#modal-link-*` nav hash compatibility is intentionally removed (explicit project decision).
 
 ## Hero + Heading Checks

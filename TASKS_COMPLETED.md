@@ -196,6 +196,9 @@ Progress:
 - [x] Complete DOM selector + heading hierarchy hardening phase:
   - selector audit confirms no additional wrapper selectors required changes beyond existing `article`-aware fallback in `App.findModalLinkContent`
   - wrapper heading flow is now consistent (`h1` page title, `h2` section headers, `h3` accordion item headings)
+- [x] Unify desktop/mobile nav link source to prevent behavior drift:
+  - `MainMenu` now builds one shared `navEntries` list and renders both desktop and mobile link sets from that same source
+  - both layouts now use the same href targets and the same click handler path (`handleNavClick` -> `handleModalLinkClick(..., { mode: "scroll" })`)
 
 ## CI / Guardrails
 
