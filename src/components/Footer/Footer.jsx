@@ -1,4 +1,3 @@
-import './Footer.scss';
 import { FooterSocialLinks } from './FooterSocialLinks';
 import React from 'react';
 

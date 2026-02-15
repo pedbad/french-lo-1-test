@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 17
-- current SCSS imports in JSX/JS: 15
+- current SCSS files in `src`: 16
+- current SCSS imports in JSX/JS: 14
 
 These counts give us a measurable baseline for reduction.
 
@@ -254,7 +254,9 @@ These are accepted refinements from peer review, adapted to this repo:
 - [ ] `src/App.scss` (largest global layer)
   - prerequisite: migrate remaining global/reset/base rules to `src/index.css` (`@layer base`)
   - [x] moved global body/heading typography ownership from `src/App.scss` to `src/index.css` so app + debug sandbox share one typography source of truth
-- [ ] `src/components/Footer/Footer.scss`
+- [x] `src/components/Footer/Footer.scss`
+  - migrated footer layout/logo visibility/social-link skins and breakpoint behavior into `src/index.css` (`@layer components`)
+  - removed `import './Footer.scss'` from `src/components/Footer/Footer.jsx`
 - [ ] `src/components/Blanks/Blanks.scss`
 - [ ] `src/components/CustomComponents_FR/CustomComponents_FR.scss`
 
