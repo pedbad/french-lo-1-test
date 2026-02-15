@@ -4,6 +4,7 @@ import DOMPurify from "dompurify";
 import React from "react";
 import { INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
 import { resolveAsset } from "../../utility";
+import { Separator } from "@/components/ui/separator";
 
 export const HeroSection = ({
 	id,
@@ -24,6 +25,7 @@ export const HeroSection = ({
 	} = config || {};
 	const headingId = target ? `${target}-heading` : `section-title-${id}`;
 	const hasInfo = Boolean(informationText || informationTextHTML);
+	const hasInstructions = Boolean(instructionsLayout || instructionsText || instructionsTextHTML);
 	const sideBySide = hasInfo && !stackInfo;
 	const splitInfoImage = stackInfo && Boolean(instructionsLayout?.image);
 
@@ -35,26 +37,22 @@ export const HeroSection = ({
 				}`}
 			>
 				<CardHeader className="px-6 pb-4 pt-6">
-					<CardTitle className="text-base [&_h2]:m-0">
-						<h2
-							className="modal-link-target"
-							data-modal-target={target || undefined}
-							id={headingId}
-						>
-							{titleHTML ? (
-								<span
-									dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
-								/>
-							) : (
-								title
-							)}
-						</h2>
-					</CardTitle>
-				</CardHeader>
-				<CardContent
-					className={`grid gap-6 ${sideBySide ? "lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:items-start lg:gap-8" : ""}`}
-				>
-					<div className="flex flex-col gap-6">
+					<header>
+						<CardTitle className="text-base [&_h2]:m-0">
+							<h2
+								className="modal-link-target"
+								data-modal-target={target || undefined}
+								id={headingId}
+							>
+								{titleHTML ? (
+									<span
+										dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
+									/>
+								) : (
+									title
+								)}
+							</h2>
+						</CardTitle>
 						{instructionsLayout ? (
 							<InstructionsMedia
 								{...instructionsLayout}
@@ -77,6 +75,13 @@ export const HeroSection = ({
 								) : null}
 							</div>
 						)}
+						{hasInstructions ? <Separator className="my-3" /> : null}
+					</header>
+				</CardHeader>
+				<CardContent
+					className={`grid gap-6 ${sideBySide ? "lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:items-start lg:gap-8" : ""}`}
+				>
+					<div className="flex flex-col gap-6">
 						{hasInfo && stackInfo && !splitInfoImage ? (
 							<Info
 								id={`info-${id}`}

@@ -15,7 +15,7 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 - [x] Page title remains:
   - `<h1><span class="title-main">First Contact —</span><span class="title-sub">greetings, farewells and social niceties</span></h1>`
 - [x] Each top-level section has an accessible heading.
-- [ ] Each top-level section has a semantic `<header>` that contains:
+- [x] Each top-level section has a semantic `<header>` that contains:
   - section `h2`
   - section intro/instructions block
 - [x] Leaf accordion panels are `<article>` (or justified as `<section>` if not standalone).
@@ -33,7 +33,7 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 ## Hero + Heading Checks
 - [x] Hero is explicitly treated as decorative page chrome and is intentionally outside `main`.
 - [x] No hero `h2` appears before the page `h1`.
-- [ ] Intro section heading/instructions are grouped in a semantic section header.
+- [x] Intro section heading/instructions are grouped in a semantic section header.
 
 ## Accordion Behavior Checks
 - [ ] First click opens panel.

@@ -1144,6 +1144,28 @@ Why this was important:
   - restores correct semantic distinction between structural content regions (`section`) and standalone accordion entries (`article`).
   - removes heading-level inflation inside accordion items and improves document outline consistency for assistive tech.
 
+## 109) DOM Semantics: Section Header Grouping (Title + Instructions)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`:
+  - wrapped section heading (`h2`) and instruction block in a semantic `<header>` element.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`:
+  - moved hero-section instruction rendering into a semantic `<header>` element alongside the section `h2`.
+  - added `Separator` usage in the semantic header to preserve visual rhythm after moving instruction content.
+- Updated tracking docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Validation:
+  - `yarn build` passes.
+  - branch guards pass:
+    - `yarn check:typography:branch`
+    - `yarn check:color:branch`
+    - `yarn check:a11y:branch`
+    - `yarn check:scss:branch`
+    - `yarn check:audio-unicode`
+- Why:
+  - ensures each section’s heading and intro/instructional context are grouped in semantic HTML5 structure.
+  - improves section comprehension for assistive technology and makes top-level section outlines easier to audit.
+
 
 # Files Deleted (partial but comprehensive)
 

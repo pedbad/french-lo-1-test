@@ -189,6 +189,10 @@ Progress:
   - added `semanticAs` override to `AccordionArticle` so group wrappers render as `<section>` while leaf items remain `<article>`
   - updated group accordion call sites in `src/App.jsx` to pass `semanticAs="section"`
   - promoted accordion trigger title heading from `h2` to `h3` and updated related selectors in `src/index.css` to `.accordion-title`
+- [x] Add semantic section headers for title + instructions:
+  - wrapped section title/instructions in real `<header>` blocks in `src/components/Section/Section.jsx`
+  - wrapped hero-section title/instructions in real `<header>` blocks in `src/components/HeroSection/HeroSection.jsx`
+  - keeps section intro copy semantically associated with each section heading for better document structure and screen-reader context
 
 ## CI / Guardrails
 

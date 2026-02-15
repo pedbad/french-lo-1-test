@@ -48,7 +48,7 @@ Current page-top semantic risks:
 - [x] Ensure LO top-level blocks use stable IDs matching nav targets.
 - [x] Keep page title markup unchanged:
   - `<h1><span class="title-main">First Contact —</span><span class="title-sub">greetings, farewells and social niceties</span></h1>`
-- [ ] Ensure each top-level section uses semantic header content:
+- [x] Ensure each top-level section uses semantic header content:
   - title `h2` and section instructions inside `<section><header>...</header></section>`.
 - [x] Keep all existing classes (`section`, etc.) to avoid style regressions.
 

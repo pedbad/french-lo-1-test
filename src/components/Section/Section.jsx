@@ -87,36 +87,38 @@ export class Section extends React.PureComponent {
 			>
 				<Card className="w-full sortable mt-6">
 					<CardHeader className="px-6 pb-4 pt-6">
-						<CardTitle className="text-base [&_h2]:m-0">{/* font-semibold">*/}
-							<h2
-								className="modal-link-target"
-								data-modal-target={target || undefined}
-								id={headingId}
-							>
-								{titleHTML ? (
-									<span
-										dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
-									/>
-								) : (
-									title
-								)}
-							</h2>
+						<header>
+							<CardTitle className="text-base [&_h2]:m-0">{/* font-semibold">*/}
+								<h2
+									className="modal-link-target"
+									data-modal-target={target || undefined}
+									id={headingId}
+								>
+									{titleHTML ? (
+										<span
+											dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
+										/>
+									) : (
+										title
+									)}
+								</h2>
 
-							{/* {title} */}
-						</CardTitle>
-						{/* <Info className={`text accordionarticle`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML}/> */}
-						{instructionsLayout ? (
-							<InstructionsMedia
-								{...instructionsLayout}
-								instructionTextClass={INSTRUCTION_TEXT_CLASS}
-							/>
-						) : (
-							<>
-								{instructionsText ? <p className={`instructions text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>{instructionsText}</p> : null}
-								{instructionsTextHTML ? <div className={`instructions html section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }} dangerouslySetInnerHTML={{ __html: safeInstructionsTextHTML }} /> : null}
-							</>
-						)}
-						{(instructionsText || instructionsTextHTML || instructionsLayout) ? <Separator className="my-3" /> : null}
+								{/* {title} */}
+							</CardTitle>
+							{/* <Info className={`text accordionarticle`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML}/> */}
+							{instructionsLayout ? (
+								<InstructionsMedia
+									{...instructionsLayout}
+									instructionTextClass={INSTRUCTION_TEXT_CLASS}
+								/>
+							) : (
+								<>
+									{instructionsText ? <p className={`instructions text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>{instructionsText}</p> : null}
+									{instructionsTextHTML ? <div className={`instructions html section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }} dangerouslySetInnerHTML={{ __html: safeInstructionsTextHTML }} /> : null}
+								</>
+							)}
+							{(instructionsText || instructionsTextHTML || instructionsLayout) ? <Separator className="my-3" /> : null}
+						</header>
 
 					</CardHeader>
 
