@@ -176,6 +176,11 @@ Progress:
   - removed hidden `#modal-link-top` anchor from `App.jsx`
   - hardened modal fallback extraction selector in `App.findModalLinkContent` to include `article`
   - updated DOM semantic tracker docs (`DOM_SEMANTIC_AUDIT.md`, `DOM_SEMANTIC_TODO.md`, `DOM_SEMANTIC_CHECKLIST.md`) and README contract text
+- [x] Refine menu highlight + scroll accuracy after semantic nav cutover:
+  - fixed initial false-positive `Introduction` highlight by initializing nav highlight to `null` and recalculating when config loads (`MainMenu.componentDidUpdate`)
+  - nav highlight activation now resolves semantic heading anchors first (`${sectionId}-heading`) for more accurate section detection
+  - reduced scroll overshoot/undershoot by replacing legacy large offset fudge with tight fixed-menu offset in `scrollToElement`
+  - nav scroll mode now targets section heading anchors first, then section IDs (for tighter section alignment)
 
 ## CI / Guardrails
 

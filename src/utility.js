@@ -200,8 +200,10 @@ export const scrollToElement = (element) => {
 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 	const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
-	// Calculate coordinates relative to the page, minus header height
-	const top = rect.top + scrollTop - mainMenuHeight - 100; // 100 = fudge factor
+	// Keep nav-targeted headings tight under the fixed menu.
+	// The old large fudge value caused visible bleed from previous sections.
+	const extraOffset = 16;
+	const top = Math.max(0, rect.top + scrollTop - mainMenuHeight - extraOffset);
 	const left = rect.left + scrollLeft;
 
 	// Flag this as a programmatic scroll so listeners can ignore it
@@ -235,6 +237,7 @@ export const handleModalLinkClick = (e, options = {}) => {
 
 	if (mode === "scroll") {
 		const targetEl =
+			document.getElementById(`${targetId}-heading`) ||
 			document.getElementById(targetId) ||
 			document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
 		if (targetEl) scrollToElement(targetEl);

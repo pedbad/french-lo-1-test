@@ -13,7 +13,7 @@ export class MainMenu extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			menuHighlight: "menuItem-introduction",
+			menuHighlight: null,
 			mobileOpen: false,
 		};
 		this.mobileMenuPanelId = "main-navigation-mobile-panel";
@@ -21,16 +21,22 @@ export class MainMenu extends React.Component {
 		window.__lastKnownScrollPosition = 0;
 	}
 
-		componentDidMount = () => {
-			// Helper: choose the section whose top is just below the menu
-		const updateHighlight = () => {
+	componentDidMount = () => {
+		// Helper: choose the section whose top is just below the menu
+		this.updateHighlight = () => {
 			const { config } = this.props;
 			const mainMenu = document.getElementById("mainMenu");
-			if (!mainMenu || !config) return;
+			if (!mainMenu || !config) {
+				if (this.state.menuHighlight !== null) this.setState({ menuHighlight: null });
+				return;
+			}
+			const getNavAnchor = (targetId) =>
+				document.getElementById(`${targetId}-heading`) ||
+				document.getElementById(targetId);
 
 			const mainMenuRect = mainMenu.getBoundingClientRect();
 			const mainMenuBottom = mainMenuRect.bottom;
-				// A section becomes "active" only once it reaches this line.
+			// A section becomes "active" only once it reaches this line.
 			// This prevents intro from highlighting while the hero banner is still in view.
 			const activationLine = mainMenuBottom + 140;
 			const passed = [];
@@ -38,7 +44,7 @@ export class MainMenu extends React.Component {
 			// While smooth-scrolling from a nav click, keep the clicked section active
 			// until its top reaches the activation line.
 			if (this.pendingNavTarget) {
-				const pendingTarget = document.getElementById(this.pendingNavTarget);
+				const pendingTarget = getNavAnchor(this.pendingNavTarget);
 				if (pendingTarget) {
 					const pendingRect = pendingTarget.getBoundingClientRect();
 					if (pendingRect.top > activationLine + 8) {
@@ -56,7 +62,7 @@ export class MainMenu extends React.Component {
 			}
 
 			// 1. Intro
-			const introEl = document.getElementById("introduction");
+			const introEl = getNavAnchor("introduction");
 			if (introEl) {
 				const rect = introEl.getBoundingClientRect();
 				if (rect.top <= activationLine) {
@@ -70,7 +76,7 @@ export class MainMenu extends React.Component {
 			// 2. Config sections (including Monologues)
 			for (const [, value] of Object.entries(config)) {
 				const { id } = value;
-				const target = document.getElementById(id);
+				const target = getNavAnchor(id);
 				if (!target) continue;
 
 				const rect = target.getBoundingClientRect();
@@ -82,7 +88,7 @@ export class MainMenu extends React.Component {
 				}
 			}
 
-				// Pick the section closest to the activation line from above.
+			// Pick the section closest to the activation line from above.
 			passed.sort((a, b) => b.top - a.top);
 			const best = passed.length > 0 ? passed[0].key : null;
 
@@ -100,7 +106,7 @@ export class MainMenu extends React.Component {
 			running = true;
 
 			setTimeout(() => {
-				updateHighlight();
+				this.updateHighlight();
 				running = false;
 			}, 200); // throttle
 		};
@@ -115,7 +121,7 @@ export class MainMenu extends React.Component {
 				this.setState({ mobileOpen: false });
 			}
 			// Recalculate which section is "current"
-			updateHighlight();
+			this.updateHighlight();
 		};
 
 		window.addEventListener("resize", this.resizeHandler);
@@ -128,8 +134,14 @@ export class MainMenu extends React.Component {
 		document.addEventListener("keydown", this.keydownHandler);
 
 		// Initial highlight on mount
-		updateHighlight();
+		this.updateHighlight();
 	};
+
+	componentDidUpdate(prevProps) {
+		if (prevProps.config !== this.props.config && typeof this.updateHighlight === "function") {
+			this.updateHighlight();
+		}
+	}
 
 	componentWillUnmount() {
 		document.removeEventListener("scroll", this.scrollHandler);

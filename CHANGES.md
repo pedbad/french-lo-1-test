@@ -1085,6 +1085,23 @@ Why this was important:
   - establishes semantic section IDs as the single source of truth for navigation and scroll behavior.
   - eliminates legacy naming ambiguity (`modal-link-*`) for top-level content landmarks.
 
+## 106) Nav Highlight/Scroll Precision Fix After Semantic-ID Migration
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+  - default nav highlight now starts at `null` (prevents false `Introduction` highlight before section positions are available).
+  - added config-change recalculation in `componentDidUpdate` so highlight state initializes correctly when LO config loads asynchronously.
+  - section detection now resolves semantic heading anchors first (`${sectionId}-heading`) for tighter active-state accuracy.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/utility.js`:
+  - reduced legacy oversized scroll fudge offset and replaced with tighter fixed-menu offset for cleaner section alignment.
+  - scroll-mode target lookup now prefers heading anchors (`${sectionId}-heading`) before section IDs.
+- Updated tracking docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Validation:
+  - `yarn build` passes.
+  - focused lint run on touched files passes with no errors.
+- Why:
+  - fixes initial incorrect menu highlight state on first load.
+  - improves scroll landing accuracy so target sections align cleanly under the fixed nav without leftover content from the previous section.
+
 
 # Files Deleted (partial but comprehensive)
 
