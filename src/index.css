@@ -634,12 +634,12 @@
 	.main-menu .menu-right {
 		display: flex;
 		align-items: center;
-		gap: 0;
-		justify-content: space-between;
+		gap: clamp(0.9rem, 1.8vw, 1.6rem);
+		justify-content: center;
 		flex-wrap: nowrap;
 		flex: 1 1 auto;
 		margin: 0 !important;
-		padding: 0 1rem;
+		padding: 0 2rem;
 		min-width: 0;
 		width: 100%;
 	}
@@ -647,10 +647,10 @@
 	.main-menu .menu-right li {
 		border-bottom: none;
 		transition: border-color 0.15s ease;
-		flex: 1 1 0;
+		flex: 0 0 auto;
 		display: flex;
 		justify-content: center;
-		min-width: 0;
+		min-width: auto;
 	}
 
 	.main-menu .menu-right li > a {
@@ -834,7 +834,7 @@
 
 		.main-menu .menu-right {
 			display: flex !important;
-			justify-content: space-between;
+			justify-content: center;
 			width: 100%;
 		}
 
