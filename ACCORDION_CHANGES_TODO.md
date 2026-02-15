@@ -31,7 +31,7 @@ Debug-first is approved:
   - keep content mounted (current custom behavior) or unmount hidden panel content for stricter focus isolation.
 - [ ] Lock deep-link/hash behavior contract:
   - document whether opening `/...#modal-link-*` must auto-expand the target section.
-- [ ] Lock link-class responsibility contract:
+- [x] Lock link-class responsibility contract:
   - navigation links use `nav-scroll-link` (scroll-only)
   - content explanation links use `modal-link` (modal-only)
 - [ ] Lock QA selector/id contract:
@@ -58,19 +58,19 @@ Acceptance checks:
 
 ## Phase 1: Add shadcn Accordion Primitive
 
-- [ ] Add `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx` (shadcn/Radix style).
-- [ ] Ensure imports are from Radix primitives and consistent with existing `ui/*` patterns.
-- [ ] Keep style tokens consistent with current design tokens.
+- [x] Add `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx` (shadcn/Radix style).
+- [x] Ensure imports are from Radix primitives and consistent with existing `ui/*` patterns.
+- [x] Keep style tokens consistent with current design tokens.
 
 Acceptance checks:
-- [ ] `yarn build` passes.
-- [ ] No visual changes in production app yet.
+- [x] `yarn build` passes.
+- [x] No visual changes in production app yet.
 
 ## Phase 2: Debug-First Implementation
 
-- [ ] Replace `details/summary` in debug structure view with shadcn accordion.
+- [x] Replace `details/summary` in debug structure view with shadcn accordion.
   - file: `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
-- [ ] Preserve current layout: LO index link left, accordion right.
+- [x] Preserve current layout: LO index link left, accordion right.
 - [ ] Tune spacing, typography, hover/focus states to desired UX.
 - [ ] Validate keyboard navigation and screen-reader labels in debug page.
 

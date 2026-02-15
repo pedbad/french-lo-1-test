@@ -810,6 +810,22 @@ Why this was important:
   - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md` now includes link-class contract lock as a migration decision.
 - Why: removes a confusing legacy naming pattern where one class (`modal-link`) represented two different interaction models (scroll + modal), reducing maintenance risk and accidental regressions.
 
+## 85) Accordion Migration Start (shadcn Primitive + Debug Integration)
+- Added dependency:
+  - `@radix-ui/react-accordion` in `/Users/ped/Sites/french/french-lo-1-test/package.json`
+- Added shadcn-style accordion primitive:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`
+- Migrated debug structure summary from native `<details>/<summary>` to shadcn/Radix accordion:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
+  - preserved current row layout (LO link left, structure accordion right)
+  - preserved ordered-list structure and section/exercise summary content
+- Updated migration tracking docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+- Why: executes the approved debug-first migration step in a low-risk surface, validates shared primitive wiring, and reduces drift before main-app accordion cutover.
+
 
 # Files Deleted (partial but comprehensive)
 

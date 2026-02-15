@@ -130,8 +130,8 @@ Progress:
 - [x] Added architecture/risk analysis doc.
 - [x] Added detailed baby-step migration plan + test matrix + timeline.
 - [x] Added dedicated accordion completion tracker.
-- [ ] Add shadcn accordion primitive in `src/components/ui/accordion.jsx`.
-- [ ] Migrate debug accordion UI first (approved plan).
+- [x] Add shadcn accordion primitive in `src/components/ui/accordion.jsx`.
+- [x] Migrate debug accordion UI first (approved plan).
 - [ ] Migrate main app accordion path with parity checks.
 - [ ] Remove obsolete custom accordion/dead pathways after cutover.
 

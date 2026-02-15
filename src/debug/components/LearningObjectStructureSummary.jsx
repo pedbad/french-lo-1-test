@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'AnswerTable',
@@ -258,82 +264,90 @@ export function LearningObjectStructureSummary({ appHrefBase, languageCode = 'fr
 								<span className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] opacity-85">{summary.badge}</span>
 								<span className="mt-1 text-sm font-bold leading-tight">{summary.title}</span>
 							</a>
-							<details className="rounded-lg border border-border/70 p-3">
-								<summary className="cursor-pointer text-base font-semibold min-[1180px]:text-lg">
-									{`Structure: ${summary.sections.length} section${summary.sections.length === 1 ? '' : 's'}`}
-								</summary>
-								{summary.sections.length === 0 ? (
-									<p className="mt-3 text-base text-[var(--destructive)]">No section data found for this LO.</p>
-								) : (
-									<ol className="mt-3 list-decimal space-y-4 pl-6">
-										{summary.sections.map((section) => (
-											<li className="rounded-lg border border-border/70 p-3" key={`${summary.file}-${section.key}`}>
-												<h3 className="text-lg font-semibold leading-snug">{section.sectionTitle}</h3>
-												<ol className="mt-2 list-decimal space-y-2 pl-6 text-base leading-relaxed">
-													<li>
-														<span className="font-semibold">Section component:</span>{' '}
-														<code>{section.sectionComponent}</code>
+							<Accordion
+								collapsible
+								className="rounded-lg border border-border/70 px-3"
+								type="single"
+							>
+								<AccordionItem className="border-none" value={`${summary.file}-structure`}>
+									<AccordionTrigger className="text-base font-semibold min-[1180px]:text-lg hover:no-underline">
+										{`Structure: ${summary.sections.length} section${summary.sections.length === 1 ? '' : 's'}`}
+									</AccordionTrigger>
+									<AccordionContent>
+										{summary.sections.length === 0 ? (
+											<p className="mt-1 text-base text-[var(--destructive)]">No section data found for this LO.</p>
+										) : (
+											<ol className="mt-2 list-decimal space-y-4 pl-6">
+												{summary.sections.map((section) => (
+													<li className="rounded-lg border border-border/70 p-3" key={`${summary.file}-${section.key}`}>
+														<h3 className="text-lg font-semibold leading-snug">{section.sectionTitle}</h3>
+														<ol className="mt-2 list-decimal space-y-2 pl-6 text-base leading-relaxed">
+															<li>
+																<span className="font-semibold">Section component:</span>{' '}
+																<code>{section.sectionComponent}</code>
+															</li>
+															<li>
+																<span className="font-semibold">Content component types ({section.contentTypes.length}):</span>
+																{section.contentTypes.length > 0 ? (
+																	<ol className="mt-1 list-decimal space-y-1 pl-6">
+																		{section.contentTypes.map((componentType) => (
+																			<li key={`${summary.file}-${section.key}-content-type-${componentType}`}>{componentType}</li>
+																		))}
+																	</ol>
+																) : (
+																	<span> None</span>
+																)}
+															</li>
+															<li>
+																<span className="font-semibold">Top-level content entries ({section.topLevelContent.length}):</span>
+																{section.topLevelContent.length > 0 ? (
+																	<ol className="mt-1 list-decimal space-y-1 pl-6">
+																		{section.topLevelContent.map((item, contentIndex) => (
+																			<li key={`${summary.file}-${section.key}-top-content-${contentIndex}`}>
+																				{`${item.title} (${item.component})`}
+																			</li>
+																		))}
+																	</ol>
+																) : (
+																	<span> None</span>
+																)}
+															</li>
+															<li>
+																<span className="font-semibold">Accordion titles ({section.accordionTitles.length}):</span>
+																{section.accordionTitles.length > 0 ? (
+																	<ol className="mt-1 list-decimal space-y-1 pl-6">
+																		{section.accordionTitles.map((title, titleIndex) => (
+																			<li key={`${summary.file}-${section.key}-accordion-title-${titleIndex}`}>{title}</li>
+																		))}
+																	</ol>
+																) : (
+																	<span> None</span>
+																)}
+															</li>
+															{section.exerciseItemCount > 0 ? (
+																<li>
+																	<span className="font-semibold">Exercise entries:</span>{' '}
+																	{section.exerciseItemCount}
+																</li>
+															) : null}
+															{section.exerciseTypes.length > 0 ? (
+																<li>
+																	<span className="font-semibold">Exercise component types ({section.exerciseTypes.length}):</span>
+																	<ol className="mt-1 list-decimal space-y-1 pl-6">
+																		{section.exerciseTypes.map((exerciseType) => (
+																			<li key={`${summary.file}-${section.key}-exercise-type-${exerciseType}`}>{exerciseType}</li>
+																		))}
+																	</ol>
+																</li>
+															) : null}
+														</ol>
 													</li>
-													<li>
-														<span className="font-semibold">Content component types ({section.contentTypes.length}):</span>
-														{section.contentTypes.length > 0 ? (
-															<ol className="mt-1 list-decimal space-y-1 pl-6">
-																{section.contentTypes.map((componentType) => (
-																	<li key={`${summary.file}-${section.key}-content-type-${componentType}`}>{componentType}</li>
-																))}
-															</ol>
-														) : (
-															<span> None</span>
-														)}
-													</li>
-													<li>
-														<span className="font-semibold">Top-level content entries ({section.topLevelContent.length}):</span>
-														{section.topLevelContent.length > 0 ? (
-															<ol className="mt-1 list-decimal space-y-1 pl-6">
-																{section.topLevelContent.map((item, contentIndex) => (
-																	<li key={`${summary.file}-${section.key}-top-content-${contentIndex}`}>
-																		{`${item.title} (${item.component})`}
-																	</li>
-																))}
-															</ol>
-														) : (
-															<span> None</span>
-														)}
-													</li>
-													<li>
-														<span className="font-semibold">Accordion titles ({section.accordionTitles.length}):</span>
-														{section.accordionTitles.length > 0 ? (
-															<ol className="mt-1 list-decimal space-y-1 pl-6">
-																{section.accordionTitles.map((title, titleIndex) => (
-																	<li key={`${summary.file}-${section.key}-accordion-title-${titleIndex}`}>{title}</li>
-																))}
-															</ol>
-														) : (
-															<span> None</span>
-														)}
-													</li>
-													{section.exerciseItemCount > 0 ? (
-														<li>
-															<span className="font-semibold">Exercise entries:</span>{' '}
-															{section.exerciseItemCount}
-														</li>
-													) : null}
-													{section.exerciseTypes.length > 0 ? (
-														<li>
-															<span className="font-semibold">Exercise component types ({section.exerciseTypes.length}):</span>
-															<ol className="mt-1 list-decimal space-y-1 pl-6">
-																{section.exerciseTypes.map((exerciseType) => (
-																	<li key={`${summary.file}-${section.key}-exercise-type-${exerciseType}`}>{exerciseType}</li>
-																))}
-															</ol>
-														</li>
-													) : null}
-												</ol>
-											</li>
-										))}
-									</ol>
-								)}
-							</details>
+												))}
+											</ol>
+										)}
+									</AccordionContent>
+								</AccordionItem>
+							</Accordion>
 						</div>
 					</div>
 				))}

@@ -21,6 +21,12 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
 - [x] Clarified link interaction contract to remove legacy overload:
   - top navigation now uses `nav-scroll-link` (scroll-only)
   - content explanation links keep `modal-link` (modal-only)
+- [x] Added Radix accordion dependency and shadcn accordion primitive:
+  - dependency: `@radix-ui/react-accordion`
+  - component: `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`
+- [x] Migrated debug structure view to shadcn accordion:
+  - `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
+  - replaced native `details/summary` usage while keeping row layout (LO link left, structure accordion right)
 
 ## In Progress
 
@@ -28,8 +34,6 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
 
 ## Pending
 
-- [ ] Add shadcn accordion primitive at `src/components/ui/accordion.jsx`.
-- [ ] Migrate debug accordion (`LearningObjectStructureSummary.jsx`) from `details/summary` to shadcn accordion.
 - [ ] Build compatibility wrapper for main app accordion semantics.
 - [ ] Migrate `App.jsx` accordion usage incrementally to wrapper.
 - [ ] Remove legacy/dead accordion pathways.
