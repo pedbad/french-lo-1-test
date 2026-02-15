@@ -189,8 +189,8 @@ export default class App extends React.Component {
 
 	componentWillUnmount = () => {
 		if (this.modalLinkDelegationSetup) {
-			document.removeEventListener("click", this.handleDelegatedModalLinkClick);
-			document.removeEventListener("click", this.handleDelegatedModalTargetClick);
+			document.removeEventListener("click", this.handleDelegatedModalLinkClick, true);
+			document.removeEventListener("click", this.handleDelegatedModalTargetClick, true);
 			this.modalLinkDelegationSetup = false;
 		}
 	};
@@ -342,8 +342,10 @@ export default class App extends React.Component {
 			e.preventDefault();
 		};
 
-		document.addEventListener("click", this.handleDelegatedModalLinkClick);
-		document.addEventListener("click", this.handleDelegatedModalTargetClick);
+		// Use capture phase so modal links still work when nested components stop
+		// propagation during bubble phase (for example Section content wrappers).
+		document.addEventListener("click", this.handleDelegatedModalLinkClick, true);
+		document.addEventListener("click", this.handleDelegatedModalTargetClick, true);
 		this.modalLinkDelegationSetup = true;
 	};
 
