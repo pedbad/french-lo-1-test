@@ -148,13 +148,13 @@ export function AppAccordionArticle({
 			>
 				<AccordionPrimitive.Item className="border-none" value={id}>
 					<header>
-						<h2
-							className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
-							data-modal-target={target || undefined}
-							id={headingId}
-							style={ACCORDION_TITLE_STYLE}
-						>
-							<AccordionPrimitive.Header className="flex w-full">
+						<AccordionPrimitive.Header asChild>
+							<h2
+								className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
+								data-modal-target={target || undefined}
+								id={headingId}
+								style={ACCORDION_TITLE_STYLE}
+							>
 								<AccordionPrimitive.Trigger
 									aria-controls={contentId}
 									className="accordion-trigger"
@@ -178,8 +178,8 @@ export function AppAccordionArticle({
 									</svg>
 									<span className="accordion-trigger-label">{headingContent}</span>
 								</AccordionPrimitive.Trigger>
-							</AccordionPrimitive.Header>
-						</h2>
+							</h2>
+						</AccordionPrimitive.Header>
 					</header>
 
 					<AccordionPrimitive.Content

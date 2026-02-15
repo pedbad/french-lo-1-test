@@ -325,7 +325,11 @@ export default class App extends React.Component {
 			if (target.setup) {
 				// do nothing
 			} else {
-				target.addEventListener("click", (e) => e.preventDefault());
+				// Only suppress default browser navigation for anchor targets.
+				// Non-anchor heading targets are interactive containers for accordion triggers.
+				if (target.tagName.toLowerCase() === "a") {
+					target.addEventListener("click", (e) => e.preventDefault());
+				}
 			}
 			target.setup = true;
 		});

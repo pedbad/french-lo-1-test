@@ -888,6 +888,15 @@ Why this was important:
   - `/Users/ped/Sites/french/french-lo-1-test/README.md`
 - Why: continues batch-by-batch migration of interactive sections to the compatibility wrapper while preserving deep-link, info-suppression, and persisted-expansion contracts.
 
+## 92) Accordion Clickability Fix (Wrapper Interaction Regression)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+  - corrected Radix header/trigger structure using `AccordionPrimitive.Header asChild` around the `<h2>` heading target.
+  - removed invalid nested heading structure that could interfere with trigger interaction.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - narrowed `.modal-link-target` click suppression to anchor elements only (`<a>`).
+  - avoids preventing default on non-anchor heading targets used by accordion triggers.
+- Why: fixes a migration regression where accordion headings could become non-clickable after wrapper adoption.
+
 
 # Files Deleted (partial but comprehensive)
 
