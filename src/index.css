@@ -714,6 +714,116 @@
 		background-color: var(--card);
 	}
 
+	/* Read-aloud shell + speech comparison styling extracted from ReadAloud.scss. */
+	.read-aloud-container {
+		position: relative;
+		padding: 20px;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 8px;
+		grid-template-areas:
+			"instructions instructions"
+			"form microphone"
+			"help help";
+	}
+
+	.read-aloud-container .recording-container {
+		height: 160px;
+		width: 80px;
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+		align-items: center;
+		background-image: url(/images/microphone-off.png);
+		background-repeat: no-repeat;
+		background-position: center 4px;
+		background-size: 80%;
+		margin: 20px;
+		align-self: center;
+		justify-self: end;
+		border-radius: 4px;
+		cursor: pointer;
+		grid-area: microphone;
+	}
+
+	.read-aloud-container.recording .recording-container {
+		background-image: url(/images/microphone-on.png);
+	}
+
+	.read-aloud-container .instructions {
+		grid-area: instructions;
+	}
+
+	.read-aloud-container .instructions .phrase {
+		font-style: italic;
+	}
+
+	.read-aloud-container .form {
+		grid-area: form;
+	}
+
+	.read-aloud-container .form .understood {
+		font-style: italic;
+	}
+
+	.read-aloud-container .form .comparison-result {
+		border: 1px solid var(--border);
+	}
+
+	.read-aloud-container .help {
+		grid-area: help;
+	}
+
+	.read-aloud-container .comparison-result {
+		min-height: 30vh;
+		white-space: break-spaces;
+		overflow-wrap: anywhere;
+		word-break: normal;
+	}
+
+	.read-aloud-container .comparison-result span {
+		display: inline;
+	}
+
+	.read-aloud-container div.comparison-result {
+		background-color: var(--card);
+		line-height: calc(var(--font-size-sm) * 2);
+	}
+
+	.read-aloud-container div.comparison-result span {
+		vertical-align: bottom;
+		padding: 4px;
+		min-width: 12px;
+		min-height: 24px;
+		border: 1px solid transparent;
+	}
+
+	.read-aloud-container div.comparison-result .deleted,
+	.read-aloud-container div.comparison-result .inserted {
+		cursor: pointer;
+	}
+
+	.read-aloud-container div.comparison-result .deleted {
+		border: 1px solid var(--destructive);
+		background: color-mix(in oklab, var(--destructive) 20%, transparent);
+		text-decoration: line-through;
+	}
+
+	.read-aloud-container div.comparison-result .inserted {
+		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		border: 1px solid var(--chart-2);
+	}
+
+	@media (min-width: 640px) {
+		.read-aloud-container .recording-container {
+			height: 240px;
+			width: 120px;
+			background-size: 100%;
+			margin: 40px;
+		}
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;

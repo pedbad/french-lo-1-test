@@ -1,4 +1,3 @@
-import './ReadAloud.scss';
 import DOMPurify from "dompurify";
 import {
 	highlightTextDiff,
