@@ -1,4 +1,3 @@
-import './CustomComponents_FR.scss';
 import {
 	Attribution,
 	AudioClip,

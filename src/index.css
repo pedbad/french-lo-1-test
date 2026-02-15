@@ -2707,6 +2707,446 @@
 		}
 	}
 
+	/* CustomComponents_FR styles extracted from CustomComponents_FR.scss. */
+	.custom-content table {
+		text-align: left;
+		border-collapse: collapse;
+		background: var(--muted);
+		background: linear-gradient(
+			45deg,
+			color-mix(in oklab, var(--muted) 85%, var(--background)) 0%,
+			var(--background) 50%,
+			color-mix(in oklab, var(--muted) 85%, var(--background)) 73%,
+			var(--background) 77%,
+			var(--muted) 100%
+		);
+	}
+
+	.custom-content table td,
+	.custom-content table th {
+		border: 1px solid var(--border);
+		font-weight: bold;
+	}
+
+	.custom-content table tbody {
+		border: none;
+	}
+
+	.custom-content table tbody tr.spacer td {
+		border-left: none;
+		border-right: none;
+	}
+
+	.custom-content table td {
+		font-size: calc(var(--font-size-sm) * 0.7);
+		padding: 0.25rem 0.25rem;
+	}
+
+	@media (min-width: 640px) {
+		.custom-content table td {
+			font-size: var(--font-size-sm);
+			padding: 0.25rem 1rem;
+		}
+	}
+
+	#LO1-pronunciation1-Accordion,
+	#LO1-pronunciation2-Accordion,
+	#LO1-pronunciation3-Accordion,
+	#LO1-pronunciation4-Accordion,
+	#LO1-pronunciation-Group-Section {
+		align-items: flex-start;
+	}
+
+	#LO1-pronunciation1-Accordion .panel,
+	#LO1-pronunciation2-Accordion .panel,
+	#LO1-pronunciation3-Accordion .panel,
+	#LO1-pronunciation4-Accordion .panel,
+	#LO1-pronunciation-Group-Section .panel {
+		margin-top: 0;
+	}
+
+	#LO1-pronunciation1-Accordion img,
+	#LO1-pronunciation2-Accordion img,
+	#LO1-pronunciation3-Accordion img,
+	#LO1-pronunciation4-Accordion img,
+	#LO1-pronunciation-Group-Section img {
+		width: 300px;
+		height: 300px;
+		margin: 0 0 20px 20px;
+		border: 1px solid var(--border);
+	}
+
+	#LO1-pronunciation1-Accordion #pronunciation1Panel,
+	#LO1-pronunciation1-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation1-Accordion #pronunciation3Panel,
+	#LO1-pronunciation1-Accordion #pronunciation4Panel,
+	#LO1-pronunciation2-Accordion #pronunciation1Panel,
+	#LO1-pronunciation2-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation2-Accordion #pronunciation3Panel,
+	#LO1-pronunciation2-Accordion #pronunciation4Panel,
+	#LO1-pronunciation3-Accordion #pronunciation1Panel,
+	#LO1-pronunciation3-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation3-Accordion #pronunciation3Panel,
+	#LO1-pronunciation3-Accordion #pronunciation4Panel,
+	#LO1-pronunciation4-Accordion #pronunciation1Panel,
+	#LO1-pronunciation4-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation4-Accordion #pronunciation3Panel,
+	#LO1-pronunciation4-Accordion #pronunciation4Panel,
+	#LO1-pronunciation-Group-Section #pronunciation1Panel,
+	#LO1-pronunciation-Group-Section #pronunciation2Panel2,
+	#LO1-pronunciation-Group-Section #pronunciation3Panel,
+	#LO1-pronunciation-Group-Section #pronunciation4Panel {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 0.2fr 1fr;
+		gap: 0px 0px;
+		grid-template-areas:
+			"title title"
+			"text image";
+	}
+
+	#LO1-pronunciation1-Accordion #pronunciation1Panel h3,
+	#LO1-pronunciation1-Accordion #pronunciation2Panel2 h3,
+	#LO1-pronunciation1-Accordion #pronunciation3Panel h3,
+	#LO1-pronunciation1-Accordion #pronunciation4Panel h3,
+	#LO1-pronunciation2-Accordion #pronunciation1Panel h3,
+	#LO1-pronunciation2-Accordion #pronunciation2Panel2 h3,
+	#LO1-pronunciation2-Accordion #pronunciation3Panel h3,
+	#LO1-pronunciation2-Accordion #pronunciation4Panel h3,
+	#LO1-pronunciation3-Accordion #pronunciation1Panel h3,
+	#LO1-pronunciation3-Accordion #pronunciation2Panel2 h3,
+	#LO1-pronunciation3-Accordion #pronunciation3Panel h3,
+	#LO1-pronunciation3-Accordion #pronunciation4Panel h3,
+	#LO1-pronunciation4-Accordion #pronunciation1Panel h3,
+	#LO1-pronunciation4-Accordion #pronunciation2Panel2 h3,
+	#LO1-pronunciation4-Accordion #pronunciation3Panel h3,
+	#LO1-pronunciation4-Accordion #pronunciation4Panel h3,
+	#LO1-pronunciation-Group-Section #pronunciation1Panel h3,
+	#LO1-pronunciation-Group-Section #pronunciation2Panel2 h3,
+	#LO1-pronunciation-Group-Section #pronunciation3Panel h3,
+	#LO1-pronunciation-Group-Section #pronunciation4Panel h3 {
+		grid-area: title;
+		margin-top: 0;
+	}
+
+	#LO1-pronunciation1-Accordion #pronunciation1Panel .information,
+	#LO1-pronunciation1-Accordion #pronunciation2Panel2 .information,
+	#LO1-pronunciation1-Accordion #pronunciation3Panel .information,
+	#LO1-pronunciation1-Accordion #pronunciation4Panel .information,
+	#LO1-pronunciation2-Accordion #pronunciation1Panel .information,
+	#LO1-pronunciation2-Accordion #pronunciation2Panel2 .information,
+	#LO1-pronunciation2-Accordion #pronunciation3Panel .information,
+	#LO1-pronunciation2-Accordion #pronunciation4Panel .information,
+	#LO1-pronunciation3-Accordion #pronunciation1Panel .information,
+	#LO1-pronunciation3-Accordion #pronunciation2Panel2 .information,
+	#LO1-pronunciation3-Accordion #pronunciation3Panel .information,
+	#LO1-pronunciation3-Accordion #pronunciation4Panel .information,
+	#LO1-pronunciation4-Accordion #pronunciation1Panel .information,
+	#LO1-pronunciation4-Accordion #pronunciation2Panel2 .information,
+	#LO1-pronunciation4-Accordion #pronunciation3Panel .information,
+	#LO1-pronunciation4-Accordion #pronunciation4Panel .information,
+	#LO1-pronunciation-Group-Section #pronunciation1Panel .information,
+	#LO1-pronunciation-Group-Section #pronunciation2Panel2 .information,
+	#LO1-pronunciation-Group-Section #pronunciation3Panel .information,
+	#LO1-pronunciation-Group-Section #pronunciation4Panel .information {
+		grid-area: title;
+	}
+
+	#LO1-pronunciation1-Accordion #pronunciation1Panel p,
+	#LO1-pronunciation1-Accordion #pronunciation2Panel2 p,
+	#LO1-pronunciation1-Accordion #pronunciation3Panel p,
+	#LO1-pronunciation1-Accordion #pronunciation4Panel p,
+	#LO1-pronunciation2-Accordion #pronunciation1Panel p,
+	#LO1-pronunciation2-Accordion #pronunciation2Panel2 p,
+	#LO1-pronunciation2-Accordion #pronunciation3Panel p,
+	#LO1-pronunciation2-Accordion #pronunciation4Panel p,
+	#LO1-pronunciation3-Accordion #pronunciation1Panel p,
+	#LO1-pronunciation3-Accordion #pronunciation2Panel2 p,
+	#LO1-pronunciation3-Accordion #pronunciation3Panel p,
+	#LO1-pronunciation3-Accordion #pronunciation4Panel p,
+	#LO1-pronunciation4-Accordion #pronunciation1Panel p,
+	#LO1-pronunciation4-Accordion #pronunciation2Panel2 p,
+	#LO1-pronunciation4-Accordion #pronunciation3Panel p,
+	#LO1-pronunciation4-Accordion #pronunciation4Panel p,
+	#LO1-pronunciation-Group-Section #pronunciation1Panel p,
+	#LO1-pronunciation-Group-Section #pronunciation2Panel2 p,
+	#LO1-pronunciation-Group-Section #pronunciation3Panel p,
+	#LO1-pronunciation-Group-Section #pronunciation4Panel p {
+		grid-area: text;
+	}
+
+	#LO1-pronunciation1-Accordion #pronunciation1Panel img,
+	#LO1-pronunciation1-Accordion #pronunciation2Panel2 img,
+	#LO1-pronunciation1-Accordion #pronunciation3Panel img,
+	#LO1-pronunciation1-Accordion #pronunciation4Panel img,
+	#LO1-pronunciation2-Accordion #pronunciation1Panel img,
+	#LO1-pronunciation2-Accordion #pronunciation2Panel2 img,
+	#LO1-pronunciation2-Accordion #pronunciation3Panel img,
+	#LO1-pronunciation2-Accordion #pronunciation4Panel img,
+	#LO1-pronunciation3-Accordion #pronunciation1Panel img,
+	#LO1-pronunciation3-Accordion #pronunciation2Panel2 img,
+	#LO1-pronunciation3-Accordion #pronunciation3Panel img,
+	#LO1-pronunciation3-Accordion #pronunciation4Panel img,
+	#LO1-pronunciation4-Accordion #pronunciation1Panel img,
+	#LO1-pronunciation4-Accordion #pronunciation2Panel2 img,
+	#LO1-pronunciation4-Accordion #pronunciation3Panel img,
+	#LO1-pronunciation4-Accordion #pronunciation4Panel img,
+	#LO1-pronunciation-Group-Section #pronunciation1Panel img,
+	#LO1-pronunciation-Group-Section #pronunciation2Panel2 img,
+	#LO1-pronunciation-Group-Section #pronunciation3Panel img,
+	#LO1-pronunciation-Group-Section #pronunciation4Panel img {
+		justify-self: right;
+		grid-area: image;
+		width: 300px;
+		height: 300px;
+		border: 1px solid var(--border);
+	}
+
+	#LO1-pronunciation1-Accordion #pronunciation1Panel,
+	#LO1-pronunciation1-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation1-Accordion #pronunciation3Panel,
+	#LO1-pronunciation1-Accordion #pronunciation4Panel,
+	#LO1-pronunciation2-Accordion #pronunciation1Panel,
+	#LO1-pronunciation2-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation2-Accordion #pronunciation3Panel,
+	#LO1-pronunciation2-Accordion #pronunciation4Panel,
+	#LO1-pronunciation3-Accordion #pronunciation1Panel,
+	#LO1-pronunciation3-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation3-Accordion #pronunciation3Panel,
+	#LO1-pronunciation3-Accordion #pronunciation4Panel,
+	#LO1-pronunciation4-Accordion #pronunciation1Panel,
+	#LO1-pronunciation4-Accordion #pronunciation2Panel2,
+	#LO1-pronunciation4-Accordion #pronunciation3Panel,
+	#LO1-pronunciation4-Accordion #pronunciation4Panel,
+	#LO1-pronunciation-Group-Section #pronunciation1Panel,
+	#LO1-pronunciation-Group-Section #pronunciation2Panel2,
+	#LO1-pronunciation-Group-Section #pronunciation3Panel,
+	#LO1-pronunciation-Group-Section #pronunciation4Panel {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"title"
+			"text";
+	}
+
+	#LO2-pronunciation-Section img.lo2-demystify-shh {
+		vertical-align: middle;
+	}
+
+	#LO4-LO4Exercise1-Accordion div.two-columns {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		align-items: center;
+		justify-items: center;
+		gap: 0px 0px;
+		grid-template-areas: "poem image";
+	}
+
+	#LO4-LO4Exercise1-Accordion div.two-columns p {
+		grid-area: poem;
+	}
+
+	#LO4-LO4Exercise1-Accordion div.two-columns img {
+		grid-area: image;
+		width: 300px;
+		height: 300px;
+		border: 1px solid var(--border);
+	}
+
+	@media (max-width: 767px) {
+		#LO4-LO4Exercise1-Accordion div.two-columns {
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 1fr;
+			grid-template-areas:
+				"image"
+				"poem";
+		}
+	}
+
+	#RegionalTelephoneMap {
+		--regional-map-label-size: calc(var(--font-size-base) * 4.058);
+		--regional-map-label-size-small: calc(var(--font-size-base) * 2.174);
+	}
+
+	#RegionalTelephoneMap .svg-container {
+		overflow: hidden;
+		border: 1px solid var(--border);
+		max-width: 600px;
+		width: 100%;
+		height: 120%;
+	}
+
+	#RegionalTelephoneMap .svg-container svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	#RegionalTelephoneMap .lo9-figure-container {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg g {
+		transform-origin: center center;
+		transition: transform 0.3s ease;
+		z-index: 1;
+		cursor: pointer;
+		will-change: transform;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg g text {
+		transform-origin: 50% 50%;
+		transition: transform 0.3s ease;
+		transform: scale(1);
+		font-weight: 700;
+		font-size: var(--regional-map-label-size);
+		fill: var(--background);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg g:hover {
+		transform: scale(1.1);
+		z-index: 2;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg g:hover text {
+		transform: scale(1.1);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg g .land {
+		stroke: color-mix(in oklab, var(--background) 30%, transparent);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g01 {
+		transform-origin: 50% 50%;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g01 text {
+		font-size: var(--regional-map-label-size-small);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g01 .land {
+		fill: var(--chart-1);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g02 {
+		transform-origin: 100% 70%;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g02 .land {
+		fill: var(--chart-2);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g03 {
+		transform-origin: 20% 50%;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g03 .land {
+		fill: var(--destructive);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g04 {
+		transform-origin: 0 0;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g04 .land {
+		fill: var(--chart-2);
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g05 {
+		transform-origin: 100% 0;
+	}
+
+	#RegionalTelephoneMap .zoomable-svg #g05 .land {
+		fill: var(--chart-4);
+	}
+
+	#LO10-grammar-Section div.two-columns {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		align-items: center;
+		justify-items: center;
+		gap: 0px 0px;
+		grid-template-areas: "poem image";
+	}
+
+	#LO10-grammar-Section div.two-columns p {
+		grid-area: poem;
+	}
+
+	#LO10-grammar-Section div.two-columns img {
+		grid-area: image;
+		width: 300px;
+		height: 300px;
+		border: 1px solid var(--border);
+	}
+
+	#L13ASummersDayPanel #L13ASummersDaypassage {
+		margin: 1rem 4rem;
+		font-style: italic;
+		max-height: 0;
+		transition: max-height 6s;
+		overflow: hidden;
+		text-align: left;
+		grid-area: instructions;
+	}
+
+	#L13ASummersDayPanel #L13ASummersDaypassage.show {
+		max-height: 600px;
+		transition: max-height 6s;
+	}
+
+	#L13ASummersDayPanel {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		grid-auto-rows: auto;
+		align-items: flex-start;
+		justify-items: center;
+		gap: 20px;
+		grid-template-areas:
+			"instructions image"
+			"questions questions";
+	}
+
+	#L13ASummersDayPanel .instructions {
+		grid-area: instructions;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	#L13ASummersDayPanel p.instruction {
+		grid-area: instructions;
+		text-align: left;
+	}
+
+	#L13ASummersDayPanel audio {
+		grid-area: instructions;
+	}
+
+	#L13ASummersDayPanel .radio-quiz-container {
+		grid-area: questions;
+		width: 100%;
+		max-width: 1100px;
+	}
+
+	#L13ASummersDayPanel table {
+		grid-area: questions;
+		width: 100%;
+		max-width: 1100px;
+	}
+
+	#L13ASummersDayPanel img {
+		justify-self: right;
+		grid-area: image;
+		width: 300px;
+		border: 1px solid var(--border);
+	}
+
 	/* Audio clip controls extracted from AudioClip.scss. */
 	.audio-clip {
 		display: flex;

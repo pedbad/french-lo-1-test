@@ -188,6 +188,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/Jigsaw/Jigsaw.scss` (deleted; jigsaw board/target geometry and responsive scale selectors migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/Jigsaw/Piece/Piece.scss` (deleted; piece slot/mask/rotation/highlight styling migrated to layered global CSS in `src/index.css` with slot mapping now set in `src/components/Jigsaw/Piece/Piece.jsx`)
     - [x] `src/components/Blanks/Blanks.scss` (deleted; blanks container/target board/drag states/invalid-drop animations and responsive selectors migrated to layered global CSS in `src/index.css`)
+    - [x] `src/components/CustomComponents_FR/CustomComponents_FR.scss` (deleted; custom-content tables, pronunciation/grammar layout grids, and regional map panel selectors migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/AudioClip/AudioClip.scss` (deleted; audio control/link/progress/speaker animation selectors and root sizing tokens migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/Footer/Footer.scss` (deleted; footer layout/logo visibility/social-link skins and breakpoint behavior migrated to layered global CSS in `src/index.css`, preserving dark-mode social variants)
     - [x] `src/components/Form/RadioC/RadioC.scss` (deleted; radio input visuals/layout migrated to tokenized utility classes in `src/components/Form/RadioC/RadioC.jsx`)
@@ -203,8 +204,8 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 6 (from 54)
-    - SCSS imports in JSX/JS: 2 (from 53)
+    - SCSS files in `src`: 5 (from 54)
+    - SCSS imports in JSX/JS: 1 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
@@ -261,9 +262,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - move repeated SCSS visual patterns to tokenized Tailwind utility patterns
   - standardize dynamic branches on `cn()`/`cva`
 - [ ] Phase 3: High-impact file migration (one major file per PR)
-  - `src/App.scss` (after migrating global/base rules to `src/index.css`)
-  - `src/components/Blanks/Blanks.scss`
-  - `src/components/CustomComponents_FR/CustomComponents_FR.scss`
+  - `src/App.scss` (after migrating remaining global/base rules to `src/index.css`)
 - [ ] Phase 4: Legacy style module rationalization
   - reduce reliance on `_mixins`, `_variables`, `_colours`, `_media-queries`
   - centralize keyframes strategy (Tailwind config or layered global CSS)

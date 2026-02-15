@@ -31,7 +31,7 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Yarn is the expected package manager.
 - Styling single source of truth lives in `src/index.css` via shadcn tokens + custom theme tokens (`--page-background`, `--hero-title-color`, `--footer-background`).
 - Tailwind utilities consume these tokens via `tailwind.config.js`; shadcn components live in `src/components/ui/`.
-- SCSS is still present for legacy/component styling (e.g. `src/App.scss` and component SCSS files), so both Tailwind and SCSS currently affect UI.
+- SCSS is still present for legacy/global styling (`src/App.scss`) and Sass style modules (`src/styles/_*.scss`), so both Tailwind and SCSS currently affect UI.
 - Vite already copies `public/` assets during build. Do not add `viteStaticCopy` targets for `public/fonts`, `public/images`, or `public/sounds` (it causes duplicated `dist` trees).
 - Typography guard policy (`scripts/check-typography-guard.sh`):
   - blocks new literal `font-size` values with `px/rem/em`
