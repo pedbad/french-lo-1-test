@@ -1395,6 +1395,116 @@
 		padding: 0.25rem 1rem;
 	}
 
+	/* DropDowns row/select feedback skin extracted from DropDowns.scss. */
+	html.debug .drop-downs-container span {
+		border: 1px solid color-mix(in oklab, var(--destructive) 20%, transparent);
+	}
+
+	html.debug option.hint {
+		background-color: color-mix(in oklab, var(--chart-2) 10%, transparent);
+	}
+
+	.drop-downs-container .phrases-html p,
+	.drop-downs-container table td p {
+		margin: 0;
+	}
+
+	.drop-downs-container .phrases-html p svg.tick,
+	.drop-downs-container .phrases-html p svg.cross,
+	.drop-downs-container table td p svg.tick,
+	.drop-downs-container table td p svg.cross {
+		width: 24px;
+		height: 24px;
+		color: var(--destructive);
+		display: inline-block;
+		margin-left: 8px;
+		opacity: 0;
+		transition: opacity 1s;
+	}
+
+	.drop-downs-container .phrases-html p svg.tick,
+	.drop-downs-container table td p svg.tick {
+		color: var(--chart-2);
+	}
+
+	.drop-downs-container .phrases-html p svg.cross,
+	.drop-downs-container table td p svg.cross {
+		margin-left: -24px;
+	}
+
+	.drop-downs-container .phrases-html p.correct svg.tick,
+	.drop-downs-container table td p.correct svg.tick {
+		opacity: 1;
+	}
+
+	.drop-downs-container .phrases-html p.correct > span,
+	.drop-downs-container table td p.correct > span {
+		border-color: var(--chart-2);
+		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		pointer-events: none;
+	}
+
+	.drop-downs-container .phrases-html p.incorrect svg.cross,
+	.drop-downs-container table td p.incorrect svg.cross {
+		opacity: 1;
+	}
+
+	.drop-downs-container .phrases-html p.incorrect > span,
+	.drop-downs-container table td p.incorrect > span {
+		border-color: var(--destructive);
+		background-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+	}
+
+	.drop-downs-container .phrases-html p select,
+	.drop-downs-container .phrases-html p .select,
+	.drop-downs-container table td p select,
+	.drop-downs-container table td p .select {
+		padding: 0;
+		min-width: 9rem;
+		display: inline-block;
+		outline: none;
+		box-sizing: border-box;
+		border-color: var(--border);
+		border-radius: 8px;
+		border-width: 1px;
+		position: relative;
+	}
+
+	.drop-downs-container .phrases-html p span,
+	.drop-downs-container table td p span {
+		border-radius: calc(var(--radius) - 2px);
+	}
+
+	.drop-downs-container .phrases-html.audioCell,
+	.drop-downs-container table td.audioCell {
+		padding: 0;
+	}
+
+	.drop-downs-container .phrases-html.audioCell .audio-container,
+	.drop-downs-container table td.audioCell .audio-container {
+		width: 27px;
+		height: 27px;
+	}
+
+	.drop-downs-container .dropdown-audio {
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.drop-downs-container .phrases-html,
+		.drop-downs-container table td {
+			padding: 0.25rem 1rem;
+		}
+
+		.drop-downs-container .phrases-html p select,
+		.drop-downs-container .phrases-html p .select,
+		.drop-downs-container table td p select,
+		.drop-downs-container table td p .select {
+			padding: 4px;
+			min-width: 12rem;
+		}
+	}
+
 	/* WordParts interaction/animation skin extracted from WordParts.scss. */
 	html.debug .word-parts-container span {
 		border: 1px solid color-mix(in oklab, var(--destructive) 20%, transparent);

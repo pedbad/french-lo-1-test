@@ -1,5 +1,4 @@
 // DropDowns.jsx
-import "./DropDowns.scss";
 import {
 	AudioClip,
 	IconButton,
