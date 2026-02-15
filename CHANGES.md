@@ -979,6 +979,22 @@ Why this was important:
   - removes ambiguity around "single nav landmark" vs responsive UX.
   - locks heading/landmark expectations before DOM refactor implementation.
 
+## 100) Mobile Nav Semantics + Skip Link (Accessibility-First DOM Prep)
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+  - changed mobile dropdown wrapper from `<nav>` to `<div role="region" aria-label="Main navigation mobile">` so the page has one primary nav landmark for the same IA.
+  - added `aria-controls` on the menu toggle and `id` on the mobile panel for explicit control relationship.
+  - added Escape-key close behavior for the mobile panel.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - added a keyboard skip link (`Skip to main content`) targeting `#content`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - added focus-visible skip-link styling so it remains hidden until keyboard focus.
+- Updated task tracking docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Why:
+  - improves screen-reader landmark clarity and keyboard navigation immediately.
+  - reduces risk before broader semantic DOM restructuring.
+
 
 # Files Deleted (partial but comprehensive)
 

@@ -155,6 +155,10 @@ Progress:
   - documented responsive-safe rule: keep one primary nav landmark, keep mobile UX via non-nav mobile region/container
   - documented hero semantics rule: no hero `h2` before page `h1`, and keep hero/intro in semantic page-content flow under `main`
   - mirrored these contracts in `README.md` and `CHANGES.md`
+- [x] Complete phase 1.5 accessibility-first nav pass before major DOM refactor:
+  - converted mobile menu wrapper from second `nav` landmark to a labeled region container in `src/components/MainMenu/MainMenu.jsx`
+  - added `aria-controls` to mobile toggle and `Escape` close handling for mobile menu panel
+  - added keyboard-first skip link to `#content` in `src/App.jsx` and focus-visible skip-link styles in `src/index.css`
 
 ## CI / Guardrails
 

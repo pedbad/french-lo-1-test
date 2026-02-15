@@ -812,6 +812,9 @@ export default class App extends React.Component {
 						className={`app ${this.targetLanguageCode ? this.targetLanguageCode : ""}`}
 						key={`languageDiv`}
 					>
+						<a className="skip-link" href="#content">
+							Skip to main content
+						</a>
 
 
 						<span

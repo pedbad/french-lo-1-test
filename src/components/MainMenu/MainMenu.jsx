@@ -16,6 +16,7 @@ export class MainMenu extends React.Component {
 			menuHighlight: "menuItem-intro",
 			mobileOpen: false,
 		};
+		this.mobileMenuPanelId = "main-navigation-mobile-panel";
 		this.pendingNavTarget = null;
 		window.__lastKnownScrollPosition = 0;
 	}
@@ -121,6 +122,13 @@ export class MainMenu extends React.Component {
 
 		window.addEventListener("resize", this.resizeHandler);
 
+		this.keydownHandler = (event) => {
+			if (event.key === "Escape" && this.state.mobileOpen) {
+				this.setState({ mobileOpen: false });
+			}
+		};
+		document.addEventListener("keydown", this.keydownHandler);
+
 		// Initial highlight on mount
 		updateHighlight();
 	};
@@ -128,6 +136,7 @@ export class MainMenu extends React.Component {
 	componentWillUnmount() {
 		document.removeEventListener("scroll", this.scrollHandler);
 		window.removeEventListener("resize", this.resizeHandler);
+		document.removeEventListener("keydown", this.keydownHandler);
 	}
 
 	toggleMobileMenu = () => {
@@ -289,6 +298,7 @@ export class MainMenu extends React.Component {
 								className={`menu-toggle-button ${
 									mobileOpen ? "is-open" : ""
 								}`}
+								aria-controls={this.mobileMenuPanelId}
 								aria-label="Toggle navigation menu"
 								aria-expanded={mobileOpen}
 								onClick={this.toggleMobileMenu}
@@ -318,10 +328,13 @@ export class MainMenu extends React.Component {
 					</div>
 				</NavigationMenu>
 
-				{/* MOBILE DROPDOWN NAV */}
-				<nav
+				{/* MOBILE DROPDOWN PANEL (same IA, not a second primary nav landmark) */}
+				<div
+					id={this.mobileMenuPanelId}
 					className={`mobile-menu ${mobileOpen ? "open" : ""}`}
+					role="region"
 					aria-label="Main navigation mobile"
+					aria-hidden={!mobileOpen}
 				>
 					<ul className="mobile-menu-list">
 						<li className={introHighlight ? "highlight" : ""}>
@@ -335,7 +348,7 @@ export class MainMenu extends React.Component {
 						</li>
 						{mobileMenuItems}
 					</ul>
-				</nav>
+				</div>
 			</header>
 		);
 	};

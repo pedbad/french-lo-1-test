@@ -587,6 +587,28 @@
 	}
 
 	/* MainMenu layout extracted from MainMenu.scss. */
+	.skip-link {
+		position: fixed;
+		left: 1rem;
+		top: 0.5rem;
+		z-index: 10000;
+		padding: 0.5rem 0.8rem;
+		border: 1px solid var(--border);
+		border-radius: 0.5rem;
+		background-color: var(--background);
+		color: var(--foreground);
+		text-decoration: none;
+		transform: translateY(-180%);
+		transition: transform 180ms ease;
+	}
+
+	.skip-link:focus,
+	.skip-link:focus-visible {
+		transform: translateY(0);
+		outline: 2px solid var(--ring);
+		outline-offset: 2px;
+	}
+
 	.main-menu {
 		position: fixed;
 		top: 0;

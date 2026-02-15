@@ -55,12 +55,18 @@ Current page-top semantic risks:
 - [ ] Keep all existing classes (`section`, etc.) to avoid style regressions.
 
 ## Phase 1.5: Header/Nav/Hero Semantics (Responsive-safe)
-- [ ] Keep one primary nav landmark for the main menu:
+- [x] Keep one primary nav landmark for the main menu:
   - retain Radix/shadcn nav as the semantic `<nav>`.
   - change mobile dropdown wrapper from `<nav>` to non-nav container (`div` or `div[role="region"]`) while keeping the same responsive UX.
-- [ ] Preserve responsive behavior exactly:
+- [x] Preserve responsive behavior exactly:
   - desktop inline menu at large breakpoints.
   - hamburger + mobile panel at small breakpoints.
+- [x] Add keyboard skip navigation:
+  - add a `Skip to main content` link targeting `#content`.
+  - style it to appear on keyboard focus only.
+- [x] Improve mobile-menu accessibility wiring:
+  - add `aria-controls` on the mobile menu toggle.
+  - support `Escape` key to close the mobile menu panel.
 - [ ] Move hero into semantic page-content flow under `main` (intro section), or make hero decorative if kept outside content.
 - [ ] Enforce heading order:
   - no hero `h2` before page `h1`.
