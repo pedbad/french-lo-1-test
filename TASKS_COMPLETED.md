@@ -193,6 +193,9 @@ Progress:
   - wrapped section title/instructions in real `<header>` blocks in `src/components/Section/Section.jsx`
   - wrapped hero-section title/instructions in real `<header>` blocks in `src/components/HeroSection/HeroSection.jsx`
   - keeps section intro copy semantically associated with each section heading for better document structure and screen-reader context
+- [x] Complete DOM selector + heading hierarchy hardening phase:
+  - selector audit confirms no additional wrapper selectors required changes beyond existing `article`-aware fallback in `App.findModalLinkContent`
+  - wrapper heading flow is now consistent (`h1` page title, `h2` section headers, `h3` accordion item headings)
 
 ## CI / Guardrails
 

@@ -87,14 +87,16 @@ Current page-top semantic risks:
 ## Phase 4: JS Selector Hardening
 - [x] Update container lookup in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
   - include `article` in `closest(...)` fallback used for modal content extraction.
-- [ ] Search and update other selectors that assume `div`/`section` only.
+- [x] Search and update other selectors that assume `div`/`section` only.
+  - selector audit complete: no additional wrapper selectors needed changes beyond the existing `closest("p, li, article, section, div")` fallback in `App.jsx`.
 
 ## Phase 5: Heading Hierarchy Cleanup
 - [x] Verify heading levels:
   - top page title: `h1`
   - top-level sections: `h2`
   - accordion item titles: `h3`
-- [ ] Remove heading-level jumps introduced by wrappers.
+- [x] Remove heading-level jumps introduced by wrappers.
+  - wrapper-driven jump resolved by pairing semantic section headers (`h2`) with accordion item titles (`h3`).
 
 ## Phase 6: Validation and Regression Pass
 - [x] Run `yarn build`.

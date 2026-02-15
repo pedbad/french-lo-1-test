@@ -1166,6 +1166,18 @@ Why this was important:
   - ensures each section’s heading and intro/instructional context are grouped in semantic HTML5 structure.
   - improves section comprehension for assistive technology and makes top-level section outlines easier to audit.
 
+## 110) DOM Semantics: Selector/Heading Cleanup Phase Closed
+- Updated `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`:
+  - marked JS selector hardening audit complete.
+  - marked wrapper heading-jump cleanup complete.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+  - recorded completion of wrapper selector/heading hierarchy hardening.
+- Validation notes:
+  - selector audit found no additional wrapper selectors that required `article` support beyond existing `App.findModalLinkContent` fallback.
+  - wrapper heading structure is now aligned as `h1 -> h2 -> h3`.
+- Why:
+  - closes remaining code-side DOM semantic tasks before final manual visual/accessibility regression verification.
+
 
 # Files Deleted (partial but comprehensive)
 
