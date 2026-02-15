@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 10
-- current SCSS imports in JSX/JS: 7
+- current SCSS files in `src`: 9
+- current SCSS imports in JSX/JS: 6
 
 These counts give us a measurable baseline for reduction.
 

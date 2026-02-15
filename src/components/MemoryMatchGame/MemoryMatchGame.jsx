@@ -1,5 +1,4 @@
 // React component for bilingual memory matching game
-import "./MemoryMatchGame.scss";
 import {
 	Card,
 	// Congratulate,
