@@ -1,4 +1,3 @@
-import './ErrorLog.scss';
 import React from 'react';
 import {
 	Table,

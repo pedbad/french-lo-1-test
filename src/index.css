@@ -989,6 +989,142 @@
 		padding: 0.25rem 1rem;
 	}
 
+	/* Error log panel extracted from ErrorLog.scss. */
+	#errorLog {
+		display: block;
+		position: fixed;
+		max-height: 156px;
+		width: 700px;
+		right: 0;
+		top: -160px;
+		background: var(--card);
+		overflow-y: hidden;
+		z-index: 999;
+		box-shadow: 0 0 4px color-mix(in oklab, var(--border) 70%, transparent);
+		max-width: 700px;
+		transition:
+			top 0.25s,
+			max-height 0.5s,
+			max-width 0.5s,
+			left 0.5s,
+			margin-left 0.5s;
+		overflow-x: hidden;
+	}
+
+	#errorLog #tableContainer {
+		overflow-y: auto;
+		max-height: 126px;
+		transition: height 2s;
+	}
+
+	#errorLog.show {
+		top: 0;
+		transition:
+			top 0.25s,
+			max-height 0.5s,
+			max-width 0.5s,
+			left 0.5s,
+			margin-left 0.5s;
+	}
+
+	#errorLog.collapse {
+		max-height: 30px;
+		transition:
+			max-height 0.5s,
+			max-width 0.5s,
+			left 0.5s,
+			margin-left 0.5s;
+		max-width: 140px;
+	}
+
+	#errorLog.collapse header .header-buttons-left button#collapse {
+		transition: transform 0.25s;
+		transform: rotateZ(180deg);
+	}
+
+	#errorLog.collapse header .header-buttons-right {
+		display: none;
+	}
+
+	#errorLog button {
+		width: 30px;
+		height: 30px;
+		border: none;
+		padding: 0;
+		mask-repeat: no-repeat;
+		mask-position: center center;
+		text-indent: -9999px;
+	}
+
+	#errorLog button.clear-error {
+		background: var(--destructive);
+		mask-size: 40%;
+		mask-image: url("./components/ErrorLog/whiteCross.svg");
+	}
+
+	#errorLog header {
+		width: 100%;
+		text-align: center;
+		padding: 8px;
+		font-weight: bold;
+		background-color: var(--muted);
+		color: var(--muted-foreground);
+		overflow: hidden;
+	}
+
+	#errorLog header .header-buttons-left,
+	#errorLog header .header-buttons-right {
+		position: absolute;
+		display: flex;
+		top: 0;
+		right: 0;
+		overflow: hidden;
+	}
+
+	#errorLog header .header-buttons-left button,
+	#errorLog header .header-buttons-right button {
+		background: var(--muted-foreground);
+	}
+
+	#errorLog header .header-buttons-right button#copyAll {
+		mask-size: 40%;
+		mask-image: url("./components/ErrorLog/copy.svg");
+	}
+
+	#errorLog header .header-buttons-left {
+		left: 0;
+		right: auto;
+	}
+
+	#errorLog header .header-buttons-left button#collapse {
+		transition: transform 0.25s;
+		mask-size: 60%;
+		mask-image: url("./components/ErrorLog/upArrow.svg");
+	}
+
+	#errorLog table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	#errorLog table tr {
+		background-color: var(--card);
+	}
+
+	#errorLog table tr:nth-of-type(even) {
+		background-color: color-mix(in oklab, var(--destructive) 4%, var(--card));
+	}
+
+	#errorLog table td {
+		vertical-align: top;
+		padding: 8px;
+	}
+
+	#errorLog table td.button {
+		width: 30px;
+		padding: 0;
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;
