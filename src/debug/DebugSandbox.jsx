@@ -37,7 +37,7 @@ export function DebugSandbox() {
 
 			<section aria-labelledby="sandbox-typography">
 				<h2 id="sandbox-typography">Typography Samples</h2>
-				<div className="debug-typography-sample rounded-xl border border-border bg-card p-4">
+				<div className="rounded-xl border border-border bg-card p-4">
 					<h1>Heading 1 Feijoa Bold</h1>
 					<h2>Heading 2 Feijoa Medium</h2>
 					<h3>Heading 3 Feijoa Medium</h3>

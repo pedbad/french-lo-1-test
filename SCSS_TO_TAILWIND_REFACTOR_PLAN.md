@@ -1,6 +1,6 @@
 # SCSS to Tailwind Refactor Plan
 
-Last updated: 2026-02-14  
+Last updated: 2026-02-15  
 Repo: `/Users/ped/Sites/french/french-lo-1-test`
 
 ## Why This Refactor (Modern React + shadcn Approach)
@@ -253,6 +253,7 @@ These are accepted refinements from peer review, adapted to this repo:
 
 - [ ] `src/App.scss` (largest global layer)
   - prerequisite: migrate remaining global/reset/base rules to `src/index.css` (`@layer base`)
+  - [x] moved global body/heading typography ownership from `src/App.scss` to `src/index.css` so app + debug sandbox share one typography source of truth
 - [ ] `src/components/Footer/Footer.scss`
 - [ ] `src/components/Blanks/Blanks.scss`
 - [ ] `src/components/CustomComponents_FR/CustomComponents_FR.scss`

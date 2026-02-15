@@ -266,7 +266,7 @@ The app uses shadcn tokens for the base palette plus custom theme tokens in `src
 - `--hero-title-color`
 - `--footer-background`
 
-Typography is also normalized: root tokens (for example `--font-size-base`, `--line-height-body`, and semantic variants like `--line-height-app`) feed into shared selectors in `src/App.scss`, so accordion content, tables, Info blocks, etc. all match the introduction text scale for consistent readability.
+Typography is also normalized: root tokens (for example `--font-size-base`, `--line-height-body`, and semantic variants like `--line-height-app`) feed into shared selectors in `src/index.css` (`@layer base`), so production pages and the dev debug sandbox inherit the same heading/body scale from one source of truth.
 - Section imagery (e.g., Grammar intro) is rendered via React components + Tailwind utilities, so JSON configs only describe content, not layout/styling.
 - A shared type scale lives in `src/index.css` + `tailwind.config.js`, so font sizes/line heights can be tuned once and applied everywhere through Tailwind utilities instead of hardcoded pixels.
 - Typography migration is now complete for the current scope: runtime usage is tokenized, Tailwind size mappings are token-backed, and legacy `--body-line-height` usage has been removed in favor of semantic `--line-height-*` tokens.

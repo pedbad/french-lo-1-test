@@ -1,6 +1,6 @@
 # Tasks Completed Tracker
 
-Last updated: 2026-02-14
+Last updated: 2026-02-15
 Repo: `/Users/ped/Sites/french/french-lo-1-test`
 
 This checklist tracks migration progress toward one source of truth (tokens + Tailwind/shadcn utilities) and reduced SCSS ownership.
@@ -47,6 +47,9 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - completed: `Header.jsx`, `ModalLinkDialog.jsx`, and `Attribution.jsx` utility rem literals tokenized (`3rem`, `1.35rem`, `0.5rem`)
   - completed: rem utility literals tokenized in `SortableWordCard.jsx` and `MemoryMatchGame.jsx` (sortable card scales + memory card/match responsive text scales)
   - completed: legacy `--body-line-height` alias removed from `index.css` after full consumer migration to semantic line-height tokens
+- [x] Move global heading/body typography ownership from `src/App.scss` into `src/index.css` (`@layer base`)
+  - ensures app pages and `debug-sandbox.html` inherit the same typography contract from one source of truth
+  - removed temporary duplicate sandbox typography stylesheet (`src/debug/debug-sandbox.css`)
 
 ## Color
 

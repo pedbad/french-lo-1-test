@@ -296,6 +296,66 @@
 
 	body {
 		@apply bg-surface-base text-text-primary font-sans antialiased;
+		font-size: var(--font-size-sm);
+		margin: 0;
+	}
+
+	/*
+	Global document typography contract.
+	Keep these selectors in index.css so production and debug sandbox render from
+	the same source of truth while App.scss is phased down.
+	*/
+	h1 {
+		font-family: var(--font-heading);
+		font-weight: 700;
+		line-height: var(--line-height-2xl);
+		font-size: var(--font-size-3xl);
+		margin-top: calc(var(--line-height-2xl) * var(--font-size-3xl));
+	}
+
+	h2,
+	h3,
+	h4 {
+		font-family: var(--font-heading);
+		font-weight: 500;
+		line-height: var(--line-height-2xl);
+	}
+
+	h5,
+	h6 {
+		font-family: var(--font-sans);
+		font-weight: 600;
+		line-height: var(--line-height-2xl);
+	}
+
+	h2 {
+		font-size: calc(var(--font-size-3xl) * 0.8333);
+		margin-top: calc(var(--line-height-2xl) * var(--font-size-3xl) * 0.8333);
+	}
+
+	h3 {
+		font-size: calc(var(--font-size-3xl) * 0.6667);
+		margin-top: calc(var(--line-height-2xl) * var(--font-size-3xl) * 0.6667);
+	}
+
+	h4 {
+		font-size: calc(var(--font-size-3xl) * 0.5833);
+		margin-top: calc(var(--line-height-2xl) * var(--font-size-3xl) * 0.5833);
+	}
+
+	h5 {
+		font-size: calc(var(--font-size-3xl) * 0.5);
+		margin-top: calc(var(--line-height-2xl) * var(--font-size-3xl) * 0.5);
+	}
+
+	h6 {
+		font-size: calc(var(--font-size-3xl) * 0.4167);
+		margin-top: calc(var(--line-height-2xl) * var(--font-size-3xl) * 0.4167);
+	}
+
+	figure figcaption {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
 	}
 
 	/* Pedagogical (content) helpers for lesson text and examples. */
