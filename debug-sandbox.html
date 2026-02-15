@@ -15,19 +15,6 @@
 	<div id="debug-sandbox-root">
 		<p style="font-family: sans-serif; padding: 1rem;">Loading debug sandbox...</p>
 	</div>
-	<script type="module">
-		const root = document.getElementById('debug-sandbox-root');
-		import('/projects/french-basic/src/debug/sandbox-main.jsx').catch((error) => {
-			if (root) {
-				const pre = document.createElement('pre');
-				pre.style.whiteSpace = 'pre-wrap';
-				pre.style.padding = '1rem';
-				pre.style.color = 'crimson';
-				pre.textContent = `Failed to load debug sandbox entry.\n\n${error?.message || error}`;
-				root.replaceChildren(pre);
-			}
-			console.error('Debug sandbox entry failed to load:', error);
-		});
-	</script>
+	<script type="module" src="/src/debug/sandbox-main.jsx"></script>
 </body>
 </html>
