@@ -1,7 +1,7 @@
 import { DebugColorTokens } from './components/DebugColorTokens';
 import { DebugFontTokens } from './components/DebugFontTokens';
 import { DebugSvgAssets } from './components/DebugSvgAssets';
-import { Info } from '../components';
+import { Info } from '../components/Info';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
 
 /*
