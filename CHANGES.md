@@ -258,6 +258,25 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 - Updated `scripts/check-typography-guard.sh` policy:
   - still blocks literal `font-size` with `px/rem/em`
   - still blocks literal `line-height` with `px/rem/em`
+
+## 33) SCSS Removal Completed (One Source of Truth)
+- Removed all remaining SCSS source files from `src/`:
+  - `src/App.scss`
+  - `src/styles/_colours.module.scss`
+  - `src/styles/_media-queries.scss`
+  - `src/styles/_mixins.module.scss`
+  - `src/styles/_variables.module.scss`
+- Removed final runtime SCSS import from `src/App.jsx` (`import "./App.scss";`).
+- Migrated retained app-level/global CSS output into `src/index.css` to preserve behavior while consolidating ownership.
+- Updated debug SVG source manifest references from `/src/App.scss` to `/src/index.css` in `src/debug/components/DebugSvgAssets.jsx`.
+- Enforced zero-SCSS baseline in `scripts/check-scss-guard.sh`:
+  - fails if any `.scss/.sass` exists under `src/`
+  - fails on newly introduced SCSS imports in JS/TS files
+
+Why this was important:
+- One source of truth: tokens + Tailwind in `src/index.css` now drive global/custom component styling consistently.
+- Better shadcn fit: shadcn/ui is utility/token-first; this architecture removes mixed-system friction.
+- Easier maintenance: fewer cascade surprises, clearer diffs, faster refactors, and safer theme/token changes.
   - now allows tokenized `font-family` declarations (`font-family: var(--font-...)`)
   - still blocks literal `font-family` declarations
 - Synced docs to prevent policy drift:

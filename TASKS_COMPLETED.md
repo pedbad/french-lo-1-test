@@ -137,6 +137,12 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 
 ## SCSS -> Tailwind Refactor
 
+Why this goal mattered (explicit):
+- Single source of truth: styling now lives in `src/index.css` tokens + Tailwind utilities, instead of split ownership across SCSS + Tailwind.
+- Better shadcn alignment: shadcn components are utility/token-first, so this removes translation friction between design tokens and component usage.
+- Faster maintenance: one style system means fewer regressions, simpler reviews, and less cascade/specificity drift across custom components.
+- Stronger guardrails: zero-SCSS policy is now enforced by `scripts/check-scss-guard.sh` to prevent regression.
+
 - [x] Create dedicated refactor architecture plan
   - `/Users/ped/Sites/french/french-lo-1-test/SCSS_TO_TAILWIND_REFACTOR_PLAN.md`
   - includes rationale, evidence links, baseline metrics, phased checklist, and per-PR definition of done
