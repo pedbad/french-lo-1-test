@@ -1,4 +1,3 @@
-import './AudioClip.scss';
 import { CircularAudioProgressAnimatedSpeakerDisplay } from '.';
 import React from 'react';
 import {

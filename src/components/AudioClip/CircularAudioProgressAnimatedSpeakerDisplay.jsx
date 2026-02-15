@@ -1,4 +1,3 @@
-import './AudioClip.scss';
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import React from 'react';
 export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureComponent {

@@ -178,12 +178,13 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - [x] `src/components/ErrorLog/ErrorLog.scss` (deleted; error-log panel/header/button/table selectors and local icon masks migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/WordGrid/WordGrid.scss` (deleted; word-grid board/list/hint selectors migrated to layered global CSS in `src/index.css`)
     - [x] `src/components/Jigsaw/Jigsaw.scss` (deleted; jigsaw board/target geometry and responsive scale selectors migrated to layered global CSS in `src/index.css`)
+    - [x] `src/components/AudioClip/AudioClip.scss` (deleted; audio control/link/progress/speaker animation selectors and root sizing tokens migrated to layered global CSS in `src/index.css`)
   - current SCSS footprint after first quick-win batch:
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 18 (from 54)
-    - SCSS imports in JSX/JS: 17 (from 53)
+    - SCSS files in `src`: 17 (from 54)
+    - SCSS imports in JSX/JS: 15 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
