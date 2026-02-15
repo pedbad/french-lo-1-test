@@ -59,6 +59,7 @@ Sandbox includes:
 - LO navigation links for all French Basic learning objects.
 - A per-LO structure summary (sections, accordion titles, and exercise component types) for quick content QA.
   - UI pattern: each LO renders as one row with the index link first and its structure accordion immediately next to it.
+  - Accordion content uses ordered lists (`ol`) with item counts (for example exercise entries) to make auditing easier.
   - Data is loaded via runtime JSON fetch (matching app config loading) to keep debug entry stable with Vite base-path handling.
 
 Troubleshooting (stale Vite HMR overlay after asset deletes):

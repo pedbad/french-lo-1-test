@@ -100,6 +100,15 @@ function collectComponentTypes(node) {
 	return childTypes;
 }
 
+function countExerciseItems(node) {
+	if (!node || typeof node !== 'object') return 0;
+	const component = node.component;
+	const selfCount = EXERCISE_COMPONENTS.has(component) ? 1 : 0;
+	const childrenCount = normalizeContentItems(node.content)
+		.reduce((total, child) => total + countExerciseItems(child), 0);
+	return selfCount + childrenCount;
+}
+
 function toUnique(values) {
 	const seen = new Set();
 	const ordered = [];
@@ -128,6 +137,7 @@ function getSectionSummaries(config) {
 		const exerciseTypes = isExerciseSection
 			? contentTypes.filter((component) => EXERCISE_COMPONENTS.has(component))
 			: [];
+		const exerciseItemCount = isExerciseSection ? countExerciseItems(value) : 0;
 		sections.push({
 			key,
 			sectionTitle,
@@ -135,6 +145,7 @@ function getSectionSummaries(config) {
 			topLevelContent,
 			accordionTitles,
 			contentTypes,
+			exerciseItemCount,
 			exerciseTypes,
 		});
 	});
@@ -248,45 +259,79 @@ export function LearningObjectStructureSummary({ appHrefBase, languageCode = 'fr
 								<span className="mt-1 text-sm font-bold leading-tight">{summary.title}</span>
 							</a>
 							<details className="rounded-lg border border-border/70 p-3">
-								<summary className="cursor-pointer font-semibold">
+								<summary className="cursor-pointer text-base font-semibold min-[1180px]:text-lg">
 									{`Structure: ${summary.sections.length} section${summary.sections.length === 1 ? '' : 's'}`}
 								</summary>
 								{summary.sections.length === 0 ? (
-									<p className="mt-3 text-sm text-[var(--destructive)]">No section data found for this LO.</p>
+									<p className="mt-3 text-base text-[var(--destructive)]">No section data found for this LO.</p>
 								) : (
-									<div className="mt-3 space-y-4">
+									<ol className="mt-3 list-decimal space-y-4 pl-6">
 										{summary.sections.map((section) => (
-											<div className="rounded-lg border border-border/70 p-3" key={`${summary.file}-${section.key}`}>
-												<h3 className="text-base font-semibold">{section.sectionTitle}</h3>
-												<p className="mt-1 text-sm">
-													<span className="font-semibold">Section component:</span>{' '}
-													<code>{section.sectionComponent}</code>
-												</p>
-												<p className="mt-1 text-sm">
-													<span className="font-semibold">Content component types:</span>{' '}
-													{section.contentTypes.length > 0 ? section.contentTypes.join(', ') : 'None'}
-												</p>
-												{section.topLevelContent.length > 0 ? (
-													<p className="mt-1 text-sm">
-														<span className="font-semibold">Top-level content:</span>{' '}
-														{section.topLevelContent
-															.map((item) => `${item.title} (${item.component})`)
-															.join(' | ')}
-													</p>
-												) : null}
-												<p className="mt-1 text-sm">
-													<span className="font-semibold">Accordion titles:</span>{' '}
-													{section.accordionTitles.length > 0 ? section.accordionTitles.join(' | ') : 'None'}
-												</p>
-												{section.exerciseTypes.length > 0 ? (
-													<p className="mt-1 text-sm">
-														<span className="font-semibold">Exercise component types:</span>{' '}
-														{section.exerciseTypes.join(', ')}
-													</p>
-												) : null}
-											</div>
+											<li className="rounded-lg border border-border/70 p-3" key={`${summary.file}-${section.key}`}>
+												<h3 className="text-lg font-semibold leading-snug">{section.sectionTitle}</h3>
+												<ol className="mt-2 list-decimal space-y-2 pl-6 text-base leading-relaxed">
+													<li>
+														<span className="font-semibold">Section component:</span>{' '}
+														<code>{section.sectionComponent}</code>
+													</li>
+													<li>
+														<span className="font-semibold">Content component types ({section.contentTypes.length}):</span>
+														{section.contentTypes.length > 0 ? (
+															<ol className="mt-1 list-decimal space-y-1 pl-6">
+																{section.contentTypes.map((componentType) => (
+																	<li key={`${summary.file}-${section.key}-content-type-${componentType}`}>{componentType}</li>
+																))}
+															</ol>
+														) : (
+															<span> None</span>
+														)}
+													</li>
+													<li>
+														<span className="font-semibold">Top-level content entries ({section.topLevelContent.length}):</span>
+														{section.topLevelContent.length > 0 ? (
+															<ol className="mt-1 list-decimal space-y-1 pl-6">
+																{section.topLevelContent.map((item, contentIndex) => (
+																	<li key={`${summary.file}-${section.key}-top-content-${contentIndex}`}>
+																		{`${item.title} (${item.component})`}
+																	</li>
+																))}
+															</ol>
+														) : (
+															<span> None</span>
+														)}
+													</li>
+													<li>
+														<span className="font-semibold">Accordion titles ({section.accordionTitles.length}):</span>
+														{section.accordionTitles.length > 0 ? (
+															<ol className="mt-1 list-decimal space-y-1 pl-6">
+																{section.accordionTitles.map((title, titleIndex) => (
+																	<li key={`${summary.file}-${section.key}-accordion-title-${titleIndex}`}>{title}</li>
+																))}
+															</ol>
+														) : (
+															<span> None</span>
+														)}
+													</li>
+													{section.exerciseItemCount > 0 ? (
+														<li>
+															<span className="font-semibold">Exercise entries:</span>{' '}
+															{section.exerciseItemCount}
+														</li>
+													) : null}
+													{section.exerciseTypes.length > 0 ? (
+														<li>
+															<span className="font-semibold">Exercise component types ({section.exerciseTypes.length}):</span>
+															<ol className="mt-1 list-decimal space-y-1 pl-6">
+																{section.exerciseTypes.map((exerciseType) => (
+																	<li key={`${summary.file}-${section.key}-exercise-type-${exerciseType}`}>{exerciseType}</li>
+																))}
+															</ol>
+														</li>
+													) : null}
+												</ol>
+											</li>
 										))}
-									</div>
+									</ol>
 								)}
 							</details>
 						</div>
