@@ -40,6 +40,6 @@ export * from './SequenceOrder';
 export * from './Social';
 export * from './Sortable';
 export * from './ModalLinkDialog/ModalLinkDialog';
-export * from './TopButton';
+export * from './BackToTopButton';
 export * from './WordGrid';
 export * from './WordParts';

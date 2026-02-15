@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Info, TopButton } from "..";
+import { Info, BackToTopButton } from "..";
 import DOMPurify from "dompurify";
 import React from "react";
 import { INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
@@ -109,7 +109,7 @@ export const HeroSection = ({
 							</div>
 						) : null}
 						{children}
-						<TopButton />
+						<BackToTopButton />
 					</div>
 					{sideBySide ? (
 						<div className="w-full">

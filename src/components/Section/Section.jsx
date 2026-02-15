@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	Info,
-	TopButton
+	BackToTopButton
 } from '..';
 import { Separator } from "@/components/ui/separator";
 import DOMPurify from "dompurify";
@@ -141,7 +141,7 @@ export class Section extends React.PureComponent {
 								</div>
 							</div>
 						</div>
-						<TopButton />
+						<BackToTopButton />
 					</CardContent>
 				</Card>
 			</div>
