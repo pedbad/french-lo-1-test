@@ -1,62 +1,44 @@
 import { Button } from "@/components/ui/button";
-import React, { useEffect, useState } from 'react';
-
-const VISIBILITY_OFFSET = 120;
-
-const getScrollTop = () => {
-	const scrollingElement = document.scrollingElement || document.documentElement;
-	return Math.max(window.scrollY || 0, scrollingElement ? scrollingElement.scrollTop : 0);
-};
+import React, { useEffect, useRef, useState } from 'react';
 
 export function TopButton() {
+	const containerRef = useRef(null);
 	const [showButton, setShowButton] = useState(false);
 
 	useEffect(() => {
-		const topAnchor = document.querySelector("main h1, h1");
-		let observer = null;
-		const updateVisibility = () => {
-			const scrollTop = getScrollTop();
-			const anchorBottom = topAnchor ? topAnchor.getBoundingClientRect().bottom : Number.POSITIVE_INFINITY;
-			setShowButton(scrollTop > VISIBILITY_OFFSET || anchorBottom < 0);
-		};
+		const node = containerRef.current;
+		if (!node) return undefined;
 
-		updateVisibility();
-
-		if (topAnchor && "IntersectionObserver" in window) {
-			observer = new IntersectionObserver(
-				([entry]) => {
-					const scrollTop = getScrollTop();
-					setShowButton(scrollTop > VISIBILITY_OFFSET || !entry.isIntersecting);
-				},
-				{
-					root: null,
-					threshold: 0,
-					rootMargin: `-${VISIBILITY_OFFSET}px 0px 0px 0px`,
-				}
-			);
-			observer.observe(topAnchor);
+		if (!("IntersectionObserver" in window)) {
+			setShowButton(true);
+			return undefined;
 		}
 
-		window.addEventListener("scroll", updateVisibility, { passive: true });
-		window.addEventListener("resize", updateVisibility);
-		document.addEventListener("scroll", updateVisibility, true);
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setShowButton(entry.isIntersecting);
+			},
+			{
+				root: null,
+				threshold: 0.15,
+				rootMargin: "0px 0px -8% 0px",
+			}
+		);
 
-		return () => {
-			if (observer) observer.disconnect();
-			window.removeEventListener("scroll", updateVisibility);
-			window.removeEventListener("resize", updateVisibility);
-			document.removeEventListener("scroll", updateVisibility, true);
-		};
+		observer.observe(node);
+		return () => observer.disconnect();
 	}, []);
 
 	return (
 		<div
-			className={`top-button-container flex justify-end overflow-hidden transition-all duration-300 ${showButton ? "mt-3 max-h-10 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}
+			ref={containerRef}
+			className="top-button-container mt-3 flex justify-end"
 		>
 			<Button
 				aria-label="Back to top"
-				className="cursor-pointer rounded-full transition-all duration-200 hover:-translate-y-0.5"
+				className={`cursor-pointer rounded-full transition-all duration-300 hover:-translate-y-0.5 ${showButton ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-1"}`}
 				size="icon"
+				tabIndex={showButton ? 0 : -1}
 				onClick={() => {
 					scrollTo({ behavior: 'smooth', left: 0, top: 0 });
 				}}
