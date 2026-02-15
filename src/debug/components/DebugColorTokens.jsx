@@ -1,9 +1,11 @@
-import React from 'react';
 import { Badge } from '@/components/ui/badge';
+import React from 'react';
 
 const COLOR_PATTERN = /(oklch|rgb|hsl|#|color-mix|linear-gradient|radial-gradient|conic-gradient)/i;
 const CHANNEL_RGB_PATTERN = /^-?\d+(\.\d+)?\s+-?\d+(\.\d+)?\s+-?\d+(\.\d+)?$/;
 const MAX_RESOLVE_DEPTH = 10;
+const USED_BADGE_CLASS = 'border-emerald-500/70 bg-transparent text-emerald-700 dark:text-emerald-300';
+const UNUSED_BADGE_CLASS = 'border-amber-500/70 bg-transparent text-amber-700 dark:text-amber-300';
 const SOURCE_TEXT_MODULES = import.meta.glob('/src/**/*.{js,jsx,ts,tsx,css,scss}', {
 	eager: true,
 	import: 'default',
@@ -154,8 +156,8 @@ export function DebugColorTokens() {
 					{`Total color tokens detected: ${rows.length}`}
 				</p>
 				<div className="mb-3 flex flex-wrap items-center gap-2">
-					<Badge className="text-sm" variant="secondary">{`Used: ${usedCount}`}</Badge>
-					<Badge className="text-sm" variant="destructive">{`Unused: ${unusedCount}`}</Badge>
+					<Badge className={`text-sm font-medium ${USED_BADGE_CLASS}`} variant="outline">{`Used: ${usedCount}`}</Badge>
+					<Badge className={`text-sm font-medium ${UNUSED_BADGE_CLASS}`} variant="outline">{`Unused: ${unusedCount}`}</Badge>
 				</div>
 				<div className="overflow-x-auto">
 					<table className="min-w-full border-collapse text-base">
@@ -186,7 +188,10 @@ export function DebugColorTokens() {
 										</div>
 									</td>
 									<td className="px-2 py-2">
-										<Badge className="text-sm" variant={row.usageCount > 0 ? 'secondary' : 'destructive'}>
+										<Badge
+											className={`text-sm font-medium ${row.usageCount > 0 ? USED_BADGE_CLASS : UNUSED_BADGE_CLASS}`}
+											variant="outline"
+										>
 											{row.usageCount > 0 ? `Used (${row.usageCount})` : 'Unused (0)'}
 										</Badge>
 									</td>

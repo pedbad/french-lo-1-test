@@ -1,7 +1,7 @@
-import React from 'react';
-import { DebugFontTokens } from './components/DebugFontTokens';
-import { Info } from '../components';
 import { DebugColorTokens } from './components/DebugColorTokens';
+import { DebugFontTokens } from './components/DebugFontTokens';
+import { DebugSvgAssets } from './components/DebugSvgAssets';
+import { Info } from '../components';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
 
 /*
@@ -88,6 +88,7 @@ export function DebugSandbox() {
 
 			<DebugColorTokens />
 			<DebugFontTokens />
+			<DebugSvgAssets />
 
 			<LearningObjectStructureSummary
 				appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
