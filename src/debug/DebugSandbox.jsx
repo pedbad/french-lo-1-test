@@ -1,9 +1,17 @@
 import React from 'react';
 import { Info } from '../components';
 import { LearningObjectMenu } from './components/LearningObjectMenu';
-import learningObjectIndex from '../index-fr.json';
 
-const DEBUG_LEARNING_OBJECTS = learningObjectIndex?.learningObjects ?? [];
+/*
+Keep debug fixtures self-contained.
+Using an in-file list avoids additional module resolution edge cases for this
+standalone debug entry while still rendering all LO links for navigation checks.
+*/
+const DEBUG_LEARNING_OBJECTS = [
+	...Array.from({ length: 15 }, (_, index) => ({ file: String(index + 1) })),
+	{ file: 'demo' },
+	{ file: 'answer' },
+];
 
 export function DebugSandbox() {
 	/*
