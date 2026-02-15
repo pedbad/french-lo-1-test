@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<base href="/projects/french-basic/" />
 	<title>French LO Debug Sandbox (Dev Only)</title>
 </head>
 <body class="bg-background">
@@ -11,7 +12,22 @@
 	http://localhost:5173/projects/french-basic/debug-sandbox.html
 	(when running `yarn dev`)
 	-->
-	<div id="debug-sandbox-root"></div>
-	<script type="module" src="./src/debug/sandbox-main.jsx"></script>
+	<div id="debug-sandbox-root">
+		<p style="font-family: sans-serif; padding: 1rem;">Loading debug sandbox...</p>
+	</div>
+	<script type="module">
+		const root = document.getElementById('debug-sandbox-root');
+		import('/projects/french-basic/src/debug/sandbox-main.jsx').catch((error) => {
+			if (root) {
+				const pre = document.createElement('pre');
+				pre.style.whiteSpace = 'pre-wrap';
+				pre.style.padding = '1rem';
+				pre.style.color = 'crimson';
+				pre.textContent = `Failed to load debug sandbox entry.\n\n${error?.message || error}`;
+				root.replaceChildren(pre);
+			}
+			console.error('Debug sandbox entry failed to load:', error);
+		});
+	</script>
 </body>
 </html>
