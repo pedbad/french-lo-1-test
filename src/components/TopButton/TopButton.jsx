@@ -1,28 +1,13 @@
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from 'react';
 
-const TOP_SENTINEL_ID = "top-scroll-sentinel";
-
-const ensureTopSentinel = () => {
-	let sentinel = document.getElementById(TOP_SENTINEL_ID);
-	if (sentinel) return sentinel;
-
-	sentinel = document.createElement("div");
-	sentinel.id = TOP_SENTINEL_ID;
-	sentinel.setAttribute("aria-hidden", "true");
-	sentinel.style.cssText = "position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;";
-	document.body.prepend(sentinel);
-
-	return sentinel;
-};
-
 export function TopButton() {
 	const [showButton, setShowButton] = useState(false);
 
 	useEffect(() => {
-		const sentinel = ensureTopSentinel();
+		const topAnchor = document.querySelector("main h1, h1");
 
-		if (!("IntersectionObserver" in window)) {
+		if (!topAnchor || !("IntersectionObserver" in window)) {
 			const updateFromScroll = () => setShowButton(window.scrollY > 120);
 			updateFromScroll();
 			window.addEventListener("scroll", updateFromScroll, { passive: true });
@@ -41,7 +26,7 @@ export function TopButton() {
 			}
 		);
 
-		observer.observe(sentinel);
+		observer.observe(topAnchor);
 		return () => observer.disconnect();
 	}, []);
 
