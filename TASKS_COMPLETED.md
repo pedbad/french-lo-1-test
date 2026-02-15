@@ -204,8 +204,8 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - SCSS files in `src`: 49 (from 54)
     - SCSS imports in JSX/JS: 48 (from 53)
   - current SCSS footprint now:
-    - SCSS files in `src`: 5 (from 54)
-    - SCSS imports in JSX/JS: 1 (from 53)
+    - SCSS files in `src`: 0 (from 54)
+    - SCSS imports in JSX/JS: 0 (from 53)
 - [ ] Phase 1.5: Publish migration cheatsheet
   - [x] add `TAILWIND_MIGRATION_CHEATSHEET.md` for common SCSS -> Tailwind/cn()/cva conversions
 - [ ] Phase 2: Shared utility consolidation
@@ -261,16 +261,18 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - `src/components/WordParts/WordParts.scss`
   - move repeated SCSS visual patterns to tokenized Tailwind utility patterns
   - standardize dynamic branches on `cn()`/`cva`
-- [ ] Phase 3: High-impact file migration (one major file per PR)
-  - `src/App.scss` (after migrating remaining global/base rules to `src/index.css`)
-- [ ] Phase 4: Legacy style module rationalization
-  - reduce reliance on `_mixins`, `_variables`, `_colours`, `_media-queries`
-  - centralize keyframes strategy (Tailwind config or layered global CSS)
-- [ ] Phase 5: Completion targets
-  - reduce SCSS files from 54 to target threshold (e.g. <= 15)
-  - no new SCSS imports added
-  - new components ship with zero SCSS
-  - CI and local guards remain green
+- [x] Phase 3: High-impact file migration (one major file per PR)
+  - migrated `src/App.scss` output into `src/index.css`
+  - removed `import "./App.scss"` from `src/App.jsx`
+  - deleted `src/App.scss`
+- [x] Phase 4: Legacy style module rationalization
+  - deleted `_mixins.module.scss`, `_variables.module.scss`, `_colours.module.scss`, `_media-queries.scss`
+  - centralized remaining keyframes/global rules in layered CSS (`src/index.css`)
+- [x] Phase 5: Completion targets
+  - SCSS files reduced from 54 to 0
+  - no SCSS imports remain
+  - new components policy: zero SCSS
+  - CI/local guards remain green
 
 ## Next Recommended Baby Step
 

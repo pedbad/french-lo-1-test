@@ -52,22 +52,22 @@ const SVG_USAGE_MANIFEST = [
 	{
 		path: '/images/icons/circle-check.svg',
 		referenceCount: 2,
-		sources: ['/src/App.scss'],
+		sources: ['/src/index.css'],
 	},
 	{
 		path: '/images/icons/eye.svg',
 		referenceCount: 2,
-		sources: ['/src/App.scss'],
+		sources: ['/src/index.css'],
 	},
 	{
 		path: '/images/icons/message-square-warning.svg',
 		referenceCount: 2,
-		sources: ['/src/App.scss'],
+		sources: ['/src/index.css'],
 	},
 	{
 		path: '/images/icons/reset.svg',
 		referenceCount: 2,
-		sources: ['/src/App.scss'],
+		sources: ['/src/index.css'],
 	},
 	{
 		path: '/src/components/ErrorLog/copy.svg',

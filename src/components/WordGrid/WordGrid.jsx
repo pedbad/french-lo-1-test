@@ -1,4 +1,3 @@
-// import "../../styles/variables.module.scss";
 import React, { PureComponent } from "react";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";

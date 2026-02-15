@@ -7,8 +7,8 @@ REF=""
 usage() {
 	echo "Usage: $0 [--staged|--working|--against <ref>] [--help]"
 	echo ""
-	echo "Blocks new SCSS drift in added changes:"
-	echo "  - newly added .scss/.sass files"
+	echo "Blocks SCSS drift:"
+	echo "  - any .scss/.sass files in src/"
 	echo "  - newly added SCSS/SASS imports in JS/TS files"
 }
 
@@ -62,6 +62,18 @@ if [[ -n "$NEW_STYLE_FILES" ]]; then
 	echo ""
 	echo "New style files:"
 	printf '%s\n' "$NEW_STYLE_FILES"
+	exit 1
+fi
+
+EXISTING_STYLE_FILES="$(find src -type f \( -name '*.scss' -o -name '*.sass' \) | sort || true)"
+if [[ -n "$EXISTING_STYLE_FILES" ]]; then
+	echo "SCSS guard failed."
+	echo "SCSS/SASS files still exist in src/."
+	echo ""
+	echo "Project policy now requires zero SCSS source files."
+	echo ""
+	echo "Remaining style files:"
+	printf '%s\n' "$EXISTING_STYLE_FILES"
 	exit 1
 fi
 

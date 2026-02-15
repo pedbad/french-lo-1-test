@@ -70,8 +70,8 @@ This migration is about reducing long-term maintenance cost, not rewriting style
 ## Current Baseline
 
 - baseline started at: 54 SCSS files / 53 SCSS imports
-- current SCSS files in `src`: 5
-- current SCSS imports in JSX/JS: 1
+- current SCSS files in `src`: 0
+- current SCSS imports in JSX/JS: 0
 
 These counts give us a measurable baseline for reduction.
 
@@ -133,7 +133,7 @@ These are accepted refinements from peer review, adapted to this repo:
   - `.githooks/pre-commit`
   - `.github/workflows/pr-quality.yml`
 - [x] Keep existing typography/color/a11y guards required in pre-commit and CI.
-- [ ] Do not enable global ESLint `no-restricted-imports` for `*.scss` yet (would fail current baseline); use diff-based guard until migration nears completion.
+- [x] Keep SCSS policy enforced by guard scripts (`check:scss`, `check:scss:branch`) now that baseline is zero.
 
 ### Phase 1: Quick Win SCSS Removals (Small Files)
 
@@ -254,9 +254,10 @@ These are accepted refinements from peer review, adapted to this repo:
 
 ### Phase 3: High-Impact File Migration (One at a Time)
 
-- [ ] `src/App.scss` (largest global layer)
-  - prerequisite: migrate remaining global/reset/base rules to `src/index.css` (`@layer base`)
-  - [x] moved global body/heading typography ownership from `src/App.scss` to `src/index.css` so app + debug sandbox share one typography source of truth
+- [x] `src/App.scss` (largest global layer)
+  - migrated remaining app-level/global selectors into `src/index.css` from compiled SCSS output
+  - removed `import "./App.scss"` from `src/App.jsx`
+  - deleted `src/App.scss`
 - [x] `src/components/Footer/Footer.scss`
   - migrated footer layout/logo visibility/social-link skins and breakpoint behavior into `src/index.css` (`@layer components`)
   - removed `import './Footer.scss'` from `src/components/Footer/Footer.jsx`
@@ -274,20 +275,20 @@ Rule: one major file per PR, with before/after screenshots.
 
 ### Phase 4: Legacy Styles Module Rationalization
 
-- [ ] Reduce dependence on:
+- [x] Remove dependence on:
   - `src/styles/_mixins.module.scss`
   - `src/styles/_variables.module.scss`
   - `src/styles/_colours.module.scss`
   - `src/styles/_media-queries.scss`
-- [ ] Replace with tokenized utilities and small Tailwind-friendly helper classes where needed.
-- [ ] Migrate or centralize retained `@keyframes` rules (Tailwind config or `index.css` layers).
+- [x] Replace module-driven Sass output with centralized CSS in `src/index.css`.
+- [x] Retained keyframes are centralized in layered global CSS (`src/index.css`).
 
 ### Phase 5: Completion Criteria
 
-- [ ] SCSS file count reduced from 54 to an agreed target (for example <= 15).
-- [ ] New components ship with zero SCSS.
-- [ ] No new SCSS imports added during migration.
-- [ ] CI and local guard checks remain green.
+- [x] SCSS file count reduced from 54 to `0`.
+- [x] New components ship with zero SCSS.
+- [x] No SCSS imports remain in JSX/JS.
+- [x] CI and local guard checks remain green.
 
 ## Per-PR Definition of Done
 

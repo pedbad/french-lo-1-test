@@ -214,18 +214,18 @@ Validator triage guidance:
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
-Migration cascade policy (while SCSS still exists):
+Migration cascade policy:
 - explicit layer order is declared in `src/index.css`: `@layer base, components, utilities`
 - keep new tokenized app styles in `@layer components` or `@layer utilities` (utilities last)
 - avoid broad `!important`; use small temporary targeted overrides only during migration and remove them once legacy selectors are deleted
 
 ## SCSS Drift Guard
 
-To prevent refactor backsliding while legacy SCSS is being removed, this repo includes:
+To prevent refactor backsliding, this repo includes:
 - script: `/Users/ped/Sites/french/french-lo-1-test/scripts/check-scss-guard.sh`
 
 Policy:
-- blocks newly added `.scss` / `.sass` files
+- blocks any `.scss` / `.sass` files under `src/` (zero-SCSS baseline enforcement)
 - blocks newly added SCSS/SASS imports in `.js/.jsx/.ts/.tsx`
 
 Concrete examples:
@@ -344,7 +344,7 @@ Yes, this is correct with one nuance: keep design tokens in `src/index.css` as C
 5. Use `@apply` strategically: Acceptable during transition, but the long-term goal is co-located Tailwind classes in markup.
 
 ## TODO: Styling Consolidation
-It’s bad because styling is split across SCSS and Tailwind, so changes require hunting in two systems, which slows updates and causes inconsistency; to fix it, we should migrate component styles into Tailwind utilities (or tokenized `@apply` classes), then delete legacy SCSS so tokens become the single, maintainable source of truth.
+The SCSS removal migration is complete: app styling is now CSS + Tailwind only, with global/component rules centralized in `src/index.css` and tokens in one place.
 
 Proposed approach:
 1. Inventory SCSS usage by component and tag each as migrate-now vs. legacy-keep.
@@ -353,9 +353,9 @@ Proposed approach:
 4. Remove the component’s SCSS once parity is reached and UI is visually verified.
 5. Repeat in batches (start with high-traffic components: Accordion, PhraseTable, WordParts, Info).
 
-Current SCSS footprint (5 files), grouped by area:
-- Core/layout: `src/App.scss`
-- Legacy style modules: `src/styles/_colours.module.scss`, `src/styles/_media-queries.scss`, `src/styles/_mixins.module.scss`, `src/styles/_variables.module.scss`
+Current SCSS footprint:
+- `0` `.scss/.sass` files in `src`
+- `0` SCSS imports in JSX/JS/TS/TSX
 
 ## Semantics
 

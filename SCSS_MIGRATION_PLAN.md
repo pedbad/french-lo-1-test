@@ -1,13 +1,13 @@
 # SCSS Migration Plan: Single Source of Truth (Tailwind + Tokens)
 
-## Why the current setup is hard to maintain
-Styling is split across component SCSS and Tailwind/shadcn tokens, which forces changes to be hunted in two systems, makes refactors slow, and creates drift where similar UI looks different because it is defined in different places.
+## Status
+SCSS removal is complete in app source (`0` SCSS files and `0` SCSS imports under `src`).
 
 ## Goal
-Move all component styling into Tailwind utilities (or tokenized `@apply` utilities where necessary), then delete legacy SCSS so tokens in `src/index.css` and mappings in `tailwind.config.js` are the single source of truth.
+Preserve single-source styling through `src/index.css` tokens + Tailwind/shadcn utilities, and prevent SCSS reintroduction.
 
 Note:
-- This file keeps the original full migration backlog.
+- This file keeps the original full migration backlog for historical context.
 - Live completion status and current SCSS counts are tracked in `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`.
 
 ## Systematic migration steps (baby steps)
