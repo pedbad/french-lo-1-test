@@ -1,4 +1,5 @@
 import React from 'react';
+import { Badge } from '@/components/ui/badge';
 
 const SOURCE_TEXT_MODULES = import.meta.glob('/src/**/*.{js,jsx,ts,tsx,css,scss}', {
 	eager: true,
@@ -148,11 +149,10 @@ export function DebugFontTokens() {
 
 			<div className="rounded-xl border border-border bg-card p-3">
 				<p className="mb-2 text-base font-semibold">{`Font tokens detected: ${tokenRows.length}`}</p>
-				<p className="mb-3 text-sm">
-					<span className="font-semibold text-[var(--chart-2)]">{`Used: ${usedTokens}`}</span>
-					{' · '}
-					<span className="font-semibold text-[var(--destructive)]">{`Unused: ${unusedTokens}`}</span>
-				</p>
+				<div className="mb-3 flex flex-wrap items-center gap-2">
+					<Badge className="text-sm" variant="secondary">{`Used: ${usedTokens}`}</Badge>
+					<Badge className="text-sm" variant="destructive">{`Unused: ${unusedTokens}`}</Badge>
+				</div>
 				<div className="overflow-x-auto">
 					<table className="min-w-full border-collapse text-base">
 						<thead>
@@ -168,9 +168,9 @@ export function DebugFontTokens() {
 									<td className="px-2 py-2"><code>{row.token}</code></td>
 									<td className="px-2 py-2"><code className="break-all">{row.value || '(unset)'}</code></td>
 									<td className="px-2 py-2">
-										<span className={row.usageCount > 0 ? 'font-semibold text-[var(--chart-2)]' : 'font-semibold text-[var(--destructive)]'}>
+										<Badge className="text-sm" variant={row.usageCount > 0 ? 'secondary' : 'destructive'}>
 											{row.usageCount > 0 ? `Used (${row.usageCount})` : 'Unused (0)'}
-										</span>
+										</Badge>
 									</td>
 								</tr>
 							))}
@@ -181,11 +181,10 @@ export function DebugFontTokens() {
 
 			<div className="mt-4 rounded-xl border border-border bg-card p-3">
 				<p className="mb-2 text-base font-semibold">{`@font-face families detected: ${faceRows.length}`}</p>
-				<p className="mb-3 text-sm">
-					<span className="font-semibold text-[var(--chart-2)]">{`Used: ${usedFaces}`}</span>
-					{' · '}
-					<span className="font-semibold text-[var(--destructive)]">{`Unused: ${unusedFaces}`}</span>
-				</p>
+				<div className="mb-3 flex flex-wrap items-center gap-2">
+					<Badge className="text-sm" variant="secondary">{`Used: ${usedFaces}`}</Badge>
+					<Badge className="text-sm" variant="destructive">{`Unused: ${unusedFaces}`}</Badge>
+				</div>
 				<div className="overflow-x-auto">
 					<table className="min-w-full border-collapse text-base">
 						<thead>
@@ -203,11 +202,11 @@ export function DebugFontTokens() {
 										{row.viaTokens.length > 0 ? row.viaTokens.map((token) => <code className="mr-2" key={`${row.family}-${token}`}>{token}</code>) : 'None'}
 									</td>
 									<td className="px-2 py-2">
-										<span className={row.totalUsage > 0 ? 'font-semibold text-[var(--chart-2)]' : 'font-semibold text-[var(--destructive)]'}>
+										<Badge className="text-sm" variant={row.totalUsage > 0 ? 'secondary' : 'destructive'}>
 											{row.totalUsage > 0
 												? `Used (${row.totalUsage})`
 												: 'Unused (0)'}
-										</span>
+										</Badge>
 										<p className="mt-1 text-sm text-[var(--muted-foreground)]">
 											{`via tokens: ${row.viaTokenUsageCount}, direct refs: ${row.directUsageCount}`}
 										</p>

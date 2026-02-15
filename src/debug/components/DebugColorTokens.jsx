@@ -1,4 +1,5 @@
 import React from 'react';
+import { Badge } from '@/components/ui/badge';
 
 const COLOR_PATTERN = /(oklch|rgb|hsl|#|color-mix|linear-gradient|radial-gradient|conic-gradient)/i;
 const CHANNEL_RGB_PATTERN = /^-?\d+(\.\d+)?\s+-?\d+(\.\d+)?\s+-?\d+(\.\d+)?$/;
@@ -152,11 +153,10 @@ export function DebugColorTokens() {
 				<p className="mb-2 text-base font-semibold">
 					{`Total color tokens detected: ${rows.length}`}
 				</p>
-				<p className="mb-3 text-sm">
-					<span className="font-semibold text-[var(--chart-2)]">{`Used: ${usedCount}`}</span>
-					{' · '}
-					<span className="font-semibold text-[var(--destructive)]">{`Unused: ${unusedCount}`}</span>
-				</p>
+				<div className="mb-3 flex flex-wrap items-center gap-2">
+					<Badge className="text-sm" variant="secondary">{`Used: ${usedCount}`}</Badge>
+					<Badge className="text-sm" variant="destructive">{`Unused: ${unusedCount}`}</Badge>
+				</div>
 				<div className="overflow-x-auto">
 					<table className="min-w-full border-collapse text-base">
 						<thead>
@@ -186,9 +186,9 @@ export function DebugColorTokens() {
 										</div>
 									</td>
 									<td className="px-2 py-2">
-										<span className={row.usageCount > 0 ? 'font-semibold text-[var(--chart-2)]' : 'font-semibold text-[var(--destructive)]'}>
+										<Badge className="text-sm" variant={row.usageCount > 0 ? 'secondary' : 'destructive'}>
 											{row.usageCount > 0 ? `Used (${row.usageCount})` : 'Unused (0)'}
-										</span>
+										</Badge>
 									</td>
 								</tr>
 							))}
