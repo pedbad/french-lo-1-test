@@ -45,8 +45,10 @@ yarn dev
 Then open:
 
 ```
-http://localhost:5173/french-basic/debug-sandbox.html
+http://localhost:5173/projects/french-basic/debug-sandbox.html
 ```
+
+Note: this repo currently sets `base: '/projects/french-basic/'` in `/Users/ped/Sites/french/french-lo-1-test/vite.config.js`, so local dev/preview URLs must include that prefix unless you explicitly override base for preview.
 
 Files:
 - `/Users/ped/Sites/french/french-lo-1-test/debug-sandbox.html`
