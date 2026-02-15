@@ -14,10 +14,6 @@ const SOURCE_TEXT_MODULES = import.meta.glob('/src/**/*.{js,jsx,ts,tsx,css,scss,
 	query: '?raw',
 });
 const SVG_REFERENCE_PATTERN = /url\(\s*['"]?([^'"()\s]+\.svg(?:[?#][^'")\s]*)?)['"]?\s*\)|['"`]([^'"`\n\r]*\.svg(?:[?#][^'"`\n\r]*)?)['"`]/gi;
-const EXISTING_PATHS = new Set([
-	...Object.keys(import.meta.glob('/public/**/*.svg')),
-	...Object.keys(import.meta.glob('/src/**/*.svg')),
-]);
 const USED_BADGE_CLASS = 'border-emerald-500/70 bg-transparent text-emerald-700 dark:text-emerald-300';
 const UNUSED_BADGE_CLASS = 'border-amber-500/70 bg-transparent text-amber-700 dark:text-amber-300';
 
@@ -29,15 +25,6 @@ function getSourceDirectory(sourcePath) {
 
 function toDisplayPath(pathValue) {
 	return pathValue.replace(/^\/public\//, '/').replace(/^\/src\//, '/src/');
-}
-
-function getExistenceCandidates(displayPath) {
-	const normalized = displayPath.replace(/^\/+/, '/');
-	return [normalized, `/public${normalized}`, normalized.replace(/^\/src\//, '/src/')];
-}
-
-function pathExists(displayPath) {
-	return getExistenceCandidates(displayPath).some((candidate) => EXISTING_PATHS.has(candidate));
 }
 
 function normalizeReference(rawReference, sourcePath) {
@@ -101,7 +88,6 @@ function collectSvgReferences() {
 	return Array.from(entriesByPath.values())
 		.map((entry) => ({
 			...entry,
-			exists: pathExists(entry.path),
 			sources: Array.from(entry.sources).sort((left, right) => left.localeCompare(right)),
 		}))
 		.sort((left, right) => left.path.localeCompare(right.path));
@@ -121,14 +107,15 @@ export function DebugSvgAssets() {
 		}
 	}, []);
 
-	const existingCount = rows.filter((row) => row.exists).length;
-	const missingCount = rows.length - existingCount;
+	const missingCount = rows.filter((row) => brokenPaths.has(row.path)).length;
+	const existingCount = rows.length - missingCount;
 
 	return (
 		<section aria-labelledby="sandbox-svg-assets">
 			<h2 id="sandbox-svg-assets">SVG Assets Referenced in App Source</h2>
 			<p className="mb-3 text-base text-[var(--muted-foreground)]">
-				Source-reference inventory of SVG paths used across `src/` (excluding `src/debug/`).
+				Source-reference inventory of SVG paths used across `src/` (excluding `src/debug/`). Found/missing
+				status is determined by runtime image loading in this debug page.
 			</p>
 			{errorMessage ? (
 				<p className="mb-3 text-base text-[var(--destructive)]">{errorMessage}</p>
@@ -141,7 +128,7 @@ export function DebugSvgAssets() {
 			<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
 				{rows.map((row) => {
 					const isBroken = brokenPaths.has(row.path);
-					const isMissing = !row.exists || isBroken;
+					const isMissing = isBroken;
 					return (
 						<Card className="overflow-hidden" key={row.path}>
 							<CardHeader className="px-4 pb-2 pt-4">
