@@ -1,14 +1,9 @@
 import React from 'react';
 import { Info } from '../components';
 import { LearningObjectMenu } from './components/LearningObjectMenu';
+import learningObjectIndex from '../index-fr.json';
 
-const SAMPLE_LEARNING_OBJECTS = [
-	{ file: 1 },
-	{ file: 2 },
-	{ file: 3 },
-	{ file: 'demo' },
-	{ file: 'answer' },
-];
+const DEBUG_LEARNING_OBJECTS = learningObjectIndex?.learningObjects ?? [];
 
 export function DebugSandbox() {
 	/*
@@ -68,12 +63,12 @@ export function DebugSandbox() {
 			</section>
 
 			<section aria-labelledby="sandbox-lo-menu">
-				<h2 id="sandbox-lo-menu">Learning Object Menu Sample</h2>
+				<h2 id="sandbox-lo-menu">Learning Object Menu (All Index Links)</h2>
 				<div className="rounded-xl border border-border bg-card p-4">
 					<LearningObjectMenu
 						currentLearningObject={0}
 						languageCode="fr"
-						learningObjects={SAMPLE_LEARNING_OBJECTS}
+						learningObjects={DEBUG_LEARNING_OBJECTS}
 						onSelectLearningObject={() => {}}
 					/>
 				</div>
