@@ -1395,6 +1395,123 @@
 		padding: 0.25rem 1rem;
 	}
 
+	/* WordParts interaction/animation skin extracted from WordParts.scss. */
+	html.debug .word-parts-container span {
+		border: 1px solid color-mix(in oklab, var(--destructive) 20%, transparent);
+	}
+
+	.word-parts-container {
+		position: relative;
+	}
+
+	.word-parts-container table p {
+		margin: 0;
+		letter-spacing: 0.2rem;
+		perspective: 600px;
+	}
+
+	.word-parts-container .wordparts-reset.icon-button {
+		border-color: var(--chart-2);
+		background-color: var(--chart-2);
+		color: var(--primary-foreground);
+	}
+
+	.word-parts-container .wordparts-reset.icon-button:hover {
+		background-color: color-mix(in oklab, var(--chart-2) 85%, transparent);
+	}
+
+	.word-parts-container table span {
+		border: 1px solid transparent;
+		cursor: pointer;
+		display: inline-block;
+		padding: 0;
+		position: relative;
+		transform-style: preserve-3d;
+		user-select: none;
+	}
+
+	.word-parts-container table span::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.word-parts-container table span.animate {
+		animation-name: vertical-rotate;
+		animation-duration: 0.5s;
+		animation-timing-function: linear;
+		animation-iteration-count: 1;
+		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		border: 1px solid var(--chart-2);
+		box-sizing: border-box;
+		display: inline-block;
+	}
+
+	.word-parts-container table span.animate::before {
+		animation-name: shade;
+		animation-duration: 0.25s;
+		animation-timing-function: linear;
+		animation-iteration-count: 2;
+	}
+
+	.word-parts-container table span.error {
+		border: 1px solid var(--destructive);
+		background: color-mix(in oklab, var(--destructive) 20%, transparent);
+	}
+
+	.word-parts-container .word-space {
+		display: inline-block;
+		width: 0.5em;
+	}
+
+	@keyframes vertical-rotate {
+		0% {
+			transform: rotateX(0deg);
+			box-shadow: 4px 4px 4px color-mix(in oklab, var(--foreground) 20%, transparent);
+		}
+
+		50% {
+			transform: rotateX(180deg);
+			box-shadow: 4px -4px 4px color-mix(in oklab, var(--foreground) 20%, transparent);
+		}
+
+		100% {
+			transform: rotateX(360deg);
+			box-shadow: 4px 4px 4px color-mix(in oklab, var(--foreground) 20%, transparent);
+		}
+	}
+
+	@keyframes shade {
+		0% {
+			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+		}
+
+		45% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		50% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		55% {
+			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		}
+
+		100% {
+			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+		}
+	}
+
+	@media (min-width: 768px) {
+		.word-parts-container table td {
+			padding: 0.25rem 1rem;
+		}
+	}
+
 	/* Error log panel extracted from ErrorLog.scss. */
 	#errorLog {
 		display: block;

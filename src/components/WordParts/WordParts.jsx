@@ -1,4 +1,3 @@
-import './WordParts.scss';
 import {
 	AudioClip,
 	IconButton,

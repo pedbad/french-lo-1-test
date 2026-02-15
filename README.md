@@ -355,7 +355,7 @@ Proposed approach:
 
 Current SCSS footprint (12 files), grouped by area:
 - Core/layout: `src/App.scss`, `src/components/Accordion/Accordion.scss`
-- Activities & exercises: `src/components/Blanks/Blanks.scss`, `src/components/DropDowns/DropDowns.scss`, `src/components/Jigsaw/Piece/Piece.scss`, `src/components/MemoryMatchGame/MemoryMatchGame.scss`, `src/components/WordParts/WordParts.scss`, `src/components/CustomComponents_FR/CustomComponents_FR.scss`
+- Activities & exercises: `src/components/Blanks/Blanks.scss`, `src/components/DropDowns/DropDowns.scss`, `src/components/Jigsaw/Piece/Piece.scss`, `src/components/MemoryMatchGame/MemoryMatchGame.scss`, `src/components/CustomComponents_FR/CustomComponents_FR.scss`
 - Legacy style modules: `src/styles/_colours.module.scss`, `src/styles/_media-queries.scss`, `src/styles/_mixins.module.scss`, `src/styles/_variables.module.scss`
 
 ## Semantics
