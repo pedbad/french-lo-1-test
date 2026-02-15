@@ -19,6 +19,7 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
   - section `h2`
   - section intro/instructions block
 - [x] Leaf accordion panels are `<article>` (or justified as `<section>` if not standalone).
+- [x] Group accordion wrappers render as semantic `<section>` containers.
 
 ## Navigation Checks
 - [x] Exactly one primary nav landmark exists for the main IA.
@@ -51,7 +52,7 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 - [ ] Focus order does not enter collapsed panel content.
 - [ ] `aria-expanded` changes correctly.
 - [ ] Landmark structure is valid (`header`, `main`, `footer`, nested sections/articles).
-- [ ] Heading order is logical (`h1` -> `h2` -> `h3`).
+- [x] Heading order is logical (`h1` -> `h2` -> `h3`).
 
 ## Visual/Regression Checks
 - [ ] No spacing/padding regressions in section cards.
@@ -61,5 +62,11 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 
 ## Build/Quality Gates
 - [x] `yarn build` passes.
+- [x] Branch guards pass:
+  - `yarn check:typography:branch`
+  - `yarn check:color:branch`
+  - `yarn check:a11y:branch`
+  - `yarn check:scss:branch`
+  - `yarn check:audio-unicode`
 - [ ] `yarn prepush:local` passes.
 - [ ] W3C validator run on preview HTML shows no new semantic/structure errors.

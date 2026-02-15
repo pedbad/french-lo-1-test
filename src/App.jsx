@@ -1107,6 +1107,7 @@ export default class App extends React.Component {
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
 								key={`${compoundID}-Group-Accordion`}
+								semanticAs="section"
 								target={groupId}
 								title={titleText}
 								titleHTML={titleTextHTML}
@@ -1173,6 +1174,7 @@ export default class App extends React.Component {
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
 								key={`${compoundID}-Group-Accordion`}
+								semanticAs="section"
 								target={groupId}
 								title={titleText}
 								titleHTML={titleTextHTML}

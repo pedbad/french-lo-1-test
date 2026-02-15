@@ -1117,6 +1117,33 @@ Why this was important:
   - browser native scroll restoration caused refresh to reopen mid-page context, conflicting with expected “start at top” behavior.
   - this keeps refresh behavior deterministic while preserving useful session persistence for accordion state.
 
+## 108) DOM Semantics Hardening: Group Sections + Accordion Heading Levels
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
+  - added `semanticAs` prop (`"article"` default) so the same wrapper can render semantic group containers as `<section>` when needed.
+  - root element now uses `RootTag` (`article` or `section`).
+  - accordion trigger heading changed from `<h2>` to `<h3>` to enforce `h1 -> h2 -> h3` hierarchy.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+  - group accordion call sites now pass `semanticAs="section"` so structural wrappers are sections, not articles.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+  - accordion title selectors migrated from `h2`-based selectors to `.accordion-title` selectors to preserve identical styling after heading-tag change.
+- Updated tracking docs:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- Validation:
+  - `yarn build` passes.
+  - branch guards pass:
+    - `yarn check:typography:branch`
+    - `yarn check:color:branch`
+    - `yarn check:a11y:branch`
+    - `yarn check:scss:branch`
+    - `yarn check:audio-unicode`
+  - `yarn prepush:local` is still blocked by existing repo-wide ESLint baseline errors outside this change set.
+- Why:
+  - restores correct semantic distinction between structural content regions (`section`) and standalone accordion entries (`article`).
+  - removes heading-level inflation inside accordion items and improves document outline consistency for assistive tech.
+
 
 # Files Deleted (partial but comprehensive)
 

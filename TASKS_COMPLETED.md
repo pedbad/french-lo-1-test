@@ -185,6 +185,10 @@ Progress:
   - added explicit `history.scrollRestoration = "manual"` + immediate `scrollTo(0,0)` in `App.componentDidMount`
   - clarified contract: persist accordion open/closed state only; do not persist/restore page scroll position
   - removed obsolete global scroll tracking writes from `MainMenu` (`window.__lastKnownScrollPosition`)
+- [x] Harden accordion semantics for DOM phase:
+  - added `semanticAs` override to `AccordionArticle` so group wrappers render as `<section>` while leaf items remain `<article>`
+  - updated group accordion call sites in `src/App.jsx` to pass `semanticAs="section"`
+  - promoted accordion trigger title heading from `h2` to `h3` and updated related selectors in `src/index.css` to `.accordion-title`
 
 ## CI / Guardrails
 

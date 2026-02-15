@@ -62,6 +62,7 @@ export function AccordionArticle({
 	id,
 	info,
 	noCard = false,
+	semanticAs = "article",
 	target,
 	title = "",
 	titleHTML = "",
@@ -116,6 +117,7 @@ export function AccordionArticle({
 	const { informationText, informationTextHTML } = config || {};
 	const hasInfo = Boolean(informationText || informationTextHTML);
 	const shouldSuppressChildInfo = hasInfo;
+	const RootTag = semanticAs === "section" ? "section" : "article";
 	const renderedChildren = shouldSuppressChildInfo
 		? React.Children.map(children, (child) =>
 			React.isValidElement(child) ? React.cloneElement(child, { suppressInfo: true }) : child
@@ -123,7 +125,7 @@ export function AccordionArticle({
 		: children;
 
 	return (
-		<article
+		<RootTag
 			aria-labelledby={headingId}
 			className={`accordion-article ${expanded ? "expanded" : ""} ${className || ""}`}
 			data-state={expanded ? "open" : "closed"}
@@ -139,8 +141,8 @@ export function AccordionArticle({
 				<AccordionPrimitive.Item className="accordion-item border-none" value={id}>
 					<header>
 						<AccordionPrimitive.Header asChild>
-							<h2
-								className={`modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
+							<h3
+								className={`accordion-title modal-link-target ${ACCORDION_TITLE_TEXT_CLASS}`}
 								data-modal-target={target || undefined}
 								id={headingId}
 								style={ACCORDION_TITLE_STYLE}
@@ -168,7 +170,7 @@ export function AccordionArticle({
 									</svg>
 									<span className="accordion-trigger-label">{headingContent}</span>
 								</AccordionPrimitive.Trigger>
-							</h2>
+							</h3>
 						</AccordionPrimitive.Header>
 					</header>
 
@@ -205,6 +207,6 @@ export function AccordionArticle({
 					</AccordionPrimitive.Content>
 				</AccordionPrimitive.Item>
 			</AccordionPrimitive.Root>
-		</article>
+		</RootTag>
 	);
 }

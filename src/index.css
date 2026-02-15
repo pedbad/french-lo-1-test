@@ -979,8 +979,8 @@
 		box-shadow: 0 8px 18px color-mix(in oklab, var(--foreground) 10%, transparent);
 	}
 
-	#content .accordion-article > header:hover h2,
-	#content .accordion-article .accordion-item > header:hover h2 {
+	#content .accordion-article > header:hover .accordion-title,
+	#content .accordion-article .accordion-item > header:hover .accordion-title {
 		color: var(--accordion-hover-text) !important;
 	}
 
@@ -992,23 +992,23 @@
 		display: block;
 	}
 
-	#content .accordion-article > header h2,
-	#content .accordion-article .accordion-item > header h2 {
+	#content .accordion-article > header .accordion-title,
+	#content .accordion-article .accordion-item > header .accordion-title {
 		width: 100%;
 		margin: 0;
 		color: inherit;
 		transition: color 800ms ease-in-out;
 	}
 
-	#content .accordion-article > header h2 .accordion-title-part,
-	#content .accordion-article .accordion-item > header h2 .accordion-title-part {
+	#content .accordion-article > header .accordion-title .accordion-title-part,
+	#content .accordion-article .accordion-item > header .accordion-title .accordion-title-part {
 		font-size: calc(var(--font-size-sm) * 1.08);
 		opacity: 0.62;
 		font-weight: 500;
 	}
 
-	#content .accordion-article > header h2,
-	#content .accordion-article .accordion-item > header h2 {
+	#content .accordion-article > header .accordion-title,
+	#content .accordion-article .accordion-item > header .accordion-title {
 		font-variant-numeric: lining-nums tabular-nums;
 	}
 
@@ -1054,8 +1054,8 @@
 		color: var(--accordion-hover-text);
 	}
 
-	#content .accordion-article.expanded > header h2,
-	#content .accordion-article.expanded .accordion-item > header h2 {
+	#content .accordion-article.expanded > header .accordion-title,
+	#content .accordion-article.expanded .accordion-item > header .accordion-title {
 		color: var(--accordion-hover-text) !important;
 	}
 
@@ -1094,21 +1094,21 @@
 	}
 
 	@media (max-width: 640px) {
-		#content .accordion-article > header h2,
-		#content .accordion-article > header h2 > span,
-		#content .accordion-article .accordion-item > header h2,
-		#content .accordion-article .accordion-item > header h2 > span {
+		#content .accordion-article > header .accordion-title,
+		#content .accordion-article > header .accordion-title > span,
+		#content .accordion-article .accordion-item > header .accordion-title,
+		#content .accordion-article .accordion-item > header .accordion-title > span {
 			font-size: calc(var(--font-size-lg) * 0.98415) !important;
 			line-height: var(--line-height-2xl) !important;
 		}
 
-		#content .accordion-article > header h2 .accordion-title-before-colon,
-		#content .accordion-article .accordion-item > header h2 .accordion-title-before-colon {
+		#content .accordion-article > header .accordion-title .accordion-title-before-colon,
+		#content .accordion-article .accordion-item > header .accordion-title .accordion-title-before-colon {
 			display: inline;
 		}
 
-		#content .accordion-article > header h2 .accordion-title-after-colon,
-		#content .accordion-article .accordion-item > header h2 .accordion-title-after-colon {
+		#content .accordion-article > header .accordion-title .accordion-title-after-colon,
+		#content .accordion-article .accordion-item > header .accordion-title .accordion-title-after-colon {
 			display: block;
 		}
 	}

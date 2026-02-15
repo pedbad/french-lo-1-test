@@ -48,6 +48,10 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
 - [x] Completed naming + semantic cleanup:
   - renamed wrapper component from `AppAccordionArticle` to `AccordionArticle`
   - updated wrapper root element from `<section>` to `<article>`
+- [x] Completed heading and wrapper semantic hardening:
+  - added `semanticAs` override in `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx` so structural group wrappers can render as `<section>` while leaf accordion items remain `<article>`
+  - updated group accordion call sites in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` to pass `semanticAs="section"`
+  - changed accordion trigger heading from `<h2>` to `<h3>` in `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx` and updated matching selectors in `/Users/ped/Sites/french/french-lo-1-test/src/index.css`
 - [x] Unified chevron visual contract across app/debug:
   - shared `.accordion-chevron` class in `/Users/ped/Sites/french/french-lo-1-test/src/index.css`
   - applied in `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`

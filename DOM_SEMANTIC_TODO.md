@@ -81,7 +81,7 @@ Current page-top semantic risks:
 - [x] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
   - render leaf items as `article`.
   - keep `.accordion-article` class stable.
-- [ ] Add a wrapper/group override so structural containers remain `section` where needed.
+- [x] Add a wrapper/group override so structural containers remain `section` where needed.
 - [x] Migrate section heading IDs away from legacy `modal-link-*` naming to semantic `${sectionId}-heading`.
 
 ## Phase 4: JS Selector Hardening
@@ -90,7 +90,7 @@ Current page-top semantic risks:
 - [ ] Search and update other selectors that assume `div`/`section` only.
 
 ## Phase 5: Heading Hierarchy Cleanup
-- [ ] Verify heading levels:
+- [x] Verify heading levels:
   - top page title: `h1`
   - top-level sections: `h2`
   - accordion item titles: `h3`
@@ -98,6 +98,7 @@ Current page-top semantic risks:
 
 ## Phase 6: Validation and Regression Pass
 - [x] Run `yarn build`.
+- [x] Run branch guard scripts (`yarn check:typography:branch`, `yarn check:color:branch`, `yarn check:a11y:branch`, `yarn check:scss:branch`, `yarn check:audio-unicode`).
 - [ ] Run local guard scripts (`yarn prepush:local`).
 - [ ] Run semantic/accessibility checklist in `DOM_SEMANTIC_CHECKLIST.md`.
 - [ ] Validate W3C DOM excerpt for landmark/section structure.
