@@ -1225,11 +1225,14 @@ Why this was important:
   - applied to both range controls:
     - playback scrubber (`.play-scrubber`)
     - volume slider (`.volume-slider`)
+  - lightly brightened the controller panel surface from `var(--muted)` to a subtle mix:
+    - `color-mix(in oklab, var(--muted) 82%, var(--card) 18%)`
 - Validation:
   - targeted lint on changed file passes.
   - `yarn build` passes.
 - Why:
   - removes browser-default blue slider accent and aligns audio controls with your existing footer green token.
+  - improves contrast/readability by softening the controller background without drifting from theme tokens.
 
 
 # Files Deleted (partial but comprehensive)

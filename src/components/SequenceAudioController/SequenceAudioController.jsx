@@ -408,7 +408,7 @@ export class SequenceAudioController extends React.Component {
 
 		return (
 			<div
-				className="sequence-audio-controller relative mt-4 w-full rounded-[0.6rem] border border-[var(--border)] bg-[var(--muted)] p-2"
+				className="sequence-audio-controller relative mt-4 w-full rounded-[0.6rem] border border-[var(--border)] bg-[color-mix(in_oklab,var(--muted)_82%,var(--card)_18%)] p-2"
 				onMouseDown={(e) => e.stopPropagation()}
 				onTouchStart={(e) => e.stopPropagation()}
 			>
