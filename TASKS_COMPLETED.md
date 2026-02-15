@@ -146,6 +146,15 @@ Progress:
   - deleted `src/components/Accordion/AccordionArticle.jsx`
   - removed `window.refs` + `expandAllAccordions` from `src/App.jsx`
   - removed stale `expandNow` path from `src/components/Accordion/AppAccordionArticle.jsx`
+- [x] Add semantic DOM refactor planning docs (pre-implementation):
+  - `DOM_SEMANTIC_AUDIT.md` (target structure + risk analysis)
+  - `DOM_SEMANTIC_TODO.md` (phased migration plan)
+  - `DOM_SEMANTIC_CHECKLIST.md` (regression and a11y validation checklist)
+- [x] Sync DOM semantics docs with top-of-page contracts (no drift):
+  - documented current page-top structure (`header/nav/hero/main`) and why duplicate nav landmarks are problematic for the same IA
+  - documented responsive-safe rule: keep one primary nav landmark, keep mobile UX via non-nav mobile region/container
+  - documented hero semantics rule: no hero `h2` before page `h1`, and keep hero/intro in semantic page-content flow under `main`
+  - mirrored these contracts in `README.md` and `CHANGES.md`
 
 ## CI / Guardrails
 

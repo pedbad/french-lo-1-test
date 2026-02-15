@@ -248,6 +248,42 @@ project-root/
   package.json
 ```
 
+## Recommended Semantic Page DOM Structure
+
+Use this as the default page-content structure in future projects:
+
+```text
+body
+|- a.skip-link[href="#content"]                              (recommended)
+|- header#mainMenu.main-menu
+|  |- nav[aria-label="Main navigation"]                      (single primary nav landmark)
+|  |- div.mobile-menu[role="region"][aria-label="Main navigation mobile"]
+|- main#content
+|  |- section#introduction
+|  |  |- header
+|  |  |  |- h1
+|  |  |  |- div.instructions
+|  |  |- div.section-body
+|  |- section#dialogues
+|  |  |- header
+|  |  |  |- h2
+|  |  |  |- div.instructions
+|  |  |- div.accordion
+|  |     |- article.accordion-article
+|  |- section#vocabulary
+|  |- section#grammar
+|  |- section#pronunciation
+|  |- section#exercises
+|- footer
+```
+
+Rules:
+1. Keep exactly one primary nav landmark for the main IA (`header > nav`).
+2. Keep mobile navigation responsive, but do not add a second primary `<nav>` for the same links.
+3. Keep heading order logical (`h1` before section `h2` headings).
+4. Keep top-level content areas as real `section` landmarks under `main`.
+5. Use `article` for standalone accordion leaf content units.
+
 ## Where Tokens Live (Simple Model)
 
 Use this exact split so there is no confusion:

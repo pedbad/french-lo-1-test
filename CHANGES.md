@@ -950,6 +950,35 @@ Why this was important:
   - `/Users/ped/Sites/french/french-lo-1-test/README.md`
 - Why: keeps task boards and architecture docs aligned with the actual codebase after full accordion cutover.
 
+## 98) DOM Semantics Audit + Execution Docs (`main > section > article`)
+- Added semantic architecture audit:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
+  - documents current DOM shape, target hierarchy, inconsistency points, and concrete style/JS regression risks.
+- Added phased implementation plan:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - defines migration phases for section landmarks, nav/hash compatibility, article semantics, selector hardening, and heading hierarchy.
+- Added regression checklist:
+  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+  - covers structure, nav behavior, accordion behavior, modal-link behavior, accessibility, visual parity, and quality gates.
+- Updated tracker index in `/Users/ped/Sites/french/french-lo-1-test/README.md` to include these files.
+- Why: makes semantic DOM refactor explicit, testable, and low-risk before changing markup.
+
+## 99) DOM Semantics Docs Sync (Header/Nav/Hero + Responsive Landmark Rule)
+- Expanded `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md` with:
+  - current page-top DOM snapshot (`header/nav/hero/main`) and identified semantic issues.
+  - explicit statement that `div#accordion1.accordion` is a misleading top-level container.
+  - full target structure that includes header, single primary nav landmark, intro section, and section/article hierarchy under `main`.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`:
+  - added a dedicated phase for responsive-safe header/nav/hero semantics.
+  - clarified that mobile responsiveness is preserved while avoiding duplicate primary nav landmarks.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`:
+  - added checks for one primary nav landmark, responsive mobile behavior, and hero/heading-order correctness.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+  - added explicit DOM semantics contract bullets to prevent implementation/doc drift.
+- Why:
+  - removes ambiguity around "single nav landmark" vs responsive UX.
+  - locks heading/landmark expectations before DOM refactor implementation.
+
 
 # Files Deleted (partial but comprehensive)
 

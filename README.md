@@ -263,11 +263,21 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md` (current accordion risk analysis)
 - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
 - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
+- `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
+- `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
+- `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
 - `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/COLOR_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/HTML_ACCESSIBILITY_ISSUES.md`
 - `/Users/ped/Sites/french/french-lo-1-test/FONTS_PROBLEM.md` (build asset duplication root-cause note)
 - `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
+
+DOM semantics contract (current migration target):
+- one primary nav landmark for the main IA (`header > nav`), while preserving responsive behavior
+- mobile dropdown remains responsive but should not be a second primary `nav` for the same links (use a region/container)
+- avoid heading-order inversion (`h2` before page `h1`)
+- hero/intro content should be in semantic page-content flow under `main` (prefer `section#introduction`)
+- top-level learning areas under `main` should be semantic `section` landmarks (`dialogues`, `vocabulary`, `grammar`, `pronunciation`, `exercises`)
 
 Recommended before push:
 
