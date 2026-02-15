@@ -1,6 +1,5 @@
 import React from 'react';
 import { Info } from '../components';
-import { LearningObjectMenu } from './components/LearningObjectMenu';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
 
 /*
@@ -85,25 +84,11 @@ export function DebugSandbox() {
 				</div>
 			</section>
 
-			<div className="grid gap-6 min-[1180px]:grid-cols-2 min-[1180px]:items-start">
-				<section aria-labelledby="sandbox-lo-menu">
-					<h2 id="sandbox-lo-menu">Learning Object Menu (All Index Links)</h2>
-					<div className="rounded-xl border border-border bg-card p-4">
-						<p className="mb-3 text-sm text-[var(--muted-foreground)]">
-							Each link opens the real app page for that LO.
-						</p>
-						<LearningObjectMenu
-							appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
-							currentLearningObject={0}
-							languageCode="fr"
-							learningObjects={DEBUG_LEARNING_OBJECTS}
-							onSelectLearningObject={() => {}}
-						/>
-					</div>
-				</section>
-
-				<LearningObjectStructureSummary learningObjects={DEBUG_LEARNING_OBJECTS} />
-			</div>
+			<LearningObjectStructureSummary
+				appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
+				languageCode="fr"
+				learningObjects={DEBUG_LEARNING_OBJECTS}
+			/>
 		</main>
 	);
 }

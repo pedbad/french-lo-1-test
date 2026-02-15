@@ -141,10 +141,19 @@ function getSectionSummaries(config) {
 	return sections;
 }
 
-export function LearningObjectStructureSummary({ learningObjects = [] }) {
+function getLearningObjectBadge(file, index) {
+	if (file === 'demo') return 'Demo';
+	if (file === 'answer') return 'Answer';
+	if (/^\d+$/.test(file)) return `LO ${file.padStart(2, '0')}`;
+	return `LO ${index + 1}`;
+}
+
+export function LearningObjectStructureSummary({ appHrefBase, languageCode = 'fr', learningObjects = [] }) {
 	const [configByFile, setConfigByFile] = React.useState(() => new Map());
 	const [loadError, setLoadError] = React.useState('');
 	const [loading, setLoading] = React.useState(false);
+	const defaultAppHrefBase = React.useMemo(() => `${window.location.origin}${import.meta.env.BASE_URL}`, []);
+	const resolvedAppHrefBase = appHrefBase || defaultAppHrefBase;
 
 	React.useEffect(() => {
 		let cancelled = false;
@@ -205,18 +214,20 @@ export function LearningObjectStructureSummary({ learningObjects = [] }) {
 			const title = learningObject?.titleShort || learningObject?.title || `LO ${file || index + 1}`;
 			const config = configByFile.get(file);
 			return {
+				badge: getLearningObjectBadge(file, index),
 				file,
+				href: `${resolvedAppHrefBase}?lang=${languageCode}&lo=${file}`,
 				title,
 				sections: getSectionSummaries(config),
 			};
 		});
-	}, [configByFile, learningObjects]);
+	}, [configByFile, learningObjects, languageCode, resolvedAppHrefBase]);
 
 	return (
 		<section aria-labelledby="sandbox-lo-structure">
-			<h2 id="sandbox-lo-structure">Learning Object Structure Summary</h2>
+			<h2 id="sandbox-lo-structure">Learning Object Index + Structure</h2>
 			<p className="mb-3 text-sm text-[var(--muted-foreground)]">
-				Debug-only overview of each LO: sections, accordion titles, and component types.
+				Each row pairs an LO link (left) with its structure accordion (right).
 			</p>
 			{loading ? (
 				<p className="mb-3 text-sm text-[var(--muted-foreground)]">Loading LO structure data…</p>
@@ -226,48 +237,60 @@ export function LearningObjectStructureSummary({ learningObjects = [] }) {
 			) : null}
 			<div className="space-y-3">
 				{summaries.map((summary) => (
-					<details className="rounded-xl border border-border bg-card p-4" key={`lo-summary-${summary.file}`}>
-						<summary className="cursor-pointer font-semibold">
-							{`LO ${summary.file} - ${summary.title}`}
-						</summary>
-						{summary.sections.length === 0 ? (
-							<p className="mt-3 text-sm text-[var(--destructive)]">No section data found for this LO.</p>
-						) : (
-							<div className="mt-3 space-y-4">
-								{summary.sections.map((section) => (
-									<div className="rounded-lg border border-border/70 p-3" key={`${summary.file}-${section.key}`}>
-										<h3 className="text-base font-semibold">{section.sectionTitle}</h3>
-										<p className="mt-1 text-sm">
-											<span className="font-semibold">Section component:</span>{' '}
-											<code>{section.sectionComponent}</code>
-										</p>
-										<p className="mt-1 text-sm">
-											<span className="font-semibold">Content component types:</span>{' '}
-											{section.contentTypes.length > 0 ? section.contentTypes.join(', ') : 'None'}
-										</p>
-										{section.topLevelContent.length > 0 ? (
-											<p className="mt-1 text-sm">
-												<span className="font-semibold">Top-level content:</span>{' '}
-												{section.topLevelContent
-													.map((item) => `${item.title} (${item.component})`)
-													.join(' | ')}
-											</p>
-										) : null}
-										<p className="mt-1 text-sm">
-											<span className="font-semibold">Accordion titles:</span>{' '}
-											{section.accordionTitles.length > 0 ? section.accordionTitles.join(' | ') : 'None'}
-										</p>
-										{section.exerciseTypes.length > 0 ? (
-											<p className="mt-1 text-sm">
-												<span className="font-semibold">Exercise component types:</span>{' '}
-												{section.exerciseTypes.join(', ')}
-											</p>
-										) : null}
+					<div className="rounded-xl border border-border bg-card p-3" key={`lo-summary-${summary.file}`}>
+						<div className="grid gap-3 min-[1180px]:grid-cols-[17.5rem,1fr] min-[1180px]:items-start">
+							<a
+								aria-label={`Open ${summary.badge}: ${summary.title}`}
+								className="inline-flex min-h-16 w-full flex-col justify-center rounded-lg border border-[color-mix(in_oklab,var(--primary)_75%,var(--foreground))] bg-[var(--primary)] px-3 py-2 text-left text-[var(--primary-foreground)] no-underline shadow-sm transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)] visited:text-[var(--primary-foreground)]"
+								href={summary.href}
+							>
+								<span className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] opacity-85">{summary.badge}</span>
+								<span className="mt-1 text-sm font-bold leading-tight">{summary.title}</span>
+							</a>
+							<details className="rounded-lg border border-border/70 p-3">
+								<summary className="cursor-pointer font-semibold">
+									{`Structure: ${summary.sections.length} section${summary.sections.length === 1 ? '' : 's'}`}
+								</summary>
+								{summary.sections.length === 0 ? (
+									<p className="mt-3 text-sm text-[var(--destructive)]">No section data found for this LO.</p>
+								) : (
+									<div className="mt-3 space-y-4">
+										{summary.sections.map((section) => (
+											<div className="rounded-lg border border-border/70 p-3" key={`${summary.file}-${section.key}`}>
+												<h3 className="text-base font-semibold">{section.sectionTitle}</h3>
+												<p className="mt-1 text-sm">
+													<span className="font-semibold">Section component:</span>{' '}
+													<code>{section.sectionComponent}</code>
+												</p>
+												<p className="mt-1 text-sm">
+													<span className="font-semibold">Content component types:</span>{' '}
+													{section.contentTypes.length > 0 ? section.contentTypes.join(', ') : 'None'}
+												</p>
+												{section.topLevelContent.length > 0 ? (
+													<p className="mt-1 text-sm">
+														<span className="font-semibold">Top-level content:</span>{' '}
+														{section.topLevelContent
+															.map((item) => `${item.title} (${item.component})`)
+															.join(' | ')}
+													</p>
+												) : null}
+												<p className="mt-1 text-sm">
+													<span className="font-semibold">Accordion titles:</span>{' '}
+													{section.accordionTitles.length > 0 ? section.accordionTitles.join(' | ') : 'None'}
+												</p>
+												{section.exerciseTypes.length > 0 ? (
+													<p className="mt-1 text-sm">
+														<span className="font-semibold">Exercise component types:</span>{' '}
+														{section.exerciseTypes.join(', ')}
+													</p>
+												) : null}
+											</div>
+										))}
 									</div>
-								))}
-							</div>
-						)}
-					</details>
+								)}
+							</details>
+						</div>
+					</div>
 				))}
 			</div>
 		</section>
