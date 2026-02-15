@@ -1125,6 +1125,82 @@
 		padding: 0;
 	}
 
+	/* Word grid layout extracted from WordGrid.scss. */
+	.word-grid-container {
+		padding: 1rem;
+		position: relative;
+	}
+
+	.word-grid-container .word-grid-table-outer-container {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.word-grid-container .word-grid-table-outer-container .word-grid-table-container {
+		touch-action: none;
+		z-index: 1;
+		position: relative;
+		display: inline-block;
+		background: linear-gradient(
+			45deg,
+			color-mix(in oklab, var(--muted) 85%, var(--background)) 0%,
+			color-mix(in oklab, var(--muted) 70%, var(--background)) 50%,
+			color-mix(in oklab, var(--muted) 85%, var(--background)) 73%,
+			color-mix(in oklab, var(--muted) 70%, var(--background)) 77%,
+			var(--muted) 100%
+		);
+	}
+
+	.word-grid-container .word-list {
+		text-transform: capitalize;
+	}
+
+	.word-grid-container .word-list span.found {
+		background: var(--ring);
+	}
+
+	.word-grid-container table {
+		border-collapse: collapse;
+		user-select: none;
+		z-index: 1;
+		cursor: pointer;
+	}
+
+	.word-grid-container table td {
+		border: 1px solid var(--border);
+		box-sizing: border-box;
+		width: var(--cell-dimension);
+		height: var(--cell-dimension);
+		text-align: center;
+		text-transform: uppercase;
+		border-radius: 4px;
+		box-shadow:
+			-1px -1px 0 color-mix(in oklab, var(--foreground) 25%, transparent) inset,
+			0 0 3px color-mix(in oklab, var(--border) 60%, transparent) inset,
+			4px 4px 2px color-mix(in oklab, var(--background) 85%, transparent) inset,
+			2px 2px 2px color-mix(in oklab, var(--foreground) 25%, transparent) inset,
+			-2px -2px 2px color-mix(in oklab, var(--foreground) 25%, transparent) inset;
+		font-weight: bold;
+		padding: 0;
+	}
+
+	.word-grid-container table p {
+		margin: 0;
+		letter-spacing: 0.5rem;
+	}
+
+	.word-grid-container .hidden-hints {
+		opacity: 0;
+		transition: opacity 4s;
+	}
+
+	.word-grid-container .hidden-hints.show {
+		opacity: 1;
+		transition: opacity 4s;
+	}
+
 	/* Image anchor layout extracted from Image.scss to keep class behavior stable. */
 	.image-anchor {
 		width: 100%;
