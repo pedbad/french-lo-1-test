@@ -259,6 +259,9 @@ For future projects, copy the reusable CI baseline from:
 The active migration/audit trackers are:
 
 - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (live checklist)
+- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md` (current accordion risk analysis)
+- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
+- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
 - `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/COLOR_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/HTML_ACCESSIBILITY_ISSUES.md`
@@ -330,7 +333,7 @@ Why it is feasible here:
 
 - Intro section layout in `src/App.jsx`: replace `intro-layout` and `intro-secondary` layout rules with responsive Tailwind classes.
 - New or refactored layout wrappers should default to Tailwind for flex/grid and breakpoints.
-- Consider migrating the custom accordion (`src/components/Accordion/*`) to shadcn/Radix Accordion for easier future theming and consistency.
+- Migrate the custom accordion (`src/components/Accordion/*`) to shadcn/Radix Accordion; execution is tracked in `ACCORDION_CHANGES_TODO.md` with a debug-first rollout before main-app migration.
 - Special anchors currently wait ~500 ms before scrolling so accordion panels can expand; smoothing that interaction (without the lag) remains a TODO.
 
 ### Additional guidance (agreed)

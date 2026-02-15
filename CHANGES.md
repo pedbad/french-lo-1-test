@@ -784,6 +784,20 @@ Why this was important:
     - accessibility treated as a non-negotiable quality gate, not a post-build cleanup task
 - Why: prevents documentation drift and makes accessibility expectations explicit in both current-repo guidance and future project scaffolding.
 
+## 83) Accordion Migration Planning Docs (Architecture Drift Control)
+- Added accordion architecture/risk analysis:
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
+- Added accordion migration execution plan (baby steps + test matrix + timeline):
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+- Added accordion-specific progress tracker:
+  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md` migration tracker links to include all accordion docs.
+- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` with a dedicated accordion migration section and explicit rationale.
+- Decision captured:
+  - use debug-first migration to tune shadcn/Radix accordion UX safely
+  - then migrate main app accordion with parity checks for config-driven behavior and modal-link/deep-link contracts
+- Why: the current accordion path is a design-system exception and long-term maintenance risk; planning docs make the refactor explicit, testable, and measurable.
+
 
 # Files Deleted (partial but comprehensive)
 

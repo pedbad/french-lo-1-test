@@ -110,6 +110,27 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [ ] Phase 4: ARIA cleanup (remove invalid aria usage, keep only needed labels)
 - [ ] Phase 5: SVG/image attribute/path cleanup and validation retest
 
+## Accordion Migration (shadcn/Radix)
+
+Why this goal matters (explicit):
+- Current accordion is a custom behavior island in an otherwise shadcn/Radix-oriented UI architecture.
+- Migrating to shadcn/Radix reduces behavior drift, improves a11y baseline consistency, and lowers long-term maintenance cost.
+- Preserving existing modal-link/deep-link and config-driven behavior requires a planned, testable migration rather than ad-hoc rewrites.
+
+Tracking docs:
+- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
+- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+
+Progress:
+- [x] Added architecture/risk analysis doc.
+- [x] Added detailed baby-step migration plan + test matrix + timeline.
+- [x] Added dedicated accordion completion tracker.
+- [ ] Add shadcn accordion primitive in `src/components/ui/accordion.jsx`.
+- [ ] Migrate debug accordion UI first (approved plan).
+- [ ] Migrate main app accordion path with parity checks.
+- [ ] Remove obsolete custom accordion/dead pathways after cutover.
+
 ## CI / Guardrails
 
 - [x] Add GitHub Actions PR quality workflow
