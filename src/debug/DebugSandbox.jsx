@@ -1,6 +1,7 @@
 import React from 'react';
 import { Info } from '../components';
 import { LearningObjectMenu } from './components/LearningObjectMenu';
+import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
 
 /*
 Keep debug fixtures self-contained.
@@ -99,6 +100,8 @@ export function DebugSandbox() {
 					/>
 				</div>
 			</section>
+
+			<LearningObjectStructureSummary learningObjects={DEBUG_LEARNING_OBJECTS} />
 		</main>
 	);
 }
