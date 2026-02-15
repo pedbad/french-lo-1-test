@@ -8,9 +8,23 @@ Using an in-file list avoids additional module resolution edge cases for this
 standalone debug entry while still rendering all LO links for navigation checks.
 */
 const DEBUG_LEARNING_OBJECTS = [
-	...Array.from({ length: 15 }, (_, index) => ({ file: String(index + 1) })),
-	{ file: 'demo' },
-	{ file: 'answer' },
+	{ file: '1', titleShort: 'First Contact' },
+	{ file: '2', titleShort: 'About me' },
+	{ file: '3', titleShort: 'Origins and Languages' },
+	{ file: '4', titleShort: 'Current location' },
+	{ file: '5', titleShort: 'House and Home' },
+	{ file: '6', titleShort: 'Family, friends and neighbours' },
+	{ file: '7', titleShort: 'Opinions matter' },
+	{ file: '8', titleShort: 'Free Time' },
+	{ file: '9', titleShort: 'Phoning in France' },
+	{ file: '10', titleShort: 'Making Arrangements' },
+	{ file: '11', titleShort: 'Going to a cafe' },
+	{ file: '12', titleShort: 'Shopping in the market' },
+	{ file: '13', titleShort: 'Daily routine' },
+	{ file: '14', titleShort: 'Studying at university' },
+	{ file: '15', titleShort: 'Making Arrangements' },
+	{ file: 'demo', titleShort: 'Sample components' },
+	{ file: 'answer', titleShort: 'Answer table test' },
 ];
 
 export function DebugSandbox() {
@@ -73,6 +87,9 @@ export function DebugSandbox() {
 			<section aria-labelledby="sandbox-lo-menu">
 				<h2 id="sandbox-lo-menu">Learning Object Menu (All Index Links)</h2>
 				<div className="rounded-xl border border-border bg-card p-4">
+					<p className="mb-3 text-sm text-[var(--muted-foreground)]">
+						Each link opens the real app page for that LO.
+					</p>
 					<LearningObjectMenu
 						appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
 						currentLearningObject={0}
