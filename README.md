@@ -53,6 +53,20 @@ Files:
 - `/Users/ped/Sites/french/french-lo-1-test/src/debug/sandbox-main.jsx`
 - `/Users/ped/Sites/french/french-lo-1-test/src/debug/DebugSandbox.jsx`
 
+Troubleshooting (stale Vite HMR overlay after asset deletes):
+- If you see an ENOENT overlay for an old file that was already removed, restart dev with a forced scan:
+
+```bash
+yarn dev --force
+```
+
+- If it persists, clear Vite cache and restart:
+
+```bash
+rm -rf node_modules/.vite
+yarn dev --force
+```
+
 ## Build app
 
 ```bash
