@@ -52,7 +52,7 @@
             ],
             [
               "audio/lo1/dialogues/phraseTable2/002-bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3",
-              "Bonjour Monsieur Letort ! Ça va très bien. Et <a class='modal-link' href='#tuvous'>vous</a> ?",
+              "Bonjour Monsieur Letort ! Ça va très bien. Et <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> ?",
               "Hello M Letort, I'm very well, thank you. And you?"
             ],
             [
@@ -72,12 +72,12 @@
           "phrases": [
             [
               "audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
-              "Comment t'appelles-<a class='modal-link' href='#tuvous'>tu</a> ?",
+              "Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
               "What's your name?"
             ],
             [
               "audio/lo1/dialogues/phraseTable3/002-je-mappelle-max-et-toi.mp3",
-              "Je m'appelle Max, et <a class='modal-link' href='#toi'>toi</a> ?",
+              "Je m'appelle Max, et <a class='modal-link' href='#content' data-modal-target='toi'>toi</a> ?",
               "My name is Max. And you're….?"
             ],
             [
@@ -97,7 +97,7 @@
           "phrases": [
             [
               "audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
-              "Comment <a class='modal-link' href='#tuvous'>vous</a> appelez-vous ?",
+              "Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
               "What's your name?"
             ],
             [
@@ -157,12 +157,12 @@
       ],
       [
         "audio/lo1/vocabulary/008-madame.mp3",
-        "<a class='modal-link' href='#madame'>Madame</a>",
+        "<a class='modal-link' href='#content' data-modal-target='madame'>Madame</a>",
         "Madam, Mrs / Ms"
       ],
       [
         "audio/lo1/vocabulary/009-mademoiselle.mp3",
-        "<a class='modal-link' href='#mademoiselle'>Mademoiselle</a>",
+        "<a class='modal-link' href='#content' data-modal-target='mademoiselle'>Mademoiselle</a>",
         "Young lady, Miss"
       ],
       [
@@ -227,12 +227,12 @@
       ],
       [
         "audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
-        "Comment t'appelles-<a class='modal-link' href='#tuvous'>tu</a> ?",
+        "Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
         "What's your name?"
       ],
       [
         "audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
-        "Comment <a class='modal-link' href='#tuvous'>vous</a> appelez-vous ?",
+        "Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
         "What's your name?"
       ],
       [

@@ -30,7 +30,7 @@ export const HeroSection = ({
 	const splitInfoImage = stackInfo && Boolean(instructionsLayout?.image);
 
 	return (
-		<section className="section hero-section" id={id}>
+		<section aria-labelledby={headingId} className="section hero-section" id={id}>
 			<Card
 				className={`w-full sortable mt-6 ${
 					transparentCard ? "bg-transparent border-0 shadow-none" : ""

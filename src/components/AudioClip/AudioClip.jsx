@@ -155,6 +155,7 @@ export class AudioClip extends React.PureComponent {
 		} else if (classes.includes('compact')) {
 			return (
 				<audio
+					aria-label="Audio clip"
 					className={`${className ? className : ''}`}
 					controls
 					id={id}
@@ -168,6 +169,7 @@ export class AudioClip extends React.PureComponent {
 				return (
 					<label className='audio-clip' htmlFor={`${id}`}>{listenText}{listenText === '' ? '' : ':'}&nbsp;
 						<audio
+							aria-label={listenText || "Audio clip"}
 							className={`${className ? className : ''}`}
 							controls
 							id={`${id}`}
@@ -181,6 +183,7 @@ export class AudioClip extends React.PureComponent {
 			} else {
 				return (
 					<div className={`audio-clip`}><audio
+						aria-label="Audio clip"
 						className={`${className ? className : ''}`}
 						controls
 						id={id}

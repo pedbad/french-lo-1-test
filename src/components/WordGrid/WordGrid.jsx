@@ -492,6 +492,7 @@ export class WordGrid extends PureComponent {
 								width={grid.length * cellDimension}
 								height={grid.length * cellDimension}
 								className={`word-grid ${WORD_GRID_TABLE_TEXT_CLASS}`}
+								role="presentation"
 							>
 								<tbody>
 									{grid.map((row, rowIndex) => (

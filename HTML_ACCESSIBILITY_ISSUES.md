@@ -51,6 +51,27 @@ These are mostly tooling/validator-compatibility issues, not app defects:
 - Why bad: breaks deterministic targeting (`getElementById`, anchor jumps), can corrupt ARIA relationships (`aria-controls`, labels), and creates unstable behavior for scripts and assistive technology.
 - Fix applied: ID generation now avoids undefined fallbacks and duplicate literals.
 
+4. Modal links authored as direct hash fragments in LO JSON
+
+- Why wrong: content modal links like `<a class='modal-link' href='#tuvous'>...</a>` look like same-page navigation to validators, but the corresponding in-page fragment target often does not exist in the copied static HTML payload.
+- Why bad: this was a major source of "Broken same-page link" alerts, and it created confusion between scroll navigation and modal behavior.
+- Correct contract (source of truth):
+  - `href="#content"` (safe existing anchor)
+  - `data-modal-target="tuvous"` (actual modal lookup key)
+  - example: `<a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a>`
+- Fix applied:
+  - updated LO JSON content links to use the safe modal-link pattern.
+- runtime normalization remains in `App.initialiseModalLinks` only as defensive fallback, not as primary authoring mode.
+
+5. Layout tables used for non-tabular UI
+
+- Why wrong: tables are for tabular relationships, not generic visual alignment/spacing.
+- Why bad: screen readers may announce row/column context where none exists, creating navigation overhead and confusing reading order.
+- Important debugging note: WAVE snippets that include `chrome-extension://.../table_layout.svg` are extension overlays, not app source HTML.
+- Fix strategy:
+  - if content is true data, keep `<table>` and provide semantic headers (`<th scope="col|row">`) and caption.
+  - if content is layout only, replace with flex/grid; if replacement is deferred, use `role="presentation"` as an interim mitigation.
+
 ### Validator noise that is usually not a runtime defect
 
 4. `var(--token) is not a color value`
@@ -112,6 +133,13 @@ These are mostly tooling/validator-compatibility issues, not app defects:
 
 - unnecessary `role="main"` on `<main>`
 - title on unsupported elements in some contexts
+
+8. Table semantics consistency audit
+
+- several feature components still render table primitives without full data-table semantics in all states.
+- action: complete a table-by-table audit and either:
+  - convert to flex/grid when non-tabular, or
+  - enforce semantic headers/captions for data tables.
 
 ## Quick Wins Completed (2026-02-14)
 
@@ -251,6 +279,19 @@ What it blocks in newly added lines:
 - spaces in `<img src>` path segments
 - repeated literal `id="..."` values inside added diff lines
 - newly introduced duplicate literal `id="..."` values (staged index count increases vs `HEAD`)
+
+Authoring rule (must follow in LO JSON/config content):
+
+- never add modal content links as raw hash fragments (for example `href="#tuvous"`).
+- always use `href="#content"` + `data-modal-target="<target-id>"`.
+- rationale: prevents validator "Broken same-page link" noise and keeps modal links semantically separate from section-scroll navigation.
+
+Table authoring rule (must follow in components):
+
+- default to flex/grid for visual layout.
+- use `<table>` only for true tabular relationships.
+- if using `<table>`, include appropriate headers (`<th scope=...>`) and caption.
+- never rely on table markup purely for spacing/alignment.
 
 Pre-commit hook now runs:
 

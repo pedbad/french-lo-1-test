@@ -82,6 +82,7 @@ export class Section extends React.PureComponent {
 
 		return (
 			<section
+				aria-labelledby={headingId}
 				className={`section ${className ? className : ''}`}
 				id={`${id}`}
 			>

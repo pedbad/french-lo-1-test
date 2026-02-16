@@ -396,7 +396,6 @@ export class DropDowns extends React.PureComponent {
 							})}
 							onClick={this.autoSolve}
 							theme={`eye`}
-							title={cheatText}
 						>
 							<span className="exercise-icon-button-label">{cheatText}</span>
 						</IconButton>
@@ -408,7 +407,6 @@ export class DropDowns extends React.PureComponent {
 							})}
 							onClick={this.handleReset}
 							theme={`reset`}
-							title="Reset"
 						>
 							<span className="exercise-icon-button-label">Reset</span>
 						</IconButton>

@@ -2,6 +2,41 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-15 - Modal-Link Validator Contract Hardening
+
+- Identified a recurring accessibility validation source:
+  - LO JSON links authored as direct hashes (for example `href="#tuvous"`) were reported as "Broken same-page link".
+- Standardized modal-link authoring contract:
+  - use `href="#content"` + `data-modal-target="<id>"` for modal links in config-authored HTML.
+  - keep top-nav semantic section hashes for scroll-only navigation.
+- Added explicit documentation to prevent regressions:
+  - `README.md`
+  - `HTML_ACCESSIBILITY_ISSUES.md`
+  - `SPECIAL_LINKS.md`
+  - `FUTURE_PROJECTS.md`
+- Clarified implementation rule:
+  - runtime normalization in `App.initialiseModalLinks` is defensive fallback only; source JSON must use the validator-safe pattern directly.
+
+## 2026-02-15 - Layout Table Validation Clarification + Policy
+
+- Added explicit documentation that WAVE snippets containing `chrome-extension://.../table_layout.svg` are extension overlays, not app source DOM.
+- Added project-wide rule:
+  - flex/grid for layout
+  - `<table>` only for true tabular data
+  - data tables require `caption` + semantic `th scope` headers
+  - legacy layout tables may use `role="presentation"` only as an interim step.
+- Added this policy to:
+  - `README.md`
+  - `HTML_ACCESSIBILITY_ISSUES.md`
+  - `FUTURE_PROJECTS.md`
+  - `TASKS_COMPLETED.md`
+
+## 2026-02-15 - Table Audit Reference Document
+
+- Added `/Users/ped/Sites/french/french-lo-1-test/TABLE_AUDIT_PASS.md`:
+  - records how the final two WAVE issues were addressed (`Possible heading`, `Layout table`)
+  - defines repeatable table audit checklist (classify data vs layout, semantic requirements, migration/mitigation rules, validation workflow)
+
 ## 1) Case Sensitivity (Linux-safe)
 - Renamed `src/Components` -> `src/components`.
 - Updated all imports to use `src/components` casing.

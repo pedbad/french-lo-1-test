@@ -231,7 +231,7 @@ export class CrossWord extends PureComponent {
 					<div className={`instructions`}>
 						{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 					</div>
-					<table className={`board`} style={{ borderCollapse: 'collapse' }}>
+					<table className={`board`} role="presentation" style={{ borderCollapse: 'collapse' }}>
 						<tbody>
 							{grid.map((row, rIdx) => (
 								<tr key={rIdx}>

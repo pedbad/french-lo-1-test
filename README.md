@@ -215,6 +215,13 @@ Validator triage guidance:
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
+Table semantics policy (important):
+- use flex/grid for layout and spacing.
+- use `<table>` only when data is genuinely tabular.
+- data tables must include semantic headers (`<th scope="...">`) and a caption.
+- if a legacy layout table cannot be removed immediately, mark it `role="presentation"` as an interim mitigation.
+- when reviewing WAVE output, `chrome-extension://...` table icons are scanner overlays, not app DOM.
+
 Migration cascade policy:
 - explicit layer order is declared in `src/index.css`: `@layer base, components, utilities`
 - keep new tokenized app styles in `@layer components` or `@layer utilities` (utilities last)
@@ -269,6 +276,7 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/COLOR_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1-test/HTML_ACCESSIBILITY_ISSUES.md`
+- `/Users/ped/Sites/french/french-lo-1-test/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
 - `/Users/ped/Sites/french/french-lo-1-test/FONTS_PROBLEM.md` (build asset duplication root-cause note)
 - `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 
@@ -312,6 +320,15 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
   - top navigation hashes are semantic section IDs (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`)
   - content explanation links use `modal-link` and are modal-only
   - section headings now use semantic IDs (`${sectionId}-heading`) instead of legacy `modal-link-*` naming
+- Critical LO JSON modal-link rule (W3C/validator-safe):
+  - do not author modal links as direct fragment hashes such as `<a class='modal-link' href='#tuvous'>...</a>`
+  - author modal links as:
+    - `href="#content"` (safe in-page anchor that always exists)
+    - `data-modal-target="tuvous"` (actual modal content key)
+  - required pattern example:
+    - `<a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a>`
+  - why: direct hash links in LO JSON were a major source of "Broken same-page link" accessibility alerts when validator tools parsed raw HTML before JS behavior overrides.
+  - note: runtime normalization in `App.initialiseModalLinks` is only a defensive fallback; source JSON must still use the safe pattern.
 - Engineering rule: one class, one behavior.
   - do not reuse a single class for both modal and scroll interactions.
   - this reduces accidental regressions, keeps event wiring predictable, and makes future refactors/debugging faster.

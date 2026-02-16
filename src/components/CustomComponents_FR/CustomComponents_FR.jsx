@@ -1359,7 +1359,7 @@ export class LO9Grammar extends PureComponent {
 				<p>Within France telephone numbers have 10 digits. For landlines the first two are the area code. These are:</p>
 				<div className={`lo9-figure-container`} >
 					<figure className="figure centre max1000">
-						<div className="svg-container" title="Click to hear">
+						<div className="svg-container" role="group" aria-label="Interactive pronunciation map">
 							<svg
 								height="542.438"
 								width="491.813"
@@ -1602,7 +1602,7 @@ export class L10Grammar extends PureComponent {
 					<ol>
 						<li>
 							<div className={`two-columns`}>
-								<img src={resolveAsset(`images/vouloir.jpg`)} title="vouloir" alt="A young girl points to the cake she wants"/>
+								<img src={resolveAsset(`images/vouloir.jpg`)} alt="A young girl points to the cake she wants"/>
 								<div className={`text`}>
 									<p>Using the verb <AudioClip className={`audio-link`} soundFile={`sounds/fr/vouloir.mp3`} >vouloir</AudioClip> meaning 'to want'</p>
 									<Table>

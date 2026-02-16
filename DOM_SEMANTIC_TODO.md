@@ -37,6 +37,9 @@ Current page-top semantic risks:
 - [x] Confirm nav contract during migration:
   - top nav uses semantic section hashes only.
   - no backward-compatibility shim for legacy `#modal-link-*` nav hashes (explicit project decision).
+- [x] Confirm modal-link authoring contract in config-rich text:
+  - modal links must use `href="#content"` + `data-modal-target="<id>"`.
+  - direct hash links (for example `href="#tuvous"`) are disallowed because they trigger validator "Broken same-page link" alerts.
 - [x] Confirm accordion semantics rule:
   - leaf item = `article`
   - grouping wrapper = `section`

@@ -6,6 +6,7 @@ import {
 import {
 	Table,
 	TableBody,
+	TableCaption,
 	TableCell,
 	TableHead,
 	TableHeader,
@@ -250,11 +251,24 @@ export class PhraseTable extends React.PureComponent {
 					: null}
 
 				<Table>
+					<TableCaption className="sr-only">
+						Phrase and translation table
+					</TableCaption>
 					{header ? (
 						<TableHeader>
 							<TableRow>{headerCells}</TableRow>
 						</TableHeader>
-					) : null}
+					) : (
+						<TableHeader className="sr-only">
+							<TableRow>
+								{Array.from({ length: longestRow }).map((_, index) => (
+									<TableHead key={`sr-header-${id}-${index}`} scope="col">
+										{`Column ${index + 1}`}
+									</TableHead>
+								))}
+							</TableRow>
+						</TableHeader>
+					)}
 					<TableBody>{rows}</TableBody>
 				</Table>
 

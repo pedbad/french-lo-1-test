@@ -70,19 +70,6 @@ export function AccordionArticle({
 	const [expanded, setExpanded] = React.useState(() =>
 		parsePersistedExpandedState(id, expandedByDefault)
 	);
-	const contentRef = React.useRef(null);
-
-	const syncContentHeight = React.useCallback(() => {
-		if (!contentRef.current) return;
-		contentRef.current.style.setProperty(
-			"--radix-accordion-content-height",
-			`${contentRef.current.scrollHeight}px`
-		);
-	}, []);
-
-	React.useEffect(() => {
-		syncContentHeight();
-	});
 
 	const handleValueChange = React.useCallback(
 		(values) => {
@@ -175,9 +162,8 @@ export function AccordionArticle({
 					</header>
 
 					<AccordionPrimitive.Content
-						className="content overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+						className="content accordion-content overflow-hidden"
 						id={contentId}
-						ref={contentRef}
 					>
 						{noCard ? (
 							<>

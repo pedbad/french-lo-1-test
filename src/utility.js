@@ -230,11 +230,12 @@ export const handleModalLinkClick = (e, options = {}) => {
 		(e.currentTarget instanceof Element ? e.currentTarget : null) ||
 		(e.target instanceof Element ? e.target.closest("a[href]") : null);
 	if (!linkEl) return;
-	const href = linkEl.getAttribute("href");
-	if (!href) return;
+	const href = linkEl.getAttribute("href") || "";
+	const explicitTarget = (linkEl.getAttribute("data-modal-target") || "").trim();
 
 	const rawAfterHash = href.split("#").pop() || "";
-	const targetId = rawAfterHash.replace(/^[.#]+/, "").trim();
+	const parsedTarget = rawAfterHash.replace(/^[.#]+/, "").trim();
+	const targetId = explicitTarget || parsedTarget;
 	if (!targetId) return;
 
 	const { mode = "modal", findModalLinkContent, showModalLinkDialog } = options;
@@ -288,11 +289,11 @@ export const highlightTextDiff = (a, b, countCorrect, sounds = false) => {
 			result.unshift(`<span>${a[i - 1]}</span>`);
 			i--; j--;
 		} else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
-			result.unshift(`<span class='inserted' title="inserted">${b[j - 1]}</span>`);
+			result.unshift(`<span class='inserted'>${b[j - 1]}</span>`);
 			correct = false;
 			j--;
 		} else if (i > 0 && (j === 0 || dp[i][j - 1] < dp[i - 1][j])) {
-			result.unshift(`<span class='deleted' title="deleted">${a[i - 1]}</span>`);
+			result.unshift(`<span class='deleted'>${a[i - 1]}</span>`);
 			correct = false;
 			i--;
 		}

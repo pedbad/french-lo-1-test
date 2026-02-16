@@ -138,6 +138,25 @@ Use this as a hard "do not repeat" list.
 10. Do not start refactors without visual and accessibility regression checks in the PR definition of done.
 11. Do not keep debug/sample scaffolding hidden in production markup; isolate it in a dev-only sandbox entrypoint.
 12. Do not switch shadcn primitive backend (Radix -> Base UI) without a documented strategic reason.
+13. Do not author modal content links in JSON as direct fragment hashes (for example `href="#tuvous"`).
+14. Do not use `<table>` for visual layout where flex/grid is the correct semantic choice.
+
+### Modal-Link Authoring Rule (Carry Forward)
+
+Use this rule in all config/JSON-authored rich text:
+
+1. For modal content links, always use:
+   - `href="#content"`
+   - `data-modal-target="<modal-content-id>"`
+2. Example:
+   - `<a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a>`
+3. Do not use:
+   - `<a class='modal-link' href='#tuvous'>vous</a>`
+4. Why:
+   - direct hash modal links are frequently reported as "Broken same-page link" by validators because they appear as missing in-page fragments.
+   - this blurs two distinct behaviors (scroll navigation vs modal launch) and increases maintenance risk.
+5. Design principle:
+   - one link behavior per contract: top nav hashes are for section scroll, `.modal-link` is for modal launch only.
 
 ## Dev-Only Debug Sandbox Pattern (Best Practice)
 
@@ -160,6 +179,19 @@ Why this is best practice:
 - keeps production markup deterministic and easier to maintain
 - avoids debug component sprawl in core app component namespaces
 - makes intent explicit: sandbox code is for developer diagnostics only
+
+### Table Semantics Rule (Carry Forward)
+
+1. Default layout primitives:
+   - use flex/grid for spacing/alignment/layout.
+2. Use `<table>` only for true tabular data relationships.
+3. Data tables must include:
+   - `<caption>`
+   - `<th scope="col|row">` headers
+4. If legacy layout table removal must be phased:
+   - use `role="presentation"` as a temporary mitigation only.
+5. Validation triage reminder:
+   - WAVE snippets that include `chrome-extension://...` assets are extension overlays, not source DOM.
 
 ### What To Include In Debug Sandbox (Default Scope)
 

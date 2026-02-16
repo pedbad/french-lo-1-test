@@ -47,7 +47,6 @@ export function FooterSocialLinks() {
 						aria-label={label}
 						className={`footer-link-button footer-link-button--${variant}`}
 						data-variant={variant}
-						title={label}
 					>
 						{createElement(icon, {
 							"aria-hidden": "true",

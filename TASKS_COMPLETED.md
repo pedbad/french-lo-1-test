@@ -113,6 +113,19 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
     - separated link semantics to remove legacy overload
     - `MainMenu` now uses `nav-scroll-link` for top navigation (scroll-only)
     - `App.initialiseModalLinks` now treats `.modal-link` as modal-only
+  - completed Phase 5B (broken same-page link regression prevention):
+    - identified direct hash modal links in LO JSON (`href="#tuvous"` pattern) as a major source of validator "Broken same-page link" alerts
+    - migrated LO modal links to validator-safe pattern: `href="#content"` + `data-modal-target="<id>"`
+    - documented this as a required authoring contract in `README.md`, `HTML_ACCESSIBILITY_ISSUES.md`, `SPECIAL_LINKS.md`, and `FUTURE_PROJECTS.md`
+    - clarified that runtime normalization is defensive fallback only, not a substitute for correct source authoring
+  - completed Phase 5C (table semantics policy alignment):
+    - documented explicit rule: use flex/grid for layout; tables only for tabular data.
+    - documented WAVE overlay caveat: `chrome-extension://...` snippets are scanner overlays, not app source DOM.
+    - documented interim mitigation rule for legacy layout tables: `role="presentation"` until full flex/grid migration.
+  - remaining Phase 5:
+    - complete component-by-component table audit (`ErrorLog`, `PhraseTable`, `RadioQuiz`, `DropDowns`, `AnswerTable`, puzzle grids) and either:
+      - provide full data-table semantics (`caption` + `th scope`), or
+      - refactor layout usage to flex/grid.
 
 ## Accordion Migration (shadcn/Radix)
 

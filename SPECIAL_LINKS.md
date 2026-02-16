@@ -129,3 +129,23 @@ Area 3: Triggering the Modal
 ---
 
 This step-by-step guide will help you implement the modal solution, keeping your content centralized and improving the user experience.
+
+---
+
+## Critical Validator-Safe Link Contract (Do Not Skip)
+
+This is a non-optional authoring rule for modal links in LO JSON / HTML strings:
+
+1. Always use:
+   - `href="#content"`
+   - `data-modal-target="<target-id>"`
+2. Example:
+   - `<a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a>`
+3. Never use direct hash target links for modal content:
+   - `<a class='modal-link' href='#tuvous'>vous</a>`
+4. Why this matters:
+   - direct hash modal links were a major source of "Broken same-page link" alerts in accessibility/validator runs.
+   - validators parse markup as navigation links and report missing fragment targets before JS modal wiring is considered.
+5. Runtime behavior note:
+   - `App.initialiseModalLinks` includes defensive normalization, but that is fallback safety only.
+   - the source JSON must still be authored in the validator-safe format above.

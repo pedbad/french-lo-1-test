@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	Table,
 	TableBody,
+	TableCaption,
 	TableCell,
 	TableHead,
 	TableHeader,
@@ -122,7 +123,7 @@ export class ErrorLog extends React.Component {
 						key={`errorLogCell${index}-4`}>
 						<button
 							className='dismiss clear-error'
-							title='Dismiss error'
+							aria-label='Dismiss error'
 							onClick={() => { clearError(index); }}
 						>X</button></TableCell>
 				</TableRow >
@@ -137,7 +138,7 @@ export class ErrorLog extends React.Component {
 						<button
 							id='collapse'
 							className='collapse-log'
-							title={`${collapse ? 'Maximise' : 'Minimise'} log`}
+							aria-label={`${collapse ? 'Expand' : 'Collapse'} log`}
 							onClick={this.toggleCollapseLog}
 						></button>
 					</div>
@@ -145,19 +146,31 @@ export class ErrorLog extends React.Component {
 						<button
 							id='copyAll'
 							className='copy-errors'
-							title='Copy log to clipboard'
+							aria-label='Copy log to clipboard'
 							onClick={this.copyErrors}
 						></button>
 						<button
 							id='clearAll'
 							className='clear-error'
-							title='Dismiss all'
+							aria-label='Dismiss all errors'
 							onClick={clearLog}
 						>X</button>
 					</div>
 				</header>
 				<div id='tableContainer'>
 					<Table className={ERROR_LOG_TEXT_CLASS}>
+						<TableCaption className="sr-only">
+							Application error log
+						</TableCaption>
+						<TableHeader className="sr-only">
+							<TableRow>
+								<TableHead scope="col">Action</TableHead>
+								<TableHead scope="col">Message</TableHead>
+								<TableHead scope="col">Status code</TableHead>
+								<TableHead scope="col">Status text</TableHead>
+								<TableHead scope="col">Dismiss</TableHead>
+							</TableRow>
+						</TableHeader>
 						<TableBody>
 							{rows}
 						</TableBody>

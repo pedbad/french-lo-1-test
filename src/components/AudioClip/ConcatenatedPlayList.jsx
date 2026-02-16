@@ -85,6 +85,7 @@ export class ConcatenatedPlaylist extends React.Component {
 				{error && <div className="error">{error}</div>}
 				{audioUrl && (
 					<audio
+						aria-label="Concatenated audio playlist"
 						ref={this.audioRef}
 						controls
 						loop={false}

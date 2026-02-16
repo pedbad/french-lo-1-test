@@ -5,7 +5,9 @@ export class SequenceAudioController extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.audioRef = React.createRef();
+		// Use an off-DOM Audio instance so validators do not flag hidden
+		// HTML5 media elements that are implementation details only.
+		this.audioRef = { current: new Audio() };
 
 		// Not in state: avoids rerenders while we fill it
 		this.durations = []; // seconds per track (index -> number)
@@ -40,6 +42,8 @@ export class SequenceAudioController extends React.Component {
 		audio.removeEventListener("timeupdate", this.handleTimeUpdate);
 		audio.removeEventListener("ended", this.handleEnded);
 		audio.removeEventListener("loadedmetadata", this.handleLoadedMetadata);
+		audio.pause();
+		audio.src = "";
 	}
 
 	emitPlayState = () => {
@@ -412,13 +416,11 @@ export class SequenceAudioController extends React.Component {
 				onMouseDown={(e) => e.stopPropagation()}
 				onTouchStart={(e) => e.stopPropagation()}
 			>
-				<audio ref={this.audioRef} />
-
 				<div className="controls grid min-w-0 grid-cols-[0.1fr_2fr_0.1fr_1fr] [grid-template-rows:1fr] [grid-auto-flow:row] items-center gap-x-2 text-[var(--foreground)]">
 					<button
+						aria-label={playState === "playing" ? "Pause audio" : "Play audio"}
 						className={`play-pause justify-self-end cursor-pointer text-base`}
 						onClick={this.toggleMasterPlay}
-						title={playState === "playing" ? "Pause" : "Play"}
 					>
 						{playState === "playing" ? (
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20">
@@ -435,6 +437,7 @@ export class SequenceAudioController extends React.Component {
 					</button>
 
 					<input
+						aria-label="Audio progress"
 						className={`play-scrubber min-w-0 w-full`}
 						type="range"
 						min="0"
@@ -446,7 +449,6 @@ export class SequenceAudioController extends React.Component {
 						onPointerUp={this.endScrub}
 						onChange={this.changeScrub}
 						style={sliderAccentStyle}
-						title="Play progress"
 					/>
 
 					<svg className={`volume-icon justify-self-end`} width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.001 20">
@@ -477,6 +479,7 @@ export class SequenceAudioController extends React.Component {
 					</svg>
 
 					<input
+						aria-label="Audio volume"
 						className={`volume-slider min-w-0 w-full`}
 						type="range"
 						min="0"
@@ -487,7 +490,6 @@ export class SequenceAudioController extends React.Component {
 						onPointerDown={(e) => e.stopPropagation()}
 						onPointerUp={(e) => e.stopPropagation()}
 						style={sliderAccentStyle}
-						title="Volume"
 					/>
 				</div>
 			</div>

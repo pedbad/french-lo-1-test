@@ -263,7 +263,6 @@ export class SequenceOrder extends React.PureComponent {
 								className={exerciseActionButtonVariants({ tone: "warn" })}
 								onClick={this.handleShowAnswer}
 								theme="eye"
-								title={cheatText}
 								variant="default"
 							>
 								<span className="exercise-icon-button-label">{cheatText}</span>
@@ -275,7 +274,6 @@ export class SequenceOrder extends React.PureComponent {
 								className={exerciseActionButtonVariants({ tone: "neutral" })}
 								onClick={this.handleReset}
 								theme="reset"
-								title="Reset"
 								variant="default"
 							>
 								<span className="exercise-icon-button-label">Reset</span>
@@ -287,7 +285,6 @@ export class SequenceOrder extends React.PureComponent {
 							disabled={!canCheck}
 							onClick={this.handleCheckAnswers}
 							theme="check"
-							title="Check answers"
 							variant="default"
 						>
 							<span className="exercise-icon-button-label">Check answers</span>

@@ -46,6 +46,9 @@ Repo: `/Users/ped/Sites/french/french-lo-1-test`
 - [ ] Content `.modal-link` opens modal content correctly.
 - [ ] Nav links do not open modal (scroll only).
 - [ ] Fallback content extraction works for targets inside `article` containers.
+- [ ] Config-authored modal links follow validator-safe contract:
+  - use `href="#content"` + `data-modal-target="<id>"`
+  - do not use direct fragment hashes like `href="#tuvous"` for modal content links
 
 ## Accessibility Checks
 - [ ] Keyboard toggle works (`Enter`/`Space`) on accordion triggers.

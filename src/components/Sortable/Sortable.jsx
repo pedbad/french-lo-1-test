@@ -488,7 +488,6 @@ export class Sortable extends React.Component {
 							className={exerciseActionButtonVariants({ tone: "warn" })}
 							onClick={this.autoSolve}
 							theme="eye"
-							title={cheatText}
 							variant="default"
 						>
 							<span className="exercise-icon-button-label">{cheatText}</span>
@@ -500,7 +499,6 @@ export class Sortable extends React.Component {
 							className={exerciseActionButtonVariants({ tone: "neutral" })}
 							onClick={this.reset}
 							theme="reset"
-							title="Reset"
 							variant="default"
 						>
 							<span className="exercise-icon-button-label">Reset</span>
@@ -511,7 +509,6 @@ export class Sortable extends React.Component {
 						className={exerciseActionButtonVariants({ tone: "primary" })}
 						theme="check"
 						onClick={this.checkAnswer}
-						title="Check answers"
 						variant="default"
 					>
 						<span className="exercise-icon-button-label">Check answers</span>

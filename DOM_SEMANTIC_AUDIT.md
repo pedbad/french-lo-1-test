@@ -160,6 +160,7 @@ Notes:
 4. Section intro/instructions text belongs in the section header with the section title, not as detached content.
 5. "Single nav landmark" means one semantic primary `<nav>` for this IA. Responsive mobile behavior still exists; only the mobile container should be non-`nav` (or a labeled region) to avoid duplicate landmarks for the same menu.
 6. Hero is intentionally treated as decorative page chrome and stays outside `main`; keep hero text non-heading and image decorative.
+7. Modal content links in config-authored HTML must use `href="#content"` + `data-modal-target="<id>"`; direct hash modal links (`href="#tuvous"`) are a known source of validator "Broken same-page link" noise.
 
 ## Recommended Full DOM Tree (Target)
 
