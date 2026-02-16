@@ -10,9 +10,11 @@ import {
 } from '../../components';
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { resolveAsset, shuffleArray } from '../../utility';
+import { Card, CardContent } from "@/components/ui/card";
 import {
 	Table,
 	TableBody,
+	TableCaption,
 	TableCell,
 	TableHead,
 	TableHeader,
@@ -28,7 +30,7 @@ const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
 const BLANKS_CONTENT_FLOW_CLASS = "leading-[var(--line-height-app)]";
 const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*0.5)] sm:leading-[calc(var(--font-size-sm)*3.5)]";
 const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*2.6)]";
-const BLANKS_DROP_TARGET_CLASS = "border-2 border-dashed border-[color-mix(in_oklab,var(--chart-3)_72%,var(--border))] bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)]";
+const BLANKS_DROP_TARGET_CLASS = "blanks-drop-slot";
 
 export class Blanks extends React.Component {
 
@@ -719,18 +721,20 @@ export class Blanks extends React.Component {
 			const r = tw.getBoundingClientRect();
 
 			const pieceMid = pLeft + (pRight - pLeft) / 2;
-			if ((pieceMid >= r.left) && (pieceMid <= r.right) && pTop >= r.top - margin && pBottom <= r.bottom + margin) {
-				const wcRect = this.getWordsContainerRect();
-				if (!wcRect) return { overTarget: true, targetWord: tw };
-				return {
-					overTarget: true,
-					success: this.getWordKeyFromEl(tw) === movingKey,
-					targetWord: tw,
-					targetLeft: r.left - wcRect.left,
-					targetTop: r.top - wcRect.top,
-				};
+				if ((pieceMid >= r.left) && (pieceMid <= r.right) && pTop >= r.top - margin && pBottom <= r.bottom + margin) {
+					const wcRect = this.getWordsContainerRect();
+					if (!wcRect) return { overTarget: true, targetWord: tw };
+					const targetLeft = r.left - wcRect.left + (r.width - pieceRect.width) / 2;
+					const targetTop = r.top - wcRect.top + (r.height - pieceRect.height) / 2;
+					return {
+						overTarget: true,
+						success: this.getWordKeyFromEl(tw) === movingKey,
+						targetWord: tw,
+						targetLeft,
+						targetTop,
+					};
+				}
 			}
-		}
 
 		return { success: false };
 	};
@@ -817,6 +821,7 @@ export class Blanks extends React.Component {
 		const phraseList = [];
 		const tableRows = [];
 		const headerCells = [];
+		let tableCaption = "";
 
 		const playlist = (items || [])
 			.map((it, idx) => ({
@@ -827,6 +832,19 @@ export class Blanks extends React.Component {
 
 		const rowToPlaylistIndex = {};
 		playlist.forEach((p, pi) => { rowToPlaylistIndex[p.rowIndex] = pi; });
+		const slotSourceWords = blanksType === "questions-answers" || blanksType === "pictures-answers"
+			? answers || []
+			: words || [];
+		const largestSlotChars = slotSourceWords.reduce((max, value) => {
+			if (value === null || value === undefined) return max;
+			const normalized = String(value)
+				.replace(/<[^>]+>/g, " ")
+				.replace(/\s+/g, " ")
+				.trim();
+			return Math.max(max, normalized.length);
+		}, 0);
+		const slotCharWidth = Math.min(16, Math.max(4, largestSlotChars));
+		const targetBoardStyle = { "--blanks-slot-ch": slotCharWidth };
 
 		switch (blanksType) {
 			case 'phrases': {
@@ -890,6 +908,11 @@ export class Blanks extends React.Component {
 			}
 
 			case "table": {
+				tableCaption = "Fill in the gaps answer grid";
+				headerCells.push(<TableHead key={`${id}header-left-number`} scope="col">No.</TableHead>);
+				headerCells.push(<TableHead key={`${id}header-left-answer`} scope="col">Answer slot</TableHead>);
+				headerCells.push(<TableHead key={`${id}header-right-number`} scope="col">No.</TableHead>);
+				headerCells.push(<TableHead key={`${id}header-right-answer`} scope="col">Answer slot</TableHead>);
 				const nRows = parseInt(words.length / 2) + words.length % 2;
 				for (let i = 1; i <= nRows; i++) {
 					const phrase = words[i - 1].replace(/ /g, '\u00a0');
@@ -916,6 +939,10 @@ export class Blanks extends React.Component {
 			}
 
 			case "questions-answers": {
+				tableCaption = "Question and answer drop targets";
+				headerCells.push(<TableHead key={`${id}header-audio`} scope="col">Audio</TableHead>);
+				headerCells.push(<TableHead key={`${id}header-question`} scope="col">Question</TableHead>);
+				headerCells.push(<TableHead key={`${id}header-answer`} scope="col">Answer slot</TableHead>);
 				for (let i = 1; i <= questions.length; i++) {
 					const sf = resolveAsset(`${soundFiles[i - 1]}`);
 					tableRows.push(
@@ -930,10 +957,14 @@ export class Blanks extends React.Component {
 			}
 
 			case "group-table": {
+				tableCaption = "Grouped answer drop targets";
 				if (header) {
 					for (let i = 0; i < header.length; i++) {
-						headerCells.push(<TableHead key={`${id}header${i}`}>{header[i]}</TableHead>);
+						headerCells.push(<TableHead key={`${id}header${i}`} scope="col">{header[i]}</TableHead>);
 					}
+				} else {
+					headerCells.push(<TableHead key={`${id}header0`} scope="col">Left group</TableHead>);
+					headerCells.push(<TableHead key={`${id}header1`} scope="col">Right group</TableHead>);
 				}
 				for (let i = 1; i <= answers.length; i++) {
 					tableRows.push(
@@ -955,6 +986,10 @@ export class Blanks extends React.Component {
 			}
 
 			case "pictures-answers": {
+				tableCaption = "Picture and answer drop targets";
+				headerCells.push(<TableHead key={`${id}header-audio`} scope="col">Audio</TableHead>);
+				headerCells.push(<TableHead key={`${id}header-picture`} scope="col">Picture</TableHead>);
+				headerCells.push(<TableHead key={`${id}header-answer`} scope="col">Answer slot</TableHead>);
 				for (let i = 1; i <= pictures.length; i++) {
 					const sf = resolveAsset(`${soundFiles[i - 1]}`);
 					tableRows.push(
@@ -1014,23 +1049,33 @@ export class Blanks extends React.Component {
 				) : null}
 
 					<div className={`blanks ${BLANKS_CONTENT_FLOW_CLASS} ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
-						<div className={`words-container ${BLANKS_WORDS_CONTAINER_FLOW_CLASS}`} ref={this.wordsContainerRef}>
-							{wordTiles}
-						</div>
+						<Card className="blanks-words-shell w-full max-w-[72rem] border-border/55 bg-muted/25 shadow-sm">
+							<CardContent className="p-2 min-[420px]:p-3 sm:p-4">
+								<div className={`words-container ${BLANKS_WORDS_CONTAINER_FLOW_CLASS}`} ref={this.wordsContainerRef}>
+									{wordTiles}
+								</div>
+							</CardContent>
+						</Card>
 
-					<div className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS}`}>
-						{blanksType === 'phrases' ? (
-							<ul className={BLANKS_PHRASE_ROWS_FLOW_CLASS}>{phraseList}</ul>
-						) : (
-							<Table className={BLANKS_TARGET_TABLE_TEXT_CLASS}>
-								{header.length > 0 ? (
-									<TableHeader><TableRow>{headerCells}</TableRow></TableHeader>
-								) : null}
-								<TableBody>{tableRows}</TableBody>
-							</Table>
-						)}
+						<Card
+							className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS} w-full max-w-[72rem] border-border/55 bg-card/60 shadow-sm`}
+							style={targetBoardStyle}
+						>
+							<CardContent className="p-2 min-[420px]:p-3 sm:p-4">
+								{blanksType === 'phrases' ? (
+									<ul className={BLANKS_PHRASE_ROWS_FLOW_CLASS}>{phraseList}</ul>
+								) : (
+									<Table className={BLANKS_TARGET_TABLE_TEXT_CLASS}>
+										{tableCaption ? <TableCaption className="sr-only">{tableCaption}</TableCaption> : null}
+										{headerCells.length > 0 ? (
+											<TableHeader><TableRow>{headerCells}</TableRow></TableHeader>
+										) : null}
+										<TableBody>{tableRows}</TableBody>
+									</Table>
+								)}
+							</CardContent>
+						</Card>
 					</div>
-				</div>
 
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 				<ProgressDots correct={nPlaced} total={nToPlace} />
@@ -1062,7 +1107,6 @@ export class Blanks extends React.Component {
 									})}
 									onClick={this.autoSolve}
 									theme={`eye`}
-									title={cheatText}
 									variant="default"
 								>
 									<span className="exercise-icon-button-label">{cheatText}</span>
@@ -1077,7 +1121,6 @@ export class Blanks extends React.Component {
 									})}
 									onClick={this.handleReset}
 									theme={`reset`}
-									title="Reset"
 									variant="default"
 								>
 									<span className="exercise-icon-button-label">Reset</span>
@@ -1093,7 +1136,6 @@ export class Blanks extends React.Component {
 									})}
 									onClick={this.handleCheckAnswers}
 									theme={`check`}
-									title="Check answers"
 									variant="default"
 								>
 									<span className="exercise-icon-button-label">Check answers</span>

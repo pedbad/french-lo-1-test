@@ -99,7 +99,7 @@ export class WordParts extends React.PureComponent {
 
 	handleReset = () => {
 		// console.log("handleReset");
-		const spans = document.querySelectorAll(".word-parts-container table span");
+		const spans = document.querySelectorAll(".word-parts-container .word-parts-grid span, .word-parts-container table span");
 		spans.forEach((span) => {
 			span.classList.remove('animate');
 			span.classList.remove('error');
@@ -187,43 +187,41 @@ export class WordParts extends React.PureComponent {
 				}
 			}
 
-			phraseList.push(
-				<p>{ phrase }</p>
-			);
-		}
-
-		const rows = [];
-		for (let i = 0; i < items.length; i++){
-			const phrase = items[i].text;
-			const cells = [];
-			if (phrase[0] === '' && phrase.length === 1) {
-				// blank row
-				rows.push(
-					<tr className={`spacer`} key={`row${i}`}>
-						<td colSpan={3}></td>
-					</tr>
-				);
-			} else {
-				const soundFile = `${items[i].audio}`;
-				cells.push(
-					<td key={`row${i}cell1`}>
-						<AudioClip className={`super-compact-speaker`} soundFile={soundFile} />
-					</td>
-				);
-
-				cells.push(
-					<td key={`row${i}cell2`}>
-						{phraseList[i]}
-					</td>
-				);
-
-				rows.push(
-					<tr key={`row${i}`}>
-						{cells}
-					</tr>
+				phraseList.push(
+					<p key={`${id}-phraseLine${i}`}>{ phrase }</p>
 				);
 			}
-		}
+
+			const rows = [];
+			for (let i = 0; i < items.length; i++){
+			const phrase = items[i].text;
+			const cells = [];
+				if (phrase[0] === '' && phrase.length === 1) {
+					// blank row
+					rows.push(
+						<div className="word-parts-row spacer" key={`row${i}`} aria-hidden="true" />
+					);
+				} else {
+					const soundFile = `${items[i].audio}`;
+					cells.push(
+						<div className="word-parts-audio-cell" key={`row${i}cell1`}>
+							<AudioClip className={`super-compact-speaker`} soundFile={soundFile} />
+						</div>
+					);
+
+					cells.push(
+						<div className="word-parts-text-cell" key={`row${i}cell2`}>
+							{phraseList[i]}
+						</div>
+					);
+
+					rows.push(
+						<div className="word-parts-row" key={`row${i}`} role="listitem">
+							{cells}
+						</div>
+					);
+				}
+			}
 		this.nToSolve = nToSolve;
 		return (
 			<div
@@ -237,11 +235,9 @@ export class WordParts extends React.PureComponent {
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
 
-				<table className={WORD_PARTS_TEXT_CLASS}>
-					<tbody>
+					<div className={`word-parts-grid ${WORD_PARTS_TEXT_CLASS}`} role="list" aria-label="Pronunciation feature lines">
 						{rows}
-					</tbody>
-				</table>
+					</div>
 
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 				<ProgressDots correct={nPlaced} total={nToSolve} />
@@ -259,7 +255,6 @@ export class WordParts extends React.PureComponent {
 							disabled={nPlaced === this.nToSolve}
 							onClick={this.autoSolve}
 							theme={`eye`}
-							title={cheatText}
 							variant="default"
 						>
 							<span className="exercise-icon-button-label">{cheatText}</span>
@@ -274,7 +269,6 @@ export class WordParts extends React.PureComponent {
 							})}
 							onClick={this.handleReset}
 							theme={`reset`}
-							title="Reset"
 							variant="outline"
 						>
 							<span className="exercise-icon-button-label">Reset</span>

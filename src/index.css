@@ -947,10 +947,24 @@
 
 	#content .accordion-article > .content,
 	#content .accordion-article .accordion-item > .content {
-		transition: all 0.35s ease-in-out;
-		max-height: 0;
 		overflow: hidden;
 		outline: none;
+		border-top: none !important;
+		border-top-color: transparent !important;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		margin-top: 0;
+	}
+
+	/* Explicit state animations for Radix content.
+	 * This guarantees close uses a real keyframe animation before unmount.
+	 */
+	.accordion-content[data-state="open"] {
+		animation: accordion-content-down 300ms ease-out;
+	}
+
+	.accordion-content[data-state="closed"] {
+		animation: accordion-content-up 300ms ease-out;
 	}
 
 	#content .accordion-article > header,
@@ -1064,21 +1078,6 @@
 		transform: rotate(180deg);
 	}
 
-	#content .accordion-article.expanded.group > .content,
-	#content .accordion-article.expanded.group .accordion-item > .content {
-		max-height: 5600px;
-	}
-
-	#content .accordion-article.expanded > .content,
-	#content .accordion-article.expanded .accordion-item > .content {
-		max-height: var(--radix-accordion-content-height, 2300px);
-		border-top: none !important;
-		border-top-color: transparent !important;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-		margin-top: 0;
-	}
-
 	#content .accordion-card-content {
 		outline: 2px solid rgb(var(--color-border-subtle) / 0.5);
 		background-color: rgb(var(--color-secondary-100) / 0.5);
@@ -1110,6 +1109,24 @@
 		#content .accordion-article > header .accordion-title .accordion-title-after-colon,
 		#content .accordion-article .accordion-item > header .accordion-title .accordion-title-after-colon {
 			display: block;
+		}
+	}
+
+	@keyframes accordion-content-down {
+		from {
+			height: 0;
+		}
+		to {
+			height: var(--radix-accordion-content-height);
+		}
+	}
+
+	@keyframes accordion-content-up {
+		from {
+			height: var(--radix-accordion-content-height);
+		}
+		to {
+			height: 0;
 		}
 	}
 
@@ -1803,7 +1820,31 @@
 		position: relative;
 	}
 
-	.word-parts-container table p {
+	.word-parts-container .word-parts-grid {
+		display: grid;
+		row-gap: 0.35rem;
+	}
+
+	.word-parts-container .word-parts-row {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		column-gap: 0.55rem;
+	}
+
+	.word-parts-container .word-parts-row.spacer {
+		min-height: 0.4rem;
+	}
+
+	.word-parts-container .word-parts-audio-cell .audio-clip {
+		margin: 0;
+	}
+
+	.word-parts-container .word-parts-text-cell {
+		min-width: 0;
+	}
+
+	.word-parts-container :is(table p, .word-parts-text-cell p) {
 		margin: 0;
 		letter-spacing: 0.2rem;
 		perspective: 600px;
@@ -1819,7 +1860,7 @@
 		background-color: color-mix(in oklab, var(--chart-2) 85%, transparent);
 	}
 
-	.word-parts-container table span {
+	.word-parts-container :is(table span, .word-parts-text-cell span) {
 		border: 1px solid transparent;
 		cursor: pointer;
 		display: inline-block;
@@ -1829,7 +1870,7 @@
 		user-select: none;
 	}
 
-	.word-parts-container table span::before {
+	.word-parts-container :is(table span, .word-parts-text-cell span)::before {
 		content: "";
 		position: absolute;
 		top: 0;
@@ -1838,7 +1879,7 @@
 		height: 100%;
 	}
 
-	.word-parts-container table span.animate {
+	.word-parts-container :is(table span, .word-parts-text-cell span).animate {
 		animation-name: vertical-rotate;
 		animation-duration: 0.5s;
 		animation-timing-function: linear;
@@ -1849,14 +1890,14 @@
 		display: inline-block;
 	}
 
-	.word-parts-container table span.animate::before {
+	.word-parts-container :is(table span, .word-parts-text-cell span).animate::before {
 		animation-name: shade;
 		animation-duration: 0.25s;
 		animation-timing-function: linear;
 		animation-iteration-count: 2;
 	}
 
-	.word-parts-container table span.error {
+	.word-parts-container :is(table span, .word-parts-text-cell span).error {
 		border: 1px solid var(--destructive);
 		background: color-mix(in oklab, var(--destructive) 20%, transparent);
 	}
@@ -1906,6 +1947,7 @@
 	}
 
 	@media (min-width: 768px) {
+		.word-parts-container .word-parts-row > div,
 		.word-parts-container table td {
 			padding: 0.25rem 1rem;
 		}
@@ -2461,20 +2503,39 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		align-items: center;
+		align-items: stretch;
+		gap: 0.85rem;
 		overflow: visible;
 		box-sizing: border-box;
 		color: var(--foreground);
 	}
 
+	.blanks-container .blanks .blanks-words-shell,
+	.blanks-container .blanks .target-board {
+		width: min(100%, 72rem);
+		margin-inline: auto;
+	}
+
 	.blanks-container .words-container {
-		padding: 0.5rem 1rem;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: flex-start;
+		align-content: flex-start;
+		column-gap: 0.25rem;
+		row-gap: 0.15rem;
+		width: 100%;
+		max-width: 100%;
+		margin-inline: auto;
+		min-height: 3rem;
 		overflow: visible;
 		z-index: 20;
 		position: relative;
 		touch-action: none;
 		overscroll-behavior: contain;
 		transition: width 1s;
+		text-align: center;
 	}
 
 	.blanks-container .words-container .draggable {
@@ -2484,7 +2545,7 @@
 	}
 
 	.blanks-container .words-container .draggable span {
-		box-shadow: 1px 1px 1px color-mix(in oklab, var(--foreground) 30%, transparent);
+		box-shadow: none;
 	}
 
 	.blanks-container .words-container .dragging {
@@ -2514,7 +2575,7 @@
 	.blanks-container.type-table .target-board,
 	.blanks-container.type-pictures-answers .target-board,
 	.blanks-container.type-questions-answers .target-board {
-		padding: 1rem;
+		padding: 0;
 	}
 
 	.blanks-container.type-group-table .audio-clip,
@@ -2534,7 +2595,7 @@
 	.blanks-container.type-pictures-answers .dragging span,
 	.blanks-container.type-questions-answers .dragging span,
 	.blanks-container.type-phrases .dragging span {
-		box-shadow: 8px 8px 8px color-mix(in oklab, var(--foreground) 40%, transparent);
+		box-shadow: 0 12px 22px color-mix(in oklab, var(--chart-3) 32%, transparent);
 	}
 
 	.blanks-container.type-pictures-answers td img {
@@ -2602,10 +2663,10 @@
 	}
 
 	.blanks-container .target-board {
-		background: var(--muted);
-		border: 1px solid var(--border);
-		border-radius: 0.6rem;
-		padding: 0.3rem;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		padding: 0;
 		font-weight: bold;
 	}
 
@@ -2615,13 +2676,41 @@
 	}
 
 	.blanks-container .target-board .word.blank {
-		min-width: 140px;
-		border: dashed 1px color-mix(in oklab, var(--border) 80%, transparent);
-		border-radius: 16px;
+		width: clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem);
+		min-width: clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem);
+		max-width: clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem);
+		min-height: 2.1rem;
+		border: solid 1px color-mix(in oklab, var(--border) 56%, var(--chart-3));
+		border-radius: 9999px;
+		background: color-mix(in oklab, var(--muted) 82%, var(--card));
+		box-shadow:
+			inset 0 1px 0 color-mix(in oklab, var(--background) 45%, transparent),
+			0 1px 2px color-mix(in oklab, var(--foreground) 10%, transparent);
+		transition:
+			border-color 180ms ease,
+			background-color 180ms ease,
+			box-shadow 180ms ease,
+			transform 160ms ease;
 	}
 
 	.blanks-container .target-board .word.blank.highlight {
-		background: radial-gradient(circle, var(--chart-2) 0%, transparent 100%);
+		background: color-mix(in oklab, var(--chart-3) 18%, var(--card));
+		border-color: color-mix(in oklab, var(--chart-3) 74%, var(--foreground));
+		box-shadow:
+			0 0 0 3px color-mix(in oklab, var(--chart-3) 22%, transparent),
+			inset 0 1px 0 color-mix(in oklab, var(--background) 56%, transparent),
+			0 3px 10px color-mix(in oklab, var(--chart-3) 18%, transparent);
+		transform: translateY(-1px);
+	}
+
+	.blanks-container .target-board .word.blank .blanks-slot-icon {
+		color: color-mix(in oklab, var(--chart-3) 52%, var(--muted-foreground));
+	}
+
+	.blanks-container .target-board .word.blank.highlight .blanks-slot-icon {
+		color: color-mix(in oklab, var(--chart-3) 74%, var(--foreground));
+		opacity: 0.92;
+		transform: translateY(-1px);
 	}
 
 	.blanks-container .target-board .word.blank span {
@@ -2684,7 +2773,7 @@
 	}
 
 	.blanks-container.type-group-table .target-board {
-		padding: 1rem;
+		padding: 0;
 	}
 
 	.blanks-container.type-group-table table td {
@@ -2725,7 +2814,7 @@
 
 	.blanks-container .target.word.invalid-target {
 		animation: blanks-invalid-flash 380ms ease-out;
-		background: radial-gradient(circle, color-mix(in oklab, var(--ped-warn) 45%, transparent) 0%, transparent 78%);
+		background: color-mix(in oklab, var(--ped-warn) 18%, var(--card));
 		border-color: color-mix(in oklab, var(--ped-warn) 76%, var(--border));
 	}
 
@@ -2744,9 +2833,58 @@
 		100% { box-shadow: 0 0 0 0 transparent; }
 	}
 
-	@media (min-width: 640px) {
-		.blanks-container > .target-board {
-			padding: 1rem 2rem;
+	@media (max-width: 640px) {
+		.blanks-container .blanks {
+			gap: 0.6rem;
+		}
+
+		.blanks-container .words-container {
+			column-gap: 0.2rem;
+			row-gap: 0.1rem;
+			min-height: 2.7rem;
+		}
+
+		.blanks-container.type-phrases .phrase {
+			margin-right: 0;
+			column-gap: 6px;
+		}
+
+		.blanks-container.type-phrases .target-board ul {
+			display: grid;
+			row-gap: 0.42rem;
+		}
+
+		.blanks-container.type-phrases .target-board ul li {
+			min-height: 2.5rem;
+		}
+
+		.blanks-container .target-board .word.blank {
+			width: clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem);
+			min-width: clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem);
+			max-width: clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem);
+			min-height: 1.95rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.blanks-container.type-phrases .target-board ul {
+			display: grid;
+			row-gap: 0.55rem;
+		}
+
+		.blanks-container.type-phrases .target-board ul li {
+			min-height: 2.9rem;
+		}
+
+		.blanks-container.type-phrases .phrase {
+			margin-top: 0.2rem;
+			margin-bottom: 0.2rem;
+			column-gap: 10px;
+		}
+
+		.blanks-container.type-phrases .target-board ul li > .phrase > span.word {
+			font-size: calc(var(--font-size-base) * 1.1);
+			line-height: calc(var(--line-height-body) * 1.05);
 		}
 	}
 
@@ -4727,6 +4865,28 @@ html.can-speak #SpeechSynthesisError {
     box-shadow: 0 0 0 0 transparent;
   }
 }
+
+@keyframes progress-tortoise-dance {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  20% {
+    transform: translateY(-12%) rotate(-12deg) scale(1.05);
+  }
+  40% {
+    transform: translateY(5%) rotate(10deg) scale(0.98);
+  }
+  60% {
+    transform: translateY(-8%) rotate(-8deg) scale(1.03);
+  }
+  80% {
+    transform: translateY(2%) rotate(5deg) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
 .no-config {
   opacity: 0;
   animation-name: fadeIn;
@@ -4776,6 +4936,7 @@ html.can-speak #SpeechSynthesisError {
     opacity: 1;
   }
 }
+
 .app {
   box-sizing: border-box;
   line-height: var(--line-height-app);
@@ -4926,8 +5087,7 @@ hr {
   -webkit-mask-image: url("/images/icons/circle-check.svg");
   mask-image: url("/images/icons/circle-check.svg");
 }
-#content .word-parts-container table td,
-#content .word-parts-container table span {
+#content .word-parts-container :is(table td, table span, .word-parts-text-cell, .word-parts-text-cell span) {
   font-size: calc(var(--font-size-base) * 1.5);
   line-height: var(--line-height-wordparts);
 }
@@ -5025,8 +5185,7 @@ hr {
 }
 
 @media (max-width: 959px) {
-  #content .word-parts-container table td,
-  #content .word-parts-container table span {
+  #content .word-parts-container :is(table td, table span, .word-parts-text-cell, .word-parts-text-cell span) {
     font-size: calc(var(--font-size-base) * 1.15);
     line-height: var(--line-height-wordparts-mobile);
   }
@@ -5070,7 +5229,7 @@ hr {
     padding: 1rem 2rem;
   }
   .content {
-    text-align: justify;
+    text-align: start;
     margin: 0 auto;
   }
   .content li .video {
