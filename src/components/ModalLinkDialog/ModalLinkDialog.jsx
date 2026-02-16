@@ -12,6 +12,8 @@ import {
 const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
 const modalTitleClass = "text-base sm:text-lg max-[650px]:!text-[var(--font-size-lg)]";
 const modalBodyClass = "space-y-3 text-base leading-relaxed text-foreground sm:text-lg [&_h2]:max-[650px]:!text-[var(--font-size-lg)] [&_h3]:max-[650px]:!text-[var(--font-size-lg)]";
+const PARAGRAPH_OPEN_TAG_PATTERN = /<p(\s[^>]*)?>/gi;
+const PARAGRAPH_CLOSE_TAG_PATTERN = /<\/p>/gi;
 
 const applyHighlightClasses = (html = "") => {
 	const withClasses = html
@@ -20,10 +22,41 @@ const applyHighlightClasses = (html = "") => {
 	return withClasses.replace(/\bmodal-highlight\b/g, "");
 };
 
+const normalizeParagraphTags = (html = "") =>
+	html
+		.replace(PARAGRAPH_OPEN_TAG_PATTERN, "<div$1>")
+		.replace(PARAGRAPH_CLOSE_TAG_PATTERN, "</div>");
+
+const normalizeParagraphElements = (node) => {
+	if (node == null || typeof node === "string" || typeof node === "number" || typeof node === "boolean") {
+		return node;
+	}
+	if (Array.isArray(node)) {
+		return node.map((child) => normalizeParagraphElements(child));
+	}
+	if (!React.isValidElement(node)) {
+		return node;
+	}
+
+	const normalizedChildren = normalizeParagraphElements(node.props?.children);
+
+	if (typeof node.type === "string" && node.type.toLowerCase() === "p") {
+		const { children, ...restProps } = node.props || {};
+		return (
+			<div {...restProps}>
+				{normalizedChildren}
+			</div>
+		);
+	}
+
+	return React.cloneElement(node, undefined, normalizedChildren);
+};
+
 export const ModalLinkDialog = ({ open, title, contentHTML, content, onClose }) => {
 	const safeHTML = contentHTML
-		? DOMPurify.sanitize(applyHighlightClasses(contentHTML))
+		? normalizeParagraphTags(DOMPurify.sanitize(applyHighlightClasses(contentHTML)))
 		: "";
+	const normalizedContent = content ? normalizeParagraphElements(content) : null;
 
 	return (
 		<Dialog open={open} onOpenChange={(next) => (next ? null : onClose())}>
@@ -33,9 +66,9 @@ export const ModalLinkDialog = ({ open, title, contentHTML, content, onClose }) 
 						{title || "More information"}
 					</DialogTitle>
 				</DialogHeader>
-				{content ? (
+				{normalizedContent ? (
 					<div className={modalBodyClass}>
-						{content}
+						{normalizedContent}
 					</div>
 				) : (
 					<div

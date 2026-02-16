@@ -10,6 +10,13 @@ const INFO_ICON_CLASS = "info-icon mt-[-0.1em] inline-flex h-[1.6em] w-[1.6em] s
 const INFO_ICON_SVG_CLASS = "info-icon__svg h-[1.4em] w-[1.4em] text-[var(--background)] [stroke-width:3.4] [&_circle]:hidden";
 
 const INFO_VARIANTS = new Set(["default", "info", "warning", "success", "danger"]);
+const PARAGRAPH_OPEN_TAG_PATTERN = /<p(\s[^>]*)?>/gi;
+const PARAGRAPH_CLOSE_TAG_PATTERN = /<\/p>/gi;
+
+const normalizeAlertHtml = (rawHtml) =>
+	rawHtml
+		.replace(PARAGRAPH_OPEN_TAG_PATTERN, "<div$1>")
+		.replace(PARAGRAPH_CLOSE_TAG_PATTERN, "</div>");
 
 export class Info extends React.PureComponent {
 	// constructor(props) {
@@ -54,8 +61,10 @@ export class Info extends React.PureComponent {
 
 		let content = null;
 		if (informationTextHTML) {
+			const sanitizedHtml = DOMPurify.sanitize(informationTextHTML);
+			const normalizedHtml = normalizeAlertHtml(sanitizedHtml);
 			content = (
-				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(informationTextHTML) }}/>
+				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} dangerouslySetInnerHTML={{ __html: normalizedHtml }}/>
 			);
 		} else if (informationText) {
 			content = (

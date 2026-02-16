@@ -100,14 +100,14 @@ export class LO1Grammar2 extends PureComponent {
 
 export const Grammar2Body = ({ highlightIntro = false } = {}) => (
 	<>
-		<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`}>
+		<div><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`}>
 			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/001-tu.mp3`}><strong>Tu</strong></AudioClip>{' '}
 			and{' '}
 			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/002-vous.mp3`}><strong>vous</strong></AudioClip>{' '}
-			both mean 'you'.</span></p>
+			both mean 'you'.</span></div>
 		<p><strong>Tu</strong> is used when addressing one person and is familiar. That means you use it when speaking to your partner, a relative, a friend,
 			a classmate or a child etc. <span className={`modal-link-target`} id={`toi`} >When returning question i.e. when you ask 'and you?' you use the
-			form&nbsp;
+		form&nbsp;
 		<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/003-toi.mp3`}><strong>toi</strong></AudioClip> instead of&nbsp;
 		<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/001-tu.mp3`}><strong>tu:</strong></AudioClip>&nbsp;
 		<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/004-je-mappelle-michel-et-toi.mp3`}><strong>Je m'appelle Michel, et toi ?</strong></AudioClip></span></p>

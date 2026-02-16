@@ -65,9 +65,9 @@ export const HeroSection = ({
 						) : (
 							<div className="w-full">
 								{instructionsText ? (
-									<p className={INSTRUCTION_TEXT_CLASS} style={{ margin: 0 }}>
+									<div className={INSTRUCTION_TEXT_CLASS} style={{ margin: 0 }}>
 										{instructionsText}
-									</p>
+									</div>
 								) : null}
 								{instructionsTextHTML ? (
 									<div

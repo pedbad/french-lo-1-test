@@ -7,7 +7,15 @@ export const applyInstructionTypographyToHTML = (html) => {
 		return html;
 	}
 	const doc = new DOMParser().parseFromString(html, "text/html");
-	doc.querySelectorAll("p, li").forEach((node) => {
+	doc.querySelectorAll("p").forEach((node) => {
+		const replacement = doc.createElement("div");
+		Array.from(node.attributes).forEach((attr) => {
+			replacement.setAttribute(attr.name, attr.value);
+		});
+		replacement.innerHTML = node.innerHTML;
+		node.replaceWith(replacement);
+	});
+	doc.querySelectorAll("div, li").forEach((node) => {
 		node.style.fontSize = "var(--font-size-xl)";
 		node.style.lineHeight = "var(--line-height-body)";
 	});
@@ -32,7 +40,7 @@ export const InstructionsMedia = ({
 			dangerouslySetInnerHTML={{ __html: safeParagraphHTML }}
 		/>
 	) : paragraph ? (
-		<p
+		<div
 			className={`${instructionTextClass} md:flex-1`}
 			style={{
 				margin: 0,
@@ -41,7 +49,7 @@ export const InstructionsMedia = ({
 			}}
 		>
 			{paragraph}
-		</p>
+		</div>
 	) : null;
 
 	const imageNode = image?.src ? (

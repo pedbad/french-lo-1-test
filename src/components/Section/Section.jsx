@@ -117,7 +117,7 @@ export class Section extends React.PureComponent {
 								/>
 							) : (
 								<>
-									{instructionsText ? <p className={`instructions text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>{instructionsText}</p> : null}
+									{instructionsText ? <div className={`instructions text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>{instructionsText}</div> : null}
 									{instructionsTextHTML ? <div className={`instructions html section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }} dangerouslySetInnerHTML={{ __html: safeInstructionsTextHTML }} /> : null}
 								</>
 							)}
