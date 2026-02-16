@@ -44,6 +44,7 @@ export class Section extends React.PureComponent {
 			className = '',
 			children,
 			target,
+			semanticAs = 'section',
 		} = this.props;
 
 		const {
@@ -62,6 +63,8 @@ export class Section extends React.PureComponent {
 			id,
 		} = this.state;
 		const headingId = target ? `${target}-heading` : `section-title-${id}`;
+		const RootTag = semanticAs === "div" ? "div" : "section";
+		const rootAriaProps = RootTag === "section" ? { "aria-labelledby": headingId } : {};
 
 		// console.log("target", target);
 
@@ -81,8 +84,8 @@ export class Section extends React.PureComponent {
 		});
 
 		return (
-			<section
-				aria-labelledby={headingId}
+			<RootTag
+				{...rootAriaProps}
 				className={`section ${className ? className : ''}`}
 				id={`${id}`}
 			>
@@ -147,7 +150,7 @@ export class Section extends React.PureComponent {
 						<BackToTopButton />
 					</CardContent>
 				</Card>
-			</section>
+			</RootTag>
 		);
 	};
 }

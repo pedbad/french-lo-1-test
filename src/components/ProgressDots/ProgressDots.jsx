@@ -4,8 +4,8 @@ import { resolveAsset } from "../../utility";
 const TORTOISE_ICON_BASE_CLASS =
 	"h-[1.5rem] w-[1.5rem] min-[420px]:h-[1.625rem] min-[420px]:w-[1.625rem] sm:h-[2.25rem] sm:w-[2.25rem]";
 
-const TortoiseProgressIcon = ({ filled, iconSrc, index, shouldDance }) => {
-	const filterId = `progress-tortoise-${filled ? "filled" : "outline"}-${index}`;
+const TortoiseProgressIcon = ({ filled, iconSrc, index, shouldDance, instanceId }) => {
+	const filterId = `progress-tortoise-${instanceId}-${filled ? "filled" : "outline"}-${index}`;
 	const danceClasses = shouldDance
 		? " motion-safe:animate-[progress-tortoise-dance_3s_ease-in-out_1_both] motion-safe:will-change-transform motion-reduce:animate-none"
 		: "";
@@ -58,6 +58,7 @@ export const ProgressDots = ({ correct = 0, total = 0 }) => {
 	const safeCorrect = Math.min(safeTotal, Math.max(0, Number(correct) || 0));
 	const shouldDance = safeTotal > 0 && safeCorrect === safeTotal;
 	const tortoiseIcon = resolveAsset("images/icons/tortoise.svg");
+	const instanceId = React.useId().replace(/:/g, "");
 
 	return (
 		<div className="flex items-center gap-2">
@@ -74,6 +75,7 @@ export const ProgressDots = ({ correct = 0, total = 0 }) => {
 								filled={filled}
 								iconSrc={tortoiseIcon}
 								index={index}
+								instanceId={instanceId}
 								shouldDance={shouldDance}
 							/>
 						</span>

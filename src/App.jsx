@@ -981,6 +981,7 @@ export default class App extends React.Component {
 													id="LO-intro-section"
 													target="introduction"
 													title="Introduction"
+													semanticAs="div"
 												/>
 											</section>
 										) : null;
@@ -1030,6 +1031,7 @@ export default class App extends React.Component {
 		const { currentLearningObject, languageCode } = this.state;
 		const id = this.getResolvedComponentId(valueId, component);
 		const targetId = forcedTargetId || id;
+		const topLevelSemanticAs = forcedTargetId ? "div" : "section";
 		const compoundID = `LO${currentLearningObject}-${id}`;
 
 		switch (component) {
@@ -1114,6 +1116,7 @@ export default class App extends React.Component {
 							config={value}
 							id={`${compoundID}-Section`}
 							key={`${compoundID}-Section`}
+							semanticAs={topLevelSemanticAs}
 							target={targetId}
 							title={titleText}
 							titleHTML={titleTextHTML}
@@ -1166,6 +1169,7 @@ export default class App extends React.Component {
 								className={`group`}
 								id={`${compoundID}-Group-Section`}
 								key={`${compoundID}-Group-Section`}
+								semanticAs={topLevelSemanticAs}
 								target={groupId}
 								title={titleText}
 								titleHTML={titleTextHTML}
@@ -1233,6 +1237,7 @@ export default class App extends React.Component {
 										className={`group`}
 										id={`${compoundID}-Group-Section`}
 										key={`${compoundID}-Group-Section`}
+										semanticAs={topLevelSemanticAs}
 										target={groupId}
 										title={titleText}
 										titleHTML={titleTextHTML}
@@ -1363,6 +1368,7 @@ export default class App extends React.Component {
 							config={value}
 							id={`${compoundID}-Section`}
 							key={`${compoundID}-Section`}
+							semanticAs={topLevelSemanticAs}
 							target={targetId}
 							title={titleText}
 							titleHTML={titleTextHTML}
@@ -1449,6 +1455,7 @@ export default class App extends React.Component {
 						config={value}
 						id={`${compoundID}-Section-Section`}
 						key={`${compoundID}-Section-Section`}
+						semanticAs={topLevelSemanticAs}
 						target={targetId}
 						title={titleText}
 						titleHTML={titleTextHTML}
@@ -1549,6 +1556,7 @@ export default class App extends React.Component {
 								config={value}
 								id={`${compoundID}-Section`}
 								key={`${compoundID}-Section`}
+								semanticAs={topLevelSemanticAs}
 								target={targetId}
 								title={titleText}
 								titleHTML={titleTextHTML}

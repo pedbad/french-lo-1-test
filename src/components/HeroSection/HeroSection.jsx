@@ -13,6 +13,7 @@ export const HeroSection = ({
 	titleHTML,
 	config,
 	children,
+	semanticAs = "section",
 }) => {
 	const {
 		informationText,
@@ -24,13 +25,15 @@ export const HeroSection = ({
 		transparentCard = false,
 	} = config || {};
 	const headingId = target ? `${target}-heading` : `section-title-${id}`;
+	const RootTag = semanticAs === "div" ? "div" : "section";
+	const rootAriaProps = RootTag === "section" ? { "aria-labelledby": headingId } : {};
 	const hasInfo = Boolean(informationText || informationTextHTML);
 	const hasInstructions = Boolean(instructionsLayout || instructionsText || instructionsTextHTML);
 	const sideBySide = hasInfo && !stackInfo;
 	const splitInfoImage = stackInfo && Boolean(instructionsLayout?.image);
 
 	return (
-		<section aria-labelledby={headingId} className="section hero-section" id={id}>
+		<RootTag {...rootAriaProps} className="section hero-section" id={id}>
 			<Card
 				className={`w-full sortable mt-6 ${
 					transparentCard ? "bg-transparent border-0 shadow-none" : ""
@@ -127,6 +130,6 @@ export const HeroSection = ({
 					) : null}
 				</CardContent>
 			</Card>
-		</section>
+		</RootTag>
 	);
 };

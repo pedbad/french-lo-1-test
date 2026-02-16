@@ -32,6 +32,8 @@ const DEBUG_LEARNING_OBJECTS = [
 export function DebugSandbox() {
 	const [DebugSvgAssetsComponent, setDebugSvgAssetsComponent] = React.useState(null);
 	const [svgAssetsLoadError, setSvgAssetsLoadError] = React.useState('');
+	const previewUrl = `${window.location.origin}/projects/french-basic/?lang=fr&lo=1`;
+	const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
 
 	React.useEffect(() => {
 		let mounted = true;
@@ -74,6 +76,49 @@ export function DebugSandbox() {
 					typography and component visual checks only.
 				</p>
 			</header>
+
+			<section aria-labelledby="sandbox-validation-quickstart">
+				<h2 id="sandbox-validation-quickstart">Validation Quickstart</h2>
+				<div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+					<p className="m-0 text-sm text-muted-foreground">
+						Use this flow before W3C validation to avoid stale cache/extension noise.
+					</p>
+					<div className="mt-4 grid gap-4 lg:grid-cols-2">
+						<div className="rounded-xl border border-border/70 bg-muted/20 p-4">
+							<h3 className="m-0 text-base">1) Clean build + preview</h3>
+							<pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+								<code>{`rm -rf dist
+yarn build
+yarn preview`}</code>
+							</pre>
+						</div>
+						<div className="rounded-xl border border-border/70 bg-muted/20 p-4">
+							<h3 className="m-0 text-base">2) Incognito without extensions</h3>
+							<pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+								<code>{chromeIncognitoCommand}</code>
+							</pre>
+							<p className="mb-0 mt-3 text-sm text-muted-foreground">
+								If results still look old, hard refresh in Chrome: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>.
+							</p>
+						</div>
+					</div>
+					<div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
+						<h3 className="m-0 text-base">3) Validate output</h3>
+						<p className="mb-0 mt-2 text-sm">
+							Open the preview page, copy page source/outer HTML, then validate at{' '}
+							<a
+								className="font-semibold text-[var(--chart-3)] underline underline-offset-4"
+								href="https://validator.w3.org/nu/#textarea"
+								rel="noreferrer"
+								target="_blank"
+							>
+								W3C Validator (textarea mode)
+							</a>
+							.
+						</p>
+					</div>
+				</div>
+			</section>
 
 			<section aria-labelledby="sandbox-typography">
 				<h2 id="sandbox-typography">Typography Samples</h2>

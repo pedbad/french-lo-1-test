@@ -177,7 +177,7 @@ export class PhraseTable extends React.PureComponent {
 		return (
 			<div
 				className="phrases-table-container container"
-				id={`${id ? id : ""}`}
+				id={`${id ? `${id}-phrase-table` : ""}`}
 				key={`${id}PhraseTable`}
 			>
 				{/* Info is now rendered at the Accordion level for consistent placement. */}
