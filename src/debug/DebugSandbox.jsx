@@ -144,11 +144,22 @@ yarn preview`}</code>
 			<section aria-labelledby="sandbox-info">
 				<h2 id="sandbox-info">Info Variants</h2>
 				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
-					<Info>
-						<p>Children</p>
-					</Info>
-					<Info informationText="Information Text" />
-					<Info informationTextHTML="<p>Information Text <strong>HTML</strong></p>" />
+					<Info
+						informationText="Info alert: use this for neutral guidance and learning instructions."
+						variant="info"
+					/>
+					<Info
+						informationText="Success alert: action completed successfully and the learner can proceed."
+						variant="success"
+					/>
+					<Info
+						informationText="Warning alert: something needs attention before continuing."
+						variant="warning"
+					/>
+					<Info
+						informationText="Danger alert: an error occurred and requires correction."
+						variant="danger"
+					/>
 				</div>
 			</section>
 

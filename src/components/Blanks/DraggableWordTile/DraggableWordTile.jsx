@@ -1,4 +1,4 @@
-import { ArrowDownToLine } from "lucide-react";
+import { SquareDashedMousePointer } from "lucide-react";
 import React from 'react';
 
 const BLANK_WORD_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.05)] leading-[1.2] min-[420px]:text-[calc(var(--font-size-sm)*1.15)] sm:text-[calc(var(--font-size-sm)*1.2)]";
@@ -67,7 +67,7 @@ export class DraggableWordTile extends React.PureComponent {
 				onTouchEnd={handleMouseUp}
 				style={styles}
 			>
-				{isTarget ? <ArrowDownToLine aria-hidden="true" className={DROP_TARGET_ICON_CLASS} /> : null}
+				{isTarget ? <SquareDashedMousePointer aria-hidden="true" className={DROP_TARGET_ICON_CLASS} /> : null}
 				<span className={BLANK_WORD_TEXT_CLASS}>{children}</span>
 			</div>
 		);

@@ -1,12 +1,15 @@
 import DOMPurify from "dompurify";
-import { Info as InfoIcon } from "lucide-react";
+import { CircleAlert, CircleCheck, CircleX, Info as InfoIcon } from "lucide-react";
 import React from 'react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-const INFO_CONTAINER_CLASS = "information relative mt-1 flex items-start gap-[0.4rem] rounded-[0.6rem] border-2 border-[rgb(var(--color-primary-400)/1)] bg-[rgb(var(--color-primary-50)/1)] p-[12px_16px] text-[var(--primary)]";
+const INFO_CONTAINER_CLASS = "information mt-1 flex items-start gap-[0.4rem]";
 const INFO_CONTENT_TEXT_CLASS = "info-content text-sm leading-[var(--line-height-body)] [&_li]:text-sm [&_li]:leading-[var(--line-height-body)] [&_h3]:mt-0 [&_h3]:text-base [&_h3]:leading-[var(--line-height-app)] [&_h4]:mt-0 [&_h4]:text-sm";
 const INFO_CONTENT_SPACING_CLASS = "[&_li]:mt-[0.3rem]";
 const INFO_ICON_CLASS = "info-icon mt-[-0.1em] inline-flex h-[1.6em] w-[1.6em] shrink-0 items-center justify-center rounded-full bg-[var(--foreground)] text-[var(--font-size-base)]";
 const INFO_ICON_SVG_CLASS = "info-icon__svg h-[1.4em] w-[1.4em] text-[var(--background)] [stroke-width:3.4] [&_circle]:hidden";
+
+const INFO_VARIANTS = new Set(["default", "info", "warning", "success", "danger"]);
 
 export class Info extends React.PureComponent {
 	// constructor(props) {
@@ -21,69 +24,67 @@ export class Info extends React.PureComponent {
 	render = () => {
 
 		const {
+			alertType,
 			children,
 			id,
+			infoMessage,
+			infoTitle,
 			informationText,
 			informationTextHTML,
+			type,
+			variant,
 		} = this.props;
 		const infoId = id ? `${id}-Info` : undefined;
-		// console.log("informationText", informationText);
-		// console.log("informationTextHTML", informationTextHTML);
-		// console.log("children", children);
 
-		// return (
-		// 	<>
-		{/* <button
-					alt='i'
-					className={`button-info`}
-					onClick={() => this.setState({ showInfo: true })}
-					title={'More information'}
-				>i</button> */}
+		const requestedVariant = alertType || type || variant || "info";
+		const resolvedVariant = INFO_VARIANTS.has(requestedVariant) ? requestedVariant : "info";
+		const Icon = resolvedVariant === "danger"
+			? CircleX
+			: resolvedVariant === "warning"
+				? CircleAlert
+				: resolvedVariant === "success"
+					? CircleCheck
+					: InfoIcon;
+
 		const infoIcon = (
 			<span aria-hidden="true" className={INFO_ICON_CLASS}>
-				<InfoIcon className={INFO_ICON_SVG_CLASS} />
+				<Icon className={INFO_ICON_SVG_CLASS} />
 			</span>
 		);
 
+		let content = null;
 		if (informationTextHTML) {
-			return (
-				<div
-					className={INFO_CONTAINER_CLASS}
-					id={infoId}
-				>
-					{infoIcon}
-					<div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(informationTextHTML) }}/>
-				</div>
+			content = (
+				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(informationTextHTML) }}/>
 			);
 		} else if (informationText) {
-			return (
-				<div
-					className={INFO_CONTAINER_CLASS}
-					id={infoId}
-				>
-					{infoIcon}
-					<div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
-						{informationText ? informationText : null}
-					</div>
+			content = (
+				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
+					{informationText}
+				</AlertDescription>
+			);
+		} else if (infoTitle || infoMessage) {
+			content = (
+				<div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
+					{infoTitle ? <AlertTitle>{infoTitle}</AlertTitle> : null}
+					{infoMessage ? <AlertDescription>{infoMessage}</AlertDescription> : null}
 				</div>
 			);
 		} else if (children) {
-			return (
-				<div
-					className={INFO_CONTAINER_CLASS}
-					id={infoId}
-				>
-					{infoIcon}
-					<div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
-						{children}
-					</div>
-				</div>
+			content = (
+				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
+					{children}
+				</AlertDescription>
 			);
-
-		} else {
-			// return (
-			// 	<h1>INFO ERROR!</h1>
-			// );
 		}
+
+		if (!content) return null;
+
+		return (
+			<Alert className={INFO_CONTAINER_CLASS} id={infoId} variant={resolvedVariant}>
+				{infoIcon}
+				{content}
+			</Alert>
+		);
 	};
 }
