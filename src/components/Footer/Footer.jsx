@@ -81,7 +81,7 @@ export class Footer extends React.PureComponent{
 
 					{/* Copyright Info */}
 					<div className={`copyright`}>
-						<p className="copy text-base">© {strYear} University of Cambridge</p>
+						<small className="copy text-base block">© {strYear} University of Cambridge</small>
 						<p className="developed text-xs font-normal">
 							Developed by <span className="font-semibold">The Language Centre</span>
 						</p>

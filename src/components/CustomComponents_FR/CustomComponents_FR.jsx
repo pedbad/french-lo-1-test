@@ -141,7 +141,7 @@ export class LO1Demystify1 extends PureComponent {
 					<h3>1. Nasal vowels: "on / om"</h3>
 					<div className={`pronunciation-content`}>
 						<div className={`text pronunciation-text`}>
-							<p>1 <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/001-on-om.mp3`} ><strong>-on</strong> / <strong>om</strong></AudioClip></p>
+							<div>1 <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/001-on-om.mp3`} ><strong>-on</strong> / <strong>om</strong></AudioClip></div>
 							<p>In French there are some sounds known as nasal vowels: o followed by n or m is one of these. (sound file -on)
 							In this first topic you will have encountered this sound in the words <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/002-bonjour.mp3`} >bonjour</AudioClip> and <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/003-bonsoir.mp3`} >bonsoir</AudioClip>.
 						The sound is created as air comes through both nose and mouth. If you have a slight cold or pinch your nose you will be able to produce the sound without difficulty!</p>

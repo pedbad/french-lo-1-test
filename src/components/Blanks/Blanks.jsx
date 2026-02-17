@@ -21,7 +21,6 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import DOMPurify from "dompurify";
-import { Label } from "@/components/ui/label";
 import React from 'react';
 import { Switch } from "@/components/ui/switch";
 
@@ -1121,12 +1120,13 @@ export class Blanks extends React.Component {
 							<Switch
 								aria-label="Show hints"
 								id={id ? `showHintsId-${id}` : undefined}
+								aria-labelledby={id ? `showHintsLabel-${id}` : undefined}
 								checked={showHints}
 								onCheckedChange={this.handleToggle}
 							/>
-							<Label htmlFor={id ? `showHintsId-${id}` : undefined} className="cursor-pointer">
+							<span id={id ? `showHintsLabel-${id}` : undefined} className="text-sm font-medium leading-none cursor-pointer">
 								{showHintsText}
-							</Label>
+							</span>
 							<span className={`invalid-drop-hint ${showInvalidDropHint ? 'show' : ''}`} aria-live="polite">
 								Try another slot
 							</span>

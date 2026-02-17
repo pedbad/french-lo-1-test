@@ -82,12 +82,13 @@ export const ProgressDots = ({ correct = 0, total = 0 }) => {
 						</span>
 					);
 				})}
-				<p
+				<div
 					className="m-0 ml-1 shrink-0 max-[380px]:basis-full max-[380px]:ml-0 max-[380px]:mt-1"
+					role="status"
 					aria-live="polite"
 				>
 					{safeCorrect} correct out of {safeTotal}
-				</p>
+				</div>
 			</div>
 		</div>
 	);
