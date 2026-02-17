@@ -63,6 +63,7 @@ export function DebugSandbox() {
 	});
 	const previewUrl = `${window.location.origin}/projects/french-basic/?lang=fr&lo=1`;
 	const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
+	const chromeIncognitoCommandPowerShell = 'Start-Process "chrome.exe" "--incognito --disable-extensions `"https://lcdev.langcen.cam.ac.uk/projects/french-basic/?lang=fr&lo=1`""';
 
 	React.useEffect(() => {
 		let mounted = true;
@@ -183,6 +184,10 @@ yarn preview`}</code>
 							<h3 className="m-0 text-base">2) Incognito without extensions</h3>
 							<pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
 								<code>{chromeIncognitoCommand}</code>
+							</pre>
+							<p className="mb-0 mt-3 text-sm text-muted-foreground">PowerShell:</p>
+							<pre className="mt-2 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+								<code>{chromeIncognitoCommandPowerShell}</code>
 							</pre>
 							<p className="mb-0 mt-3 text-sm text-muted-foreground">
 								If results still look old, hard refresh in Chrome: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>.
