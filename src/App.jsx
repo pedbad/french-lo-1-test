@@ -448,7 +448,7 @@ export default class App extends React.Component {
 		};
 	};
 
-	loadConfig = (configFile, learningObjectConfigFile) => {
+		loadConfig = (configFile, learningObjectConfigFile) => {
 		const headers = new Headers();
 		headers.append("Content-Type", "application/json");
 
@@ -464,10 +464,12 @@ export default class App extends React.Component {
 				.then((res) => {
 					const { settings } = res;
 					delete res["settings"];
+					const normalizedConfig = this.normalizeInstructionSchemaNode(res);
+					const normalizedSettings = this.normalizeInstructionSchemaNode(settings);
 					const {
 						class: configClass,
 						targetLanguageCode,
-					} = settings;
+					} = normalizedSettings;
 					if (configClass)
 						document
 							.getElementsByTagName("html")[0]
@@ -475,15 +477,15 @@ export default class App extends React.Component {
 
 					const currentLearningObject = learningObjectConfigFile;
 
-					this.setState(
-						{
-							config: { ...res },
-							currentLearningObject: currentLearningObject,
-							settings: { ...settings },
-							targetLanguageCode,
-						},
-						() => resolve({ targetLanguageCode })
-					);
+						this.setState(
+							{
+								config: { ...normalizedConfig },
+								currentLearningObject: currentLearningObject,
+								settings: { ...normalizedSettings },
+								targetLanguageCode,
+							},
+							() => resolve({ targetLanguageCode })
+						);
 				})
 				.catch((error) => {
 					const action = `Loading configuration`;
@@ -491,19 +493,72 @@ export default class App extends React.Component {
 					reject();
 				});
 		});
-	};
-
-	loadIndex = (currentLearningObject, languageCode) => {
-		const headers = new Headers();
-		headers.append("Content-Type", "application/json");
-
-		const requestOptions = {
-			headers: headers,
-			method: "GET",
-			redirect: "follow",
 		};
 
-		fetch(`./src/index-${languageCode}.json`, requestOptions)
+		hasNonEmptyInstructionValue = (value) =>
+			typeof value === "string" && value.trim() !== "";
+
+		normalizeInstructionSchemaNode = (node) => {
+			if (Array.isArray(node)) {
+				return node.map((item) => this.normalizeInstructionSchemaNode(item));
+			}
+
+			if (!node || typeof node !== "object") return node;
+
+			const normalized = { ...node };
+
+			// Legacy alias compatibility: prefer canonical informationText* keys.
+			if (
+				!this.hasNonEmptyInstructionValue(normalized.informationTextHTML) &&
+				this.hasNonEmptyInstructionValue(normalized.infoTextHTML)
+			) {
+				normalized.informationTextHTML = normalized.infoTextHTML;
+			}
+			if (
+				!this.hasNonEmptyInstructionValue(normalized.informationText) &&
+				this.hasNonEmptyInstructionValue(normalized.infoText)
+			) {
+				normalized.informationText = normalized.infoText;
+			}
+
+			// PhraseTable guidance should render through the Info alert contract.
+			// During migration, lift legacy instructionsText* into informationText*
+			// and suppress duplicate instructions rendering for this component.
+			if (
+				normalized.component === "PhraseTable" &&
+				!this.hasNonEmptyInstructionValue(normalized.informationTextHTML) &&
+				!this.hasNonEmptyInstructionValue(normalized.informationText)
+			) {
+				if (this.hasNonEmptyInstructionValue(normalized.instructionsTextHTML)) {
+					normalized.informationTextHTML = normalized.instructionsTextHTML;
+					delete normalized.instructionsTextHTML;
+				} else if (this.hasNonEmptyInstructionValue(normalized.instructionsText)) {
+					normalized.informationText = normalized.instructionsText;
+					delete normalized.instructionsText;
+				}
+			}
+
+			Object.keys(normalized).forEach((key) => {
+				const value = normalized[key];
+				if (value && typeof value === "object") {
+					normalized[key] = this.normalizeInstructionSchemaNode(value);
+				}
+			});
+
+			return normalized;
+		};
+
+		loadIndex = (currentLearningObject, languageCode) => {
+			const headers = new Headers();
+		headers.append("Content-Type", "application/json");
+
+			const requestOptions = {
+				headers: headers,
+				method: "GET",
+				redirect: "follow",
+			};
+
+			fetch(`./src/index-${languageCode}.json`, requestOptions)
 			.then(handleResponse)
 			.then((res) => {
 				const { learningObjects, title: siteTitle } = res;

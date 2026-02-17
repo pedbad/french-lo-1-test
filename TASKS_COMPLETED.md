@@ -131,6 +131,16 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
       - provide full data-table semantics (`caption` + `th scope`), or
       - refactor layout usage to flex/grid.
 
+## Instruction Schema Consistency
+
+- [x] Create architecture + migration doc for instructional content key drift
+  - `/Users/ped/Sites/french/french-lo-1-test/INFORMATION_CONFIG_ISSUES.MD`
+- [x] Start runtime compatibility adapter in app config load path
+  - `src/App.jsx`: normalize legacy `infoText*` -> canonical `informationText*`
+  - `src/App.jsx`: for `PhraseTable`, lift legacy `instructionsText*` into `informationText*` to keep guidance on one alert-rendering path
+- [ ] Complete JSON migration to canonical keys only (`instructionsLayout` for intro prose, `informationText*` for guidance alerts)
+- [ ] Add pre-commit schema guard to block deprecated instruction keys (`infoText*`) and mixed-key drift
+
 ## Accordion Migration (shadcn/Radix)
 
 Why this goal matters (explicit):

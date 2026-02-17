@@ -352,6 +352,18 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 
 ## TODO
 
+### Instruction Schema Unification (in progress)
+
+- Problem: instructional content is currently authored across overlapping keys (`instructions*`, `information*`, `info*` legacy), which render through different component paths and cause typography/layout drift.
+- Tracking doc: `/Users/ped/Sites/french/french-lo-1-test/INFORMATION_CONFIG_ISSUES.MD`
+- Target contract:
+  - section intro prose/layout: `instructionsLayout`
+  - boxed guidance/alert text: `informationTextHTML` (or `informationText`)
+- Migration approach:
+  1. runtime compatibility adapter (legacy -> canonical mapping)
+  2. JSON config migration in batches
+  3. pre-commit schema guard to block deprecated keys
+
 ### Long-term direction: Tailwind as the primary source of truth
 
 What this means:

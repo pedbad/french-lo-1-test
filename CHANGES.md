@@ -2,6 +2,16 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-17 - Instruction Schema Drift: Phase 1 Start
+
+- Added a dedicated analysis/migration document:
+  - `INFORMATION_CONFIG_ISSUES.MD`
+  - captures root cause, target naming strategy, phased migration plan, and checklist.
+- Added explicit README TODO coverage for instruction schema unification so this work is visible alongside other architecture tasks.
+- Started runtime compatibility normalization in `src/App.jsx`:
+  - maps legacy `infoTextHTML`/`infoText` to canonical `informationTextHTML`/`informationText`
+  - for `PhraseTable`, maps legacy `instructionsText*` to `informationText*` (and suppresses duplicate instruction fields) so instructional guidance renders through one alert path.
+
 ## 2026-02-17 - Vocabulary Alphabetical Sort Fix (PhraseTable)
 
 - Fixed a functional bug in vocabulary sorting:
