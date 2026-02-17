@@ -50,6 +50,21 @@ export class PhraseTable extends React.PureComponent {
 			.replace(/\p{Diacritic}/gu, ""); // needs modern JS (Unicode regex)
 	};
 
+	isAudioPath = (value) => typeof value === "string" && /\.mp3(?:[?#].*)?$/i.test(value.trim());
+
+	getRowSortKey = (row = []) => {
+		// Sort by first non-audio text cell so vocabulary sorts by the visible French term,
+		// not by the hidden audio filename column.
+		for (const cell of row) {
+			if (typeof cell !== "string") continue;
+			const trimmed = cell.trim();
+			if (!trimmed) continue;
+			if (this.isAudioPath(trimmed)) continue;
+			return this.normalizeForSort(trimmed);
+		}
+		return "";
+	};
+
 	render = () => {
 		const {
 			config,
@@ -83,10 +98,10 @@ export class PhraseTable extends React.PureComponent {
 				(p) => !(p[0] === "" && p.length === 1)
 			);
 
-			// Sort ascending by first column
+			// Sort ascending by first non-audio text cell in each row.
 			nonBlank.sort((a, b) => {
-				const A = this.normalizeForSort(a[0]);
-				const B = this.normalizeForSort(b[0]);
+				const A = this.getRowSortKey(a);
+				const B = this.getRowSortKey(b);
 				return collator.compare(A, B);
 			});
 

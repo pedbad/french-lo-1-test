@@ -2,6 +2,20 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-17 - Vocabulary Alphabetical Sort Fix (PhraseTable)
+
+- Fixed a functional bug in vocabulary sorting:
+  - `Alphabetical` and reverse sort were comparing column `0`, which is often an audio filename (`.mp3`), not the visible French term.
+  - Result: rows appeared unsorted or incorrectly sorted from a learner perspective.
+- Implemented a stable row sort-key extractor in `src/components/PhraseTable/PhraseTable.jsx`:
+  - ignore audio-path cells
+  - use the first non-audio text cell as the comparison key (French term for LO1 vocabulary)
+  - preserve existing accent-insensitive normalization + locale-aware collation
+- Why this matters:
+  - restores expected learner UX for vocabulary A→Z / Z→A
+  - aligns sorting behavior with rendered content, not hidden media metadata
+  - prevents regressions where media-path naming silently changes perceived sort order
+
 ## 2026-02-15 - Modal-Link Validator Contract Hardening
 
 - Identified a recurring accessibility validation source:

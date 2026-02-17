@@ -4964,6 +4964,34 @@ hr {
 #content .intro ul {
   list-style: disc;
 }
+#content .information .info-content ul {
+  margin: 0.8rem 0 0.15rem;
+  padding-left: 0;
+  list-style: none;
+}
+#content .information .info-content ul li {
+  position: relative;
+  margin-top: 0.45rem;
+  padding-left: 1.45rem;
+}
+#content .information .info-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.82em;
+  width: 0.95em;
+  height: 0.95em;
+  transform: translateY(-50%);
+  background-color: var(--chart-3);
+  -webkit-mask-image: url("/images/icons/circle-check.svg");
+  mask-image: url("/images/icons/circle-check.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
 #content .abbreviations {
   font-size: var(--font-size-base);
   line-height: var(--line-height-body);

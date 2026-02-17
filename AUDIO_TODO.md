@@ -27,6 +27,28 @@ This helper is now called from all key playback entry points:
 
 Result: only one audio clip should remain active at a time.
 
+## Data Contract Note: Phrase Rows With Audio Prefix
+
+Some phrase/vocabulary rows are authored as:
+
+- `[audioPath, frenchText, englishText]`
+
+This impacts sorting logic if code naively uses column `0`.
+
+- `0` is frequently a `.mp3` filename, not learner-visible vocabulary.
+- Alphabetical sort must derive its key from the first non-audio text cell.
+
+Current safeguard (implemented in `src/components/PhraseTable/PhraseTable.jsx`):
+
+- audio cells are detected and excluded from sort-key selection
+- sort key is the first non-audio string cell in the row
+- normalization/collation remains accent-insensitive and locale-aware
+
+Why this belongs in audio docs:
+
+- audio metadata placement is the reason the sort bug happened
+- if row schema changes in future LOs, this rule must remain explicit to avoid regressions
+
 ## Why This Is Temporary
 
 The helper fixes behavior, but architecture is still distributed:
