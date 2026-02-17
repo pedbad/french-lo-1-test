@@ -14,7 +14,7 @@
 				"dialogues1": {
 					"component": "PhraseTable",
 					"id": "dialogues1",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Tu aimes l'escalade.mp3",
@@ -34,7 +34,7 @@
 				"dialogues2": {
 					"component": "PhraseTable",
 					"id": "dialogues2",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Qu'est-ce que tu fais le weekend.mp3",
@@ -69,7 +69,7 @@
 				"dialogues3": {
 					"component": "PhraseTable",
 					"id": "dialogues3",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Vous jouez d'un instrument de musique.mp3",
@@ -94,7 +94,7 @@
 				"dialogues4": {
 					"component": "PhraseTable",
 					"id": "dialogues4",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Le samedi, je joue au basket. Ça te dit de jouer au basket avec nous.mp3",
@@ -118,7 +118,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"phrases": [
 			[
 				"/sounds/fr/temps libre.mp3",
@@ -280,7 +280,7 @@
 					"component": "MemoryMatchGame",
 					"congratulationsText": "Congratulations! You have a good memory!",
 					"id": "MemoryMatchGame1",
-					"instructionsText": "Match the picture to the French word.",
+					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 8,
 					"cards": [
 						{
@@ -524,7 +524,7 @@
 					"component": "Blanks",
 					"congratulationsText": "Très bien !",
 					"id": "phrases1",
-					"instructionsText": "Drag the words to fill in the gaps.",
+					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
 					"items": [
 						{

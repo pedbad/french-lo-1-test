@@ -714,6 +714,8 @@ export default class App extends React.Component {
 			// titleText = "",
 			// titleTextHTML = "",
 		} = value;
+		const tabInformationText = value.informationText || infoText;
+		const tabInformationTextHTML = value.informationTextHTML || infoTextHTML;
 		const id = this.getResolvedComponentId(valueId, component);
 
 		const { languageCode } = this.state;
@@ -746,7 +748,10 @@ export default class App extends React.Component {
 			case "Explanation":
 				return (
 					<>
-						<Info informationText={infoText} informationTextHTML={infoTextHTML} />
+						<Info
+							informationText={tabInformationText}
+							informationTextHTML={tabInformationTextHTML}
+						/>
 						<Explanation
 							config={value}
 							logError={this.logError}
@@ -849,8 +854,8 @@ export default class App extends React.Component {
 					return (
 						<>
 							<Info
-								informationText={infoText}
-								informationTextHTML={infoTextHTML}
+								informationText={tabInformationText}
+								informationTextHTML={tabInformationTextHTML}
 							/>
 							<CustomComponent id={id} showDialog={this.showDialog} />
 						</>
@@ -1076,8 +1081,6 @@ export default class App extends React.Component {
 		const {
 			id: valueId,
 			component,
-			infoText,
-			infoTextHTML,
 			titleText = "",
 			titleTextHTML = "",
 		} = value;
@@ -1209,10 +1212,6 @@ export default class App extends React.Component {
 								title={titleText}
 								titleHTML={titleTextHTML}
 							>
-								<Info
-									informationText={infoText}
-									informationTextHTML={infoTextHTML}
-								/>
 								{renderedGroupContent}
 							</AccordionArticle>
 						);
@@ -1225,18 +1224,14 @@ export default class App extends React.Component {
 								id={`${compoundID}-Group-Section`}
 								key={`${compoundID}-Group-Section`}
 								semanticAs={topLevelSemanticAs}
-								target={groupId}
-								title={titleText}
-								titleHTML={titleTextHTML}
-							>
-								<Info
-									informationText={infoText}
-									informationTextHTML={infoTextHTML}
-								/>
-								{renderedGroupContent}
-							</GroupSectionComponent>
-						);
-					}
+									target={groupId}
+									title={titleText}
+									titleHTML={titleTextHTML}
+								>
+									{renderedGroupContent}
+								</GroupSectionComponent>
+							);
+						}
 				} else {
 					// children rendered as tabs
 					const tabItems = [];
@@ -1277,10 +1272,6 @@ export default class App extends React.Component {
 								title={titleText}
 								titleHTML={titleTextHTML}
 							>
-								<Info
-									informationText={infoText}
-									informationTextHTML={infoTextHTML}
-								/>
 								{inner}
 							</AccordionArticle>
 						) : (
@@ -1297,10 +1288,6 @@ export default class App extends React.Component {
 										title={titleText}
 										titleHTML={titleTextHTML}
 									>
-										<Info
-											informationText={infoText}
-											informationTextHTML={infoTextHTML}
-										/>
 										{inner}
 									</GroupSectionComponent>
 								);
@@ -1598,10 +1585,6 @@ export default class App extends React.Component {
 								title={titleText}
 								titleHTML={titleTextHTML}
 							>
-								<Info
-									informationText={infoText}
-									informationTextHTML={infoTextHTML}
-								/>
 								<CustomComponent id={id} showDialog={this.showDialog} />
 							</AccordionArticle>
 						);

@@ -21,7 +21,7 @@
 					"id": "jigsaw1",
 					"incorrectImage": "/images/parrot-jaguar.jpg",
 					"instructionsText": "There are two sets of puzzle pieces below. Read the description of the picture and drag the correct pieces to the table below with your mouse.",
-					"listenDescriptionText": "Listen to the description",
+					"listenDescriptionText": "Listen to the description, then complete the task.",
 					"showHintsText": "Show hints when moving",
 					"soundFile": "sounds/fr/cyclist-horse.mp3",
 					"titleText": "Boy Horse"
@@ -40,7 +40,7 @@
 					"showHintsText": "Show hints when moving",
 					"soundFile": "sounds/fr/parrot-jaguar.mp3",
 					"cheatText": "Show answer",
-					"listenDescriptionText": "Listen to the description",
+					"listenDescriptionText": "Listen to the description, then complete the task.",
 					"titleText": "Parrot Jaguar"
 				}
 			},
@@ -57,7 +57,7 @@
 					"showHintsText": "Show hints when moving",
 					"soundFile": "sounds/fr/car-windmill.mp3",
 					"cheatText": "Show answer",
-					"listenDescriptionText": "Listen to the description",
+					"listenDescriptionText": "Listen to the description, then complete the task.",
 					"titleText": "Car Windmill"
 				}
 			},
@@ -74,7 +74,7 @@
 					"showHintsText": "Show hints when moving",
 					"soundFile": "sounds/fr/car-cliff-lift.mp3",
 					"cheatText": "Show answer",
-					"listenDescriptionText": "Listen to the description",
+					"listenDescriptionText": "Listen to the description, then complete the task.",
 					"titleText": "Car Station"
 				}
 			},
@@ -91,7 +91,7 @@
 					"showHintsText": "Show hints when moving",
 					"soundFile": "sounds/fr/river-bank.mp3",
 					"cheatText": "Show answer",
-					"listenDescriptionText": "Listen to the description",
+					"listenDescriptionText": "Listen to the description, then complete the task.",
 					"titleText": "River Bank"
 				}
 			},
@@ -108,7 +108,7 @@
 					"showHintsText": "Show hints when moving",
 					"soundFile": "sounds/fr/hay-wain.mp3",
 					"cheatText": "Show answer",
-					"listenDescriptionText": "Listen to the description",
+					"listenDescriptionText": "Listen to the description, then complete the task.",
 					"titleText": "Hay Wain"
 				}
 			}
@@ -125,7 +125,7 @@
 					"component": "WordGrid",
 					"congratulationsText": "Well done, you found them all!",
 					"id": "WordGrid1",
-					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"instructionsText": "Drag across the grid to find the words below.",
 					"words": [
 						[
 							"épicerie",
@@ -189,7 +189,7 @@
 					"congratulationsText": "That was a roaring success!",
 					"htmlContent": "<p>This <b>WordGrid</b> component takes a number of words, their translations and sound files and arranges them into a word grid puzzle.</p><p>The student must know the target language version of the word and drag the mouse from the first letter to the last to highlight the word. The word is then sounded.</p>",
 					"id": "WordGrid2",
-					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"instructionsText": "Drag across the grid to find the words below.",
 					"words": [
 						[
 							"éléphant",
@@ -232,7 +232,7 @@
 					"component": "WordGrid",
 					"congratulationsText": "Well done, you found them all!",
 					"id": "WordGrid3",
-					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"instructionsText": "Drag across the grid to find the words below.",
 					"words": [
 						[
 							"étudiant",
@@ -290,7 +290,7 @@
 					"component": "WordGrid",
 					"congratulationsText": "Well done, you found them all!",
 					"id": "WordGrid4",
-					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"instructionsText": "Drag across the grid to find the words below.",
 					"words": [
 						[
 							"pomme",
@@ -443,7 +443,7 @@
 					"component": "WordGrid",
 					"congratulationsText": "Well done, you found them all!",
 					"id": "WordGrid5",
-					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"instructionsText": "Drag across the grid to find the words below.",
 					"words": [
 						[
 							"avion",
@@ -566,7 +566,7 @@
 					"component": "WordGrid",
 					"congratulationsText": "Well done, you found them all!",
 					"id": "WordGrid6",
-					"instructionsText": "Click and drag your mouse on the grid to locate the following words:",
+					"instructionsText": "Drag across the grid to find the words below.",
 					"words": [
 						[
 							"église",
@@ -687,7 +687,7 @@
 					"congratulationsText": "Congratulations! You have a good memory!",
 					"htmlContent": "<p>This <b>MemoryMatchGame</b> component presents <i>nPairsToPlay</i> pairs of cards face dwon. The student can turn over two at a time. If either are word cards the student can play the audio of the word. If there is one word card and one picture card and they match, the audio is read out once more and the pair added to a collection of matches on the right.</p>",
 					"id": "MemoryMatchGame1",
-					"instructionsText": "Match the picture to the French word.",
+					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 6,
 					"cards": [
 						{
@@ -786,7 +786,7 @@
 					"congratulationsText": "Congratulations! You know your way around the house!",
 					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
 					"id": "MemoryMatchGame2",
-					"instructionsText": "Match the picture to the French word.",
+					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 12,
 					"cards": [
 						{
@@ -873,7 +873,7 @@
 					"congratulationsText": "Congratulations!",
 					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
 					"id": "MemoryMatchGame3",
-					"instructionsText": "Match the picture to the French word.",
+					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 20,
 					"cards": [
 						{
@@ -1008,7 +1008,7 @@
 					"congratulationsText": "Congratulations!",
 					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 26 pairs from the stock pairs. It's a bit OTT, but challenging. Suggest reducing to 20 or less for acual incorporation.</p>",
 					"id": "MemoryMatchGame4",
-					"instructionsText": "Match the picture to the French word.",
+					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 26,
 					"cards": [
 						{
@@ -1177,7 +1177,7 @@
 					"cheatText": "Show answer",
 					"component": "MemoryMatchGame",
 					"congratulationsText": "Congratulations!",
-					"instructionsText": "Match the picture to the French word.",
+					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 12,
 					"cards": [
 						{
@@ -1718,7 +1718,7 @@
 					"id": "wordsIntoSlots1",
 					"congratulationsText": "Well done!",
 					"instructionsText": "You will hear words containing on / om or oi or h as described in the pronunciation section. Drop each word into the boxes below as you hear it.",
-					"listenDescriptionText": "Speech",
+					"listenDescriptionText": "Full audio",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "table",
@@ -1753,7 +1753,7 @@
 					"congratulationsText": "Well done!",
 					"htmlContent": "<p>The <b>'blanksType': 'questions-answers'</b> configuration of the <b>Blanks</b> component, uses the answers to make tiles which can be dropped into the second column of a 2 column table, where the questions are used to populate the left column.</p><p>Sound files are in the third column.</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "wordsIntoSlots2",
-					"instructionsText": "Match the questions and answers",
+					"instructionsText": "Match each question with the correct answer.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "questions-answers",
@@ -1783,7 +1783,7 @@
 					"component": "Blanks",
 					"congratulationsText": "Très bien !",
 					"id": "picturesAndWords1",
-					"instructionsText": "Match the pictures and words",
+					"instructionsText": "Match each picture with the correct word.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "pictures-answers",
@@ -1840,7 +1840,7 @@
 					"congratulationsText": "Very good!",
 					"htmlContent": "<p>The <b>'blanksType': 'phrases'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into the set of phrases. The set of phrases contains square brackets to show where the words must be dropped, the word is hidden in the phrase. On the right hand side there are audio samples to assist the student if needed. Note: the blank spaces are all the same width even for small words, so they don't give an extra clue!</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "phrases3",
-					"instructionsText": "Drag the words to fill in the gaps.",
+					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
 					"items": [
 						{
@@ -1878,7 +1878,7 @@
 					"congratulationsText": "Well done!",
 					"htmlContent": "<p>The <b>'blanksType': 'group-table'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>The tile should be dropped in the left column or the right column based on the question and in the order heard from the sound file.</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"instructionsTextHTML": "You will hear a series of words containing either the sound <b>u</b> or the sound <b>ou</b>. Drag the words below into the correct box as you hear them.",
-					"listenDescriptionText": "Speech",
+					"listenDescriptionText": "Full audio",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "group-table",

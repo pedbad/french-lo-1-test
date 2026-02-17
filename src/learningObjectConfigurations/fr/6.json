@@ -16,7 +16,7 @@
 				"dialogues1": {
 					"component": "PhraseTable",
 					"id": "dialogues1",
-					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"sounds/fr/Tu as des frères et des sœurs.mp3",
@@ -41,7 +41,7 @@
 				"dialogues2": {
 					"component": "PhraseTable",
 					"id": "dialogues2",
-					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"sounds/fr/Vous avez des frères et des sœurs.mp3",
@@ -66,7 +66,7 @@
 				"dialogues3": {
 					"component": "PhraseTable",
 					"id": "dialogues3",
-					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"sounds/fr/Caroline, vous avez des enfants.mp3",
@@ -105,7 +105,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"phrases": [
 			[
 				"sounds/fr/famille.mp3",
@@ -473,7 +473,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns5",
 					"congratulationsText": "Excellent !",
-					"instructionsText": "Select the correct word to fill in the gaps.",
+					"instructionsText": "Select the correct word for each gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -542,7 +542,7 @@
 					"component": "Blanks",
 					"congratulationsText": "Très bien !",
 					"id": "wordsIntoSlots2",
-					"instructionsText": "Match the questions and answers",
+					"instructionsText": "Match each question with the correct answer.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "questions-answers",

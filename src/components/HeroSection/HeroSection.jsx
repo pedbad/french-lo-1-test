@@ -1,7 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BackToTopButton, Info } from "..";
+import { BackToTopButton, Info, InstructionCallout } from "..";
 import DOMPurify from "dompurify";
 import React from "react";
+import { splitTextByAudioCueKeyword } from "../instructionCues";
+import { AudioCueIcon } from "../AudioCueIcon";
 import { INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
 import { resolveAsset } from "../../utility";
 import { Separator } from "@/components/ui/separator";
@@ -31,6 +33,30 @@ export const HeroSection = ({
 	const hasInstructions = Boolean(instructionsLayout || instructionsText || instructionsTextHTML);
 	const sideBySide = hasInfo && !stackInfo;
 	const splitInfoImage = stackInfo && Boolean(instructionsLayout?.image);
+	const renderTextWithAudioCue = (value) => {
+		const split = splitTextByAudioCueKeyword(value);
+		if (!split) return value;
+		return (
+			<>
+				{split.before}
+				{split.keyword}
+				{" "}
+				<AudioCueIcon />
+				{split.after}
+			</>
+		);
+	};
+	const inlineInstructionNode = instructionsTextHTML ? (
+		<div
+			className={`html section mt-0 ${INSTRUCTION_TEXT_CLASS}`}
+			style={{ margin: 0 }}
+			dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(instructionsTextHTML) }}
+		/>
+	) : instructionsText ? (
+		<div className={`text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>
+			{renderTextWithAudioCue(instructionsText)}
+		</div>
+	) : null;
 
 	return (
 		<RootTag {...rootAriaProps} className="section hero-section" id={id}>
@@ -62,22 +88,11 @@ export const HeroSection = ({
 								image={splitInfoImage ? undefined : instructionsLayout.image}
 								instructionTextClass={INSTRUCTION_TEXT_CLASS}
 							/>
-						) : (
-							<div className="w-full">
-								{instructionsText ? (
-									<div className={INSTRUCTION_TEXT_CLASS} style={{ margin: 0 }}>
-										{instructionsText}
-									</div>
-								) : null}
-								{instructionsTextHTML ? (
-									<div
-										className={INSTRUCTION_TEXT_CLASS}
-										style={{ margin: 0 }}
-										dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(instructionsTextHTML) }}
-									/>
-								) : null}
-							</div>
-						)}
+						) : inlineInstructionNode ? (
+							<InstructionCallout>
+								{inlineInstructionNode}
+							</InstructionCallout>
+						) : null}
 						{hasInstructions ? <Separator className="my-3" /> : null}
 					</header>
 				</CardHeader>

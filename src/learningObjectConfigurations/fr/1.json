@@ -18,7 +18,7 @@
         "phraseTable1": {
           "component": "PhraseTable",
           "id": "PhraseTable1",
-          "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+          "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo1/dialogues/phraseTable1/001-salut-ca-va.mp3",
@@ -43,7 +43,7 @@
         "phraseTable2": {
           "component": "PhraseTable",
           "id": "PhraseTable2",
-          "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+          "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo1/dialogues/phraseTable2/001-bonjour-madame-foucher-comment-ca-va.mp3",
@@ -68,7 +68,7 @@
         "phraseTable3": {
           "component": "PhraseTable",
           "id": "PhraseTable3",
-          "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+          "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
@@ -93,7 +93,7 @@
         "phraseTable4": {
           "component": "PhraseTable",
           "id": "PhraseTable4",
-          "informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+          "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
@@ -500,7 +500,7 @@
           "id": "listeningOrder1",
           "congratulationsText": "Très bien !",
           "informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-          "listenDescriptionText": "Speech",
+          "listenDescriptionText": "Full audio",
           "showHintsText": "Hints",
           "cheatText": "Show answer",
           "blanksType": "table",
@@ -524,7 +524,7 @@
           "id": "listeningOrder2",
           "congratulationsText": "Très bien !",
           "informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-          "listenDescriptionText": "Speech",
+          "listenDescriptionText": "Full audio",
           "showHintsText": "Hints",
           "cheatText": "Show answer",
           "blanksType": "table",

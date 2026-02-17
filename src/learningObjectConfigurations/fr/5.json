@@ -16,7 +16,7 @@
 				"phraseTable1": {
 					"component": "PhraseTable",
 					"id": "phraseTable1",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"/sounds/fr/LO5 monologue1.mp3",
@@ -45,7 +45,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"footnote": "* In France the plural form is used even if there is just one facility. In other francophone countries, the singular 'la toilette' occurs.",
 		"phrases": [
 			[
@@ -224,7 +224,7 @@
 					"component": "Blanks",
 					"congratulationsText": "Très bien !",
 					"id": "picturesAndWords1",
-					"instructionsText": "Match the pictures and words",
+					"instructionsText": "Match each picture with the correct word.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "pictures-answers",
@@ -377,7 +377,7 @@
 					"component": "Blanks",
 					"id": "phrases1",
 					"congratulationsText": "Superbe !",
-					"instructionsText": "Drag the words to fill in the gaps.",
+					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",

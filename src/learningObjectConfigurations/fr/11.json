@@ -15,7 +15,7 @@
 				"phrasetable1": {
 					"component": "PhraseTable",
 					"id": "phraseTable1",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Bonjour ! Vous désirez.mp3",
@@ -55,7 +55,7 @@
 				"phrasetable2": {
 					"component": "PhraseTable",
 					"id": "phraseTable2",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Bonsoir Amélie ! Qu'est-ce que vous prenez.mp3",
@@ -85,7 +85,7 @@
 				"phrasetable3": {
 					"component": "PhraseTable",
 					"id": "phraseTable3",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Bonjour ! Je voudrais deux glaces, s'il vous plaît.mp3",
@@ -129,7 +129,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"phrases": [
 			[
 				"sounds/fr/Vous désirez.mp3",
@@ -348,7 +348,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns1",
 					"congratulationsText": "Félicitations !",
-					"instructionsText": "Select the correct form of the verb to fill in the gaps",
+					"instructionsText": "Select the correct verb form for each gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -385,7 +385,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns2",
 					"congratulationsText": "Félicitations !",
-					"instructionsText": "Select the correct form of the verb to fill in the gaps",
+					"instructionsText": "Select the correct verb form for each gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [

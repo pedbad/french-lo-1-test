@@ -56,6 +56,7 @@ The problem is that overlapping intent (“instructional guidance text”) ended
 - Intro info alert text and phrase-table guidance text are inconsistent in size.
 - Pronunciation/grammar info blocks do not always match the same visual hierarchy.
 - Same sentence appears in both alert and non-alert wrappers depending on JSON key choice.
+- Grammar custom accordions could render duplicated alert boxes when both wrapper-level and child-level info paths were active.
 
 ## Root Cause
 
@@ -118,10 +119,18 @@ Add a config guard script and enforce it in pre-commit:
 9. Run visual QA (desktop/mobile, light/dark) on all sections.
 10. Run accessibility and W3C validation pass after migration.
 
+## Latest Fixes (Current Branch)
+
+- Removed duplicate info render injection in `src/App.jsx` for non-tab `Group` and expandable custom component paths.
+- Kept tab-specific info rendering, but switched it to canonical keys first (`informationText*` with legacy fallback).
+- Added explicit typography fallback rules for `.information .info-content` in `src/index.css` so React-children alerts (for example Pronunciation tab custom components) match config-HTML alert styling.
+
 ## Migration Checklist
 
 - [ ] Canonical field contract approved (`instructionsLayout` vs `informationTextHTML`).
-- [ ] Runtime adapter added and tested.
+- [x] Runtime adapter added and tested.
+- [x] Duplicate non-tab info render path removed (`App.jsx` single-owner behavior).
+- [x] Alert typography parity fallback added for children-based info content.
 - [ ] Legacy key mapping covered in adapter tests.
 - [ ] LO JSON migration Batch A complete.
 - [ ] LO JSON migration Batch B complete.

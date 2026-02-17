@@ -15,7 +15,7 @@
 				"phraseTable1": {
 					"component": "PhraseTable",
 					"id": "phraseTable1",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"/sounds/fr/Où habites-tu.mp3",
@@ -98,7 +98,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"phrases": [
 			[
 				"/sounds/fr/habiter.mp3",

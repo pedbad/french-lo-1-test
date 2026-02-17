@@ -15,7 +15,7 @@
 				"phraseTable1": {
 					"component": "PhraseTable",
 					"id": "phraseTable1",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"/sounds/fr/Quel est ton numéro de portable.mp3",
@@ -45,7 +45,7 @@
 				"phraseTable2": {
 					"component": "PhraseTable",
 					"id": "phraseTable2",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"/sounds/fr/Oui, âllo.mp3",
@@ -80,7 +80,7 @@
 				"phraseTable3": {
 					"component": "PhraseTable",
 					"id": "phraseTable3",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"/sounds/fr/Âllo, oui (male).mp3",
@@ -140,7 +140,7 @@
 				"phraseTable4": {
 					"component": "PhraseTable",
 					"id": "phraseTable4",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Tu veux aller au cinéma demain.mp3",
@@ -184,7 +184,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"phrases": [
 			[
 				"sounds/fr/vouloir.mp3",
@@ -414,7 +414,7 @@
 					"component": "Blanks",
 					"congratulationsText": "Superbe !",
 					"id": "wordsIntoSlots1",
-					"instructionsText": "Match the French with the English",
+					"instructionsText": "Match each French item with its English equivalent.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"blanksType": "questions-answers",

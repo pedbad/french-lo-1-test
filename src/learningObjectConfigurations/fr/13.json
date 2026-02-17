@@ -14,7 +14,7 @@
 				"phrasetable1": {
 					"component": "PhraseTable",
 					"id": "phrasetable1",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Tu te lèves à quelle heure.mp3",
@@ -49,7 +49,7 @@
 				"phrasetable2": {
 					"component": "PhraseTable",
 					"id": "phrasetable2",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Ça va les amis.mp3",
@@ -79,7 +79,7 @@
 				"phrasetable3": {
 					"component": "PhraseTable",
 					"id": "phrasetable3",
-					"instructionsText": "Read the phrases and play the audio clips.",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
 							"sounds/fr/Tu déjeunes à la cantine aujourd'hui.mp3",
@@ -119,7 +119,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"phrases": [
 			[
 				"sounds/fr/routine matinale.mp3",

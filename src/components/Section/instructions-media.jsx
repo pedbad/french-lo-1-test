@@ -1,12 +1,16 @@
 import DOMPurify from "dompurify";
+import { injectAudioCueIntoHTML, splitTextByAudioCueKeyword } from "../instructionCues";
 import { resolveAsset } from "../../utility";
+import { AudioCueIcon } from "../AudioCueIcon";
+import { InstructionCallout } from "../InstructionCallout";
 
 export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-xl)] leading-[var(--line-height-body)] [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--line-height-body)]";
 export const applyInstructionTypographyToHTML = (html) => {
 	if (typeof DOMParser === "undefined") {
 		return html;
 	}
-	const doc = new DOMParser().parseFromString(html, "text/html");
+	const htmlWithCue = injectAudioCueIntoHTML(html);
+	const doc = new DOMParser().parseFromString(htmlWithCue, "text/html");
 	doc.querySelectorAll("p").forEach((node) => {
 		const replacement = doc.createElement("div");
 		Array.from(node.attributes).forEach((attr) => {
@@ -29,27 +33,46 @@ export const InstructionsMedia = ({
 	instructionTextClass = INSTRUCTION_TEXT_CLASS,
 	stackOnDesktop = false,
 }) => {
+	const renderTextWithAudioCue = (value) => {
+		const split = splitTextByAudioCueKeyword(value);
+		if (!split) return value;
+		return (
+			<>
+				{split.before}
+				{split.keyword}
+				{" "}
+				<AudioCueIcon />
+				{split.after}
+			</>
+		);
+	};
+
 	const safeParagraphHTML = paragraphHTML
 		? applyInstructionTypographyToHTML(DOMPurify.sanitize(paragraphHTML))
 		: "";
 
-	const paragraphNode = paragraphHTML ? (
+	const paragraphContent = paragraphHTML ? (
 		<div
-			className={`${instructionTextClass} md:flex-1`}
+			className={`instructions-body ${instructionTextClass}`}
 			style={{ margin: 0 }}
 			dangerouslySetInnerHTML={{ __html: safeParagraphHTML }}
 		/>
 	) : paragraph ? (
 		<div
-			className={`${instructionTextClass} md:flex-1`}
+			className={`instructions-body ${instructionTextClass}`}
 			style={{
 				margin: 0,
 				fontSize: "var(--font-size-xl)",
 				lineHeight: "var(--line-height-body)",
 			}}
 		>
-			{paragraph}
+			{renderTextWithAudioCue(paragraph)}
 		</div>
+	) : null;
+	const paragraphNode = paragraphContent ? (
+		<InstructionCallout className="md:flex-1">
+			{paragraphContent}
+		</InstructionCallout>
 	) : null;
 
 	const imageNode = image?.src ? (

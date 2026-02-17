@@ -16,7 +16,7 @@
 				"phraseTable3": {
 					"component": "PhraseTable",
 					"id": "phraseTable3",
-					"instructionsTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"sounds/fr/Tu es française.mp3",
@@ -119,7 +119,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read the phrases and play the audio clips.",
+		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 		"header": [
 			"",
 			"Nationalité",
@@ -564,7 +564,7 @@
 					"component": "AnswerTable",
 					"congratulationsText": "Excellent !",
 					"id": "AnswerTable2",
-					"instructionsText": "Write what you hear.",
+					"instructionsText": "Listen and write what you hear.",
 					"phrases": [
 						[
 							"",

@@ -16,7 +16,7 @@
 				"monologues1": {
 					"component": "PhraseTable",
 					"id": "monologues1",
-					"informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"sounds/fr/Salut, je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.mp3",
@@ -45,7 +45,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"informationTextHTML": "<p>Read the phrases and play the audio clips.</p>",
+		"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 		"phrases": [
 			[
 				"sounds/fr/être.mp3",
@@ -241,7 +241,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns4",
 					"congratulationsText": "Well done!",
-					"instructionsText": "Match the questions and answers",
+					"instructionsText": "Match each question with the correct answer.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [

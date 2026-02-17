@@ -20,6 +20,7 @@ export * from './Form';
 export * from './Header';
 export * from './Image';
 export * from './Info';
+export * from './InstructionCallout';
 export * from './HeroSection/HeroSection';
 export * from './Jigsaw';
 export * from './Jigsaw/Piece';

@@ -127,6 +127,8 @@
 		--ped-neg: var(--destructive);
 		--ped-neutral: var(--muted-foreground);
 		--ped-accent: var(--primary);
+		--instruction-callout-accent: color-mix(in oklab, var(--ped-warn) 78%, var(--foreground));
+		--instruction-callout-shadow: color-mix(in oklab, var(--ped-warn) 8%, transparent);
 
 		/* Footer visual accents */
 		--footer-crest-conic-a-start: color-mix(in oklab, var(--footer-background) 68%, var(--card));
@@ -216,6 +218,8 @@
 		--footer-background: var(--sidebar);
 		--accordion-mist: color-mix(in oklab, var(--chart-2) 18%, var(--card));
 		--accordion-hover-text: var(--foreground);
+		--instruction-callout-accent: color-mix(in oklab, var(--ped-warn) 70%, var(--foreground));
+		--instruction-callout-shadow: color-mix(in oklab, var(--ped-warn) 12%, transparent);
 
 		/* Footer social dark-mode palettes */
 		--footer-social-dark-fg: #fff;
@@ -4962,10 +4966,45 @@ hr {
 #content .intro ul {
   list-style: disc;
 }
+#content .instruction-callout {
+  margin: 0.55rem 0 0;
+  border: 0;
+  border-left: 0.4rem solid var(--instruction-callout-accent);
+  border-radius: 0 0.95rem 0.95rem 0;
+  padding: 1rem 1rem 0.9rem;
+  background: var(--page-background);
+  box-shadow: none;
+  transition: box-shadow 220ms ease;
+}
+#content .instruction-callout:hover,
+#content .instruction-callout:focus-within {
+  box-shadow: 0 3px 8px var(--instruction-callout-shadow);
+}
+#content .instruction-callout .instruction-callout-content > :first-child {
+  margin-top: 0;
+}
+#content .instruction-callout .instruction-callout-content > :last-child {
+  margin-bottom: 0;
+}
+#content .instructions.instructions-media {
+  padding: 0;
+}
 #content .information .info-content ul {
   margin: 0.8rem 0 0.15rem;
   padding-left: 0;
   list-style: none;
+}
+#content .information .info-content :is(p, div, li, h3, h4) {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-body);
+}
+#content .information .info-content :is(p, h3, h4) {
+  margin-top: 0;
+}
+#content .information .info-content h3,
+#content .information .info-content h4 {
+  margin-bottom: 0.35rem;
+  font-weight: 600;
 }
 #content .information .info-content ul li {
   position: relative;
@@ -5014,6 +5053,21 @@ hr {
   mask-position: center;
   mask-size: contain;
 }
+.inline-audio-svg {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  margin: 0 0.2em;
+  line-height: 1;
+  vertical-align: -0.12em;
+  transform: translateY(0.02em);
+  color: var(--chart-3);
+  stroke-width: 2;
+  overflow: visible;
+}
+.inline-audio-svg * {
+  vector-effect: non-scaling-stroke;
+}
 #content .inline-icon-eye {
   background-color: var(--ped-warn);
   -webkit-mask-image: url("/images/icons/eye.svg");
@@ -5028,6 +5082,11 @@ hr {
   background-color: var(--chart-3);
   -webkit-mask-image: url("/images/icons/circle-check.svg");
   mask-image: url("/images/icons/circle-check.svg");
+}
+#content .inline-icon-audio {
+  background-color: var(--chart-3);
+  -webkit-mask-image: url("/images/icons/volume-1.svg");
+  mask-image: url("/images/icons/volume-1.svg");
 }
 #content .word-parts-container :is(table td, table span, .word-parts-text-cell, .word-parts-text-cell span) {
   font-size: calc(var(--font-size-base) * 1.5);
@@ -5086,7 +5145,7 @@ hr {
   padding: 2.2em;
 }
 #content .html-content,
-#content .instructions {
+#content .instructions:not(.instruction-callout):not(.instructions-media) {
   padding: 0 1vw;
 }
 #content .footnote {

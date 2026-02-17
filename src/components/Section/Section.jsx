@@ -2,11 +2,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	BackToTopButton,
-	Info
+	Info,
+	InstructionCallout
 } from '..';
 import { Separator } from "@/components/ui/separator";
 import DOMPurify from "dompurify";
 import React from 'react';
+import { splitTextByAudioCueKeyword } from "../instructionCues";
+import { AudioCueIcon } from "../AudioCueIcon";
 import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "./instructions-media";
 
 export class Section extends React.PureComponent {
@@ -65,6 +68,34 @@ export class Section extends React.PureComponent {
 		const headingId = target ? `${target}-heading` : `section-title-${id}`;
 		const RootTag = semanticAs === "div" ? "div" : "section";
 		const rootAriaProps = RootTag === "section" ? { "aria-labelledby": headingId } : {};
+		const renderTextWithAudioCue = (value) => {
+			const split = splitTextByAudioCueKeyword(value);
+			if (!split) return value;
+			return (
+				<>
+					{split.before}
+					{split.keyword}
+					{" "}
+					<AudioCueIcon />
+					{split.after}
+				</>
+			);
+		};
+		const inlineInstructionNode = instructionsTextHTML
+			? (
+				<div
+					className={`html section mt-0 ${INSTRUCTION_TEXT_CLASS}`}
+					style={{ margin: 0 }}
+					dangerouslySetInnerHTML={{ __html: safeInstructionsTextHTML }}
+				/>
+			)
+			: instructionsText
+				? (
+					<div className={`text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>
+						{renderTextWithAudioCue(instructionsText)}
+					</div>
+				)
+				: null;
 
 		// console.log("target", target);
 
@@ -115,12 +146,11 @@ export class Section extends React.PureComponent {
 									{...instructionsLayout}
 									instructionTextClass={INSTRUCTION_TEXT_CLASS}
 								/>
-							) : (
-								<>
-									{instructionsText ? <div className={`instructions text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>{instructionsText}</div> : null}
-									{instructionsTextHTML ? <div className={`instructions html section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }} dangerouslySetInnerHTML={{ __html: safeInstructionsTextHTML }} /> : null}
-								</>
-							)}
+							) : inlineInstructionNode ? (
+								<InstructionCallout>
+									{inlineInstructionNode}
+								</InstructionCallout>
+							) : null}
 							{(instructionsText || instructionsTextHTML || instructionsLayout) ? <Separator className="my-3" /> : null}
 						</header>
 
