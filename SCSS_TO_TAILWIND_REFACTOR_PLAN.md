@@ -1,7 +1,7 @@
 # SCSS to Tailwind Refactor Plan
 
 Last updated: 2026-02-15  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Why This Refactor (Modern React + shadcn Approach)
 
@@ -304,7 +304,7 @@ Rule: one major file per PR, with before/after screenshots.
 
 Track progress in:
 
-- `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+- `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 
 Recommended cadence:
 

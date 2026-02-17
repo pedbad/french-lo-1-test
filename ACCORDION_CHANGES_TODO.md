@@ -1,7 +1,7 @@
 # Accordion Migration Plan (shadcn/Radix)
 
 Last updated: 2026-02-15  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Goal
 Migrate custom accordion behavior to shadcn/Radix primitives while preserving app-specific behavior and avoiding regressions.
@@ -58,7 +58,7 @@ Acceptance checks:
 
 ## Phase 1: Add shadcn Accordion Primitive
 
-- [x] Add `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx` (shadcn/Radix style).
+- [x] Add `/Users/ped/Sites/french/french-lo-1/src/components/ui/accordion.jsx` (shadcn/Radix style).
 - [x] Ensure imports are from Radix primitives and consistent with existing `ui/*` patterns.
 - [x] Keep style tokens consistent with current design tokens.
 
@@ -69,7 +69,7 @@ Acceptance checks:
 ## Phase 2: Debug-First Implementation
 
 - [x] Replace `details/summary` in debug structure view with shadcn accordion.
-  - file: `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
+  - file: `/Users/ped/Sites/french/french-lo-1/src/debug/components/LearningObjectStructureSummary.jsx`
 - [x] Preserve current layout: LO index link left, accordion right.
 - [x] Tune spacing, typography, hover/focus states to desired UX.
 - [ ] Validate keyboard navigation and screen-reader labels in debug page.
@@ -128,7 +128,7 @@ Acceptance checks:
 ## Phase 5: Cleanup and Hardening
 
 - [x] Remove obsolete custom accordion files:
-  - removed `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
+  - removed `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/Accordion.jsx`
   - removed legacy class-toggle `AccordionArticle` implementation (replaced by current Radix wrapper at the same canonical path)
 - [x] Remove dead paths:
   - removed `window.refs` write pattern in `App.jsx`

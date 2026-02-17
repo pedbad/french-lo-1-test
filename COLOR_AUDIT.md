@@ -1,7 +1,7 @@
 # Color Audit
 
 Date: 2026-02-11  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Why we are doing this audit
 You decided that color should follow the same architecture as typography:

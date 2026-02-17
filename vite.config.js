@@ -8,6 +8,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const logger = createLogger();
 const loggerWarn = logger.warn;
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 logger.warn = (msg, options) => {
 	// Ignore 'esbuild css minify thing is not a known CSS property'
@@ -17,7 +18,14 @@ logger.warn = (msg, options) => {
 
 const basePath = '/projects/french-basic/';
 
-export default defineConfig(() => ({
+export default defineConfig(() => {
+	const includeDebug = process.env.VITE_INCLUDE_DEBUG === 'true';
+	const htmlInputs = {
+		main: path.resolve(projectRoot, 'index.html'),
+		...(includeDebug ? { debugSandbox: path.resolve(projectRoot, 'debug-sandbox.html') } : {}),
+	};
+
+	return ({
 	assetsInclude: [
 		'**/*.mp3',
 		'**/*.jpg',
@@ -30,6 +38,7 @@ export default defineConfig(() => ({
 		assetsDir: "src",
 		emptyOutDir: true,
 		rollupOptions: {
+			input: htmlInputs,
 			output: {
 				assetFileNames: `src/[name].[ext]`,
 				chunkFileNames: `src/[name].js`,
@@ -74,7 +83,8 @@ export default defineConfig(() => ({
 	],
 	resolve: {
 		alias: {
-			"@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "./src"),
+			"@": path.resolve(projectRoot, "./src"),
 		},
 	}
-}));
+	});
+});

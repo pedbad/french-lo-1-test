@@ -33,7 +33,7 @@ This file summarizes the work completed in this repo during the session. It incl
 
 ## 2026-02-15 - Table Audit Reference Document
 
-- Added `/Users/ped/Sites/french/french-lo-1-test/TABLE_AUDIT_PASS.md`:
+- Added `/Users/ped/Sites/french/french-lo-1/TABLE_AUDIT_PASS.md`:
   - records how the final two WAVE issues were addressed (`Possible heading`, `Layout table`)
   - defines repeatable table audit checklist (classify data vs layout, semantic requirements, migration/mitigation rules, validation workflow)
 
@@ -496,25 +496,25 @@ Why this was important:
 - Updated `TASKS_COMPLETED.md` with this completed sub-step.
 
 ## 56) Typography Batch 5.16 (Font-Face Ownership Split)
-- Added `/Users/ped/Sites/french/french-lo-1-test/src/styles/fonts.css` as the dedicated font registry:
+- Added `/Users/ped/Sites/french/french-lo-1/src/styles/fonts.css` as the dedicated font registry:
   - moved all `@font-face` declarations from `src/App.scss` into this file
   - added `font-display: swap` to each face for better loading behavior
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/main.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/main.jsx`:
   - imports `./styles/fonts.css` before `./index.css`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/check-typography-guard.sh`:
+- Updated `/Users/ped/Sites/french/french-lo-1/scripts/check-typography-guard.sh`:
   - keeps strict `font-family` guard everywhere
   - allows literal `font-family` only in `src/styles/fonts.css` (for `@font-face`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md` guardrails to document that narrow exception.
+- Updated `/Users/ped/Sites/french/french-lo-1/README.md` guardrails to document that narrow exception.
 - Why: separates font-asset loading from component styling while preserving token-based font usage as the single source for typography application.
 
 ## 57) Typography Batch 5.17 (Dark-Mode Token De-duplication)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - removed duplicate dark-mode typography token assignments (`--font-size-*`, `--line-height-*`, `--body-line-height`) from `.dark`.
   - typography tokens now remain defined once in `:root` and are shared by both themes.
 - Why: reduces token drift risk and reinforces one source of truth for typography scale across light/dark mode.
 
 ## 58) Typography Batch 5.18 (Semantic Line-Height Tokens)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css` typography tokens:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css` typography tokens:
   - added semantic line-height tokens:
     - `--line-height-body`
     - `--line-height-body-tight`
@@ -523,7 +523,7 @@ Why this was important:
     - `--line-height-wordparts`
     - `--line-height-wordparts-mobile`
   - kept `--body-line-height` as backward-compatible alias to `--line-height-body`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.scss`:
   - replaced ad-hoc arithmetic line-height expressions with semantic token usage in:
     - `.app`
     - `#content .abbreviations`
@@ -534,45 +534,45 @@ Why this was important:
 - Why: removes inline line-height math, clarifies intent by context, and keeps line-height tuning centralized in tokens.
 
 ## 59) Typography Batch 5.19 (Component Consumers to Semantic Line-Height Tokens)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Info/Info.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Info/Info.jsx`:
   - migrated `INFO_CONTENT_TEXT_CLASS` line-height utilities from `var(--body-line-height)` to `var(--line-height-body)`.
   - replaced `[_h3]:leading-[1.4]` with tokenized `[_h3]:leading-[var(--line-height-app)]`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/instructions-media.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Section/instructions-media.jsx`:
   - migrated Tailwind utility and inline style line-heights from `var(--body-line-height)` to `var(--line-height-body)`.
   - updated HTML normalization helper to inject `var(--line-height-body)` for paragraph/list nodes.
 - Why: completes consumer migration to semantic line-height tokens and reduces dependence on the backward-compat alias.
 
 ## 60) Typography Batch 5.20 (WordParts Tailwind Line-Height Tokenization)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/WordParts/WordParts.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/WordParts/WordParts.jsx`:
   - `WORD_PARTS_TEXT_CLASS` line-height utilities:
     - `leading-[1.35]` -> `leading-[var(--line-height-wordparts-mobile)]`
     - added desktop tokenized line-height: `md:leading-[var(--line-height-wordparts)]`
 - Why: removes remaining non-token Tailwind line-height literal and aligns WordParts text rhythm with semantic line-height tokens introduced in batch 5.18.
 
 ## 61) Typography Batch 5.21 (Exercise Constant Tokenization)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/Blanks.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Blanks/Blanks.jsx`:
   - tokenized `BLANKS_TARGET_BOARD_TEXT_CLASS` from `text-[1.2rem]`
   - tokenized flow/row line-height utilities:
     - `leading-[1.4em]` -> `leading-[var(--line-height-app)]`
     - `leading-[0.5rem]` / `sm:leading-[3.5rem]` -> tokenized `calc(var(--font-size-sm) * ...)`
     - `leading-[2.6rem]` -> tokenized `calc(var(--font-size-sm) * 2.6)`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx`:
   - tokenized `BLANK_WORD_TEXT_CLASS` from `text-[1.2rem] leading-[1.4rem]`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ReadAloud/ReadAloud.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/ReadAloud/ReadAloud.jsx`:
   - tokenized `READ_ALOUD_RECORD_BUTTON_TEXT_CLASS` from `text-[1.2rem]`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/TreasureGrid/TreasureGrid.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/TreasureGrid/TreasureGrid.jsx`:
   - tokenized `TREASURE_GRID_MESSAGE_TEXT_CLASS` from `text-[1.2rem]`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Jigsaw/Jigsaw.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Jigsaw/Jigsaw.jsx`:
   - tokenized `JIGSAW_CLUE_TEXT_CLASS` (`1.4rem`) and `JIGSAW_TIME_TEXT_CLASS` (`2rem`)
   - tokenized `JIGSAW_CANVAS_TEXT_CLASS` line-height from `leading-[1.4em]` to `leading-[var(--line-height-app)]`
 - Why: removes a concentrated group of remaining hardcoded typography literals from exercise components while preserving visual ratios through token expressions.
 
 ## 62) Typography Batch 5.22 (Tabs + DropDowns Utility Tokenization)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - tokenized tabs trigger text sizes:
     - `!text-[1.2rem]` -> `!text-[calc(var(--font-size-sm)*1.2)]`
     - `min-[1170px]:!text-[1.4rem]` -> `min-[1170px]:!text-[calc(var(--font-size-sm)*1.4)]`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/DropDowns/DropDowns.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/DropDowns/DropDowns.jsx`:
   - tokenized dropdown trigger typography:
     - `leading-[1.4rem]` -> `leading-[var(--line-height-app)]`
     - `md:text-[1.2rem]` -> `md:text-[calc(var(--font-size-sm)*1.2)]`
@@ -581,91 +581,91 @@ Why this was important:
 - Why: removes remaining hardcoded rem typography utilities from tabs/dropdown controls and aligns them with the shared token scale.
 
 ## 63) Typography Batch 5.23 (Header + Modal + Attribution Utility Tokenization)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Header/Header.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Header/Header.jsx`:
   - tokenized `HEADER_TEXT_CLASS` line-height from `leading-[3rem]` -> `leading-[calc(var(--font-size-sm)*3)]`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ModalLinkDialog/ModalLinkDialog.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/ModalLinkDialog/ModalLinkDialog.jsx`:
   - tokenized mobile title/body heading overrides:
     - `max-[650px]:!text-[1.35rem]` -> `max-[650px]:!text-[var(--font-size-lg)]` (title and nested `h2`/`h3`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Attribution/Attribution.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Attribution/Attribution.jsx`:
   - tokenized `ATTRIBUTION_TEXT_CLASS` from `text-[0.5rem]` -> `text-[calc(var(--font-size-sm)*0.5)]`
 - Why: removes another focused set of rem-based utility literals and keeps typography sizing aligned with shared tokens.
 
 ## 64) Typography Batch 5.24 (Sortable + MemoryMatch Utility Tokenization)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/SortableWordCard/SortableWordCard.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/SortableWordCard/SortableWordCard.jsx`:
   - tokenized remaining rem-based text utilities in `textClass` variants (`0.78rem`, `0.92rem`, `0.98rem`, `1.08rem`)
   - tokenized stacked index badge text utilities (`0.68rem`, `0.72rem`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MemoryMatchGame/MemoryMatchGame.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MemoryMatchGame/MemoryMatchGame.jsx`:
   - tokenized cards/matches responsive text utilities:
     - cards: `0.8rem`, `0.9rem`, `1rem`
     - matches: `0.6rem`, `0.7rem`, `0.8rem`
 - Why: eliminates the next concentrated cluster of hardcoded rem typography utilities in exercise display components while preserving existing visual scale via token expressions.
 
 ## 65) Typography Batch 5.25 (Legacy Line-Height Alias Removal)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - removed legacy `--body-line-height` alias after migrating all consumers to semantic tokens (`--line-height-body`, etc.).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/README.md`:
   - refreshed typography token wording to reference current semantic token names.
 - Why: completes line-height token migration and removes a compatibility alias that could reintroduce naming drift.
 
 ## 66) Typography Completion Pass (Tailwind Mapping + Tracker Closure)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/tailwind.config.js`:
+- Updated `/Users/ped/Sites/french/french-lo-1/tailwind.config.js`:
   - replaced final legacy line-height reference `var(--body-line-height)` with `var(--line-height-body)`.
   - mapped `xs/sm/lg/xl` line-heights to semantic tokens (`--line-height-xs`, `--line-height-sm`, `--line-height-lg`, `--line-height-xl`) instead of inline numeric literals.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - added semantic line-height tokens used by Tailwind mapping:
     - `--line-height-xs`
     - `--line-height-sm`
     - `--line-height-lg`
     - `--line-height-xl`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` and `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` and `/Users/ped/Sites/french/french-lo-1/README.md`:
   - marked typography stream complete for current scope and aligned wording with semantic token naming.
 - Why: removes the last runtime dependency on a removed alias and closes the typography migration loop with a single tokenized line-height vocabulary.
 
 ## 67) Color Guardrails (Script + Package Wiring)
-- Added `/Users/ped/Sites/french/french-lo-1-test/scripts/check-color-guard.sh`:
+- Added `/Users/ped/Sites/french/french-lo-1/scripts/check-color-guard.sh`:
   - detects added literal color drift in style-like lines across `scss/css/jsx/tsx/js/ts` diffs.
   - blocks:
     - hex literals (`#fff`, `#ffcc00`, ...)
     - named colors (`black`, `white`, `red`, ...)
     - color functions without token indirection (`rgb(...)`, `oklch(...)`, etc. without `var(--...)`)
   - supports `--staged`, `--working`, and `--against <ref>` (matching typography guard workflow).
-- Added `/Users/ped/Sites/french/french-lo-1-test/scripts/color-allowlist.txt`:
+- Added `/Users/ped/Sites/french/french-lo-1/scripts/color-allowlist.txt`:
   - file-scoped allowlist for intentional literal color definitions.
   - seeded with `src/index.css` (token source).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/package.json` scripts:
+- Updated `/Users/ped/Sites/french/french-lo-1/package.json` scripts:
   - added `check:color`
   - added `check:color:branch`
   - updated `prepush:local` to include `yarn check:color:branch`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/README.md`:
   - documented color guard policy and usage commands.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`:
   - marked color guard script + prepush wiring tasks complete.
 - Why: mirrors typography guardrails to prevent new non-token color drift while continuing hotspot-by-hotspot migration.
 
 ## 68) Color Hotspot Migration (App/MainMenu/AudioClip) + Guard Compatibility Fix
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.scss`:
   - replaced remaining literal warning/link accent color `oklch(0.646 0.222 41.116)` with semantic token `var(--ped-warn)` for modal links.
   - replaced button text fallback `var(--primary-foreground, #fff)` with token-only `var(--primary-foreground)`.
   - replaced hover darkening mixes from `black` to tokenized `var(--foreground)` in `.btn-ped-warn`, `.btn-chart-2`, and `.btn-hero-title`.
   - replaced hero local custom property literal `oklch(0.398 0.07 227.392)` with semantic token `var(--chart-3)`.
   - updated `.modal-link`/`:visited` text-decoration color mixes to derive from `var(--ped-warn)` token.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.scss`:
   - replaced mobile toggle/menu separator literal `oklch(0 0 0 / 0.06)` with tokenized `color-mix(in oklab, var(--foreground) 6%, transparent)`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/AudioClip/AudioClip.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/AudioClip/AudioClip.scss`:
   - replaced hover literal accent `oklch(0.646 0.222 41.116)` with semantic `var(--ped-warn)`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/check-color-guard.sh`:
+- Updated `/Users/ped/Sites/french/french-lo-1/scripts/check-color-guard.sh`:
   - replaced Bash `mapfile` usage with a Bash-3-compatible read loop for macOS compatibility.
   - replaced HTML-comment skip regex with a Bash-3-safe string match.
 - Why: removes the next high-impact cluster of literal color values in priority files while keeping visual behavior aligned to semantic tokens and ensuring the color guard works reliably on local macOS shells.
 
 ## 69) Footer Color Tokenization (Crest + Social Dark Palettes)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Footer/Footer.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Footer/Footer.scss`:
   - replaced crest highlight `white` color-mix usage with semantic footer crest tokens.
   - replaced footer social icon foreground `oklch(1 0 0)` with `var(--footer-social-icon-fg)`.
   - replaced dark-mode social icon literal color/gradient/shadow values with token references:
     - base dark styles: `--footer-social-dark-*`
     - per-network variants: `--footer-social-facebook-*`, `--footer-social-x-*`, `--footer-social-youtube-*`, `--footer-social-linkedin-*`, `--footer-social-instagram-*`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - added centralized footer visual tokens:
     - crest shading tokens (`--footer-crest-*`)
     - social icon foreground token (`--footer-social-icon-fg`)
@@ -673,27 +673,27 @@ Why this was important:
 - Why: keeps current footer visuals intact while moving component-level literal color definitions into centralized token ownership, advancing the color single-source-of-truth model.
 
 ## 70) MainMenu Semantic Color Cleanup
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.scss`:
   - replaced `rgb(var(--color-text-secondary))` with semantic `var(--muted-foreground)` for nav links.
   - replaced hover `rgb(var(--color-text-primary))` with semantic `var(--foreground)` for nav links.
   - applied the same semantic replacements to mobile nav links.
 - Why: moves MainMenu away from palette-channel color references toward semantic token usage, improving theme readability and consistency.
 
 ## 71) Docs Sync (AGENTS Guardrail Parity)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/AGENTS.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/AGENTS.md`:
   - added color guard policy details to match current workflow (`scripts/check-color-guard.sh`, `scripts/color-allowlist.txt`).
   - documented local quality gates (`check:typography`, `check:color`, branch checks, and `prepush:local`).
 - Why: keeps onboarding/operator docs aligned so contributors follow the same token guardrails documented in README and task trackers.
 
 ## 72) Heading Separator Normalization (App Title)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - extracted title splitting into `splitDisplayTitle`.
   - normalized heading split logic to support both `:` and `—` as source separators.
   - preserved current rendered format (`title-main — title-sub`) and existing `title-main`/`title-sub` styling hooks.
 - Why: avoids title formatting drift when content sources mix colon and em-dash conventions.
 
 ## 73) Heading Separator Coverage Expansion
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` (`splitDisplayTitle`):
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx` (`splitDisplayTitle`):
   - expanded supported source separators to include:
     - `:`
     - `—` (em dash)
@@ -704,9 +704,9 @@ Why this was important:
 - Why: improves resilience to mixed title punctuation while preventing accidental splits in normal hyphenated terms.
 
 ## 74) Build Asset De-duplication (Fonts/Images/Sounds)
-- Added `/Users/ped/Sites/french/french-lo-1-test/FONTS_PROBLEM.md`:
+- Added `/Users/ped/Sites/french/french-lo-1/FONTS_PROBLEM.md`:
   - documented the duplication issue, root cause, impact, and verification checklist for maintainers.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/vite.config.js`:
+- Updated `/Users/ped/Sites/french/french-lo-1/vite.config.js`:
   - removed redundant `viteStaticCopy` targets for `public/fonts`, `public/images`, and `public/sounds`.
   - kept `viteStaticCopy` only for JSON files sourced from `src/...`.
 - Verification:
@@ -718,7 +718,7 @@ Why this was important:
 - Why: Vite already copies `public/` assets by default; duplicating them via static-copy created redundant output and larger artifacts.
 
 ## 75) Audio Ordering TODO Documentation
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Audio section):
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` (Audio section):
   - added a future TODO to formalize LO1 exercise/audio mapping so folder alphabetical order is not mistaken for render order.
   - captured follow-up actions:
     - document JSON render-order source (`exercises.content`)
@@ -727,79 +727,79 @@ Why this was important:
 - Why: prevents future drift/confusion during ongoing audio restructuring work.
 
 ## 76) Color Cleanup Batch (WordParts + MemoryMatch)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/WordParts/WordParts.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/WordParts/WordParts.scss`:
   - removed literal fallback from `var(--primary-foreground, #fff)` to token-only `var(--primary-foreground)`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MemoryMatchGame/MemoryMatchGame.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MemoryMatchGame/MemoryMatchGame.scss`:
   - replaced Sass transparent helper from `rgba(#fff, 0)` to `transparent`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MemoryMatchGame/Card/Card.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MemoryMatchGame/Card/Card.scss`:
   - replaced Sass transparent helper from `rgba(#fff, 0)` to `transparent`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Color section):
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` (Color section):
   - logged this low-risk fallback-literal cleanup as complete.
 - Why: removes remaining color literal/fallback debt in active exercise styles while keeping visuals unchanged and token ownership clean.
 
 ## 77) Color Cleanup Batch (Flag Canvas Shading)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Flag/Flag.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Flag/Flag.jsx`:
   - switched canvas shading from `--foreground/--background` with black/white fallback literals to semantic RGB channel tokens:
     - `--color-text-primary`
     - `--color-surface-base`
   - standardized shading color construction with `rgba(...)` using token channels.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Color section):
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` (Color section):
   - logged the Flag token-channel migration and added a follow-up decision item for remaining Sass utility literals in `_mixins.module.scss`.
 - Why: removes a remaining literal fallback path and aligns dynamic canvas shading with the same semantic token system used elsewhere.
 
 ## 78) Color Cleanup Batch (Exercise Mixes + Shared Gradient)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/Blanks.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Blanks/Blanks.scss`:
   - replaced warning hint background mix from `black` to semantic `var(--foreground)`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx`:
   - replaced `white/black` mixes in Tailwind arbitrary color-mix utilities with semantic tokens:
     - `var(--background)`
     - `var(--foreground)`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/styles/_mixins.module.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/styles/_mixins.module.scss`:
   - updated shared `header-footer-background` mixin to use `var(--foreground)` instead of literal `black` in gradient edge mixes.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (Color section):
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` (Color section):
   - recorded completion of this tokenization pass and narrowed the remaining follow-up to the Sass `contrast()` helper policy.
 - Why: continues color unification by removing literal `black/white` mixes in active exercise styling and shared gradient utilities while preserving visual intent via semantic tokens.
 
 ## 79) Semantics + Inline Spacing Cleanup (`<b>/<i>` + AudioLink sentence spacing)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/CustomComponents_FR/CustomComponents_FR.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx`:
   - replaced legacy presentational tags in rendered JSX content:
     - `<b>` -> `<strong>`
     - `<i>` -> `<em>`
   - fixed Grammar 2 ("tu vs vous") inline spacing to use explicit React spaces around inline `AudioClip` nodes:
     - `{' '}` between `Tu`, `and`, `vous`, and `both mean 'you'.`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ReadAloud/ReadAloud.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/ReadAloud/ReadAloud.jsx`:
   - replaced phrase wrapper `<b>` with semantic `<strong>`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - changed sample HTML string from `<b>HTML</b>` to `<strong>HTML</strong>`.
 - Validation:
   - `yarn build` passes successfully after the semantic-tag migration and spacing fix.
 - Why: improves semantic HTML/accessibility without changing behavior, and removes whitespace ambiguity around inline audio components.
 
 ## 80) Color Guard Tuning + Mixins Policy Closure
-- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/check-color-guard.sh`:
+- Updated `/Users/ped/Sites/french/french-lo-1/scripts/check-color-guard.sh`:
   - reduced false positives in class scanning by removing generic `className=` context matching and relying on utility-style token detection (`text-`, `bg-`, `border-`, `from-`, `to-`, `via-`, etc.).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/scripts/color-allowlist.txt`:
+- Updated `/Users/ped/Sites/french/french-lo-1/scripts/color-allowlist.txt`:
   - clarified policy to keep allowlist limited to canonical token source files.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/styles/_mixins.module.scss`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/styles/_mixins.module.scss`:
   - removed unused `contrast()` Sass helper that contained compile-time `white/black/#ffffff` literals.
   - replaced remaining `lightGray` literal with semantic token `var(--muted)` in `button-info`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`:
   - marked the last two color migration policy/guard tasks complete.
 - Why: closes outstanding color migration governance work without expanding allowlists or retaining dead literal-color helper code.
 
 ## 81) Accessibility Phase 1A (Invalid `name` attrs + Empty ID emission)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - removed invalid `name` attribute from top modal-link target span (`id="modal-link-top"` retained).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Section/Section.jsx`:
   - removed invalid `name` attribute from section heading target.
   - removed invalid `name` attribute from article wrapper div.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/HeroSection/HeroSection.jsx`:
   - removed invalid `name` attribute from hero heading target.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`:
   - removed invalid `name` attributes from accordion heading targets (title + titleHTML paths).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/CustomComponents_FR/CustomComponents_FR.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx`:
   - removed invalid non-form `name` attributes from modal-link spans/anchor (`madame`, `mademoiselle`, `tuvous`, `toi`, `subject-pronouns`).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/IconButton/IconButton.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/IconButton/IconButton.jsx`:
   - changed `id={id || ''}` to `id={id || undefined}` so empty `id=""` is no longer emitted.
 - Validation:
   - `yarn build` passes.
@@ -807,12 +807,12 @@ Why this was important:
 - Why: resolves high-noise HTML validity issues with minimal behavioral risk by removing invalid legacy attributes and preventing empty id output.
 
 ## 82) Docs Sync (Semantics + Accessibility-First Future Blueprint)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/README.md`:
   - mirrored semantic/a11y updates to reflect current state:
     - `<main id="content">` landmark in place
     - inline emphasis migration (`<strong>/<em>`)
     - abbreviations content using semantic definition-list markup (`<dl>/<dt>/<dd>`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/FUTURE_PROJECTS.md`:
   - strengthened accessibility-first rules for all new projects:
     - semantic landmarks/headings and proper interactive semantics from day one
     - explicit accessibility test gates (lint + automated checks + keyboard pass) before merge
@@ -821,49 +821,49 @@ Why this was important:
 
 ## 83) Accordion Migration Planning Docs (Architecture Drift Control)
 - Added accordion architecture/risk analysis:
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_ISSUES.md`
 - Added accordion migration execution plan (baby steps + test matrix + timeline):
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
 - Added accordion-specific progress tracker:
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md` migration tracker links to include all accordion docs.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` with a dedicated accordion migration section and explicit rationale.
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
+- Updated `/Users/ped/Sites/french/french-lo-1/README.md` migration tracker links to include all accordion docs.
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` with a dedicated accordion migration section and explicit rationale.
 - Decision captured:
   - use debug-first migration to tune shadcn/Radix accordion UX safely
   - then migrate main app accordion with parity checks for config-driven behavior and modal-link/deep-link contracts
 - Why: the current accordion path is a design-system exception and long-term maintenance risk; planning docs make the refactor explicit, testable, and measurable.
 
 ## 84) Link Contract Split (Nav Scroll vs Modal Content)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`:
   - replaced legacy `modal-link` class usage on top-nav anchors with `nav-scroll-link`.
   - top navigation remains explicitly scroll-only via `handleModalLinkClick(..., { mode: "scroll" })`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - `initialiseModalLinks()` now treats `.modal-link` as modal-only; removed legacy branch that switched behavior by checking `.nav`.
   - added code comments clarifying class responsibility and avoiding future overload.
 - Updated documentation:
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md` now documents the explicit link contract.
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md` now includes link-class contract lock as a migration decision.
+  - `/Users/ped/Sites/french/french-lo-1/README.md` now documents the explicit link contract.
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md` now includes link-class contract lock as a migration decision.
 - Why: removes a confusing legacy naming pattern where one class (`modal-link`) represented two different interaction models (scroll + modal), reducing maintenance risk and accidental regressions.
 
 ## 85) Accordion Migration Start (shadcn Primitive + Debug Integration)
 - Added dependency:
-  - `@radix-ui/react-accordion` in `/Users/ped/Sites/french/french-lo-1-test/package.json`
+  - `@radix-ui/react-accordion` in `/Users/ped/Sites/french/french-lo-1/package.json`
 - Added shadcn-style accordion primitive:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/ui/accordion.jsx`
 - Migrated debug structure summary from native `<details>/<summary>` to shadcn/Radix accordion:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/debug/components/LearningObjectStructureSummary.jsx`
   - preserved current row layout (LO link left, structure accordion right)
   - preserved ordered-list structure and section/exercise summary content
 - Updated migration tracking docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/README.md`
 - Why: executes the approved debug-first migration step in a low-risk surface, validates shared primitive wiring, and reduces drift before main-app accordion cutover.
 
 ## 86) Accordion Main-App Wrapper Scaffold (Compatibility First)
 - Added compatibility wrapper:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AppAccordionArticle.jsx`
 - Wrapper preserves existing app contracts while using Radix accordion internals:
   - `id`, `target`, `title/titleHTML`, `config`, `noCard`, `expandNow`, and children rendering contracts
   - session persistence via `${id}-expanded`
@@ -871,69 +871,69 @@ Why this was important:
   - `(part N)` title suffix split styling
   - info injection + child `suppressInfo` behavior
 - Exported wrapper via:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/index.js`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/index.js`
 - Why: prepares a low-risk migration path for incremental `App.jsx` adoption without forcing a full accordion cutover in one step.
 
 ## 87) Accordion Incremental Adoption Pilot (`AnswerTable`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - the `AnswerTable` render branch now uses `AppAccordionArticle` instead of the legacy `AccordionArticle`.
   - removed legacy `ref` handoff for that pilot path (function component wrapper is refless by design).
 - Why: validates the incremental migration strategy on a low-risk path before expanding wrapper adoption to higher-traffic accordion branches.
 
 ## 88) Debug Accordion Visual Parity Tuning (Chevron + Hover/Open Skin)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/ui/accordion.jsx`:
   - moved chevron to the left of heading text and increased icon size/contrast for clearer affordance.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/debug/components/LearningObjectStructureSummary.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/debug/components/LearningObjectStructureSummary.jsx`:
   - applied main-app style parity for accordion trigger hover/open states using `--accordion-mist` and `--accordion-hover-text`.
   - added slower color/shadow transitions (`duration-700`) to match the app’s intentional interaction feel.
 - Why: improves clarity and consistency while keeping these visual tweaks scoped to the debug migration surface.
 
 ## 89) Accordion Incremental Adoption Batch 2 (`PhraseTable`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - migrated expandable `PhraseTable` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
   - removed legacy `ref` handoff for this wrapper-driven branch.
 - Updated migration trackers:
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Why: expands wrapper adoption to a high-visibility content path (dialogues/vocabulary) while preserving compatibility contracts before broader cutover.
 
 ## 90) Accordion Incremental Adoption Batch 3 (`Blanks` + `WordParts`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - migrated `Blanks` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
   - migrated `WordParts` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
   - removed legacy `ref` handoffs for these wrapper-driven branches.
 - Updated migration trackers:
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/README.md`
 - Why: extends the compatibility-wrapper rollout into exercise-heavy flows, reducing remaining legacy accordion surface while preserving behavior contracts.
 
 ## 91) Accordion Incremental Adoption Batch 4 (`DropDowns` + `Monologue` + `RadioQuiz`)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - migrated `DropDowns` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
   - migrated `Monologue` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
   - migrated `RadioQuiz` rendering from legacy `AccordionArticle` to `AppAccordionArticle`.
   - removed legacy `ref` handoffs for these wrapper-driven branches.
 - Updated migration trackers:
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/README.md`
 - Why: continues batch-by-batch migration of interactive sections to the compatibility wrapper while preserving deep-link, info-suppression, and persisted-expansion contracts.
 
 ## 92) Accordion Clickability Fix (Wrapper Interaction Regression)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AppAccordionArticle.jsx`:
   - corrected Radix header/trigger structure using `AccordionPrimitive.Header asChild` around the `<h2>` heading target.
   - removed invalid nested heading structure that could interfere with trigger interaction.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - narrowed `.modal-link-target` click suppression to anchor elements only (`<a>`).
   - avoids preventing default on non-anchor heading targets used by accordion triggers.
 - Why: fixes a migration regression where accordion headings could become non-clickable after wrapper adoption.
 
 ## 93) Accordion Collapse Animation Fix (Second-Click Did Not Close)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AppAccordionArticle.jsx`:
   - removed `forceMount` from `AccordionPrimitive.Content` so Radix can manage open/close presence correctly.
   - switched content animation classes to state-based variants:
     - `data-[state=open]:animate-accordion-down`
@@ -941,9 +941,9 @@ Why this was important:
 - Why: `forceMount` kept wrapper content effectively always present, so close interactions could appear to reopen instead of collapsing.
 
 ## 94) Accordion Visual Parity Fix (Legacy + Wrapper Selector Alignment)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AppAccordionArticle.jsx`:
   - tagged Radix item node with `accordion-item` to provide a stable CSS hook during incremental migration.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - expanded accordion selectors to target both DOM shapes:
     - legacy (`.accordion-article > header`, `.accordion-article > .content`)
     - wrapper/Radix (`.accordion-article .accordion-item > header`, `.accordion-article .accordion-item > .content`)
@@ -951,104 +951,104 @@ Why this was important:
 - Why: migrated accordion sections (for example dialogues) were no longer matching direct-child legacy selectors, causing style drift versus non-migrated sections.
 
 ## 95) Accordion Chevron Single Source of Truth (App + Debug)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - introduced shared `.accordion-chevron` style for icon size, shrink behavior, color inheritance, and transform transition.
   - removed legacy hardcoded arrow width/height and side margins that were forcing app chevrons smaller than debug chevrons.
   - aligned app trigger spacing (`gap`) with debug accordion trigger spacing for visual consistency.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/ui/accordion.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/ui/accordion.jsx`:
   - switched debug accordion chevron to the shared `.accordion-chevron` class.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx` and `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AppAccordionArticle.jsx` and `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`:
   - switched app accordion chevrons to use the same shared class.
 - Why: keeps chevron styling in one place so debug and production accordions stay visually identical during and after migration.
 
 ## 96) Accordion Main-App Full Cutover + Legacy Removal
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - migrated all remaining expandable branches from legacy `AccordionArticle` to `AppAccordionArticle`.
   - removed legacy `window.refs` setup and deleted unused `expandAllAccordions` helper.
   - replaced top-level `<Accordion />` wrapper usage with a plain `.accordion` container div.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AppAccordionArticle.jsx`:
   - removed stale `expandNow` pathway (no active callers remained).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/index.js`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/index.js`:
   - removed exports of deleted legacy accordion components.
 - Deleted legacy files:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/Accordion.jsx`
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/Accordion.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`
 - Why: completes production cutover to one active accordion behavior path and removes dead legacy code that was creating architecture drift.
 
 ## 97) Accordion Docs Sync (No Drift)
 - Updated migration/architecture trackers:
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_ISSUES.md`
 - Updated project-level status docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/README.md`
 - Why: keeps task boards and architecture docs aligned with the actual codebase after full accordion cutover.
 
 ## 98) DOM Semantics Audit + Execution Docs (`main > section > article`)
 - Added semantic architecture audit:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md`
   - documents current DOM shape, target hierarchy, inconsistency points, and concrete style/JS regression risks.
 - Added phased implementation plan:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
   - defines migration phases for section landmarks, nav/hash compatibility, article semantics, selector hardening, and heading hierarchy.
 - Added regression checklist:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md`
   - covers structure, nav behavior, accordion behavior, modal-link behavior, accessibility, visual parity, and quality gates.
-- Updated tracker index in `/Users/ped/Sites/french/french-lo-1-test/README.md` to include these files.
+- Updated tracker index in `/Users/ped/Sites/french/french-lo-1/README.md` to include these files.
 - Why: makes semantic DOM refactor explicit, testable, and low-risk before changing markup.
 
 ## 99) DOM Semantics Docs Sync (Header/Nav/Hero + Responsive Landmark Rule)
-- Expanded `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md` with:
+- Expanded `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md` with:
   - current page-top DOM snapshot (`header/nav/hero/main`) and identified semantic issues.
   - explicit statement that `div#accordion1.accordion` is a misleading top-level container.
   - full target structure that includes header, single primary nav landmark, intro section, and section/article hierarchy under `main`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`:
   - added a dedicated phase for responsive-safe header/nav/hero semantics.
   - clarified that mobile responsiveness is preserved while avoiding duplicate primary nav landmarks.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md`:
   - added checks for one primary nav landmark, responsive mobile behavior, and hero/heading-order correctness.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/README.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/README.md`:
   - added explicit DOM semantics contract bullets to prevent implementation/doc drift.
 - Why:
   - removes ambiguity around "single nav landmark" vs responsive UX.
   - locks heading/landmark expectations before DOM refactor implementation.
 
 ## 100) Mobile Nav Semantics + Skip Link (Accessibility-First DOM Prep)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`:
   - changed mobile dropdown wrapper from `<nav>` to `<div role="region" aria-label="Main navigation mobile">` so the page has one primary nav landmark for the same IA.
   - added `aria-controls` on the menu toggle and `id` on the mobile panel for explicit control relationship.
   - added Escape-key close behavior for the mobile panel.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - added a keyboard skip link (`Skip to main content`) targeting `#content`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - added focus-visible skip-link styling so it remains hidden until keyboard focus.
 - Updated task tracking docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Why:
   - improves screen-reader landmark clarity and keyboard navigation immediately.
   - reduces risk before broader semantic DOM restructuring.
 
 ## 101) Hero Heading Semantics Fix (`h2` -> non-heading text)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - replaced hero title `<h2 className="hero-title ...">` with `<p className="hero-title ...">`.
   - changed hero banner image to decorative semantics (`alt=""` + `aria-hidden="true"`).
 - Updated semantic tracking docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Why:
   - removes heading-order ambiguity (no `h2` before page `h1`).
   - keeps visual hero text unchanged while improving document outline semantics.
 
 ## 102) Hero Typography Parity Fix (Feijoa Bold Restored)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - added explicit hero-title typography rules after converting semantic tag from `h2` to `p`:
     - `font-family: "Feijoa Bold", var(--font-heading)`
     - `font-weight: 700`
     - `line-height: var(--line-height-2xl)`
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`:
   - checked off visual parity restoration for hero title styling.
 - Why:
   - preserves intended design while maintaining corrected semantic heading structure.
@@ -1056,31 +1056,31 @@ Why this was important:
 ## 103) Accordion Wrapper Naming + Semantic Root Update
 - Updated app accordion wrapper naming:
   - renamed component `AppAccordionArticle` -> `AccordionArticle`.
-  - updated imports/usages in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`.
-  - updated accordion barrel export in `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/index.js`.
+  - updated imports/usages in `/Users/ped/Sites/french/french-lo-1/src/App.jsx`.
+  - updated accordion barrel export in `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/index.js`.
 - Updated wrapper file path:
-  - moved `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AppAccordionArticle.jsx`
-  - to `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`.
+  - moved `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AppAccordionArticle.jsx`
+  - to `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`.
 - Updated semantic root element in wrapper:
   - root changed from `<section>` to `<article>` while retaining `.accordion-article` class.
 - Synced docs/trackers to avoid drift:
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/README.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_ISSUES.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
 - Why:
   - clearer component naming and improved semantic HTML alignment for accordion content units.
 
 ## 104) Hero Semantics Contract Lock + Checklist Drift Fix
 - Updated semantic DOM trackers to remove drift and lock final hero behavior:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md`
 - Updated project docs to align with the same contract:
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/README.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Locked decision:
   - hero remains outside `main` intentionally as decorative page chrome.
   - hero text remains non-heading (`p.hero-title`) and hero image remains decorative (`alt=""`, `aria-hidden="true"`).
@@ -1089,30 +1089,30 @@ Why this was important:
   - keeps accessibility/structure documentation consistent with actual implementation.
 
 ## 105) Semantic Section-ID Nav Cutover + Top-Level DOM Cleanup
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - removed legacy top-level wrapper `<div class="accordion" id="accordion1">`.
   - introduced semantic top-level section siblings directly under `main`:
     - `#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`.
   - removed hidden `#modal-link-top` anchor.
   - hardened modal fallback extraction container lookup to include `article`:
     - `closest("p, li, article, section, div")`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`:
   - nav links now use semantic section hashes (`#introduction`, `#dialogues`, etc.) instead of legacy `#modal-link-*`.
   - scroll-spy/highlight lookup now targets section IDs directly.
 - Updated heading-ID strategy:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Section/Section.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/HeroSection/HeroSection.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`
   - section headings now use semantic IDs (`${sectionId}-heading`) instead of legacy `modal-link-*` naming.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - accordion interaction selectors now scope from `#content` (no dependency on removed `.accordion` wrapper).
 - Updated docs to avoid drift:
-  - `/Users/ped/Sites/french/french-lo-1-test/README.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/README.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Validation:
   - `yarn build` passes.
 - Why:
@@ -1121,15 +1121,15 @@ Why this was important:
   - eliminates legacy naming ambiguity (`modal-link-*`) for top-level content landmarks.
 
 ## 106) Nav Highlight/Scroll Precision Fix After Semantic-ID Migration
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`:
   - default nav highlight now starts at `null` (prevents false `Introduction` highlight before section positions are available).
   - added config-change recalculation in `componentDidUpdate` so highlight state initializes correctly when LO config loads asynchronously.
   - section detection now resolves semantic heading anchors first (`${sectionId}-heading`) for tighter active-state accuracy.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/utility.js`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/utility.js`:
   - reduced legacy oversized scroll fudge offset and replaced with tighter fixed-menu offset for cleaner section alignment.
   - scroll-mode target lookup now prefers heading anchors (`${sectionId}-heading`) before section IDs.
 - Updated tracking docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Validation:
   - `yarn build` passes.
   - focused lint run on touched files passes with no errors.
@@ -1138,13 +1138,13 @@ Why this was important:
   - improves scroll landing accuracy so target sections align cleanly under the fixed nav without leftover content from the previous section.
 
 ## 107) Disable Scroll Restoration On Refresh (Top-of-Page Contract)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - added explicit refresh/load scroll reset in `componentDidMount`:
     - `history.scrollRestoration = "manual"`
     - immediate `scrollTo(0,0)` plus one `requestAnimationFrame` follow-up `scrollTo(0,0)`.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`:
   - removed obsolete global scroll-position tracking writes (`window.__lastKnownScrollPosition`).
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`:
   - documented contract clearly: only accordion open/closed state persists; page scroll position must not persist across refresh.
 - Validation:
   - `yarn build` passes.
@@ -1153,19 +1153,19 @@ Why this was important:
   - this keeps refresh behavior deterministic while preserving useful session persistence for accordion state.
 
 ## 108) DOM Semantics Hardening: Group Sections + Accordion Heading Levels
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`:
   - added `semanticAs` prop (`"article"` default) so the same wrapper can render semantic group containers as `<section>` when needed.
   - root element now uses `RootTag` (`article` or `section`).
   - accordion trigger heading changed from `<h2>` to `<h3>` to enforce `h1 -> h2 -> h3` hierarchy.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - group accordion call sites now pass `semanticAs="section"` so structural wrappers are sections, not articles.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - accordion title selectors migrated from `h2`-based selectors to `.accordion-title` selectors to preserve identical styling after heading-tag change.
 - Updated tracking docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Validation:
   - `yarn build` passes.
   - branch guards pass:
@@ -1180,15 +1180,15 @@ Why this was important:
   - removes heading-level inflation inside accordion items and improves document outline consistency for assistive tech.
 
 ## 109) DOM Semantics: Section Header Grouping (Title + Instructions)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/Section/Section.jsx`:
   - wrapped section heading (`h2`) and instruction block in a semantic `<header>` element.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/HeroSection/HeroSection.jsx`:
   - moved hero-section instruction rendering into a semantic `<header>` element alongside the section `h2`.
   - added `Separator` usage in the semantic header to preserve visual rhythm after moving instruction content.
 - Updated tracking docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Validation:
   - `yarn build` passes.
   - branch guards pass:
@@ -1202,10 +1202,10 @@ Why this was important:
   - improves section comprehension for assistive technology and makes top-level section outlines easier to audit.
 
 ## 110) DOM Semantics: Selector/Heading Cleanup Phase Closed
-- Updated `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md`:
   - marked JS selector hardening audit complete.
   - marked wrapper heading-jump cleanup complete.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`:
+- Updated `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`:
   - recorded completion of wrapper selector/heading hierarchy hardening.
 - Validation notes:
   - selector audit found no additional wrapper selectors that required `article` support beyond existing `App.findModalLinkContent` fallback.
@@ -1214,13 +1214,13 @@ Why this was important:
   - closes remaining code-side DOM semantic tasks before final manual visual/accessibility regression verification.
 
 ## 111) Main Nav Parity Refactor (Desktop + Mobile)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`:
   - replaced separate desktop/mobile link construction with one shared `navEntries` source.
   - both desktop and mobile menus now render from the same IDs/hrefs/labels.
   - removed duplicate mobile-only hardcoded Introduction item.
 - Updated tracking docs:
-  - `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md`
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Validation:
   - `yarn build` passes.
   - branch guards pass:
@@ -1234,14 +1234,14 @@ Why this was important:
   - guarantees both breakpoints use the same section targets and scroll-only interaction path.
 
 ## 112) Modal Link Reliability Fix (Delegated Wiring)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - replaced per-element `.modal-link` listener setup with delegated document click handlers.
   - this ensures modal links created after child-local re-renders are still handled.
   - added cleanup in `componentWillUnmount` for delegated listeners.
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/utility.js`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/utility.js`:
   - `handleModalLinkClick` now supports an explicit link element (`options.linkEl`) for delegation-safe href/target extraction.
 - Updated tracking doc:
-  - `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`
+  - `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`
 - Validation:
   - `yarn build` passes.
   - targeted lint on changed files passes with no errors (`src/App.jsx`, `src/utility.js`).
@@ -1255,7 +1255,7 @@ Why this was important:
   - fixes intermittent behavior where some modal links worked and others failed after UI updates that re-created link DOM nodes without re-running direct listener attachment.
 
 ## 113) Sequence Audio Slider Color Alignment (Footer Green)
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/components/SequenceAudioController/SequenceAudioController.jsx`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/SequenceAudioController/SequenceAudioController.jsx`:
   - added shared slider style token: `accentColor: "var(--footer-background)"`.
   - applied to both range controls:
     - playback scrubber (`.play-scrubber`)
@@ -1270,7 +1270,7 @@ Why this was important:
   - improves contrast/readability by softening the controller background without drifting from theme tokens.
 
 ## 114) Accordion Hover/Open States Tinted to Footer Green
-- Updated `/Users/ped/Sites/french/french-lo-1-test/src/index.css`:
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
   - changed `--accordion-mist` from neutral grey to a footer-green-tinted mix in light mode:
     - `color-mix(in oklab, var(--footer-background) 40%, var(--card))`
   - changed `--accordion-mist` in dark mode to a subtle green-tinted mix:

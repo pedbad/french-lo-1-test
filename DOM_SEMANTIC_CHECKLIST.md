@@ -1,7 +1,7 @@
 # DOM Semantic Refactor Checklist
 
 Last updated: 2026-02-15  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Structure Checks
 - [x] Exactly one `<main>` in page content.

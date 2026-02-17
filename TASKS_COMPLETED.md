@@ -1,7 +1,7 @@
 # Tasks Completed Tracker
 
 Last updated: 2026-02-15
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 This checklist tracks migration progress toward one source of truth (tokens + Tailwind/shadcn utilities) and reduced SCSS ownership.
 
@@ -135,9 +135,9 @@ Why this goal matters (explicit):
 - Preserving existing modal-link/deep-link and config-driven behavior requires a planned, testable migration rather than ad-hoc rewrites.
 
 Tracking docs:
-- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md`
-- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md`
-- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md`
+- `/Users/ped/Sites/french/french-lo-1/ACCORDION_ISSUES.md`
+- `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md`
+- `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md`
 
 Progress:
 - [x] Added architecture/risk analysis doc.
@@ -182,9 +182,9 @@ Progress:
   - locked decision: hero is decorative page chrome and intentionally remains outside `main`
   - updated `DOM_SEMANTIC_AUDIT.md`, `DOM_SEMANTIC_TODO.md`, and `DOM_SEMANTIC_CHECKLIST.md` to reflect this explicitly
 - [x] Remove legacy `modal-link-*` top-nav hashes and move to semantic section IDs:
-  - removed legacy top-level wrapper `<div id="accordion1" class="accordion">` in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`
+  - removed legacy top-level wrapper `<div id="accordion1" class="accordion">` in `/Users/ped/Sites/french/french-lo-1/src/App.jsx`
   - top-level content now renders as semantic section siblings under `main` (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`)
-  - updated nav links + scroll/highlight targeting in `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx` to use semantic section hashes only
+  - updated nav links + scroll/highlight targeting in `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx` to use semantic section hashes only
   - migrated section heading IDs from legacy `modal-link-*` naming to `${sectionId}-heading` in `Section`, `HeroSection`, and `AccordionArticle`
   - removed hidden `#modal-link-top` anchor from `App.jsx`
   - hardened modal fallback extraction selector in `App.findModalLinkContent` to include `article`
@@ -220,7 +220,7 @@ Progress:
 ## CI / Guardrails
 
 - [x] Add GitHub Actions PR quality workflow
-  - added `/Users/ped/Sites/french/french-lo-1-test/.github/workflows/pr-quality.yml`
+  - added `/Users/ped/Sites/french/french-lo-1/.github/workflows/pr-quality.yml`
   - workflow runs on `pull_request` + `workflow_dispatch`
   - enforced checks: `yarn build`, `yarn lint`, `yarn check:typography:branch`, `yarn check:color:branch`, `yarn check:a11y:branch`
 - [x] Document CI quality gates in README
@@ -251,7 +251,7 @@ Why this goal mattered (explicit):
 - Stronger guardrails: zero-SCSS policy is now enforced by `scripts/check-scss-guard.sh` to prevent regression.
 
 - [x] Create dedicated refactor architecture plan
-  - `/Users/ped/Sites/french/french-lo-1-test/SCSS_TO_TAILWIND_REFACTOR_PLAN.md`
+  - `/Users/ped/Sites/french/french-lo-1/SCSS_TO_TAILWIND_REFACTOR_PLAN.md`
   - includes rationale, evidence links, baseline metrics, phased checklist, and per-PR definition of done
 - [ ] Phase 0: Guardrails first
   - [x] stabilize cascade/layer order for mixed SCSS + Tailwind state

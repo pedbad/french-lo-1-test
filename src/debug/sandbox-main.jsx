@@ -4,8 +4,9 @@ import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { DebugSandbox } from './DebugSandbox';
 
-if (!import.meta.env.DEV) {
-	throw new Error('Debug sandbox is development-only and must not be bundled into production output.');
+const isDebugBuildEnabled = import.meta.env.DEV || import.meta.env.VITE_INCLUDE_DEBUG === 'true';
+if (!isDebugBuildEnabled) {
+	throw new Error('Debug sandbox build is disabled. Rebuild with VITE_INCLUDE_DEBUG=true to include this page.');
 }
 
 const rootElement = document.getElementById('debug-sandbox-root');

@@ -3,7 +3,7 @@
 Note: This is a historical baseline snapshot (2026-02-11) captured before the typography migration was completed. Current runtime typography uses semantic `--line-height-*` tokens.
 
 Date: 2026-02-11
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Scope
 This audit checks where typography is currently controlled across:

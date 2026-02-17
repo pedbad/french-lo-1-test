@@ -1,7 +1,7 @@
 # Table Audit Pass
 
 Last updated: 2026-02-16
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Why This File Exists
 
@@ -12,27 +12,27 @@ This document records what was fixed, why it was fixed, and the repeatable audit
 
 1. `Possible heading`
 - Issue: hero title text looked like a heading but was rendered as non-heading text.
-- Fix: switched hero title back to a semantic heading element in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`.
+- Fix: switched hero title back to a semantic heading element in `/Users/ped/Sites/french/french-lo-1/src/App.jsx`.
 - Why: heading-like content should use heading tags so assistive technology receives correct document structure.
 
 2. `Layout table`
 - Issue: at least one rendered table had no header cells and was interpreted as layout-only.
-- Fix: added semantic table structure to Error Log in `/Users/ped/Sites/french/french-lo-1-test/src/components/ErrorLog/ErrorLog.jsx`:
+- Fix: added semantic table structure to Error Log in `/Users/ped/Sites/french/french-lo-1/src/components/ErrorLog/ErrorLog.jsx`:
   - added `TableCaption`
   - added `TableHeader` with `TableHead` cells.
 - Additional mitigations applied:
   - layout/puzzle tables marked presentational in:
-    - `/Users/ped/Sites/french/french-lo-1-test/src/components/WordGrid/WordGrid.jsx`
-    - `/Users/ped/Sites/french/french-lo-1-test/src/components/CrossWord/CrossWord.jsx`
-    - `/Users/ped/Sites/french/french-lo-1-test/src/components/ConnectFour/ConnectFour.jsx`
+    - `/Users/ped/Sites/french/french-lo-1/src/components/WordGrid/WordGrid.jsx`
+    - `/Users/ped/Sites/french/french-lo-1/src/components/CrossWord/CrossWord.jsx`
+    - `/Users/ped/Sites/french/french-lo-1/src/components/ConnectFour/ConnectFour.jsx`
   - data table semantics strengthened in:
-    - `/Users/ped/Sites/french/french-lo-1-test/src/components/PhraseTable/PhraseTable.jsx`
+    - `/Users/ped/Sites/french/french-lo-1/src/components/PhraseTable/PhraseTable.jsx`
 
 3. `Layout table` in LO1 pronunciation exercise (`WordParts`)
 - Issue: `WordParts` (for example `1. Identify pronunciation features`) used a non-data `<table>` for row alignment, which still triggers layout-table alerts.
 - Fix: replaced the layout table with semantic row containers (`.word-parts-grid` / `.word-parts-row`) in:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/WordParts/WordParts.jsx`
-  - `/Users/ped/Sites/french/french-lo-1-test/src/index.css`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/WordParts/WordParts.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/index.css`
 - Why: this removes layout-table markup entirely while preserving interaction behavior and visual structure.
 
 ## Important Triage Note (Avoid False Diagnosis)

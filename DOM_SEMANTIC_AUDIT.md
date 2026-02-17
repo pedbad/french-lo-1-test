@@ -1,7 +1,7 @@
 # DOM Semantic Audit
 
 Last updated: 2026-02-15  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Goal
 Define and validate a cleaner semantic DOM structure for the learning object page:
@@ -20,14 +20,14 @@ Inside each top-level section, accordion items should be semantic content units 
 
 ## Current State (Observed)
 1. Main content root already exists:
-  - `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` uses `<main id="content">`.
+  - `/Users/ped/Sites/french/french-lo-1/src/App.jsx` uses `<main id="content">`.
 2. Top-level LO blocks are rendered through `Section`/`HeroSection` wrappers that now use semantic `<section className="section">` roots.
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx`
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Section/Section.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/HeroSection/HeroSection.jsx`
 3. Accordion item wrapper currently renders as `<article class="accordion-article">`.
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`
 4. Navigation now targets semantic top-level section IDs (`#introduction`, `#dialogues`, etc.).
-  - `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`
 
 ## Current DOM Snapshot (First 3 Levels Inside `main`)
 

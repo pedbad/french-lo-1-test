@@ -1,7 +1,7 @@
 # Tailwind Migration Cheatsheet
 
 Last updated: 2026-02-14  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Purpose
 

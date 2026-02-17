@@ -3,7 +3,7 @@
 Status: Completed for current scope on 2026-02-14. This plan is retained as implementation history/reference.
 
 Date: 2026-02-11  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Decisions Confirmed
 1. Canonical brand fonts remain: **OpenSans + Feijoa**.
@@ -25,7 +25,7 @@ Decision update:
 - Replace tokenized sans/heading families with **OpenSans/Feijoa** so Tailwind/shadcn and legacy styling align.
 
 ## Current Baseline (from audit)
-See: `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_AUDID.md`
+See: `/Users/ped/Sites/french/french-lo-1/TYPOGRAPHY_AUDID.md`
 
 - Hardcoded SCSS/CSS `font-size/line-height` matches: 82
 - Token-based SCSS/CSS `font-size/line-height` matches: 19

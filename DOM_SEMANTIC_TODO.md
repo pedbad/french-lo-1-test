@@ -1,7 +1,7 @@
 # DOM Semantic Refactor TODO
 
 Last updated: 2026-02-15  
-Repo: `/Users/ped/Sites/french/french-lo-1-test`
+Repo: `/Users/ped/Sites/french/french-lo-1`
 
 ## Objective
 Implement semantic structure:
@@ -45,9 +45,9 @@ Current page-top semantic risks:
   - grouping wrapper = `section`
 
 ## Phase 1: Top-Level Section Semantics
-- [x] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/Section/Section.jsx` root from `div.section` to `section.section`.
-- [x] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/HeroSection/HeroSection.jsx` root from `div.section` to `section.section`.
-- [x] Replace legacy `<div class="accordion" id="accordion1">` thematic wrapper in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` with direct top-level section siblings under `main`.
+- [x] Update `/Users/ped/Sites/french/french-lo-1/src/components/Section/Section.jsx` root from `div.section` to `section.section`.
+- [x] Update `/Users/ped/Sites/french/french-lo-1/src/components/HeroSection/HeroSection.jsx` root from `div.section` to `section.section`.
+- [x] Replace legacy `<div class="accordion" id="accordion1">` thematic wrapper in `/Users/ped/Sites/french/french-lo-1/src/App.jsx` with direct top-level section siblings under `main`.
 - [x] Ensure LO top-level blocks use stable IDs matching nav targets.
 - [x] Keep page title markup unchanged:
   - `<h1><span class="title-main">First Contact —</span><span class="title-sub">greetings, farewells and social niceties</span></h1>`
@@ -72,23 +72,23 @@ Current page-top semantic risks:
   - keep hero outside `main` as decorative page chrome for this app.
   - keep hero non-heading text + decorative image semantics (`p.hero-title`, `alt=""`, `aria-hidden="true"`).
 - [x] Enforce heading order:
-  - replaced hero `<h2>` with non-heading text in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx` so no heading appears before page `<h1>`.
+  - replaced hero `<h2>` with non-heading text in `/Users/ped/Sites/french/french-lo-1/src/App.jsx` so no heading appears before page `<h1>`.
 - [x] Keep nav/scroll behavior unchanged for users while semantics improve.
 
 ## Phase 2: Nav + Scroll Compatibility
-- [x] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/MainMenu/MainMenu.jsx` to support section-ID targeting.
+- [x] Update `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx` to support section-ID targeting.
 - [x] Remove old `#modal-link-*` nav-hash compatibility (explicitly not required for this project).
 - [ ] Verify highlight logic still marks active section correctly on scroll.
 
 ## Phase 3: Accordion Panel Semantics
-- [x] Update `/Users/ped/Sites/french/french-lo-1-test/src/components/Accordion/AccordionArticle.jsx`:
+- [x] Update `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`:
   - render leaf items as `article`.
   - keep `.accordion-article` class stable.
 - [x] Add a wrapper/group override so structural containers remain `section` where needed.
 - [x] Migrate section heading IDs away from legacy `modal-link-*` naming to semantic `${sectionId}-heading`.
 
 ## Phase 4: JS Selector Hardening
-- [x] Update container lookup in `/Users/ped/Sites/french/french-lo-1-test/src/App.jsx`:
+- [x] Update container lookup in `/Users/ped/Sites/french/french-lo-1/src/App.jsx`:
   - include `article` in `closest(...)` fallback used for modal content extraction.
 - [x] Search and update other selectors that assume `div`/`section` only.
   - selector audit complete: no additional wrapper selectors needed changes beyond the existing `closest("p, li, article, section, div")` fallback in `App.jsx`.

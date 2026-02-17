@@ -8,7 +8,7 @@ Preserve single-source styling through `src/index.css` tokens + Tailwind/shadcn 
 
 Note:
 - This file keeps the original full migration backlog for historical context.
-- Live completion status and current SCSS counts are tracked in `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md`.
+- Live completion status and current SCSS counts are tracked in `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md`.
 
 ## Systematic migration steps (baby steps)
 1. Pick one component and mark its SCSS as “migrate now.”

@@ -48,12 +48,20 @@ Then open:
 http://localhost:5173/projects/french-basic/debug-sandbox.html
 ```
 
-Note: this repo currently sets `base: '/projects/french-basic/'` in `/Users/ped/Sites/french/french-lo-1-test/vite.config.js`, so local dev/preview URLs must include that prefix unless you explicitly override base for preview.
+Note: this repo sets `base: '/projects/french-basic/'` in `/Users/ped/Sites/french/french-lo-1/vite.config.js`, so local dev/preview URLs include that prefix.
 
 Files:
-- `/Users/ped/Sites/french/french-lo-1-test/debug-sandbox.html`
-- `/Users/ped/Sites/french/french-lo-1-test/src/debug/sandbox-main.jsx`
-- `/Users/ped/Sites/french/french-lo-1-test/src/debug/DebugSandbox.jsx`
+- `/Users/ped/Sites/french/french-lo-1/debug-sandbox.html`
+- `/Users/ped/Sites/french/french-lo-1/src/debug/sandbox-main.jsx`
+- `/Users/ped/Sites/french/french-lo-1/src/debug/DebugSandbox.jsx`
+
+### Build behavior
+
+- `yarn build`:
+  - builds the main app only (no debug page in `dist`)
+- `yarn build:with-debug`:
+  - builds main app + debug page in `dist/debug-sandbox.html`
+  - debug entry is enabled via `VITE_INCLUDE_DEBUG=true`
 
 Sandbox includes:
 - LO navigation links for all French Basic learning objects.
@@ -230,7 +238,7 @@ Migration cascade policy:
 ## SCSS Drift Guard
 
 To prevent refactor backsliding, this repo includes:
-- script: `/Users/ped/Sites/french/french-lo-1-test/scripts/check-scss-guard.sh`
+- script: `/Users/ped/Sites/french/french-lo-1/scripts/check-scss-guard.sh`
 
 Policy:
 - blocks any `.scss` / `.sass` files under `src/` (zero-SCSS baseline enforcement)
@@ -250,7 +258,7 @@ yarn check:scss:branch
 ## CI Quality Gates (GitHub Actions)
 
 This repo now includes a PR workflow at:
-- `/Users/ped/Sites/french/french-lo-1-test/.github/workflows/pr-quality.yml`
+- `/Users/ped/Sites/french/french-lo-1/.github/workflows/pr-quality.yml`
 
 It runs on every pull request and enforces:
 - `yarn build`
@@ -260,25 +268,25 @@ It runs on every pull request and enforces:
 - `yarn check:a11y:branch`
 
 For future projects, copy the reusable CI baseline from:
-- `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md` (section: **Out-of-the-Box GitHub Actions CI (Default)**)
+- `/Users/ped/Sites/french/french-lo-1/FUTURE_PROJECTS.md` (section: **Out-of-the-Box GitHub Actions CI (Default)**)
 
 ## Migration Trackers
 
 The active migration/audit trackers are:
 
-- `/Users/ped/Sites/french/french-lo-1-test/TASKS_COMPLETED.md` (live checklist)
-- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_ISSUES.md` (current accordion risk analysis)
-- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
-- `/Users/ped/Sites/french/french-lo-1-test/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
-- `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
-- `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
-- `/Users/ped/Sites/french/french-lo-1-test/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
-- `/Users/ped/Sites/french/french-lo-1-test/TYPOGRAPHY_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1-test/COLOR_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1-test/HTML_ACCESSIBILITY_ISSUES.md`
-- `/Users/ped/Sites/french/french-lo-1-test/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
-- `/Users/ped/Sites/french/french-lo-1-test/FONTS_PROBLEM.md` (build asset duplication root-cause note)
-- `/Users/ped/Sites/french/french-lo-1-test/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
+- `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` (live checklist)
+- `/Users/ped/Sites/french/french-lo-1/ACCORDION_ISSUES.md` (current accordion risk analysis)
+- `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
+- `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
+- `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
+- `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
+- `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
+- `/Users/ped/Sites/french/french-lo-1/TYPOGRAPHY_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1/COLOR_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1/HTML_ACCESSIBILITY_ISSUES.md`
+- `/Users/ped/Sites/french/french-lo-1/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
+- `/Users/ped/Sites/french/french-lo-1/FONTS_PROBLEM.md` (build asset duplication root-cause note)
+- `/Users/ped/Sites/french/french-lo-1/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 
 DOM semantics contract (current migration target):
 - one primary nav landmark for the main IA (`header > nav`), while preserving responsive behavior
