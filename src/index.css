@@ -815,7 +815,7 @@
 	}
 
 	.main-menu .mobile-menu .mobile-menu-list li.highlight {
-		border-left: 2px solid rgb(var(--color-primary-400));
+		border-left: 5px solid rgb(var(--color-primary-400));
 	}
 
 	.main-menu .mobile-menu .nav-link-mobile {
@@ -2676,9 +2676,9 @@
 	}
 
 	.blanks-container .target-board .word.blank {
-		width: clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem);
-		min-width: clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem);
-		max-width: clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem);
+		width: max(var(--blanks-slot-px, 0px), clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem));
+		min-width: max(var(--blanks-slot-px, 0px), clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem));
+		max-width: max(var(--blanks-slot-px, 0px), clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem));
 		min-height: 2.1rem;
 		border: solid 1px color-mix(in oklab, var(--border) 56%, var(--chart-3));
 		border-radius: 9999px;
@@ -2859,9 +2859,9 @@
 		}
 
 		.blanks-container .target-board .word.blank {
-			width: clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem);
-			min-width: clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem);
-			max-width: clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem);
+			width: max(var(--blanks-slot-px, 0px), clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem));
+			min-width: max(var(--blanks-slot-px, 0px), clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem));
+			max-width: max(var(--blanks-slot-px, 0px), clamp(4.75rem, calc(var(--blanks-slot-ch, 7) * 0.44rem + 1.35rem), 7rem));
 			min-height: 1.95rem;
 		}
 	}
@@ -2946,167 +2946,83 @@
 		margin-top: 0;
 	}
 
-	#LO1-pronunciation1-Accordion img,
-	#LO1-pronunciation2-Accordion img,
-	#LO1-pronunciation3-Accordion img,
-	#LO1-pronunciation4-Accordion img,
-	#LO1-pronunciation-Group-Section img {
-		width: 300px;
-		height: 300px;
-		margin: 0 0 20px 20px;
-		border: 1px solid var(--border);
+	#LO1-pronunciation1-Accordion .pronunciation-panel,
+	#LO1-pronunciation2-Accordion .pronunciation-panel,
+	#LO1-pronunciation3-Accordion .pronunciation-panel,
+	#LO1-pronunciation4-Accordion .pronunciation-panel,
+	#LO1-pronunciation-Group-Section .pronunciation-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
 	}
 
-	#LO1-pronunciation1-Accordion #pronunciation1Panel,
-	#LO1-pronunciation1-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation1-Accordion #pronunciation3Panel,
-	#LO1-pronunciation1-Accordion #pronunciation4Panel,
-	#LO1-pronunciation2-Accordion #pronunciation1Panel,
-	#LO1-pronunciation2-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation2-Accordion #pronunciation3Panel,
-	#LO1-pronunciation2-Accordion #pronunciation4Panel,
-	#LO1-pronunciation3-Accordion #pronunciation1Panel,
-	#LO1-pronunciation3-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation3-Accordion #pronunciation3Panel,
-	#LO1-pronunciation3-Accordion #pronunciation4Panel,
-	#LO1-pronunciation4-Accordion #pronunciation1Panel,
-	#LO1-pronunciation4-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation4-Accordion #pronunciation3Panel,
-	#LO1-pronunciation4-Accordion #pronunciation4Panel,
-	#LO1-pronunciation-Group-Section #pronunciation1Panel,
-	#LO1-pronunciation-Group-Section #pronunciation2Panel2,
-	#LO1-pronunciation-Group-Section #pronunciation3Panel,
-	#LO1-pronunciation-Group-Section #pronunciation4Panel {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 0.2fr 1fr;
-		gap: 0px 0px;
-		grid-template-areas:
-			"title title"
-			"text image";
-	}
-
-	#LO1-pronunciation1-Accordion #pronunciation1Panel h3,
-	#LO1-pronunciation1-Accordion #pronunciation2Panel2 h3,
-	#LO1-pronunciation1-Accordion #pronunciation3Panel h3,
-	#LO1-pronunciation1-Accordion #pronunciation4Panel h3,
-	#LO1-pronunciation2-Accordion #pronunciation1Panel h3,
-	#LO1-pronunciation2-Accordion #pronunciation2Panel2 h3,
-	#LO1-pronunciation2-Accordion #pronunciation3Panel h3,
-	#LO1-pronunciation2-Accordion #pronunciation4Panel h3,
-	#LO1-pronunciation3-Accordion #pronunciation1Panel h3,
-	#LO1-pronunciation3-Accordion #pronunciation2Panel2 h3,
-	#LO1-pronunciation3-Accordion #pronunciation3Panel h3,
-	#LO1-pronunciation3-Accordion #pronunciation4Panel h3,
-	#LO1-pronunciation4-Accordion #pronunciation1Panel h3,
-	#LO1-pronunciation4-Accordion #pronunciation2Panel2 h3,
-	#LO1-pronunciation4-Accordion #pronunciation3Panel h3,
-	#LO1-pronunciation4-Accordion #pronunciation4Panel h3,
-	#LO1-pronunciation-Group-Section #pronunciation1Panel h3,
-	#LO1-pronunciation-Group-Section #pronunciation2Panel2 h3,
-	#LO1-pronunciation-Group-Section #pronunciation3Panel h3,
-	#LO1-pronunciation-Group-Section #pronunciation4Panel h3 {
-		grid-area: title;
+	#LO1-pronunciation1-Accordion .pronunciation-panel h3,
+	#LO1-pronunciation2-Accordion .pronunciation-panel h3,
+	#LO1-pronunciation3-Accordion .pronunciation-panel h3,
+	#LO1-pronunciation4-Accordion .pronunciation-panel h3,
+	#LO1-pronunciation-Group-Section .pronunciation-panel h3 {
 		margin-top: 0;
 	}
 
-	#LO1-pronunciation1-Accordion #pronunciation1Panel .information,
-	#LO1-pronunciation1-Accordion #pronunciation2Panel2 .information,
-	#LO1-pronunciation1-Accordion #pronunciation3Panel .information,
-	#LO1-pronunciation1-Accordion #pronunciation4Panel .information,
-	#LO1-pronunciation2-Accordion #pronunciation1Panel .information,
-	#LO1-pronunciation2-Accordion #pronunciation2Panel2 .information,
-	#LO1-pronunciation2-Accordion #pronunciation3Panel .information,
-	#LO1-pronunciation2-Accordion #pronunciation4Panel .information,
-	#LO1-pronunciation3-Accordion #pronunciation1Panel .information,
-	#LO1-pronunciation3-Accordion #pronunciation2Panel2 .information,
-	#LO1-pronunciation3-Accordion #pronunciation3Panel .information,
-	#LO1-pronunciation3-Accordion #pronunciation4Panel .information,
-	#LO1-pronunciation4-Accordion #pronunciation1Panel .information,
-	#LO1-pronunciation4-Accordion #pronunciation2Panel2 .information,
-	#LO1-pronunciation4-Accordion #pronunciation3Panel .information,
-	#LO1-pronunciation4-Accordion #pronunciation4Panel .information,
-	#LO1-pronunciation-Group-Section #pronunciation1Panel .information,
-	#LO1-pronunciation-Group-Section #pronunciation2Panel2 .information,
-	#LO1-pronunciation-Group-Section #pronunciation3Panel .information,
-	#LO1-pronunciation-Group-Section #pronunciation4Panel .information {
-		grid-area: title;
+	#LO1-pronunciation1-Accordion .pronunciation-content,
+	#LO1-pronunciation2-Accordion .pronunciation-content,
+	#LO1-pronunciation3-Accordion .pronunciation-content,
+	#LO1-pronunciation4-Accordion .pronunciation-content,
+	#LO1-pronunciation-Group-Section .pronunciation-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		align-items: flex-start;
 	}
 
-	#LO1-pronunciation1-Accordion #pronunciation1Panel p,
-	#LO1-pronunciation1-Accordion #pronunciation2Panel2 p,
-	#LO1-pronunciation1-Accordion #pronunciation3Panel p,
-	#LO1-pronunciation1-Accordion #pronunciation4Panel p,
-	#LO1-pronunciation2-Accordion #pronunciation1Panel p,
-	#LO1-pronunciation2-Accordion #pronunciation2Panel2 p,
-	#LO1-pronunciation2-Accordion #pronunciation3Panel p,
-	#LO1-pronunciation2-Accordion #pronunciation4Panel p,
-	#LO1-pronunciation3-Accordion #pronunciation1Panel p,
-	#LO1-pronunciation3-Accordion #pronunciation2Panel2 p,
-	#LO1-pronunciation3-Accordion #pronunciation3Panel p,
-	#LO1-pronunciation3-Accordion #pronunciation4Panel p,
-	#LO1-pronunciation4-Accordion #pronunciation1Panel p,
-	#LO1-pronunciation4-Accordion #pronunciation2Panel2 p,
-	#LO1-pronunciation4-Accordion #pronunciation3Panel p,
-	#LO1-pronunciation4-Accordion #pronunciation4Panel p,
-	#LO1-pronunciation-Group-Section #pronunciation1Panel p,
-	#LO1-pronunciation-Group-Section #pronunciation2Panel2 p,
-	#LO1-pronunciation-Group-Section #pronunciation3Panel p,
-	#LO1-pronunciation-Group-Section #pronunciation4Panel p {
-		grid-area: text;
+	#LO1-pronunciation1-Accordion .pronunciation-text,
+	#LO1-pronunciation2-Accordion .pronunciation-text,
+	#LO1-pronunciation3-Accordion .pronunciation-text,
+	#LO1-pronunciation4-Accordion .pronunciation-text,
+	#LO1-pronunciation-Group-Section .pronunciation-text {
+		min-width: 0;
+		flex: 1 1 auto;
 	}
 
-	#LO1-pronunciation1-Accordion #pronunciation1Panel img,
-	#LO1-pronunciation1-Accordion #pronunciation2Panel2 img,
-	#LO1-pronunciation1-Accordion #pronunciation3Panel img,
-	#LO1-pronunciation1-Accordion #pronunciation4Panel img,
-	#LO1-pronunciation2-Accordion #pronunciation1Panel img,
-	#LO1-pronunciation2-Accordion #pronunciation2Panel2 img,
-	#LO1-pronunciation2-Accordion #pronunciation3Panel img,
-	#LO1-pronunciation2-Accordion #pronunciation4Panel img,
-	#LO1-pronunciation3-Accordion #pronunciation1Panel img,
-	#LO1-pronunciation3-Accordion #pronunciation2Panel2 img,
-	#LO1-pronunciation3-Accordion #pronunciation3Panel img,
-	#LO1-pronunciation3-Accordion #pronunciation4Panel img,
-	#LO1-pronunciation4-Accordion #pronunciation1Panel img,
-	#LO1-pronunciation4-Accordion #pronunciation2Panel2 img,
-	#LO1-pronunciation4-Accordion #pronunciation3Panel img,
-	#LO1-pronunciation4-Accordion #pronunciation4Panel img,
-	#LO1-pronunciation-Group-Section #pronunciation1Panel img,
-	#LO1-pronunciation-Group-Section #pronunciation2Panel2 img,
-	#LO1-pronunciation-Group-Section #pronunciation3Panel img,
-	#LO1-pronunciation-Group-Section #pronunciation4Panel img {
-		justify-self: right;
-		grid-area: image;
+	#LO1-pronunciation1-Accordion .pronunciation-text > p,
+	#LO1-pronunciation2-Accordion .pronunciation-text > p,
+	#LO1-pronunciation3-Accordion .pronunciation-text > p,
+	#LO1-pronunciation4-Accordion .pronunciation-text > p,
+	#LO1-pronunciation-Group-Section .pronunciation-text > p {
+		margin-top: 0;
+		margin-bottom: 0.9rem;
+	}
+
+	#LO1-pronunciation1-Accordion .pronunciation-text > p:last-child,
+	#LO1-pronunciation2-Accordion .pronunciation-text > p:last-child,
+	#LO1-pronunciation3-Accordion .pronunciation-text > p:last-child,
+	#LO1-pronunciation4-Accordion .pronunciation-text > p:last-child,
+	#LO1-pronunciation-Group-Section .pronunciation-text > p:last-child {
+		margin-bottom: 0;
+	}
+
+	#LO1-pronunciation1-Accordion .pronunciation-content :is(.pronunciation-media, img),
+	#LO1-pronunciation2-Accordion .pronunciation-content :is(.pronunciation-media, img),
+	#LO1-pronunciation3-Accordion .pronunciation-content :is(.pronunciation-media, img),
+	#LO1-pronunciation4-Accordion .pronunciation-content :is(.pronunciation-media, img),
+	#LO1-pronunciation-Group-Section .pronunciation-content :is(.pronunciation-media, img) {
 		width: 300px;
 		height: 300px;
+		max-width: 100%;
 		border: 1px solid var(--border);
+		margin: 0;
 	}
 
-	#LO1-pronunciation1-Accordion #pronunciation1Panel,
-	#LO1-pronunciation1-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation1-Accordion #pronunciation3Panel,
-	#LO1-pronunciation1-Accordion #pronunciation4Panel,
-	#LO1-pronunciation2-Accordion #pronunciation1Panel,
-	#LO1-pronunciation2-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation2-Accordion #pronunciation3Panel,
-	#LO1-pronunciation2-Accordion #pronunciation4Panel,
-	#LO1-pronunciation3-Accordion #pronunciation1Panel,
-	#LO1-pronunciation3-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation3-Accordion #pronunciation3Panel,
-	#LO1-pronunciation3-Accordion #pronunciation4Panel,
-	#LO1-pronunciation4-Accordion #pronunciation1Panel,
-	#LO1-pronunciation4-Accordion #pronunciation2Panel2,
-	#LO1-pronunciation4-Accordion #pronunciation3Panel,
-	#LO1-pronunciation4-Accordion #pronunciation4Panel,
-	#LO1-pronunciation-Group-Section #pronunciation1Panel,
-	#LO1-pronunciation-Group-Section #pronunciation2Panel2,
-	#LO1-pronunciation-Group-Section #pronunciation3Panel,
-	#LO1-pronunciation-Group-Section #pronunciation4Panel {
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			"title"
-			"text";
+	@media (min-width: 960px) {
+		#LO1-pronunciation1-Accordion .pronunciation-content,
+		#LO1-pronunciation2-Accordion .pronunciation-content,
+		#LO1-pronunciation3-Accordion .pronunciation-content,
+		#LO1-pronunciation4-Accordion .pronunciation-content,
+		#LO1-pronunciation-Group-Section .pronunciation-content {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 1.25rem;
+		}
 	}
 
 	#LO2-pronunciation-Section img.lo2-demystify-shh {

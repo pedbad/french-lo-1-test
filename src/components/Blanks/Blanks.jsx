@@ -131,16 +131,17 @@ export class Blanks extends React.Component {
 				break;
 		}
 
-			this.state = {
-				...config,
-				id,
-				assignedCount: 0,
+		this.state = {
+			...config,
+			id,
+			assignedCount: 0,
 				margin: 20,
 				nToPlace,
 				showHints: false,
-				showInvalidDropHint: false,
-				wordTiles,
-				words,
+			showInvalidDropHint: false,
+			slotWidthPx: null,
+			wordTiles,
+			words,
 
 			activeRowIndex: -1,
 			masterPlayState: "stopped",
@@ -148,7 +149,7 @@ export class Blanks extends React.Component {
 		};
 	}
 
-		componentDidMount() {
+	componentDidMount() {
 		document.addEventListener(
 			"touchmove",
 			(e) => {
@@ -156,6 +157,8 @@ export class Blanks extends React.Component {
 			},
 			{ passive: false }
 		);
+		window.addEventListener("resize", this.scheduleSlotWidthMeasure);
+		this.scheduleSlotWidthMeasure();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -167,17 +170,45 @@ export class Blanks extends React.Component {
 
 		if (idChanged || configRefChanged) {
 			this.tileHomePositions = {};
+			this.scheduleSlotWidthMeasure();
 		}
 	}
 
 	componentWillUnmount() {
 		if (this.invalidDropHintTimeout) clearTimeout(this.invalidDropHintTimeout);
+		if (this.slotMeasureRaf) cancelAnimationFrame(this.slotMeasureRaf);
+		window.removeEventListener("resize", this.scheduleSlotWidthMeasure);
 	}
 
 	// ---------- Helpers ----------
 
 	getTileKey = (tileEl) => tileEl?.classList?.[0]; // "word{index}"
 	getWordKeyFromEl = (el) => Array.from(el?.classList || []).find((c) => /^word\d+$/.test(c));
+
+	scheduleSlotWidthMeasure = () => {
+		if (this.slotMeasureRaf) cancelAnimationFrame(this.slotMeasureRaf);
+		this.slotMeasureRaf = requestAnimationFrame(this.updateSlotWidthFromDraggables);
+	};
+
+	updateSlotWidthFromDraggables = () => {
+		const { firstMouseDown = true, id, slotWidthPx } = this.state;
+		if (!id) return;
+		if (!firstMouseDown) return;
+
+		const draggableSpans = document.querySelectorAll(`#${id} .words-container .word span`);
+		let maxWidth = 0;
+
+		draggableSpans.forEach((span) => {
+			const w = span.getBoundingClientRect().width;
+			if (w > maxWidth) maxWidth = w;
+		});
+
+		if (maxWidth <= 0) return;
+
+		// Keep slots slightly wider than the longest draggable word chip.
+		const bufferedWidth = Math.ceil(maxWidth + 14);
+		if (slotWidthPx !== bufferedWidth) this.setState({ slotWidthPx: bufferedWidth });
+	};
 
 	getWordsContainerRect = () => {
 		const wc = this.wordsContainerRef.current;
@@ -809,8 +840,9 @@ export class Blanks extends React.Component {
 				showHints,
 				showHintsText,
 				showInvalidDropHint = false,
-				soundFile,
+			soundFile,
 			soundFiles = [],
+			slotWidthPx,
 			words = [],
 		} = this.state;
 
@@ -844,7 +876,10 @@ export class Blanks extends React.Component {
 			return Math.max(max, normalized.length);
 		}, 0);
 		const slotCharWidth = Math.min(16, Math.max(4, largestSlotChars));
-		const targetBoardStyle = { "--blanks-slot-ch": slotCharWidth };
+		const targetBoardStyle = {
+			"--blanks-slot-ch": slotCharWidth,
+			"--blanks-slot-px": slotWidthPx ? `${slotWidthPx}px` : undefined,
+		};
 
 		switch (blanksType) {
 			case 'phrases': {

@@ -2,7 +2,7 @@ import { SquareDashedMousePointer } from "lucide-react";
 import React from 'react';
 
 const BLANK_WORD_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.05)] leading-[1.2] min-[420px]:text-[calc(var(--font-size-sm)*1.15)] sm:text-[calc(var(--font-size-sm)*1.2)]";
-const DROP_TARGET_ICON_CLASS = "blanks-slot-icon pointer-events-none absolute inset-0 m-auto h-4 w-4 text-[color-mix(in_oklab,var(--chart-3)_54%,var(--muted-foreground))] opacity-70 z-0 transition-all duration-200";
+const DROP_TARGET_ICON_CLASS = "blanks-slot-icon pointer-events-none absolute inset-0 m-auto h-[1.05rem] w-[1.05rem] min-[420px]:h-[1.15rem] min-[420px]:w-[1.15rem] text-[color-mix(in_oklab,var(--chart-3)_54%,var(--muted-foreground))] opacity-70 z-0 transition-all duration-200";
 const DRAGGABLE_WORD_TILE_CLASS = [
 	"inline-flex justify-center select-none transition-[left,top,box-shadow] duration-1000",
 	"[&.draggable]:cursor-pointer",
