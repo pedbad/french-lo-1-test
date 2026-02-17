@@ -21,6 +21,7 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import DOMPurify from "dompurify";
+import { CircleAlert } from "lucide-react";
 import React from 'react';
 import { Switch } from "@/components/ui/switch";
 
@@ -30,6 +31,7 @@ const BLANKS_CONTENT_FLOW_CLASS = "leading-[var(--line-height-app)]";
 const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*0.5)] sm:leading-[calc(var(--font-size-sm)*3.5)]";
 const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*2.6)]";
 const BLANKS_DROP_TARGET_CLASS = "blanks-drop-slot";
+const INVALID_DROP_HINT_DURATION_MS = 1800;
 
 export class Blanks extends React.Component {
 
@@ -650,7 +652,7 @@ export class Blanks extends React.Component {
 		this.setState({ showInvalidDropHint: true });
 		this.invalidDropHintTimeout = setTimeout(() => {
 			this.setState({ showInvalidDropHint: false });
-		}, 900);
+		}, INVALID_DROP_HINT_DURATION_MS);
 	};
 
 	clearTargetHighlights = () => {
@@ -1127,7 +1129,14 @@ export class Blanks extends React.Component {
 							<span id={id ? `showHintsLabel-${id}` : undefined} className="text-sm font-medium leading-none cursor-pointer">
 								{showHintsText}
 							</span>
-							<span className={`invalid-drop-hint ${showInvalidDropHint ? 'show' : ''}`} aria-live="polite">
+							{/* Keep this as a polite inline hint (not shadcn <Alert role="alert">):
+							    wrong-drop feedback can fire repeatedly during drag practice, and assertive
+							    announcements would be overly interruptive for screen-reader users. */}
+							<span
+								className={`invalid-drop-hint border border-[color-mix(in_oklab,var(--destructive)_72%,var(--foreground))] bg-[color-mix(in_oklab,var(--destructive)_14%,var(--card))] text-[var(--destructive)] ${showInvalidDropHint ? 'show' : ''}`}
+								aria-live="polite"
+							>
+								<CircleAlert aria-hidden="true" className="h-[1em] w-[1em]" />
 								Try another slot
 							</span>
 						</div>

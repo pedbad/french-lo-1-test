@@ -2796,13 +2796,11 @@
 		display: inline-flex;
 		align-items: center;
 		margin-left: 0.45rem;
-		background: color-mix(in oklab, var(--ped-warn) 86%, var(--foreground));
-		color: var(--primary-foreground);
 		border-radius: 0.6rem;
 		padding: 0.35rem 0.7rem;
 		font-size: var(--font-size-sm);
 		font-weight: 600;
-		box-shadow: 0 2px 10px color-mix(in oklab, var(--ped-warn) 35%, transparent);
+		box-shadow: 0 2px 10px color-mix(in oklab, var(--destructive) 35%, transparent);
 		transition: opacity 140ms ease, transform 140ms ease;
 		transform: translateY(0.08rem);
 	}
