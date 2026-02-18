@@ -17,6 +17,23 @@ Update (2026-02-15):
 - Replaced legacy presentational inline tags in rendered JSX:
   - `<b>` -> `<strong>`
   - `<i>` -> `<em>`
+- Completed a full FR config-content normalization sweep (2026-02-18) so author-authored HTML in LO JSON also follows semantic emphasis:
+  - `<b>` -> `<strong>`
+  - `<i>` -> `<em>`
+  - files:
+    - `src/learningObjectConfigurations/fr/1.json`
+    - `src/learningObjectConfigurations/fr/2.json`
+    - `src/learningObjectConfigurations/fr/3.json`
+    - `src/learningObjectConfigurations/fr/4.json`
+    - `src/learningObjectConfigurations/fr/6.json`
+    - `src/learningObjectConfigurations/fr/10.json`
+    - `src/learningObjectConfigurations/fr/11.json`
+    - `src/learningObjectConfigurations/fr/12.json`
+    - `src/learningObjectConfigurations/fr/answer.json`
+    - `src/learningObjectConfigurations/fr/demo.json`
+- Why this matters:
+  - semantic emphasis is announced more consistently by assistive technologies than presentational tags;
+  - keeps markup meaning-driven (not style-driven), which reduces future drift and validator churn.
 - Replaced abbreviation table-like content with better semantics using abbreviation definitions (`<dl>`, `<dt>`, `<dd>`) in `CustomComponents_FR` (Abbreviations block).
 
 ## What Is Noise (Do Not Triage First)

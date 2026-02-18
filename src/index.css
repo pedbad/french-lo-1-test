@@ -127,6 +127,8 @@
 		--ped-neg: var(--destructive);
 		--ped-neutral: var(--muted-foreground);
 		--ped-accent: var(--primary);
+		--emphasis-strong-color: color-mix(in oklab, var(--foreground) 86%, var(--chart-3));
+		--emphasis-em-color: color-mix(in oklab, var(--foreground) 84%, var(--ped-warn));
 		--instruction-callout-accent-start: color-mix(in oklab, var(--ped-warn) 62%, var(--foreground));
 		--instruction-callout-accent-end: color-mix(in oklab, var(--ped-warn) 28%, var(--page-background));
 		--instruction-callout-shadow: color-mix(in oklab, var(--ped-warn) 8%, transparent);
@@ -224,6 +226,8 @@
 		--footer-background: var(--sidebar);
 		--accordion-mist: color-mix(in oklab, var(--chart-2) 18%, var(--card));
 		--accordion-hover-text: var(--foreground);
+		--emphasis-strong-color: color-mix(in oklab, var(--foreground) 90%, var(--chart-3));
+		--emphasis-em-color: color-mix(in oklab, var(--foreground) 88%, var(--ped-warn));
 		--instruction-callout-accent-start: color-mix(in oklab, var(--ped-warn) 54%, var(--foreground));
 		--instruction-callout-accent-end: color-mix(in oklab, var(--ped-warn) 24%, var(--card));
 		--instruction-callout-shadow: color-mix(in oklab, var(--ped-warn) 12%, transparent);
@@ -373,6 +377,17 @@
 	figure figcaption {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
+	}
+
+	/* Semantic emphasis: keep meaning in HTML; color is supplemental only. */
+	main :where(strong) {
+		color: var(--emphasis-strong-color);
+		font-weight: 700;
+	}
+
+	main :where(em) {
+		color: var(--emphasis-em-color);
+		font-style: italic;
 	}
 
 	/* Pedagogical (content) helpers for lesson text and examples. */

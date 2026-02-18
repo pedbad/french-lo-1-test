@@ -1,6 +1,6 @@
 # Tasks Completed Tracker
 
-Last updated: 2026-02-15
+Last updated: 2026-02-18
 Repo: `/Users/ped/Sites/french/french-lo-1`
 
 This checklist tracks migration progress toward one source of truth (tokens + Tailwind/shadcn utilities) and reduced SCSS ownership.
@@ -96,11 +96,47 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - add optional `audioFolder` + `order` metadata in LO JSON for clarity
   - add a validation script to confirm each mapped folder exists and matches referenced audio files
 
+## Images
+
+- [x] Introduce new image root for migration (`public/img`)
+  - scaffolded `common`, `shared`, and `lo1..lo15` directories
+  - added `public/img/README.md` naming + structure contract
+- [x] Add image migration architecture + checklist doc
+  - `IMAGE_MIGRATION_PLAN.md`
+  - includes current usage tally and phased move strategy
+- [x] Add image guard script
+  - `scripts/check-image-path-guard.sh`
+  - blocks new legacy-path files under `public/images/`
+  - blocks newly added legacy refs (`images/`, `/images/`) in source diffs
+  - enforces lowercase/ASCII/no-spaces for new `public/img` assets
+- [x] Wire image guard into local quality gates
+  - `.githooks/pre-commit` includes `yarn -s check:image-path`
+  - `prepush:local` includes `yarn check:image-path:branch`
+- [ ] Migrate app shell image references from `images/` to `img/` (copy-first, then delete legacy)
+  - completed batch: footer UC logos moved to `img/common/footer/*-light|-dark.png` and `Footer.jsx` updated
+  - completed batch: hero banner moved to `img/common/branding/fr-banner.svg` and app/debug references updated
+- [ ] Migrate LO JSON image references in batches (`lo1` first, then shared memory sets, then remaining LOs)
+  - completed batch: shared grammar artwork moved to `img/shared/grammar.svg` and LO/debug refs updated
+  - completed batch: LO1 first-contact artwork moved to `img/lo1/first-contact.svg` and app/LO/debug refs updated
+  - completed batch: LO2 intro now uses `settings.introImage` -> `img/lo2/about-me.svg` (App intro image logic made config-driven)
+
 ## Accessibility / HTML Validity
 
 - [x] Audit and phased plan documented in `HTML_ACCESSIBILITY_ISSUES.md`
-- [x] Semantic inline emphasis and spacing cleanup in JSX
-  - replaced legacy presentational tags in rendered JSX content (`<b>/<i>`) with semantic tags (`<strong>/<em>`) in key content renderers
+- [x] Semantic inline emphasis normalization across JSX + LO config content
+  - replaced legacy presentational tags (`<b>/<i>`) with semantic tags (`<strong>/<em>`) in rendered JSX and FR LO JSON-authored HTML
+  - completed FR LO config sweep files:
+    - `src/learningObjectConfigurations/fr/1.json`
+    - `src/learningObjectConfigurations/fr/2.json`
+    - `src/learningObjectConfigurations/fr/3.json`
+    - `src/learningObjectConfigurations/fr/4.json`
+    - `src/learningObjectConfigurations/fr/6.json`
+    - `src/learningObjectConfigurations/fr/10.json`
+    - `src/learningObjectConfigurations/fr/11.json`
+    - `src/learningObjectConfigurations/fr/12.json`
+    - `src/learningObjectConfigurations/fr/answer.json`
+    - `src/learningObjectConfigurations/fr/demo.json`
+  - rationale: semantic emphasis improves assistive-technology interpretation and avoids meaning/style drift in content authoring
   - fixed inline spacing around Grammar 2 (`Tu` / `vous`) audio-link sentence using explicit React spaces (`{' '}`) to avoid collapsed/ambiguous gaps around inline components
   - build verification passed (`yarn build`)
 - [ ] Phase 1: remove invalid `name` attributes and empty IDs

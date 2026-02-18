@@ -321,7 +321,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns2",
 					"congratulationsText": "Très bien !",
-					"htmlContent": "<div><h2>All the words containing double&nbsp;<b>ll</b> are in bold. Do you know which are pronounced <b>l</b> and which <b>y</b>? Select <b>y</b> or <b>l</b> in the box below. Once you've completed each task listen to the text.</h2><table class='camille'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/La famille de Camille habite à Paris.mp3'>La <b>famille</b> de <b>Camille</b> habite à Paris.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de Camille est très gentille.mp3'>La <b>fille</b> de <b>Camille</b> est très <b>gentille</b>.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de sa fille s&apos;appelle Myrtille.mp3'>La <b>fille</b> de sa <b>fille</b> <b>s'appelle Myrtille</b>.</span></br><span class='audio-link' sound-file='sounds/fr/Camille aime les tilleuls de Versailles.mp3'><b>Camille</b> aime les <b>tilleuls</b> de <b>Versailles</b>.</span></td></tr></tbody></table><p class='footnote'>les tilleuls - lime trees</p></div>&copy; Jacqueline Rosen",
+					"htmlContent": "<div><h2>All the words containing double&nbsp;<strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select <strong>y</strong> or <strong>l</strong> in the box below. Once you've completed each task listen to the text.</h2><table class='camille'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/La famille de Camille habite à Paris.mp3'>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de Camille est très gentille.mp3'>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de sa fille s&apos;appelle Myrtille.mp3'>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</span></br><span class='audio-link' sound-file='sounds/fr/Camille aime les tilleuls de Versailles.mp3'><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</span></td></tr></tbody></table><p class='footnote'>les tilleuls - lime trees</p></div>&copy; Jacqueline Rosen",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -366,7 +366,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns3",
 					"congratulationsText": "Très bien !",
-					"htmlContent": "<div><h2>All the words containing double <b>ll</b> are in bold. Do you know which are pronounced <b>l</b> and which <b>y</b>? Select y or l in the box below. Once you've completed each task listen to the text.</h2><table class='annabelle'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/Annabelle a une petite-fille.mp3'><b>Annabelle</b> a une <b>petite-fille</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Elle s&apos;appelle Isabelle.mp3'><b>Elle s'appelle Isabelle</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle nest pas belle.mp3'><b>Isabelle</b> n'est pas <b>belle</b></span><br/><span class='audio-link' sound-file='sounds/fr/Mais Isabelle est très gentille.mp3'>Mais <b>Isabelle</b> est très <b>gentille</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle habite à Lille.mp3'><b>Isabelle</b> habite à <b>Lille</b></span><br/><span class='audio-link' sound-file='sounds/fr/Elle y habite avec Gilles.mp3'><b>Elle</b> y habite avec <b>Gilles</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Ce nest pas très tranquille.mp3'>Ce n'est pas très <b>tranquille</b>.</span><br/><span class='audio-link' sound-file='sounds/fr/Mais quelle belle ville, la ville de Lille.mp3'>Mais <b>quelle belle ville</b>, la <b>ville</b> de <b>Lille</b> !</span></td></tr></tbody></table>&copy; Jacqueline Rosen</div>",
+					"htmlContent": "<div><h2>All the words containing double <strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select y or l in the box below. Once you've completed each task listen to the text.</h2><table class='annabelle'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/Annabelle a une petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Elle s&apos;appelle Isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle nest pas belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Mais Isabelle est très gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle habite à Lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Elle y habite avec Gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Ce nest pas très tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Mais quelle belle ville, la ville de Lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong> !</span></td></tr></tbody></table>&copy; Jacqueline Rosen</div>",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -420,7 +420,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns4",
 					"congratulationsText": "Superbe !",
-					"instructionsTextHTML": "Fill in the gaps with the correct part of <b>avoir</b>.",
+					"instructionsTextHTML": "Fill in the gaps with the correct part of <strong>avoir</strong>.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -465,7 +465,7 @@
 							"audio": "sounds/fr/Vous avez quel âge.mp3"
 						}
 					],
-					"titleTextHTML": "4. Practise the verb <b>avoir</b>."
+					"titleTextHTML": "4. Practise the verb <strong>avoir</strong>."
 				}
 			},
 			{

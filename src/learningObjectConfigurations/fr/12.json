@@ -608,14 +608,14 @@
 						"jus"
 					],
 					"soundFile": "sounds/fr/LO12EX4.mp3",
-					"titleTextHTML": "5. Distinguishing the sounds <b>u</b> and <b>ou</b>"
+					"titleTextHTML": "5. Distinguishing the sounds <strong>u</strong> and <strong>ou</strong>"
 				}
 			},
 			{
 				"radio2": {
 					"component": "RadioQuiz",
 					"id": "radio2",
-					"instructionsTextHTML": "Play each phrase, click <b>u</b> or <b>ou</b>.",
+					"instructionsTextHTML": "Play each phrase, click <strong>u</strong> or <strong>ou</strong>.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "sort-table",

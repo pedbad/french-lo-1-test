@@ -8,7 +8,7 @@
 	},
 	"group1": {
 		"component": "Group",
-		"htmlContent": "<p>This <b>Jigsaw</b> component presents 2 sets of jigsaw pieces. The student needs to read / listen to the phrase that describes a picture. This should enable the student to choose the correct pieces to place into a simple jigsaw picture.</p><p>Two or more errors reveal some help options.</p>",
+		"htmlContent": "<p>This <strong>Jigsaw</strong> component presents 2 sets of jigsaw pieces. The student needs to read / listen to the phrase that describes a picture. This should enable the student to choose the correct pieces to place into a simple jigsaw picture.</p><p>Two or more errors reveal some help options.</p>",
 		"content": [
 			{
 				"jigsaw1": {
@@ -187,7 +187,7 @@
 					"cheatText": "Show answer",
 					"component": "WordGrid",
 					"congratulationsText": "That was a roaring success!",
-					"htmlContent": "<p>This <b>WordGrid</b> component takes a number of words, their translations and sound files and arranges them into a word grid puzzle.</p><p>The student must know the target language version of the word and drag the mouse from the first letter to the last to highlight the word. The word is then sounded.</p>",
+					"htmlContent": "<p>This <strong>WordGrid</strong> component takes a number of words, their translations and sound files and arranges them into a word grid puzzle.</p><p>The student must know the target language version of the word and drag the mouse from the first letter to the last to highlight the word. The word is then sounded.</p>",
 					"id": "WordGrid2",
 					"instructionsText": "Drag across the grid to find the words below.",
 					"words": [
@@ -685,7 +685,7 @@
 					"cheatText": "Show answer",
 					"component": "MemoryMatchGame",
 					"congratulationsText": "Congratulations! You have a good memory!",
-					"htmlContent": "<p>This <b>MemoryMatchGame</b> component presents <i>nPairsToPlay</i> pairs of cards face dwon. The student can turn over two at a time. If either are word cards the student can play the audio of the word. If there is one word card and one picture card and they match, the audio is read out once more and the pair added to a collection of matches on the right.</p>",
+					"htmlContent": "<p>This <strong>MemoryMatchGame</strong> component presents <em>nPairsToPlay</em> pairs of cards face dwon. The student can turn over two at a time. If either are word cards the student can play the audio of the word. If there is one word card and one picture card and they match, the audio is read out once more and the pair added to a collection of matches on the right.</p>",
 					"id": "MemoryMatchGame1",
 					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 6,
@@ -784,7 +784,7 @@
 					"cheatText": "Show answer",
 					"component": "MemoryMatchGame",
 					"congratulationsText": "Congratulations! You know your way around the house!",
-					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
+					"htmlContent": "<p>Another example of the <strong>MemoryMatchGame</strong> component, this time showing 12 pairs from the stock pairs.</p>",
 					"id": "MemoryMatchGame2",
 					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 12,
@@ -871,7 +871,7 @@
 					"cheatText": "Show answer",
 					"component": "MemoryMatchGame",
 					"congratulationsText": "Congratulations!",
-					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
+					"htmlContent": "<p>Another example of the <strong>MemoryMatchGame</strong> component, this time showing 12 pairs from the stock pairs.</p>",
 					"id": "MemoryMatchGame3",
 					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 20,
@@ -1006,7 +1006,7 @@
 					"cheatText": "Show answer",
 					"component": "MemoryMatchGame",
 					"congratulationsText": "Congratulations!",
-					"htmlContent": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 26 pairs from the stock pairs. It's a bit OTT, but challenging. Suggest reducing to 20 or less for acual incorporation.</p>",
+					"htmlContent": "<p>Another example of the <strong>MemoryMatchGame</strong> component, this time showing 26 pairs from the stock pairs. It's a bit OTT, but challenging. Suggest reducing to 20 or less for acual incorporation.</p>",
 					"id": "MemoryMatchGame4",
 					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 26,
@@ -1414,7 +1414,7 @@
 	"explanation1": {
 		"component": "Explanation",
 		"content": [
-			"<b>.speak</b></p><p>If you add a pair of tags around part of a phrase, for example &lt;span class(Name)='speak'&gt;&lt;/span&gt; or &lt;b class='speak'&gt;&lt;b&gt;, the system will recognise the content and turn it into a virtual anchor tag, which when clicked, will be heard by the student. <span class='speak'>Par example ici</span>. The code will also add a title tag so that when the 'link' is hovered, contect help balloon displays 'Click to play sound'.</p><p>You can also have other braces of tags within, for example &lt;span class='speak'&gt;The &lt;b&gt;<b>click</b>&lt;b&gt; event will bubble up to the owner of the .speak class&lt;/span&gt; e.g. <span class='speak'>Text and <b>bold</b> text.</span></span>. Try clicking on <b>bold</b> and normal parts of the string. Note 'class' for html in a string, 'className' in JSX.</p><p>Unfortunately, apart from Chrome, you need to have the correct Windows language packs installed (via settings). Also, Opera doesn't handle voice recognition correctly.</p>"
+			"<strong>.speak</strong></p><p>If you add a pair of tags around part of a phrase, for example &lt;span class(Name)='speak'&gt;&lt;/span&gt; or &lt;b class='speak'&gt;&lt;b&gt;, the system will recognise the content and turn it into a virtual anchor tag, which when clicked, will be heard by the student. <span class='speak'>Par example ici</span>. The code will also add a title tag so that when the 'link' is hovered, contect help balloon displays 'Click to play sound'.</p><p>You can also have other braces of tags within, for example &lt;span class='speak'&gt;The &lt;b&gt;<strong>click</strong>&lt;b&gt; event will bubble up to the owner of the .speak class&lt;/span&gt; e.g. <span class='speak'>Text and <strong>bold</strong> text.</span></span>. Try clicking on <strong>bold</strong> and normal parts of the string. Note 'class' for html in a string, 'className' in JSX.</p><p>Unfortunately, apart from Chrome, you need to have the correct Windows language packs installed (via settings). Also, Opera doesn't handle voice recognition correctly.</p>"
 		],
 		"id": "explanation1",
 		"titleText": "The .speak class"
@@ -1427,7 +1427,7 @@
 	"readaloud1": {
 		"component": "ReadAloud",
 		"id": "ReadAloud1",
-		"htmlContent": "<p>This <b>ReadAloud</b> component presents a phrase for the student to read out loud.</p><p>The browser listens and then uses the  'Monologue' component to compare what it thinks it hears against the target phrase and displays the differences.</p>",
+		"htmlContent": "<p>This <strong>ReadAloud</strong> component presents a phrase for the student to read out loud.</p><p>The browser listens and then uses the  'Monologue' component to compare what it thinks it hears against the target phrase and displays the differences.</p>",
 		"instructionsText": "Press the Record button and read the phrase please.",
 		"phrase": "Un jeune homme, portant un t-shirt rouge, passe à vélo devant un cheval dans un champ par une journée ensoleillée.",
 		"titleText": "ReadAloud"
@@ -1435,7 +1435,7 @@
 	"readaloud2": {
 		"component": "ReadAloud",
 		"id": "readAloud2",
-		"htmlContent": "<p>This <b>ReadAloud</b> component presents a phrase for the student to read out loud.</p><p>The browser listens and then uses the  'Monologue' component to compare what it thinks it hears against the target phrase and displays the differences.</p>",
+		"htmlContent": "<p>This <strong>ReadAloud</strong> component presents a phrase for the student to read out loud.</p><p>The browser listens and then uses the  'Monologue' component to compare what it thinks it hears against the target phrase and displays the differences.</p>",
 		"instructionsText": "Press the Record button and read the phrase please.",
 		"phrase": "Bonjour, je suis anglaise et je suis mariée.",
 		"titleText": "ReadAloud"
@@ -1450,7 +1450,7 @@
 	},
 	"phraseTable1": {
 		"component": "PhraseTable",
-		"htmlContent": "<p>This <b>PhraseTable</b> component presents a simple table of phrases, translations and audio in a columnar table.</p>",
+		"htmlContent": "<p>This <strong>PhraseTable</strong> component presents a simple table of phrases, translations and audio in a columnar table.</p>",
 		"id": "PhraseTable1",
 		"instructionsText": "",
 		"phrases": [
@@ -1521,9 +1521,9 @@
 	"explanation4": {
 		"component": "Explanation",
 		"content": [
-			"<p>1 Silent letters at the end of a word <img src='/images/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh'/></p><p>The consonants <b>d</b>, <b>g</b>, <b>p</b>, <b>s</b>, <b>t</b>, <b>x</b>, <b>z</b> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<b>d</b></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<b>d</b></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<b>g</b></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<b>p</b></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<b>s</b></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<b>s</b></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<b>x</b></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<b>z</b></span></p><p>The letter <b>e</b> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&#39appelle.mp3' alt='Je m''appelle'>Je m&#39appell<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<b>e</b></span></p><p><b>NB</b> 2-letter words ending in <b>e</b> are exceptions:</p><p><span class='speak'>ce</span>, <span class='speak'>de</span>, <span class='speak'>je</span>,  <span class='speak'>le</span>, <span class='speak'>me</span>, <span class='speak'>ne</span>, <span class='speak'>se</span>, <span class='speak'>te</span></p><hr/><p>2 <b>Th</b></p><p>In French the letters <b>th</b> are pronounced <b>t</b>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><b>Thomas</b></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><b>thé</b></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><b>théologie</b></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><b>maths</b></span></p>"
+			"<p>1 Silent letters at the end of a word <img src='/img/lo2/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh'/></p><p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<strong>d</strong></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<strong>d</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<strong>g</strong></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<strong>p</strong></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<strong>s</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<strong>s</strong></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<strong>x</strong></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<strong>z</strong></span></p><p>The letter <strong>e</strong> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&#39appelle.mp3' alt='Je m''appelle'>Je m&#39appell<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<strong>e</strong></span></p><p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p><p><span class='speak'>ce</span>, <span class='speak'>de</span>, <span class='speak'>je</span>,  <span class='speak'>le</span>, <span class='speak'>me</span>, <span class='speak'>ne</span>, <span class='speak'>se</span>, <span class='speak'>te</span></p><hr/><p>2 <strong>Th</strong></p><p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><strong>Thomas</strong></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><strong>thé</strong></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><strong>théologie</strong></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><strong>maths</strong></span></p>"
 		],
-		"htmlContent": "<p>This <b>Explanation</b> component is for introducing passages of explanatory text. I'm not hugely happy with it as it involves putting HTML into strings which are then injected into divs.</p><p>So if you have a more complicated piece of content, I suggest you use a <b>CustomComponent</b>. The following Grammar section is an example of a <b>CustomComponent</b>.</p><p>If there is more than one string, more than one panel is presented.</p>",
+		"htmlContent": "<p>This <strong>Explanation</strong> component is for introducing passages of explanatory text. I'm not hugely happy with it as it involves putting HTML into strings which are then injected into divs.</p><p>So if you have a more complicated piece of content, I suggest you use a <strong>CustomComponent</strong>. The following Grammar section is an example of a <strong>CustomComponent</strong>.</p><p>If there is more than one string, more than one panel is presented.</p>",
 		"id": "explanation4",
 		"titleText": "Explanation"
 	},
@@ -1540,7 +1540,7 @@
 					"cheatText": "Show answer",
 					"component": "WordParts",
 					"congratulationsText": "Superb!",
-					"htmlContent": "<p>The <b>WordParts</b> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase matches the question set. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p><p>After two mistakes, a cheat option is revealled.</p>",
+					"htmlContent": "<p>The <strong>WordParts</strong> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase matches the question set. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p><p>After two mistakes, a cheat option is revealled.</p>",
 					"id": "wordparts1",
 					"instructionsText": "Listen to the following phrases. Each phrase contains at least 2 of the following:  on, oi, r, h. Can you identify them? Click on them to reveal them.",
 					"showHintsText": "Show hints when moving",
@@ -1570,7 +1570,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns1",
 					"congratulationsText": "Well done!",
-					"htmlContent": "<p>The <b>DropDowns</b> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase should be replaced by a 'dropdown' or 'select'. The verttical bar '|' separated phrases or words are used to populate the options of the select. The one preceded by the asterisk indicates the correct answer. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p>",
+					"htmlContent": "<p>The <strong>DropDowns</strong> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase should be replaced by a 'dropdown' or 'select'. The verttical bar '|' separated phrases or words are used to populate the options of the select. The one preceded by the asterisk indicates the correct answer. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p>",
 					"instructionsText": "Listen to the speakers and select the correct adjective of nationality.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -1607,7 +1607,7 @@
 				"answerTable1": {
 					"component": "AnswerTable",
 					"congratulationsText": "Well done!",
-					"htmlContent": "<p>The <b>AnswerTable</b> component, uses phrases to populate the left column of a table. The second of each phrase is the correct answer to the question. The user must type  the correct answer into the input in the right hand column and press the 'Check'. Button. The text box is a compact <b>Monologue</b> component, see below.</p>",
+					"htmlContent": "<p>The <strong>AnswerTable</strong> component, uses phrases to populate the left column of a table. The second of each phrase is the correct answer to the question. The user must type  the correct answer into the input in the right hand column and press the 'Check'. Button. The text box is a compact <strong>Monologue</strong> component, see below.</p>",
 					"id": "AnswerTable1",
 					"instructionsText": "Supply the feminine form of the adjectives and nouns listed below. If the forms are different, compare the Pronunciation Write the feminine form in the empty cells, then click the check button.",
 					"header": [
@@ -1704,7 +1704,7 @@
 				}
 			}
 		],
-		"htmlContent": "<p>This <b>Group</b> component is for grouping a number of other components together. I have generally used it for grouping Exercises in the real learning objects.</p>",
+		"htmlContent": "<p>This <strong>Group</strong> component is for grouping a number of other components together. I have generally used it for grouping Exercises in the real learning objects.</p>",
 		"id": "group4",
 		"titleText": "Group"
 	},
@@ -1714,7 +1714,7 @@
 			{
 				"wordsIntoSlots1": {
 					"component": "Blanks",
-					"htmlContent": "<p>The <b>'blanksType': 'table'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"htmlContent": "<p>The <strong>'blanksType': 'table'</strong> configuration of the <strong>Blanks</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "wordsIntoSlots1",
 					"congratulationsText": "Well done!",
 					"instructionsText": "You will hear words containing on / om or oi or h as described in the pronunciation section. Drop each word into the boxes below as you hear it.",
@@ -1751,7 +1751,7 @@
 				"wordsIntoSlots2": {
 					"component": "Blanks",
 					"congratulationsText": "Well done!",
-					"htmlContent": "<p>The <b>'blanksType': 'questions-answers'</b> configuration of the <b>Blanks</b> component, uses the answers to make tiles which can be dropped into the second column of a 2 column table, where the questions are used to populate the left column.</p><p>Sound files are in the third column.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"htmlContent": "<p>The <strong>'blanksType': 'questions-answers'</strong> configuration of the <strong>Blanks</strong> component, uses the answers to make tiles which can be dropped into the second column of a 2 column table, where the questions are used to populate the left column.</p><p>Sound files are in the third column.</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "wordsIntoSlots2",
 					"instructionsText": "Match each question with the correct answer.",
 					"showHintsText": "Show hints when moving",
@@ -1838,7 +1838,7 @@
 					"cheatText": "Show answer",
 					"component": "Blanks",
 					"congratulationsText": "Very good!",
-					"htmlContent": "<p>The <b>'blanksType': 'phrases'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into the set of phrases. The set of phrases contains square brackets to show where the words must be dropped, the word is hidden in the phrase. On the right hand side there are audio samples to assist the student if needed. Note: the blank spaces are all the same width even for small words, so they don't give an extra clue!</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"htmlContent": "<p>The <strong>'blanksType': 'phrases'</strong> configuration of the <strong>Blanks</strong> component, uses the words to make tiles which can be dropped into the set of phrases. The set of phrases contains square brackets to show where the words must be dropped, the word is hidden in the phrase. On the right hand side there are audio samples to assist the student if needed. Note: the blank spaces are all the same width even for small words, so they don't give an extra clue!</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "phrases3",
 					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
@@ -1876,8 +1876,8 @@
 					"component": "Blanks",
 					"id": "groupTable1",
 					"congratulationsText": "Well done!",
-					"htmlContent": "<p>The <b>'blanksType': 'group-table'</b> configuration of the <b>Blanks</b> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>The tile should be dropped in the left column or the right column based on the question and in the order heard from the sound file.</p><p>After two mistakes, help and cheat options are revealled.</p>",
-					"instructionsTextHTML": "You will hear a series of words containing either the sound <b>u</b> or the sound <b>ou</b>. Drag the words below into the correct box as you hear them.",
+					"htmlContent": "<p>The <strong>'blanksType': 'group-table'</strong> configuration of the <strong>Blanks</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>The tile should be dropped in the left column or the right column based on the question and in the order heard from the sound file.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"instructionsTextHTML": "You will hear a series of words containing either the sound <strong>u</strong> or the sound <strong>ou</strong>. Drag the words below into the correct box as you hear them.",
 					"listenDescriptionText": "Full audio",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
@@ -2052,7 +2052,7 @@
 		"cheatText": "Show answer",
 		"component": "HIDE_ConnectFour",
 		"congratulationsText": "Congratulations!",
-		"htmlContentXXX": "<p>Another example of the <b>MemoryMatchGame</b> component, this time showing 12 pairs from the stock pairs.</p>",
+		"htmlContentXXX": "<p>Another example of the <strong>MemoryMatchGame</strong> component, this time showing 12 pairs from the stock pairs.</p>",
 		"id": "ConnectFour1",
 		"instructionsText": "Simple Connect Four",
 		"showHintsText": "Show hints",
@@ -2071,7 +2071,7 @@
 		"cheatText": "Show answer",
 		"component": "HIDE_CrossWord",
 		"congratulationsText": "Well done!",
-		"htmlContent": "<p>The <b>CrossWord</b> component is very experimental and incomplete.",
+		"htmlContent": "<p>The <strong>CrossWord</strong> component is very experimental and incomplete.",
 		"id": "CrossWord1",
 		"instructionsText": "Simply type the letters for the answers into the grid.",
 		"words": [

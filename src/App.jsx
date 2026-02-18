@@ -887,9 +887,9 @@ export default class App extends React.Component {
 		} = this.state;
 		const topLevelSections = [];
 		this.autoComponentIdCounter = 0;
-		let intro, introHTML, informationHTML;
+		let intro, introHTML, informationHTML, introImage;
 		if (settings) {
-			({ intro, introHTML, informationHTML } = settings);
+			({ intro, introHTML, informationHTML, introImage } = settings);
 		}
 
 		if (config) {
@@ -987,7 +987,7 @@ export default class App extends React.Component {
 										decoding="async"
 										fetchPriority="high"
 										loading="eager"
-										src="images/fr_banner.svg"
+										src="img/common/branding/fr-banner.svg"
 									/>
 									<h2 aria-hidden="true" className="hero-title text-stroke-chart-3">{siteTitle}</h2>
 								</div>
@@ -1016,9 +1016,32 @@ export default class App extends React.Component {
 												? { paragraph: intro }
 												: null;
 										if (introLayout) {
+											const resolvedIntroImage = (() => {
+												// Config-first intro image contract:
+												// - use settings.introImage when provided (string or {src, alt, caption})
+												// - otherwise fall back to LO1 default artwork
+												if (introImage && typeof introImage === "string") {
+													return {
+														src: introImage,
+														alt: "Learning object introduction illustration",
+													};
+												}
+												if (introImage && typeof introImage === "object" && introImage.src) {
+													return {
+														src: introImage.src,
+														alt: introImage.alt || "Learning object introduction illustration",
+														caption: introImage.caption,
+													};
+												}
+												return {
+													src: "img/lo1/first-contact.svg",
+													alt: "Learners greeting illustration",
+												};
+											})();
 											introLayout.image = {
-												src: "images/first-contact.svg",
-												alt: "Learners greeting illustration"
+												src: resolvedIntroImage.src,
+												alt: resolvedIntroImage.alt,
+												caption: resolvedIntroImage.caption,
 											};
 											introLayout.stackOnDesktop = true;
 										}

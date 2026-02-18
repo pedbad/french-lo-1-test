@@ -35,17 +35,17 @@ const SVG_USAGE_MANIFEST = [
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/images/first-contact.svg',
+		path: '/img/lo1/first-contact.svg',
 		referenceCount: 2,
 		sources: ['/src/App.jsx', '/src/learningObjectConfigurations/fr/1.json'],
 	},
 	{
-		path: '/images/fr_banner.svg',
+		path: '/img/common/branding/fr-banner.svg',
 		referenceCount: 1,
 		sources: ['/src/App.jsx'],
 	},
 	{
-		path: '/images/grammar.svg',
+		path: '/img/shared/grammar.svg',
 		referenceCount: 1,
 		sources: ['/src/learningObjectConfigurations/fr/1.json'],
 	},

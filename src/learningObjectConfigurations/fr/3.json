@@ -398,7 +398,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns1",
 					"congratulationsText": "Très bien !",
-					"instructionsTextHTML": "Fill in the gaps with <b>de</b> / <b>du</b> / <b>d'</b> / <b>des</b> as appropriate.",
+					"instructionsTextHTML": "Fill in the gaps with <strong>de</strong> / <strong>du</strong> / <strong>d'</strong> / <strong>des</strong> as appropriate.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [

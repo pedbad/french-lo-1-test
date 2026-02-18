@@ -5,8 +5,8 @@
     "showCongratulations": true,
     "targetLanguage": "french",
     "targetLanguageCode": "fr-FR",
-    "introHTML": "<p><b>This learning object introduces you to the essentials of greeting and introducing yourself politely.</b> You'll learn how to choose appropriate forms of address depending on the level of formality and use common expressions for everyday social interactions. The unit also helps you build confidence in pronunciation through focused practice on key sounds.</p>",
-    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Greet others and introduce yourself confidently.</li><li>Use appropriate forms of address such as <i>tu/vous, Monsieur, Madame, </i>and <i>Mademoiselle</i>.</li><li>Express greetings, farewells, and polite social phrases.</li><li>Recognize and produce French sounds such as nasal vowels (<i>on/om</i>), the French <i>r</i>, and the <i>oi</i> sound.</li></ul>"
+    "introHTML": "<p><strong>This learning object introduces you to the essentials of greeting and introducing yourself politely.</strong> You'll learn how to choose appropriate forms of address depending on the level of formality and use common expressions for everyday social interactions. The unit also helps you build confidence in pronunciation through focused practice on key sounds.</p>",
+    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Greet others and introduce yourself confidently.</li><li>Use appropriate forms of address such as <em>tu/vous, Monsieur, Madame, </em>and <em>Mademoiselle</em>.</li><li>Express greetings, farewells, and polite social phrases.</li><li>Recognize and produce French sounds such as nasal vowels (<em>on/om</em>), the French <em>r</em>, and the <em>oi</em> sound.</li></ul>"
   },
   "dialogues": {
     "component": "Group",
@@ -118,7 +118,7 @@
     "expandable": false,
     "id": "vocabulary",
     "instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Key greeting and farewell expressions (<i>Bonjour, Salut, Au revoir, À bientôt</i>).</li><li>Terms of address (<i>Monsieur, Madame, Mademoiselle, Jeune homme, Les enfants</i>).</li><li>Friendly and affectionate expressions (<i>Mon chéri, Ma chérie, Mon amour</i>).</li></ul>",
+    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Key greeting and farewell expressions (<em>Bonjour, Salut, Au revoir, À bientôt</em>).</li><li>Terms of address (<em>Monsieur, Madame, Mademoiselle, Jeune homme, Les enfants</em>).</li><li>Friendly and affectionate expressions (<em>Mon chéri, Ma chérie, Mon amour</em>).</li></ul>",
     "phrases": [
       [
         "audio/lo1/vocabulary/001-bonjour.mp3",
@@ -301,7 +301,7 @@
         "grammar1": {
           "component": "LO1Grammar1",
           "id": "grammar1",
-          "infoTextHTML": "In this section, you'll explore how to address people politely in French.<p>You will learn:</p><ul><li>When to use <i>Monsieur</i>, <span class='modal-highlight'><i>Madame</i></span>, and <span class='modal-highlight'><i>Mademoiselle</i></span>.</li><li>Abbreviations: <i>M.</i>, <i>Mme.</i>, <i>Mlle</i>.</li></ul>",
+          "infoTextHTML": "In this section, you'll explore how to address people politely in French.<p>You will learn:</p><ul><li>When to use <em>Monsieur</em>, <span class='modal-highlight'><em>Madame</em></span>, and <span class='modal-highlight'><em>Mademoiselle</em></span>.</li><li>Abbreviations: <em>M.</em>, <em>Mme.</em>, <em>Mlle</em>.</li></ul>",
           "titleText": "1. Forms of address and politeness"
         }
       },
@@ -309,8 +309,8 @@
         "grammar2": {
           "component": "LO1Grammar2",
           "id": "grammar2",
-          "infoTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><i>tu</i></span> and <span class='modal-highlight'><i>vous</i></span> to show different levels of formality. You'll practise using <i>tu</i> with friends, family, and children, and <i>vous</i> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <i>tu</i> with friends, family, and children.</li><li>How to use <i>vous</i> formally or when speaking to several people.</li><li>How <i>toi</i> replaces <i>tu</i> in responses (<i>Et toi ?</i>).</li></ul>",
-          "titleTextHTML": "2. The \"<i>tu</i>\" vs \"<i>vous</i>\" distinction"
+          "infoTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><em>tu</em></span> and <span class='modal-highlight'><em>vous</em></span> to show different levels of formality. You'll practise using <em>tu</em> with friends, family, and children, and <em>vous</em> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <em>tu</em> with friends, family, and children.</li><li>How to use <em>vous</em> formally or when speaking to several people.</li><li>How <em>toi</em> replaces <em>tu</em> in responses (<em>Et toi ?</em>).</li></ul>",
+          "titleTextHTML": "2. The \"<em>tu</em>\" vs \"<em>vous</em>\" distinction"
         }
       }
     ],
@@ -322,7 +322,7 @@
     "instructionsLayout": {
       "paragraph": "This section introduces key grammar and usage points to show how forms of address and the \"tu\" vs \"vous\" distinction reflect levels of politeness and familiarity in French.",
       "image": {
-        "src": "images/grammar.svg",
+        "src": "img/shared/grammar.svg",
         "alt": "Grammar illustration"
       }
     },
@@ -380,7 +380,7 @@
           "component": "WordParts",
           "congratulationsText": "Superbe !",
           "id": "wordparts1",
-          "informationTextHTML": "Select the part of each word that contains the nasal, <i>r</i>, or <i>oi</i> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
+          "informationTextHTML": "Select the part of each word that contains the nasal, <em>r</em>, or <em>oi</em> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
           "showHintsText": "Hints",
           "items": [
             {
@@ -408,7 +408,7 @@
           "component": "Blanks",
           "id": "phrases2",
           "congratulationsText": "Excellent !",
-          "informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>), then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>), then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "showHintsText": "Hints",
           "cheatText": "Show answer",
           "blanksType": "phrases",
@@ -436,7 +436,7 @@
           "cheatText": "Show answer",
           "congratulationsText": "Superbe !",
           "id": "phrases3",
-          "informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "showHintsText": "Hints",
           "items": [
             {
@@ -462,7 +462,7 @@
           "component": "Blanks",
           "congratulationsText": "Très bien !",
           "id": "phrases4",
-          "informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<i>tu</i>/<i>vous</i>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "instructionsTextHTMLXXX": "<a id='nested' class='modal-link-target' data-modal-target='nested'>nested target, how are we doing?</a>",
           "showHintsText": "Hints",
           "items": [
@@ -570,7 +570,7 @@
               "audio/lo1/exercises/listeningOrder3/004-horrible.mp3"
             ]
           ],
-          "informationTextHTML": "Listen to each pronunciation clip, then drag the matching French word into the correct position. Focus on the silent <i>h</i> words from this section. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again."
+          "informationTextHTML": "Listen to each pronunciation clip, then drag the matching French word into the correct position. Focus on the silent <em>h</em> words from this section. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again."
         }
       }
     ],
@@ -580,7 +580,7 @@
     "instructionsLayout": {
       "paragraph": "This section introduces a range of exercises to help practise French pronunciation, greetings, introductions, and listening comprehension through interactive gap-filling and sound recognition activities.",
       "image": {
-        "src": "images/first-contact.svg",
+        "src": "img/lo1/first-contact.svg",
         "alt": "Interactive exercises"
       }
     }

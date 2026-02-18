@@ -116,6 +116,10 @@ Add these from day one to avoid late cleanup projects:
 4. Add Playwright + axe smoke tests for key pages/states in CI.
 5. Add visual regression snapshots for top-level routes and core components.
 6. Add a path hygiene guard (ASCII-only names, no spaces) for `public/` assets.
+   - include an explicit image-path guard:
+     - block new `public/images/` additions (legacy path)
+     - enforce new image assets under `public/img/`
+     - enforce lowercase + ASCII-safe filenames
 7. Add dependency update automation (Dependabot or Renovate) with weekly cadence.
 8. Add security scanning (CodeQL and `npm audit`/`yarn audit`) on schedule.
 9. Add branch-level "no new debt" checks (warnings/error budgets must not increase).
@@ -140,6 +144,25 @@ Use this as a hard "do not repeat" list.
 12. Do not switch shadcn primitive backend (Radix -> Base UI) without a documented strategic reason.
 13. Do not author modal content links in JSON as direct fragment hashes (for example `href="#tuvous"`).
 14. Do not use `<table>` for visual layout where flex/grid is the correct semantic choice.
+15. Do not add new image assets into a legacy catch-all folder (`public/images`); use `public/img/common`, `public/img/shared`, and `public/img/loX`.
+16. Do not use presentational emphasis tags (`<b>`, `<i>`) in authored HTML/JSON content; use semantic tags (`<strong>`, `<em>`) instead.
+
+### Image Asset Structure Rule (Carry Forward)
+
+Use this as the default image directory contract:
+
+```text
+public/img/
+|- common/   (branding, footer, icons, flags, UI chrome)
+|- shared/   (cross-LO reusable sets)
+|- lo1..loN  (LO-specific assets)
+```
+
+Naming rules:
+1. lowercase only
+2. ASCII-only
+3. no spaces
+4. kebab-case preferred for multi-word names
 
 ### Modal-Link Authoring Rule (Carry Forward)
 
@@ -157,6 +180,16 @@ Use this rule in all config/JSON-authored rich text:
    - this blurs two distinct behaviors (scroll navigation vs modal launch) and increases maintenance risk.
 5. Design principle:
    - one link behavior per contract: top nav hashes are for section scroll, `.modal-link` is for modal launch only.
+
+### Semantic Emphasis Rule (Carry Forward)
+
+1. Author inline emphasis with semantic tags only:
+   - use `<strong>` for strong importance.
+   - use `<em>` for stress emphasis.
+2. Do not use `<b>` or `<i>` for authored content in JSX/JSON HTML.
+3. Why:
+   - semantic tags communicate emphasis meaning to assistive technologies more reliably;
+   - presentational tags cause inconsistent authoring patterns and accessibility drift over time.
 
 ## Dev-Only Debug Sandbox Pattern (Best Practice)
 

@@ -5,7 +5,12 @@
 		"showCongratulations": true,
 		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
-		"intro": "This lesson teaches how to correctly use and understand French pronouns, genders, and pronunciation through contextual listening and speaking practice."
+		"introImage": {
+			"src": "img/lo2/about-me.svg",
+			"alt": "About me themed illustration"
+		},
+		"introHTML": "<p><strong>This lesson helps you talk about who you are in French.</strong> You will practise introducing yourself, describing your personal situation and profession, and answering common personal questions politely. Through listening and speaking tasks, you will also improve key pronunciation patterns for clearer, more natural French.</p>",
+		"informationHTML": "<h3>You will learn:</h3><ul><li>How to introduce yourself and describe your situation (for example <em>célibataire</em>, <em>marié(e)</em>, professions).</li><li>How to use the verb <em>être</em> with common subject pronouns.</li><li>How grammatical gender affects articles and agreement in everyday expressions.</li><li>How to recognise and produce key pronunciation features, including silent final consonants and <em>th</em>.</li><li>How to respond accurately in guided listening and interactive practice activities.</li></ul>"
 	},
 	"monologues": {
 		"component": "Section",
@@ -45,7 +50,8 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
+			"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (<em>marié(e), divorcé(e), séparé(e), fiancé(e), pacsé(e), célibataire</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful question patterns to ask what someone does (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li></ul>",
 		"phrases": [
 			[
 				"sounds/fr/être.mp3",
@@ -186,7 +192,7 @@
 	"pronunciation": {
 		"component": "LO2Demystify",
 		"content": [
-			"<p>1 Silent letters at the end of a word <img src='/images/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh'/></p><p>The consonants <b>d</b>, <b>g</b>, <b>p</b>, <b>s</b>, <b>t</b>, <b>x</b>, <b>z</b> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<b>d</b></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<b>d</b></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<b>g</b></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<b>p</b></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<b>s</b></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<b>s</b></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<b>t</b></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<b>x</b></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<b>z</b></span></p><p>The letter <b>e</b> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&apos;appelle.mp3' alt='Je m''appelle'>Je m&apos;appell<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<b>e</b></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<b>e</b></span></p><p><b>NB</b> 2-letter words ending in <b>e</b> are exceptions:</p><p><span class='audio-link' sound-file='/sounds/fr/ce.mp3'>ce</span>, <span class='audio-link' sound-file='/sounds/fr/de.mp3'>de</span>, <span class='audio-link' sound-file='/sounds/fr/je.mp3'>je</span>,  <span class='audio-link' sound-file='/sounds/fr/le.mp3'>le</span>, <span class='audio-link' sound-file='/sounds/fr/me.mp3'>me</span>, <span class='audio-link' sound-file='/sounds/fr/ne.mp3'>ne</span>, <span class='audio-link' sound-file='/sounds/fr/se.mp3'>se</span>, <span class='audio-link' sound-file='/sounds/fr/te.mp3'>te</span></p><hr/><p>2 <b>Th</b></p><p>In French the letters <b>th</b> are pronounced <b>t</b>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><b>Thomas</b></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><b>thé</b></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><b>théologie</b></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><b>maths</b></span></p>"
+			"<p>1 Silent letters at the end of a word <img src='/img/lo2/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh'/></p><p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<strong>d</strong></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<strong>d</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<strong>g</strong></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<strong>p</strong></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<strong>s</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<strong>s</strong></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<strong>x</strong></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<strong>z</strong></span></p><p>The letter <strong>e</strong> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&apos;appelle.mp3' alt='Je m''appelle'>Je m&apos;appell<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<strong>e</strong></span></p><p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p><p><span class='audio-link' sound-file='/sounds/fr/ce.mp3'>ce</span>, <span class='audio-link' sound-file='/sounds/fr/de.mp3'>de</span>, <span class='audio-link' sound-file='/sounds/fr/je.mp3'>je</span>,  <span class='audio-link' sound-file='/sounds/fr/le.mp3'>le</span>, <span class='audio-link' sound-file='/sounds/fr/me.mp3'>me</span>, <span class='audio-link' sound-file='/sounds/fr/ne.mp3'>ne</span>, <span class='audio-link' sound-file='/sounds/fr/se.mp3'>se</span>, <span class='audio-link' sound-file='/sounds/fr/te.mp3'>te</span></p><hr/><p>2 <strong>Th</strong></p><p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><strong>Thomas</strong></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><strong>thé</strong></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><strong>théologie</strong></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><strong>maths</strong></span></p>"
 		],
 		"expandable": false,
 		"id": "pronunciation",
@@ -233,7 +239,7 @@
 							"text": "Jérome et moi [suis|sont|*sommes] divorcés maintenant."
 						}
 					],
-					"titleTextHTML": "Practise the verb <b>être</b>."
+					"titleTextHTML": "Practise the verb <strong>être</strong>."
 				}
 			},
 			{

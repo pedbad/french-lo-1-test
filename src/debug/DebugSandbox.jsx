@@ -281,6 +281,16 @@ yarn preview`}</code>
 						<span className="token-link-preview token-link-preview--hover">Hover preview</span>
 						<span className="token-link-preview token-link-preview--visited">Visited preview</span>
 					</div>
+					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
+						<p className="m-0 text-sm text-muted-foreground">
+							Semantic emphasis tokens:{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs">--emphasis-strong-color</code>,{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs">--emphasis-em-color</code>.
+						</p>
+						<p className="mt-2 mb-0 text-base">
+							Sample: Use <strong>strong importance</strong> for key terms and <em>stress emphasis</em> for nuanced phrasing.
+						</p>
+					</div>
 				</div>
 			</section>
 

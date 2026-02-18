@@ -2,6 +2,135 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-18 - Semantic Emphasis Token Styling
+
+- Added named semantic-emphasis tokens in `src/index.css`:
+  - `--emphasis-strong-color`
+  - `--emphasis-em-color`
+- Added base rules scoped to main content:
+  - `main strong` uses `--emphasis-strong-color` + `font-weight: 700`
+  - `main em` uses `--emphasis-em-color` + `font-style: italic`
+- Why:
+  - keeps emphasis styling consistent and token-driven;
+  - preserves accessibility semantics (color is additive, not the only emphasis cue).
+
+## 2026-02-18 - Semantic Emphasis Normalization (`<i>/<b>` -> `<em>/<strong>`)
+
+- Completed a full FR learning-object content sweep to replace presentational emphasis tags with semantic tags:
+  - `<i>` -> `<em>`
+  - `<b>` -> `<strong>`
+- Files updated:
+  - `src/learningObjectConfigurations/fr/1.json`
+  - `src/learningObjectConfigurations/fr/2.json`
+  - `src/learningObjectConfigurations/fr/3.json`
+  - `src/learningObjectConfigurations/fr/4.json`
+  - `src/learningObjectConfigurations/fr/6.json`
+  - `src/learningObjectConfigurations/fr/10.json`
+  - `src/learningObjectConfigurations/fr/11.json`
+  - `src/learningObjectConfigurations/fr/12.json`
+  - `src/learningObjectConfigurations/fr/answer.json`
+  - `src/learningObjectConfigurations/fr/demo.json`
+- Why this was done:
+  - semantic tags improve accessibility and screen-reader interpretation of emphasis;
+  - HTML semantics are clearer and easier to maintain than purely presentational tags;
+  - aligns authoring with project policy (`<strong>/<em>` only for inline emphasis).
+- Verification:
+  - codebase scan now returns no remaining `<i>/<b>` tags in `src` source files.
+
+## 2026-02-18 - Image Migration Foundation (`public/img`)
+
+- Added image migration architecture + rollout doc:
+  - `IMAGE_MIGRATION_PLAN.md`
+  - includes current image audit tally, target folder contract, phased migration sequence, and safety checks.
+- Added new image root docs:
+  - `public/img/README.md`
+  - defines path and naming policy for all future image drops.
+- Scaffolded new image structure:
+  - `public/img/common/*`
+  - `public/img/shared/*`
+  - `public/img/lo1` ... `public/img/lo15`
+- Added image guardrails:
+  - new script `scripts/check-image-path-guard.sh`
+  - blocks new assets in legacy `public/images/`
+  - enforces ASCII/lowercase/no-spaces naming for new `public/img` assets
+  - blocks newly added legacy path references (`images/`, `/images/`) in source diffs
+- Hook + script integration:
+  - `.githooks/pre-commit` now runs `yarn -s check:image-path`
+  - `package.json` adds `check:image-path` + `check:image-path:branch`
+  - `prepush:local` now includes `yarn check:image-path:branch`
+- README/Future-project docs updated so guard and folder contract are first-class and reusable.
+
+## 2026-02-18 - Footer Logo Image Migration (Batch 1)
+
+- Migrated live footer logo assets from legacy `public/images` paths into new structure:
+  - `public/img/common/footer/ucam-language-centre-horizontal-light.png`
+  - `public/img/common/footer/ucam-language-centre-vertical-light.png`
+  - `public/img/common/footer/ucam-language-centre-horizontal-dark.png`
+  - `public/img/common/footer/ucam-language-centre-vertical-dark.png`
+- Updated footer component references in:
+  - `src/components/Footer/Footer.jsx`
+- Removed path-space dependency from runtime asset URLs by leaving legacy `Language-Centre/.../Reversed colour/...` paths.
+- Verified build success after path migration (`yarn build`).
+
+## 2026-02-18 - Banner Image Migration (Batch 2)
+
+- Migrated hero/banner SVG from legacy path:
+  - `public/images/fr_banner.svg`
+  - to `public/img/common/branding/fr-banner.svg`
+- Updated references:
+  - `src/App.jsx`
+  - `src/debug/components/DebugSvgAssets.jsx`
+- Verified build success after migration (`yarn build`).
+
+## 2026-02-18 - Shared Grammar SVG Migration (Batch 3)
+
+- Moved `grammar.svg` from legacy path to shared image root:
+  - `public/images/grammar.svg` -> `public/img/shared/grammar.svg`
+- Updated references:
+  - `src/learningObjectConfigurations/fr/1.json`
+  - `src/debug/components/DebugSvgAssets.jsx`
+- This keeps the grammar artwork in a cross-LO shared location rather than LO-specific storage.
+
+## 2026-02-18 - LO1 First-Contact SVG Migration (Batch 4)
+
+- Moved LO1-specific `first-contact.svg` into the LO1 image folder:
+  - `public/images/first-contact.svg` -> `public/img/lo1/first-contact.svg`
+- Updated references:
+  - `src/App.jsx` (introduction hero layout image)
+  - `src/learningObjectConfigurations/fr/1.json` (LO1 exercises section image)
+  - `src/debug/components/DebugSvgAssets.jsx`
+
+## 2026-02-18 - LO2 Intro Image Contract (About Me)
+
+- Fixed intro image behavior in `src/App.jsx`:
+  - intro image is now config-driven via `settings.introImage` (supports string or object with `src/alt/caption`)
+  - fallback remains LO1 default (`img/lo1/first-contact.svg`) when no intro image is configured
+- Updated LO2 config:
+  - `src/learningObjectConfigurations/fr/2.json` now sets:
+    - `settings.introImage.src = "img/lo2/about-me.svg"`
+    - `settings.introImage.alt = "About me themed illustration"`
+- Result:
+  - LO2 now uses its own LO2-scoped intro image instead of inheriting LO1 artwork.
+
+## 2026-02-18 - LO2 Introduction Rewrite (Instructional Design)
+
+- Rewrote LO2 intro content in `src/learningObjectConfigurations/fr/2.json` to align with the LO1 instructional pattern:
+  - replaced generic one-line `settings.intro` text with:
+    - `settings.introHTML` (clear lesson purpose + learner action framing)
+    - `settings.informationHTML` (explicit outcomes as a "You will learn" list)
+- Why:
+  - makes objectives clearer to learners before content interaction
+  - aligns LO2 onboarding UX with LO1 structure and readability
+  - improves instructional specificity (what learners will do and what they should be able to use)
+
+## 2026-02-18 - LO2 Vocabulary Instruction Alignment with LO1
+
+- Updated LO2 vocabulary config in `src/learningObjectConfigurations/fr/2.json` to match LO1 instructional pattern:
+  - added `instructionsTextHTML` for section-level framing (alphabetical + semantic views)
+  - replaced simple one-line `informationTextHTML` with a structured "You will learn" outcomes list
+- Result:
+  - LO2 vocabulary now presents instructional guidance consistently with LO1.
+
 ## 2026-02-17 - Instruction Schema Drift: Phase 1 Start
 
 - Added a dedicated analysis/migration document:
@@ -262,7 +391,7 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
   - `playAudioLink` in `src/utility.js` (row-link fallback playback).
 
 ## 27) Hero Banner Rendering (Non-cropping SVG)
-- Replaced the hero CSS background banner with an explicit `<img>` in `src/App.jsx` (`src="images/fr_banner.svg"`), including `loading="eager"` and `fetchPriority="high"` for above-the-fold rendering.
+- Replaced the hero CSS background banner with an explicit `<img>` in `src/App.jsx` (initially `src="images/fr_banner.svg"`, now migrated to `src="img/common/branding/fr-banner.svg"`), including `loading="eager"` and `fetchPriority="high"` for above-the-fold rendering.
 - Updated `#hero` styles in `src/App.scss` to use `aspect-ratio: 16 / 9` and a positioned `.hero-image` with `object-fit: contain` and `object-position: center bottom`.
 - Why: the previous `background-size: cover` implementation could crop banner artwork on narrower/wider viewports. The new setup preserves the entire SVG composition across responsive breakpoints while keeping the title overlay in place.
 

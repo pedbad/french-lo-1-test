@@ -397,7 +397,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns1",
 					"congratulationsText": "Félicitations !",
-					"instructionsTextHTML": "Fill in the gaps in the rhyme <b>'Chacun à son goût !'</b> ('Each to their own!') with the correct part of <b>vouloir</b>:",
+					"instructionsTextHTML": "Fill in the gaps in the rhyme <strong>'Chacun à son goût !'</strong> ('Each to their own!') with the correct part of <strong>vouloir</strong>:",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -462,7 +462,7 @@
 					"component": "DropDowns",
 					"id": "dropdowns3",
 					"congratulationsText": "Excellent !",
-					"instructionsTextHTML": "Select <b>au</b>, <b>à la</b>, <b>à l'</b> or <b>aux</b> as appropriate.",
+					"instructionsTextHTML": "Select <strong>au</strong>, <strong>à la</strong>, <strong>à l'</strong> or <strong>aux</strong> as appropriate.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [

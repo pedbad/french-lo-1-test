@@ -125,6 +125,7 @@ yarn -s check:typography
 yarn -s check:color
 yarn -s check:a11y
 yarn -s check:scss
+yarn -s check:image-path
 ```
 
 ### Manual checks
@@ -171,6 +172,30 @@ Check all changes introduced by your branch vs `origin/main`:
 ```bash
 yarn check:color:branch
 ```
+
+## Image Path Guardrails
+
+To prevent legacy path drift and filename/path issues, this repo includes an image path guard.
+
+Current policy:
+- Blocks new files added under `public/images/` (legacy location).
+- Validates new files under `public/img/`:
+  - ASCII-only paths
+  - lowercase only
+  - no spaces
+  - allowed extensions: `png`, `jpg`, `jpeg`, `svg`, `webp`, `gif`, `avif`
+- Blocks newly added source references to legacy paths (`images/` or `/images/`) in staged diffs.
+
+Manual checks:
+
+```bash
+yarn check:image-path
+yarn check:image-path:branch
+```
+
+Image migration docs:
+- `/Users/ped/Sites/french/french-lo-1-test/IMAGE_MIGRATION_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1-test/public/img/README.md`
 
 ## Accessibility & HTML Guardrails
 
@@ -348,7 +373,7 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 - Theme toggling now temporarily disables CSS transitions to prevent visible flicker (notably in tables) during light/dark switches.
 - Modal links use the Lucide `message-square-warning` icon for the inline indicator.
 - WordParts now shows a circle-based progress row and inline icon guidance for Show answer/Reset.
-- Hero banner now renders as a semantic `<img>` (`images/fr_banner.svg`) inside `#hero` instead of a CSS background image. The hero uses a `16:9` aspect ratio with `object-fit: contain` so the full banner artwork remains visible across screen sizes (no `cover` cropping), while the title remains layered above the image.
+- Hero banner now renders as a semantic `<img>` (`img/common/branding/fr-banner.svg`) inside `#hero` instead of a CSS background image. The hero uses a `16:9` aspect ratio with `object-fit: contain` so the full banner artwork remains visible across screen sizes (no `cover` cropping), while the title remains layered above the image.
 
 ## TODO
 
@@ -428,6 +453,19 @@ Semantic baseline updates are in place:
   - `<strong>` instead of `<b>`
   - `<em>` instead of `<i>`
 - Abbreviations content in `CustomComponents_FR` now uses semantic definition-list markup (`<dl>`, `<dt>`, `<dd>`) instead of table-like structure.
+
+Semantic emphasis policy (required):
+- Do not author new `<b>` or `<i>` in config-authored HTML or JSX.
+- Use `<strong>` and `<em>` so emphasis is semantic (meaning-level), not only visual.
+- Why this matters:
+  - assistive tech can convey emphasis more reliably from semantic tags than presentational tags;
+  - semantic HTML is more maintainable and validator-friendly across future refactors;
+  - consistency avoids rendering drift between content blocks authored in different files.
+- 2026-02-18 normalization pass: FR learning-object config content was swept to remove remaining `<b>/<i>` usage. See `CHANGES.md` for the exact file list.
+- Styling token contract:
+  - `--emphasis-strong-color` and `--emphasis-em-color` in `src/index.css`.
+  - applied to `main strong` / `main em` as a subtle color accent.
+  - accessibility rule: color is supplemental only; `<strong>` still relies on weight and `<em>` still relies on italic styling.
 
 Top-level learning object blocks (Introduction, Dialogues, Vocabulary, Grammar, Pronunciation, Exercises) should be rendered as `<section>` elements to improve semantic structure and landmark navigation.
 
