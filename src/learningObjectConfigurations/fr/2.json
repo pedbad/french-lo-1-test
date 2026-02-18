@@ -15,7 +15,7 @@
 	"monologues": {
 		"component": "Section",
 		"expandable": false,
-		"instructionsTextHTML": "<img src='images/handshake.png' style='width: 200px; border: 1px solid black;margin-bottom: 20px;'/>",
+		"instructionsTextHTML": "<p>This section introduces a series of short monologues to show how to introduce oneself and describe personal situations and professions in French.</p>",
 		"content": [
 			{
 				"monologues1": {
@@ -51,7 +51,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
-			"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (<em>marié(e), divorcé(e), séparé(e), fiancé(e), pacsé(e), célibataire</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful question patterns to ask what someone does (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li></ul>",
+			"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (<em>marié(e), divorcé(e), séparé(e), fiancé(e), pacsé(e), célibataire</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li></ul>",
 		"phrases": [
 			[
 				"audio/lo2/vocabulary/011-etre.mp3",

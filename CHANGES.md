@@ -2,6 +2,13 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-18 - LO2 Monologues Instruction Copy Update
+
+- Updated LO2 monologues section instruction text in:
+  - `src/learningObjectConfigurations/fr/2.json`
+- Removed legacy image-only instruction (`handshake.png`) and replaced it with clear instructional sentence copy aligned with the dialogues style:
+  - "This section introduces a series of short monologues to show how to introduce oneself and describe personal situations and professions in French."
+
 ## 2026-02-18 - Single-Accordion Default Open + Docs Sync
 
 - Updated accordion rendering in `src/App.jsx`:
