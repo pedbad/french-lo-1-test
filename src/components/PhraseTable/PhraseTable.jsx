@@ -80,6 +80,10 @@ export class PhraseTable extends React.PureComponent {
 		} = this.state;
 
 		const { sortable = false } = config;
+		const isSemanticSort = tableSort === "natural";
+		const isAlphabeticalSort = tableSort === "alphabetical" || tableSort === "reverse";
+		const semanticButtonClass = `vocab-sort-button btn-hero-title${isSemanticSort ? " vocab-sort-button-active" : ""}`;
+		const alphabeticalButtonClass = `vocab-sort-button btn-chart-2${isAlphabeticalSort ? " vocab-sort-button-active" : ""}`;
 
 		// Always start from the immutable original
 		const basePhrases = this.originalPhrases || [];
@@ -212,8 +216,10 @@ export class PhraseTable extends React.PureComponent {
 							<TooltipTrigger asChild>
 								<span className="inline-flex">
 									<IconButton
+										className={semanticButtonClass}
 										theme="natural"
 										size="lg"
+										variant="default"
 										onClick={() => this.setState({ tableSort: "natural" })}
 										ariaLabel={`Vocabulary organised semantically`}
 									>
@@ -230,8 +236,10 @@ export class PhraseTable extends React.PureComponent {
 								<TooltipTrigger asChild>
 									<span className="inline-flex">
 										<IconButton
+											className={alphabeticalButtonClass}
 											theme="reverse"
 											size="lg"
+											variant="default"
 											onClick={() => this.setState({ tableSort: "reverse" })}
 											ariaLabel={`Vocabulary organised alphabetically`}
 										>
@@ -248,8 +256,10 @@ export class PhraseTable extends React.PureComponent {
 								<TooltipTrigger asChild>
 									<span className="inline-flex">
 										<IconButton
+											className={alphabeticalButtonClass}
 											theme="alphabetic"
 											size="lg"
+											variant="default"
 											onClick={() => this.setState({ tableSort: "alphabetical" })}
 											ariaLabel={`Vocabulary organised alphabetically`}
 										>

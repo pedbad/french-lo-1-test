@@ -2,7 +2,12 @@ import React from 'react';
 import { DebugColorTokens } from './components/DebugColorTokens';
 import { DebugFontTokens } from './components/DebugFontTokens';
 import { Info } from '../components/Info';
+import { IconButton } from '../components/IconButton';
+import { InstructionCallout } from '../components/InstructionCallout';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
+import { INSTRUCTION_TEXT_CLASS } from '../components/Section/instructions-media';
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
 	NavigationMenu,
@@ -39,7 +44,10 @@ const DEBUG_LEARNING_OBJECTS = [
 const DEBUG_MENU_ITEMS = [
 	{ href: "#sandbox-validation-quickstart", label: "Quickstart" },
 	{ href: "#sandbox-typography", label: "Typography" },
+	{ href: "#sandbox-instruction-callout", label: "Instruction" },
+	{ href: "#sandbox-link-tokens", label: "Links" },
 	{ href: "#sandbox-info", label: "Info" },
+	{ href: "#sandbox-buttons", label: "Buttons" },
 	{ href: "#sandbox-color-tokens", label: "Colors" },
 	{ href: "#sandbox-font-tokens", label: "Fonts" },
 	{ href: "#sandbox-svg-assets-anchor", label: "SVG Assets" },
@@ -235,6 +243,47 @@ yarn preview`}</code>
 				</div>
 			</section>
 
+			<section aria-labelledby="sandbox-instruction-callout">
+				<h2 id="sandbox-instruction-callout">Instruction Callout</h2>
+				<div className="rounded-xl border border-border bg-card p-4">
+					<InstructionCallout>
+						<div className={`text section mt-0 ${INSTRUCTION_TEXT_CLASS}`}>
+							This is the shared instructional text container used in the app. Its thick
+							left border is tokenized as{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-sm">
+								--instruction-callout-accent
+							</code>
+							, so the accent can be changed centrally without touching component markup.
+							The token currently maps to a semantic warning accent mix in{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-sm">:root</code> and has
+							a dark-mode override.
+						</div>
+					</InstructionCallout>
+				</div>
+			</section>
+
+			<section aria-labelledby="sandbox-link-tokens">
+				<h2 id="sandbox-link-tokens">Modal Link Tokens</h2>
+				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
+					<p className="m-0 text-sm text-muted-foreground">
+						Popup links use semantic tokens so state colors stay consistent in light and dark mode.
+						Tokens:{" "}
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-accent</code>,{" "}
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-hover</code>,{" "}
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-visited</code>,{" "}
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-underline</code>,{" "}
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-underline-hover</code>.
+					</p>
+					<div className="flex flex-wrap items-center gap-5">
+						<a className="token-link-preview" href="#sandbox-link-tokens">
+							Default link (hover me)
+						</a>
+						<span className="token-link-preview token-link-preview--hover">Hover preview</span>
+						<span className="token-link-preview token-link-preview--visited">Visited preview</span>
+					</div>
+				</div>
+			</section>
+
 			<section aria-labelledby="sandbox-info">
 				<h2 id="sandbox-info">Info Variants</h2>
 				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
@@ -254,6 +303,112 @@ yarn preview`}</code>
 						informationText="Danger alert: an error occurred and requires correction."
 						variant="danger"
 					/>
+				</div>
+			</section>
+
+			<section aria-labelledby="sandbox-buttons">
+				<h2 id="sandbox-buttons">Buttons (Current App Types)</h2>
+				<div className="space-y-6 rounded-xl border border-border bg-card p-4">
+					<div className="space-y-3">
+						<h3 className="m-0 text-base">shadcn Button variants (app-facing set)</h3>
+						<div className="flex flex-wrap items-center gap-2">
+							<Button type="button" variant="secondary">Secondary</Button>
+							<Button type="button" variant="outline">Outline</Button>
+							<Button type="button" variant="ghost">Ghost</Button>
+							<Button type="button" variant="destructive">Destructive</Button>
+							<Button type="button" variant="link">Link</Button>
+						</div>
+					</div>
+
+					<div className="space-y-3">
+						<h3 className="m-0 text-base">shadcn Button sizes</h3>
+						<div className="flex flex-wrap items-center gap-2">
+							<Button size="sm" type="button">Small</Button>
+							<Button size="default" type="button">Default</Button>
+							<Button size="lg" type="button">Large</Button>
+							<Button aria-label="Icon size sample" size="icon" type="button">
+								☆
+							</Button>
+						</div>
+					</div>
+
+					<div className="space-y-3">
+						<h3 className="m-0 text-base">IconButton themes used in app</h3>
+						<div className="flex flex-wrap items-center gap-2">
+							<IconButton theme="check" title="Check" variant="outline">Check</IconButton>
+							<IconButton theme="reset" title="Reset" variant="outline">Reset</IconButton>
+							<IconButton theme="eye" title="Show answer" variant="outline">Show answer</IconButton>
+							<IconButton theme="shuffle" title="Shuffle" variant="outline">Shuffle</IconButton>
+							<IconButton theme="natural" title="Semantic sort" variant="outline">Semantic</IconButton>
+							<IconButton theme="alphabetic" title="Alphabetic sort" variant="outline">Alphabetic</IconButton>
+							<IconButton theme="moon" title="Theme" variant="outline">Theme</IconButton>
+							<IconButton theme="back" title="Back to top" variant="outline" />
+						</div>
+					</div>
+
+					<div className="space-y-3">
+						<h3 className="m-0 text-base">Vocabulary sort buttons (exact live style)</h3>
+						<div className="flex flex-wrap items-center gap-2">
+							<IconButton
+								className="vocab-sort-button btn-hero-title vocab-sort-button-active"
+								theme="natural"
+								size="lg"
+								title="Vocabulary organised semantically"
+								variant="default"
+							>
+								Semantic
+							</IconButton>
+							<IconButton
+								className="vocab-sort-button btn-chart-2"
+								theme="alphabetic"
+								size="lg"
+								title="Vocabulary organised alphabetically"
+								variant="default"
+							>
+								Alphabetical
+							</IconButton>
+						</div>
+					</div>
+
+					<div className="space-y-3">
+						<h3 className="m-0 text-base">Exercise action tones (cva contract)</h3>
+						<p className="m-0 text-sm text-muted-foreground">
+							The exercise action button contract is defined with{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs">cva</code> in{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs">
+								src/components/exerciseActionButtonVariants.js
+							</code>
+							. Components choose semantic variants (for example{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "warn"</code>,{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "neutral"</code>,{" "}
+							<code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "primary"</code>)
+							instead of hardcoding long class strings in each exercise. This keeps styling
+							consistent and makes future updates safer.
+						</p>
+						<div className="flex flex-wrap items-center gap-2">
+							<IconButton
+								className={exerciseActionButtonVariants({ tone: "warn", visible: true })}
+								theme="eye"
+								title="Warn tone"
+							>
+								Show
+							</IconButton>
+							<IconButton
+								className={exerciseActionButtonVariants({ tone: "neutral", visible: true })}
+								theme="reset"
+								title="Neutral tone"
+							>
+								Reset
+							</IconButton>
+							<IconButton
+								className={exerciseActionButtonVariants({ tone: "primary", visible: true })}
+								theme="check"
+								title="Primary tone"
+							>
+								Check
+							</IconButton>
+						</div>
+					</div>
 				</div>
 			</section>
 
