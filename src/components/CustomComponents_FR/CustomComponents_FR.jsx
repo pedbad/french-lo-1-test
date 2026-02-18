@@ -273,51 +273,51 @@ export class LO2Grammar extends PureComponent {
 					key={`${id}Panel1`}
 				>
 					<p><strong>1. Verbs in French</strong></p>
-					<p>There are many irregular verbs in French. The verb <AudioClip className={`link`} soundFile={`sounds/fr/être.mp3`}><strong>être</strong></AudioClip> meaning <strong>to be</strong> is one of these. In fact, it has been
+					<p>There are many irregular verbs in French. The verb <AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong>être</strong></AudioClip> meaning <strong>to be</strong> is one of these. In fact, it has been
 						described as the most irregular of all the irregulars! It is worth studying this verb now, not only for this reason,
 						but because it occurs so frequently, and It will also enable you to master the subject pronouns.</p>
-					<p><AudioClip className={`link`} soundFile={`sounds/fr/être.mp3`}><strong>Être</strong></AudioClip> to be</p>
+					<p><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong>Être</strong></AudioClip> to be</p>
 					<Table>
 						<TableBody>
 							<TableRow>
 								<TableCell>je suis</TableCell>
 								<TableCell>I am</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/je suis.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/005-je-suis.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>tu es</TableCell>
 								<TableCell>you are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/tu es.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/017-tu-es.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>il</a> est</TableCell>
 								<TableCell>he is, it is</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/il est.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/003-il-est.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elle</a> est</TableCell>
 								<TableCell>she is, it is</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/elle est.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>nous sommes</TableCell>
 								<TableCell>we are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/nous sommes.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/016-nous-sommes.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>vous êtes</TableCell>
 								<TableCell>you are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/vous êtes.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/024-vous-etes.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
 								<TableCell>they are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/ils sont.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`} /></TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
 								<TableCell>they are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`sounds/fr/elles sont.mp3`} /></TableCell>
+								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`} /></TableCell>
 							</TableRow>
 						</TableBody>
 					</Table>
@@ -339,25 +339,25 @@ export class LO2Grammar extends PureComponent {
 					<p>The gender of the noun has implications for some grammatical features. e.g.</p>
 					<p>a. The indefinite article:</p>
 					<p>There are two ways of saying 'a' in French:&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/un.mp3`}><strong>un</strong></AudioClip> for masculine nouns e.g.&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/un homme.mp3`}><strong>un</strong> homme</AudioClip> (a man),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/un métier.mp3`}><strong>un</strong> métier</AudioClip> (a profession/occupation) and&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/une.mp3`}><strong>une</strong></AudioClip> for a feminine noun e.g.&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/une femme.mp3`}><strong>une</strong> femme</AudioClip> (a woman),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/une profession.mp3`}><strong>une</strong> profession</AudioClip> (a profession).</p>
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/020-un.mp3`}><strong>un</strong></AudioClip> for masculine nouns e.g.&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/018-un-homme.mp3`}><strong>un</strong> homme</AudioClip> (a man),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/019-un-metier.mp3`}><strong>un</strong> métier</AudioClip> (a profession/occupation) and&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/023-une.mp3`}><strong>une</strong></AudioClip> for a feminine noun e.g.&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/021-une-femme.mp3`}><strong>une</strong> femme</AudioClip> (a woman),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/022-une-profession.mp3`}><strong>une</strong> profession</AudioClip> (a profession).</p>
 					<p>b. The definite article:</p>
 					<p>For singular nouns, to say 'the' you use&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/le.mp3`}><strong>le</strong></AudioClip> for masculine nouns e.g.&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/le professeur.mp3`}><strong>le</strong> professeur</AudioClip> (the [male] teacher),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/le jour.mp3`}><strong>le</strong> jour</AudioClip> (the day). For feminine nouns you say&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/la.mp3`}><strong>la</strong></AudioClip> e.g.&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/la professeure.mp3`}><strong>la</strong> professeure</AudioClip> (the [female] teacher),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/la nuit.mp3`}><strong>la</strong> nuit</AudioClip> (the night).
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}><strong>le</strong></AudioClip> for masculine nouns e.g.&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/014-le-professeur.mp3`}><strong>le</strong> professeur</AudioClip> (the [male] teacher),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/013-le-jour.mp3`}><strong>le</strong> jour</AudioClip> (the day). For feminine nouns you say&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/012-la.mp3`}><strong>la</strong></AudioClip> e.g.&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/011-la-professeure.mp3`}><strong>la</strong> professeure</AudioClip> (the [female] teacher),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/010-la-nuit.mp3`}><strong>la</strong> nuit</AudioClip> (the night).
 						When the singular noun begins with a vowel or mute h, then you use&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/l'.mp3`}><strong>l'</strong></AudioClip> regardless of gender e.g.&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/l'appartement.mp3`}><strong>l'</strong>appartement</AudioClip> (m) (the flat),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/l'école.mp3`}><strong>l'</strong>école</AudioClip> (f) (the school),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/l'homme.mp3`}><strong>l'</strong>homme</AudioClip> (the man).</p>
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/006-l.mp3`}><strong>l'</strong></AudioClip> regardless of gender e.g.&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/007-l-appartement.mp3`}><strong>l'</strong>appartement</AudioClip> (m) (the flat),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/008-l-ecole.mp3`}><strong>l'</strong>école</AudioClip> (f) (the school),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/009-l-homme.mp3`}><strong>l'</strong>homme</AudioClip> (the man).</p>
 				</div>
 				<div
 					className={`panel`}
@@ -403,36 +403,36 @@ export class LO2Demystify extends PureComponent {
 					<p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word.
 						Listen to the following examples.</p>
 					<p>
-						<AudioClip className={`link`} soundFile={`sounds/fr/grand.mp3`} alt={`grand`}>gran<strong>d</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/rond.mp3`} alt={`rond`}>ron<strong>d</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/long.mp3`} alt={`long`}>lon<strong>g</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/trop.mp3`} alt={`trop`}>tro<strong>p</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/depuis.mp3`} alt={`depuis`}>depui<strong>s</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/pas.mp3`} alt={`pas`}>pa<strong>s</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/petit.mp3`} alt={`petit`}>peti<strong>t</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/Salut.mp3`} alt={`salut`}>salu<strong>t</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/gâteaux.mp3`} alt={`gâteaux`}>gâteau<strong>x</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/appelez.mp3`} alt={`appelez`}>appele<strong>z</strong></AudioClip></p>
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/005-grand.mp3`} alt={`grand`}>gran<strong>d</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/015-rond.mp3`} alt={`rond`}>ron<strong>d</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/009-long.mp3`} alt={`long`}>lon<strong>g</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/022-trop.mp3`} alt={`trop`}>tro<strong>p</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/007-depuis.mp3`} alt={`depuis`}>depui<strong>s</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/013-pas.mp3`} alt={`pas`}>pa<strong>s</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/014-petit.mp3`} alt={`petit`}>peti<strong>t</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/016-salut.mp3`} alt={`salut`}>salu<strong>t</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/004-gateaux.mp3`} alt={`gâteaux`}>gâteau<strong>x</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/001-appelez.mp3`} alt={`appelez`}>appele<strong>z</strong></AudioClip></p>
 					<p>The letter <strong>e</strong> is not pronounced at the end of a word:</p>
 					<p>
-						<AudioClip className={`link`} soundFile={`sounds/fr/Je m'appelle.mp3`} alt={`Je m'appelle`}>Je m'appell<strong>e</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/bibliothécaire.mp3`} alt={`bibliothécaire`}>bibliothécair<strong>e</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/célibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></p>
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/006-je-m-appelle.mp3`} alt={`Je m'appelle`}>Je m'appell<strong>e</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/004-bibliothecaire.mp3`} alt={`bibliothécaire`}>bibliothécair<strong>e</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/005-celibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></p>
 					<p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p>
 					<p>
-						<AudioClip className={`link`} soundFile={`sounds/fr/ce.mp3`}>ce</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/de.mp3`}>de</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/je.mp3`}>je</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/le.mp3`}>le</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/me.mp3`}>me</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/ne.mp3`}>ne</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/se.mp3`}>se</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/te.mp3`}>te</AudioClip></p><hr /><p>2 <strong>Th</strong></p>&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/002-ce.mp3`}>ce</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/003-de.mp3`}>de</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/008-je.mp3`}>je</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}>le</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/011-me.mp3`}>me</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/012-ne.mp3`}>ne</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/017-se.mp3`}>se</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/018-te.mp3`}>te</AudioClip></p><hr /><p>2 <strong>Th</strong></p>&nbsp;
 					<p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g.
-						<AudioClip className={`link`} soundFile={`sounds/fr/Thomas.mp3`} alt={`Thomas`}><strong>Thomas</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/thé.mp3`} alt={`thé`}><strong>thé</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/théologie.mp3`} alt={`théologie`}><strong>théologie</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/maths.mp3`} alt={`maths`}><strong>maths</strong></AudioClip></p>
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/021-thomas.mp3`} alt={`Thomas`}><strong>Thomas</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/019-the.mp3`} alt={`thé`}><strong>thé</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/020-theologie.mp3`} alt={`théologie`}><strong>théologie</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/010-maths.mp3`} alt={`maths`}><strong>maths</strong></AudioClip></p>
 				</div>
 			</div>
 		);
@@ -2200,7 +2200,7 @@ export class L13Grammar extends PureComponent {
 							<Table>
 								<TableBody>
 									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Je m'appelle.mp3`}><strong>je m'appelle</strong></AudioClip></TableCell><TableCell>I am called (I call myself)</TableCell>
+										<TableCell><AudioClip className={`link`} soundFile={`audio/lo1/vocabulary/022-je-mappelle.mp3`}><strong>je m'appelle</strong></AudioClip></TableCell><TableCell>I am called (I call myself)</TableCell>
 									</TableRow>
 									<TableRow>
 										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/tu t'appelles.mp3`}><strong>tu t'appelles</strong></AudioClip></TableCell><TableCell>you are called (you call yourself)</TableCell>

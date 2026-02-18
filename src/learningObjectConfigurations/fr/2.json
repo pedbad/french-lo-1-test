@@ -24,17 +24,17 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"sounds/fr/Salut, je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.mp3",
+							"audio/lo2/misc/003-salut-je-suis-sylvain-je-suis-celibataire-je-suis-etudiant-en-geographie.mp3",
 							"Salut, je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.",
 							"Hi, I'm Sylvain. I'm single. I'm a geography student."
 						],
 						[
-							"sounds/fr/Bonjour ! Je m'appelle Jacqueline. Je suis divorcée. Je suis prof de maths.mp3",
+							"audio/lo2/misc/001-bonjour-je-m-appelle-jacqueline-je-suis-divorcee-je-suis-prof-de-maths.mp3",
 							"Bonjour ! Je m'appelle Jacqueline. Je suis divorcée. Je suis prof de maths.",
 							"Hello, my name's Jacqueline. I'm divorced. I'm a maths teacher"
 						],
 						[
-							"sounds/fr/Bonsoir ! Je m'appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.mp3",
+							"audio/lo2/misc/002-bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3",
 							"Bonsoir ! Je m'appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
 							"Good evening, my name's Olivier Durand. I've been married to Alex for three years and I'm a librarian."
 						]
@@ -54,127 +54,127 @@
 			"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (<em>marié(e), divorcé(e), séparé(e), fiancé(e), pacsé(e), célibataire</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful question patterns to ask what someone does (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li></ul>",
 		"phrases": [
 			[
-				"sounds/fr/être.mp3",
+				"audio/lo2/vocabulary/011-etre.mp3",
 				"être",
 				"to be"
 			],
 			[
-				"sounds/fr/marié.mp3",
+				"audio/lo2/vocabulary/017-marie.mp3",
 				"marié.e",
 				"married"
 			],
 			[
-				"sounds/fr/divorcé.mp3",
+				"audio/lo2/vocabulary/008-divorce.mp3",
 				"divorcé.e",
 				"divorced"
 			],
 			[
-				"sounds/fr/séparé.mp3",
+				"audio/lo2/vocabulary/025-separe.mp3",
 				"séparé.e",
 				"separated"
 			],
 			[
-				"sounds/fr/fiancé.mp3",
+				"audio/lo2/vocabulary/013-fiance.mp3",
 				"fiancé.e",
 				"engaged"
 			],
 			[
-				"sounds/fr/pacsé.mp3",
+				"audio/lo2/vocabulary/019-pacse.mp3",
 				"pacsé.e",
 				"In a civil partnership"
 			],
 			[
-				"sounds/fr/célibataire.mp3",
+				"audio/lo2/vocabulary/005-celibataire.mp3",
 				"célibataire",
 				"single"
 			],
 			[
-				"sounds/fr/étudiant, étudiante.mp3",
+				"audio/lo2/vocabulary/012-etudiant-etudiante.mp3",
 				"étudiant (m) / étudiante (f)",
 				"University student"
 			],
 			[
-				"sounds/fr/élève.mp3",
+				"audio/lo2/vocabulary/010-eleve.mp3",
 				"élève",
 				"school pupil"
 			],
 			[
-				"sounds/fr/chercheur, chercheuse.mp3",
+				"audio/lo2/vocabulary/006-chercheur-chercheuse.mp3",
 				"chercheur (m) / chercheuse (f)",
 				"researcher"
 			],
 			[
-				"sounds/fr/doctorant, doctorante.mp3",
+				"audio/lo2/vocabulary/009-doctorant-doctorante.mp3",
 				"doctorant (m) / doctorante (f)",
 				"PhD student"
 			],
 			[
-				"sounds/fr/professeur, professeure, prof.mp3",
+				"audio/lo2/vocabulary/020-professeur-professeure-prof.mp3",
 				"professeur (m) / professeure (f) / prof (m and f)",
 				"teacher, professor"
 			],
 			[
-				"sounds/fr/médecin.mp3",
+				"audio/lo2/vocabulary/018-medecin.mp3",
 				"médecin (m and f)",
 				"doctor"
 			],
 			[
-				"sounds/fr/archiviste.mp3",
+				"audio/lo2/vocabulary/002-archiviste.mp3",
 				"archiviste",
 				"archiviste"
 			],
 			[
-				"sounds/fr/bibliothécaire.mp3",
+				"audio/lo2/vocabulary/004-bibliothecaire.mp3",
 				"bibliothécaire",
 				"librarian"
 			],
 			[
-				"sounds/fr/administrateur, administratrice.mp3",
+				"audio/lo2/vocabulary/001-administrateur-administratrice.mp3",
 				"administrateur (m) / administratrice (f)",
 				"administrator"
 			],
 			[
-				"sounds/fr/informaticien, informaticienne.mp3",
+				"audio/lo2/vocabulary/015-informaticien-informaticienne.mp3",
 				"informaticien (m) / informaticienne (f)",
 				"IT specialist"
 			],
 			[
-				"sounds/fr/avocat, avocate.mp3",
+				"audio/lo2/vocabulary/003-avocat-avocate.mp3",
 				"avocat (m) / avocate (f)",
 				"lawyer"
 			],
 			[
-				"sounds/fr/Que faites-vous (dans la vie).mp3",
+				"audio/lo2/vocabulary/022-que-faites-vous-dans-la-vie.mp3",
 				"Que faites-vous (dans la vie) ?",
 				"What do you do (for a living)?"
 			],
 			[
-				"sounds/fr/Que fais-tu (dans la vie).mp3",
+				"audio/lo2/vocabulary/021-que-fais-tu-dans-la-vie.mp3",
 				"Que fais-tu (dans la vie) ?",
 				"What do you do (for a living)?"
 			],
 			[
-				"sounds/fr/Quelle est ta profession Quelle est votre profession.mp3",
+				"audio/lo2/vocabulary/024-quelle-est-ta-profession-quelle-est-votre-profession.mp3",
 				"Quelle est ta profession ? Quelle est votre profession ?",
 				"What's your profession?"
 			],
 			[
-				"sounds/fr/Quel est ton métier Quel est votre métier.mp3",
+				"audio/lo2/vocabulary/023-quel-est-ton-metier-quel-est-votre-metier.mp3",
 				"Quel est ton / votre métier ?",
 				"What's your profession?"
 			],
 			[
-				"sounds/fr/depuis.mp3",
+				"audio/lo2/vocabulary/007-depuis.mp3",
 				"depuis",
 				"for (a period of time), since"
 			],
 			[
-				"sounds/fr/malade.mp3",
+				"audio/lo2/vocabulary/016-malade.mp3",
 				"malade",
 				"ill"
 			],
 			[
-				"sounds/fr/hier.mp3",
+				"audio/lo2/vocabulary/014-hier.mp3",
 				"hier",
 				"yesterday"
 			]
@@ -192,7 +192,7 @@
 	"pronunciation": {
 		"component": "LO2Demystify",
 		"content": [
-			"<p>1 Silent letters at the end of a word <img src='/img/lo2/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh'/></p><p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<strong>d</strong></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<strong>d</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<strong>g</strong></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<strong>p</strong></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<strong>s</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<strong>s</strong></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<strong>x</strong></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<strong>z</strong></span></p><p>The letter <strong>e</strong> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&apos;appelle.mp3' alt='Je m''appelle'>Je m&apos;appell<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<strong>e</strong></span></p><p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p><p><span class='audio-link' sound-file='/sounds/fr/ce.mp3'>ce</span>, <span class='audio-link' sound-file='/sounds/fr/de.mp3'>de</span>, <span class='audio-link' sound-file='/sounds/fr/je.mp3'>je</span>,  <span class='audio-link' sound-file='/sounds/fr/le.mp3'>le</span>, <span class='audio-link' sound-file='/sounds/fr/me.mp3'>me</span>, <span class='audio-link' sound-file='/sounds/fr/ne.mp3'>ne</span>, <span class='audio-link' sound-file='/sounds/fr/se.mp3'>se</span>, <span class='audio-link' sound-file='/sounds/fr/te.mp3'>te</span></p><hr/><p>2 <strong>Th</strong></p><p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><strong>Thomas</strong></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><strong>thé</strong></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><strong>théologie</strong></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><strong>maths</strong></span></p>"
+			"<p>1 Silent letters at the end of a word <img src='/img/lo2/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh'/></p><p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/005-grand.mp3' alt='grand'>gran<strong>d</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/015-rond.mp3' alt='rond'>ron<strong>d</strong></span>,  <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/009-long.mp3' alt='long'>lon<strong>g</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/022-trop.mp3' alt='trop'>tro<strong>p</strong></span>, <span class='audio-link' sound-file='/audio/lo2/vocabulary/007-depuis.mp3' alt='depuis'>depui<strong>s</strong></span>,  <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/013-pas.mp3' alt='pas'>pa<strong>s</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/014-petit.mp3' alt='petit'>peti<strong>t</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/016-salut.mp3' alt='salut'>salu<strong>t</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/004-gateaux.mp3' alt='gâteaux'>gâteau<strong>x</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/001-appelez.mp3' alt='appelez'>appele<strong>z</strong></span></p><p>The letter <strong>e</strong> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/006-je-m-appelle.mp3' alt='Je m''appelle'>Je m&apos;appell<strong>e</strong></span>, <span class='audio-link' sound-file='/audio/lo2/vocabulary/004-bibliothecaire.mp3' alt='bibliothécaire'>bibliothécair<strong>e</strong></span>, <span class='audio-link' sound-file='/audio/lo2/vocabulary/005-celibataire.mp3' alt='célibataire'>célibatair<strong>e</strong></span></p><p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p><p><span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/002-ce.mp3'>ce</span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/003-de.mp3'>de</span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/008-je.mp3'>je</span>,  <span class='audio-link' sound-file='/audio/lo2/grammar/grammar-and-usage/015-le.mp3'>le</span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/011-me.mp3'>me</span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/012-ne.mp3'>ne</span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/017-se.mp3'>se</span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/018-te.mp3'>te</span></p><hr/><p>2 <strong>Th</strong></p><p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g. <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/021-thomas.mp3' alt='Thomas'><strong>Thomas</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/019-the.mp3' alt='thé'><strong>thé</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/020-theologie.mp3' alt='théologie'><strong>théologie</strong></span>, <span class='audio-link' sound-file='/audio/lo2/pronunciation/demystify/010-maths.mp3' alt='maths'><strong>maths</strong></span></p>"
 		],
 		"expandable": false,
 		"id": "pronunciation",
@@ -253,19 +253,19 @@
 					"items": [
 						{
 							"text": "Salut les enfants ! Tout va bien ? [*Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "sounds/fr/salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
+							"audio": "audio/lo2/exercises/dropdowns4/003-salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
 						},
 						{
 							"text": "Tu es archiviste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|*Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "sounds/fr/tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
+							"audio": "audio/lo2/exercises/dropdowns4/004-tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
 						},
 						{
 							"text": "Monsieur Tondereau est journaliste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|*Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "sounds/fr/monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
+							"audio": "audio/lo2/exercises/dropdowns4/001-monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
 						},
 						{
 							"text": "Que faites-vous dans la vie ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|*Je suis professeur de géographie.]",
-							"audio": "sounds/fr/que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
+							"audio": "audio/lo2/exercises/dropdowns4/002-que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
 						}
 					],
 					"titleText": "Answering Questions"

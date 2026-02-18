@@ -86,6 +86,19 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 - [x] LO1 listening exercises refactored to `listeningOrder1/2/3`
 - [x] LO1 exercise audio migration to `public/audio/lo1/exercises/...` underway
 - [x] ASCII-safe naming policy documented and in use for migrated files
+- [x] LO2 audio migration Phase 1 mapping completed
+  - `AUDIO_LO2_MIGRATION_MAP.md` defines 78 legacy `sounds/fr/...` refs -> `audio/lo2/...` targets
+  - includes blocker detection for missing source refs
+- [x] LO2 audio migration Phase 2 execution + blocker resolution completed
+  - copied 75 existing audio files into `public/audio/lo2/...`
+  - rewrote LO2 refs in:
+    - `src/learningObjectConfigurations/fr/2.json`
+    - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar`, `LO2Demystify`)
+  - resolved initial missing-source blockers via controlled fallback files:
+    - `sounds/fr/Je m'appelle.mp3`
+    - `sounds/fr/Je m&apos;appelle.mp3`
+    - `sounds/fr/Salut.mp3`
+  - LO2 blocker count is now `0`
 - [x] PhraseTable vocabulary sort key hardened against audio-prefixed rows
   - fixed `Alphabetical`/reverse sorting in `src/components/PhraseTable/PhraseTable.jsx`
   - root cause: rows often start with `.mp3` path in column `0`
