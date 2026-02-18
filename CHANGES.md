@@ -2,6 +2,23 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-18 - Single-Accordion Default Open + Docs Sync
+
+- Updated accordion rendering in `src/App.jsx`:
+  - added recursive accordion counting per top-level section.
+  - if a section contains exactly one accordion, it now opens by default.
+  - if a section contains multiple accordions, default remains collapsed.
+  - existing session persistence still takes precedence (`<id>-expanded` in `sessionStorage`).
+- Added in-code comments explaining:
+  - why accordion count is recursive,
+  - why default-open applies only to single-accordion sections,
+  - and why persisted user state must override default.
+- Synced docs to prevent drift:
+  - `README.md`
+  - `TASKS_COMPLETED.md`
+  - `ACCORDION_TASKS_COMPLETED.md`
+  - `FUTURE_PROJECTS.md` (carry-forward rule for future repos)
+
 ## 2026-02-18 - LO2 Audio Migration Phase 1 (Mapping)
 
 - Added `AUDIO_LO2_MIGRATION_MAP.md` with a concrete old->new LO2 audio mapping plan.

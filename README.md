@@ -418,6 +418,7 @@ Why it is feasible here:
   - current status: debug migration and main-app cutover are complete via `src/components/Accordion/AccordionArticle.jsx`.
   - legacy app accordion container (`src/components/Accordion/Accordion.jsx`) was removed, and dead pathways (`window.refs`, `expandAllAccordions`, stale `expandNow`) were deleted.
   - naming cleanup: wrapper was renamed from `AppAccordionArticle` to `AccordionArticle`; root semantic tag is now `<article>`.
+  - single-accordion default-open rule: top-level sections that contain exactly one accordion item auto-open on first load; persisted session state (`<id>-expanded`) still overrides this default when present.
 - Special anchors currently wait ~500 ms before scrolling so accordion panels can expand; smoothing that interaction (without the lag) remains a TODO.
 
 ### Additional guidance (agreed)

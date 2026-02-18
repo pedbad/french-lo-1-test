@@ -31,6 +31,9 @@ Debug-first is approved:
   - keep content mounted (current custom behavior) or unmount hidden panel content for stricter focus isolation.
 - [ ] Lock deep-link/hash behavior contract:
   - document whether opening `/...#dialogues` / `#grammar` etc. must auto-expand target content.
+- [x] Lock default-open contract for single-accordion sections:
+  - if a top-level section contains exactly one accordion, open it by default.
+  - persisted session state (`<id>-expanded`) overrides this default.
 - [x] Lock link-class responsibility contract:
   - navigation links use `nav-scroll-link` (scroll-only)
   - content explanation links use `modal-link` (modal-only)

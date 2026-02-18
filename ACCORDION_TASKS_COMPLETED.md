@@ -56,6 +56,10 @@ Track completed work for migrating accordion behavior to shadcn/Radix primitives
   - shared `.accordion-chevron` class in `/Users/ped/Sites/french/french-lo-1/src/index.css`
   - applied in `/Users/ped/Sites/french/french-lo-1/src/components/ui/accordion.jsx`
   - applied in `/Users/ped/Sites/french/french-lo-1/src/components/Accordion/AccordionArticle.jsx`
+- [x] Added single-accordion default-open behavior in app render path:
+  - top-level sections now count accordion items recursively.
+  - sections with exactly one accordion open by default.
+  - persisted session state still overrides default behavior, so user choice is preserved.
 
 ## In Progress
 

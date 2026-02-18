@@ -181,6 +181,16 @@ Use this rule in all config/JSON-authored rich text:
 5. Design principle:
    - one link behavior per contract: top nav hashes are for section scroll, `.modal-link` is for modal launch only.
 
+### Single-Accordion Default-Open Rule (Carry Forward)
+
+Use this for LO-style content pages where some sections contain only one accordion:
+
+1. Count accordions per top-level section (include nested group/section content).
+2. If a section has exactly one accordion, open it by default so content is immediately visible.
+3. If a section has more than one accordion, keep default collapsed.
+4. Persist user open/close state in session storage and let persisted state override default-open.
+5. Document the behavior in README/task tracker to avoid regressions during future refactors.
+
 ### Semantic Emphasis Rule (Carry Forward)
 
 1. Author inline emphasis with semantic tags only:

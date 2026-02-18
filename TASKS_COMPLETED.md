@@ -217,6 +217,9 @@ Progress:
   - `src/App.jsx` uses `AccordionArticle` for `DropDowns`, `Monologue`, and `RadioQuiz` as the next interactive-content expansion.
 - [x] Complete main app accordion path migration:
   - all expandable branches in `src/App.jsx` now use `AccordionArticle`.
+- [x] Add single-accordion default-open behavior:
+  - top-level sections now auto-open by default only when they contain exactly one accordion item.
+  - persisted session state (`<id>-expanded`) still takes precedence to preserve user-controlled open/close behavior.
 - [x] Remove obsolete custom accordion/dead pathways after cutover:
   - deleted `src/components/Accordion/Accordion.jsx`
   - removed `window.refs` + `expandAllAccordions` from `src/App.jsx`

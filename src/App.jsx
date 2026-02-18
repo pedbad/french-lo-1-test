@@ -699,6 +699,46 @@ export default class App extends React.Component {
 		return `auto-${safeComponent}-${this.autoComponentIdCounter}`;
 	};
 
+	countAccordionsInComponent = (value) => {
+		if (!value || typeof value !== "object") return 0;
+
+		const { component, expandable = true } = value;
+		if (typeof component !== "string" || component.trim() === "") return 0;
+		if (component.startsWith("HIDE")) return 0;
+
+		// Count expandable nodes exactly as the renderer creates accordion wrappers.
+		// We use this to auto-open section content only when there is a single
+		// accordion in the whole top-level section.
+		switch (component) {
+			case "Group": {
+				const { content: groupContent = [], displayAsTabs = false } = value;
+				const groupItems = this.normaliseContentItems(groupContent);
+				if (displayAsTabs) {
+					// Tab children render as bare content; only group wrapper can be accordion.
+					return expandable ? 1 : 0;
+				}
+				const childCount = groupItems.reduce(
+					(sum, item) => sum + this.countAccordionsInComponent(item),
+					0
+				);
+				return (expandable ? 1 : 0) + childCount;
+			}
+			case "Section": {
+				const { content: sectionContent = [] } = value;
+				const sectionItems = this.normaliseContentItems(sectionContent);
+				return sectionItems.reduce(
+					(sum, item) => sum + this.countAccordionsInComponent(item),
+					0
+				);
+			}
+			case "Explanation":
+			case "PhraseTable":
+				return expandable ? 1 : 0;
+			default:
+				return expandable ? 1 : 0;
+		}
+	};
+
 
 	/**
 	 * renderComponentForTab
@@ -898,7 +938,16 @@ export default class App extends React.Component {
 				if (component) {
 					const semanticSectionId = value.id || sectionKey;
 					const renderedTopLevelContent = [];
-					this.renderComponent(value, renderedTopLevelContent, semanticSectionId);
+					const sectionAccordionCount = this.countAccordionsInComponent(value);
+					// UX rule: if a section has exactly one accordion, show its content by default.
+					// Existing sessionStorage state still has priority in AccordionArticle.
+					const autoExpandSingleAccordion = sectionAccordionCount === 1;
+					this.renderComponent(
+						value,
+						renderedTopLevelContent,
+						semanticSectionId,
+						{ autoExpandSingleAccordion }
+					);
 					const headingId = `${semanticSectionId}-heading`;
 					topLevelSections.push(
 						<section
@@ -1100,7 +1149,12 @@ export default class App extends React.Component {
 		);
 	};
 
-	renderComponent = (value, articles, forcedTargetId = null) => {
+	renderComponent = (
+		value,
+		articles,
+		forcedTargetId = null,
+		renderContext = {}
+	) => {
 		const {
 			id: valueId,
 			component,
@@ -1108,6 +1162,7 @@ export default class App extends React.Component {
 			titleTextHTML = "",
 		} = value;
 		const { expandable = true } = value;
+		const { autoExpandSingleAccordion = false } = renderContext;
 
 		const { currentLearningObject, languageCode } = this.state;
 		const id = this.getResolvedComponentId(valueId, component);
@@ -1119,6 +1174,7 @@ export default class App extends React.Component {
 			case "AnswerTable": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1138,6 +1194,7 @@ export default class App extends React.Component {
 			case "Blanks": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1157,6 +1214,7 @@ export default class App extends React.Component {
 			case "DropDowns": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1177,6 +1235,7 @@ export default class App extends React.Component {
 				if (expandable) {
 					articles.push(
 						<AccordionArticle
+							expandedByDefault={autoExpandSingleAccordion}
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1220,12 +1279,13 @@ export default class App extends React.Component {
 				if (!displayAsTabs) {
 					// Children as sub-accordions/sections
 					this.normaliseContentItems(groupContent).forEach((v) => {
-						this.renderComponent(v, renderedGroupContent);
+						this.renderComponent(v, renderedGroupContent, null, renderContext);
 					});
 
 					if (expandable) {
 						articles.push(
 							<AccordionArticle
+								expandedByDefault={autoExpandSingleAccordion}
 								config={value}
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
@@ -1247,14 +1307,14 @@ export default class App extends React.Component {
 								id={`${compoundID}-Group-Section`}
 								key={`${compoundID}-Group-Section`}
 								semanticAs={topLevelSemanticAs}
-									target={groupId}
-									title={titleText}
-									titleHTML={titleTextHTML}
-								>
-									{renderedGroupContent}
-								</GroupSectionComponent>
-							);
-						}
+								target={groupId}
+								title={titleText}
+								titleHTML={titleTextHTML}
+							>
+								{renderedGroupContent}
+							</GroupSectionComponent>
+						);
+					}
 				} else {
 					// children rendered as tabs
 					const tabItems = [];
@@ -1286,6 +1346,7 @@ export default class App extends React.Component {
 					const outerWrapper = (inner) =>
 						expandable ? (
 							<AccordionArticle
+								expandedByDefault={autoExpandSingleAccordion}
 								config={value}
 								className={`group`}
 								id={`${compoundID}-Group-Accordion`}
@@ -1354,6 +1415,7 @@ export default class App extends React.Component {
 			case "Jigsaw": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1373,6 +1435,7 @@ export default class App extends React.Component {
 			case "MemoryMatchGame": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1392,6 +1455,7 @@ export default class App extends React.Component {
 			case "Monologue": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1412,6 +1476,7 @@ export default class App extends React.Component {
 				if (expandable) {
 					articles.push(
 						<AccordionArticle
+							expandedByDefault={autoExpandSingleAccordion}
 							config={value}
 							id={`${compoundID}-Accordion`}
 							key={`${compoundID}-Accordion`}
@@ -1452,6 +1517,7 @@ export default class App extends React.Component {
 			case "RadioQuiz": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1471,6 +1537,7 @@ export default class App extends React.Component {
 			case "ReadAloud": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1490,6 +1557,7 @@ export default class App extends React.Component {
 			case "SequenceOrder": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1511,7 +1579,7 @@ export default class App extends React.Component {
 				const { content: sectionContent = [] } = value;
 
 				this.normaliseContentItems(sectionContent).forEach((v) => {
-					this.renderComponent(v, renderedSectionContent);
+					this.renderComponent(v, renderedSectionContent, null, renderContext);
 				});
 
 				const SectionComponent = value.heroSection ? HeroSection : Section;
@@ -1533,6 +1601,7 @@ export default class App extends React.Component {
 			case "Sortable": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1552,6 +1621,7 @@ export default class App extends React.Component {
 			case "WordGrid": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1571,6 +1641,7 @@ export default class App extends React.Component {
 			case "WordParts": {
 				articles.push(
 					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
 						config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
@@ -1601,6 +1672,7 @@ export default class App extends React.Component {
 					if (expandable) {
 						articles.push(
 							<AccordionArticle
+								expandedByDefault={autoExpandSingleAccordion}
 								config={value}
 								id={`${compoundID}-Accordion`}
 								key={`${compoundID}-Accordion`}

@@ -40,6 +40,7 @@ Repo: `/Users/ped/Sites/french/french-lo-1`
 - [ ] Second click closes panel.
 - [ ] Multiple-open behavior still works where expected.
 - [ ] Session persistence for open/closed state still works after refresh.
+- [x] Single-accordion sections default to open on first view (unless session persistence already has a user state).
 - [ ] Chevron size/style remains consistent between app and debug pages.
 
 ## Modal/Deep-Link Checks
