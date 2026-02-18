@@ -6,9 +6,9 @@ import { injectAudioCueIntoHTML, splitTextByAudioCueKeyword } from "../instructi
 import { AudioCueIcon } from "../AudioCueIcon";
 
 const INFO_CONTAINER_CLASS = "information mt-1 flex items-start gap-[0.45rem]";
-const INFO_CONTENT_TEXT_CLASS = "info-content text-[var(--font-size-xl)] leading-[var(--line-height-body)] [&_div]:!text-[var(--font-size-xl)] [&_div]:!leading-[var(--line-height-body)] [&_p]:!m-0 [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--line-height-body)] [&_h3]:!m-0 [&_h3]:!mb-[0.35rem] [&_h3]:!text-[var(--font-size-xl)] [&_h3]:!leading-[var(--line-height-app)] [&_h3]:!font-semibold [&_h4]:!m-0 [&_h4]:!mb-[0.3rem] [&_h4]:!text-[var(--font-size-xl)] [&_h4]:!leading-[var(--line-height-app)]";
+const INFO_CONTENT_TEXT_CLASS = "info-content text-[var(--font-size-base)] leading-[var(--line-height-body)] [&_div]:!text-[var(--font-size-base)] [&_div]:!leading-[var(--line-height-body)] [&_p]:!m-0 [&_p]:!text-[var(--font-size-base)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-base)] [&_li]:!leading-[var(--line-height-body)] [&_h3]:!m-0 [&_h3]:!mb-[0.35rem] [&_h3]:!text-[var(--font-size-base)] [&_h3]:!leading-[var(--line-height-app)] [&_h3]:!font-semibold [&_h4]:!m-0 [&_h4]:!mb-[0.3rem] [&_h4]:!text-[var(--font-size-base)] [&_h4]:!leading-[var(--line-height-app)]";
 const INFO_CONTENT_SPACING_CLASS = "[&_li]:mt-[0.3rem]";
-const INFO_TITLE_CLASS = "mb-1 text-[var(--font-size-xl)] leading-[var(--line-height-app)] font-semibold";
+const INFO_TITLE_CLASS = "mb-1 text-[var(--font-size-base)] leading-[var(--line-height-app)] font-semibold";
 const INFO_ICON_CLASS = "info-icon self-start mt-[0.16em] inline-flex h-[1.55em] w-[1.55em] shrink-0 items-center justify-center rounded-full bg-[var(--foreground)] text-[var(--font-size-base)] leading-none";
 const INFO_ICON_SVG_CLASS = "info-icon__svg h-[1.4em] w-[1.4em] text-[var(--background)] [stroke-width:3.4] [&_circle]:hidden";
 
@@ -16,7 +16,7 @@ const INFO_VARIANTS = new Set(["default", "info", "warning", "success", "danger"
 const PARAGRAPH_OPEN_TAG_PATTERN = /<p(\s[^>]*)?>/gi;
 const PARAGRAPH_CLOSE_TAG_PATTERN = /<\/p>/gi;
 const INFO_INLINE_TEXT_STYLE = {
-	fontSize: "var(--font-size-xl)",
+	fontSize: "var(--font-size-base)",
 	lineHeight: "var(--line-height-body)",
 };
 
@@ -30,7 +30,7 @@ const applyInfoTypographyToHTML = (rawHtml = "") => {
 	if (typeof DOMParser === "undefined") return normalizedHtml;
 	const doc = new DOMParser().parseFromString(normalizedHtml, "text/html");
 	doc.querySelectorAll("div, p, li, h3, h4").forEach((node) => {
-		node.style.fontSize = "var(--font-size-xl)";
+		node.style.fontSize = "var(--font-size-base)";
 		node.style.lineHeight = "var(--line-height-body)";
 	});
 	doc.querySelectorAll("h3, h4").forEach((node) => {

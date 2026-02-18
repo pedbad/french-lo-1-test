@@ -1017,6 +1017,12 @@
 			box-shadow 800ms ease-in-out;
 	}
 
+	/* Tighten the visual jump from section instructions/info to the first accordion only. */
+	#content .section .accordion-article:first-of-type > header,
+	#content .section .accordion-article:first-of-type .accordion-item > header {
+		margin-top: 0.125rem;
+	}
+
 	#content .accordion-article > header:hover,
 	#content .accordion-article .accordion-item > header:hover {
 		background-color: var(--accordion-mist);
@@ -5064,7 +5070,7 @@ hr {
   list-style: none;
 }
 #content .information .info-content :is(p, div, li, h3, h4) {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-base);
   line-height: var(--line-height-body);
 }
 #content .information .info-content :is(p, h3, h4) {

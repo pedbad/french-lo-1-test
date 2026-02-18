@@ -13,6 +13,7 @@ import {
 	Header,
 	HeroSection,
 	Info,
+	InlineChoiceGroup,
 	Jigsaw,
 	LandingPage,
 	MainMenu,
@@ -785,6 +786,14 @@ export default class App extends React.Component {
 						showDialog={this.showDialog}
 					/>
 				);
+			case "InlineChoiceGroup":
+				return (
+					<InlineChoiceGroup
+						config={value}
+						logError={this.logError}
+						showDialog={this.showDialog}
+					/>
+				);
 			case "Explanation":
 				return (
 					<>
@@ -1211,11 +1220,11 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "DropDowns": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
+				case "DropDowns": {
+					articles.push(
+						<AccordionArticle
+							expandedByDefault={autoExpandSingleAccordion}
+							config={value}
 						id={`${compoundID}-Accordion`}
 						key={`${compoundID}-Accordion`}
 						target={targetId}
@@ -1227,10 +1236,30 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
-					</AccordionArticle>
-				);
-				break;
-			}
+						</AccordionArticle>
+					);
+					break;
+				}
+				case "InlineChoiceGroup": {
+					articles.push(
+						<AccordionArticle
+							expandedByDefault={autoExpandSingleAccordion}
+							config={value}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={targetId}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<InlineChoiceGroup
+								config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AccordionArticle>
+					);
+					break;
+				}
 			case "Explanation": {
 				if (expandable) {
 					articles.push(
