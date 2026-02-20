@@ -11,6 +11,7 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import DOMPurify from "dompurify";
+import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "../../utility";
 
@@ -113,14 +114,19 @@ export class InlineChoiceGroup extends React.PureComponent {
 				[blankIndex]: value,
 			};
 
-			// Editing an answer returns the row to "pending" state (amber selection only)
-			// until the learner explicitly presses "Check answers" again.
+			// Editing after check should only invalidate the edited blank, not all blanks.
 			if (prevState.hasChecked) {
+				const checkedResults = {
+					...prevState.checkedResults,
+				};
+				delete checkedResults[blankIndex];
+				const nCorrect = Object.values(checkedResults).filter(Boolean).length;
+
 				return {
 					values,
-					hasChecked: false,
-					checkedResults: {},
-					nCorrect: 0,
+					hasChecked: true,
+					checkedResults,
+					nCorrect,
 				};
 			}
 
@@ -229,7 +235,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 						} else if (isSelected && isIncorrectSelection) {
 							stateClasses = "border-[var(--destructive)] bg-[color-mix(in_oklab,var(--destructive)_18%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--destructive)_30%,transparent)]";
 						} else if (isSelected) {
-							stateClasses = "border-[var(--ped-warn)] bg-[color-mix(in_oklab,var(--ped-warn)_38%,transparent)] text-foreground font-semibold shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--ped-warn)_65%,transparent),0_0_0_2px_color-mix(in_oklab,var(--ped-warn)_28%,transparent)]";
+							stateClasses = "border-[color-mix(in_oklab,var(--chart-4)_58%,var(--border))] bg-[color-mix(in_oklab,var(--chart-4)_26%,transparent)] text-foreground font-semibold shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--chart-4)_34%,transparent)]";
 						}
 
 						return (
@@ -298,12 +304,41 @@ export class InlineChoiceGroup extends React.PureComponent {
 
 			const { nextBlankIndex, segments } = this.parseSentence(phraseText, blankCursor);
 			blankCursor = nextBlankIndex;
+			const rowBlankIndices = segments
+				.filter((segment) => segment.type === "choice")
+				.map((segment) => segment.blankIndex);
+			const rowAttempted = rowBlankIndices.some((idx) => {
+				const rawValue = this.state.values[idx];
+				return rawValue !== undefined && rawValue !== null && rawValue !== "";
+			});
+			const rowResultValues = rowBlankIndices.map((idx) => this.state.checkedResults[idx]);
+			const rowFullyChecked =
+				rowBlankIndices.length > 0 &&
+				rowResultValues.every((result) => typeof result === "boolean");
+			const rowIsCorrect =
+				this.state.hasChecked &&
+				rowAttempted &&
+				rowFullyChecked &&
+				rowResultValues.every((result) => result === true);
+			const rowHasResult = this.state.hasChecked && rowAttempted && rowFullyChecked;
 
 			rows.push(
 				<TableRow key={`row-${i}`}>
 					<TableCell>
-						<div className="m-0 leading-[var(--line-height-app)]">
-							{this.renderSentence(segments)}
+						<div className="m-0 flex items-start gap-3 leading-[var(--line-height-app)]">
+							<div className="min-w-0 flex-1">{this.renderSentence(segments)}</div>
+							{rowHasResult ? (
+								<span
+									aria-hidden="true"
+									className={`inline-flex shrink-0 items-center justify-center pt-0.5 ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+								>
+									{rowIsCorrect ? (
+										<CircleCheck className="h-10 w-10" />
+									) : (
+										<CircleX className="h-10 w-10" />
+									)}
+								</span>
+							) : null}
 						</div>
 					</TableCell>
 					{item.audio ? (
