@@ -10,6 +10,36 @@ import DOMPurify from "dompurify";
 import React from 'react';
 import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "./instructions-media";
 
+const splitDisplayTitle = (value) => {
+	if (typeof value !== "string") return null;
+
+	const title = value.trim();
+	if (!title) return null;
+
+	const splitPatterns = [
+		/:\s+/,
+		/\s+—\s+/,
+		/\s+–\s+/,
+		/\s+\|\s+/,
+		/\s+-\s+/,
+	];
+
+	for (const pattern of splitPatterns) {
+		const match = title.match(pattern);
+		if (!match || match.index === undefined) continue;
+
+		const { index } = match;
+		const [separator] = match;
+		const main = title.slice(0, index).trim();
+		const sub = title.slice(index + separator.length).trim();
+		if (!main || !sub) continue;
+
+		return { main, sub };
+	}
+
+	return null;
+};
+
 export class Section extends React.PureComponent {
 	constructor(props) {
 		super(props);
@@ -67,6 +97,23 @@ export class Section extends React.PureComponent {
 		const headingId = target ? `${target}-heading` : `section-title-${id}`;
 		const RootTag = semanticAs === "div" ? "div" : "section";
 		const rootAriaProps = RootTag === "section" ? { "aria-labelledby": headingId } : {};
+		const splitTitle = !titleHTML ? splitDisplayTitle(title) : null;
+		const renderedTitle = titleHTML ? (
+			<span
+				dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
+			/>
+		) : splitTitle ? (
+			<>
+				<span className="title-main">
+					{splitTitle.main} —
+				</span>
+				<span className="title-sub">
+					{splitTitle.sub}
+				</span>
+			</>
+		) : (
+			title
+		);
 		const inlineInstructionNode = safeInstructionsTextHTML
 			? (
 				<div
@@ -109,13 +156,7 @@ export class Section extends React.PureComponent {
 									data-modal-target={target || undefined}
 									id={headingId}
 								>
-									{titleHTML ? (
-										<span
-											dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
-										/>
-									) : (
-										title
-									)}
+									{renderedTitle}
 								</h2>
 
 								{/* {title} */}

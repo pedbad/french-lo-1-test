@@ -387,7 +387,7 @@
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",
-		"titleText": "Demystifying French Pronunciation"
+		"titleText": "Pronunciation Focus — Demystifying French Pronunciation"
 	},
 	"exercises": {
 		"component": "Group",
@@ -402,7 +402,7 @@
 					"cheatText": "Show answers",
 					"items": [
 						{
-							"text": "Je [*veux|veut|voulons|voulez|veulent] sortir. Tu [*veux|veut|voulons|voulez|veulent] dormir. Annie [veux|*veut|voulons|voulez|veulent] courir.  Dani [veux|*veut|voulons|voulez|veulent] tricoter.  Lucie [veux|*veut|voulons|voulez|veulent] papoter. Millie [veux|*veut|voulons|voulez|veulent] méditer.  Nous [veux|veut|*voulons|voulez|veulent] bouquiner.  Vous [veux|veut|voulons|*voulez|veulent] bavarder. Mes amis [veux|veut|voulons|voulez|*veulent] dessiner.  Les enfants [veux|veut|voulons|voulez|*veulent] grandir. Leurs parents [veux|veut|voulons|voulez|*veulent] rajeunir.  Ils ne [veux|veut|voulons|voulez|*veulent] pas vieillir ! Moi non plus ! \u00A9 Jacqueline Rosen",
+							"text": "Je [*veux|veut|voulons|voulez|veulent] sortir. Tu [*veux|veut|voulons|voulez|veulent] dormir. Annie [veux|*veut|voulons|voulez|veulent] courir.  Dani [veux|*veut|voulons|voulez|veulent] tricoter.  Lucie [veux|*veut|voulons|voulez|veulent] papoter. Millie [veux|*veut|voulons|voulez|veulent] méditer.  Nous [veux|veut|*voulons|voulez|veulent] bouquiner.  Vous [veux|veut|voulons|*voulez|veulent] bavarder. Mes amis [veux|veut|voulons|voulez|*veulent] dessiner.  Les enfants [veux|veut|voulons|voulez|*veulent] grandir. Leurs parents [veux|veut|voulons|voulez|*veulent] rajeunir.  Ils ne [veux|veut|voulons|voulez|*veulent] pas vieillir ! Moi non plus ! © Jacqueline Rosen",
 							"audio": "sounds/fr/Chacun à son goût !.mp3"
 						}
 					],

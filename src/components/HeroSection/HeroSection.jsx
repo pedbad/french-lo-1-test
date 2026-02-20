@@ -6,6 +6,36 @@ import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsM
 import { resolveAsset } from "../../utility";
 import { Separator } from "@/components/ui/separator";
 
+const splitDisplayTitle = (value) => {
+	if (typeof value !== "string") return null;
+
+	const title = value.trim();
+	if (!title) return null;
+
+	const splitPatterns = [
+		/:\s+/,
+		/\s+—\s+/,
+		/\s+–\s+/,
+		/\s+\|\s+/,
+		/\s+-\s+/,
+	];
+
+	for (const pattern of splitPatterns) {
+		const match = title.match(pattern);
+		if (!match || match.index === undefined) continue;
+
+		const { index } = match;
+		const [separator] = match;
+		const main = title.slice(0, index).trim();
+		const sub = title.slice(index + separator.length).trim();
+		if (!main || !sub) continue;
+
+		return { main, sub };
+	}
+
+	return null;
+};
+
 export const HeroSection = ({
 	id,
 	target,
@@ -35,6 +65,23 @@ export const HeroSection = ({
 	const safeInstructionsHTML = rawInstructionsHTML
 		? applyInstructionTypographyToHTML(DOMPurify.sanitize(rawInstructionsHTML))
 		: "";
+	const splitTitle = !titleHTML ? splitDisplayTitle(title) : null;
+	const renderedTitle = titleHTML ? (
+		<span
+			dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
+		/>
+	) : splitTitle ? (
+		<>
+			<span className="title-main">
+				{splitTitle.main} —
+			</span>
+			<span className="title-sub">
+				{splitTitle.sub}
+			</span>
+		</>
+	) : (
+		title
+	);
 	const inlineInstructionNode = rawInstructionsHTML ? (
 		<div
 			className={`html section mt-0 ${INSTRUCTION_TEXT_CLASS}`}
@@ -58,13 +105,7 @@ export const HeroSection = ({
 								data-modal-target={target || undefined}
 								id={headingId}
 							>
-								{titleHTML ? (
-									<span
-										dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }}
-									/>
-								) : (
-									title
-								)}
+								{renderedTitle}
 							</h2>
 						</CardTitle>
 						{instructionsLayout ? (

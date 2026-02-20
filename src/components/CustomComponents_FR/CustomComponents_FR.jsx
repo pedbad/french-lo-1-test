@@ -575,28 +575,21 @@ export class LO2Grammar3 extends PureComponent {
 	};
 }
 
-export class LO2Demystify extends PureComponent {
+export class LO2Pronunciation1 extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
 			<div
-				className={`lo2-demystify-container container`}
+				className={`lo2-pronunciation1-container container`}
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
-					className={`panel`}
+					className={`panel pronunciation-panel`}
 					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
-					<p>1 Silent letters at the end of a word&nbsp;
-						<img
-							src={resolveAsset(`images/shh.jpg`)}
-							className={`lo2-demystify-shh`}
-							alt={`lady with finger to lips. Shh`}
-							style={{ border: "1px solid color-mix(in oklab, var(--border) 60%, transparent)" }}
-							title={`lady with finger to lips. Shh`}
-						/></p>
+					<h3>1. Silent letters at the end of a word</h3>
 					<p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word.
 						Listen to the following examples.</p>
 					<p>
@@ -624,7 +617,28 @@ export class LO2Demystify extends PureComponent {
 						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/011-me.mp3`}>me</AudioClip>,&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/012-ne.mp3`}>ne</AudioClip>,&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/017-se.mp3`}>se</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/018-te.mp3`}>te</AudioClip></p><hr /><p>2 <strong>Th</strong></p>&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/018-te.mp3`}>te</AudioClip></p>
+				</div>
+			</div>
+		);
+	};
+}
+
+export class LO2Pronunciation2 extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div
+				className={`lo2-pronunciation2-container container`}
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div
+					className={`panel pronunciation-panel`}
+					id={id ? `${id}Panel2` : undefined}
+					key={`${id}Panel2`}
+				>
+					<h3>2. The French "th"</h3>
 					<p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g.
 						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/021-thomas.mp3`} alt={`Thomas`}><strong>Thomas</strong></AudioClip>,&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/019-the.mp3`} alt={`thé`}><strong>thé</strong></AudioClip>,&nbsp;
