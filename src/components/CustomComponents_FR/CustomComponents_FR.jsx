@@ -4,6 +4,7 @@ import {
 	AudioClip,
 	Figure,
 	Info,
+	PhraseTable,
 	RadioQuiz
 } from '..';
 import { Component, PureComponent } from 'react';
@@ -119,6 +120,43 @@ export const Grammar2Body = ({ highlightIntro = false } = {}) => (
 			whatever your relationship to them.</p>
 	</>
 );
+
+export const LO2SubjectPronounsBody = ({ highlightTarget = "" } = {}) => {
+	const isActive = (target) => highlightTarget === target;
+	const highlight = (target) => (isActive(target) ? highlightClass : "");
+
+	return (
+		<>
+			<div className={`space-y-2`}>
+				<p>
+					<span className={`modal-link-target ${highlight("subject-pronouns-il")}`} id={`subject-pronouns-il`}>
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/003-il-est.mp3`}><strong>Il</strong></AudioClip> is used to replace a masculine noun.
+					</span>
+				</p>
+				<p>
+					<span className={`modal-link-target ${highlight("subject-pronouns-elle")}`} id={`subject-pronouns-elle`}>
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3`}><strong>Elle</strong></AudioClip> is used to replace a feminine noun.
+					</span>
+				</p>
+				<p>
+					<span className={`modal-link-target ${highlight("subject-pronouns-ils")}`} id={`subject-pronouns-ils`}>
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`}><strong>Ils</strong></AudioClip> is used to replace more than one masculine noun or a mixture of masculine and feminine nouns.
+					</span>
+				</p>
+				<p>
+					<span className={`modal-link-target ${highlight("subject-pronouns-elles")}`} id={`subject-pronouns-elles`}>
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`}><strong>Elles</strong></AudioClip> is used to replace more than one feminine noun.
+					</span>
+				</p>
+				<p>
+					<span className={`modal-link-target ${highlight("subject-pronouns-iel")}`} id={`subject-pronouns-iel`}>
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/025-iel.mp3`}><strong>iel</strong></AudioClip> is a gender-neutral singular pronoun.
+					</span>
+				</p>
+			</div>
+		</>
+	);
+};
 
 export class LO1Demystify1 extends PureComponent {
 	render = () => {
@@ -302,12 +340,12 @@ export class LO2Grammar extends PureComponent {
 										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/017-tu-es.mp3`} /></TableCell>
 									</TableRow>
 									<TableRow>
-										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>il</a> est</TableCell>
+										<TableCell><a className={`modal-link`} href={`#content`} data-modal-target={`subject-pronouns-il`}>il</a> est</TableCell>
 										<TableCell>he is, it is</TableCell>
 										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/003-il-est.mp3`} /></TableCell>
 									</TableRow>
 									<TableRow>
-										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elle</a> est</TableCell>
+										<TableCell><a className={`modal-link`} href={`#content`} data-modal-target={`subject-pronouns-elle`}>elle</a> est</TableCell>
 										<TableCell>she is, it is</TableCell>
 										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3`} /></TableCell>
 									</TableRow>
@@ -322,12 +360,12 @@ export class LO2Grammar extends PureComponent {
 										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/024-vous-etes.mp3`} /></TableCell>
 									</TableRow>
 									<TableRow>
-										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
+										<TableCell><a className={`modal-link`} href={`#content`} data-modal-target={`subject-pronouns-ils`}>ils</a> sont</TableCell>
 										<TableCell>they are</TableCell>
 										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`} /></TableCell>
 									</TableRow>
 									<TableRow>
-										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
+										<TableCell><a className={`modal-link`} href={`#content`} data-modal-target={`subject-pronouns-elles`}>elles</a> sont</TableCell>
 										<TableCell>they are</TableCell>
 										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`} /></TableCell>
 									</TableRow>
@@ -416,59 +454,65 @@ export class LO2Grammar extends PureComponent {
 export class LO2Grammar1 extends PureComponent {
 	render = () => {
 		const { id } = this.props;
+		const tableId = id ? `${id}-verbs` : `LO2Grammar1-verbs`;
+		const tableConfig = {
+			id: tableId,
+			sortable: false,
+			// Temporary spacing workaround: avoid nested `.container` horizontal padding
+			// because this PhraseTable sits inside an already padded grammar accordion panel.
+			// TODO: remove once PhraseTable adopts a first-class panel/layout spacing API.
+			disableContainerPadding: true,
+			phrases: [
+				[
+					"audio/lo2/grammar/grammar-and-usage/005-je-suis.mp3",
+					"je suis",
+					"I am",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/017-tu-es.mp3",
+					"tu es",
+					"you are",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/003-il-est.mp3",
+					"<a class='modal-link' href='#content' data-modal-target='subject-pronouns-il'>il</a> est",
+					"he is, it is",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3",
+					"<a class='modal-link' href='#content' data-modal-target='subject-pronouns-elle'>elle</a> est",
+					"she is, it is",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/016-nous-sommes.mp3",
+					"nous sommes",
+					"we are",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/024-vous-etes.mp3",
+					"vous êtes",
+					"you are",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3",
+					"<a class='modal-link' href='#content' data-modal-target='subject-pronouns-ils'>ils</a> sont",
+					"they are",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3",
+					"<a class='modal-link' href='#content' data-modal-target='subject-pronouns-elles'>elles</a> sont",
+					"they are",
+				],
+			],
+		};
 		return (
 			<div className={`lo2-grammar1-container container`} id={id || undefined} key={`${id}CustomComponent`}>
-				<div className={`panel standard-table`} id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
+				<div className={`panel`} id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
 					<p>There are many irregular verbs in French. The verb <AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong><em className={`grammar-term-em`}>être</em></strong></AudioClip> meaning <strong>to be</strong> is one of these. In fact, it has been
 						described as the most irregular of all the irregulars! It is worth studying this verb now, not only for this reason,
 						but because it occurs so frequently, and It will also enable you to master the subject pronouns.</p>
 					<p><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong><em className={`grammar-term-em`}>Être</em></strong></AudioClip> to be</p>
-					<div className={`relative w-full overflow-auto`}>
-						<Table>
-							<TableBody>
-								<TableRow>
-									<TableCell>je suis</TableCell>
-									<TableCell>I am</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/005-je-suis.mp3`} /></TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell>tu es</TableCell>
-									<TableCell>you are</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/017-tu-es.mp3`} /></TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>il</a> est</TableCell>
-									<TableCell>he is, it is</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/003-il-est.mp3`} /></TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elle</a> est</TableCell>
-									<TableCell>she is, it is</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3`} /></TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell>nous sommes</TableCell>
-									<TableCell>we are</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/016-nous-sommes.mp3`} /></TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell>vous êtes</TableCell>
-									<TableCell>you are</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/024-vous-etes.mp3`} /></TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
-									<TableCell>they are</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`} /></TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
-									<TableCell>they are</TableCell>
-									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`} /></TableCell>
-								</TableRow>
-							</TableBody>
-						</Table>
-					</div>
+					<PhraseTable config={tableConfig} targetLanguageCode={`fr`} />
 				</div>
 			</div>
 		);
@@ -524,13 +568,7 @@ export class LO2Grammar3 extends PureComponent {
 			<div className={`lo2-grammar3-container container`} id={id || undefined} key={`${id}CustomComponent`}>
 				<div className={`panel`} id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
 					<div className={`modal-link-target`} id={`subject-pronouns`} />
-					<ul>
-						<li><strong>Il</strong> is used to replace a masculine noun.</li>
-						<li><strong>Elle</strong> is used to replace a feminine noun.</li>
-						<li><strong>Ils</strong> is used to replace more than one masculine noun or a mixture of masculine and feminine nouns.</li>
-						<li><strong>Elles</strong> is used to replace more than one feminine noun.</li>
-						<li><strong>iel</strong> is a gender-neutral singular pronoun.</li>
-					</ul>
+					<LO2SubjectPronounsBody />
 				</div>
 			</div>
 		);

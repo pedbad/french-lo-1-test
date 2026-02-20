@@ -80,6 +80,11 @@ export class PhraseTable extends React.PureComponent {
 		} = this.state;
 
 		const { sortable = false } = config;
+		// Tactical escape hatch for nested layouts (for example LO2 grammar inside accordion cards)
+		// where PhraseTable's default `.container` padding creates double horizontal inset.
+		// TODO: Replace this per-instance flag with a shared layout contract
+		// (for example a parent "content-density" context or panel-level spacing token).
+		const disableContainerPadding = Boolean(config.disableContainerPadding);
 		const isSemanticSort = tableSort === "natural";
 		const isAlphabeticalSort = tableSort === "alphabetical" || tableSort === "reverse";
 		const semanticButtonClass = `vocab-sort-button btn-hero-title${isSemanticSort ? " vocab-sort-button-active" : ""}`;
@@ -195,7 +200,7 @@ export class PhraseTable extends React.PureComponent {
 
 		return (
 			<div
-				className="phrases-table-container container"
+				className={`phrases-table-container${disableContainerPadding ? "" : " container"}`}
 				id={`${id ? `${id}-phrase-table` : ""}`}
 				key={`${id}PhraseTable`}
 			>

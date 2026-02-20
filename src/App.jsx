@@ -43,7 +43,7 @@ import{
 	TabsTrigger,
 } from "@/components/ui/tabs";
 
-import { AllCustomComponentsFR, Grammar1Body, Grammar2Body } from "./components/CustomComponents_FR/index.js";
+import { AllCustomComponentsFR, Grammar1Body, Grammar2Body, LO2SubjectPronounsBody } from "./components/CustomComponents_FR/index.js";
 import DOMPurify from "dompurify";
 
 import React from "react";
@@ -246,6 +246,30 @@ export default class App extends React.Component {
 			toi: {
 				title: "2. The \"tu\" vs \"vous\" distinction",
 				content: <Grammar2Body highlightIntro />,
+			},
+			"subject-pronouns": {
+				title: "3. Subject pronouns.",
+				content: <LO2SubjectPronounsBody />,
+			},
+			"subject-pronouns-il": {
+				title: "3. Subject pronouns.",
+				content: <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-il`} />,
+			},
+			"subject-pronouns-elle": {
+				title: "3. Subject pronouns.",
+				content: <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-elle`} />,
+			},
+			"subject-pronouns-ils": {
+				title: "3. Subject pronouns.",
+				content: <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-ils`} />,
+			},
+			"subject-pronouns-elles": {
+				title: "3. Subject pronouns.",
+				content: <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-elles`} />,
+			},
+			"subject-pronouns-iel": {
+				title: "3. Subject pronouns.",
+				content: <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-iel`} />,
 			},
 		};
 

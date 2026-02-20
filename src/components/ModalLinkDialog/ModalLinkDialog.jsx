@@ -11,7 +11,7 @@ import {
 
 const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
 const modalTitleClass = "text-base sm:text-lg max-[650px]:!text-[var(--font-size-lg)]";
-const modalBodyClass = "space-y-3 text-base leading-relaxed text-foreground sm:text-lg [&_h2]:max-[650px]:!text-[var(--font-size-lg)] [&_h3]:max-[650px]:!text-[var(--font-size-lg)]";
+const modalBodyClass = "space-y-3 text-base leading-relaxed text-foreground sm:text-lg [&_h2]:max-[650px]:!text-[var(--font-size-lg)] [&_h3]:max-[650px]:!text-[var(--font-size-lg)] [&_ul]:my-3 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1";
 const PARAGRAPH_OPEN_TAG_PATTERN = /<p(\s[^>]*)?>/gi;
 const PARAGRAPH_CLOSE_TAG_PATTERN = /<\/p>/gi;
 

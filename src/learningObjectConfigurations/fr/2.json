@@ -25,18 +25,18 @@
 					"phrases": [
 						[
 							"audio/lo2/misc/003-salut-je-suis-sylvain-je-suis-celibataire-je-suis-etudiant-en-geographie.mp3",
-							"Salut, je suis Sylvain. Je suis célibataire. Je suis étudiant en géographie.",
-							"Hi, I'm Sylvain. I'm single. I'm a geography student."
+							"Salut, je suis Sylvain.<br />Je suis célibataire.<br />Je suis étudiant en géographie.",
+							"Hi, I'm Sylvain.<br />I'm single.<br />I'm a geography student."
 						],
 						[
 							"audio/lo2/misc/001-bonjour-je-m-appelle-jacqueline-je-suis-divorcee-je-suis-prof-de-maths.mp3",
-							"Bonjour ! Je m'appelle Jacqueline. Je suis divorcée. Je suis prof de maths.",
-							"Hello, my name's Jacqueline. I'm divorced. I'm a maths teacher"
+							"Bonjour ! Je m'appelle Jacqueline.<br />Je suis divorcée.<br />Je suis prof de maths.",
+							"Hello, my name's Jacqueline.<br />I'm divorced.<br />I'm a maths teacher"
 						],
 						[
 							"audio/lo2/misc/002-bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3",
-							"Bonsoir ! Je m'appelle Olivier Durand. Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
-							"Good evening, my name's Olivier Durand. I've been married to Alex for three years and I'm a librarian."
+							"Bonsoir ! Je m'appelle Olivier Durand.<br />Je suis marié avec Alex depuis trois ans.<br />Je suis bibliothécaire.",
+							"Good evening, my name's Olivier Durand.<br />I've been married to Alex for three years.<br />I'm a librarian."
 						]
 					],
 					"titleText": "A bit about me"
