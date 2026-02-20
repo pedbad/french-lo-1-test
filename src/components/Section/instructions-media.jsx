@@ -1,7 +1,6 @@
 import DOMPurify from "dompurify";
-import { injectAudioCueIntoHTML, splitTextByAudioCueKeyword } from "../instructionCues";
+import { injectAudioCueIntoHTML } from "../instructionCues";
 import { resolveAsset } from "../../utility";
-import { AudioCueIcon } from "../AudioCueIcon";
 import { InstructionCallout } from "../InstructionCallout";
 
 export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-xl)] leading-[var(--line-height-body)] [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--line-height-body)]";
@@ -33,41 +32,17 @@ export const InstructionsMedia = ({
 	instructionTextClass = INSTRUCTION_TEXT_CLASS,
 	stackOnDesktop = false,
 }) => {
-	const renderTextWithAudioCue = (value) => {
-		const split = splitTextByAudioCueKeyword(value);
-		if (!split) return value;
-		return (
-			<>
-				{split.before}
-				{split.keyword}
-				{" "}
-				<AudioCueIcon />
-				{split.after}
-			</>
-		);
-	};
-
-	const safeParagraphHTML = paragraphHTML
-		? applyInstructionTypographyToHTML(DOMPurify.sanitize(paragraphHTML))
+	const rawParagraphHTML = paragraphHTML || paragraph || "";
+	const safeParagraphHTML = rawParagraphHTML
+		? applyInstructionTypographyToHTML(DOMPurify.sanitize(rawParagraphHTML))
 		: "";
 
-	const paragraphContent = paragraphHTML ? (
+	const paragraphContent = safeParagraphHTML ? (
 		<div
 			className={`instructions-body ${instructionTextClass}`}
 			style={{ margin: 0 }}
 			dangerouslySetInnerHTML={{ __html: safeParagraphHTML }}
 		/>
-	) : paragraph ? (
-		<div
-			className={`instructions-body ${instructionTextClass}`}
-			style={{
-				margin: 0,
-				fontSize: "var(--font-size-xl)",
-				lineHeight: "var(--line-height-body)",
-			}}
-		>
-			{renderTextWithAudioCue(paragraph)}
-		</div>
 	) : null;
 	const paragraphNode = paragraphContent ? (
 		<InstructionCallout className="md:flex-1">

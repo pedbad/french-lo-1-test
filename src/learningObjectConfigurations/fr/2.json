@@ -183,11 +183,45 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "LO2Grammar",
+		"component": "Group",
+		"content": [
+			{
+				"grammar1": {
+					"component": "LO2Grammar1",
+					"id": "grammar1",
+					"infoTextHTML": "In this section, you will practise the present tense of <em class='grammar-term-em'>être</em> so you can introduce yourself and others accurately.<p>You will learn:</p><ul><li>How each subject pronoun changes the verb form.</li><li>How to match French forms with English meanings.</li><li>How this core verb supports later grammar and exercises.</li></ul>",
+					"titleTextHTML": "1. Verbs in French"
+				}
+			},
+			{
+				"grammar2": {
+					"component": "LO2Grammar2",
+					"id": "grammar2",
+					"infoTextHTML": "This section helps you recognise noun gender and choose the correct article in context.<p>You will learn:</p><ul><li>How to distinguish masculine and feminine nouns.</li><li>How to use <em class='grammar-term-em'>un/une</em> and <em class='grammar-term-em'>le/la/l'</em> correctly.</li><li>How article choice changes before vowels and silent <em class='grammar-term-em'>h</em>.</li></ul>",
+					"titleText": "2. Grammatical genders"
+				}
+			},
+			{
+				"subject-pronouns": {
+					"component": "LO2Grammar3",
+					"id": "subject-pronouns",
+					"infoTextHTML": "In this section, you will clarify how French subject pronouns map to people and grammatical gender.<p>You will learn:</p><ul><li>How singular and plural pronouns are used in real sentences.</li><li>When to use <em class='grammar-term-em'>il/elle</em> and <em class='grammar-term-em'>ils/elles</em>.</li><li>How <em class='grammar-term-em'>iel</em> functions as a gender-neutral singular pronoun.</li></ul>",
+					"titleText": "3. Subject pronouns."
+				}
+			}
+		],
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
-		"titleText": "Grammar and Usage"
+		"titleText": "Grammar and Usage",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section introduces key grammar and usage points to help you describe yourself and others in French, with a focus on <em class='grammar-term-em'>être</em>, grammatical gender, and subject pronouns.</p>",
+			"image": {
+				"src": "img/shared/grammar.svg",
+				"alt": "Grammar illustration"
+			}
+		},
+		"heroSection": true
 	},
 	"pronunciation": {
 		"component": "LO2Demystify",

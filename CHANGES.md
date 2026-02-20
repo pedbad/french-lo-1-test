@@ -2,6 +2,44 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-20 - LO1/LO2 Grammar Architecture Drift Fix
+
+- Identified root cause of visual/spacing drift in grammar:
+  - LO1 grammar used config-driven `Group` architecture rendered by shared app accordion pipeline.
+  - LO2 grammar used a monolithic custom component (`LO2Grammar`) with nested accordion rendering inside the component.
+- Implemented architecture alignment for LO2:
+  - updated `src/learningObjectConfigurations/fr/2.json` grammar section to `component: "Group"` with 3 child grammar items.
+  - added focused LO2 grammar components in `src/components/CustomComponents_FR/CustomComponents_FR.jsx`:
+    - `LO2Grammar1`
+    - `LO2Grammar2`
+    - `LO2Grammar3`
+  - kept legacy `LO2Grammar` class in place for backward safety while new config uses split components.
+- Added per-item blue instructional `Info` alerts for the 3 LO2 grammar accordions to match LO1 instructional pattern.
+- Instruction rendering parity hardening:
+  - `instructionsText` and `instructionsLayout.paragraph` now accept HTML content through the same sanitized rendering path as HTML fields.
+  - centralized instruction-callout typography to reduce per-path drift.
+- Added grammar-term emphasis class usage (`grammar-term-em`) and aligned LO1/LO2 key terms styling in instructional text.
+- Documentation updated to prevent future architecture drift:
+  - `README.md`
+  - `GRAMMAR_TODO.md`
+  - `GRAMMAR_TASK_CHECKLIST.md`
+  - `FUTURE_PROJECTS.md`
+
+## 2026-02-20 - LO2 Grammar Accordion Parity (Option 1)
+
+- Implemented the agreed short-term architecture choice for LO2 Grammar:
+  - switched `LO2Grammar` from direct shadcn accordion primitives to the existing `AccordionArticle` wrapper used by LO1.
+- File updated:
+  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx`
+- Result:
+  - LO2 grammar now inherits the same accordion hover animation, open/close behavior, and card framing as LO1.
+  - existing grammar content/audio links were preserved.
+  - `subject-pronouns` targeting remains wired via `target="subject-pronouns"` on the third accordion item.
+- Architectural decision recorded in docs:
+  - short-term: reuse `AccordionArticle` for parity and low risk.
+  - long-term: build a shared shadcn-native `LessonAccordion` abstraction for cross-LO/future-project reuse.
+  - docs updated: `GRAMMAR_TODO.md`, `GRAMMAR_TASK_CHECKLIST.md`, `README.md`, `FUTURE_PROJECTS.md`.
+
 ## 2026-02-20 - LO2 Grammar Unification Planning + Docs
 
 - Completed a focused architectural review for LO2 Grammar to align design and behavior with LO1 patterns.

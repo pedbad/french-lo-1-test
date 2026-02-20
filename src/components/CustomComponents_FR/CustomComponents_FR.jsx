@@ -1,4 +1,5 @@
 import {
+	AccordionArticle,
 	Attribution,
 	AudioClip,
 	Figure,
@@ -81,7 +82,7 @@ export class LO1Grammar2 extends PureComponent {
 		const { id } = this.props;
 		return (
 			<div
-				className={`lo2-grammar-container container`}
+				className={`lo2-grammar-container`}
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
@@ -90,7 +91,7 @@ export class LO1Grammar2 extends PureComponent {
 					id={id ? `${id}Panel2` : undefined}
 					key={`${id}CustomComponent2`}
 				>
-					<h3>2. The “tu” vs “vous” distinction</h3>
+					<h3>2. The "<em className={`grammar-term-em`}>tu</em>" vs "<em className={`grammar-term-em`}>vous</em>" distinction</h3>
 					<Grammar2Body />
 				</div>
 			</div>
@@ -101,9 +102,9 @@ export class LO1Grammar2 extends PureComponent {
 export const Grammar2Body = ({ highlightIntro = false } = {}) => (
 	<>
 		<div><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`tuvous`}>
-			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/001-tu.mp3`}><strong>Tu</strong></AudioClip>{' '}
+			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/001-tu.mp3`}><strong><em className={`grammar-term-em`}>Tu</em></strong></AudioClip>{' '}
 			and{' '}
-			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/002-vous.mp3`}><strong>vous</strong></AudioClip>{' '}
+			<AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar2/002-vous.mp3`}><strong><em className={`grammar-term-em`}>vous</em></strong></AudioClip>{' '}
 			both mean 'you'.</span></div>
 		<p><strong>Tu</strong> is used when addressing one person and is familiar. That means you use it when speaking to your partner, a relative, a friend,
 			a classmate or a child etc. <span className={`modal-link-target`} id={`toi`} >When returning question i.e. when you ask 'and you?' you use the
@@ -267,68 +268,219 @@ export class LO2Grammar extends PureComponent {
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel1` : undefined}
-					key={`${id}Panel1`}
+				<AccordionArticle
+					className={`mb-2`}
+					config={{}}
+					expandedByDefault
+					id={id ? `${id}VerbsInFrench` : `LO2GrammarVerbsInFrench`}
+					title={`1. Verbs in French`}
 				>
-					<h3>1. Verbs in French</h3>
-					<p>There are many irregular verbs in French. The verb <AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong>être</strong></AudioClip> meaning <strong>to be</strong> is one of these. In fact, it has been
+					<Info>
+						<p>In this section, you will practise the present tense of <em className={`grammar-term-em`}>être</em> so you can introduce yourself and others accurately.</p>
+						<ul>
+							<li>Match each French form to its English meaning.</li>
+							<li>Notice how pronouns change the verb form.</li>
+							<li>Use these patterns in later grammar and exercise tasks.</li>
+						</ul>
+					</Info>
+					<div className={`panel standard-table`}>
+						<p>There are many irregular verbs in French. The verb <AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong><em className={`grammar-term-em`}>être</em></strong></AudioClip> meaning <strong>to be</strong> is one of these. In fact, it has been
+							described as the most irregular of all the irregulars! It is worth studying this verb now, not only for this reason,
+							but because it occurs so frequently, and It will also enable you to master the subject pronouns.</p>
+						<p><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong><em className={`grammar-term-em`}>Être</em></strong></AudioClip> to be</p>
+						<div className={`relative w-full overflow-auto`}>
+							<Table>
+								<TableBody>
+									<TableRow>
+										<TableCell>je suis</TableCell>
+										<TableCell>I am</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/005-je-suis.mp3`} /></TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell>tu es</TableCell>
+										<TableCell>you are</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/017-tu-es.mp3`} /></TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>il</a> est</TableCell>
+										<TableCell>he is, it is</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/003-il-est.mp3`} /></TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elle</a> est</TableCell>
+										<TableCell>she is, it is</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3`} /></TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell>nous sommes</TableCell>
+										<TableCell>we are</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/016-nous-sommes.mp3`} /></TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell>vous êtes</TableCell>
+										<TableCell>you are</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/024-vous-etes.mp3`} /></TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
+										<TableCell>they are</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`} /></TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
+										<TableCell>they are</TableCell>
+										<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`} /></TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
+						</div>
+					</div>
+				</AccordionArticle>
+				<AccordionArticle
+					className={`mb-2`}
+					config={{}}
+					id={id ? `${id}GrammaticalGenders` : `LO2GrammarGrammaticalGenders`}
+					title={`2. Grammatical genders`}
+				>
+					<Info>
+						<p>This section helps you recognise noun gender and choose the correct article in context.</p>
+						<ul>
+							<li>Identify masculine and feminine noun patterns.</li>
+							<li>Use <em className={`grammar-term-em`}>un/une</em> and <em className={`grammar-term-em`}>le/la/l&apos;</em> appropriately.</li>
+							<li>Apply article choice when nouns begin with a vowel or silent <em className={`grammar-term-em`}>h</em>.</li>
+						</ul>
+					</Info>
+					<div className={`panel`}>
+						<p>(I think this lends itself to illustration/pic ?)</p>
+						<p>All French nouns have gender, not just people or animals but inanimate objects too.
+							There are just two genders in French called masculine and feminine.
+							This simply means that all nouns belong in one category or the other.
+							Males e.g. father, uncle etc are masculine nouns and females e.g. mother, aunt etc are feminine nouns.
+							Other nouns have intrinsic gender. This is not related to their owner, characteristics, manufacturer etc.
+							It is possible to identify the gender of some nouns by their endings. (A list of these endings to be added/ linked)</p>
+						<p>The pronoun <strong>iel</strong> is a gender-neutral singular pronoun, similar in concept to the English singular "they," used for someone who doesn't identify strictly as masculine or feminine. Keep in mind that verbs and adjectives still need to agree in French grammar, so usage can be more complex.</p>
+						<p>The gender of the noun has implications for some grammatical features. e.g.</p>
+						<h4>a. The indefinite article</h4>
+						<p>There are two ways of saying 'a' in French:&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/020-un.mp3`}><strong>un</strong></AudioClip> for masculine nouns e.g.&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/018-un-homme.mp3`}><strong>un</strong> homme</AudioClip> (a man),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/019-un-metier.mp3`}><strong>un</strong> métier</AudioClip> (a profession/occupation) and&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/023-une.mp3`}><strong>une</strong></AudioClip> for a feminine noun e.g.&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/021-une-femme.mp3`}><strong>une</strong> femme</AudioClip> (a woman),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/022-une-profession.mp3`}><strong>une</strong> profession</AudioClip> (a profession).</p>
+						<h4>b. The definite article</h4>
+						<p>For singular nouns, to say 'the' you use&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}><strong>le</strong></AudioClip> for masculine nouns e.g.&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/014-le-professeur.mp3`}><strong>le</strong> professeur</AudioClip> (the [male] teacher),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/013-le-jour.mp3`}><strong>le</strong> jour</AudioClip> (the day). For feminine nouns you say&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/012-la.mp3`}><strong>la</strong></AudioClip> e.g.&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/011-la-professeure.mp3`}><strong>la</strong> professeure</AudioClip> (the [female] teacher),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/010-la-nuit.mp3`}><strong>la</strong> nuit</AudioClip> (the night).
+							When the singular noun begins with a vowel or mute h, then you use&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/006-l.mp3`}><strong>l'</strong></AudioClip> regardless of gender e.g.&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/007-l-appartement.mp3`}><strong>l'</strong>appartement</AudioClip> (m) (the flat),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/008-l-ecole.mp3`}><strong>l'</strong>école</AudioClip> (f) (the school),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/009-l-homme.mp3`}><strong>l'</strong>homme</AudioClip> (the man).</p>
+					</div>
+				</AccordionArticle>
+				<AccordionArticle
+					className={`mb-0`}
+					config={{}}
+					id={id ? `${id}SubjectPronouns` : `LO2GrammarSubjectPronouns`}
+					target={`subject-pronouns`}
+					title={`3. Subject pronouns.`}
+				>
+					<Info>
+						<p>In this section, you will clarify how French subject pronouns map to people and grammatical gender.</p>
+						<ul>
+							<li>Distinguish singular and plural pronouns clearly.</li>
+							<li>Understand when to use <em className={`grammar-term-em`}>il/elle</em> and <em className={`grammar-term-em`}>ils/elles</em>.</li>
+							<li>Recognise the role of <em className={`grammar-term-em`}>iel</em> as a gender-neutral singular pronoun.</li>
+						</ul>
+					</Info>
+					<div className={`panel`}>
+						<ul>
+							<li><strong>Il</strong> is used to replace a masculine noun.</li>
+							<li><strong>Elle</strong> is used to replace a feminine noun.</li>
+							<li><strong>Ils</strong> is used to replace more than one masculine noun or a mixture of masculine and feminine nouns.</li>
+							<li><strong>Elles</strong> is used to replace more than one feminine noun.</li>
+							<li><strong>iel</strong> is a gender-neutral singular pronoun.</li>
+						</ul>
+					</div>
+				</AccordionArticle>
+			</div>
+		);
+	};
+}
+
+export class LO2Grammar1 extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div className={`lo2-grammar1-container container`} id={id || undefined} key={`${id}CustomComponent`}>
+				<div className={`panel standard-table`} id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
+					<p>There are many irregular verbs in French. The verb <AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong><em className={`grammar-term-em`}>être</em></strong></AudioClip> meaning <strong>to be</strong> is one of these. In fact, it has been
 						described as the most irregular of all the irregulars! It is worth studying this verb now, not only for this reason,
 						but because it occurs so frequently, and It will also enable you to master the subject pronouns.</p>
-					<p><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong>Être</strong></AudioClip> to be</p>
-					<Table>
-						<TableBody>
-							<TableRow>
-								<TableCell>je suis</TableCell>
-								<TableCell>I am</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/005-je-suis.mp3`} /></TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>tu es</TableCell>
-								<TableCell>you are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/017-tu-es.mp3`} /></TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>il</a> est</TableCell>
-								<TableCell>he is, it is</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/003-il-est.mp3`} /></TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elle</a> est</TableCell>
-								<TableCell>she is, it is</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3`} /></TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>nous sommes</TableCell>
-								<TableCell>we are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/016-nous-sommes.mp3`} /></TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>vous êtes</TableCell>
-								<TableCell>you are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/024-vous-etes.mp3`} /></TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
-								<TableCell>they are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`} /></TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
-								<TableCell>they are</TableCell>
-								<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`} /></TableCell>
-							</TableRow>
-						</TableBody>
-					</Table>
-					<hr />
+					<p><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong><em className={`grammar-term-em`}>Être</em></strong></AudioClip> to be</p>
+					<div className={`relative w-full overflow-auto`}>
+						<Table>
+							<TableBody>
+								<TableRow>
+									<TableCell>je suis</TableCell>
+									<TableCell>I am</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/005-je-suis.mp3`} /></TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>tu es</TableCell>
+									<TableCell>you are</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/017-tu-es.mp3`} /></TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>il</a> est</TableCell>
+									<TableCell>he is, it is</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/003-il-est.mp3`} /></TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elle</a> est</TableCell>
+									<TableCell>she is, it is</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/001-elle-est.mp3`} /></TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>nous sommes</TableCell>
+									<TableCell>we are</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/016-nous-sommes.mp3`} /></TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>vous êtes</TableCell>
+									<TableCell>you are</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/024-vous-etes.mp3`} /></TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>ils</a> sont</TableCell>
+									<TableCell>they are</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`} /></TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell><a className={`modal-link`} href={`#subject-pronouns`}>elles</a> sont</TableCell>
+									<TableCell>they are</TableCell>
+									<TableCell><AudioClip className={`compact`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`} /></TableCell>
+								</TableRow>
+							</TableBody>
+						</Table>
+					</div>
 				</div>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel2` : undefined}
-					key={`${id}Panel2`}
-				>
-					<h3>2. Grammatical genders</h3>
+			</div>
+		);
+	};
+}
+
+export class LO2Grammar2 extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div className={`lo2-grammar2-container container`} id={id || undefined} key={`${id}CustomComponent`}>
+				<div className={`panel`} id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
 					<p>(I think this lends itself to illustration/pic ?)</p>
 					<p>All French nouns have gender, not just people or animals but inanimate objects too.
 						There are just two genders in French called masculine and feminine.
@@ -360,12 +512,18 @@ export class LO2Grammar extends PureComponent {
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/008-l-ecole.mp3`}><strong>l'</strong>école</AudioClip> (f) (the school),&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/009-l-homme.mp3`}><strong>l'</strong>homme</AudioClip> (the man).</p>
 				</div>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel3` : undefined}
-					key={`${id}Panel3`}
-				>
-					<h3><a className={`modal-link-target`} id={`subject-pronouns`}>3. Subject pronouns.</a></h3>
+			</div>
+		);
+	};
+}
+
+export class LO2Grammar3 extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div className={`lo2-grammar3-container container`} id={id || undefined} key={`${id}CustomComponent`}>
+				<div className={`panel`} id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
+					<div className={`modal-link-target`} id={`subject-pronouns`} />
 					<ul>
 						<li><strong>Il</strong> is used to replace a masculine noun.</li>
 						<li><strong>Elle</strong> is used to replace a feminine noun.</li>

@@ -5061,6 +5061,14 @@ hr {
 :is(#content, #debug-sandbox-page) .instruction-callout .instruction-callout-content > :last-child {
   margin-bottom: 0;
 }
+:is(#content, #debug-sandbox-page) .instruction-callout .instruction-callout-content :is(p, div, li) {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-body);
+}
+:is(#content, #debug-sandbox-page) .instruction-callout .instruction-callout-content em {
+  font-style: italic;
+  font-weight: 600;
+}
 #content .instructions.instructions-media {
   padding: 0;
 }
@@ -5245,6 +5253,11 @@ hr {
   text-decoration: initial;
   display: block;
   pointer-events: none;
+}
+#content :where(em.grammar-term-em) {
+  color: var(--instruction-callout-accent-start);
+  font-style: italic;
+  font-weight: 700;
 }
 
 .fr-FR #hero {

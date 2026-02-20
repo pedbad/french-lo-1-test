@@ -389,11 +389,11 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
   2. JSON config migration in batches
   3. pre-commit schema guard to block deprecated keys
 
-### LO2 Grammar Unification (planned)
+### LO2 Grammar Unification (in progress)
 
 - Problem summary:
   - LO1 Grammar uses grouped structured content and consistent section framing.
-  - LO2 Grammar currently uses a single monolithic custom component (`LO2Grammar`) with mixed semantics and layout style drift.
+  - LO2 Grammar previously used a single monolithic custom component (`LO2Grammar`) with nested accordion rendering, which diverged from LO1’s group-based architecture and caused spacing/interaction drift.
   - Modal links for LO2 subject pronouns currently resolve only the heading text in modal fallback mode.
 - Target:
   - align LO2 Grammar look/feel and behavior with LO1 section architecture.
@@ -401,12 +401,20 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 - Key docs:
   - `/Users/ped/Sites/french/french-lo-1/GRAMMAR_TODO.md`
   - `/Users/ped/Sites/french/french-lo-1/GRAMMAR_TASK_CHECKLIST.md`
-- Planned approach:
-  1. refactor LO2 grammar config to a `Group` structure (3 focused grammar items).
-  2. split monolithic `LO2Grammar` into focused components (`LO2Grammar1/2/3`).
-  3. fix heading/table semantics to remove accessibility "possible heading" and table-structure issues.
-  4. add explicit modal content mapping for `subject-pronouns` so modal opens full explanatory guidance (not heading-only fallback).
-  5. run audio consistency pass to ensure LO2 grammar/pronunciation uses the same `AudioClip` interaction style as LO1 where feasible.
+- Current implementation decision:
+  - short-term (done): LO2 Grammar now follows the same top-level architecture pattern as LO1:
+    - `grammar.component` is a `Group` in LO2 config.
+    - grammar items are split into `LO2Grammar1/2/3`.
+    - each item is rendered through the shared app accordion pipeline (`AccordionArticle`) rather than nested custom accordions.
+  - long-term (planned): introduce a shared shadcn-native `LessonAccordion` abstraction, then migrate LO sections to this single reusable API.
+- Next planned steps:
+  1. complete heading/table semantics cleanup to reduce accessibility "possible heading" and table-structure issues.
+  2. add explicit modal content mapping for `subject-pronouns` so modal opens full explanatory guidance (not heading-only fallback).
+  3. run audio consistency pass to ensure LO2 grammar/pronunciation uses the same `AudioClip` interaction style as LO1 where feasible.
+  4. keep architecture parity checks for every LO grammar refactor:
+     - verify config shape parity (`Group` vs monolithic custom component)
+     - verify rendering path parity (app-level accordion pipeline, not nested bespoke accordions)
+     - verify instruction block parity (same callout component + typography tokens)
 
 ### Long-term direction: Tailwind as the primary source of truth
 

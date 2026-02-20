@@ -2,9 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BackToTopButton, Info, InstructionCallout } from "..";
 import DOMPurify from "dompurify";
 import React from "react";
-import { splitTextByAudioCueKeyword } from "../instructionCues";
-import { AudioCueIcon } from "../AudioCueIcon";
-import { INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
+import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
 import { resolveAsset } from "../../utility";
 import { Separator } from "@/components/ui/separator";
 
@@ -33,29 +31,16 @@ export const HeroSection = ({
 	const hasInstructions = Boolean(instructionsLayout || instructionsText || instructionsTextHTML);
 	const sideBySide = hasInfo && !stackInfo;
 	const splitInfoImage = stackInfo && Boolean(instructionsLayout?.image);
-	const renderTextWithAudioCue = (value) => {
-		const split = splitTextByAudioCueKeyword(value);
-		if (!split) return value;
-		return (
-			<>
-				{split.before}
-				{split.keyword}
-				{" "}
-				<AudioCueIcon />
-				{split.after}
-			</>
-		);
-	};
-	const inlineInstructionNode = instructionsTextHTML ? (
+	const rawInstructionsHTML = instructionsTextHTML || instructionsText || "";
+	const safeInstructionsHTML = rawInstructionsHTML
+		? applyInstructionTypographyToHTML(DOMPurify.sanitize(rawInstructionsHTML))
+		: "";
+	const inlineInstructionNode = rawInstructionsHTML ? (
 		<div
 			className={`html section mt-0 ${INSTRUCTION_TEXT_CLASS}`}
 			style={{ margin: 0 }}
-			dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(instructionsTextHTML) }}
+			dangerouslySetInnerHTML={{ __html: safeInstructionsHTML }}
 		/>
-	) : instructionsText ? (
-		<div className={`text section mt-0 ${INSTRUCTION_TEXT_CLASS}`} style={{ margin: 0 }}>
-			{renderTextWithAudioCue(instructionsText)}
-		</div>
 	) : null;
 
 	return (

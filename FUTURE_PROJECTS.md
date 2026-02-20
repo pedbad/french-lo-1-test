@@ -191,6 +191,30 @@ Use this for LO-style content pages where some sections contain only one accordi
 4. Persist user open/close state in session storage and let persisted state override default-open.
 5. Document the behavior in README/task tracker to avoid regressions during future refactors.
 
+### Accordion Strategy Rule (Carry Forward)
+
+1. If an existing app already has a production accordion wrapper with accepted UX/a11y behavior, reuse it for short-term parity migrations.
+2. In parallel, plan a medium-term migration to a shared shadcn-native wrapper (for example `LessonAccordion`) so all future sections/components use one API.
+3. Keep one visual skin contract (tokens/classes) regardless of underlying primitive to avoid hover/animation drift between modules.
+4. Document both phases explicitly:
+   - phase 1: parity-first, low-risk reuse.
+   - phase 2: design-system abstraction and cross-feature consolidation.
+
+### LO Architecture Parity Checklist (Carry Forward)
+
+Use this checklist whenever adding/refactoring an LO section (especially Grammar):
+
+1. Config parity check
+   - Compare against a known-good LO section and confirm both use equivalent config shape (`Group` + child items where expected), not one-off monolithic components unless intentional.
+2. Render-path parity check
+   - Confirm section content is rendered through shared app wrappers (`Section`/`HeroSection` + `AccordionArticle`) instead of nested bespoke wrappers inside custom components.
+3. Instruction-path parity check
+   - Confirm instructional copy uses the shared callout pipeline and sanitized HTML-capable fields.
+4. Spacing parity check
+   - Avoid extra nested `.container` wrappers that introduce additional horizontal padding layers and visual drift.
+5. Documentation parity check
+   - Update README + task checklist immediately when architecture decisions differ from baseline so drift is visible early.
+
 ### Semantic Emphasis Rule (Carry Forward)
 
 1. Author inline emphasis with semantic tags only:

@@ -309,8 +309,8 @@
         "grammar2": {
           "component": "LO1Grammar2",
           "id": "grammar2",
-          "infoTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><em>tu</em></span> and <span class='modal-highlight'><em>vous</em></span> to show different levels of formality. You'll practise using <em>tu</em> with friends, family, and children, and <em>vous</em> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <em>tu</em> with friends, family, and children.</li><li>How to use <em>vous</em> formally or when speaking to several people.</li><li>How <em>toi</em> replaces <em>tu</em> in responses (<em>Et toi ?</em>).</li></ul>",
-          "titleTextHTML": "2. The \"<em>tu</em>\" vs \"<em>vous</em>\" distinction"
+          "infoTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><em class='grammar-term-em'>tu</em></span> and <span class='modal-highlight'><em class='grammar-term-em'>vous</em></span> to show different levels of formality. You'll practise using <em class='grammar-term-em'>tu</em> with friends, family, and children, and <em class='grammar-term-em'>vous</em> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <em class='grammar-term-em'>tu</em> with friends, family, and children.</li><li>How to use <em class='grammar-term-em'>vous</em> formally or when speaking to several people.</li><li>How <em class='grammar-term-em'>toi</em> replaces <em class='grammar-term-em'>tu</em> in responses (<em class='grammar-term-em'>Et toi ?</em>).</li></ul>",
+          "titleTextHTML": "2. The \"<em class='grammar-term-em'>tu</em>\" vs \"<em class='grammar-term-em'>vous</em>\" distinction"
         }
       }
     ],
@@ -320,7 +320,7 @@
     "comment": "menuText wins over titleText",
     "titleText": "Grammar and Usage",
     "instructionsLayout": {
-      "paragraph": "This section introduces key grammar and usage points to show how forms of address and the \"tu\" vs \"vous\" distinction reflect levels of politeness and familiarity in French.",
+      "paragraphHTML": "<p>This section introduces key grammar and usage points to show how forms of address and the \"<em class='grammar-term-em'>tu</em>\" vs \"<em class='grammar-term-em'>vous</em>\" distinction reflect levels of politeness and familiarity in French.</p>",
       "image": {
         "src": "img/shared/grammar.svg",
         "alt": "Grammar illustration"

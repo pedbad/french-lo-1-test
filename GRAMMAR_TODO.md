@@ -4,7 +4,7 @@
 - Learning object: LO2 (`?lang=fr&lo=2`)
 - Primary section: Grammar and Usage
 - Current grammar config source: `src/learningObjectConfigurations/fr/2.json`
-- Current grammar implementation source: `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar`)
+- Current grammar implementation source: `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar1`, `LO2Grammar2`, `LO2Grammar3`; legacy `LO2Grammar` retained)
 
 ## Problem Statement
 - LO2 grammar currently renders as one monolithic custom component while LO1 grammar uses grouped structured sections.
@@ -43,6 +43,33 @@
 - Audit LO2 grammar + pronunciation content for legacy inline audio-link patterns.
 - Prefer `AudioClip` for consistent behavior and centralized playback controls.
 
+## Accordion Architecture Decision (2026-02-20)
+- Drift root cause (confirmed): LO1 grammar and LO2 grammar used different architecture paths.
+  - LO1: config-driven `Group` with child items rendered through shared app accordion pipeline.
+  - LO2 (before fix): monolithic `LO2Grammar` with nested accordion rendering inside custom component.
+- Short-term decision (implemented): move LO2 grammar to LO1-style config architecture.
+  - LO2 grammar now uses `Group` in `src/learningObjectConfigurations/fr/2.json`.
+  - LO2 grammar content is decomposed into `LO2Grammar1/2/3` components.
+  - Shared app accordion rendering path now handles both LO1 and LO2 grammar.
+- Rationale: this eliminates spacing/interaction drift from mixed rendering paths and lowers regression risk.
+- Long-term direction: introduce a shared `LessonAccordion` abstraction (shadcn primitive + project skin tokens/classes) and migrate LO1/LO2/other LOs to that common wrapper.
+- Why long-term is better:
+  - reduces coupling to legacy LO1 accordion markup.
+  - gives one reusable API for future projects/LOs.
+  - keeps behavior parity while simplifying maintenance and testing.
+
+## Future LO Anti-Drift Checks
+For every new/refactored LO grammar section:
+1. Check config architecture parity:
+- prefer `Group` + sub-items over monolithic custom grammar blocks.
+2. Check rendering path parity:
+- grammar items should flow through shared app section/accordion wrappers.
+- avoid nested bespoke accordions inside custom components unless explicitly justified.
+3. Check instruction parity:
+- use the same instruction callout pipeline (`InstructionCallout` / `InstructionsMedia`) and tokenized typography rules.
+4. Check component decomposition:
+- prefer focused `LOxGrammar1/2/3...` components for maintainability and predictable styling.
+
 ## Risks
 - Shared component/style changes can unintentionally affect other LOs.
 - Modal-link behavior spans multiple section/component patterns; fallback logic changes need careful regression testing.
@@ -59,4 +86,3 @@
 3. Add subject-pronoun explicit modal mapping.
 4. Run accessibility validation pass.
 5. Run visual parity pass against LO1 grammar sections.
-
