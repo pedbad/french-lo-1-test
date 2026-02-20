@@ -272,7 +272,7 @@ export class LO2Grammar extends PureComponent {
 					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
-					<p><strong>1. Verbs in French</strong></p>
+					<h3>1. Verbs in French</h3>
 					<p>There are many irregular verbs in French. The verb <AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/011-etre.mp3`}><strong>être</strong></AudioClip> meaning <strong>to be</strong> is one of these. In fact, it has been
 						described as the most irregular of all the irregulars! It is worth studying this verb now, not only for this reason,
 						but because it occurs so frequently, and It will also enable you to master the subject pronouns.</p>
@@ -328,7 +328,8 @@ export class LO2Grammar extends PureComponent {
 					id={id ? `${id}Panel2` : undefined}
 					key={`${id}Panel2`}
 				>
-					<p><strong>2. Grammatical genders</strong> ( I think this lends itself to illustration/pic ?)</p>
+					<h3>2. Grammatical genders</h3>
+					<p>(I think this lends itself to illustration/pic ?)</p>
 					<p>All French nouns have gender, not just people or animals but inanimate objects too.
 						There are just two genders in French called masculine and feminine.
 						This simply means that all nouns belong in one category or the other.
@@ -337,7 +338,7 @@ export class LO2Grammar extends PureComponent {
 						It is possible to identify the gender of some nouns by their endings. (A list of these endings to be added/ linked)</p>
 					<p>The pronoun <strong>iel</strong> is a gender-neutral singular pronoun, similar in concept to the English singular "they," used for someone who doesn't identify strictly as masculine or feminine. Keep in mind that verbs and adjectives still need to agree in French grammar, so usage can be more complex.</p>
 					<p>The gender of the noun has implications for some grammatical features. e.g.</p>
-					<p>a. The indefinite article:</p>
+					<h4>a. The indefinite article</h4>
 					<p>There are two ways of saying 'a' in French:&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/020-un.mp3`}><strong>un</strong></AudioClip> for masculine nouns e.g.&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/018-un-homme.mp3`}><strong>un</strong> homme</AudioClip> (a man),&nbsp;
@@ -345,7 +346,7 @@ export class LO2Grammar extends PureComponent {
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/023-une.mp3`}><strong>une</strong></AudioClip> for a feminine noun e.g.&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/021-une-femme.mp3`}><strong>une</strong> femme</AudioClip> (a woman),&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/022-une-profession.mp3`}><strong>une</strong> profession</AudioClip> (a profession).</p>
-					<p>b. The definite article:</p>
+					<h4>b. The definite article</h4>
 					<p>For singular nouns, to say 'the' you use&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}><strong>le</strong></AudioClip> for masculine nouns e.g.&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/014-le-professeur.mp3`}><strong>le</strong> professeur</AudioClip> (the [male] teacher),&nbsp;
@@ -364,7 +365,7 @@ export class LO2Grammar extends PureComponent {
 					id={id ? `${id}Panel3` : undefined}
 					key={`${id}Panel3`}
 				>
-					<p><a className={`modal-link-target`} id={`subject-pronouns`} ><strong>3. Subject pronouns</strong>.</a></p>
+					<h3><a className={`modal-link-target`} id={`subject-pronouns`}>3. Subject pronouns.</a></h3>
 					<ul>
 						<li><strong>Il</strong> is used to replace a masculine noun.</li>
 						<li><strong>Elle</strong> is used to replace a feminine noun.</li>
