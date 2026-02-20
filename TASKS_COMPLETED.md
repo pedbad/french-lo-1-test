@@ -183,7 +183,7 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
 ## Instruction Schema Consistency
 
 - [x] Create architecture + migration doc for instructional content key drift
-  - `/Users/ped/Sites/french/french-lo-1-test/INFORMATION_CONFIG_ISSUES.MD`
+  - `/Users/ped/Sites/french/french-lo-1/INFORMATION_CONFIG_ISSUES.MD`
 - [x] Start runtime compatibility adapter in app config load path
   - `src/App.jsx`: normalize legacy `infoText*` -> canonical `informationText*`
   - `src/App.jsx`: for `PhraseTable`, lift legacy `instructionsText*` into `informationText*` to keep guidance on one alert-rendering path

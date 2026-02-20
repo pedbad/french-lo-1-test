@@ -6,6 +6,25 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import {
+	ArrowLeftRight,
+	ArrowUpDown,
+	Check,
+	ChevronDown,
+	ChevronUp,
+	CircleAlert,
+	CircleCheck,
+	CircleX,
+	Facebook,
+	Info as InfoIcon,
+	Instagram,
+	Linkedin,
+	MessageCircleMore,
+	SquareDashedMousePointer,
+	Volume1,
+	X,
+	Youtube,
+} from 'lucide-react';
 import copyIconUrl from '@/components/ErrorLog/copy.svg';
 import upArrowIconUrl from '@/components/ErrorLog/upArrow.svg';
 import whiteCrossIconUrl from '@/components/ErrorLog/whiteCross.svg';
@@ -85,6 +104,98 @@ const SVG_USAGE_MANIFEST = [
 		sources: ['/src/index.css'],
 	},
 ].sort((left, right) => left.path.localeCompare(right.path));
+
+const LUCIDE_USAGE_MANIFEST = [
+	{
+		name: 'ArrowLeftRight',
+		component: ArrowLeftRight,
+		sources: ['/src/components/SortableWordCard/SortableWordCard.jsx'],
+	},
+	{
+		name: 'ArrowUpDown',
+		component: ArrowUpDown,
+		sources: ['/src/components/SortableWordCard/SortableWordCard.jsx'],
+	},
+	{
+		name: 'Check',
+		component: Check,
+		sources: ['/src/components/ui/select.jsx'],
+	},
+	{
+		name: 'ChevronDown',
+		component: ChevronDown,
+		sources: [
+			'/src/components/ui/accordion.jsx',
+			'/src/components/ui/navigation-menu.jsx',
+			'/src/components/ui/select.jsx',
+		],
+	},
+	{
+		name: 'ChevronUp',
+		component: ChevronUp,
+		sources: ['/src/components/ui/select.jsx'],
+	},
+	{
+		name: 'CircleAlert',
+		component: CircleAlert,
+		sources: ['/src/components/Blanks/Blanks.jsx', '/src/components/Info/Info.jsx'],
+	},
+	{
+		name: 'CircleCheck',
+		component: CircleCheck,
+		sources: ['/src/components/Info/Info.jsx', '/src/components/InlineChoiceGroup/InlineChoiceGroup.jsx'],
+	},
+	{
+		name: 'CircleX',
+		component: CircleX,
+		sources: ['/src/components/Info/Info.jsx', '/src/components/InlineChoiceGroup/InlineChoiceGroup.jsx'],
+	},
+	{
+		name: 'Facebook',
+		component: Facebook,
+		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+	},
+	{
+		name: 'Info',
+		component: InfoIcon,
+		sources: ['/src/components/Info/Info.jsx'],
+	},
+	{
+		name: 'Instagram',
+		component: Instagram,
+		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+	},
+	{
+		name: 'Linkedin',
+		component: Linkedin,
+		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+	},
+	{
+		name: 'MessageCircleMore',
+		component: MessageCircleMore,
+		sources: ['/src/components/MainMenu/MainMenu.jsx'],
+	},
+	{
+		name: 'SquareDashedMousePointer',
+		component: SquareDashedMousePointer,
+		sources: ['/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx'],
+	},
+	{
+		name: 'Volume1',
+		component: Volume1,
+		sources: ['/src/components/AudioCueIcon.jsx'],
+	},
+	{
+		name: 'X',
+		component: X,
+		sources: ['/src/components/Footer/FooterSocialLinks.jsx', '/src/components/ui/dialog.jsx'],
+	},
+	{
+		name: 'Youtube',
+		component: Youtube,
+		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+	},
+].sort((left, right) => left.name.localeCompare(right.name));
 
 function toPreviewUrl(path) {
 	const srcMapped = SRC_PREVIEW_URL_BY_PATH[path];
@@ -172,6 +283,49 @@ export function DebugSvgAssets() {
 						</Card>
 					);
 				})}
+			</div>
+			<div className="mt-8">
+				<h3 className="mb-2">Lucide Icons In Use</h3>
+				<p className="mb-3 text-sm text-[var(--muted-foreground)]">
+					Component-based icon inventory (not file-path SVG assets).
+				</p>
+				<div className="mb-3 flex flex-wrap items-center gap-2">
+					<Badge className="text-sm font-medium" variant="outline">{`Total: ${LUCIDE_USAGE_MANIFEST.length}`}</Badge>
+				</div>
+				<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+					{LUCIDE_USAGE_MANIFEST.map((entry) => {
+						const IconComponent = entry.component;
+						return (
+							<Card className="overflow-hidden" key={entry.name}>
+								<CardHeader className="px-4 pb-2 pt-4">
+									<CardTitle className="break-all text-sm">
+										<code>{entry.name}</code>
+									</CardTitle>
+									<CardDescription className="text-xs">
+										{`Source files: ${entry.sources.length}`}
+									</CardDescription>
+								</CardHeader>
+								<CardContent className="space-y-3 px-4 pb-4 pt-0">
+									<div className="flex min-h-24 items-center justify-center rounded-md border border-border/70 bg-[var(--muted)]/40 px-2 py-3 text-[var(--chart-3)]">
+										<IconComponent aria-hidden="true" className="h-10 w-10" />
+									</div>
+									<details className="rounded-md border border-border/70 p-2 text-xs">
+										<summary className="cursor-pointer font-semibold">
+											{`Source files (${entry.sources.length})`}
+										</summary>
+										<ol className="mt-2 list-decimal space-y-1 pl-4">
+											{entry.sources.map((sourcePath) => (
+												<li className="break-all" key={`${entry.name}-${sourcePath}`}>
+													<code>{sourcePath}</code>
+												</li>
+											))}
+										</ol>
+									</details>
+								</CardContent>
+							</Card>
+						);
+					})}
+				</div>
 			</div>
 		</section>
 	);

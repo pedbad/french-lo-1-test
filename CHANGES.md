@@ -2,6 +2,22 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-20 - LO2 Grammar Unification Planning + Docs
+
+- Completed a focused architectural review for LO2 Grammar to align design and behavior with LO1 patterns.
+- Documented identified issues:
+  - LO2 Grammar is monolithic (`LO2Grammar`) vs LO1 grouped structured grammar sections.
+  - heading and table semantics in LO2 grammar content may trigger accessibility alerts.
+  - LO2 subject-pronoun modal links currently resolve only heading fallback content instead of full explanatory body.
+  - LO2 grammar/pronunciation audio interaction style needs consistency review against LO1 `AudioClip` patterns.
+- Added planning docs:
+  - `GRAMMAR_TODO.md`
+  - `GRAMMAR_TASK_CHECKLIST.md`
+- Updated `README.md` with a dedicated "LO2 Grammar Unification (planned)" section and links to grammar planning docs.
+- Ran markdown drift check and fixed remaining stale absolute-path references for:
+  - `README.md`
+  - `TASKS_COMPLETED.md`
+
 ## 2026-02-18 - LO2 Monologues Instruction Copy Update
 
 - Updated LO2 monologues section instruction text in:

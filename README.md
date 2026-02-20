@@ -194,8 +194,8 @@ yarn check:image-path:branch
 ```
 
 Image migration docs:
-- `/Users/ped/Sites/french/french-lo-1-test/IMAGE_MIGRATION_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1-test/public/img/README.md`
+- `/Users/ped/Sites/french/french-lo-1/IMAGE_MIGRATION_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1/public/img/README.md`
 
 ## Accessibility & HTML Guardrails
 
@@ -380,7 +380,7 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 ### Instruction Schema Unification (in progress)
 
 - Problem: instructional content is currently authored across overlapping keys (`instructions*`, `information*`, `info*` legacy), which render through different component paths and cause typography/layout drift.
-- Tracking doc: `/Users/ped/Sites/french/french-lo-1-test/INFORMATION_CONFIG_ISSUES.MD`
+- Tracking doc: `/Users/ped/Sites/french/french-lo-1/INFORMATION_CONFIG_ISSUES.MD`
 - Target contract:
   - section intro prose/layout: `instructionsLayout`
   - boxed guidance/alert text: `informationTextHTML` (or `informationText`)
@@ -388,6 +388,25 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
   1. runtime compatibility adapter (legacy -> canonical mapping)
   2. JSON config migration in batches
   3. pre-commit schema guard to block deprecated keys
+
+### LO2 Grammar Unification (planned)
+
+- Problem summary:
+  - LO1 Grammar uses grouped structured content and consistent section framing.
+  - LO2 Grammar currently uses a single monolithic custom component (`LO2Grammar`) with mixed semantics and layout style drift.
+  - Modal links for LO2 subject pronouns currently resolve only the heading text in modal fallback mode.
+- Target:
+  - align LO2 Grammar look/feel and behavior with LO1 section architecture.
+  - preserve LO2-specific pedagogy and audio while improving a11y semantics.
+- Key docs:
+  - `/Users/ped/Sites/french/french-lo-1/GRAMMAR_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/GRAMMAR_TASK_CHECKLIST.md`
+- Planned approach:
+  1. refactor LO2 grammar config to a `Group` structure (3 focused grammar items).
+  2. split monolithic `LO2Grammar` into focused components (`LO2Grammar1/2/3`).
+  3. fix heading/table semantics to remove accessibility "possible heading" and table-structure issues.
+  4. add explicit modal content mapping for `subject-pronouns` so modal opens full explanatory guidance (not heading-only fallback).
+  5. run audio consistency pass to ensure LO2 grammar/pronunciation uses the same `AudioClip` interaction style as LO1 where feasible.
 
 ### Long-term direction: Tailwind as the primary source of truth
 
