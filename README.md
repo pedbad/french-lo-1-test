@@ -248,6 +248,62 @@ Validator triage guidance:
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
+## DropDowns Usage Inventory (for SelectExercise migration)
+
+Current shared component in use:
+- `src/components/DropDowns/DropDowns.jsx`
+
+The following learning object activities currently use `component: "DropDowns"`:
+
+- LO2
+  - `dropdowns4` - `Answering Questions`
+- LO3
+  - `dropdowns2` - `1. Select the Correct Adjective of Nationality`
+  - `dropdowns1` - `2. Practise saying where you're from.`
+- LO4
+  - `dropdowns3` - `2. Practise saying where people live`
+  - `dropdowns4` - `3. Where do you live?`
+- LO5
+  - `dropdowns1` - `2. Do you remember the gender?`
+  - `dropdowns2` - `3. Practise descriptions`
+- LO6
+  - `dropdowns1` - `1. Practise your listening skills`
+  - `dropdowns2` - `2. Camille`
+  - `dropdowns3` - `3. Annabelle.`
+  - `dropdowns4` - `4. Practise the verb <strong>avoir</strong>.`
+  - `dropdowns5` - `5. Practise the possessives.`
+- LO7
+  - `dropdowns1` - `2. Talking about likes and dislikes`
+  - `dropdowns2` - `4. Sept Couleurs Magiques`
+- LO8
+  - `dropdowns1` - `2. Talking about leisure activities.`
+  - `dropdowns2` - `3. Julien est très sportif`
+  - `dropdowns3` - `4. Qu’est-ce que tu fais le dimanche ?`
+- LO9
+  - `dropdowns1` - `2. Talking on the phone.`
+- LO10
+  - `dropdowns1` - `1. Chacun à son goût !`
+  - `dropdowns3` - `3. Practise the prepositions.`
+- LO11
+  - `dropdowns1` - `2. Practise the verb forms`
+  - `dropdowns2` - `3. More verb practice`
+  - `dropdowns3` - `4 Flavours, toppings and fillings`
+- LO12
+  - `dropdowns1` - `1. Where is everyone going?`
+  - `dropdowns2` - `2. Marion's shopping list`
+  - `dropdowns3` - `3. Yves' shopping list`
+- LO13
+  - `dropdowns1` - `1 Practise the reflexive verbs`
+  - `dropdowns3` - `3 What's the time? Practising the 12 hour clock`
+- LO14
+  - `dropdowns1` - `3 Practise using devoir`
+  - `dropdowns2` - `4 Practise using pouvoir`
+- LO15
+  - `dropdowns3` - `3. Select the correct form of the verb each time in Adèle's description of her holiday activities.`
+
+Also used in demo config:
+- `src/learningObjectConfigurations/fr/demo.json`
+
 Table semantics policy (important):
 - use flex/grid for layout and spacing.
 - use `<table>` only when data is genuinely tabular.
