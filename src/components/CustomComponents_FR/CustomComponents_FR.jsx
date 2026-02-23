@@ -578,6 +578,75 @@ export class LO2Grammar3 extends PureComponent {
 export class LO2Pronunciation1 extends PureComponent {
 	render = () => {
 		const { id } = this.props;
+		const silentExamples = [
+			{
+				ending: `d`,
+				label: <>gran<strong>d</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/005-grand.mp3`,
+				alt: `grand`,
+			},
+			{
+				ending: `d`,
+				label: <>ron<strong>d</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/015-rond.mp3`,
+				alt: `rond`,
+			},
+			{
+				ending: `g`,
+				label: <>lon<strong>g</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/009-long.mp3`,
+				alt: `long`,
+			},
+			{
+				ending: `p`,
+				label: <>tro<strong>p</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/022-trop.mp3`,
+				alt: `trop`,
+			},
+			{
+				ending: `s`,
+				label: <>depui<strong>s</strong></>,
+				soundFile: `audio/lo2/vocabulary/007-depuis.mp3`,
+				alt: `depuis`,
+			},
+			{
+				ending: `s`,
+				label: <>pa<strong>s</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/013-pas.mp3`,
+				alt: `pas`,
+			},
+			{
+				ending: `t`,
+				label: <>peti<strong>t</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/014-petit.mp3`,
+				alt: `petit`,
+			},
+			{
+				ending: `t`,
+				label: <>salu<strong>t</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/016-salut.mp3`,
+				alt: `salut`,
+			},
+			{
+				ending: `x`,
+				label: <>gâteau<strong>x</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/004-gateaux.mp3`,
+				alt: `gâteaux`,
+			},
+			{
+				ending: `z`,
+				label: <>appele<strong>z</strong></>,
+				soundFile: `audio/lo2/pronunciation/demystify/001-appelez.mp3`,
+				alt: `appelez`,
+			},
+		];
+		const endingOrder = [`d`, `g`, `p`, `s`, `t`, `x`, `z`];
+		const groupedByEnding = endingOrder
+			.map((ending) => ({
+				ending,
+				items: silentExamples.filter((item) => item.ending === ending),
+			}))
+			.filter((group) => group.items.length > 0);
 		return (
 			<div
 				className={`lo2-pronunciation1-container container`}
@@ -592,22 +661,28 @@ export class LO2Pronunciation1 extends PureComponent {
 					<h3>1. Silent letters at the end of a word</h3>
 					<p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word.
 						Listen to the following examples.</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/005-grand.mp3`} alt={`grand`}>gran<strong>d</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/015-rond.mp3`} alt={`rond`}>ron<strong>d</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/009-long.mp3`} alt={`long`}>lon<strong>g</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/022-trop.mp3`} alt={`trop`}>tro<strong>p</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/007-depuis.mp3`} alt={`depuis`}>depui<strong>s</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/013-pas.mp3`} alt={`pas`}>pa<strong>s</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/014-petit.mp3`} alt={`petit`}>peti<strong>t</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/016-salut.mp3`} alt={`salut`}>salu<strong>t</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/004-gateaux.mp3`} alt={`gâteaux`}>gâteau<strong>x</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/001-appelez.mp3`} alt={`appelez`}>appele<strong>z</strong></AudioClip></p>
+					<div className={`ml-2 grid grid-cols-1 gap-2 min-[900px]:grid-cols-2 min-[1200px]:mb-5 min-[1200px]:grid-cols-7 min-[1200px]:gap-2`}>
+						{groupedByEnding.map((group) => (
+							<div className={`m-0 space-y-1`} key={`ending-${group.ending}`}>
+								<p className={`m-0 text-[var(--font-size-sm)] font-semibold text-muted-foreground`}>
+									<strong>{group.ending}</strong>:
+								</p>
+								<div className={`space-y-1`}>
+									{group.items.map((item) => (
+										<div key={item.soundFile}>
+											<AudioClip className={`link`} soundFile={item.soundFile} alt={item.alt}>{item.label}</AudioClip>
+										</div>
+									))}
+								</div>
+									</div>
+						))}
+					</div>
 					<p>The letter <strong>e</strong> is not pronounced at the end of a word:</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/006-je-m-appelle.mp3`} alt={`Je m'appelle`}>Je m'appell<strong>e</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/004-bibliothecaire.mp3`} alt={`bibliothécaire`}>bibliothécair<strong>e</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/005-celibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></p>
+					<div className={`mb-3 ml-2 space-y-1 min-[1200px]:mb-5`}>
+						<div><AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/006-je-m-appelle.mp3`} alt={`Je m'appelle`}>Je m'appell<strong>e</strong></AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/004-bibliothecaire.mp3`} alt={`bibliothécaire`}>bibliothécair<strong>e</strong></AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/005-celibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></div>
+					</div>
 					<p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p>
 					<p>
 						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/002-ce.mp3`}>ce</AudioClip>,&nbsp;

@@ -2992,7 +2992,10 @@
 	#LO1-pronunciation2-Accordion,
 	#LO1-pronunciation3-Accordion,
 	#LO1-pronunciation4-Accordion,
-	#LO1-pronunciation-Group-Section {
+	#LO1-pronunciation-Group-Section,
+	#LO2-pronunciation1-Accordion,
+	#LO2-pronunciation2-Accordion,
+	#LO2-pronunciation-Group-Section {
 		align-items: flex-start;
 	}
 
@@ -3000,7 +3003,10 @@
 	#LO1-pronunciation2-Accordion .panel,
 	#LO1-pronunciation3-Accordion .panel,
 	#LO1-pronunciation4-Accordion .panel,
-	#LO1-pronunciation-Group-Section .panel {
+	#LO1-pronunciation-Group-Section .panel,
+	#LO2-pronunciation1-Accordion .panel,
+	#LO2-pronunciation2-Accordion .panel,
+	#LO2-pronunciation-Group-Section .panel {
 		margin-top: 0;
 	}
 
@@ -3008,7 +3014,10 @@
 	#LO1-pronunciation2-Accordion .pronunciation-panel,
 	#LO1-pronunciation3-Accordion .pronunciation-panel,
 	#LO1-pronunciation4-Accordion .pronunciation-panel,
-	#LO1-pronunciation-Group-Section .pronunciation-panel {
+	#LO1-pronunciation-Group-Section .pronunciation-panel,
+	#LO2-pronunciation1-Accordion .pronunciation-panel,
+	#LO2-pronunciation2-Accordion .pronunciation-panel,
+	#LO2-pronunciation-Group-Section .pronunciation-panel {
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
@@ -3018,7 +3027,10 @@
 	#LO1-pronunciation2-Accordion .pronunciation-panel h3,
 	#LO1-pronunciation3-Accordion .pronunciation-panel h3,
 	#LO1-pronunciation4-Accordion .pronunciation-panel h3,
-	#LO1-pronunciation-Group-Section .pronunciation-panel h3 {
+	#LO1-pronunciation-Group-Section .pronunciation-panel h3,
+	#LO2-pronunciation1-Accordion .pronunciation-panel h3,
+	#LO2-pronunciation2-Accordion .pronunciation-panel h3,
+	#LO2-pronunciation-Group-Section .pronunciation-panel h3 {
 		margin-top: 0;
 	}
 
