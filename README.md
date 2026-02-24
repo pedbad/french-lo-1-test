@@ -253,6 +253,11 @@ Validator triage guidance:
 Current shared component in use:
 - `src/components/DropDowns/DropDowns.jsx`
 
+Pilot migration implemented:
+- LO2 `dropdowns4` now uses `component: "SelectExercise"` (new stacked layout).
+- `SelectExercise` shuffles answer option order on first load and on reset.
+- During an attempt, option order remains stable until the learner resets.
+
 The following learning object activities currently use `component: "DropDowns"`:
 
 - LO2

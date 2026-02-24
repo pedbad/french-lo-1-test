@@ -19,6 +19,18 @@ export class AudioClip extends React.PureComponent {
 		this.audioRef = React.createRef();
 	}
 
+	setPlaybackStatus = (nextStatus, extraState = {}) => {
+		this.setState({
+			...extraState,
+			status: nextStatus,
+		});
+
+		const { onStatusChange } = this.props;
+		if (typeof onStatusChange === "function") {
+			onStatusChange(nextStatus);
+		}
+	};
+
 	notePlaying = (e, useRef) => {
 		// console.log("notePlaying");
 		e.preventDefault();
@@ -28,9 +40,7 @@ export class AudioClip extends React.PureComponent {
 			stopAllAudioPlayback(this.audioRef.current);
 			this.initialiseProgress(this.audioRef.current);
 		}
-		this.setState({
-			status: 'playing'
-		});
+		this.setPlaybackStatus('playing');
 	};
 
 	handleClick = (e) => {
@@ -48,16 +58,14 @@ export class AudioClip extends React.PureComponent {
 				// soundFileAudio.play();
 				break;
 			case 'paused':
-				this.setState({
-					status: 'playing'
-				});
+				this.setPlaybackStatus('playing');
 				if (!soundFileAudio) {
 					this.playSound(e);
 					break;
 				}
 				stopAllAudioPlayback(soundFileAudio);
 				soundFileAudio.play().catch(() => {
-					this.setState({ status: 'stopped' });
+					this.setPlaybackStatus('stopped');
 				});
 				break;
 			case 'playing':
@@ -87,30 +95,29 @@ export class AudioClip extends React.PureComponent {
 		stopAllAudioPlayback(soundFileAudio);
 		this.initialiseProgress(soundFileAudio);
 		soundFileAudio.onended = () => {
-			this.setState({
+			this.setPlaybackStatus('stopped', {
 				progress: 0,
-				status: 'stopped',
 			});
 		};
+		soundFileAudio.onpause = () => {
+			this.setPlaybackStatus('stopped');
+		};
 		soundFileAudio.play().catch(() => {
-			this.setState({
+			this.setPlaybackStatus('stopped', {
 				progress: 0,
-				status: 'stopped',
 			});
 		});
 		this.setState({
 			soundFileAudio: soundFileAudio,
-			status: 'playing'
 		});
+		this.setPlaybackStatus('playing');
 	};
 
 	pause = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
 		const { soundFileAudio } = this.state;
-		this.setState({
-			status: 'paused'
-		});
+		this.setPlaybackStatus('paused');
 		soundFileAudio.pause();
 	};
 

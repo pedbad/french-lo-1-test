@@ -24,6 +24,7 @@ import {
 	RadioQuiz,
 	ReadAloud,
 	Section,
+	SelectExercise,
 	SequenceOrder,
 	Sortable,
 	WordGrid,
@@ -810,6 +811,14 @@ export default class App extends React.Component {
 						showDialog={this.showDialog}
 					/>
 				);
+			case "SelectExercise":
+				return (
+					<SelectExercise
+						config={value}
+						logError={this.logError}
+						showDialog={this.showDialog}
+					/>
+				);
 			case "InlineChoiceGroup":
 				return (
 					<InlineChoiceGroup
@@ -1260,6 +1269,26 @@ export default class App extends React.Component {
 							logError={this.logError}
 							showDialog={this.showDialog}
 						/>
+						</AccordionArticle>
+					);
+					break;
+				}
+				case "SelectExercise": {
+					articles.push(
+						<AccordionArticle
+							expandedByDefault={autoExpandSingleAccordion}
+							config={value}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={targetId}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<SelectExercise
+								config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
 						</AccordionArticle>
 					);
 					break;

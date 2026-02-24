@@ -6,36 +6,39 @@
 - [x] Inventory all LO usages of `DropDowns` (documented in `README.md`).
 
 ## New Component Scaffold
-- [ ] Create `SelectExercise` component file under `src/components/SelectExercise/`.
+- [x] Create `SelectExercise` component file under `src/components/SelectExercise/`.
 - [ ] Export from:
-  - [ ] `src/components/SelectExercise/index.js`
-  - [ ] `src/components/index.js`
+  - [x] `src/components/SelectExercise/index.js`
+  - [x] `src/components/index.js`
 - [ ] Keep legacy `DropDowns` unchanged.
 
 ## Behavior Parity
-- [ ] Port option parsing (`[...|*...]`) from `DropDowns`.
+- [x] Port option parsing (`[...|*...]`) from `DropDowns`.
 - [ ] Port scoring state:
-  - [ ] `values`
+  - [x] `values`
   - [ ] `solved`
   - [ ] `nCorrect`
   - [ ] `failCount`
 - [ ] Port actions:
-  - [ ] Check answers
-  - [ ] Show answers
-  - [ ] Reset
+  - [x] Check answers
+  - [x] Show answers
+  - [x] Reset
 - [ ] Preserve congratulations behavior and completion logic.
 
 ## Layout / UX
-- [ ] Replace table structure with stacked list/card rows.
+- [x] Replace table structure with stacked list/card rows.
 - [ ] Row pattern:
-  - [ ] audio icon left + prompt text
-  - [ ] full-width select beneath
-  - [ ] right/wrong icon shown at appropriate state
+  - [x] audio icon left + prompt text
+  - [x] full-width select beneath
+  - [x] right/wrong icon shown at appropriate state
 - [ ] Keep blue info alert and existing action buttons.
-- [ ] Ensure select controls span full width.
+- [x] Ensure select controls span full width.
+- [x] Prevent select width shrinking when status icons appear after check.
+- [x] Align status icon vertically with select row.
+- [x] Shuffle option order on first render and on reset.
 
 ## Pilot Migration
-- [ ] Switch LO2 `dropdowns4` in `src/learningObjectConfigurations/fr/2.json` to `component: "SelectExercise"`.
+- [x] Switch LO2 `dropdowns4` in `src/learningObjectConfigurations/fr/2.json` to `component: "SelectExercise"`.
 - [ ] Verify LO2 behavior and styling on desktop + mobile.
 
 ## Accessibility
@@ -50,4 +53,4 @@
 ## Documentation
 - [x] Add planning doc (`DROPDOWNS_TO_SELECTEXERCISE_TODO.md`).
 - [x] Add migration checklist (`DROPDOWNS_TO_SELECTEXERCISE_CHECKLIST.md`).
-- [ ] Update `CHANGES.md` once pilot migration is implemented.
+- [x] Update `CHANGES.md` once pilot migration is implemented.

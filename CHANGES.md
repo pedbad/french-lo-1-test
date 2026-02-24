@@ -2,6 +2,23 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-24 - LO2 SelectExercise Pilot + Option Shuffle
+
+- Added new exercise component:
+  - `src/components/SelectExercise/SelectExercise.jsx`
+  - `src/components/SelectExercise/index.js`
+  - exported in `src/components/index.js`
+- Wired app renderer support in `src/App.jsx` for `component: "SelectExercise"` in both tab and accordion paths.
+- Migrated only LO2 final exercise to pilot the new component:
+  - `src/learningObjectConfigurations/fr/2.json`
+  - `dropdowns4.component`: `"DropDowns"` -> `"SelectExercise"`
+- New behavior in `SelectExercise`:
+  - stacked card rows (audio left + French prompt + full-width select)
+  - deferred validation flow (`Check answers`, `Reset`, `Show answers`)
+  - per-row status icon slot with fixed width to prevent layout shift on check
+  - option order shuffles on first load and reshuffles on reset
+  - option order stays stable during checking/review
+
 ## 2026-02-20 - LO1/LO2 Grammar Architecture Drift Fix
 
 - Identified root cause of visual/spacing drift in grammar:

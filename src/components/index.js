@@ -37,6 +37,7 @@ export * from './RadioQuiz';
 export * from './ReadAloud';
 export * from './IconButton';
 export * from './Section';
+export * from './SelectExercise';
 export * from './SequenceAudioController';
 export * from './SequenceOrder';
 export * from './Social';

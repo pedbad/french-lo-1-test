@@ -27,6 +27,10 @@
   - full-width select control below
   - correctness icon after checking
 - Keep existing parser logic for bracketed options (`[opt|*winner|opt]`) and scoring behavior.
+- Add option randomization behavior:
+  - shuffle options on first render
+  - reshuffle options on reset
+  - keep option order stable during a single attempt (until reset)
 
 ## Migration Strategy
 1. Build `SelectExercise` as a separate component (no `DropDowns` changes initially).

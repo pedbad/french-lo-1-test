@@ -1,0 +1,467 @@
+import {
+	AudioClip,
+	IconButton,
+	ProgressDots,
+} from "..";
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
+import DOMPurify from "dompurify";
+import { CircleCheck, CircleX } from "lucide-react";
+import React from "react";
+import { resolveAsset } from "../../utility";
+
+const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-[var(--font-size-sm)] md:text-base";
+
+export class SelectExercise extends React.PureComponent {
+	constructor(props) {
+		super(props);
+
+		const initialItems = props?.config?.items || [];
+
+		this.state = {
+			...props.config,
+			checkedResults: {},
+			hasChecked: false,
+			nCorrect: 0,
+			rowAudioStatus: {},
+			shuffledItems: this.buildShuffledItems(initialItems),
+			values: {},
+		};
+
+		this.blanksMeta = [];
+		this.nToSolve = 0;
+		this.rowAudioRefs = {};
+	}
+
+	componentDidUpdate(prevProps) {
+		if (prevProps.config !== this.props.config) {
+			const nextItems = this.props?.config?.items || [];
+			this.setState({
+				...this.props.config,
+				checkedResults: {},
+				hasChecked: false,
+				nCorrect: 0,
+				rowAudioStatus: {},
+				shuffledItems: this.buildShuffledItems(nextItems),
+				values: {},
+			});
+			this.blanksMeta = [];
+			this.nToSolve = 0;
+			this.rowAudioRefs = {};
+		}
+	}
+
+	shuffleArray = (values) => {
+		const shuffled = [...values];
+		for (let i = shuffled.length - 1; i > 0; i -= 1) {
+			const j = Math.floor(Math.random() * (i + 1));
+			const temp = shuffled[i];
+			shuffled[i] = shuffled[j];
+			shuffled[j] = temp;
+		}
+		return shuffled;
+	};
+
+	shuffleItemText = (text = "") => {
+		if (!text.includes("[")) return text;
+
+		return text.replace(/\[([^\]]+)\]/g, (_match, group) => {
+			const options = group.split("|").map((option) => option.trim());
+			const shuffled = this.shuffleArray(options);
+			return `[${shuffled.join("|")}]`;
+		});
+	};
+
+	buildShuffledItems = (items = []) => {
+		return items.map((item) => {
+			if (!item || typeof item !== "object") return item;
+			if (!item.text || typeof item.text !== "string") return item;
+			return {
+				...item,
+				text: this.shuffleItemText(item.text),
+			};
+		});
+	};
+
+	parseSentence = (text, startBlankIndex) => {
+		const segments = [];
+		const regex = /\[([^\]]+)\]/g;
+		let blankIndex = startBlankIndex;
+		let lastIndex = 0;
+		let match;
+
+		while ((match = regex.exec(text)) !== null) {
+			if (match.index > lastIndex) {
+				segments.push({
+					key: `text-${blankIndex}-${lastIndex}`,
+					type: "text",
+					value: text.slice(lastIndex, match.index),
+				});
+			}
+
+			const options = match[1].split("|").map((opt) => opt.trim());
+			const winner = options.findIndex((opt) => opt.startsWith("*"));
+			const cleanOptions = options.map((opt) =>
+				opt.startsWith("*") ? opt.substring(1) : opt
+			);
+
+			this.blanksMeta[blankIndex] = {
+				options: cleanOptions,
+				winner,
+			};
+
+			segments.push({
+				blankIndex,
+				key: `choice-${blankIndex}`,
+				type: "choice",
+			});
+
+			blankIndex += 1;
+			lastIndex = regex.lastIndex;
+		}
+
+		if (lastIndex < text.length) {
+			segments.push({
+				key: `tail-${blankIndex}-${lastIndex}`,
+				type: "text",
+				value: text.slice(lastIndex),
+			});
+		}
+
+		return { nextBlankIndex: blankIndex, segments };
+	};
+
+	handleSelectChange = (blankIndex, value) => {
+		this.setState((prevState) => {
+			const values = {
+				...prevState.values,
+				[blankIndex]: value,
+			};
+
+			if (!prevState.hasChecked) {
+				return { values };
+			}
+
+			const checkedResults = {
+				...prevState.checkedResults,
+			};
+			delete checkedResults[blankIndex];
+
+			return {
+				values,
+				checkedResults,
+				hasChecked: true,
+				nCorrect: Object.values(checkedResults).filter(Boolean).length,
+			};
+		});
+	};
+
+	handleCheckAnswers = () => {
+		const checkedResults = {};
+		for (let i = 0; i < this.nToSolve; i += 1) {
+			const value = this.state.values[i];
+			if (value === undefined || value === null || value === "") continue;
+			const winner = this.blanksMeta[i]?.winner;
+			checkedResults[i] = parseInt(value, 10) === winner;
+		}
+
+		this.setState({
+			checkedResults,
+			hasChecked: true,
+			nCorrect: Object.values(checkedResults).filter(Boolean).length,
+		});
+	};
+
+	handleReset = () => {
+		const sourceItems = this.props?.config?.items || [];
+		this.setState({
+			checkedResults: {},
+			hasChecked: false,
+			nCorrect: 0,
+			rowAudioStatus: {},
+			shuffledItems: this.buildShuffledItems(sourceItems),
+			values: {},
+		});
+	};
+
+	handleRowAudioStatusChange = (rowIndex, status) => {
+		this.setState((prevState) => {
+			const nextRowAudioStatus = {
+				...prevState.rowAudioStatus,
+			};
+			nextRowAudioStatus[rowIndex] = status;
+
+			if (status === "playing") {
+				Object.keys(nextRowAudioStatus).forEach((key) => {
+					const keyIndex = parseInt(key, 10);
+					if (keyIndex !== rowIndex && nextRowAudioStatus[keyIndex] === "playing") {
+						nextRowAudioStatus[keyIndex] = "stopped";
+					}
+				});
+			}
+
+			return {
+				rowAudioStatus: nextRowAudioStatus,
+			};
+		});
+	};
+
+	triggerRowAudio = (rowIndex) => {
+		const rowAudioHost = this.rowAudioRefs[rowIndex];
+		if (!rowAudioHost) return;
+		const buttonEl = rowAudioHost.querySelector("button.audio-container");
+		if (!buttonEl) return;
+		buttonEl.click();
+	};
+
+	handleShowAnswers = () => {
+		const values = {};
+		const checkedResults = {};
+
+		for (let i = 0; i < this.nToSolve; i += 1) {
+			const winner = this.blanksMeta[i]?.winner;
+			values[i] = String(winner);
+			checkedResults[i] = true;
+		}
+
+		this.setState({
+			checkedResults,
+			hasChecked: true,
+			nCorrect: this.nToSolve,
+			values,
+		});
+	};
+
+	renderSentenceWithoutChoices = (segments) => {
+		return segments
+			.filter((segment) => segment.type === "text")
+			.map((segment) => segment.value)
+			.join("")
+			.replace(/\s+/g, " ")
+			.trim();
+	};
+
+	render = () => {
+		const {
+			cheatText = "Show answers",
+			footnote,
+			footnoteHTML,
+			htmlContent = "",
+			id = "",
+			items = [],
+			listenDescriptionText,
+			rowAudioStatus = {},
+			shuffledItems = [],
+			soundFile,
+			values = {},
+		} = this.state;
+
+		this.blanksMeta = [];
+		this.nToSolve = 0;
+
+		const rows = [];
+		let blankCursor = 0;
+
+		const renderedItems = shuffledItems.length > 0 ? shuffledItems : items;
+		for (let i = 0; i < renderedItems.length; i += 1) {
+			const item = renderedItems[i];
+			const phraseText = item?.text || "";
+			if (!phraseText) continue;
+
+			const { nextBlankIndex, segments } = this.parseSentence(phraseText, blankCursor);
+			const rowBlankIndices = segments
+				.filter((segment) => segment.type === "choice")
+				.map((segment) => segment.blankIndex);
+			blankCursor = nextBlankIndex;
+
+			const rowAttempted = rowBlankIndices.some((idx) => {
+				const rawValue = this.state.values[idx];
+				return rawValue !== undefined && rawValue !== null && rawValue !== "";
+			});
+			const rowResults = rowBlankIndices.map((idx) => this.state.checkedResults[idx]);
+			const rowFullyChecked =
+				rowBlankIndices.length > 0 &&
+				rowResults.every((result) => typeof result === "boolean");
+			const rowHasResult = this.state.hasChecked && rowAttempted && rowFullyChecked;
+			const rowIsCorrect = rowHasResult && rowResults.every((result) => result === true);
+
+			rows.push(
+				<div
+					className="rounded-xl border border-border/70 bg-card/60 p-3 md:p-4"
+					key={`select-row-${id}-${i}`}
+				>
+					<div className="grid grid-cols-[auto_minmax(0,1fr)_2.75rem] grid-rows-[auto_auto] items-start gap-x-3 gap-y-2">
+						{item.audio ? (
+							<span
+								className="row-span-2"
+								ref={(el) => {
+									if (el) this.rowAudioRefs[i] = el;
+								}}
+							>
+								<AudioClip
+									className="super-compact-speaker shrink-0 pt-0.5"
+									id={`selectExerciseRowAudio-${i}`}
+									onStatusChange={(status) => this.handleRowAudioStatusChange(i, status)}
+									soundFile={resolveAsset(item.audio)}
+								/>
+							</span>
+						) : null}
+
+						{item.audio ? (
+							<button
+								aria-label={`Play audio for row ${i + 1}`}
+								className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : "text-foreground hover:text-[var(--chart-2)]"}`}
+								onClick={() => this.triggerRowAudio(i)}
+								type="button"
+							>
+								{this.renderSentenceWithoutChoices(segments)}
+							</button>
+						) : (
+							<p className="col-start-2 row-start-1 m-0 min-w-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base">
+								{this.renderSentenceWithoutChoices(segments)}
+							</p>
+						)}
+
+						<div className="col-start-2 row-start-2 min-w-0 space-y-2">
+							{rowBlankIndices.map((blankIndex, localIndex) => {
+								const selectId = `${id}-select-${blankIndex}`;
+								const meta = this.blanksMeta[blankIndex];
+								const currentValue = values[blankIndex] ?? "";
+
+								return (
+									<div className="w-full" key={selectId}>
+										<label className="sr-only" htmlFor={selectId}>
+											{`Select answer for blank ${blankIndex + 1}`}
+										</label>
+										<Select
+											value={currentValue}
+											onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
+										>
+											<SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
+												<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
+											</SelectTrigger>
+											<SelectContent>
+												{meta.options.map((option, optionIndex) => (
+													<SelectItem
+														className="text-[var(--font-size-sm)] md:text-base"
+														key={`${selectId}-option-${optionIndex}`}
+														value={String(optionIndex)}
+													>
+														{option}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</div>
+								);
+							})}
+						</div>
+
+						<span
+							aria-hidden="true"
+							className={`col-start-3 row-start-2 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+						>
+							{rowIsCorrect ? (
+								<CircleCheck className="h-10 w-10" />
+							) : (
+								<CircleX className="h-10 w-10" />
+							)}
+						</span>
+					</div>
+				</div>
+			);
+		}
+
+		this.nToSolve = blankCursor;
+		const nCorrect = this.state.nCorrect || 0;
+		const hasSelections = Object.keys(values).length > 0;
+		const hasAnyIncorrect = this.state.hasChecked && nCorrect < this.nToSolve;
+
+		return (
+			<div
+				className="select-exercise-container container"
+				id={`${id || ""}`}
+				key={`${id}SelectExercise`}
+			>
+				{htmlContent ? (
+					<div
+						className="html-content"
+						dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
+					/>
+				) : null}
+
+				{listenDescriptionText && soundFile ? (
+					<AudioClip
+						id={`listen-${id}`}
+						listenText={listenDescriptionText}
+						soundFile={soundFile}
+					/>
+				) : null}
+
+				<div className="space-y-3">{rows}</div>
+
+				<div className="exercise-divider" data-orientation="horizontal" role="none" />
+				<ProgressDots correct={nCorrect} total={this.nToSolve} />
+				<div className="exercise-divider" data-orientation="horizontal" role="none" />
+
+				<div className="exercise-help exercise-help-wrap">
+					<div className="exercise-help-actions">
+						<IconButton
+							ariaLabel={cheatText}
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								tone: "warn",
+								visible: hasAnyIncorrect,
+							})}
+							onClick={this.handleShowAnswers}
+							theme="eye"
+						>
+							<span className="exercise-icon-button-label">{cheatText}</span>
+						</IconButton>
+
+						<IconButton
+							ariaLabel="Reset"
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								tone: "neutral",
+								visible: hasSelections || this.state.hasChecked,
+							})}
+							onClick={this.handleReset}
+							theme="reset"
+						>
+							<span className="exercise-icon-button-label">Reset</span>
+						</IconButton>
+
+						<IconButton
+							ariaLabel="Check answers"
+							className={exerciseActionButtonVariants({
+								align: "right",
+								progressive: false,
+								tone: "primary",
+								visible: true,
+							})}
+							onClick={this.handleCheckAnswers}
+							theme="check"
+						>
+							<span className="exercise-icon-button-label">Check answers</span>
+						</IconButton>
+					</div>
+				</div>
+
+				{footnote ? <p className="footnote">{footnote}</p> : null}
+				{footnoteHTML ? (
+					<p
+						className="footNote"
+						dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(footnoteHTML) }}
+					/>
+				) : null}
+			</div>
+		);
+	};
+}
