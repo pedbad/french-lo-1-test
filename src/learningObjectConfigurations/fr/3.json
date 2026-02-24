@@ -112,225 +112,235 @@
 		"titleText": "Dialogues"
 	},
 	"vocabulary": {
-		"component": "PhraseTable",
+		"component": "Group",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
-		"header": [
-			"",
-			"Nationalité",
-			"Pays",
-			"Nationality",
-			"Country"
-		],
-		"phrases": [
-			[
-				"audio/lo3/vocabulary/vocabulary/068-algerien-algerienne-algerie.mp3",
-				"algérien / algérienne",
-				"Algérie (f)",
-				"Algerian",
-				"Algeria"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/069-allemand-allemande-allemagne.mp3",
-				"allemand / allemande",
-				"Allemagne (f)",
-				"German",
-				"Germany"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/071-americain-americaine-etats-unis.mp3",
-				"américain / américaine",
-				"Etats-Unis (mpl)",
-				"American",
-				"USA"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/072-anglais-anglaise-angleterre.mp3",
-				"anglais / anglaise",
-				"Angleterre (f)",
-				"English",
-				"England"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/074-australien-australienne-australie.mp3",
-				"australien / australienne",
-				"Australie (f)",
-				"Australian",
-				"Australia"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/075-belge-belgique.mp3",
-				"belge",
-				"Belgique (f)",
-				"Belgian",
-				"Belgium"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/077-britannique-grande-bretagne.mp3",
-				"britannique",
-				"Grande Bretagne (f)",
-				"British",
-				"Great Britain"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/078-canadien-canadienne-canada.mp3",
-				"canadien / canadienne",
-				"Canada (m)",
-				"Canadian",
-				"Canada"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/080-chinois-chinoise-chine.mp3",
-				"chinois / chinoise",
-				"Chine (f)",
-				"Chinese",
-				"China"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/088-ecossais-ecossaise-ecosse.mp3",
-				"écossais / écossaise",
-				"Ecosse (f)",
-				"Scottish",
-				"Scotland"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/091-espagnol-espagnole-espagne.mp3",
-				"espagnol / espagnole",
-				"Espagne (f)",
-				"Spanish",
-				"Spain"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/095-francais-francaise-france.mp3",
-				"français / française",
-				"France (f)",
-				"French",
-				"France"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/096-gallois-galloise-pays-de-galles.mp3",
-				"gallois / galloise",
-				"Pays de Galles (m)",
-				"Welsh",
-				"Wales  "
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/097-ghaneen-ghaneenne-ghana.mp3",
-				"ghanéen / ghanéenne",
-				"Ghana (m)",
-				"Ghanean",
-				"Ghana"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/115-libanais-libanaise-liban.mp3",
-				"libanais / libanaise",
-				"Liban (m)",
-				"Lebanese",
-				"Lebanon"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/117-luxembourgeois-luxembourgeoise-luxembourg.mp3",
-				"luxembourgeois / luxembourgeoise",
-				"Luxembourg (m)",
-				"Luxembourgish",
-				"Luxemburg"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/120-marocain-marocaine-maroc.mp3",
-				"marocain / marocaine",
-				"Maroc (m)",
-				"Maroccan",
-				"Morocco"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/100-irlandais-irlandaise-irelande.mp3",
-				"irlandais / irlandaise",
-				"Irelande (f)",
-				"Irish",
-				"Ireland"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/124-nord-irlandais-nord-irlandaise-irelande-du-nord.mp3",
-				"nord irlandais / nord irlandaise",
-				"Irelande (f) du Nord",
-				"Northern Irish",
-				"Northern Ireland"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/133-senegalais-senegalaise-senegal.mp3",
-				"sénégalais / sénégalaise",
-				"Sénégal (m)",
-				"Senegalese",
-				"Senegal"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/134-suisse-suisse.mp3",
-				"suisse",
-				"Suisse (f)",
-				"Swiss",
-				"Switzerland"
-			],
-			[
-				"audio/lo3/vocabulary/vocabulary/138-tunisien-tunisienne-tunisie.mp3",
-				"tunisien / tunisienne",
-				"Tunisie (f)",
-				"Tunisian",
-				"Tunisia"
-			]
-		],
-		"sortable": true,
-		"titleText": "Vocabulary"
-	},
-	"phraseTable5": {
-		"component": "PhraseTable",
-		"expandable": false,
-		"id": "phraseTable5",
-		"instructionsText": "",
-		"phrases": [
-			[
-				"audio/lo3/vocabulary/phraseTable5/125-parler.mp3",
-				"parler",
-				"to speak"
-			],
-			[
-				"audio/lo3/vocabulary/phraseTable5/128-quelles-langues-parles-tu-tu-parles-quelles-langues.mp3",
-				"Quelles langues parles-tu ? / Tu parles quelles langues ?",
-				"Which languages do you speak?"
-			],
-			[
-				"audio/lo3/vocabulary/phraseTable5/130-quelles-langues-parlez-vous-vous-parlez-quelles-langues.mp3",
-				"Quelles langues parlez-vous ? / Vous parlez quelles langues ?",
-				"Which languages do you speak?"
-			],
-			[
-				"audio/lo3/vocabulary/phraseTable5/103-je-parle-anglais-je-ne-parle-pas-anglais.mp3",
-				"Je parle anglais / Je ne parle pas anglais",
-				"I speak / I don't speak English."
-			],
-			[
-				"audio/lo3/vocabulary/phraseTable5/140-venir-de.mp3",
-				"venir de",
-				"to come from"
-			],
-			[
-				"audio/lo3/vocabulary/phraseTable5/084-d-ou-viens-tu-tu-viens-d-ou.mp3",
-				"D'où viens-tu ? / Tu viens d'où ?",
-				"Where do you come from?"
-			],
-			[
-				"audio/lo3/vocabulary/phraseTable5/082-d-ou-venez-vous-vous-venez-d-ou.mp3",
-				"D'où venez-vous ? / Vous venez d'où ?",
-				"Where do you come from?"
-			],
-			[
-				"audio/lo3/vocabulary/phraseTable5/112-je-viens-de-je-ne-viens-pas-de.mp3",
-				"Je viens de … / Je ne viens pas de …",
-				"I come from … / don't come from …"
-			]
-		],
-		"titleText": "",
-		"comment": "Vocabulary continued"
+		"titleText": "Vocabulary",
+		"instructionsTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p>",
+		"content": [
+			{
+				"vocabulary1": {
+					"component": "PhraseTable",
+					"id": "vocabulary1",
+					"instructionsTextHTML": "<p>Read each term and play the audio to practise nationality and country vocabulary.</p>",
+					"header": [
+						"",
+						"Nationalité",
+						"Pays",
+						"Nationality",
+						"Country"
+					],
+					"phrases": [
+						[
+							"audio/lo3/vocabulary/vocabulary/068-algerien-algerienne-algerie.mp3",
+							"algérien / algérienne",
+							"Algérie (f)",
+							"Algerian",
+							"Algeria"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/069-allemand-allemande-allemagne.mp3",
+							"allemand / allemande",
+							"Allemagne (f)",
+							"German",
+							"Germany"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/071-americain-americaine-etats-unis.mp3",
+							"américain / américaine",
+							"Etats-Unis (mpl)",
+							"American",
+							"USA"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/072-anglais-anglaise-angleterre.mp3",
+							"anglais / anglaise",
+							"Angleterre (f)",
+							"English",
+							"England"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/074-australien-australienne-australie.mp3",
+							"australien / australienne",
+							"Australie (f)",
+							"Australian",
+							"Australia"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/075-belge-belgique.mp3",
+							"belge",
+							"Belgique (f)",
+							"Belgian",
+							"Belgium"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/077-britannique-grande-bretagne.mp3",
+							"britannique",
+							"Grande-Bretagne (f)",
+							"British",
+							"Great Britain"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/078-canadien-canadienne-canada.mp3",
+							"canadien / canadienne",
+							"Canada (m)",
+							"Canadian",
+							"Canada"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/080-chinois-chinoise-chine.mp3",
+							"chinois / chinoise",
+							"Chine (f)",
+							"Chinese",
+							"China"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/088-ecossais-ecossaise-ecosse.mp3",
+							"écossais / écossaise",
+							"Ecosse (f)",
+							"Scottish",
+							"Scotland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/091-espagnol-espagnole-espagne.mp3",
+							"espagnol / espagnole",
+							"Espagne (f)",
+							"Spanish",
+							"Spain"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/095-francais-francaise-france.mp3",
+							"français / française",
+							"France (f)",
+							"French",
+							"France"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/096-gallois-galloise-pays-de-galles.mp3",
+							"gallois / galloise",
+							"Pays de Galles (m)",
+							"Welsh",
+							"Wales"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/097-ghaneen-ghaneenne-ghana.mp3",
+							"ghanéen / ghanéenne",
+							"Ghana (m)",
+							"Ghanaian",
+							"Ghana"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/115-libanais-libanaise-liban.mp3",
+							"libanais / libanaise",
+							"Liban (m)",
+							"Lebanese",
+							"Lebanon"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/117-luxembourgeois-luxembourgeoise-luxembourg.mp3",
+							"luxembourgeois / luxembourgeoise",
+							"Luxembourg (m)",
+							"Luxembourgish",
+							"Luxembourg"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/120-marocain-marocaine-maroc.mp3",
+							"marocain / marocaine",
+							"Maroc (m)",
+							"Moroccan",
+							"Morocco"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/100-irlandais-irlandaise-irelande.mp3",
+							"irlandais / irlandaise",
+							"Irlande (f)",
+							"Irish",
+							"Ireland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/124-nord-irlandais-nord-irlandaise-irelande-du-nord.mp3",
+							"nord irlandais / nord irlandaise",
+							"Irlande (f) du Nord",
+							"Northern Irish",
+							"Northern Ireland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/133-senegalais-senegalaise-senegal.mp3",
+							"sénégalais / sénégalaise",
+							"Sénégal (m)",
+							"Senegalese",
+							"Senegal"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/134-suisse-suisse.mp3",
+							"suisse",
+							"Suisse (f)",
+							"Swiss",
+							"Switzerland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/138-tunisien-tunisienne-tunisie.mp3",
+							"tunisien / tunisienne",
+							"Tunisie (f)",
+							"Tunisian",
+							"Tunisia"
+						]
+					],
+					"sortable": true,
+					"titleText": "Nationalities and countries"
+				}
+			},
+			{
+				"vocabulary2": {
+					"component": "PhraseTable",
+					"id": "vocabulary2",
+					"instructionsTextHTML": "<p>Use these model phrases to ask and answer where someone comes from and what languages they speak.</p>",
+					"phrases": [
+						[
+							"audio/lo3/vocabulary/phraseTable5/125-parler.mp3",
+							"parler",
+							"to speak"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/128-quelles-langues-parles-tu-tu-parles-quelles-langues.mp3",
+							"Quelles langues parles-tu ? / Tu parles quelles langues ?",
+							"Which languages do you speak?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/130-quelles-langues-parlez-vous-vous-parlez-quelles-langues.mp3",
+							"Quelles langues parlez-vous ? / Vous parlez quelles langues ?",
+							"Which languages do you speak?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/103-je-parle-anglais-je-ne-parle-pas-anglais.mp3",
+							"Je parle anglais / Je ne parle pas anglais",
+							"I speak / I don't speak English."
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/140-venir-de.mp3",
+							"venir de",
+							"to come from"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/084-d-ou-viens-tu-tu-viens-d-ou.mp3",
+							"D'où viens-tu ? / Tu viens d'où ?",
+							"Where do you come from?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/082-d-ou-venez-vous-vous-venez-d-ou.mp3",
+							"D'où venez-vous ? / Vous venez d'où ?",
+							"Where do you come from?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/112-je-viens-de-je-ne-viens-pas-de.mp3",
+							"Je viens de … / Je ne viens pas de …",
+							"I come from … / don't come from …"
+						]
+					],
+					"titleText": "Useful phrases for origin and language"
+				}
+			}
+		]
 	},
 	"grammar": {
 		"component": "LO3Grammar",
