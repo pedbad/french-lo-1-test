@@ -42,6 +42,10 @@
 4. Wire one pilot activity first (LO2 `dropdowns4`) by changing only config `component`.
 5. Validate behavior + accessibility + responsive UI.
 6. Migrate additional LO activities gradually based on QA priority.
+7. From LO3 onward, perform migration and QA manually per activity:
+- switch one config block at a time to `component: "SelectExercise"`
+- run functional checks (check/show/reset, scoring, audio behavior)
+- run responsive and accessibility checks before moving to the next activity
 
 ## Non-goals (initial pass)
 - Bulk replacement of all `DropDowns` usages in one commit.
@@ -56,3 +60,4 @@
 - Keep `DropDowns` intact until full migration is completed and signed off.
 - Use config-only switch (`component: "SelectExercise"`) per activity.
 - Add side-by-side test checklist for old/new behavior parity.
+- Keep a per-LO migration log so unfinished LO3+ activities remain visible and do not drift.

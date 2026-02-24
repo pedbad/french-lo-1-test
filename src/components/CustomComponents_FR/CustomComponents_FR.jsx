@@ -743,112 +743,112 @@ export class LO3Grammar extends PureComponent {
 					<p>There are three groups of verbs in French. The biggest of these is called the&nbsp;
 						<strong>-er</strong> group, simply because the infinitive ends with the letters&nbsp;
 						<strong>-er</strong>.&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/parler.mp3`}>Parler</AudioClip> (to speak),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/habiter.mp3`}>habiter</AudioClip> (to live),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/chanter.mp3`}>chanter</AudioClip> (to sing),&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/danser.mp3`}>danser</AudioClip> (to dance) are examples of <strong>-er</strong> verbs.</p>
+						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/056-parler.mp3`}>Parler</AudioClip> (to speak),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/019-habiter.mp3`}>habiter</AudioClip> (to live),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/004-chanter.mp3`}>chanter</AudioClip> (to sing),&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/007-danser.mp3`}>danser</AudioClip> (to dance) are examples of <strong>-er</strong> verbs.</p>
 					<p><strong>NB</strong> There is only <strong>ONE present tense</strong> in French, so you translate je parle either as 'I speak' or 'I am speaking'
 						depending on the context.</p>
 					<Table>
 						<thead>
 							<TableRow>
 								<th>
-									<AudioClip className={`link`} soundFile={`sounds/fr/parler.mp3`}>parler</AudioClip></th>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/056-parler.mp3`}>parler</AudioClip></th>
 								<th>to speak</th>
 							</TableRow>
 						</thead>
 						<TableBody>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/je parle.mp3`}>je parle</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/030-je-parle.mp3`}>je parle</AudioClip></TableCell>
 								<TableCell>I speak / am speaking</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/tu parles.mp3`}>tu parles</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/059-tu-parles.mp3`}>tu parles</AudioClip></TableCell>
 								<TableCell>you speak / are speaking</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/il parle.mp3`}>il parle</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/023-il-parle.mp3`}>il parle</AudioClip></TableCell>
 								<TableCell>he / it speaks / is speaking</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/elle parle.mp3`}>elle parle</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/010-elle-parle.mp3`}>elle parle</AudioClip></TableCell>
 								<TableCell>she / it speaks / is speaking</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/nous parlons.mp3`}>nous parlons</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/053-nous-parlons.mp3`}>nous parlons</AudioClip></TableCell>
 								<TableCell>we speak / are speaking</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/vous parlez.mp3`}>vous parlez</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/shared/064-vous-parlez.mp3`}>vous parlez</AudioClip></TableCell>
 								<TableCell>you speak / are speaking</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/ils parlent.mp3`}>ils parlent</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/shared/026-ils-parlent.mp3`}>ils parlent</AudioClip></TableCell>
 								<TableCell>they speak / are speaking</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/elles parlent.mp3`}>elles parlent</AudioClip></TableCell>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/013-elles-parlent.mp3`}>elles parlent</AudioClip></TableCell>
 								<TableCell>they speak / are speaking</TableCell>
 							</TableRow>
 						</TableBody>
 					</Table><p><strong>venir</strong> is a common irregular verb.</p>
 					<p>
-						<AudioClip className={`link`} soundFile={`sounds/fr/venir de.mp3`}><strong>venir de</strong></AudioClip> to come from</p>
+						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/063-venir-de.mp3`}><strong>venir de</strong></AudioClip> to come from</p>
 					<Table>
 						<TableBody>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/je viens.mp3`}>je viens</AudioClip> (de Marseille)
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/046-je-viens.mp3`}>je viens</AudioClip> (de Marseille)
 								</TableCell>
 								<TableCell>I come (from Marseille)...</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/tu viens.mp3`}>tu viens</AudioClip>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/060-tu-viens.mp3`}>tu viens</AudioClip>
 								</TableCell>
 								<TableCell>you come</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/il vient.mp3`}>il vient</AudioClip>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/024-il-vient.mp3`}>il vient</AudioClip>
 								</TableCell>
 								<TableCell>he/it comes</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/elle vient.mp3`}>elle vient</AudioClip>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/011-elle-vient.mp3`}>elle vient</AudioClip>
 								</TableCell>
 								<TableCell>she/it comes</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/nous venons.mp3`}>nous venons</AudioClip>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/055-nous-venons.mp3`}>nous venons</AudioClip>
 								</TableCell>
 								<TableCell>we come</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/vous venez.mp3`}>vous venez</AudioClip>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/065-vous-venez.mp3`}>vous venez</AudioClip>
 								</TableCell>
 								<TableCell>you come</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/ils viennent.mp3`}>ils viennent</AudioClip>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/027-ils-viennent.mp3`}>ils viennent</AudioClip>
 								</TableCell>
 								<TableCell>they come</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>
-									<AudioClip className={`link`} soundFile={`sounds/fr/elles viennent.mp3`}>elles viennent</AudioClip>
+									<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/015-elles-viennent.mp3`}>elles viennent</AudioClip>
 								</TableCell>
 								<TableCell>they come</TableCell>
 							</TableRow>
@@ -878,27 +878,27 @@ export class LO3Grammar extends PureComponent {
 						noun or adjective.</p>
 					<ul>
 						<li>If the ending is <strong>e</strong> there is no addition: both masculine and feminine are the the same e.g.&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/célibataire.mp3`}>célibataire</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/journaliste.mp3`}>journaliste</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/serbe.mp3`}>serbe</AudioClip> etc.
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/003-celibataire.mp3`}>célibataire</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/047-journaliste.mp3`}>journaliste</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/058-serbe.mp3`}>serbe</AudioClip> etc.
 						</li>
 						<li>If the last letter is a consonant, then generally <strong>e</strong> is added to form the feminine e.g.&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/étudiant.mp3`}>étudiant</AudioClip> (m)&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/étudiante.mp3`}>étudiante</AudioClip> (f),&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/chinois.mp3`}>chinois</AudioClip> (m),&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/chinoise.mp3`}>chinoise</AudioClip> (f) <strong>NB</strong>&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/médecin.mp3`}>médecin</AudioClip> is an exception -&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/017-etudiant.mp3`}>étudiant</AudioClip> (m)&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/018-etudiante.mp3`}>étudiante</AudioClip> (f),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/005-chinois.mp3`}>chinois</AudioClip> (m),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/006-chinoise.mp3`}>chinoise</AudioClip> (f) <strong>NB</strong>&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/052-medecin.mp3`}>médecin</AudioClip> is an exception -&nbsp;
 							this is for both a male and female doctor.
 						</li>
 						<li>If the final letter is <strong>é</strong>, then an <strong>e</strong> is added for the feminine e.g.&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/marié.mp3`}>marié</AudioClip> (m),&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/mariée.mp3`}>mariée</AudioClip> (f)
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/050-marie.mp3`}>marié</AudioClip> (m),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/051-mariee.mp3`}>mariée</AudioClip> (f)
 						</li>
 						<li>If the ending is <strong>en</strong>, <strong>ne</strong> is added for the feminine e.g.&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/informaticien.mp3`}>informaticien</AudioClip> (m) /&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/informaticienne.mp3`}>informaticienne</AudioClip> (f),&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/australien.mp3`}>australien</AudioClip> (m),&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/australienne.mp3`}>australienne</AudioClip> (f)
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/028-informaticien.mp3`}>informaticien</AudioClip> (m) /&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/029-informaticienne.mp3`}>informaticienne</AudioClip> (f),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/001-australien.mp3`}>australien</AudioClip> (m),&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/002-australienne.mp3`}>australienne</AudioClip> (f)
 						</li>
 					</ul>
 				</div>
@@ -933,33 +933,33 @@ export class LO3Demystify extends PureComponent {
 						title={`lady with finger to lips. Shh`} /></p>
 					<ol>
 						<li><p>The third person verb ending <strong>ent</strong> is never pronounced. e.g.
-							<AudioClip className={`link`} soundFile={`sounds/fr/ils parlent.mp3`}>Ils parl<strong>ent</strong></AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/elles chantent.mp3`}>elles chant<strong>ent</strong></AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`sounds/fr/ils dansent.mp3`}>ils dans<strong>ent</strong></AudioClip>. </p>
+							<AudioClip className={`link`} soundFile={`audio/lo3/shared/026-ils-parlent.mp3`}>Ils parl<strong>ent</strong></AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/012-elles-chantent.mp3`}>elles chant<strong>ent</strong></AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/025-ils-dansent.mp3`}>ils dans<strong>ent</strong></AudioClip>. </p>
 						</li>
 						<li>
 							<p>Usually, the consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word.
 								However, these are sounded when the next word begins with a vowel or mute h. This is known as making a liaison. </p>
 							<p>Compare these:&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/les professeurs.mp3`}>les professeurs</AudioClip> /&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/les étudiants.mp3`}>le<strong>s é</strong>tudiants</AudioClip> –&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/il est français.mp3`}>il est français</AudioClip> /&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/il est anglais.mp3`}>il es<strong>t a</strong>nglais</AudioClip> -&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/un grand poète.mp3`}>un grand poète</AudioClip> /&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/un grand homme.mp3`}>un gran<strong>d ho</strong>mme</AudioClip></p>
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/049-les-professeurs.mp3`}>les professeurs</AudioClip> /&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/048-les-etudiants.mp3`}>le<strong>s é</strong>tudiants</AudioClip> –&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/022-il-est-francais.mp3`}>il est français</AudioClip> /&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/021-il-est-anglais.mp3`}>il es<strong>t a</strong>nglais</AudioClip> -&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/062-un-grand-poete.mp3`}>un grand poète</AudioClip> /&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/061-un-grand-homme.mp3`}>un gran<strong>d ho</strong>mme</AudioClip></p>
 						</li>
 						<li>
 							<p>The sound : <strong>'eh'</strong></p>
 							<p>Listen to the following:
-								<AudioClip className={`link`} soundFile={`sounds/fr/vous parlez.mp3`}>vous parl<strong>ez</strong></AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/il est américain.mp3`}>il <strong>est</strong> am<strong>é</strong>ricain</AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/et.mp3`}><strong>et</strong></AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/je suis ghanéenne.mp3`}>je suis ghan<strong>é</strong>enne</AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/elle est mariée.mp3`}>elle <strong>est</strong> mari<strong>ée</strong></AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/nous sommes fiancés.mp3`}>nous sommes fianc<strong>és</strong></AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/elles sont fatiguées.mp3`}>elles sont fatigu<strong>ées</strong></AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/écouter.mp3`}><strong>é</strong>cout<strong>er</strong></AudioClip>,&nbsp;
-								<AudioClip className={`link`} soundFile={`sounds/fr/regarder.mp3`}>regard<strong>er</strong></AudioClip></p>
+								<AudioClip className={`link`} soundFile={`audio/lo3/shared/064-vous-parlez.mp3`}>vous parl<strong>ez</strong></AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/020-il-est-americain.mp3`}>il <strong>est</strong> am<strong>é</strong>ricain</AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/016-et.mp3`}><strong>et</strong></AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/034-je-suis-ghaneenne.mp3`}>je suis ghan<strong>é</strong>enne</AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/009-elle-est-mariee.mp3`}>elle <strong>est</strong> mari<strong>ée</strong></AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/054-nous-sommes-fiances.mp3`}>nous sommes fianc<strong>és</strong></AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/014-elles-sont-fatiguees.mp3`}>elles sont fatigu<strong>ées</strong></AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/008-ecouter.mp3`}><strong>é</strong>cout<strong>er</strong></AudioClip>,&nbsp;
+								<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/057-regarder.mp3`}>regard<strong>er</strong></AudioClip></p>
 							<p>You will notice that&nbsp;
 								<strong>-et</strong>, <strong>-ez</strong>, <strong>é</strong>, <strong>-ée</strong>, <strong>-és</strong>, <strong>-ées</strong> and also <strong>-er</strong> as an infinitive ending are
 							all pronounced the same, as are the words <strong>est</strong> and <strong>es</strong>.

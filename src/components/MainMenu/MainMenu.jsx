@@ -197,11 +197,15 @@ export class MainMenu extends React.Component {
 			},
 			...Object.values(config)
 				.filter((value) => value.component && value.id)
-				.map((value) => ({
-					href: `#${value.id}`,
-					id: value.id,
-					label: value.menuText ? value.menuText : value.titleText,
-				})),
+				.map((value) => {
+					const label = value.menuText ? value.menuText : value.titleText;
+					return {
+						href: `#${value.id}`,
+						id: value.id,
+						label,
+					};
+				})
+				.filter((item) => typeof item.label === "string" && item.label.trim().length > 0),
 		];
 
 		const topMenu = navEntries.map((item) => {

@@ -259,9 +259,6 @@ Pilot migration implemented:
 - During an attempt, option order remains stable until the learner resets.
 
 The following learning object activities currently use `component: "DropDowns"`:
-
-- LO2
-  - `dropdowns4` - `Answering Questions`
 - LO3
   - `dropdowns2` - `1. Select the Correct Adjective of Nationality`
   - `dropdowns1` - `2. Practise saying where you're from.`
@@ -318,6 +315,22 @@ Table semantics policy (important):
 
 Migration cascade policy:
 - explicit layer order is declared in `src/index.css`: `@layer base, components, utilities`
+
+Manual migration policy (current):
+- LO2 pilot is complete on `SelectExercise`.
+- All remaining `DropDowns` instances from LO3 onward must be migrated and QA-verified manually, one activity at a time.
+- Do not bulk-switch all configs in one pass.
+
+## LO3 Navigation Gap Fix
+
+- Root cause: LO3 contains a top-level section `phraseTable5` with `titleText: ""`.
+- The nav builder previously included any config section with `component + id`, even when the computed label was empty.
+- This produced a blank nav item (visual gap) between `Vocabulary` and `Grammar`.
+- Fix implemented in `src/components/MainMenu/MainMenu.jsx`:
+  - nav entries now filter out empty/whitespace labels after label resolution.
+- Contract going forward:
+  - any top-level section intended for nav must provide non-empty `menuText` or `titleText`.
+  - sections with empty labels are intentionally excluded from top navigation.
 - keep new tokenized app styles in `@layer components` or `@layer utilities` (utilities last)
 - avoid broad `!important`; use small temporary targeted overrides only during migration and remove them once legacy selectors are deleted
 
@@ -586,6 +599,20 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 
 - Rows inside PhraseTable/Dialogue sections now forward clicks to the same audio clip as the speaker icon, so learners can tap anywhere in the row to hear the pronunciation.
 - Audio playback now follows a single-active rule: when a new clip starts, any currently playing clip is paused first (across `AudioClip`, row-link playback, and `SequenceAudioController`).
+
+## LO3 Audio Migration Status
+
+- LO3 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo3/...` in:
+  - `/Users/ped/Sites/french/french-lo-1/src/learningObjectConfigurations/fr/3.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
+- New LO3 root:
+  - `public/audio/lo3/...`
+- Migration record:
+  - `/Users/ped/Sites/french/french-lo-1/AUDIO_LO3_MIGRATION_MAP.md`
+- Blocker record:
+  - `/Users/ped/Sites/french/french-lo-1/LO3_AUDIO_BLOCKERS.md`
+- Legacy cleanup:
+  - removed LO3 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
 
 ## Separators (shadcn/Radix)
 

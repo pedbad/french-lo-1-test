@@ -2,6 +2,33 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-24 - LO3 Nav Gap Fix + Dropdown Migration Documentation Sync
+
+- Fixed LO3 top-nav visual gap between `Vocabulary` and `Grammar`.
+  - Root cause: LO3 includes top-level `phraseTable5` with an empty label (`titleText: ""`), which created a blank nav entry.
+  - Code fix: updated `src/components/MainMenu/MainMenu.jsx` to exclude nav entries whose resolved label is empty/whitespace.
+- Documentation sync for SelectExercise migration:
+  - Updated `README.md` with explicit manual migration policy for remaining `DropDowns` usages from LO3 onward.
+  - Updated:
+    - `DROPDOWNS_TO_SELECTEXERCISE_TODO.md`
+    - `DROPDOWNS_TO_SELECTEXERCISE_CHECKLIST.md`
+  - Added explicit requirement to manually migrate and QA each LO3+ dropdown exercise one-by-one (no bulk switch).
+
+## 2026-02-24 - LO3 Audio Migration + Legacy Cleanup
+
+- Migrated LO3 legacy audio refs from `sounds/fr/...` to `audio/lo3/...` in:
+  - `src/learningObjectConfigurations/fr/3.json`
+  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
+- Added LO3 migration map and blocker docs:
+  - `AUDIO_LO3_MIGRATION_MAP.md`
+  - `LO3_AUDIO_BLOCKERS.md`
+- Migration summary:
+  - 140 unique legacy refs mapped
+  - 140 files copied to `public/audio/lo3/...`
+  - 0 missing source files for LO3 migration scope
+- Legacy cleanup:
+  - deleted 121 LO3 legacy source files from `public/sounds/fr` that were no longer referenced anywhere in `src`.
+
 ## 2026-02-24 - LO2 SelectExercise Pilot + Option Shuffle
 
 - Added new exercise component:

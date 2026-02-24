@@ -34,6 +34,21 @@ This caused overlap bugs where users could trigger several audio clips concurren
     - `public/audio/lo2/pronunciation/demystify/016-salut.mp3`
   - LO2 blocker count is now `0`.
 
+## LO3 Migration Status (Phase 1 Complete)
+
+- Scope covered:
+  - `src/learningObjectConfigurations/fr/3.json`
+  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
+- Result:
+  - 140 unique legacy LO3 refs mapped (`sounds/fr/...` -> `audio/lo3/...`)
+  - 140 files copied to `public/audio/lo3/...`
+  - LO3 migration blocker count: `0`
+- Tracking docs:
+  - `AUDIO_LO3_MIGRATION_MAP.md`
+  - `LO3_AUDIO_BLOCKERS.md`
+- Legacy cleanup performed:
+  - removed 121 LO3 source files from `public/sounds/fr` that had no remaining references in `src`.
+
 ## Temporary Fix Implemented
 
 As a short-term stabilization, a utility-based global audio stop mechanism was added in `src/utility.js`:

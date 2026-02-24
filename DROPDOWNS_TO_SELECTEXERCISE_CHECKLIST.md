@@ -41,6 +41,21 @@
 - [x] Switch LO2 `dropdowns4` in `src/learningObjectConfigurations/fr/2.json` to `component: "SelectExercise"`.
 - [ ] Verify LO2 behavior and styling on desktop + mobile.
 
+## LO3+ Manual Rollout
+- [ ] Migrate LO3 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO4 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO5 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO6 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO7 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO8 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO9 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO10 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO11 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO12 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO13 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO14 dropdown exercises one-by-one and validate each before continuing.
+- [ ] Migrate LO15 dropdown exercises one-by-one and validate each before continuing.
+
 ## Accessibility
 - [ ] Ensure semantic structure is form/list oriented (not data table).
 - [ ] Verify keyboard navigation through all selects and action buttons.
