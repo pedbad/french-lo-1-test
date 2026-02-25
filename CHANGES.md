@@ -2,6 +2,19 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-25 - LO3 Exercise 1 Migration to InlineChoiceGroup + Naming Roadmap Docs
+
+- Migrated LO3 Exercise 1 (`dropdowns2`) from `DropDowns` to `InlineChoiceGroup` in:
+  - `src/learningObjectConfigurations/fr/3.json`
+- Why:
+  - aligns LO3 exercise behavior with LO2 “Practise the verb” interaction model (inline option buttons instead of select dropdown).
+  - reduces drift between similar activity types.
+- UI consistency update:
+  - updated `src/components/InlineChoiceGroup/InlineChoiceGroup.jsx` so row audio icons render on the left side first for exercise parity.
+- Documentation:
+  - updated `README.md` with a new “Exercise Component Naming & Semantic Refactor Plan” section.
+  - recorded migration strategy to move from legacy names (for example `Blanks`) to behavior-first semantic names through phased, QA-first rollout.
+
 ## 2026-02-25 - LO3 Grammar/Pronunciation Consistency Pass (LO1/LO2 Parity)
 
 - Grammar and Usage (LO3) consistency updates:

@@ -321,6 +321,31 @@ Manual migration policy (current):
 - All remaining `DropDowns` instances from LO3 onward must be migrated and QA-verified manually, one activity at a time.
 - Do not bulk-switch all configs in one pass.
 
+## Exercise Component Naming & Semantic Refactor Plan
+
+Current issue:
+- some legacy exercise component names describe implementation details instead of learner interaction patterns (for example `Blanks`), which causes architecture drift and harder onboarding.
+
+Direction:
+- standardize exercise component names to behavior-first semantics (what learners do), not historical internals.
+- keep config compatibility during migration with phased aliases, then remove deprecated names once all LOs are migrated.
+
+Naming principles:
+- prefer names like `InlineChoiceGroup`, `SelectExercise`, `DraggableFillGaps`, `ListeningOrder`, `Sortable` over generic/ambiguous names.
+- avoid umbrella names that hide interaction intent (for example `Blanks` when activity is drag/drop fill).
+- each component name should make expected UX clear from config alone.
+
+Migration method:
+1. inventory all exercise component usages across LO configs.
+2. define target semantic names + mapping table (`legacy -> semantic`).
+3. migrate one activity at a time with QA (desktop/mobile/a11y/audio).
+4. document each migration in `CHANGES.md` and keep TODO/checklist trackers current.
+5. only remove legacy aliases after full rollout.
+
+Latest applied step:
+- LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.
+- `InlineChoiceGroup` row audio icon order is now left-first for consistency with the exercise layout standard.
+
 ## LO3 Navigation Gap Fix
 
 - Root cause: LO3 contains a top-level section `phraseTable5` with `titleText: ""`.

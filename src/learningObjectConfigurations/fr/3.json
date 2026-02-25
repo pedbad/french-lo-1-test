@@ -424,7 +424,7 @@
 		"content": [
 			{
 				"dropdowns2": {
-					"component": "DropDowns",
+					"component": "InlineChoiceGroup",
 					"id": "dropdowns2",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Listen to the speakers and select the correct adjective of nationality.",

@@ -324,6 +324,15 @@ export class InlineChoiceGroup extends React.PureComponent {
 
 			rows.push(
 				<TableRow key={`row-${i}`}>
+					{item.audio ? (
+						<TableCell className="audioCell">
+							<AudioClip
+								className="super-compact-speaker"
+								id={`inlineChoiceRowAudio-${i}`}
+								soundFile={resolveAsset(item.audio)}
+							/>
+						</TableCell>
+					) : null}
 					<TableCell>
 						<div className="m-0 flex items-start gap-3 leading-[var(--line-height-app)]">
 							<div className="min-w-0 flex-1">{this.renderSentence(segments)}</div>
@@ -341,15 +350,6 @@ export class InlineChoiceGroup extends React.PureComponent {
 							) : null}
 						</div>
 					</TableCell>
-					{item.audio ? (
-						<TableCell className="audioCell">
-							<AudioClip
-								className="super-compact-speaker"
-								id={`inlineChoiceRowAudio-${i}`}
-								soundFile={resolveAsset(item.audio)}
-							/>
-						</TableCell>
-					) : null}
 				</TableRow>
 			);
 		}
