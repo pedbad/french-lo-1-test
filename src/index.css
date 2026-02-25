@@ -1051,6 +1051,12 @@
 		transition: color 800ms ease-in-out;
 	}
 
+	/* Accordion heading emphasis should follow header foreground, not body amber emphasis. */
+	#content .accordion-article > header .accordion-title :is(strong, em),
+	#content .accordion-article .accordion-item > header .accordion-title :is(strong, em) {
+		color: inherit;
+	}
+
 	#content .accordion-article > header .accordion-title .accordion-title-part,
 	#content .accordion-article .accordion-item > header .accordion-title .accordion-title-part {
 		font-size: calc(var(--font-size-sm) * 1.08);
@@ -5291,6 +5297,11 @@ hr {
 #content :where(em.grammar-term-em) {
   font-style: italic;
   font-weight: 700;
+}
+
+/* Final guard: never tint accordion heading emphasis amber. */
+#content .accordion-article .accordion-title :is(strong, em, em.grammar-term-em) {
+  color: inherit !important;
 }
 
 .fr-FR #hero {

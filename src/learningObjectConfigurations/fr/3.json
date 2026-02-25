@@ -462,7 +462,7 @@
 			},
 			{
 				"dropdowns1": {
-					"component": "DropDowns",
+					"component": "InlineChoiceGroup",
 					"id": "dropdowns1",
 					"congratulationsText": "Très bien !",
 					"instructionsTextHTML": "Fill in the gaps with <strong>de</strong> / <strong>du</strong> / <strong>d'</strong> / <strong>des</strong> as appropriate.",
