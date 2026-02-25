@@ -403,6 +403,8 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
 - `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
 - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
+- `/Users/ped/Sites/french/french-lo-1/ANSWERTABLE_REFACTOR_TODO.md` (semantic split plan for generic `AnswerTable` usages)
+- `/Users/ped/Sites/french/french-lo-1/ANSWERTABLE_REFACTOR_CHECKLIST.md` (stepwise migration/QA checklist for AnswerTable variants)
 - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
 - `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
 - `/Users/ped/Sites/french/french-lo-1/TYPOGRAPHY_PLAN.md`
