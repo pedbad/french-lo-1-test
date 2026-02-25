@@ -412,7 +412,7 @@
 						}
 					],
 					"audio": [],
-					"titleText": "3. Annabelle."
+					"titleText": "3. Annabelle"
 				}
 			},
 			{
@@ -465,7 +465,7 @@
 							"audio": "sounds/fr/Vous avez quel âge.mp3"
 						}
 					],
-					"titleTextHTML": "4. Practise the verb <strong>avoir</strong>."
+					"titleTextHTML": "4. Practise the verb <strong>avoir</strong>"
 				}
 			},
 			{
@@ -534,7 +534,7 @@
 							"audio": "sounds/fr/Où se trouve leur appartement.mp3"
 						}
 					],
-					"titleText": "5. Practise the possessives."
+					"titleText": "5. Practise the possessives"
 				}
 			},
 			{
@@ -582,7 +582,7 @@
 						"sounds/fr/J'ai deux sœurs et deux frères.mp3",
 						"sounds/fr/Ils sont tous plus âgés que moi.mp3"
 					],
-					"titleText": "6. Jeanne's Family. "
+					"titleText": "6. Jeanne's Family"
 				}
 			}
 		],

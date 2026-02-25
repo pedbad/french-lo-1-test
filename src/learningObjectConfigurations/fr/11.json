@@ -340,7 +340,7 @@
 							"audio": "sounds/fr/Oui, c'est tout merci !.mp3"
 						}
 					],
-					"titleText": "1. Ordering food and drink."
+					"titleText": "1. Ordering food and drink"
 				}
 			},
 			{
@@ -459,7 +459,7 @@
 							"audio": "sounds/fr/Je prends une glace au chocolat.mp3"
 						}
 					],
-					"titleText": "4 Flavours, toppings and fillings"
+					"titleText": "4. Flavours, toppings and fillings"
 				}
 			}
 		],

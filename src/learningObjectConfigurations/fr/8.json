@@ -428,7 +428,7 @@
 							"audio": "sounds/fr/Vous jouez du trombone.mp3"
 						}
 					],
-					"titleText": "2. Talking about leisure activities."
+					"titleText": "2. Talking about leisure activities"
 				}
 			},
 			{
@@ -540,7 +540,7 @@
 							"audio": "sounds/fr/Le dimanche, je fais de la natation L'après-midi, s'il fait beau, je fais de la randonnée avec ma sœur S'il fait mauvais, je fais de la peinture ou je regarde la télé.mp3"
 						}
 					],
-					"titleText": "5 Qu'est-ce que tu fais le weekend ?"
+					"titleText": "5. Qu'est-ce que tu fais le weekend ?"
 				}
 			}
 		],

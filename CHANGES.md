@@ -2,6 +2,16 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-25 - Cross-LO Exercise Heading Consistency Normalization (LO1-LO15)
+
+- Standardized exercise heading formatting across LO configs (`src/learningObjectConfigurations/fr/1.json` to `15.json`, where applicable):
+  - removed trailing full stops from `titleText` / `titleTextHTML` headings
+  - normalized accidental double spaces in titles
+  - normalized numbered prefixes to `N. ` format where legacy entries used `N ` (for example `3 Practise...` -> `3. Practise...`)
+- LO2 alignment:
+  - exercise headings are now numbered to match the established pattern used by other LOs.
+- Scope intentionally limited to heading text fields for consistency; exercise behavior/components were not changed by this pass.
+
 ## 2026-02-25 - LO3 Exercise 1 Migration to InlineChoiceGroup + Naming Roadmap Docs
 
 - Migrated LO3 Exercise 1 (`dropdowns2`) from `DropDowns` to `InlineChoiceGroup` in:

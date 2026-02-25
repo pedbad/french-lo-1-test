@@ -427,7 +427,7 @@
 							"audio": "sounds/fr/Non, elle est doctorante. Elle fait un doctorat en histoire médiévale. Elle écrit sa thèse. Elle est très occupée. Elle passe des heures à la bibliothèque !.mp3"
 						}
 					],
-					"titleText": "1 Chatting about your studies"
+					"titleText": "1. Chatting about your studies"
 				}
 			},
 			{
@@ -478,7 +478,7 @@
 							"sounds/fr/Et toi Qu'est-ce que tu fais comme études.mp3"
 						]
 					],
-					"titleText": "2 Ask it the French way"
+					"titleText": "2. Ask it the French way"
 				}
 			},
 			{
@@ -527,7 +527,7 @@
 							"audio": "sounds/fr/Les étudiantes doivent être fatiguées.mp3"
 						}
 					],
-					"titleText": "3 Practise using devoir"
+					"titleText": "3. Practise using devoir"
 				}
 			},
 			{
@@ -576,7 +576,7 @@
 							"audio": "sounds/fr/Vous pouvez étudier à la bibliothèque.mp3"
 						}
 					],
-					"titleText": "4 Practise using pouvoir"
+					"titleText": "4. Practise using pouvoir"
 				}
 			},
 			{
@@ -647,7 +647,7 @@
 						}
 					],
 					"id": "group2",
-					"titleText": "5 Using participles as adjectives "
+					"titleText": "5. Using participles as adjectives"
 				}
 			}
 		],

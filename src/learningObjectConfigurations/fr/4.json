@@ -258,7 +258,7 @@
 				"LO4Exercise1": {
 					"component": "LO4EX1",
 					"id": "LO4Exercise1",
-					"titleText": "1. Nonsense Rhyme."
+					"titleText": "1. Nonsense Rhyme"
 				}
 			},
 			{
@@ -268,7 +268,7 @@
 						"<p>Try to make other nonsense rhymes yourself using the words below containing the sound <span class='audio-link' sound-file='/sounds/fr/ain.mp3'>ain</span> to fill in the gaps</p>"
 					],
 					"id": "explanation4",
-					"titleText": "2. You Try! MORE TO GO HERE WHEN I FIGURE OUT WHAT'S REQUIRED. Free text or fill the gaps? Please see question in word doc."
+					"titleText": "2. You Try! MORE TO GO HERE WHEN I FIGURE OUT WHAT'S REQUIRED. Free text or fill the gaps? Please see question in word doc"
 				}
 			},
 			{
