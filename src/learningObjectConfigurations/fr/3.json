@@ -581,7 +581,23 @@
 							"marié",
 							"[mariée]",
 							"audio/lo3/exercises/AnswerTable1/119-marie-mariee.mp3"
-						],
+						]
+					],
+					"titleText": "3. Practise masculine and feminine forms: Adjectives"
+				}
+			},
+			{
+				"answerTable2": {
+					"component": "AnswerTable",
+					"congratulationsText": "Superbe !",
+					"id": "AnswerTable2",
+					"instructionsText": "Type the feminine form, then click the check button. Listen to the pronunciation of masculine and feminine forms.",
+					"header": [
+						"Masculine",
+						"feminine",
+						"Listen (m & f)"
+					],
+					"phrases": [
 						[
 							"dentiste",
 							"[dentiste]",
@@ -623,14 +639,14 @@
 							"audio/lo3/exercises/AnswerTable1/126-pharmacien-pharmacienne.mp3"
 						]
 					],
-					"titleText": "3. Practise masculine and feminine forms of adjectives and professions"
+					"titleText": "4. Practise masculine and feminine forms: Professions"
 				}
 			},
 			{
-				"answerTable2": {
+				"answerTable3": {
 					"component": "AnswerTable",
 					"congratulationsText": "Excellent !",
-					"id": "AnswerTable2",
+					"id": "AnswerTable3",
 					"instructionsText": "Listen and write what you hear.",
 					"phrases": [
 						[
@@ -674,7 +690,7 @@
 							"audio/lo3/exercises/AnswerTable2/109-je-suis-professeur-de-maths-et-lucie-est-avocate.mp3"
 						]
 					],
-					"titleText": "4. Practise your listening skills"
+					"titleText": "5. Practise your listening skills"
 				}
 			}
 		],
