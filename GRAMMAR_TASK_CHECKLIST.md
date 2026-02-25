@@ -53,3 +53,8 @@
 - [ ] Verify LO grammar uses shared app section/accordion pipeline (no custom nested accordion path unless justified).
 - [ ] Verify instruction callout path parity (`InstructionCallout`/`InstructionsMedia`) and tokenized typography.
 - [ ] Verify per-item grammar guidance is provided via consistent info-alert pattern when pedagogy requires it.
+
+## LO3 Consistency Pass (Completed)
+- [x] Keep warning exception note adjacent to the exact related rule item (`médecin` case).
+- [x] Keep `AudioClip` playable inside warning note content.
+- [x] Remove inline-spacing merge artifacts by using explicit React spaces around inline emphasized tokens.

@@ -1602,6 +1602,15 @@
 		white-space: initial;
 	}
 
+	.lo3-grammar1-container .grammar-audio-table tbody tr {
+		cursor: pointer;
+	}
+
+	.lo3-grammar1-container .grammar-audio-table tbody tr:hover {
+		background-color: color-mix(in oklab, var(--muted) 70%, transparent);
+		color: var(--chart-2);
+	}
+
 	.phrases-table-container .sort-container {
 		display: flex;
 		justify-content: flex-start;
@@ -3365,6 +3374,7 @@
 		--progress-width: 100%;
 		white-space: nowrap;
 		color: var(--chart-2);
+		cursor: pointer;
 	}
 
 	.audio-link.playing {
@@ -3462,6 +3472,7 @@
 
 	button.audio-link .audio-link-text {
 		display: inline;
+		cursor: pointer;
 	}
 
 	.circular-audio-progress-speaker .speaker-arc {
@@ -5271,8 +5282,13 @@ hr {
   display: block;
   pointer-events: none;
 }
+#content :is([id$="-grammar-Section"], [id$="-pronunciation-Section"]) :where(em, strong),
 #content :where(em.grammar-term-em) {
   color: var(--instruction-callout-accent-start);
+}
+
+#content :is([id$="-grammar-Section"], [id$="-pronunciation-Section"]) :where(em),
+#content :where(em.grammar-term-em) {
   font-style: italic;
   font-weight: 700;
 }

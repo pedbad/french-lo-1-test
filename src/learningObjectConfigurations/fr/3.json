@@ -343,15 +343,76 @@
 		]
 	},
 	"grammar": {
-		"component": "LO3Grammar",
+		"component": "Group",
+		"content": [
+			{
+				"grammar1": {
+					"component": "LO3Grammar1",
+					"id": "grammar1",
+					"infoTextHTML": "In this section, you will practise essential verb patterns for introducing yourself and describing where people come from.<p>You will learn:</p><ul><li>How common <em class='grammar-term-em'>-er</em> verbs work in the present tense.</li><li>How to use <em class='grammar-term-em'>parler</em> and <em class='grammar-term-em'>venir</em> in practical context.</li><li>How French present-tense meaning maps to English forms.</li></ul>",
+					"titleText": "1. A bit about verbs in French"
+				}
+			},
+			{
+				"grammar2": {
+					"component": "LO3Grammar2",
+					"id": "grammar2",
+					"infoTextHTML": "This section helps you choose the correct form after <em class='grammar-term-em'>venir</em> when expressing origin.<p>You will learn:</p><ul><li>When to use <em class='grammar-term-em'>de</em>, <em class='grammar-term-em'>d&apos;</em>, <em class='grammar-term-em'>du</em>, and <em class='grammar-term-em'>des</em>.</li><li>How the form changes with gender, number, and initial sound.</li></ul>",
+					"titleTextHTML": "2. Saying where you come from: <em class='grammar-term-em'>de</em> / <em class='grammar-term-em'>d&apos;</em> / <em class='grammar-term-em'>du</em> / <em class='grammar-term-em'>des</em>"
+				}
+			},
+			{
+				"grammar3": {
+					"component": "LO3Grammar3",
+					"id": "grammar3",
+					"infoTextHTML": "In this section, you will focus on how adjective and profession forms change in feminine contexts.<p>You will learn:</p><ul><li>Common feminine formation patterns from masculine forms.</li><li>Typical spelling changes and key exceptions.</li><li>How agreement affects nationality adjectives and professions.</li></ul>",
+					"titleText": "3. Feminine forms of professions and adjectives"
+				}
+			}
+		],
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
-		"titleText": "Grammar and Usage"
+		"titleText": "Grammar and Usage",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section introduces key grammar and usage patterns for talking about nationality, origin, and languages in French. You will practise common verb groups, useful structures such as <em class='grammar-term-em'>parler</em> and <em class='grammar-term-em'>venir de</em>, and agreement patterns used in everyday communication.</p>",
+			"image": {
+				"src": "img/shared/grammar.svg",
+				"alt": "Grammar illustration"
+			}
+		},
+		"heroSection": true
 	},
 	"pronunciation": {
-		"component": "LO3Demystify",
+		"component": "Group",
+		"content": [
+			{
+				"pronunciation1": {
+					"component": "LO3Pronunciation1",
+					"id": "pronunciation1",
+					"informationTextHTML": "<p><strong>To sound or not to sound?</strong></p><p>In this part, focus on silent <em>-ent</em> endings in third-person plural verb forms. Listen carefully and repeat each example aloud.</p>",
+					"titleTextHTML": "1. Silent <em>-ent</em> endings"
+				}
+			},
+			{
+				"pronunciation2": {
+					"component": "LO3Pronunciation2",
+					"id": "pronunciation2",
+					"informationTextHTML": "<p>Here, practise final consonants and liaison. Compare paired examples to hear when final letters stay silent and when they are sounded.</p>",
+					"titleText": "2. Final consonants and liaison"
+				}
+			},
+			{
+				"pronunciation3": {
+					"component": "LO3Pronunciation3",
+					"id": "pronunciation3",
+					"informationTextHTML": "<p>This part helps you recognise and produce the French <em>&quot;eh&quot;</em> sound across common spelling patterns.</p>",
+					"titleText": "3. The sound \"eh\""
+				}
+			}
+		],
 		"expandable": false,
+		"displayAsTabs": true,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",
 		"titleText": "Pronunciation Focus — Demystifying French Pronunciation"

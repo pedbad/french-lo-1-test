@@ -86,3 +86,11 @@ For every new/refactored LO grammar section:
 3. Add subject-pronoun explicit modal mapping.
 4. Run accessibility validation pass.
 5. Run visual parity pass against LO1 grammar sections.
+
+## LO3 Consistency Notes (implemented in current pass)
+- LO3 grammar warning-note placement was normalized to match LO1/LO2 style:
+  - warning `Info` blocks should sit directly after the relevant instructional rule.
+- Exception-note audio parity retained:
+  - `médecin` exception warning includes an inline `AudioClip` trigger.
+- JSX inline spacing hardening applied in LO3 grammar bodies:
+  - explicit React spaces are now used around inline emphasis tokens to prevent text merge artifacts.

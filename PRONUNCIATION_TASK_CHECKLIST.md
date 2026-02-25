@@ -43,3 +43,6 @@
 ## Documentation
 - [ ] Update `CHANGES.md` after LO2 pronunciation refactor is complete.
 - [ ] Update `README.md` architecture notes if pronunciation path changes are finalized.
+
+## Cross-LO Visual Parity
+- [x] Align pronunciation emphasis color treatment with grammar via shared tokenized CSS scope.

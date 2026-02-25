@@ -490,6 +490,16 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
      - verify rendering path parity (app-level accordion pipeline, not nested bespoke accordions)
      - verify instruction block parity (same callout component + typography tokens)
 
+### LO3 Grammar/Pronunciation Consistency Hardening (in progress)
+
+- Applied LO1/LO2 parity rules in LO3 custom grammar/pronunciation content:
+  - keep warning `Info` alerts adjacent to the exact rule they qualify.
+  - preserve inline `AudioClip` behavior inside alerts where pedagogically needed (for example `médecin` exception).
+- Spacing anti-drift rule reinforced:
+  - when JSX sentences mix inline elements (`<strong>`, `<em>`, `AudioClip`), use explicit React spaces (`{' '}`) to avoid merged words.
+- Emphasis single source of truth extended:
+  - `src/index.css` now scopes amber emphasis consistently across both grammar and pronunciation section containers, while still supporting `grammar-term-em`.
+
 ### Long-term direction: Tailwind as the primary source of truth
 
 What this means:

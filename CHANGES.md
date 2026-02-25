@@ -2,6 +2,18 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-25 - LO3 Grammar/Pronunciation Consistency Pass (LO1/LO2 Parity)
+
+- Grammar and Usage (LO3) consistency updates:
+  - moved the `médecin` exception note to a standalone `Info` warning alert positioned immediately after the related consonant-ending rule item (not at section end).
+  - kept inline `AudioClip` playback inside the warning alert for `médecin`.
+  - normalized inline spacing around emphasized tokens in JSX with explicit React spaces (`{' '}`) to prevent render drift such as `eis`/`neis`.
+- Emphasis styling consistency (single source of truth):
+  - updated `src/index.css` so both grammar and pronunciation sections share the same amber emphasis token behavior for inline emphasis in content (`em`/`strong`), while retaining `grammar-term-em` compatibility.
+  - section scope is now consistent across LO1/LO2/LO3 grammar + pronunciation rendering paths.
+- Documentation sync:
+  - updated architecture/status docs to reflect parity hardening work and spacing/emphasis guardrails.
+
 ## 2026-02-24 - LO3 Nav Gap Fix + Dropdown Migration Documentation Sync
 
 - Fixed LO3 top-nav visual gap between `Vocabulary` and `Grammar`.

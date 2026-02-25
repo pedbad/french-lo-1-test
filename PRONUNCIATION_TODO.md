@@ -53,3 +53,7 @@
 3. Convert LO2 pronunciation content into structured JSX components (avoid monolithic HTML string).
 4. Normalize audio interaction to `AudioClip`.
 5. Roll forward to other LOs only after LO1/LO2 parity is stable.
+
+## Cross-LO Styling Consistency (current status)
+- Emphasis token parity is now enforced at section level for grammar + pronunciation containers.
+- Pronunciation inline emphasis (`em`/`strong`) now follows the same amber emphasis source used in grammar, reducing visual drift between LO1/LO2/LO3.
