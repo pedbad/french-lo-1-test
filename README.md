@@ -345,6 +345,10 @@ Migration method:
 Latest applied step:
 - LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.
 - `InlineChoiceGroup` row audio icon order is now left-first for consistency with the exercise layout standard.
+- LO3 exercises 3/4/5 now use semantic names for typed-table activities:
+  - `TypedTransformExercise` (adjectives/professions)
+  - `DictationExercise` (listening + typing)
+  - both currently run through the existing `AnswerTable` engine for low-risk migration parity.
 
 ## LO3 Navigation Gap Fix
 

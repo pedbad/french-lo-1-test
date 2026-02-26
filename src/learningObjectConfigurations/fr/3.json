@@ -507,7 +507,7 @@
 			},
 			{
 				"answerTable1": {
-					"component": "AnswerTable",
+					"component": "TypedTransformExercise",
 					"congratulationsText": "Superbe !",
 					"id": "AnswerTable1",
 					"instructionsText": "Type the feminine form, then click the check button. Listen to the pronunciation of masculine and feminine forms.",
@@ -588,7 +588,7 @@
 			},
 			{
 				"answerTable2": {
-					"component": "AnswerTable",
+					"component": "TypedTransformExercise",
 					"congratulationsText": "Superbe !",
 					"id": "AnswerTable2",
 					"instructionsText": "Type the feminine form, then click the check button. Listen to the pronunciation of masculine and feminine forms.",
@@ -644,7 +644,7 @@
 			},
 			{
 				"answerTable3": {
-					"component": "AnswerTable",
+					"component": "DictationExercise",
 					"congratulationsText": "Excellent !",
 					"id": "AnswerTable3",
 					"instructionsText": "Listen and write what you hear.",

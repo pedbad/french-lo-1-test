@@ -4,6 +4,7 @@ import {
 	AudioClip,
 	Blanks,
 	Congratulate,
+	DictationExercise,
 	DropDowns,
 	ErrorLog,
 	Explanation,
@@ -27,6 +28,7 @@ import {
 	SelectExercise,
 	SequenceOrder,
 	Sortable,
+	TypedTransformExercise,
 	WordGrid,
 	WordParts,
 } from "./components";
@@ -795,6 +797,22 @@ export default class App extends React.Component {
 						showDialog={this.showDialog}
 					/>
 				);
+			case "TypedTransformExercise":
+				return (
+					<TypedTransformExercise
+						config={value}
+						logError={this.logError}
+						showDialog={this.showDialog}
+					/>
+				);
+			case "DictationExercise":
+				return (
+					<DictationExercise
+						config={value}
+						logError={this.logError}
+						showDialog={this.showDialog}
+					/>
+				);
 			case "Blanks":
 				return (
 					<Blanks
@@ -1225,6 +1243,46 @@ export default class App extends React.Component {
 						titleHTML={titleTextHTML}
 					>
 						<AnswerTable
+							config={value}
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
+			case "TypedTransformExercise": {
+				articles.push(
+					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={targetId}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<TypedTransformExercise
+							config={value}
+							logError={this.logError}
+							showDialog={this.showDialog}
+						/>
+					</AccordionArticle>
+				);
+				break;
+			}
+			case "DictationExercise": {
+				articles.push(
+					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={targetId}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<DictationExercise
 							config={value}
 							logError={this.logError}
 							showDialog={this.showDialog}

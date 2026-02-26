@@ -13,21 +13,22 @@
 
 ## Semantic API Definition
 - [ ] Define public component names and props contract.
-- [ ] Keep `AnswerTable` as compatibility alias during transition.
+- [x] Keep `AnswerTable` as compatibility alias during transition.
 - [ ] Define style variants (`compact` / `standard` / `guided`) without behavior drift.
 
 ## Implementation
-- [ ] Create `DictationExercise` component wrapper.
-- [ ] Create `TypedTransformExercise` component wrapper.
+- [x] Create `DictationExercise` component wrapper.
+- [x] Create `TypedTransformExercise` component wrapper.
 - [ ] Create `ClozeTypingExercise` component wrapper.
 - [ ] Keep shared parsing/validation/audio logic in one internal module for DRY behavior.
 - [ ] Wire new components in:
-  - [ ] `src/components/index.js`
-  - [ ] `src/App.jsx` render switch paths
+  - [x] `src/components/index.js`
+  - [x] `src/App.jsx` render switch paths
 
 ## Incremental Migration
-- [ ] Migrate LO3 exercise 3 to semantic component name.
-- [ ] Migrate LO3 exercise 4 to semantic component name.
+- [x] Migrate LO3 exercise 3 to semantic component name.
+- [x] Migrate LO3 exercise 4 to semantic component name.
+- [x] Migrate LO3 exercise 5 listening task to semantic component name (`DictationExercise`).
 - [ ] Migrate remaining LOs one activity at a time (no bulk rename).
 
 ## QA for each migrated activity

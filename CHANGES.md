@@ -2,6 +2,28 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-25 - AnswerTable Semantic Wrapper Migration (LO3 Exercises 3/4/5)
+
+- Added semantic exercise wrappers (no behavior change, DRY migration layer):
+  - `src/components/TypedTransformExercise/TypedTransformExercise.jsx`
+  - `src/components/TypedTransformExercise/index.js`
+  - `src/components/DictationExercise/DictationExercise.jsx`
+  - `src/components/DictationExercise/index.js`
+- Wired new component names into app render paths:
+  - `src/App.jsx` (tab and accordion switches)
+  - `src/components/index.js` exports
+- Migrated LO3 exercise config from generic `AnswerTable` names to semantic names:
+  - `answerTable1.component` -> `TypedTransformExercise`
+  - `answerTable2.component` -> `TypedTransformExercise`
+  - `answerTable3.component` -> `DictationExercise`
+- Prior low-risk structure split retained:
+  - `3. Practise masculine and feminine forms: Adjectives`
+  - `4. Practise masculine and feminine forms: Professions`
+  - `5. Practise your listening skills`
+- Important:
+  - this step intentionally keeps shared runtime behavior through `AnswerTable` under the wrappers.
+  - audio folder/path refactor remains a separate follow-up phase.
+
 ## 2026-02-25 - Cross-LO Exercise Heading Consistency Normalization (LO1-LO15)
 
 - Standardized exercise heading formatting across LO configs (`src/learningObjectConfigurations/fr/1.json` to `15.json`, where applicable):

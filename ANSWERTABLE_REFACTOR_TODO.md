@@ -45,10 +45,20 @@ Legacy compatibility:
 5. Deprecate/remove generic `AnswerTable` usage only after full rollout.
 
 ## Initial classification target (high-level)
-- LO3 exercise 3 likely `TypedTransformExercise` (masculine -> feminine forms).
-- LO3 exercise 4 likely `DictationExercise` (listen and type what you hear).
+- LO3 exercise 3 -> `TypedTransformExercise` (implemented).
+- LO3 exercise 4 -> `TypedTransformExercise` (implemented).
+- LO3 exercise 5 -> `DictationExercise` (implemented).
 - Other LOs to classify explicitly before renaming.
 
 ## Naming recommendation for your current concern
 - For the listening-typing pattern you described:
   - use `DictationExercise` (best semantic fit).
+
+## Current status update
+- Semantic wrappers are now in code and wired:
+  - `TypedTransformExercise`
+  - `DictationExercise`
+- Wrappers currently delegate to `AnswerTable` to keep behavior stable during migration.
+- Next phase remains:
+  - classify and migrate remaining LO `AnswerTable` usages.
+  - optionally split audio directories per semantic activity after behavior migration is stable.
