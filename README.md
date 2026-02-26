@@ -254,7 +254,7 @@ Current shared component in use:
 - `src/components/DropDowns/DropDowns.jsx`
 
 Pilot migration implemented:
-- LO2 `dropdowns4` now uses `component: "SelectExercise"` (new stacked layout).
+- LO2 final exercise now uses `component: "SelectExercise"` (new stacked layout), with semantic id `selectExercise2`.
 - `SelectExercise` shuffles answer option order on first load and on reset.
 - During an attempt, option order remains stable until the learner resets.
 

@@ -38,7 +38,7 @@
 - [x] Shuffle option order on first render and on reset.
 
 ## Pilot Migration
-- [x] Switch LO2 `dropdowns4` in `src/learningObjectConfigurations/fr/2.json` to `component: "SelectExercise"`.
+- [x] Switch LO2 final exercise (`dropdowns4`, now `selectExercise2`) in `src/learningObjectConfigurations/fr/2.json` to `component: "SelectExercise"`.
 - [ ] Verify LO2 behavior and styling on desktop + mobile.
 
 ## LO3+ Manual Rollout

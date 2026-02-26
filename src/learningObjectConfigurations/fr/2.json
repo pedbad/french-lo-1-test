@@ -24,17 +24,17 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"audio/lo2/misc/003-salut-je-suis-sylvain-je-suis-celibataire-je-suis-etudiant-en-geographie.mp3",
+							"audio/lo2/monologues/monologues1/003-salut-je-suis-sylvain-je-suis-celibataire-je-suis-etudiant-en-geographie.mp3",
 							"Salut, je suis Sylvain.<br />Je suis célibataire.<br />Je suis étudiant en géographie.",
 							"Hi, I'm Sylvain.<br />I'm single.<br />I'm a geography student."
 						],
 						[
-							"audio/lo2/misc/001-bonjour-je-m-appelle-jacqueline-je-suis-divorcee-je-suis-prof-de-maths.mp3",
+							"audio/lo2/monologues/monologues1/001-bonjour-je-m-appelle-jacqueline-je-suis-divorcee-je-suis-prof-de-maths.mp3",
 							"Bonjour ! Je m'appelle Jacqueline.<br />Je suis divorcée.<br />Je suis prof de maths.",
 							"Hello, my name's Jacqueline.<br />I'm divorced.<br />I'm a maths teacher"
 						],
 						[
-							"audio/lo2/misc/002-bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3",
+							"audio/lo2/monologues/monologues1/002-bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3",
 							"Bonsoir ! Je m'appelle Olivier Durand.<br />Je suis marié avec Alex depuis trois ans.<br />Je suis bibliothécaire.",
 							"Good evening, my name's Olivier Durand.<br />I've been married to Alex for three years.<br />I'm a librarian."
 						]
@@ -253,9 +253,9 @@
 		"component": "Group",
 		"content": [
 			{
-				"dropdowns3": {
+				"inlineChoiceGroup1": {
 					"component": "InlineChoiceGroup",
-					"id": "dropdowns3",
+					"id": "inlineChoiceGroup1",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the correct part of être to fill in the gaps.",
 					"informationTextHTML": "Read each sentence and choose the correct form of <em>être</em> for the subject. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
@@ -294,9 +294,9 @@
 				}
 			},
 			{
-				"dropdowns4": {
+				"selectExercise2": {
 					"component": "SelectExercise",
-					"id": "dropdowns4",
+					"id": "selectExercise2",
 					"congratulationsText": "Well done!",
 					"instructionsText": "Match each question with the correct answer.",
 					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. When you finish, use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions.",
@@ -305,19 +305,19 @@
 					"items": [
 						{
 							"text": "Salut les enfants ! Tout va bien ? [*Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/dropdowns4/003-salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
+							"audio": "audio/lo2/exercises/selectExercise2/003-salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
 						},
 						{
 							"text": "Tu es archiviste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|*Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/dropdowns4/004-tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
+							"audio": "audio/lo2/exercises/selectExercise2/004-tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
 						},
 						{
 							"text": "Monsieur Tondereau est journaliste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|*Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/dropdowns4/001-monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
+							"audio": "audio/lo2/exercises/selectExercise2/001-monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
 						},
 						{
 							"text": "Que faites-vous dans la vie ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|*Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/dropdowns4/002-que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
+							"audio": "audio/lo2/exercises/selectExercise2/002-que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
 						}
 					],
 					"titleText": "2. Answering Questions"

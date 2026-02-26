@@ -27,6 +27,21 @@ This file summarizes the work completed in this repo during the session. It incl
 - Result:
   - LO1 exercise folder naming now reflects active semantic component naming and avoids legacy key drift.
 
+## 2026-02-26 - LO2 Audio/ID Drift Alignment (`misc` + `dropdowns4`)
+
+- Realigned LO2 monologue audio bucket to section-based structure:
+  - `public/audio/lo2/misc/...` -> `public/audio/lo2/monologues/monologues1/...`
+- Realigned LO2 exercise audio bucket to semantic component naming:
+  - `public/audio/lo2/exercises/dropdowns4/...` -> `public/audio/lo2/exercises/selectExercise2/...`
+- Updated LO2 config references and ids in:
+  - `src/learningObjectConfigurations/fr/2.json`
+  - `monologues` now points to `audio/lo2/monologues/monologues1/...`
+  - exercise ids updated:
+    - `dropdowns3` -> `inlineChoiceGroup1`
+    - `dropdowns4` -> `selectExercise2`
+- Validation:
+  - all `audio/lo2/...` references in LO2 config resolve to existing files.
+
 ## 2026-02-26 - LO3 Exercise Audio Convention Alignment (Semantic Folders + 001 Naming)
 
 - Refactored LO3 exercise audio assets to align with current semantic component usage and sequential naming:

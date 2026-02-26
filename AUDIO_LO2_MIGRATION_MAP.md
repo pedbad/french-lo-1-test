@@ -14,13 +14,23 @@ Phase 2 has now been executed for all existing refs (75 files copied + rewritten
 - Missing legacy source files initially found: **3** (now resolved via fallback)
 - Proposed LO2 target root: `public/audio/lo2/...`
 
-### Proposed target buckets
+### Proposed target buckets (initial migration snapshot)
 
 - `audio/lo2/exercises/dropdowns4/`: 4 files
 - `audio/lo2/grammar/grammar-and-usage/`: 24 files
 - `audio/lo2/misc/`: 3 files
 - `audio/lo2/pronunciation/demystify/`: 22 files
 - `audio/lo2/vocabulary/`: 25 files
+
+## 2026-02-26 Realignment (post-migration drift fix)
+
+To reduce naming drift and align folder names with LO2 section/component semantics:
+
+- `audio/lo2/misc/...` -> `audio/lo2/monologues/monologues1/...`
+- `audio/lo2/exercises/dropdowns4/...` -> `audio/lo2/exercises/selectExercise2/...`
+
+Note:
+- The detailed table below preserves the initial migration snapshot and therefore still references legacy bucket labels.
 
 ## Execution status (2026-02-18)
 

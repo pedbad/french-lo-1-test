@@ -35,8 +35,8 @@
 
 ## Current Status
 - LO2:
-  - `dropdowns3` uses `InlineChoiceGroup` (practise verb forms).
-  - `dropdowns4` uses `SelectExercise`.
+  - `inlineChoiceGroup1` uses `InlineChoiceGroup` (practise verb forms).
+  - `selectExercise2` uses `SelectExercise`.
 - LO3:
   - `dropdowns2` migrated to `InlineChoiceGroup` to match LO2 verb-practice pattern.
 - `InlineChoiceGroup` row audio icons are now left-first for exercise consistency.
