@@ -100,8 +100,8 @@ Note:
 | `sounds/fr/vous parlez.mp3` | `audio/lo3/shared/064-vous-parlez.mp3` | `grammar/grammar-and-usage, pronunciation/demystify` | yes |
 | `sounds/fr/vous venez.mp3` | `audio/lo3/grammar/grammar-and-usage/065-vous-venez.mp3` | `grammar/grammar-and-usage` | yes |
 
-| `sounds/fr/Ah non, je ne suis pas française !.mp3` | `audio/lo3/dialogues/phraseTable3/066-ah-non-je-ne-suis-pas-francaise.mp3` | `dialogues/phraseTable3` | yes |
-| `sounds/fr/Ah non, je suis luxembourgeoise.mp3` | `audio/lo3/dialogues/phraseTable3/067-ah-non-je-suis-luxembourgeoise.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Ah non, je ne suis pas française !.mp3` | `audio/lo3/dialogues/phraseTable1/002-ah-non-je-ne-suis-pas-francaise.mp3` | `dialogues/phraseTable1` | yes |
+| `sounds/fr/Ah non, je suis luxembourgeoise.mp3` | `audio/lo3/dialogues/phraseTable1/008-ah-non-je-suis-luxembourgeoise.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/algérien, algérienne, Algérie.mp3` | `audio/lo3/vocabulary/vocabulary/068-algerien-algerienne-algerie.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/allemand, allemande, Allemagne.mp3` | `audio/lo3/vocabulary/vocabulary/069-allemand-allemande-allemagne.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/américain américaine.mp3` | `audio/lo3/exercises/typedTransformExercise3/001-americain-americaine.mp3` | `exercises/AnswerTable1` | yes |
@@ -117,7 +117,7 @@ Note:
 | `sounds/fr/chinois, chinoise, Chine.mp3` | `audio/lo3/vocabulary/vocabulary/080-chinois-chinoise-chine.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/croate(m) croate(f).mp3` | `audio/lo3/exercises/typedTransformExercise3/004-croate-m-croate-f.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/D'où venez-vous Vous venez d'où.mp3` | `audio/lo3/vocabulary/phraseTable5/082-d-ou-venez-vous-vous-venez-d-ou.mp3` | `vocabulary/phraseTable5` | yes |
-| `sounds/fr/D'où venez-vous, Monsieur.mp3` | `audio/lo3/dialogues/phraseTable3/083-d-ou-venez-vous-monsieur.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/D'où venez-vous, Monsieur.mp3` | `audio/lo3/dialogues/phraseTable1/006-d-ou-venez-vous-monsieur.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/D'où viens-tu Tu viens d'où.mp3` | `audio/lo3/vocabulary/phraseTable5/084-d-ou-viens-tu-tu-viens-d-ou.mp3` | `vocabulary/phraseTable5` | yes |
 | `sounds/fr/danois danoise.mp3` | `audio/lo3/exercises/typedTransformExercise3/005-danois-danoise.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/dentiste(m) dentiste(f).mp3` | `audio/lo3/exercises/typedTransformExercise4/001-dentiste-m-dentiste-f.mp3` | `exercises/AnswerTable1` | yes |
@@ -126,28 +126,28 @@ Note:
 | `sounds/fr/Elle parle anglais et un petit peu français.mp3` | `audio/lo3/exercises/dictationExercise5/005-elle-parle-anglais-et-un-petit-peu-francais.mp3` | `exercises/AnswerTable2` | yes |
 | `sounds/fr/Elle vient de Bristol.mp3` | `audio/lo3/exercises/dictationExercise5/004-elle-vient-de-bristol.mp3` | `exercises/AnswerTable2` | yes |
 | `sounds/fr/espagnol, espagnole, Espagne.mp3` | `audio/lo3/vocabulary/vocabulary/091-espagnol-espagnole-espagne.mp3` | `vocabulary/vocabulary` | yes |
-| `sounds/fr/Et les enfants.mp3` | `audio/lo3/dialogues/phraseTable3/092-et-les-enfants.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Et les enfants.mp3` | `audio/lo3/dialogues/phraseTable1/015-et-les-enfants.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/étudiant étudiante.mp3` | `audio/lo3/exercises/typedTransformExercise4/003-etudiant-etudiante.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/fatigué fatiguée.mp3` | `audio/lo3/exercises/typedTransformExercise3/011-fatigue-fatiguee.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/français, française, France.mp3` | `audio/lo3/vocabulary/vocabulary/095-francais-francaise-france.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/gallois, galloise, Pays de Galles.mp3` | `audio/lo3/vocabulary/vocabulary/096-gallois-galloise-pays-de-galles.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/ghanéen, ghanéenne, Ghana.mp3` | `audio/lo3/vocabulary/vocabulary/097-ghaneen-ghaneenne-ghana.mp3` | `vocabulary/vocabulary` | yes |
-| `sounds/fr/Ils sont bilingues. Ils parlent français et arabe.mp3` | `audio/lo3/dialogues/phraseTable3/098-ils-sont-bilingues-ils-parlent-francais-et-arabe.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Ils sont bilingues. Ils parlent français et arabe.mp3` | `audio/lo3/dialogues/phraseTable1/016-ils-sont-bilingues-ils-parlent-francais-et-arabe.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/informaticien informaticienne.mp3` | `audio/lo3/exercises/typedTransformExercise4/004-informaticien-informaticienne.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/irlandais, irlandaise, irelande.mp3` | `audio/lo3/vocabulary/vocabulary/100-irlandais-irlandaise-irelande.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/italien italienne.mp3` | `audio/lo3/exercises/typedTransformExercise3/006-italien-italienne.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/Je parle anglais et français.mp3` | `audio/lo3/exercises/dictationExercise5/007-je-parle-anglais-et-francais.mp3` | `exercises/AnswerTable2` | yes |
 | `sounds/fr/Je parle anglais Je ne parle pas anglais.mp3` | `audio/lo3/vocabulary/phraseTable5/103-je-parle-anglais-je-ne-parle-pas-anglais.mp3` | `vocabulary/phraseTable5` | yes |
-| `sounds/fr/Je parle français. C'est tout.mp3` | `audio/lo3/dialogues/phraseTable3/104-je-parle-francais-c-est-tout.mp3` | `dialogues/phraseTable3` | yes |
-| `sounds/fr/Je suis belge. Je viens de Bruxelles. Tu viens d'où.mp3` | `audio/lo3/dialogues/phraseTable3/105-je-suis-belge-je-viens-de-bruxelles-tu-viens-d-ou.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Je parle français. C'est tout.mp3` | `audio/lo3/dialogues/phraseTable1/012-je-parle-francais-c-est-tout.mp3` | `dialogues/phraseTable1` | yes |
+| `sounds/fr/Je suis belge. Je viens de Bruxelles. Tu viens d'où.mp3` | `audio/lo3/dialogues/phraseTable1/004-je-suis-belge-je-viens-de-bruxelles-tu-viens-d-ou.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/Je suis bilingue.mp3` | `audio/lo3/exercises/dictationExercise5/006-je-suis-bilingue.mp3` | `exercises/AnswerTable2` | yes |
 | `sounds/fr/Je suis canadien et je viens de Montréal.mp3` | `audio/lo3/exercises/dictationExercise5/002-je-suis-canadien-et-je-viens-de-montreal.mp3` | `exercises/AnswerTable2` | yes |
 | `sounds/fr/Je suis marié avec Lucie.mp3` | `audio/lo3/exercises/dictationExercise5/001-je-suis-marie-avec-lucie.mp3` | `exercises/AnswerTable2` | yes |
 | `sounds/fr/Je suis professeur de maths et Lucie est avocate.mp3` | `audio/lo3/exercises/dictationExercise5/008-je-suis-professeur-de-maths-et-lucie-est-avocate.mp3` | `exercises/AnswerTable2` | yes |
-| `sounds/fr/Je suis trilingue. Je parle français, arabe et un petit peu anglais.mp3` | `audio/lo3/dialogues/phraseTable3/110-je-suis-trilingue-je-parle-francais-arabe-et-un-petit-peu-anglais.mp3` | `dialogues/phraseTable3` | yes |
-| `sounds/fr/Je viens d'Espagne.mp3` | `audio/lo3/dialogues/phraseTable3/111-je-viens-d-espagne.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Je suis trilingue. Je parle français, arabe et un petit peu anglais.mp3` | `audio/lo3/dialogues/phraseTable1/014-je-suis-trilingue-je-parle-francais-arabe-et-un-petit-peu-anglais.mp3` | `dialogues/phraseTable1` | yes |
+| `sounds/fr/Je viens d'Espagne.mp3` | `audio/lo3/dialogues/phraseTable1/005-je-viens-d-espagne.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/Je viens de  Je ne viens pas de.mp3` | `audio/lo3/vocabulary/phraseTable5/112-je-viens-de-je-ne-viens-pas-de.mp3` | `vocabulary/phraseTable5` | yes |
-| `sounds/fr/Je viens des Etats-Unis. Je suis américain. Ma femme est canadienne. Elle vient du Québec. Et vous, vous êtes suisse.mp3` | `audio/lo3/dialogues/phraseTable3/113-je-viens-des-etats-unis-je-suis-americain-ma-femme-est-canadienne-elle-vient-du-quebec-et-vous-vous-etes-suisse.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Je viens des Etats-Unis. Je suis américain. Ma femme est canadienne. Elle vient du Québec. Et vous, vous êtes suisse.mp3` | `audio/lo3/dialogues/phraseTable1/007-je-viens-des-etats-unis-je-suis-americain-ma-femme-est-canadienne-elle-vient-du-quebec-et-vous-vous-etes-suisse.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/journaliste(m) journaliste(f).mp3` | `audio/lo3/exercises/typedTransformExercise4/005-journaliste-m-journaliste-f.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/libanais, libanaise, Liban.mp3` | `audio/lo3/vocabulary/vocabulary/115-libanais-libanaise-liban.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/Lucie est anglaise.mp3` | `audio/lo3/exercises/dictationExercise5/003-lucie-est-anglaise.mp3` | `exercises/AnswerTable2` | yes |
@@ -157,21 +157,21 @@ Note:
 | `sounds/fr/marocain, marocaine, Maroc.mp3` | `audio/lo3/vocabulary/vocabulary/120-marocain-marocaine-maroc.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/mécanicien mécanicienne.mp3` | `audio/lo3/exercises/typedTransformExercise4/006-mecanicien-mecanicienne.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/médecin(m) médecin(f).mp3` | `audio/lo3/exercises/typedTransformExercise4/007-medecin-m-medecin-f.mp3` | `exercises/AnswerTable1` | yes |
-| `sounds/fr/Non, je ne parle pas allemand.mp3` | `audio/lo3/dialogues/phraseTable3/123-non-je-ne-parle-pas-allemand.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Non, je ne parle pas allemand.mp3` | `audio/lo3/dialogues/phraseTable1/010-non-je-ne-parle-pas-allemand.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/nord irlandais, nord irlandaise, Irelande du Nord.mp3` | `audio/lo3/vocabulary/vocabulary/124-nord-irlandais-nord-irlandaise-irelande-du-nord.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/parler.mp3` | `audio/lo3/vocabulary/phraseTable5/125-parler.mp3` | `vocabulary/phraseTable5` | yes |
 | `sounds/fr/pharmacien pharmacienne.mp3` | `audio/lo3/exercises/typedTransformExercise4/008-pharmacien-pharmacienne.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/portugais portugaise.mp3` | `audio/lo3/exercises/typedTransformExercise3/007-portugais-portugaise.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/Quelles langues parles-tu Tu parles quelles langues.mp3` | `audio/lo3/vocabulary/phraseTable5/128-quelles-langues-parles-tu-tu-parles-quelles-langues.mp3` | `vocabulary/phraseTable5` | yes |
-| `sounds/fr/Quelles langues parles-tu.mp3` | `audio/lo3/dialogues/phraseTable3/129-quelles-langues-parles-tu.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Quelles langues parles-tu.mp3` | `audio/lo3/dialogues/phraseTable1/011-quelles-langues-parles-tu.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/Quelles langues parlez-vous Vous parlez quelles langues.mp3` | `audio/lo3/vocabulary/phraseTable5/130-quelles-langues-parlez-vous-vous-parlez-quelles-langues.mp3` | `vocabulary/phraseTable5` | yes |
-| `sounds/fr/Quelles langues parlez-vous.mp3` | `audio/lo3/dialogues/phraseTable3/131-quelles-langues-parlez-vous.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Quelles langues parlez-vous.mp3` | `audio/lo3/dialogues/phraseTable1/013-quelles-langues-parlez-vous.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/russe(m) russe(f).mp3` | `audio/lo3/exercises/typedTransformExercise3/008-russe-m-russe-f.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/sénégalais, sénégalaise, Sénégal.mp3` | `audio/lo3/vocabulary/vocabulary/133-senegalais-senegalaise-senegal.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/suisse, Suisse.mp3` | `audio/lo3/vocabulary/vocabulary/134-suisse-suisse.mp3` | `vocabulary/vocabulary` | yes |
-| `sounds/fr/Tu es de quelle nationalité.mp3` | `audio/lo3/dialogues/phraseTable3/135-tu-es-de-quelle-nationalite.mp3` | `dialogues/phraseTable3` | yes |
-| `sounds/fr/Tu es française.mp3` | `audio/lo3/dialogues/phraseTable3/136-tu-es-francaise.mp3` | `dialogues/phraseTable3` | yes |
-| `sounds/fr/Tu parles allemand.mp3` | `audio/lo3/dialogues/phraseTable3/137-tu-parles-allemand.mp3` | `dialogues/phraseTable3` | yes |
+| `sounds/fr/Tu es de quelle nationalité.mp3` | `audio/lo3/dialogues/phraseTable1/003-tu-es-de-quelle-nationalite.mp3` | `dialogues/phraseTable1` | yes |
+| `sounds/fr/Tu es française.mp3` | `audio/lo3/dialogues/phraseTable1/001-tu-es-francaise.mp3` | `dialogues/phraseTable1` | yes |
+| `sounds/fr/Tu parles allemand.mp3` | `audio/lo3/dialogues/phraseTable1/009-tu-parles-allemand.mp3` | `dialogues/phraseTable1` | yes |
 | `sounds/fr/tunisien, tunisienne, Tunisie.mp3` | `audio/lo3/vocabulary/vocabulary/138-tunisien-tunisienne-tunisie.mp3` | `vocabulary/vocabulary` | yes |
 | `sounds/fr/ukrainien, ukrainienne.mp3` | `audio/lo3/exercises/typedTransformExercise3/009-ukrainien-ukrainienne.mp3` | `exercises/AnswerTable1` | yes |
 | `sounds/fr/venir de.mp3` | `audio/lo3/vocabulary/phraseTable5/140-venir-de.mp3` | `vocabulary/phraseTable5` | yes |

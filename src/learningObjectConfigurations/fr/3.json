@@ -18,88 +18,88 @@
 		"instructionsTextHTML": "<p>This section introduces a series of short dialogues to show how to ask and answer questions about nationality, origin, and languages in French.</p>",
 		"content": [
 			{
-				"phraseTable3": {
+				"phraseTable1": {
 					"component": "PhraseTable",
-					"id": "phraseTable3",
+					"id": "phraseTable1",
 					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"audio/lo3/dialogues/phraseTable3/136-tu-es-francaise.mp3",
+							"audio/lo3/dialogues/phraseTable1/001-tu-es-francaise.mp3",
 							"Tu es française ?",
 							"Are you French ?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/066-ah-non-je-ne-suis-pas-francaise.mp3",
+							"audio/lo3/dialogues/phraseTable1/002-ah-non-je-ne-suis-pas-francaise.mp3",
 							"Ah non, je ne suis pas française !",
 							"Oh no, I'm not French!"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/135-tu-es-de-quelle-nationalite.mp3",
+							"audio/lo3/dialogues/phraseTable1/003-tu-es-de-quelle-nationalite.mp3",
 							"Tu es de quelle nationalité ?",
 							"What nationality are you?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/105-je-suis-belge-je-viens-de-bruxelles-tu-viens-d-ou.mp3",
+							"audio/lo3/dialogues/phraseTable1/004-je-suis-belge-je-viens-de-bruxelles-tu-viens-d-ou.mp3",
 							"Je suis belge. Je viens de Bruxelles.<br />Tu viens d'où ?",
 							"I'm Belgian. I come from Brussels.<br />Where do you come from?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/111-je-viens-d-espagne.mp3",
+							"audio/lo3/dialogues/phraseTable1/005-je-viens-d-espagne.mp3",
 							"Je viens d'Espagne.",
 							"I come from Spain."
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/083-d-ou-venez-vous-monsieur.mp3",
+							"audio/lo3/dialogues/phraseTable1/006-d-ou-venez-vous-monsieur.mp3",
 							"D'où venez-vous, Monsieur ?",
 							"Where do you come from, sir? "
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/113-je-viens-des-etats-unis-je-suis-americain-ma-femme-est-canadienne-elle-vient-du-quebec-et-vous-vous-etes-suisse.mp3",
+							"audio/lo3/dialogues/phraseTable1/007-je-viens-des-etats-unis-je-suis-americain-ma-femme-est-canadienne-elle-vient-du-quebec-et-vous-vous-etes-suisse.mp3",
 							"Je viens des Etats-Unis. Je suis américain.<br />Ma femme est canadienne. Elle vient du Québec.<br />Et vous, vous êtes suisse ?",
 							"I come from the USA. I'm American.<br />My wife's Canadian. She comes from Quebec.<br />And are you Swiss?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/067-ah-non-je-suis-luxembourgeoise.mp3",
+							"audio/lo3/dialogues/phraseTable1/008-ah-non-je-suis-luxembourgeoise.mp3",
 							"Ah non, je suis luxembourgeoise.",
 							"Oh no, I'm Luxemburgish."
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/137-tu-parles-allemand.mp3",
+							"audio/lo3/dialogues/phraseTable1/009-tu-parles-allemand.mp3",
 							"Tu parles allemand ?",
 							"Do you speak German?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/123-non-je-ne-parle-pas-allemand.mp3",
+							"audio/lo3/dialogues/phraseTable1/010-non-je-ne-parle-pas-allemand.mp3",
 							"Non, je ne parle pas allemand.",
 							"No, I don't speak German."
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/129-quelles-langues-parles-tu.mp3",
+							"audio/lo3/dialogues/phraseTable1/011-quelles-langues-parles-tu.mp3",
 							"Quelles langues parles-tu ?",
 							"Which languages do you speak?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/104-je-parle-francais-c-est-tout.mp3",
+							"audio/lo3/dialogues/phraseTable1/012-je-parle-francais-c-est-tout.mp3",
 							"Je parle français.<br />C'est tout.",
 							"I speak French.<br />That's all."
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/131-quelles-langues-parlez-vous.mp3",
+							"audio/lo3/dialogues/phraseTable1/013-quelles-langues-parlez-vous.mp3",
 							"Quelles langues parlez-vous ?",
 							"Which languages do you speak?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/110-je-suis-trilingue-je-parle-francais-arabe-et-un-petit-peu-anglais.mp3",
+							"audio/lo3/dialogues/phraseTable1/014-je-suis-trilingue-je-parle-francais-arabe-et-un-petit-peu-anglais.mp3",
 							"Je suis trilingue.<br />Je parle français, arabe et un petit peu anglais.",
 							"I'm trilingual.<br />I speak French, Arabic and a little bit of English."
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/092-et-les-enfants.mp3",
+							"audio/lo3/dialogues/phraseTable1/015-et-les-enfants.mp3",
 							"Et les enfants ?",
 							"And the children?"
 						],
 						[
-							"audio/lo3/dialogues/phraseTable3/098-ils-sont-bilingues-ils-parlent-francais-et-arabe.mp3",
+							"audio/lo3/dialogues/phraseTable1/016-ils-sont-bilingues-ils-parlent-francais-et-arabe.mp3",
 							"Ils sont bilingues.<br />Ils parlent français et arabe.",
 							"They're bilingual.<br />They speak French and Arabic."
 						]
