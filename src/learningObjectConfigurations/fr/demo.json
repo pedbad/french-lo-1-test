@@ -1713,8 +1713,8 @@
 		"content": [
 			{
 				"wordsIntoSlots1": {
-					"component": "Blanks",
-					"htmlContent": "<p>The <strong>'blanksType': 'table'</strong> configuration of the <strong>Blanks</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"component": "DraggableFillGaps",
+					"htmlContent": "<p>The <strong>'blanksType': 'table'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "wordsIntoSlots1",
 					"congratulationsText": "Well done!",
 					"instructionsText": "You will hear words containing on / om or oi or h as described in the pronunciation section. Drop each word into the boxes below as you hear it.",
@@ -1744,14 +1744,14 @@
 						"nom"
 					],
 					"soundFile": "sounds/fr/non-existant.mp3",
-					"titleText": "Blanks blanksType='table'"
+					"titleText": "DraggableFillGaps blanksType='table'"
 				}
 			},
 			{
 				"wordsIntoSlots2": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Well done!",
-					"htmlContent": "<p>The <strong>'blanksType': 'questions-answers'</strong> configuration of the <strong>Blanks</strong> component, uses the answers to make tiles which can be dropped into the second column of a 2 column table, where the questions are used to populate the left column.</p><p>Sound files are in the third column.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"htmlContent": "<p>The <strong>'blanksType': 'questions-answers'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the answers to make tiles which can be dropped into the second column of a 2 column table, where the questions are used to populate the left column.</p><p>Sound files are in the third column.</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "wordsIntoSlots2",
 					"instructionsText": "Match each question with the correct answer.",
 					"showHintsText": "Show hints when moving",
@@ -1775,12 +1775,12 @@
 						"sounds/fr/monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3",
 						"sounds/fr/que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
 					],
-					"titleText": "Blanks blanksType='questions-answers'"
+					"titleText": "DraggableFillGaps blanksType='questions-answers'"
 				}
 			},
 			{
 				"pictureTable1": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
 					"id": "picturesAndWords1",
 					"instructionsText": "Match each picture with the correct word.",
@@ -1829,16 +1829,16 @@
 						"sounds/fr/la cuisine.mp3",
 						"sounds/fr/le bureau.mp3"
 					],
-					"titleText": "Blanks blanksType='pictures-answers"
+					"titleText": "DraggableFillGaps blanksType='pictures-answers"
 				}
 			},
 			{
 				"phrases3": {
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Very good!",
-					"htmlContent": "<p>The <strong>'blanksType': 'phrases'</strong> configuration of the <strong>Blanks</strong> component, uses the words to make tiles which can be dropped into the set of phrases. The set of phrases contains square brackets to show where the words must be dropped, the word is hidden in the phrase. On the right hand side there are audio samples to assist the student if needed. Note: the blank spaces are all the same width even for small words, so they don't give an extra clue!</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"htmlContent": "<p>The <strong>'blanksType': 'phrases'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the words to make tiles which can be dropped into the set of phrases. The set of phrases contains square brackets to show where the words must be dropped, the word is hidden in the phrase. On the right hand side there are audio samples to assist the student if needed. Note: the blank spaces are all the same width even for small words, so they don't give an extra clue!</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"id": "phrases3",
 					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
@@ -1868,15 +1868,15 @@
 							"audio": "audio/lo1/exercises/phrases4/006-au-revoir-les-enfants-bonne-journee.mp3"
 						}
 					],
-					"titleText": "Blanks blanksType='phrases'"
+					"titleText": "DraggableFillGaps blanksType='phrases'"
 				}
 			},
 			{
 				"groupTable1": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"id": "groupTable1",
 					"congratulationsText": "Well done!",
-					"htmlContent": "<p>The <strong>'blanksType': 'group-table'</strong> configuration of the <strong>Blanks</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>The tile should be dropped in the left column or the right column based on the question and in the order heard from the sound file.</p><p>After two mistakes, help and cheat options are revealled.</p>",
+					"htmlContent": "<p>The <strong>'blanksType': 'group-table'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>The tile should be dropped in the left column or the right column based on the question and in the order heard from the sound file.</p><p>After two mistakes, help and cheat options are revealled.</p>",
 					"instructionsTextHTML": "You will hear a series of words containing either the sound <strong>u</strong> or the sound <strong>ou</strong>. Drag the words below into the correct box as you hear them.",
 					"listenDescriptionText": "Full audio",
 					"showHintsText": "Show hints when moving",
@@ -1951,12 +1951,12 @@
 						"jus"
 					],
 					"soundFile": "sounds/fr/LO12EX4.mp3",
-					"titleTextHTML": "Blanks blanksType='group-table"
+					"titleTextHTML": "DraggableFillGaps blanksType='group-table"
 				}
 			}
 		],
 		"id": "group5",
-		"titleText": "Blanks"
+		"titleText": "DraggableFillGaps"
 	},
 	"custom2": {
 		"component": "L13ASummersDay",

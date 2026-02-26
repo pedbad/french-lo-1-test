@@ -2,9 +2,9 @@ import {
 	AccordionArticle,
 	AnswerTable,
 	AudioClip,
-	Blanks,
 	Congratulate,
 	DictationExercise,
+	DraggableFillGaps,
 	DropDowns,
 	ErrorLog,
 	Explanation,
@@ -814,8 +814,9 @@ export default class App extends React.Component {
 					/>
 				);
 			case "Blanks":
+			case "DraggableFillGaps":
 				return (
-					<Blanks
+					<DraggableFillGaps
 						config={value}
 						logError={this.logError}
 						showDialog={this.showDialog}
@@ -1291,7 +1292,8 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "Blanks": {
+			case "Blanks":
+			case "DraggableFillGaps": {
 				articles.push(
 					<AccordionArticle
 						expandedByDefault={autoExpandSingleAccordion}
@@ -1302,7 +1304,7 @@ export default class App extends React.Component {
 						title={titleText}
 						titleHTML={titleTextHTML}
 					>
-						<Blanks
+						<DraggableFillGaps
 							config={value}
 							logError={this.logError}
 							showDialog={this.showDialog}

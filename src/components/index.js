@@ -11,6 +11,7 @@ export * from './ConnectFour';
 export * from './CrossWord';
 export * from './CustomComponents_FR';
 export * from './DictationExercise';
+export * from './DraggableFillGaps';
 export * from './DropDowns';
 export * from './ErrorLog';
 export * from './Explanation';

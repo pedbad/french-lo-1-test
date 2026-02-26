@@ -349,6 +349,12 @@ Latest applied step:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)
   - both currently run through the existing `AnswerTable` engine for low-risk migration parity.
+- legacy `Blanks` activities across FR configs (`LO1-LO15` + `demo`) now use semantic `DraggableFillGaps`.
+- runtime compatibility is preserved: `Blanks` remains an alias in `App` while configs use `DraggableFillGaps` as canonical naming.
+- LO1 exercise audio folders for former `phrases2/3/4` are now aligned to semantic names:
+  - `draggableFillGaps2`
+  - `draggableFillGaps3`
+  - `draggableFillGaps4`
 
 ## LO3 Navigation Gap Fix
 

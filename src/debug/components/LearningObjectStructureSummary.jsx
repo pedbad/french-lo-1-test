@@ -9,6 +9,7 @@ import {
 const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'AnswerTable',
 	'Blanks',
+	'DraggableFillGaps',
 	'DropDowns',
 	'Jigsaw',
 	'MemoryMatchGame',
@@ -29,6 +30,7 @@ const CONTAINER_COMPONENTS = new Set(['Group', 'Section']);
 const EXERCISE_COMPONENTS = new Set([
 	'AnswerTable',
 	'Blanks',
+	'DraggableFillGaps',
 	'ConnectFour',
 	'CrossWord',
 	'DropDowns',

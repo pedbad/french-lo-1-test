@@ -287,7 +287,7 @@
 		"content": [
 			{
 				"phrases1": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"id": "phrases1",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Use the words below to complete the conversation in the café.",

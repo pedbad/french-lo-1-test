@@ -363,7 +363,7 @@
 			},
 			{
 				"phrases1": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"id": "phrases1",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Drag each word into the correct gap.",

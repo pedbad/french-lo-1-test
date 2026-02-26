@@ -221,7 +221,7 @@
 		"content": [
 			{
 				"pictureTable1": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
 					"id": "picturesAndWords1",
 					"instructionsText": "Match each picture with the correct word.",
@@ -374,7 +374,7 @@
 			},
 			{
 				"phrases1": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"id": "phrases1",
 					"congratulationsText": "Superbe !",
 					"instructionsText": "Drag each word into the correct gap.",

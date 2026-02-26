@@ -344,7 +344,7 @@
 				"phrases1": {
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
 					"id": "phrases1",
 					"instructionsText": "Drag the words in the box to fill the gaps in Martin's description of a typical day from when he wakes up until he goes to bed.",

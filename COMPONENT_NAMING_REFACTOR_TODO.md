@@ -40,8 +40,11 @@
 - LO3:
   - `dropdowns2` migrated to `InlineChoiceGroup` to match LO2 verb-practice pattern.
 - `InlineChoiceGroup` row audio icons are now left-first for exercise consistency.
+- `Blanks` semantic migration completed across FR configs:
+  - all `component: "Blanks"` entries migrated to `component: "DraggableFillGaps"` in `src/learningObjectConfigurations/fr/*.json` (including `demo.json`).
+  - runtime fallback alias retained so legacy `Blanks` configs still render safely.
 
 ## Next Suggested Steps
 1. Evaluate LO3 `dropdowns1` for `InlineChoiceGroup` vs `SelectExercise`.
 2. Build full LO3+ inventory table (`LO`, `section`, `activity`, `current component`, `target component`).
-3. Define final semantic replacement name for `Blanks` after mode-by-mode behavior audit.
+3. Plan eventual alias removal (`Blanks` switch-case support) once no external legacy configs depend on it.

@@ -405,7 +405,7 @@
 			},
 			{
 				"phrases2": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"id": "phrases2",
 					"congratulationsText": "Excellent !",
 					"informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>), then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
@@ -415,15 +415,15 @@
 					"items": [
 						{
 							"text": "Coucou [mon] amour ! Ça [va] aujourd'hui ?",
-							"audio": "audio/lo1/exercises/phrases2/001-coucou-mon-amour-ca-va-aujourdhui.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps2/001-coucou-mon-amour-ca-va-aujourdhui.mp3"
 						},
 						{
 							"text": "Oui, ma [chérie] ! Ça va [très] bien ! Et [toi] ?",
-							"audio": "audio/lo1/exercises/phrases2/002-oui-ma-cherie-ca-va-tres-bien-et-toi.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps2/002-oui-ma-cherie-ca-va-tres-bien-et-toi.mp3"
 						},
 						{
 							"text": "Ça va !",
-							"audio": "audio/lo1/exercises/phrases2/003-ca-va.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps2/003-ca-va.mp3"
 						}
 					],
 					"titleText": "2. Fill in the gaps: greetings and introductions (part1)"
@@ -431,7 +431,7 @@
 			},
 			{
 				"phrases3": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"congratulationsText": "Superbe !",
@@ -441,15 +441,15 @@
 					"items": [
 						{
 							"text": "Bonsoir Monsieur Galipot ! [comment] ça va ?",
-							"audio": "audio/lo1/exercises/phrases3/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps3/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
 						},
 						{
 							"text": "Bonsoir Madame Bernard, ça va très bien, merci. Et [vous] ?",
-							"audio": "audio/lo1/exercises/phrases3/002-bonsoir-madame-bernard-ca-va-tres-bien-merci-et-vous.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps3/002-bonsoir-madame-bernard-ca-va-tres-bien-merci-et-vous.mp3"
 						},
 						{
 							"text": "Ah pas mal [merci] !",
-							"audio": "audio/lo1/exercises/phrases3/003-ah-pas-mal-merci.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps3/003-ah-pas-mal-merci.mp3"
 						}
 					],
 					"titleText": "3. Fill in the gaps: greetings and introductions (part2)"
@@ -459,7 +459,7 @@
 				"phrases4": {
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
 					"id": "phrases4",
 					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
@@ -468,27 +468,27 @@
 					"items": [
 						{
 							"text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
-							"audio": "audio/lo1/exercises/phrases4/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps4/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
 						},
 						{
 							"text": "Bonjour Madame ! Je m' [appelle] Annie.",
-							"audio": "audio/lo1/exercises/phrases4/002-bonjour-madame-je-mappelle-annie.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps4/002-bonjour-madame-je-mappelle-annie.mp3"
 						},
 						{
 							"text": "Et [moi], je m'appelle David.",
-							"audio": "audio/lo1/exercises/phrases4/003-et-moi-je-mappelle-david.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps4/003-et-moi-je-mappelle-david.mp3"
 						},
 						{
 							"text": "D'accord. Très bien !",
-							"audio": "audio/lo1/exercises/phrases4/004-daccord-tres-bien.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps4/004-daccord-tres-bien.mp3"
 						},
 						{
 							"text": "Merci Madame ! Bonne journée !",
-							"audio": "audio/lo1/exercises/phrases4/005-merci-madame-bonne-journee.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps4/005-merci-madame-bonne-journee.mp3"
 						},
 						{
 							"text": "Au [revoir] les enfants !  Bonne journée !",
-							"audio": "audio/lo1/exercises/phrases4/006-au-revoir-les-enfants-bonne-journee.mp3"
+							"audio": "audio/lo1/exercises/draggableFillGaps4/006-au-revoir-les-enfants-bonne-journee.mp3"
 						}
 					],
 					"titleText": "4. Fill in the gaps: greetings and introductions (part3)"

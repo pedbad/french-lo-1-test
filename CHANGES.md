@@ -2,6 +2,50 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-26 - `Blanks` -> `DraggableFillGaps` Semantic Rename (FR Configs)
+
+- Added semantic wrapper component:
+  - `src/components/DraggableFillGaps/DraggableFillGaps.jsx`
+  - `src/components/DraggableFillGaps/index.js`
+- Updated app render switches to support canonical `DraggableFillGaps` while keeping legacy `Blanks` alias for backward compatibility:
+  - `src/App.jsx`
+  - `src/components/index.js`
+- Migrated all FR config usages from:
+  - `"component": "Blanks"` -> `"component": "DraggableFillGaps"`
+  - scope: `src/learningObjectConfigurations/fr/*.json` (including `demo.json`)
+- Updated debug structure summary component categorization to include `DraggableFillGaps`:
+  - `src/debug/components/LearningObjectStructureSummary.jsx`
+
+## 2026-02-26 - LO1 Exercise Audio Folder Naming Alignment
+
+- Aligned LO1 exercise audio folder names to semantic activity naming for `DraggableFillGaps`:
+  - `public/audio/lo1/exercises/phrases2` -> `public/audio/lo1/exercises/draggableFillGaps2`
+  - `public/audio/lo1/exercises/phrases3` -> `public/audio/lo1/exercises/draggableFillGaps3`
+  - `public/audio/lo1/exercises/phrases4` -> `public/audio/lo1/exercises/draggableFillGaps4`
+- Updated LO1 config audio references in:
+  - `src/learningObjectConfigurations/fr/1.json`
+- Result:
+  - LO1 exercise folder naming now reflects active semantic component naming and avoids legacy key drift.
+
+## 2026-02-26 - LO3 Exercise Audio Convention Alignment (Semantic Folders + 001 Naming)
+
+- Refactored LO3 exercise audio assets to align with current semantic component usage and sequential naming:
+  - `public/audio/lo3/exercises/inlineChoiceGroup1`
+  - `public/audio/lo3/exercises/inlineChoiceGroup2`
+  - `public/audio/lo3/exercises/typedTransformExercise3`
+  - `public/audio/lo3/exercises/typedTransformExercise4`
+  - `public/audio/lo3/exercises/dictationExercise5`
+- Renamed files in these folders to `001-...`, `002-...` sequence order per exercise.
+- Updated all LO3 exercise audio refs in:
+  - `src/learningObjectConfigurations/fr/3.json`
+- Removed legacy LO3 exercise audio folders that no longer match active component names:
+  - `public/audio/lo3/exercises/dropdowns1`
+  - `public/audio/lo3/exercises/dropdowns2`
+  - `public/audio/lo3/exercises/AnswerTable1`
+  - `public/audio/lo3/exercises/AnswerTable2`
+- Validation:
+  - all `audio/lo3/exercises/...` refs in LO3 config resolve to existing files.
+
 ## 2026-02-25 - AnswerTable Semantic Wrapper Migration (LO3 Exercises 3/4/5)
 
 - Added semantic exercise wrappers (no behavior change, DRY migration layer):

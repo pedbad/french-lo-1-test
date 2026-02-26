@@ -539,7 +539,7 @@
 			},
 			{
 				"wordsIntoSlots2": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
 					"id": "wordsIntoSlots2",
 					"instructionsText": "Match each question with the correct answer.",

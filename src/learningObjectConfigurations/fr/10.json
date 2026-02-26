@@ -411,7 +411,7 @@
 			},
 			{
 				"wordsIntoSlots1": {
-					"component": "Blanks",
+					"component": "DraggableFillGaps",
 					"congratulationsText": "Superbe !",
 					"id": "wordsIntoSlots1",
 					"instructionsText": "Match each French item with its English equivalent.",
