@@ -58,7 +58,10 @@ Legacy compatibility:
 - Semantic wrappers are now in code and wired:
   - `TypedTransformExercise`
   - `DictationExercise`
-- Wrappers currently delegate to `AnswerTable` to keep behavior stable during migration.
+- Wrappers currently delegate to shared `AnswerTableRuntime` to keep behavior stable during migration.
+- Current behavior split in runtime:
+  - `TypedTransformExercise`: strict compare + global controls + inline prompt audio option.
+  - `DictationExercise`: dictation compare normalization + global controls + left audio icon.
 - Next phase remains:
   - classify and migrate remaining LO `AnswerTable` usages.
   - optionally split audio directories per semantic activity after behavior migration is stable.

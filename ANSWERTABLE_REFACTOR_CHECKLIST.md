@@ -14,13 +14,13 @@
 ## Semantic API Definition
 - [ ] Define public component names and props contract.
 - [x] Keep `AnswerTable` as compatibility alias during transition.
-- [ ] Define style variants (`compact` / `standard` / `guided`) without behavior drift.
+- [x] Define style variants (`compact` / `standard` / `guided`) without behavior drift.
 
 ## Implementation
 - [x] Create `DictationExercise` component wrapper.
 - [x] Create `TypedTransformExercise` component wrapper.
 - [ ] Create `ClozeTypingExercise` component wrapper.
-- [ ] Keep shared parsing/validation/audio logic in one internal module for DRY behavior.
+- [x] Keep shared parsing/validation/audio logic in one internal module for DRY behavior.
 - [ ] Wire new components in:
   - [x] `src/components/index.js`
   - [x] `src/App.jsx` render switch paths
@@ -32,15 +32,15 @@
 - [ ] Migrate remaining LOs one activity at a time (no bulk rename).
 
 ## QA for each migrated activity
-- [ ] Desktop layout parity.
+- [x] Desktop layout parity.
 - [ ] Mobile layout parity.
-- [ ] Input behavior and check flow.
-- [ ] Reset/show-answer behavior parity.
-- [ ] Audio playback behavior parity (single-active audio).
+- [x] Input behavior and check flow.
+- [x] Reset/show-answer behavior parity.
+- [x] Audio playback behavior parity (single-active audio).
 - [ ] Accessibility smoke check (labels/focus/keyboard order).
 
 ## Documentation and Guardrails
-- [ ] Update `README.md` with new semantic component names and mapping.
-- [ ] Update `CHANGES.md` per migration batch.
+- [x] Update `README.md` with new semantic component names and mapping.
+- [x] Update `CHANGES.md` per migration batch.
 - [ ] Add final mapping table (`legacy -> semantic`) after all migrations complete.
 - [ ] Remove/deprecate `AnswerTable` only when zero config usages remain.

@@ -354,7 +354,12 @@ Latest applied step:
     - preserved per-row diff feedback (`inserted`/`deleted`) after check
     - inline audio + masculine term layout (no separate listen column)
     - header icons (`Mars` / `Venus`) for masculine/feminine columns
-  - `DictationExercise` keeps dictation normalization mode (punctuation/apostrophe/spacing tolerant, accents strict).
+  - `DictationExercise` now also uses global controls (`Check answers`, `Reset`, `Show answers`) with:
+    - Enter-key submit support in input fields
+    - left-side compact speaker icon
+    - dictation normalization mode (punctuation/apostrophe/spacing tolerant, accents strict)
+    - trimmed leading/trailing whitespace on check
+    - stable row layout (fixed status slot and non-jittering input width)
 - legacy `Blanks` activities across FR configs (`LO1-LO15` + `demo`) now use semantic `DraggableFillGaps`.
 - runtime compatibility is preserved: `Blanks` remains an alias in `App` while configs use `DraggableFillGaps` as canonical naming.
 - LO1 exercise audio folders for former `phrases2/3/4` are now aligned to semantic names:

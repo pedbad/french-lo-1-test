@@ -1791,7 +1791,7 @@ Why this was important:
   - added optional global-control mode (`useGlobalActions`) for typed-response rows.
   - introduced shared exercise actions: `Check answers`, `Reset`, `Show answers`.
   - added per-row status icons (`CircleCheck`/`CircleX`) shown only after check on attempted rows.
-  - added `Info` alert rendering from `instructionsText` / `instructionsTextHTML` in global-control mode.
+  - initially added child-level `Info` alert rendering from `instructionsText` / `instructionsTextHTML` in global-control mode (later superseded by section 116 to keep LO1/LO2 placement parity).
   - kept legacy compact `Monologue` row behavior for non-global mode to avoid drift in existing activities.
 - Updated `/Users/ped/Sites/french/french-lo-1/src/components/TypedTransformExercise/TypedTransformExercise.jsx`:
   - now enables `useGlobalActions` and keeps left audio speaker column for consistency.
@@ -1821,3 +1821,22 @@ Why this was important:
 - Why:
   - removes spacing drift of blue instruction alerts in LO3 exercises.
   - keeps the new global action UX while preserving the earlier diff-based learning feedback.
+
+## 117) LO3 Dictation Global Controls + Typed/Dictation Stability Pass
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/DictationExercise/DictationExercise.jsx`:
+  - enabled global controls (`useGlobalActions`) for dictation rows.
+  - aligned dictation audio icon placement to left-side compact speaker style.
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/AnswerTable/AnswerTableRuntime.jsx`:
+  - retained previous diff guidance while learner edits after check; icon/result clears until re-check.
+  - trimmed leading/trailing whitespace before evaluation (internal spacing remains unchanged).
+  - stabilized row layout to remove input width jiggering:
+    - fixed table layout in global mode (`table-fixed`)
+    - fixed status icon slot
+    - reserved diff-feedback block height
+    - fixed audio-cell sizing/alignment to input row baseline.
+- Validation:
+  - `yarn build` passes.
+- Why:
+  - removes confusing layout shifts during editing/re-check loops.
+  - keeps guidance visible while learners self-correct.
+  - aligns exercise 5 interaction model with exercises 3/4 global controls.
