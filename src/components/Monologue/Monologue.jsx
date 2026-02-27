@@ -113,7 +113,8 @@ export class Monologue extends React.PureComponent {
 
 
 		let text = userInput;
-		if (showResult) text = highlightTextDiff(userInput, content, this.countCorrect, false);
+		const { comparisonOptions } = this.props;
+		if (showResult) text = highlightTextDiff(userInput, content, this.countCorrect, false, comparisonOptions);
 
 		if (compact) {
 			const {

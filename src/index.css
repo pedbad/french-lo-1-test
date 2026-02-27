@@ -1466,6 +1466,38 @@
 		background-color: var(--card);
 	}
 
+	/* Typed transform global-check diff blocks (outside Monologue container). */
+	.answer-table-container .comparison-result {
+		border-radius: 8px;
+		padding: 2px 4px;
+		border: 1px solid var(--border);
+		background-color: var(--card);
+		box-shadow: 0 1px 2px color-mix(in oklab, var(--foreground) 20%, transparent);
+		white-space: break-spaces;
+		overflow-wrap: anywhere;
+		word-break: normal;
+	}
+
+	.answer-table-container .comparison-result span {
+		display: inline;
+		vertical-align: bottom;
+		padding: 4px;
+		min-width: 12px;
+		min-height: 24px;
+		border: 1px solid transparent;
+	}
+
+	.answer-table-container .comparison-result .deleted {
+		border: 1px solid var(--destructive);
+		background: color-mix(in oklab, var(--destructive) 20%, transparent);
+		text-decoration: line-through;
+	}
+
+	.answer-table-container .comparison-result .inserted {
+		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		border: 1px solid var(--chart-2);
+	}
+
 	/* Read-aloud shell + speech comparison styling extracted from ReadAloud.scss. */
 	.read-aloud-container {
 		position: relative;

@@ -1,9 +1,15 @@
+import { AnswerTableRuntime } from "../AnswerTable/AnswerTableRuntime";
 import React from "react";
-import { AnswerTable } from "../AnswerTable";
 
-// Semantic wrapper: listen -> type what you hear.
-// Uses the existing AnswerTable runtime to avoid behavior drift during migration.
+// Semantic wrapper: listen + transcribe.
+// Kept on shared runtime for parity; planned divergence is isolated below.
 export class DictationExercise extends React.PureComponent {
-	render = () => <AnswerTable {...this.props} />;
+	// TODO(component-split): add dictation-specific normalization rules
+	// (punctuation/accents policy) without changing TypedTransformExercise.
+	render = () => (
+		<AnswerTableRuntime
+			{...this.props}
+			comparisonOptions={{ comparisonMode: "dictation" }}
+		/>
+	);
 }
-

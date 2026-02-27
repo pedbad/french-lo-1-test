@@ -1,9 +1,17 @@
+import { AnswerTableRuntime } from "../AnswerTable/AnswerTableRuntime";
 import React from "react";
-import { AnswerTable } from "../AnswerTable";
 
 // Semantic wrapper: prompt -> typed transformed target form.
-// Uses the existing AnswerTable runtime to avoid behavior drift during migration.
+// Kept on shared runtime for parity; planned divergence is isolated below.
 export class TypedTransformExercise extends React.PureComponent {
-	render = () => <AnswerTable {...this.props} />;
+	// TODO(component-split): keep transformed-form tolerant matching here
+	// (for example agreement variants) without affecting DictationExercise.
+	render = () => (
+		<AnswerTableRuntime
+			{...this.props}
+			audioClipClassName="super-compact-speaker"
+			audioColumnPosition="left"
+			useGlobalActions={true}
+		/>
+	);
 }
-

@@ -1,0 +1,469 @@
+import {
+	AudioClip,
+	IconButton,
+	Info,
+	Monologue,
+	ProgressDots,
+} from "..";
+import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { Input } from "@/components/ui/input";
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/components/ui/table";
+import DOMPurify from "dompurify";
+import { CircleCheck, CircleX } from "lucide-react";
+import React from "react";
+import {
+	resolveAsset,
+	stopAllAudioPlayback,
+	highlightTextDiff,
+} from "../../utility";
+
+// Shared runtime for typed-response table exercises.
+// This is the compatibility layer used by:
+// - AnswerTable (legacy)
+// - TypedTransformExercise (semantic)
+// - DictationExercise (semantic)
+//
+// TODO(component-split): once TypedTransformExercise and DictationExercise
+// have distinct scoring/normalization rules, move shared UI-only parts into a
+// base renderer and keep separate behavior controllers.
+export class AnswerTableRuntime extends React.PureComponent {
+	constructor(props) {
+		super(props);
+		this.state = {
+			...props.config,
+			checkedResults: {},
+			diffResults: {},
+			hasChecked: false,
+			nCorrect: 0,
+			values: {},
+		};
+	}
+
+	componentDidUpdate(prevProps) {
+		if (prevProps.config !== this.props.config) {
+			this.setState({
+				...this.props.config,
+				checkedResults: {},
+				diffResults: {},
+				hasChecked: false,
+				nCorrect: 0,
+				values: {},
+			});
+		}
+	}
+
+	extractExpectedAnswer = (value = "") => {
+		const match = `${value}`.match(/\[([^\]]+)\]/);
+		if (!match) return "";
+		return match[1].trim();
+	};
+
+	normalizeForDictationCompare = (text = "") => {
+		return `${text}`
+			.normalize("NFC")
+			.replace(/[’`´ʻʼ]/g, "'")
+			.replace(/[.,!?;:…]/g, " ")
+			.replace(/[«»“”„"]/g, " ")
+			.replace(/\s+/g, " ")
+			.trim();
+	};
+
+	isAnswerCorrect = (userValue = "", expected = "") => {
+		const { comparisonOptions = {} } = this.props;
+		const { comparisonMode = "strict" } = comparisonOptions;
+
+		if (comparisonMode === "dictation") {
+			return this.normalizeForDictationCompare(userValue) === this.normalizeForDictationCompare(expected);
+		}
+
+		return `${userValue}`.trim() === `${expected}`.trim();
+	};
+
+	handleInputChange = (index, userValue) => {
+		this.setState((prevState) => {
+			const values = {
+				...prevState.values,
+				[index]: userValue,
+			};
+
+			if (!prevState.hasChecked) return { values };
+
+			const checkedResults = {
+				...prevState.checkedResults,
+			};
+			const diffResults = {
+				...prevState.diffResults,
+			};
+			delete checkedResults[index];
+			delete diffResults[index];
+
+			return {
+				values,
+				checkedResults,
+				diffResults,
+				nCorrect: Object.values(checkedResults).filter(Boolean).length,
+			};
+		});
+	};
+
+	handleCheckAnswers = () => {
+		const {
+			phrases = [],
+			values = {},
+		} = this.state;
+
+		const checkedResults = {};
+		const diffResults = {};
+		for (let i = 0; i < phrases.length; i += 1) {
+			const expected = this.extractExpectedAnswer(phrases[i]?.[1] || "");
+			if (!expected) continue;
+
+			const userValue = values[i];
+			if (userValue === undefined || userValue === null || `${userValue}`.trim() === "") continue;
+			checkedResults[i] = this.isAnswerCorrect(`${userValue}`, expected);
+			diffResults[i] = highlightTextDiff(
+				`${userValue}`,
+				expected,
+				() => {},
+				false,
+				this.props.comparisonOptions || {}
+			);
+		}
+
+		this.setState({
+			checkedResults,
+			diffResults,
+			hasChecked: true,
+			nCorrect: Object.values(checkedResults).filter(Boolean).length,
+		});
+	};
+
+	handleInputKeyDown = (index, event) => {
+		if (event.key !== "Enter" && event.key !== "NumpadEnter") return;
+		event.preventDefault();
+		const latestValue = event.currentTarget?.value ?? "";
+		this.setState((prevState) => ({
+			values: {
+				...prevState.values,
+				[index]: latestValue,
+			},
+		}), this.handleCheckAnswers);
+	};
+
+	handleShowAnswers = () => {
+		const {
+			phrases = [],
+		} = this.state;
+
+		const values = {};
+		const checkedResults = {};
+		const diffResults = {};
+		for (let i = 0; i < phrases.length; i += 1) {
+			const expected = this.extractExpectedAnswer(phrases[i]?.[1] || "");
+			if (!expected) continue;
+			values[i] = expected;
+			checkedResults[i] = true;
+			diffResults[i] = highlightTextDiff(
+				expected,
+				expected,
+				() => {},
+				false,
+				this.props.comparisonOptions || {}
+			);
+		}
+
+		this.setState({
+			checkedResults,
+			diffResults,
+			hasChecked: true,
+			nCorrect: Object.values(checkedResults).filter(Boolean).length,
+			values,
+		});
+	};
+
+	handleReset = () => {
+		stopAllAudioPlayback();
+		this.setState({
+			checkedResults: {},
+			diffResults: {},
+			hasChecked: false,
+			nCorrect: 0,
+			values: {},
+		});
+	};
+
+	render = () => {
+		const {
+			audioClipClassName = "compact",
+			audioColumnPosition = "right",
+			comparisonOptions = undefined,
+			useGlobalActions = false,
+		} = this.props;
+		const {
+			checkedResults = {},
+			compoundID,
+			cheatText = "Show answers",
+			diffResults = {},
+			header,
+			hasChecked = false,
+			htmlContent,
+			id = [],
+			instructionsText,
+			instructionsTextHTML,
+			nCorrect = 0,
+			phrases = [],
+			values = {},
+		} = this.state;
+		const shouldInlineAudioWithPrompt = useGlobalActions;
+
+		const expectedByRow = phrases.map((phrase) => this.extractExpectedAnswer(phrase?.[1] || ""));
+		const nPhrases = expectedByRow.filter(Boolean).length;
+
+		let longestRow = 0;
+		for (let i = 0; i < phrases.length; i += 1) {
+			if (phrases[i].length > longestRow) longestRow = phrases[i].length;
+		}
+
+		const headerCells = [];
+		if (header) {
+			let headerOrder = header;
+			if (shouldInlineAudioWithPrompt && header.length >= 2) {
+				headerOrder = [header[0], header[1], ...header.slice(3)];
+			}
+			if (
+				longestRow > 2 &&
+				audioColumnPosition === "left" &&
+				!shouldInlineAudioWithPrompt &&
+				header.length >= 3
+			) {
+				headerOrder = [header[2], header[0], header[1], ...header.slice(3)];
+			}
+
+			for (let i = 0; i < headerOrder.length; i += 1) {
+				headerCells.push(<TableHead key={`header-cell-${i}`}>{headerOrder[i]}</TableHead>);
+			}
+		}
+
+		const rows = [];
+		for (let i = 0; i < phrases.length; i += 1) {
+			const phrase = phrases[i];
+			const soundCellIndex = 2;
+			const soundFile = longestRow > soundCellIndex ? resolveAsset(`${phrase[soundCellIndex]}`) : null;
+			const cells = [];
+
+			if (phrase[0] === "" && phrase.length === 1) {
+				rows.push(
+					<TableRow className="spacer" key={`row${i}`}>
+						<TableCell colSpan={longestRow} key={`cell-of-row-${i}`} />
+					</TableRow>
+				);
+				continue;
+			}
+
+			if (phrase[0] !== "") {
+				cells.push(
+					<TableCell key={`row${i}cell0`}>
+						{shouldInlineAudioWithPrompt && soundFile ? (
+							<div className="inline-flex items-center gap-2">
+								<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
+								<span>{phrase[0]}</span>
+							</div>
+						) : (
+							phrase[0]
+						)}
+					</TableCell>
+				);
+			}
+
+			if (phrase[1] !== "" && !useGlobalActions) {
+				const parts = [];
+				const regex = /\[([^\]]+)\]/g;
+				let lastIndex = 0;
+				let match;
+				let monologueIndex = 0;
+
+				while ((match = regex.exec(phrase[1])) !== null) {
+					if (match.index > lastIndex) {
+						parts.push(phrase[1].slice(lastIndex, match.index));
+					}
+
+					parts.push(
+						<Monologue
+							key={`Monologue${i}-${monologueIndex}`}
+							compact={true}
+							comparisonOptions={comparisonOptions}
+							id={`Monologue${i}-${monologueIndex}`}
+							content={match[1]}
+						/>
+					);
+
+					monologueIndex += 1;
+					({ lastIndex } = regex);
+				}
+
+				if (lastIndex < phrase[1].length) {
+					parts.push(phrase[1].slice(lastIndex));
+				}
+
+				cells.push(
+					<TableCell key={`row${i}cell1`}>
+						<span className="inline-monologue">{parts}</span>
+					</TableCell>
+				);
+			}
+
+			if (phrase[1] !== "" && useGlobalActions) {
+				const rowHasResult = hasChecked && Object.prototype.hasOwnProperty.call(checkedResults, i);
+				const rowIsCorrect = rowHasResult && checkedResults[i] === true;
+				const userValue = values[i] || "";
+
+				const inputToneClass = rowHasResult
+					? (rowIsCorrect
+						? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_16%,transparent)]"
+						: "border-[var(--destructive)] bg-[color-mix(in_oklab,var(--destructive)_12%,transparent)]")
+					: userValue
+						? "border-[var(--chart-3)] bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)]"
+						: "border-border";
+
+					cells.push(
+						<TableCell key={`row${i}cell1`}>
+							<div className="space-y-1.5">
+								<div className="flex items-center gap-2">
+									<Input
+										className={`min-h-10 text-[var(--font-size-sm)] md:text-base ${inputToneClass}`}
+										onChange={(event) => this.handleInputChange(i, event.target.value)}
+										onKeyDown={(event) => this.handleInputKeyDown(i, event)}
+										placeholder="Type your answer"
+										type="text"
+										value={userValue}
+									/>
+									<span
+										aria-hidden="true"
+										className={`inline-flex h-10 w-10 shrink-0 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+									>
+										{rowIsCorrect ? <CircleCheck className="h-9 w-9" /> : <CircleX className="h-9 w-9" />}
+									</span>
+								</div>
+								{rowHasResult && diffResults[i] ? (
+									<div
+										className="comparison-result compact"
+										dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(diffResults[i]) }}
+									/>
+								) : null}
+							</div>
+						</TableCell>
+					);
+				}
+
+			if (longestRow > 2 && !shouldInlineAudioWithPrompt && soundFile) {
+				const audioCell = (
+					<TableCell key={`row${i}cell${soundCellIndex}`}>
+						<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
+					</TableCell>
+				);
+
+				if (audioColumnPosition === "left") {
+					cells.unshift(audioCell);
+				} else {
+					cells.push(audioCell);
+				}
+			}
+
+			rows.push(
+				<TableRow key={`${compoundID}-row${i}`} visible-key={`${id}-row${i}`}>
+					{cells}
+				</TableRow>
+			);
+		}
+
+		const hasAnyAttempt = Object.keys(values).some((key) => `${values[key]}`.trim() !== "");
+		const hasAnyIncorrect = hasChecked && nCorrect < nPhrases;
+
+		return (
+			<div
+				className="answer-table-container container"
+				id={id || undefined}
+				key={`${id}PhraseTable`}
+			>
+				{htmlContent ? <div className="html-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
+
+				{useGlobalActions && (instructionsText || instructionsTextHTML) ? (
+					<Info
+						id={`info-${id}`}
+						informationText={instructionsText}
+						informationTextHTML={instructionsTextHTML}
+					/>
+				) : null}
+
+				<Table>
+					{header ? (
+						<TableHeader>
+							<TableRow>{headerCells}</TableRow>
+						</TableHeader>
+					) : null}
+					<TableBody>{rows}</TableBody>
+				</Table>
+
+				{useGlobalActions ? (
+					<>
+						<div className="exercise-divider" data-orientation="horizontal" role="none" />
+						<ProgressDots correct={nCorrect} total={nPhrases} />
+						<div className="exercise-divider" data-orientation="horizontal" role="none" />
+						<div className="exercise-help exercise-help-wrap">
+							<div className="exercise-help-actions">
+								<IconButton
+									ariaLabel={cheatText}
+									className={exerciseActionButtonVariants({
+										progressive: true,
+										tone: "warn",
+										visible: hasAnyIncorrect,
+									})}
+									onClick={this.handleShowAnswers}
+									theme="eye"
+								>
+									<span className="exercise-icon-button-label">{cheatText}</span>
+								</IconButton>
+
+								<IconButton
+									ariaLabel="Reset"
+									className={exerciseActionButtonVariants({
+										progressive: true,
+										tone: "neutral",
+										visible: hasAnyAttempt || hasChecked,
+									})}
+									onClick={this.handleReset}
+									theme="reset"
+								>
+									<span className="exercise-icon-button-label">Reset</span>
+								</IconButton>
+
+								<IconButton
+									ariaLabel="Check answers"
+									className={exerciseActionButtonVariants({
+										align: "right",
+										progressive: false,
+										tone: "primary",
+										visible: true,
+									})}
+									onClick={this.handleCheckAnswers}
+									theme="check"
+								>
+									<span className="exercise-icon-button-label">Check answers</span>
+								</IconButton>
+							</div>
+						</div>
+					</>
+				) : (
+					<p>{nCorrect} correct out of {nPhrases}.</p>
+				)}
+			</div>
+		);
+	};
+}

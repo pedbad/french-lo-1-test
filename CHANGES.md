@@ -2,6 +2,32 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-02-26 - Typed Exercise Runtime Decoupling (Baby Step)
+
+- Added shared runtime component:
+  - `src/components/AnswerTable/AnswerTableRuntime.jsx`
+- Kept `AnswerTable` as a thin compatibility wrapper over runtime:
+  - `src/components/AnswerTable/AnswerTable.jsx`
+- Updated semantic exercise wrappers to import runtime directly (not `AnswerTable`):
+  - `src/components/TypedTransformExercise/TypedTransformExercise.jsx`
+  - `src/components/DictationExercise/DictationExercise.jsx`
+- Added explicit intent and split TODO markers in semantic wrappers/runtime to guide next phase (`TypedTransformExercise` vs `DictationExercise` behavior divergence) without changing current UX.
+
+## 2026-02-26 - Dictation-Only Normalization (Behavior Divergence Step 1)
+
+- Added optional comparison mode support to `highlightTextDiff` in `src/utility.js`.
+- Implemented dictation normalization mode (used only by `DictationExercise`):
+  - normalizes apostrophe variants
+  - ignores trivial punctuation differences
+  - ignores extra whitespace differences
+  - keeps accents strict
+- Wired comparison options through:
+  - `src/components/AnswerTable/AnswerTableRuntime.jsx`
+  - `src/components/Monologue/Monologue.jsx`
+- Enabled dictation mode only in:
+  - `src/components/DictationExercise/DictationExercise.jsx`
+- `TypedTransformExercise` remains strict/unchanged.
+
 ## 2026-02-26 - `Blanks` -> `DraggableFillGaps` Semantic Rename (FR Configs)
 
 - Added semantic wrapper component:
@@ -1759,3 +1785,21 @@ Why this was important:
 # Notes
 - The repo now assumes shadcn tokens are the single source of truth for theme values.
 - If future language variants are added, keep `src/components` casing consistent and update copy targets in `vite.config.js`.
+
+## 115) LO3 Typed Transform Exercises: Global Actions + Instruction Alerts
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/AnswerTable/AnswerTableRuntime.jsx`:
+  - added optional global-control mode (`useGlobalActions`) for typed-response rows.
+  - introduced shared exercise actions: `Check answers`, `Reset`, `Show answers`.
+  - added per-row status icons (`CircleCheck`/`CircleX`) shown only after check on attempted rows.
+  - added `Info` alert rendering from `instructionsText` / `instructionsTextHTML` in global-control mode.
+  - kept legacy compact `Monologue` row behavior for non-global mode to avoid drift in existing activities.
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/TypedTransformExercise/TypedTransformExercise.jsx`:
+  - now enables `useGlobalActions` and keeps left audio speaker column for consistency.
+- Updated `/Users/ped/Sites/french/french-lo-1/src/learningObjectConfigurations/fr/3.json`:
+  - `typedTransformExercise3` and `typedTransformExercise4` now use instructional alert HTML copy.
+  - added `cheatText: "Show answers"` for consistent global action labeling.
+- Validation:
+  - `yarn build` passes.
+- Why:
+  - aligns LO3 typed transform exercises with the same global interaction model used in other exercises.
+  - avoids per-row check buttons and gives consistent instructional guidance in blue alert panels.

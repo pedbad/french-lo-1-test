@@ -509,8 +509,9 @@
 				"typedTransformExercise3": {
 					"component": "TypedTransformExercise",
 					"congratulationsText": "Superbe !",
+					"cheatText": "Show answers",
 					"id": "typedTransformExercise3",
-					"instructionsText": "Type the feminine form, then click the check button. Listen to the pronunciation of masculine and feminine forms.",
+					"instructionsTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <strong>Check answers</strong> to review your choices, <strong>Show answers</strong> if you get stuck, and <strong>Reset</strong> to try again.</p>",
 					"header": [
 						"Masculine",
 						"feminine",
@@ -590,8 +591,9 @@
 				"typedTransformExercise4": {
 					"component": "TypedTransformExercise",
 					"congratulationsText": "Superbe !",
+					"cheatText": "Show answers",
 					"id": "typedTransformExercise4",
-					"instructionsText": "Type the feminine form, then click the check button. Listen to the pronunciation of masculine and feminine forms.",
+					"instructionsTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <strong>Check answers</strong> to review your choices, <strong>Show answers</strong> if you get stuck, and <strong>Reset</strong> to try again.</p>",
 					"header": [
 						"Masculine",
 						"feminine",
