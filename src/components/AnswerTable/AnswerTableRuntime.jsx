@@ -97,16 +97,12 @@ export class AnswerTableRuntime extends React.PureComponent {
 			const checkedResults = {
 				...prevState.checkedResults,
 			};
-			const diffResults = {
-				...prevState.diffResults,
-			};
 			delete checkedResults[index];
-			delete diffResults[index];
 
 			return {
 				values,
 				checkedResults,
-				diffResults,
+				diffResults: prevState.diffResults,
 				nCorrect: Object.values(checkedResults).filter(Boolean).length,
 			};
 		});
@@ -120,15 +116,20 @@ export class AnswerTableRuntime extends React.PureComponent {
 
 		const checkedResults = {};
 		const diffResults = {};
+		const nextValues = {
+			...values,
+		};
 		for (let i = 0; i < phrases.length; i += 1) {
 			const expected = this.extractExpectedAnswer(phrases[i]?.[1] || "");
 			if (!expected) continue;
 
 			const userValue = values[i];
 			if (userValue === undefined || userValue === null || `${userValue}`.trim() === "") continue;
-			checkedResults[i] = this.isAnswerCorrect(`${userValue}`, expected);
+			const trimmedUserValue = `${userValue}`.trim();
+			nextValues[i] = trimmedUserValue;
+			checkedResults[i] = this.isAnswerCorrect(trimmedUserValue, expected);
 			diffResults[i] = highlightTextDiff(
-				`${userValue}`,
+				trimmedUserValue,
 				expected,
 				() => {},
 				false,
@@ -141,6 +142,7 @@ export class AnswerTableRuntime extends React.PureComponent {
 			diffResults,
 			hasChecked: true,
 			nCorrect: Object.values(checkedResults).filter(Boolean).length,
+			values: nextValues,
 		});
 	};
 
@@ -218,7 +220,8 @@ export class AnswerTableRuntime extends React.PureComponent {
 			phrases = [],
 			values = {},
 		} = this.state;
-		const shouldInlineAudioWithPrompt = useGlobalActions;
+		const hasNonEmptyPromptColumn = phrases.some((phrase) => `${phrase?.[0] || ""}`.trim() !== "");
+		const shouldInlineAudioWithPrompt = useGlobalActions && hasNonEmptyPromptColumn;
 
 		const expectedByRow = phrases.map((phrase) => this.extractExpectedAnswer(phrase?.[1] || ""));
 		const nPhrases = expectedByRow.filter(Boolean).length;
@@ -284,8 +287,11 @@ export class AnswerTableRuntime extends React.PureComponent {
 			}
 
 			if (phrase[0] !== "") {
+				const promptCellClassName = useGlobalActions
+					? (shouldInlineAudioWithPrompt ? "align-top w-[34%]" : "align-top")
+					: undefined;
 				cells.push(
-					<TableCell key={`row${i}cell0`}>
+					<TableCell className={promptCellClassName} key={`row${i}cell0`}>
 						{shouldInlineAudioWithPrompt && soundFile ? (
 							<div className="inline-flex items-center gap-2">
 								<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
@@ -337,6 +343,7 @@ export class AnswerTableRuntime extends React.PureComponent {
 
 			if (phrase[1] !== "" && useGlobalActions) {
 				const rowHasResult = hasChecked && Object.prototype.hasOwnProperty.call(checkedResults, i);
+				const rowHasDiff = hasChecked && Object.prototype.hasOwnProperty.call(diffResults, i);
 				const rowIsCorrect = rowHasResult && checkedResults[i] === true;
 				const userValue = values[i] || "";
 
@@ -347,41 +354,51 @@ export class AnswerTableRuntime extends React.PureComponent {
 					: userValue
 						? "border-[var(--chart-3)] bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)]"
 						: "border-border";
+				const answerCellClassName = useGlobalActions
+					? (shouldInlineAudioWithPrompt ? "align-top w-[66%]" : "align-top")
+					: undefined;
 
 					cells.push(
-						<TableCell key={`row${i}cell1`}>
+						<TableCell className={answerCellClassName} key={`row${i}cell1`}>
 							<div className="space-y-1.5">
-								<div className="flex items-center gap-2">
+								<div className="grid w-full grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-2">
 									<Input
-										className={`min-h-10 text-[var(--font-size-sm)] md:text-base ${inputToneClass}`}
-										onChange={(event) => this.handleInputChange(i, event.target.value)}
-										onKeyDown={(event) => this.handleInputKeyDown(i, event)}
-										placeholder="Type your answer"
-										type="text"
-										value={userValue}
-									/>
-									<span
-										aria-hidden="true"
-										className={`inline-flex h-10 w-10 shrink-0 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
-									>
-										{rowIsCorrect ? <CircleCheck className="h-9 w-9" /> : <CircleX className="h-9 w-9" />}
-									</span>
-								</div>
-								{rowHasResult && diffResults[i] ? (
+									className={`min-h-10 text-[var(--font-size-sm)] md:text-base ${inputToneClass}`}
+									onChange={(event) => this.handleInputChange(i, event.target.value)}
+									onKeyDown={(event) => this.handleInputKeyDown(i, event)}
+									placeholder="Type your answer"
+									type="text"
+									value={userValue}
+								/>
+								<span
+									aria-hidden="true"
+									className={`inline-flex h-10 w-10 shrink-0 items-center justify-center transition-opacity duration-200 ${rowHasResult ? "opacity-100" : "opacity-0"} ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+								>
+									{rowIsCorrect ? <CircleCheck className="h-9 w-9" /> : <CircleX className="h-9 w-9" />}
+								</span>
+							</div>
+							<div className="min-h-8">
+								{rowHasDiff && diffResults[i] ? (
 									<div
 										className="comparison-result compact"
 										dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(diffResults[i]) }}
 									/>
 								) : null}
 							</div>
-						</TableCell>
-					);
-				}
+						</div>
+					</TableCell>
+				);
+			}
 
 			if (longestRow > 2 && !shouldInlineAudioWithPrompt && soundFile) {
 				const audioCell = (
-					<TableCell key={`row${i}cell${soundCellIndex}`}>
-						<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
+					<TableCell
+						className={useGlobalActions ? "align-top w-14" : undefined}
+						key={`row${i}cell${soundCellIndex}`}
+					>
+						<div className={useGlobalActions ? "flex min-h-10 items-center" : undefined}>
+							<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
+						</div>
 					</TableCell>
 				);
 
@@ -410,7 +427,7 @@ export class AnswerTableRuntime extends React.PureComponent {
 			>
 				{htmlContent ? <div className="html-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-				<Table>
+				<Table className={useGlobalActions ? "table-fixed" : undefined}>
 					{header ? (
 						<TableHeader>
 							<TableRow>{headerCells}</TableRow>

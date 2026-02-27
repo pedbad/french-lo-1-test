@@ -9,7 +9,10 @@ export class DictationExercise extends React.PureComponent {
 	render = () => (
 		<AnswerTableRuntime
 			{...this.props}
+			audioClipClassName="super-compact-speaker"
+			audioColumnPosition="left"
 			comparisonOptions={{ comparisonMode: "dictation" }}
+			useGlobalActions={true}
 		/>
 	);
 }
