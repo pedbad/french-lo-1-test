@@ -427,7 +427,7 @@
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup1",
 					"congratulationsText": "Excellent !",
-					"instructionsText": "Listen to the speakers and select the correct adjective of nationality.",
+					"informationTextHTML": "Listen to each audio clip and select the correct nationality adjective. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"items": [
@@ -465,7 +465,7 @@
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup2",
 					"congratulationsText": "Très bien !",
-					"instructionsTextHTML": "Fill in the gaps with <strong>de</strong> / <strong>du</strong> / <strong>d'</strong> / <strong>des</strong> as appropriate.",
+					"informationTextHTML": "Listen to each audio clip and choose the correct form: <strong>de</strong>, <strong>du</strong>, <strong>d'</strong>, or <strong>des</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -511,7 +511,7 @@
 					"congratulationsText": "Superbe !",
 					"cheatText": "Show answers",
 					"id": "typedTransformExercise3",
-					"instructionsTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <strong>Check answers</strong> to review your choices, <strong>Show answers</strong> if you get stuck, and <strong>Reset</strong> to try again.</p>",
+					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
 					"header": [
 						"Masculine",
 						"feminine",
@@ -593,7 +593,7 @@
 					"congratulationsText": "Superbe !",
 					"cheatText": "Show answers",
 					"id": "typedTransformExercise4",
-					"instructionsTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <strong>Check answers</strong> to review your choices, <strong>Show answers</strong> if you get stuck, and <strong>Reset</strong> to try again.</p>",
+					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
 					"header": [
 						"Masculine",
 						"feminine",

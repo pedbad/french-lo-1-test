@@ -1,7 +1,6 @@
 import {
 	AudioClip,
 	IconButton,
-	Info,
 	Monologue,
 	ProgressDots,
 } from "..";
@@ -16,7 +15,7 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import DOMPurify from "dompurify";
-import { CircleCheck, CircleX } from "lucide-react";
+import { CircleCheck, CircleX, Mars, Venus } from "lucide-react";
 import React from "react";
 import {
 	resolveAsset,
@@ -215,8 +214,6 @@ export class AnswerTableRuntime extends React.PureComponent {
 			hasChecked = false,
 			htmlContent,
 			id = [],
-			instructionsText,
-			instructionsTextHTML,
 			nCorrect = 0,
 			phrases = [],
 			values = {},
@@ -247,7 +244,26 @@ export class AnswerTableRuntime extends React.PureComponent {
 			}
 
 			for (let i = 0; i < headerOrder.length; i += 1) {
-				headerCells.push(<TableHead key={`header-cell-${i}`}>{headerOrder[i]}</TableHead>);
+				let headerLabel = headerOrder[i];
+				if (shouldInlineAudioWithPrompt && i < 2) {
+					const lowerLabel = `${headerOrder[i]}`.toLowerCase();
+					if (lowerLabel.includes("mascul")) {
+						headerLabel = (
+							<span className="inline-flex items-center gap-1.5">
+								<Mars aria-hidden="true" className="h-4 w-4" />
+								<span>{headerOrder[i]}</span>
+							</span>
+						);
+					} else if (lowerLabel.includes("fem")) {
+						headerLabel = (
+							<span className="inline-flex items-center gap-1.5">
+								<Venus aria-hidden="true" className="h-4 w-4" />
+								<span>{headerOrder[i]}</span>
+							</span>
+						);
+					}
+				}
+				headerCells.push(<TableHead key={`header-cell-${i}`}>{headerLabel}</TableHead>);
 			}
 		}
 
@@ -393,14 +409,6 @@ export class AnswerTableRuntime extends React.PureComponent {
 				key={`${id}PhraseTable`}
 			>
 				{htmlContent ? <div className="html-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
-
-				{useGlobalActions && (instructionsText || instructionsTextHTML) ? (
-					<Info
-						id={`info-${id}`}
-						informationText={instructionsText}
-						informationTextHTML={instructionsTextHTML}
-					/>
-				) : null}
 
 				<Table>
 					{header ? (
