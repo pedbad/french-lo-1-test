@@ -348,13 +348,22 @@ Latest applied step:
 - LO3 exercises 3/4/5 now use semantic names for typed-table activities:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)
-  - both currently run through the existing `AnswerTable` engine for low-risk migration parity.
+  - both currently run through `AnswerTableRuntime` for low-risk migration parity.
+  - `TypedTransformExercise` now uses global controls (`Check answers`, `Reset`, `Show answers`) with:
+    - Enter-key submit support in input fields
+    - preserved per-row diff feedback (`inserted`/`deleted`) after check
+    - inline audio + masculine term layout (no separate listen column)
+    - header icons (`Mars` / `Venus`) for masculine/feminine columns
+  - `DictationExercise` keeps dictation normalization mode (punctuation/apostrophe/spacing tolerant, accents strict).
 - legacy `Blanks` activities across FR configs (`LO1-LO15` + `demo`) now use semantic `DraggableFillGaps`.
 - runtime compatibility is preserved: `Blanks` remains an alias in `App` while configs use `DraggableFillGaps` as canonical naming.
 - LO1 exercise audio folders for former `phrases2/3/4` are now aligned to semantic names:
   - `draggableFillGaps2`
   - `draggableFillGaps3`
   - `draggableFillGaps4`
+- LO3 exercise instruction alerts now follow the same placement contract as LO1/LO2:
+  - use accordion-level `informationTextHTML` in config
+  - do not render child-level `Info` blocks inside typed exercise runtime (prevents spacing drift)
 
 ## LO3 Navigation Gap Fix
 

@@ -1803,3 +1803,21 @@ Why this was important:
 - Why:
   - aligns LO3 typed transform exercises with the same global interaction model used in other exercises.
   - avoids per-row check buttons and gives consistent instructional guidance in blue alert panels.
+
+## 116) LO3 Exercise Alert Placement + Typed UX Parity Fixes
+- Updated `/Users/ped/Sites/french/french-lo-1/src/components/AnswerTable/AnswerTableRuntime.jsx`:
+  - restored per-row diff rendering in global check mode (keeps inserted/deleted feedback visible).
+  - added Enter-key submission (`Enter` / `NumpadEnter`) for typed inputs.
+  - moved typed layout to two columns by inlining audio with the masculine term (removed separate listen column in typed mode).
+  - added `Mars` / `Venus` header icons for masculine/feminine columns in typed mode.
+  - removed child-level `Info` rendering so instruction alerts are sourced from accordion-level config (LO1/LO2 parity).
+- Updated `/Users/ped/Sites/french/french-lo-1/src/index.css`:
+  - added `.answer-table-container .comparison-result` style scope so diff colors/styles render correctly outside `.monologue-container`.
+- Updated `/Users/ped/Sites/french/french-lo-1/src/learningObjectConfigurations/fr/3.json`:
+  - exercises 1 and 2: added/normalized `informationTextHTML` instruction alerts.
+  - exercises 3 and 4: migrated instruction copy from `instructionsTextHTML` to accordion-level `informationTextHTML`.
+- Validation:
+  - `yarn build` passes.
+- Why:
+  - removes spacing drift of blue instruction alerts in LO3 exercises.
+  - keeps the new global action UX while preserving the earlier diff-based learning feedback.
