@@ -117,6 +117,7 @@
 		"id": "vocabulary",
 		"titleText": "Vocabulary",
 		"instructionsTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core nationality and country vocabulary, including masculine and feminine forms.</li><li>How to identify country gender and number cues used with place names.</li><li>Useful question-and-answer patterns for origin and language use (for example <em>D&apos;où viens-tu ?</em>, <em>Quelles langues parles-tu ?</em>).</li><li>How vocabulary choices support accurate speaking and listening in real interaction.</li></ul>",
 		"content": [
 			{
 				"vocabulary1": {

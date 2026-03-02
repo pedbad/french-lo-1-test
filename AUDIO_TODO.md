@@ -49,6 +49,26 @@ This caused overlap bugs where users could trigger several audio clips concurren
 - Legacy cleanup performed:
   - removed 121 LO3 source files from `public/sounds/fr` that had no remaining references in `src`.
 
+## LO4 Migration Status (Phase 1 Complete)
+
+- Scope covered:
+  - `src/learningObjectConfigurations/fr/4.json`
+  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
+- Result:
+  - 61 unique legacy LO4 refs mapped (`sounds/fr/...` -> `audio/lo4/...`)
+  - 62 references rewritten (includes both `sounds/fr/ain.mp3` and `/sounds/fr/ain.mp3` forms)
+  - 62 files copied to `public/audio/lo4/...`
+  - LO4 migration blocker count: `0`
+- Tracking docs:
+  - `AUDIO_LO4_MIGRATION_MAP.md`
+  - `LO4_AUDIO_BLOCKERS.md`
+- Legacy cleanup performed:
+  - removed 59 LO4 legacy source files from `public/sounds/fr` that had no remaining references in `src`.
+  - retained 3 shared legacy files still referenced outside LO4:
+    - `sounds/fr/aimer.mp3`
+    - `sounds/fr/jardin.mp3`
+    - `sounds/fr/peinture.mp3`
+
 ## Temporary Fix Implemented
 
 As a short-term stabilization, a utility-based global audio stop mechanism was added in `src/utility.js`:

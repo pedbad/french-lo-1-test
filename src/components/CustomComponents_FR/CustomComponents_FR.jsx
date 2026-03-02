@@ -1338,28 +1338,28 @@ export class LO4Demystify extends PureComponent {
 					key={`${id}Panel1`}
 				>
 					<p><strong>How to pronounce:</strong></p>
-					<p>another nasal vowel. This is the sound <AudioClip className={`super-compact`} soundFile={`sounds/fr/ain.mp3`}/>&nbsp;
+					<p>another nasal vowel. This is the sound <AudioClip className={`super-compact`} soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/>&nbsp;
 						which is how the letters <strong>-in-</strong> are pronounced <strong>when they end a word or occur before a consonant</strong> as in these examples:&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/Singapour.mp3`}>S<strong>in</strong>gapour</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/Inde.mp3`}><strong>In</strong>de</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/indien.mp3`}><strong>in</strong>dien</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/Finlande.mp3`}>F<strong>in</strong>lande</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/jardin.mp3`}>jard<strong>in</strong></AudioClip>. The tongue and the mouth all have work to do in its production whilst air passes through nose and mouth.</p>
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/002-singapour.mp3`}>S<strong>in</strong>gapour</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/003-inde.mp3`}><strong>In</strong>de</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/004-indien.mp3`}><strong>in</strong>dien</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/005-finlande.mp3`}>F<strong>in</strong>lande</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/006-jardin.mp3`}>jard<strong>in</strong></AudioClip>. The tongue and the mouth all have work to do in its production whilst air passes through nose and mouth.</p>
 					<p><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way <strong>when they end a word or occur before a consonant:</strong></p>
 					<p><strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.</p>
 					<p>Here are some examples of words containing the sound to practise:</p>
-					<p><AudioClip className={`link`} soundFile={`sounds/fr/marocain.mp3`}>maroc<strong>ain</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/faim.mp3`}>f<strong>aim</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/peinture.mp3`}>p<strong>ein</strong>ture</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/impossible.mp3`}><strong>im</strong>possible</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/symbole.mp3`}>s<strong>ym</strong>bole</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/lynx.mp3`}>l<strong>yn</strong>x</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/Reims.mp3`}>R<strong>eim</strong>s</AudioClip>.</p>
+					<p><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/007-marocain.mp3`}>maroc<strong>ain</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/008-faim.mp3`}>f<strong>aim</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/009-peinture.mp3`}>p<strong>ein</strong>ture</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/010-impossible.mp3`}><strong>im</strong>possible</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/011-symbole.mp3`}>s<strong>ym</strong>bole</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/012-lynx.mp3`}>l<strong>yn</strong>x</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/013-reims.mp3`}>R<strong>eim</strong>s</AudioClip>.</p>
 					<p>When the letters <strong>en</strong> or <strong>ens</strong> end a word this also pronounced (ain) </p>
-					<p><AudioClip className={`link`} soundFile={`sounds/fr/australien.mp3`}>australi<strong>en</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/européen.mp3`}>europé<strong>en</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/ghanéens.mp3`}>ghané<strong>ens</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/indiens.mp3`}>indi<strong>ens</strong></AudioClip>.</p>
+					<p><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/014-australien.mp3`}>australi<strong>en</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/015-europ-eeneurop-en.mp3`}>europé<strong>en</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/016-ghan-eensghan-ens.mp3`}>ghané<strong>ens</strong></AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/017-indiens.mp3`}>indi<strong>ens</strong></AudioClip>.</p>
 				</div>
 			</div>
 		);
@@ -1381,10 +1381,10 @@ export class LO4EX1 extends PureComponent{
 					key={`${id}Panel1`}
 				>
 					<p>Listen to the following nonsense rhyme. You should be able to identify numerous examples of the sound&nbsp;
-						<AudioClip className={`super-compact`} soundFile={`sounds/fr/ain.mp3`}/>.
+						<AudioClip className={`super-compact`} soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/>.
 						Read the nonsense rhyme out loud to practise the Pronunciation</p>
 					<div className={`two-columns`}>
-						<p><strong>Tu aimes… ?</strong>&nbsp;<AudioClip className={`compact`} soundFile={`sounds/fr/nonsense-rhyme.mp3`}/><br/>
+						<p><strong>Tu aimes… ?</strong>&nbsp;<AudioClip className={`compact`} soundFile={`/audio/lo4/exercises/lo4exercise1/001-nonsense-rhyme.mp3`}/><br/>
 					Tu aimes Quent<strong>in</strong> ?<br/>
 					Je n'aime pas Quent<strong>in</strong>, <br/>
 					Il lit T<strong>in</strong>t<strong>in</strong> ! <br/>

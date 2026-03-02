@@ -2,6 +2,26 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-02 - LO4 Audio Migration + Legacy Cleanup
+
+- Migrated LO4 legacy audio refs from `sounds/fr/...` to `audio/lo4/...` in:
+  - `src/learningObjectConfigurations/fr/4.json`
+  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
+- Added LO4 migration map and blocker docs:
+  - `AUDIO_LO4_MIGRATION_MAP.md`
+  - `LO4_AUDIO_BLOCKERS.md`
+- Migration summary:
+  - 61 unique legacy refs mapped
+  - 62 references rewritten (both `/sounds/fr/ain.mp3` and `sounds/fr/ain.mp3` forms)
+  - 62 files copied to `public/audio/lo4/...`
+  - 0 missing source files for LO4 migration scope
+- Legacy cleanup:
+  - deleted 59 LO4 legacy source files from `public/sounds/fr` that had no remaining references anywhere in `src`.
+  - retained 3 shared files still referenced outside LO4:
+    - `sounds/fr/aimer.mp3`
+    - `sounds/fr/jardin.mp3`
+    - `sounds/fr/peinture.mp3`
+
 ## 2026-02-26 - Typed Exercise Runtime Decoupling (Baby Step)
 
 - Added shared runtime component:

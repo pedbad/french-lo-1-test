@@ -675,6 +675,21 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Legacy cleanup:
   - removed LO3 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
 
+## LO4 Audio Migration Status
+
+- LO4 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo4/...` in:
+  - `/Users/ped/Sites/french/french-lo-1/src/learningObjectConfigurations/fr/4.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
+- New LO4 root:
+  - `public/audio/lo4/...`
+- Migration record:
+  - `/Users/ped/Sites/french/french-lo-1/AUDIO_LO4_MIGRATION_MAP.md`
+- Blocker record:
+  - `/Users/ped/Sites/french/french-lo-1/LO4_AUDIO_BLOCKERS.md`
+- Legacy cleanup:
+  - removed 59 LO4 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
+  - retained `sounds/fr/aimer.mp3`, `sounds/fr/jardin.mp3`, and `sounds/fr/peinture.mp3` because they are still referenced by non-LO4 content.
+
 ## Separators (shadcn/Radix)
 
 Divider lines now use the shadcn `Separator` component (`src/components/ui/separator.jsx`) so spacing and color are token-driven and consistent with the theme.
