@@ -2,6 +2,34 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-03 - Shared Learning Table Variant + LO4 Grammar Table Alignment
+
+- Added shared table variant support in:
+  - `src/components/ui/table.jsx`
+  - new variant: `learning`
+- Updated PhraseTable to use shared learning variant:
+  - `src/components/PhraseTable/PhraseTable.jsx`
+- Updated LO4 grammar reference table to use the same shared learning variant:
+  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Grammar1`)
+- Removed redundant PhraseTable-only table skin rules now covered by the shared variant:
+  - `src/index.css`
+  - removed duplicated rules for table top margin, row background, and row hover color in `.phrases-table-container ...`
+- Result:
+  - dialogue/vocabulary and LO4 grammar tables are now aligned through a shared shadcn table variant path, reducing per-section styling drift.
+
+## 2026-03-03 - Future LO Refactor Master Checklist
+
+- Added cross-LO process checklist:
+  - `FUTURE_LO_REFACTOR_CHECKLIST.md`
+- Checklist covers:
+  - audio migration and cleanup safety
+  - section architecture parity checks
+  - grammar/pronunciation consistency checks
+  - exercise semantic naming checks
+  - table variant consistency checks
+  - accessibility/regression/build validation
+  - documentation sync (no drift)
+
 ## 2026-03-02 - LO4 Audio Migration + Legacy Cleanup
 
 - Migrated LO4 legacy audio refs from `sounds/fr/...` to `audio/lo4/...` in:

@@ -1618,22 +1618,9 @@
 		padding-inline: 0.4rem;
 	}
 
-	.phrases-table-container table {
-		margin-top: 1rem;
-	}
-
-	.phrases-table-container table tbody tr {
-		background-color: var(--card);
-	}
-
 	.phrases-table-container table tbody tr.has-audio-row td:nth-child(2) span,
 	.phrases-table-container table tbody tr.has-audio-row td:nth-child(3) span {
 		font-size: calc(var(--font-size-base) * 1.2);
-	}
-
-	.phrases-table-container table tbody tr:hover {
-		background-color: color-mix(in oklab, var(--muted) 70%, transparent);
-		color: var(--chart-2);
 	}
 
 	.phrases-table-container table tbody tr td span {

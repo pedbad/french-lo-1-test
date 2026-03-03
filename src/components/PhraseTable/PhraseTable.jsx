@@ -280,7 +280,7 @@ export class PhraseTable extends React.PureComponent {
 					</div>
 					: null}
 
-				<Table>
+				<Table variant="learning">
 					<TableCaption className="sr-only">
 						Phrase and translation table
 					</TableCaption>

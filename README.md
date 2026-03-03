@@ -435,6 +435,7 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1/COLOR_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1/HTML_ACCESSIBILITY_ISSUES.md`
 - `/Users/ped/Sites/french/french-lo-1/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
+- `/Users/ped/Sites/french/french-lo-1/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
 - `/Users/ped/Sites/french/french-lo-1/FONTS_PROBLEM.md` (build asset duplication root-cause note)
 - `/Users/ped/Sites/french/french-lo-1/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 
@@ -689,6 +690,15 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Legacy cleanup:
   - removed 59 LO4 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
   - retained `sounds/fr/aimer.mp3`, `sounds/fr/jardin.mp3`, and `sounds/fr/peinture.mp3` because they are still referenced by non-LO4 content.
+
+## Shared Table Variants
+
+- `src/components/ui/table.jsx` now supports reusable table variants.
+- `variant="learning"` centralizes learner-facing table look/feel (top spacing + row background/hover treatment).
+- Current adopters:
+  - `src/components/PhraseTable/PhraseTable.jsx`
+  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Grammar1`)
+- Goal: reduce per-section table CSS drift by moving repeated styling into the shared shadcn table layer.
 
 ## Separators (shadcn/Radix)
 

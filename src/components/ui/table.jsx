@@ -2,14 +2,44 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const Table = React.forwardRef(({ className, ...props }, ref) => (
-	<div className="relative w-full overflow-auto">
-		<table
-			ref={ref}
-			className={cn("w-full caption-bottom text-sm", className)}
-			{...props} />
-	</div>
-));
+const TABLE_VARIANTS = {
+	default: {
+		caption: "mt-4 text-sm text-muted-foreground",
+		cell: "p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+		head: "h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+		row: "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+		table: "w-full caption-bottom text-sm",
+		wrapper: "relative w-full overflow-auto",
+	},
+	learning: {
+		caption: "mt-4 text-sm text-muted-foreground",
+		cell: "p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+		head: "h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+		row: "border-b bg-card transition-colors hover:bg-[color-mix(in_oklab,var(--muted)_70%,transparent)] hover:text-[var(--chart-2)] data-[state=selected]:bg-muted",
+		table: "mt-4 w-full caption-bottom text-sm",
+		wrapper: "relative w-full overflow-auto",
+	},
+};
+
+const resolveTableVariant = (variant) =>
+	Object.prototype.hasOwnProperty.call(TABLE_VARIANTS, variant) ? variant : "default";
+
+const TableVariantContext = React.createContext("default");
+
+const Table = React.forwardRef(({ className, variant = "default", ...props }, ref) => {
+	const resolvedVariant = resolveTableVariant(variant);
+	const classes = TABLE_VARIANTS[resolvedVariant];
+	return (
+		<TableVariantContext.Provider value={resolvedVariant}>
+			<div className={classes.wrapper}>
+				<table
+					ref={ref}
+					className={cn(classes.table, className)}
+					{...props} />
+			</div>
+		</TableVariantContext.Provider>
+	);
+});
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef(({ className, ...props }, ref) => (
@@ -33,45 +63,52 @@ const TableFooter = React.forwardRef(({ className, ...props }, ref) => (
 ));
 TableFooter.displayName = "TableFooter";
 
-const TableRow = React.forwardRef(({ className, ...props }, ref) => (
-	<tr
-		ref={ref}
-		className={cn(
-			"border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
-			className
-		)}
-		{...props} />
-));
+const TableRow = React.forwardRef(({ className, ...props }, ref) => {
+	const variant = React.useContext(TableVariantContext);
+	const classes = TABLE_VARIANTS[resolveTableVariant(variant)];
+	return (
+		<tr
+			ref={ref}
+			className={cn(classes.row, className)}
+			{...props} />
+	);
+});
 TableRow.displayName = "TableRow";
 
-const TableHead = React.forwardRef(({ className, ...props }, ref) => (
-	<th
-		ref={ref}
-		className={cn(
-			"h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-			className
-		)}
-		{...props} />
-));
+const TableHead = React.forwardRef(({ className, ...props }, ref) => {
+	const variant = React.useContext(TableVariantContext);
+	const classes = TABLE_VARIANTS[resolveTableVariant(variant)];
+	return (
+		<th
+			ref={ref}
+			className={cn(classes.head, className)}
+			{...props} />
+	);
+});
 TableHead.displayName = "TableHead";
 
-const TableCell = React.forwardRef(({ className, ...props }, ref) => (
-	<td
-		ref={ref}
-		className={cn(
-			"p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-			className
-		)}
-		{...props} />
-));
+const TableCell = React.forwardRef(({ className, ...props }, ref) => {
+	const variant = React.useContext(TableVariantContext);
+	const classes = TABLE_VARIANTS[resolveTableVariant(variant)];
+	return (
+		<td
+			ref={ref}
+			className={cn(classes.cell, className)}
+			{...props} />
+	);
+});
 TableCell.displayName = "TableCell";
 
-const TableCaption = React.forwardRef(({ className, ...props }, ref) => (
-	<caption
-		ref={ref}
-		className={cn("mt-4 text-sm text-muted-foreground", className)}
-		{...props} />
-));
+const TableCaption = React.forwardRef(({ className, ...props }, ref) => {
+	const variant = React.useContext(TableVariantContext);
+	const classes = TABLE_VARIANTS[resolveTableVariant(variant)];
+	return (
+		<caption
+			ref={ref}
+			className={cn(classes.caption, className)}
+			{...props} />
+	);
+});
 TableCaption.displayName = "TableCaption";
 
 export {

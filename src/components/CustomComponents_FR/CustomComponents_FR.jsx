@@ -1004,7 +1004,7 @@ export class LO3Grammar extends PureComponent {
 						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/007-danser.mp3`}>danser</AudioClip> (to dance) are examples of <strong>-er</strong> verbs.</p>
 					<p><strong>NB</strong> There is only <strong>ONE present tense</strong> in French, so you translate je parle either as 'I speak' or 'I am speaking'
 						depending on the context.</p>
-					<Table>
+					<Table variant="learning">
 						<thead>
 							<TableRow>
 								<th>
