@@ -12,8 +12,8 @@ import {
 	Table,
 	TableBody,
 	TableCell,
-	// TableHead,
-	// TableHeader,
+	TableHead,
+	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
 import { Separator } from "@/components/ui/separator";
@@ -1360,6 +1360,53 @@ export class LO4Demystify extends PureComponent {
 						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/015-europ-eeneurop-en.mp3`}>europé<strong>en</strong></AudioClip>,&nbsp;
 						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/016-ghan-eensghan-ens.mp3`}>ghané<strong>ens</strong></AudioClip>,&nbsp;
 						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/017-indiens.mp3`}>indi<strong>ens</strong></AudioClip>.</p>
+				</div>
+			</div>
+		);
+	};
+}
+
+export class LO4Grammar1 extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div
+				className={`lo4-grammar-container`}
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div
+					className={`panel !mt-0 !pt-2`}
+					id={id ? `${id}Panel1` : undefined}
+					key={`${id}Panel1`}
+				>
+					<p style={{ marginTop: 0 }}>
+						In French there are several words that translate the word <strong>in</strong>. If you are saying{" "}
+						<strong>in</strong> with a proper noun (a place name), you will use{" "}
+						<strong>à</strong>, <strong>en</strong>, <strong>au</strong>, <strong>aux</strong>, or{" "}
+						<strong>dans le</strong> depending on context.
+					</p>
+					<p>The chart below shows when each form is used:</p>
+					<Table>
+						<TableHeader>
+							<TableRow>
+								<TableHead>Form</TableHead>
+								<TableHead>Examples</TableHead>
+								<TableHead>Use</TableHead>
+							</TableRow>
+						</TableHeader>
+						<TableBody>
+							<TableRow><TableCell>à</TableCell><TableCell>Londres, Cambridge, Marseille</TableCell><TableCell>towns, cities, villages</TableCell></TableRow>
+							<TableRow><TableCell>à</TableCell><TableCell>Singapour, Hongkong, Taiwan</TableCell><TableCell>islands and archipelagos without gender</TableCell></TableRow>
+							<TableRow><TableCell>au</TableCell><TableCell>Maroc, Canada, Chili</TableCell><TableCell>masculine countries beginning with a consonant</TableCell></TableRow>
+							<TableRow><TableCell>en</TableCell><TableCell>France, Suisse, Chine</TableCell><TableCell>all feminine countries</TableCell></TableRow>
+							<TableRow><TableCell>en</TableCell><TableCell>Afghanistan, Iran, Andorre</TableCell><TableCell>masculine countries beginning with a vowel</TableCell></TableRow>
+							<TableRow><TableCell>en</TableCell><TableCell>Provence, Nouvelle Calédonie</TableCell><TableCell>feminine provinces and regions</TableCell></TableRow>
+							<TableRow><TableCell>en</TableCell><TableCell>Océanie, Afrique, Amérique du nord / du sud, Europe, Asie, Antarctique</TableCell><TableCell>the continents</TableCell></TableRow>
+							<TableRow><TableCell>aux</TableCell><TableCell>Pays Bas, Seychelles, États-Unis</TableCell><TableCell>plurals</TableCell></TableRow>
+							<TableRow><TableCell>dans le</TableCell><TableCell>Cambridgeshire, Derbyshire, Pas-de-Calais, Colorado</TableCell><TableCell>masculine provinces and regions including some British counties</TableCell></TableRow>
+						</TableBody>
+					</Table>
 				</div>
 			</div>
 		);

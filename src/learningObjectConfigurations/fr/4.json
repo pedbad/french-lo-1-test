@@ -232,14 +232,29 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "Explanation",
+		"component": "Group",
 		"content": [
-			"<p>In French there are several words that translate the word '<strong>in</strong>'. If you are saying '<strong>in</strong>' <strong>with a proper noun</strong> i.e. a place name, you will see <strong>à</strong>, <strong>en</strong>, <strong>au</strong>, <strong>aux</strong>, <strong>dans le</strong>. The chart below shows when each of these is used.</p><table><tbody><tr><td>à</td><td>Londres, Cambridge, Marseille</td><td>towns, cities, villages</td></tr><tr><td>à</td><td>Singapour, Hongkong, Taiwan</td><td>islands and archipelagos without gender</td></tr><tr><td>au</td><td>Maroc, Canada, Chili</td><td>masculine countries beginning with a consonant</td></tr><tr><td>en</td><td>France, Suisse, Chine</td><td>all feminine countries</td></tr><tr><td>en</td><td>Afghanistan, Iran, Andorre</td><td>masculine countries beginning with a vowel</td></tr><tr><td>en</td><td>Provence, Nouvelle Calédonie</td><td>feminine provinces and regions </td></tr><tr><td>en</td><td>Océanie, Afrique, Amérique du nord / du sud, Europe, Asie, Antarctique</td><td>the continents</td></tr><tr><td>aux</td><td>Pays Bas, Seychelles, États-Unis</td><td>plurals</td></tr><tr><td>dans le</td><td>Cambridgeshire, Derbyshire, Pas-de-Calais, Colorado</td><td>masculine provinces and regions including the British counties</td></tr></tbody></table>"
+			{
+				"grammar1": {
+					"component": "LO4Grammar1",
+					"id": "grammar1",
+					"infoTextHTML": "In this section, you will learn how French expresses location with different forms of <em class='grammar-term-em'>in</em> before place names.<p>You will learn:</p><ul><li>How to choose between <em class='grammar-term-em'>à</em>, <em class='grammar-term-em'>en</em>, <em class='grammar-term-em'>au</em>, <em class='grammar-term-em'>aux</em>, and <em class='grammar-term-em'>dans le</em>.</li><li>How gender, number, and initial sound affect the form used.</li><li>How to apply these forms in real location sentences.</li></ul>",
+					"titleTextHTML": "1. Expressing <em class='grammar-term-em'>in</em> with place names"
+				}
+			}
 		],
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
-		"titleText": "Grammar and Usage"
+		"titleText": "Grammar and Usage",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section introduces key grammar and usage for expressing location in French, focusing on how the English word <em class='grammar-term-em'>in</em> changes form with different place names.</p>",
+			"image": {
+				"src": "img/shared/grammar.svg",
+				"alt": "Grammar illustration"
+			}
+		},
+		"heroSection": true
 	},
 	"pronunciation": {
 		"component": "LO4Demystify",

@@ -26,13 +26,19 @@ export class Explanation extends React.PureComponent {
 		const {
 			content = [],
 			htmlContent,
-			id
+			id,
+			panelClassName,
 		} = config;
 		const contents = [];
 		if (content.length) {
 			for (let i = 0; i < content.length; i++) {
 				contents.push(
-					<Panel id={`${id}-${i}`} content={content[i]} key={`${id}-Panel${i}`}></Panel>
+					<Panel
+						className={panelClassName}
+						id={`${id}-${i}`}
+						content={content[i]}
+						key={`${id}-Panel${i}`}
+					></Panel>
 				);
 			}
 		}

@@ -101,7 +101,13 @@ export function AccordionArticle({
 
 	const contentId = `${id}-content`;
 	const headingId = target ? `${target}-heading` : `section-title-${id}`;
-	const { informationText, informationTextHTML } = config || {};
+	const {
+		informationText,
+		informationTextHTML,
+		informationAlertType,
+		infoAlertType,
+	} = config || {};
+	const resolvedInfoAlertType = informationAlertType || infoAlertType;
 	const hasInfo = Boolean(informationText || informationTextHTML);
 	const shouldSuppressChildInfo = hasInfo;
 	const RootTag = semanticAs === "section" ? "section" : "article";
@@ -170,6 +176,7 @@ export function AccordionArticle({
 								{hasInfo ? (
 									<Info
 										id={`info-${id}`}
+										alertType={resolvedInfoAlertType}
 										informationText={informationText}
 										informationTextHTML={informationTextHTML}
 									/>
@@ -180,12 +187,13 @@ export function AccordionArticle({
 							<Card className="w-full sortable mt-2 border border-t-0 rounded-t-none">
 								<CardContent className="p-2 accordion-card-content">
 									{hasInfo ? (
-										<Info
-											id={`info-${id}`}
-											informationText={informationText}
-											informationTextHTML={informationTextHTML}
-										/>
-									) : null}
+									<Info
+										id={`info-${id}`}
+										alertType={resolvedInfoAlertType}
+										informationText={informationText}
+										informationTextHTML={informationTextHTML}
+									/>
+								) : null}
 									{renderedChildren}
 								</CardContent>
 							</Card>
