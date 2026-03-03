@@ -6,7 +6,11 @@ Pronunciation sections now share the same **section architecture**:
 - `Group` + `displayAsTabs: true` in config
 - rendered through the shared tabs path in `src/App.jsx`
 
-This is true for LO1 and LO2.
+This is true for LO1, LO2, and LO3.
+
+LO4 is currently the outlier:
+- `src/learningObjectConfigurations/fr/4.json` uses `component: "LO4Demystify"` for the whole pronunciation section.
+- It bypasses the shared Group+Tabs shell and increases drift risk.
 
 However, LO1 and LO2 still use different **tab body components**:
 - LO1 tab bodies: `LO1Demystify1`, `LO1Demystify2`, `LO1Demystify3`, `LO1Demystify4`
@@ -79,6 +83,29 @@ Introduce one shared pronunciation topic renderer:
 - Move `LO1Demystify1..4` to config-driven data.
 
 5. Roll out to remaining LOs with pronunciation sections.
+
+## LO4 Alignment Plan (Proposed)
+
+1. Move LO4 pronunciation section to shared architecture in config:
+- `component: "Group"`
+- `displayAsTabs: true`
+- section title remains `Pronunciation Focus — Demystifying French Pronunciation`
+
+2. Split current LO4 pronunciation content into tab topics:
+- `1. The nasal sound "in / ain"`
+- `2. Related spellings and examples` (for `aim/ein/im/ym/yn/eim`)
+- `3. Final "en / ens" forms`
+
+3. Provide per-tab instructional `Info` copy matching LO1–LO3 rhythm.
+
+4. Replace long inline comma chains with stacked audio lines where readability benefits.
+
+5. Remove inline visual styling in pronunciation body content and rely on shared tokenized classes.
+
+6. Validate parity:
+- desktop/mobile tab behavior
+- audio playback behavior (single-active global policy)
+- heading/spacing consistency with LO1–LO3.
 
 ## Practical Guidance
 

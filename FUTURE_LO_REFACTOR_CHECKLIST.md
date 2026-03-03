@@ -28,9 +28,12 @@ Use this checklist for each new LO (LO4 onward) to avoid architecture and stylin
 ## 4) Pronunciation Consistency
 
 - [ ] Align title format with shared standard (`Pronunciation Focus — ...`).
-- [ ] Use tabs when section structure in other LOs is tabbed.
+- [ ] Use shared pronunciation section architecture: `component: "Group"` + `displayAsTabs: true`.
+- [ ] Avoid monolithic LO-specific pronunciation blocks (for example single large `LOxDemystify` renderers) once a refactor starts.
+- [ ] Keep even single-topic pronunciation sections inside the tabs shell for cross-LO consistency.
 - [ ] Include per-tab instructional alert copy.
-- [ ] Ensure list/audio presentation matches prior LO UX patterns.
+- [ ] Ensure list/audio presentation matches prior LO UX patterns (stacked one-item-per-line where needed, same `AudioClip` behavior).
+- [ ] Avoid per-LO inline visual hacks in pronunciation content (`float`, inline border styles, ad-hoc spacing); use shared classes/tokens.
 
 ## 5) Exercise Semantics + Naming
 

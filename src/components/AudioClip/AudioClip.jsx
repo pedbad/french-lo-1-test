@@ -169,21 +169,21 @@ export class AudioClip extends React.PureComponent {
 					key={id}
 					onPlay={(e) => this.notePlaying(e, true)}
 					ref={this.audioRef}
-				><source src={soundFile} /></audio>
+				><source src={resolveAsset(soundFile)} /></audio>
 			);
 		} else {
 			if (listenText !== '') {
 				return (
 					<label className='audio-clip' htmlFor={`${id}`}>{listenText}{listenText === '' ? '' : ':'}&nbsp;
 						<audio
-							aria-label={listenText || "Audio clip"}
+					aria-label={listenText || "Audio clip"}
 							className={`${className ? className : ''}`}
 							controls
 							id={`${id}`}
 							key={id}
 							onPlay={(e) => this.notePlaying(e, true)}
 							ref={this.audioRef}
-						><source src={soundFile}
+						><source src={resolveAsset(soundFile)}
 							/></audio>
 					</label>
 				);
@@ -197,7 +197,7 @@ export class AudioClip extends React.PureComponent {
 						key={id}
 						onPlay={(e) => this.notePlaying(e, true)}
 						ref={this.audioRef}
-					><source src={soundFile} /></audio></div>
+					><source src={resolveAsset(soundFile)} /></audio></div>
 				);
 			}
 		}

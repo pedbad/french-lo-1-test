@@ -7,6 +7,7 @@ import {
 	PhraseTable,
 	RadioQuiz
 } from '..';
+import { SequenceAudioController } from "../SequenceAudioController";
 import { Component, PureComponent } from 'react';
 import {
 	Table,
@@ -701,16 +702,19 @@ export class LO2Pronunciation1 extends PureComponent {
 						<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/004-bibliothecaire.mp3`} alt={`bibliothécaire`}>bibliothécair<strong>e</strong></AudioClip></div>
 						<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/005-celibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></div>
 					</div>
-					<p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/002-ce.mp3`}>ce</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/003-de.mp3`}>de</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/008-je.mp3`}>je</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}>le</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/011-me.mp3`}>me</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/012-ne.mp3`}>ne</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/017-se.mp3`}>se</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/018-te.mp3`}>te</AudioClip></p>
+					<Info variant="warning">
+						<p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p>
+						<p>
+							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/002-ce.mp3`}>ce</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/003-de.mp3`}>de</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/008-je.mp3`}>je</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}>le</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/011-me.mp3`}>me</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/012-ne.mp3`}>ne</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/017-se.mp3`}>se</AudioClip>,&nbsp;
+							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/018-te.mp3`}>te</AudioClip>
+						</p>
+					</Info>
 				</div>
 			</div>
 		);
@@ -1176,6 +1180,7 @@ export class LO3Pronunciation1 extends PureComponent {
 					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
+					<h3>1. Silent <em>-ent</em> endings</h3>
 					<p>The third person verb ending <strong>ent</strong> is never pronounced. For example:</p>
 					<div className={`mb-0 ml-2 space-y-1`}>
 						<div><AudioClip className={`link`} soundFile={`audio/lo3/shared/026-ils-parlent.mp3`}>Ils parl<strong>ent</strong></AudioClip></div>
@@ -1202,6 +1207,7 @@ export class LO3Pronunciation2 extends PureComponent {
 					id={id ? `${id}Panel2` : undefined}
 					key={`${id}Panel2`}
 				>
+					<h3>2. Final consonants and liaison</h3>
 					<p>Usually, the consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. However, these are sounded when the next word begins with a vowel or mute <strong>h</strong>. This is known as making a liaison.</p>
 					<p>Compare these:</p>
 					<div className={`mb-0 ml-2 space-y-1`}>
@@ -1238,7 +1244,7 @@ export class LO3Pronunciation3 extends PureComponent {
 					id={id ? `${id}Panel3` : undefined}
 					key={`${id}Panel3`}
 				>
-					<p>The sound: <strong>'eh'</strong></p>
+					<h3>3. The sound "eh"</h3>
 					<p>Listen to the following:</p>
 					<div className={`mb-0 ml-2 space-y-1`}>
 						<div><AudioClip className={`link`} soundFile={`audio/lo3/shared/064-vous-parlez.mp3`}>vous parl<strong>ez</strong></AudioClip></div>
@@ -1323,43 +1329,96 @@ export class LO3Demystify extends PureComponent {
 	};
 }
 
-export class LO4Demystify extends PureComponent {
+export class LO4Pronunciation1 extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
 			<div
-				className={`lo4-demystify-container container`}
+				className={`lo4-pronunciation1-container container`}
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
-					className={`panel`}
+					className={`panel pronunciation-panel`}
 					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
+					<h3>1. The nasal sound "in / ain"</h3>
 					<p><strong>How to pronounce:</strong></p>
-					<p>another nasal vowel. This is the sound <AudioClip className={`super-compact`} soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/>&nbsp;
-						which is how the letters <strong>-in-</strong> are pronounced <strong>when they end a word or occur before a consonant</strong> as in these examples:&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/002-singapour.mp3`}>S<strong>in</strong>gapour</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/003-inde.mp3`}><strong>In</strong>de</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/004-indien.mp3`}><strong>in</strong>dien</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/005-finlande.mp3`}>F<strong>in</strong>lande</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/006-jardin.mp3`}>jard<strong>in</strong></AudioClip>. The tongue and the mouth all have work to do in its production whilst air passes through nose and mouth.</p>
-					<p><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way <strong>when they end a word or occur before a consonant:</strong></p>
-					<p><strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.</p>
-					<p>Here are some examples of words containing the sound to practise:</p>
-					<p><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/007-marocain.mp3`}>maroc<strong>ain</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/008-faim.mp3`}>f<strong>aim</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/009-peinture.mp3`}>p<strong>ein</strong>ture</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/010-impossible.mp3`}><strong>im</strong>possible</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/011-symbole.mp3`}>s<strong>ym</strong>bole</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/012-lynx.mp3`}>l<strong>yn</strong>x</AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/013-reims.mp3`}>R<strong>eim</strong>s</AudioClip>.</p>
-					<p>When the letters <strong>en</strong> or <strong>ens</strong> end a word this also pronounced (ain) </p>
-					<p><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/014-australien.mp3`}>australi<strong>en</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/015-europ-eeneurop-en.mp3`}>europé<strong>en</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/016-ghan-eensghan-ens.mp3`}>ghané<strong>ens</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/017-indiens.mp3`}>indi<strong>ens</strong></AudioClip>.</p>
+					<p>Another nasal vowel sound in French: <AudioClip className={`super-compact`} soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/> (<strong>in / ain</strong>). This is how the letters <strong>-in-</strong> are pronounced <strong>when they end a word or occur before a consonant</strong>.</p>
+					<p>The tongue and the mouth all have work to do in its production whilst air passes through nose and mouth.</p>
+					<p>Listen to these examples:</p>
+					<div className={`mb-0 ml-2 space-y-1`}>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/002-singapour.mp3`}>S<strong>in</strong>gapour</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/003-inde.mp3`}><strong>In</strong>de</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/004-indien.mp3`}><strong>in</strong>dien</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/005-finlande.mp3`}>F<strong>in</strong>lande</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/006-jardin.mp3`}>jard<strong>in</strong></AudioClip></div>
+					</div>
+				</div>
+			</div>
+		);
+	};
+}
+
+export class LO4Pronunciation2 extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div
+				className={`lo4-pronunciation2-container container`}
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div
+					className={`panel pronunciation-panel`}
+					id={id ? `${id}Panel2` : undefined}
+					key={`${id}Panel2`}
+				>
+					<h3>2. Related spellings with the same sound</h3>
+					<Info variant="warning">
+						<p><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</p>
+						<p><strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.</p>
+					</Info>
+					<p>Here are some examples of words containing this nasal vowel sound to practise:</p>
+					<div className={`mb-0 ml-2 space-y-1`}>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/007-marocain.mp3`}>maroc<strong>ain</strong></AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/008-faim.mp3`}>f<strong>aim</strong></AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/009-peinture.mp3`}>p<strong>ein</strong>ture</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/010-impossible.mp3`}><strong>im</strong>possible</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/011-symbole.mp3`}>s<strong>ym</strong>bole</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/012-lynx.mp3`}>l<strong>yn</strong>x</AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/013-reims.mp3`}>R<strong>eim</strong>s</AudioClip></div>
+					</div>
+				</div>
+			</div>
+		);
+	};
+}
+
+export class LO4Pronunciation3 extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div
+				className={`lo4-pronunciation3-container container`}
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div
+					className={`panel pronunciation-panel`}
+					id={id ? `${id}Panel3` : undefined}
+					key={`${id}Panel3`}
+				>
+					<h3>3. Final "en / ens" with the same sound</h3>
+					<p>When the letters <strong>en</strong> or <strong>ens</strong> end a word, this is also pronounced (ain).</p>
+					<p>Listen to these examples:</p>
+					<div className={`mb-0 ml-2 space-y-1`}>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/014-australien.mp3`}>australi<strong>en</strong></AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/015-europ-eeneurop-en.mp3`}>europé<strong>en</strong></AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/016-ghan-eensghan-ens.mp3`}>ghané<strong>ens</strong></AudioClip></div>
+						<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/017-indiens.mp3`}>indi<strong>ens</strong></AudioClip></div>
+					</div>
 				</div>
 			</div>
 		);
@@ -1386,27 +1445,35 @@ export class LO4Grammar1 extends PureComponent {
 						<strong>à</strong>, <strong>en</strong>, <strong>au</strong>, <strong>aux</strong>, or{" "}
 						<strong>dans le</strong> depending on context.
 					</p>
+					<Separator className="my-3 bg-border-subtle" />
 					<p>The chart below shows when each form is used:</p>
-					<Table>
-						<TableHeader>
-							<TableRow>
-								<TableHead>Form</TableHead>
-								<TableHead>Examples</TableHead>
-								<TableHead>Use</TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							<TableRow><TableCell>à</TableCell><TableCell>Londres, Cambridge, Marseille</TableCell><TableCell>towns, cities, villages</TableCell></TableRow>
-							<TableRow><TableCell>à</TableCell><TableCell>Singapour, Hongkong, Taiwan</TableCell><TableCell>islands and archipelagos without gender</TableCell></TableRow>
-							<TableRow><TableCell>au</TableCell><TableCell>Maroc, Canada, Chili</TableCell><TableCell>masculine countries beginning with a consonant</TableCell></TableRow>
-							<TableRow><TableCell>en</TableCell><TableCell>France, Suisse, Chine</TableCell><TableCell>all feminine countries</TableCell></TableRow>
-							<TableRow><TableCell>en</TableCell><TableCell>Afghanistan, Iran, Andorre</TableCell><TableCell>masculine countries beginning with a vowel</TableCell></TableRow>
-							<TableRow><TableCell>en</TableCell><TableCell>Provence, Nouvelle Calédonie</TableCell><TableCell>feminine provinces and regions</TableCell></TableRow>
-							<TableRow><TableCell>en</TableCell><TableCell>Océanie, Afrique, Amérique du nord / du sud, Europe, Asie, Antarctique</TableCell><TableCell>the continents</TableCell></TableRow>
-							<TableRow><TableCell>aux</TableCell><TableCell>Pays Bas, Seychelles, États-Unis</TableCell><TableCell>plurals</TableCell></TableRow>
-							<TableRow><TableCell>dans le</TableCell><TableCell>Cambridgeshire, Derbyshire, Pas-de-Calais, Colorado</TableCell><TableCell>masculine provinces and regions including some British counties</TableCell></TableRow>
-						</TableBody>
-					</Table>
+					<div className={`phrases-table-container container`}>
+						<Table variant="learning">
+							<colgroup>
+								<col className="w-[8.5rem]" />
+								<col />
+								<col />
+							</colgroup>
+							<TableHeader>
+								<TableRow>
+									<TableHead className="whitespace-nowrap">Form</TableHead>
+									<TableHead>Examples</TableHead>
+									<TableHead>Use</TableHead>
+								</TableRow>
+							</TableHeader>
+							<TableBody>
+								<TableRow><TableCell className="whitespace-nowrap">à</TableCell><TableCell>Londres, Cambridge, Marseille</TableCell><TableCell>towns, cities, villages</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">à</TableCell><TableCell>Singapour, Hongkong, Taiwan</TableCell><TableCell>islands and archipelagos without gender</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">au</TableCell><TableCell>Maroc, Canada, Chili</TableCell><TableCell>masculine countries beginning with a consonant</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>France, Suisse, Chine</TableCell><TableCell>all feminine countries</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>Afghanistan, Iran, Andorre</TableCell><TableCell>masculine countries beginning with a vowel</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>Provence, Nouvelle Calédonie</TableCell><TableCell>feminine provinces and regions</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>Océanie, Afrique, Amérique du nord / du sud, Europe, Asie, Antarctique</TableCell><TableCell>the continents</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">aux</TableCell><TableCell>Pays Bas, Seychelles, États-Unis</TableCell><TableCell>plurals</TableCell></TableRow>
+								<TableRow><TableCell className="whitespace-nowrap">dans le</TableCell><TableCell>Cambridgeshire, Derbyshire, Pas-de-Calais, Colorado</TableCell><TableCell>masculine provinces and regions including some British counties</TableCell></TableRow>
+							</TableBody>
+						</Table>
+					</div>
 				</div>
 			</div>
 		);
@@ -1427,11 +1494,13 @@ export class LO4EX1 extends PureComponent{
 					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
-					<p>Listen to the following nonsense rhyme. You should be able to identify numerous examples of the sound&nbsp;
-						<AudioClip className={`super-compact`} soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/>.
-						Read the nonsense rhyme out loud to practise the Pronunciation</p>
-					<div className={`two-columns`}>
-						<p><strong>Tu aimes… ?</strong>&nbsp;<AudioClip className={`compact`} soundFile={`/audio/lo4/exercises/lo4exercise1/001-nonsense-rhyme.mp3`}/><br/>
+					<div>
+						<p>
+							<strong>Tu aimes… ?</strong>
+							<span className="mt-2 mb-2 block">
+								<SequenceAudioController sources={[resolveAsset(`/audio/lo4/exercises/lo4exercise1/001-nonsense-rhyme.mp3`)]} />
+							</span>
+							<br/>
 					Tu aimes Quent<strong>in</strong> ?<br/>
 					Je n'aime pas Quent<strong>in</strong>, <br/>
 					Il lit T<strong>in</strong>t<strong>in</strong> ! <br/>
@@ -1445,11 +1514,10 @@ export class LO4EX1 extends PureComponent{
 					Je n'aime pas Dami<strong>en</strong>.<br/>
 					Il ne se lave pas les ma<strong>in</strong>s! <br/>
 					Tu aimes Sébasti<strong>en</strong> ?<br/>
-					Oh, j'adore Sébasti<strong>en</strong> !<br/>
+							Oh, j'adore Sébasti<strong>en</strong> !<br/>
 							C'est mon vois<strong>in</strong> !<br /><br />
 							&copy; Jacqueline Rosen
 						</p>
-						<img src={`images/love.png`} alt={`love`} title={`love`}/>
 					</div>
 				</div>
 			</div>
