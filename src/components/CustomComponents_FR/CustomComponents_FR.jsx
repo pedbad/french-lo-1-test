@@ -1432,6 +1432,53 @@ export class LO4Pronunciation3 extends PureComponent {
 export class LO4Grammar1 extends PureComponent {
 	render = () => {
 		const { id } = this.props;
+		const locationFormRows = [
+			{
+				examples: "Londres, Cambridge, Marseille",
+				form: "à",
+				use: "towns, cities, villages",
+			},
+			{
+				examples: "Singapour, Hongkong, Taiwan",
+				form: "à",
+				use: "islands and archipelagos without gender",
+			},
+			{
+				examples: "Maroc, Canada, Chili",
+				form: "au",
+				use: "masculine countries beginning with a consonant",
+			},
+			{
+				examples: "France, Suisse, Chine",
+				form: "en",
+				use: "all feminine countries",
+			},
+			{
+				examples: "Afghanistan, Iran, Andorre",
+				form: "en",
+				use: "masculine countries beginning with a vowel",
+			},
+			{
+				examples: "Provence, Nouvelle Calédonie",
+				form: "en",
+				use: "feminine provinces and regions",
+			},
+			{
+				examples: "Océanie, Afrique, Amérique du nord / du sud, Europe, Asie, Antarctique",
+				form: "en",
+				use: "the continents",
+			},
+			{
+				examples: "Pays Bas, Seychelles, États-Unis",
+				form: "aux",
+				use: "plurals",
+			},
+			{
+				examples: "Cambridgeshire, Derbyshire, Pas-de-Calais, Colorado",
+				form: "dans le",
+				use: "masculine provinces and regions including some British counties",
+			},
+		];
 		return (
 			<div
 				className={`lo4-grammar-container`}
@@ -1452,31 +1499,52 @@ export class LO4Grammar1 extends PureComponent {
 					<Separator className="my-3 bg-border-subtle" />
 					<p>The chart below shows when each form is used:</p>
 					<div className={`phrases-table-container container`}>
-						<Table variant="learning">
-							<colgroup>
-								<col className="w-[8.5rem]" />
-								<col />
-								<col />
-							</colgroup>
-							<TableHeader>
-								<TableRow>
-									<TableHead className="whitespace-nowrap">Form</TableHead>
-									<TableHead>Examples</TableHead>
-									<TableHead>Use</TableHead>
-								</TableRow>
-							</TableHeader>
-							<TableBody>
-								<TableRow><TableCell className="whitespace-nowrap">à</TableCell><TableCell>Londres, Cambridge, Marseille</TableCell><TableCell>towns, cities, villages</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">à</TableCell><TableCell>Singapour, Hongkong, Taiwan</TableCell><TableCell>islands and archipelagos without gender</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">au</TableCell><TableCell>Maroc, Canada, Chili</TableCell><TableCell>masculine countries beginning with a consonant</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>France, Suisse, Chine</TableCell><TableCell>all feminine countries</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>Afghanistan, Iran, Andorre</TableCell><TableCell>masculine countries beginning with a vowel</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>Provence, Nouvelle Calédonie</TableCell><TableCell>feminine provinces and regions</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">en</TableCell><TableCell>Océanie, Afrique, Amérique du nord / du sud, Europe, Asie, Antarctique</TableCell><TableCell>the continents</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">aux</TableCell><TableCell>Pays Bas, Seychelles, États-Unis</TableCell><TableCell>plurals</TableCell></TableRow>
-								<TableRow><TableCell className="whitespace-nowrap">dans le</TableCell><TableCell>Cambridgeshire, Derbyshire, Pas-de-Calais, Colorado</TableCell><TableCell>masculine provinces and regions including some British counties</TableCell></TableRow>
-							</TableBody>
-						</Table>
+						<div className="space-y-2 sm:hidden">
+							{locationFormRows.map((row, index) => (
+								<Card className="border-border/70 bg-card/90 shadow-sm" key={`${row.form}-${index}`}>
+									<CardContent className="space-y-2 p-3">
+										<p className="m-0 text-sm font-semibold leading-[var(--line-height-app)]">
+											<span className="text-muted-foreground">Form: </span>
+											<span>{row.form}</span>
+										</p>
+										<p className="m-0 text-sm leading-[var(--line-height-body)]">
+											<span className="font-semibold text-muted-foreground">Examples: </span>
+											<span>{row.examples}</span>
+										</p>
+										<p className="m-0 text-sm leading-[var(--line-height-body)]">
+											<span className="font-semibold text-muted-foreground">Use: </span>
+											<span>{row.use}</span>
+										</p>
+									</CardContent>
+								</Card>
+							))}
+						</div>
+
+						<div className="hidden sm:block">
+							<Table variant="learning">
+								<colgroup>
+									<col className="w-[8.5rem]" />
+									<col />
+									<col />
+								</colgroup>
+								<TableHeader>
+									<TableRow>
+										<TableHead className="whitespace-nowrap">Form</TableHead>
+										<TableHead>Examples</TableHead>
+										<TableHead>Use</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									{locationFormRows.map((row, index) => (
+										<TableRow key={`${row.form}-desktop-${index}`}>
+											<TableCell className="whitespace-nowrap">{row.form}</TableCell>
+											<TableCell>{row.examples}</TableCell>
+											<TableCell>{row.use}</TableCell>
+										</TableRow>
+									))}
+								</TableBody>
+							</Table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -1570,7 +1638,7 @@ export class LO4EX1 extends PureComponent{
 												<Eye aria-hidden="true" className="h-4 w-4" />
 											)}
 											<span className="exercise-icon-button-label">
-												{showNasalHighlights ? "Hide nasal vowel sounds" : "Show nasal vowel sounds"}
+												{showNasalHighlights ? "Hide answer" : "Show answer"}
 											</span>
 										</Button>
 									</div>

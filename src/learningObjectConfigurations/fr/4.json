@@ -297,7 +297,7 @@
 				"LO4Exercise1": {
 					"component": "LO4EX1",
 					"id": "LO4Exercise1",
-					"informationTextHTML": "<p>Listen to the nonsense rhyme and identify examples of the nasal vowel sound <em>in / ain</em>. Replay the clip as needed, then read the rhyme aloud to practise your pronunciation.</p>",
+					"informationTextHTML": "<p>Listen to the nonsense rhyme and identify examples of the nasal vowel sound <em>in / ain</em>. Replay the clip as needed, then read the rhyme aloud to practise your pronunciation. Use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal or hide the nasal sounds.</p>",
 					"titleText": "1. Nonsense Rhyme"
 				}
 			},
