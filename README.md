@@ -259,11 +259,7 @@ Pilot migration implemented:
 - During an attempt, option order remains stable until the learner resets.
 
 The following learning object activities currently use `component: "DropDowns"`:
-- LO3
-  - `dropdowns2` - `1. Select the Correct Adjective of Nationality`
-  - `dropdowns1` - `2. Practise saying where you're from.`
 - LO4
-  - `dropdowns3` - `2. Practise saying where people live`
   - `dropdowns4` - `3. Where do you live?`
 - LO5
   - `dropdowns1` - `2. Do you remember the gender?`
@@ -345,6 +341,19 @@ Migration method:
 Latest applied step:
 - LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.
 - `InlineChoiceGroup` row audio icon order is now left-first for consistency with the exercise layout standard.
+- LO4 Exercise 2 (`dropdowns3`) now uses `InlineChoiceGroup` as `inlineChoiceGroup3`:
+  - options are visible inline (better fit for short forms: `à`, `au`, `en`, `aux`, `dans le`)
+  - rows use full sentence prompts (removed standalone prefix row)
+  - added accordion-level instruction alert text with shared icon cues
+  - enabled opt-in randomized practice via config:
+    - `shuffleItems: true`
+    - `sampleSize: 8`
+  - behavior: a fresh random 8-item subset is shown on initial load and on reset.
+- `InlineChoiceGroup` now supports optional randomized subset config (backward compatible):
+  - `shuffleItems` (boolean, default false)
+  - `sampleSize` (number, optional; if set, first N items from shuffled/ordered set are used)
+  - `sampleOnReset` (boolean, optional, default true when `sampleSize` is set)
+  - if omitted, existing exercises keep prior behavior (no shuffle/sampling).
 - LO3 exercises 3/4/5 now use semantic names for typed-table activities:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)

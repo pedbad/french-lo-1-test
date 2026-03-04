@@ -20,9 +20,11 @@ const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base"
 export class InlineChoiceGroup extends React.PureComponent {
 	constructor(props) {
 		super(props);
+		const sourceItems = props?.config?.items || [];
 
 		this.state = {
 			...props.config,
+			activeItems: this.prepareExerciseItems(sourceItems, props?.config || {}),
 			checkedResults: {},
 			hasChecked: false,
 			nCorrect: 0,
@@ -35,8 +37,10 @@ export class InlineChoiceGroup extends React.PureComponent {
 
 	componentDidUpdate(prevProps) {
 		if (prevProps.config !== this.props.config) {
+			const sourceItems = this.props?.config?.items || [];
 			this.setState({
 				...this.props.config,
+				activeItems: this.prepareExerciseItems(sourceItems, this.props?.config || {}),
 				checkedResults: {},
 				hasChecked: false,
 				nCorrect: 0,
@@ -46,6 +50,40 @@ export class InlineChoiceGroup extends React.PureComponent {
 			this.nToSolve = 0;
 		}
 	}
+
+	shuffleArray = (items = []) => {
+		const shuffled = [...items];
+		for (let i = shuffled.length - 1; i > 0; i -= 1) {
+			const j = Math.floor(Math.random() * (i + 1));
+			const temp = shuffled[i];
+			shuffled[i] = shuffled[j];
+			shuffled[j] = temp;
+		}
+		return shuffled;
+	};
+
+	prepareExerciseItems = (items = [], options = {}) => {
+		const {
+			sampleSize,
+			shuffleItems = false,
+		} = options;
+
+		let prepared = [...items];
+		if (shuffleItems) {
+			prepared = this.shuffleArray(prepared);
+		}
+
+		const parsedSampleSize = Number.parseInt(sampleSize, 10);
+		if (
+			Number.isFinite(parsedSampleSize) &&
+			parsedSampleSize > 0 &&
+			parsedSampleSize < prepared.length
+		) {
+			prepared = prepared.slice(0, parsedSampleSize);
+		}
+
+		return prepared;
+	};
 
 	parseSentence = (text, startBlankIndex) => {
 		const segments = [];
@@ -180,11 +218,22 @@ export class InlineChoiceGroup extends React.PureComponent {
 	};
 
 	handleReset = () => {
-		this.setState({
-			checkedResults: {},
-			hasChecked: false,
-			nCorrect: 0,
-			values: {},
+		this.setState((prevState) => {
+			const sourceItems = this.props?.config?.items || [];
+			const parsedSampleSize = Number.parseInt(prevState.sampleSize, 10);
+			const hasSampleSize = Number.isFinite(parsedSampleSize) && parsedSampleSize > 0;
+			const sampleOnReset = prevState.sampleOnReset !== undefined ? Boolean(prevState.sampleOnReset) : true;
+			const shouldRefreshItemSet = Boolean(prevState.shuffleItems) || (hasSampleSize && sampleOnReset);
+
+			return {
+				activeItems: shouldRefreshItemSet
+					? this.prepareExerciseItems(sourceItems, prevState)
+					: (prevState.activeItems || []),
+				checkedResults: {},
+				hasChecked: false,
+				nCorrect: 0,
+				values: {},
+			};
 		});
 	};
 
@@ -276,7 +325,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 			footnoteHTML,
 			htmlContent = "",
 			id = "",
-			items = [],
+			activeItems = [],
 			listenDescriptionText,
 			nCorrect = 0,
 			soundFile,
@@ -289,8 +338,8 @@ export class InlineChoiceGroup extends React.PureComponent {
 		const rows = [];
 		let blankCursor = 0;
 
-		for (let i = 0; i < items.length; i += 1) {
-			const item = items[i];
+		for (let i = 0; i < activeItems.length; i += 1) {
+			const item = activeItems[i];
 			const phraseText = item?.text || "";
 
 			if (!phraseText) {

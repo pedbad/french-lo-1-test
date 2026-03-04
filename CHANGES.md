@@ -2,6 +2,32 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-04 - InlineChoiceGroup Optional Sampling/Shuffle + LO4 Exercise 2 Migration
+
+- Added backward-compatible randomization contract to:
+  - `src/components/InlineChoiceGroup/InlineChoiceGroup.jsx`
+- New optional config fields:
+  - `shuffleItems` (boolean; default behavior unchanged when omitted)
+  - `sampleSize` (number; limits visible exercise rows to a subset)
+  - `sampleOnReset` (boolean; defaults to refresh subset on reset when sampling is enabled)
+- Runtime behavior:
+  - if randomization fields are omitted, `InlineChoiceGroup` behavior is unchanged.
+  - when enabled, subset/shuffle is applied on initial load and reset.
+
+- Migrated LO4 exercise 2 to inline-choice interaction:
+  - `src/learningObjectConfigurations/fr/4.json`
+  - component switch: `DropDowns` -> `InlineChoiceGroup`
+  - id/key update: `dropdowns3` -> `inlineChoiceGroup3`
+  - added instructional alert text with shared check/eye/reset icon cues
+  - normalized each row into full-sentence prompts (`Ma famille habite ...`) for inline-choice clarity
+  - enabled config:
+    - `shuffleItems: true`
+    - `sampleSize: 8`
+
+- Documentation sync:
+  - updated `README.md` inventory and migration notes for LO4 exercise 2
+  - documented `InlineChoiceGroup` optional randomization contract for future LO reuse
+
 ## 2026-03-03 - Shared Learning Table Variant + LO4 Grammar Table Alignment
 
 - Added shared table variant support in:

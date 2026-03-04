@@ -312,65 +312,65 @@
 				}
 			},
 			{
-				"dropdowns3": {
-					"component": "DropDowns",
-					"id": "dropdowns3",
+				"inlineChoiceGroup3": {
+					"component": "InlineChoiceGroup",
+					"id": "inlineChoiceGroup3",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the correct form of 'in' to fill in the gaps.",
+					"informationTextHTML": "Choose the correct form of <strong>in</strong> for each place name: <strong>à</strong>, <strong>au</strong>, <strong>en</strong>, <strong>aux</strong>, or <strong>dans le</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
+					"shuffleItems": true,
+					"sampleSize": 8,
 					"showHintsText": "Show hints when moving",
 					"titleText": "2. Practise saying where people live",
 					"cheatText": "Show answers",
 					"items": [
 						{
-							"text": "Ma famille habite:"
+							"text": "Ma famille habite [à|*au|en|aux|dans le] Canada."
 						},
 						{
-							"text": "[à|*au|en|aux|dans le] Canada."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] France."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] France."
+							"text": "Ma famille habite [*à|au|en|aux|dans le] Taiwan."
 						},
 						{
-							"text": "[*à|au|en|aux|dans le] Taiwan."
+							"text": "Ma famille habite [à|*au|en|aux|dans le] Japon."
 						},
 						{
-							"text": "[à|*au|en|aux|dans le] Japon."
+							"text": "Ma famille habite [*à|au|en|aux|dans le] Bordeaux."
 						},
 						{
-							"text": "[*à|au|en|aux|dans le] Bordeaux."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] Nouvelle Zélande."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] Nouvelle Zélande."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] Chine."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] Chine."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] Turquie."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] Turquie."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] Suisse."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] Suisse."
+							"text": "Ma famille habite [à|*au|en|aux|dans le] Sénégal."
 						},
 						{
-							"text": "[à|*au|en|aux|dans le] Sénégal."
+							"text": "Ma famille habite [à|au|en|*aux|dans le] Etats-Unis."
 						},
 						{
-							"text": "[à|au|en|*aux|dans le] Etats-Unis."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] Angleterre."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] Angleterre."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] Algérie."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] Algérie."
+							"text": "Ma famille habite [à|au|*en|aux|dans le] Afghanistan."
 						},
 						{
-							"text": "[à|au|*en|aux|dans le] Afghanistan."
+							"text": "Ma famille habite [*à|au|en|aux|dans le] Bruxelles."
 						},
 						{
-							"text": "[*à|au|en|aux|dans le] Bruxelles."
-						},
-						{
-							"text": "[à|au|en|aux|*dans le] Yorkshire."
+							"text": "Ma famille habite [à|au|en|aux|*dans le] Yorkshire."
 						}
 					]
 				}
