@@ -22,23 +22,23 @@ Using an in-file list avoids additional module resolution edge cases for this
 standalone debug entry while still rendering all LO links for navigation checks.
 */
 const DEBUG_LEARNING_OBJECTS = [
-	{ file: '1', titleShort: 'First Contact' },
-	{ file: '2', titleShort: 'About me' },
-	{ file: '3', titleShort: 'Origins and Languages' },
-	{ file: '4', titleShort: 'Current location' },
-	{ file: '5', titleShort: 'House and Home' },
-	{ file: '6', titleShort: 'Family, friends and neighbours' },
-	{ file: '7', titleShort: 'Opinions matter' },
-	{ file: '8', titleShort: 'Free Time' },
-	{ file: '9', titleShort: 'Phoning in France' },
-	{ file: '10', titleShort: 'Making Arrangements' },
-	{ file: '11', titleShort: 'Going to a cafe' },
-	{ file: '12', titleShort: 'Shopping in the market' },
-	{ file: '13', titleShort: 'Daily routine' },
-	{ file: '14', titleShort: 'Studying at university' },
-	{ file: '15', titleShort: 'Making Arrangements' },
-	{ file: 'demo', titleShort: 'Sample components' },
-	{ file: 'answer', titleShort: 'Answer table test' },
+	{ file: '1', slug: 'first-contact', titleShort: 'First Contact' },
+	{ file: '2', slug: 'about-me', titleShort: 'About me' },
+	{ file: '3', slug: 'origins-and-languages', titleShort: 'Origins and Languages' },
+	{ file: '4', slug: 'current-location', titleShort: 'Current location' },
+	{ file: '5', slug: 'house-and-home', titleShort: 'House and Home' },
+	{ file: '6', slug: 'family-friends-and-neighbours', titleShort: 'Family, friends and neighbours' },
+	{ file: '7', slug: 'opinions-matter', titleShort: 'Opinions matter' },
+	{ file: '8', slug: 'free-time', titleShort: 'Free Time' },
+	{ file: '9', slug: 'phoning-in-france', titleShort: 'Phoning in France' },
+	{ file: '10', slug: 'making-arrangements', titleShort: 'Making Arrangements' },
+	{ file: '11', slug: 'going-to-a-cafe', titleShort: 'Going to a cafe' },
+	{ file: '12', slug: 'shopping-in-the-market', titleShort: 'Shopping in the market' },
+	{ file: '13', slug: 'daily-routine', titleShort: 'Daily routine' },
+	{ file: '14', slug: 'studying-at-university', titleShort: 'Studying at university' },
+	{ file: '15', slug: 'making-arrangements-2', titleShort: 'Making Arrangements' },
+	{ file: 'demo', slug: 'demo', titleShort: 'Sample components' },
+	{ file: 'answer', slug: 'answer-table-test', titleShort: 'Answer table test' },
 ];
 
 const DEBUG_MENU_ITEMS = [
@@ -61,9 +61,9 @@ export function DebugSandbox() {
 		if (typeof document === "undefined") return false;
 		return document.documentElement.classList.contains("dark");
 	});
-	const previewUrl = `${window.location.origin}/projects/french-basic/?lang=fr&lo=1`;
+	const previewUrl = `${window.location.origin}/projects/french-basic/first-contact/`;
 	const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
-	const chromeIncognitoCommandPowerShell = 'Start-Process "chrome.exe" "--incognito --disable-extensions `"https://lcdev.langcen.cam.ac.uk/projects/french-basic/?lang=fr&lo=1`""';
+	const chromeIncognitoCommandPowerShell = 'Start-Process "chrome.exe" "--incognito --disable-extensions `"https://lcdev.langcen.cam.ac.uk/projects/french-basic/first-contact/`""';
 
 	React.useEffect(() => {
 		let mounted = true;
@@ -451,7 +451,6 @@ yarn preview`}</code>
 
 			<LearningObjectStructureSummary
 				appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
-				languageCode="fr"
 				learningObjects={DEBUG_LEARNING_OBJECTS}
 			/>
 		</main>

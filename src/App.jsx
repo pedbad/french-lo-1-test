@@ -1360,12 +1360,11 @@ export default class App extends React.Component {
               </>
             ) : (
               <div className={`no-config`}>
-                <h1>No configuration parameter given of the form</h1>
-                <h2>{`${window.location.host}${window.location.pathname}?lang=fr&lo=3`}</h2>
+                <h1>No learning object selected</h1>
+                <h2>{`${window.location.host}${window.location.pathname}first-contact/`}</h2>
                 <p>
-                  Where &apos;3&apos; in this example is the learning object
-                  number or index. If absent, but language is the landing page
-                  is shown
+                  Open a learning object by slug path. If absent, the landing
+                  page is shown.
                 </p>
               </div>
             )}

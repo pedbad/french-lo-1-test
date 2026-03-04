@@ -25,15 +25,16 @@ export class LearningObjectMenu extends React.Component {
 		const {
 			currentLearningObject = 0,
 			appHrefBase,
-			languageCode,
 			learningObjects
 		} = this.props;
 		const renderedMenu = [];
 		if (learningObjects !== undefined) {
 			const defaultAppHrefBase = `${window.location.origin}${import.meta.env.BASE_URL}`;
 			const baseURL = appHrefBase || defaultAppHrefBase;
+			const basePath = new URL(baseURL).pathname;
 			learningObjects.forEach((learningObject, index) => {
 				const { badge, title } = this.getLearningObjectLabel(learningObject, index);
+				const loPath = `${basePath}${basePath.endsWith('/') ? '' : '/'}${encodeURIComponent(learningObject.slug || learningObject.file)}/`;
 				renderedMenu.push(
 					<li
 						className={`menu-item m-1 indent-0 rounded-lg no-underline ${currentLearningObject === index ? 'highlight' : ''}`}
@@ -41,7 +42,7 @@ export class LearningObjectMenu extends React.Component {
 						<a
 							aria-label={`Open ${badge}: ${title}`}
 							className="inline-flex min-h-16 w-56 flex-col justify-center rounded-lg border border-[color-mix(in_oklab,var(--primary)_75%,var(--foreground))] bg-[var(--primary)] px-3 py-2 text-left text-[var(--primary-foreground)] no-underline shadow-sm transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)] visited:text-[var(--primary-foreground)]"
-							href={`${baseURL}?lang=${languageCode}&lo=${learningObject.file}`}
+							href={loPath}
 							onClick={() => this.selectLearningObject(index)}
 						>
 							<span className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] opacity-85">{badge}</span>

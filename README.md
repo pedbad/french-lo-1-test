@@ -24,7 +24,7 @@ yarn dev
 By default the app is served from the current path (portable base). Example:
 
 ```
-http://localhost:5173/?lang=fr&lo=1
+http://localhost:5173/first-contact/
 ```
 
 ## Dev-Only Debug Sandbox

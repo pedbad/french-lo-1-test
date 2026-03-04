@@ -175,7 +175,7 @@ function getLearningObjectBadge(file, index) {
 	return `LO ${index + 1}`;
 }
 
-export function LearningObjectStructureSummary({ appHrefBase, languageCode = 'fr', learningObjects = [] }) {
+export function LearningObjectStructureSummary({ appHrefBase, learningObjects = [] }) {
 	const [configByFile, setConfigByFile] = React.useState(() => new Map());
 	const [loadError, setLoadError] = React.useState('');
 	const [loading, setLoading] = React.useState(false);
@@ -243,12 +243,12 @@ export function LearningObjectStructureSummary({ appHrefBase, languageCode = 'fr
 			return {
 				badge: getLearningObjectBadge(file, index),
 				file,
-				href: `${resolvedAppHrefBase}?lang=${languageCode}&lo=${file}`,
+				href: `${resolvedAppHrefBase}${resolvedAppHrefBase.endsWith('/') ? '' : '/'}${encodeURIComponent(learningObject?.slug || file)}/`,
 				title,
 				sections: getSectionSummaries(config),
 			};
 		});
-	}, [configByFile, learningObjects, languageCode, resolvedAppHrefBase]);
+	}, [configByFile, learningObjects, resolvedAppHrefBase]);
 
 	return (
 		<section aria-labelledby="sandbox-lo-structure">
