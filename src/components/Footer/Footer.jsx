@@ -1,5 +1,6 @@
 import { FooterSocialLinks } from './FooterSocialLinks';
 import React from 'react';
+import { resolveAsset } from '../../utility';
 
 export class Footer extends React.PureComponent{
 
@@ -19,10 +20,10 @@ export class Footer extends React.PureComponent{
 
 						<div className={`uclogo`}>
 							<a href="https://www.langcen.cam.ac.uk/" target="_blank" rel="noopener noreferrer">
-								<img src="img/common/footer/ucam-language-centre-horizontal-light.png" className={`logo theme-light horizontal`} alt={ucLogoAlt}/>
-								<img src="img/common/footer/ucam-language-centre-vertical-light.png" className={`logo theme-light vertical`} alt={ucLogoAlt} />
-								<img src="img/common/footer/ucam-language-centre-horizontal-dark.png" className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
-								<img src="img/common/footer/ucam-language-centre-vertical-dark.png" className={`logo theme-dark vertical`} alt={ucLogoAlt} />
+								<img src={resolveAsset('/img/common/footer/ucam-language-centre-horizontal-light.png')} className={`logo theme-light horizontal`} alt={ucLogoAlt}/>
+								<img src={resolveAsset('/img/common/footer/ucam-language-centre-vertical-light.png')} className={`logo theme-light vertical`} alt={ucLogoAlt} />
+								<img src={resolveAsset('/img/common/footer/ucam-language-centre-horizontal-dark.png')} className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
+								<img src={resolveAsset('/img/common/footer/ucam-language-centre-vertical-dark.png')} className={`logo theme-dark vertical`} alt={ucLogoAlt} />
 							</a>
 						</div>
 
@@ -30,7 +31,8 @@ export class Footer extends React.PureComponent{
 					<div className={`square-logos`}>
 						<div className="square-logos-row">
 							{/* Logo LC */}
-							<div className={`lclogo square-logo`} aria-hidden="true">
+							<div className={`lclogo square-logo`}>
+								<a href="https://www.langcen.cam.ac.uk/" target="_blank" rel="noopener noreferrer">
 									<svg className={`lc-logo logo`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 81" fill="currentColor" role="img" aria-label={lcLogoAlt}>
 										<g className="colour-me" clipPath="url(#a)">
 											<path
@@ -44,6 +46,7 @@ export class Footer extends React.PureComponent{
 											</clipPath>
 										</defs>
 									</svg>
+								</a>
 							</div>
 
 							{/* Logo CC */}
