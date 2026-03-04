@@ -1,5 +1,4 @@
 import { createLogger, defineConfig } from 'vite';
-import fs from 'fs';
 import path from 'path';
 import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
@@ -48,24 +47,6 @@ export default defineConfig(() => {
 	},
 	customLogger: logger,
 	plugins: [
-		{
-			buildStart() {
-				const src = path.resolve('dist/index.html');
-				const backup = path.resolve('.vite-index-backup.html');
-				if (fs.existsSync(src)) {
-					fs.copyFileSync(src, backup);
-				}
-			},
-			closeBundle() {
-				const dest = path.resolve('dist/index.html');
-				const backup = path.resolve('.vite-index-backup.html');
-				if (fs.existsSync(backup)) {
-					fs.copyFileSync(backup, dest);
-					fs.unlinkSync(backup);
-				}
-			},
-			name: 'preserve-dist-index'
-		},
 		react(),
 		tailwindcss(),
 			viteStaticCopy({
