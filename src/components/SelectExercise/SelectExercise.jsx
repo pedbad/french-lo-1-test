@@ -17,6 +17,7 @@ import React from "react";
 import { resolveAsset } from "../../utility";
 
 const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-[var(--font-size-sm)] md:text-base";
+const SELECT_EXERCISE_INLINE_TRIGGER_CLASS = "inline-flex min-h-9 w-auto min-w-[12rem] align-middle text-[var(--font-size-sm)] md:min-w-[14rem] md:text-base";
 
 export class SelectExercise extends React.PureComponent {
 	constructor(props) {
@@ -256,6 +257,7 @@ export class SelectExercise extends React.PureComponent {
 			id = "",
 			items = [],
 			listenDescriptionText,
+			renderInlineChoices = false,
 			rowAudioStatus = {},
 			shuffledItems = [],
 			soundFile,
@@ -296,10 +298,10 @@ export class SelectExercise extends React.PureComponent {
 					className="rounded-xl border border-border/70 bg-card/60 p-3 md:p-4"
 					key={`select-row-${id}-${i}`}
 				>
-					<div className="grid grid-cols-[auto_minmax(0,1fr)_2.75rem] grid-rows-[auto_auto] items-start gap-x-3 gap-y-2">
+					<div className={`grid grid-cols-[auto_minmax(0,1fr)_2.75rem] ${renderInlineChoices ? "items-center gap-x-3" : "grid-rows-[auto_auto] items-start gap-x-3 gap-y-2"}`}>
 						{item.audio ? (
 							<span
-								className="row-span-2"
+								className={renderInlineChoices ? "" : "row-span-2"}
 								ref={(el) => {
 									if (el) this.rowAudioRefs[i] = el;
 								}}
@@ -313,59 +315,108 @@ export class SelectExercise extends React.PureComponent {
 							</span>
 						) : null}
 
-						{item.audio ? (
-							<button
-								aria-label={`Play audio for row ${i + 1}`}
-								className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : "text-foreground hover:text-[var(--chart-2)]"}`}
-								onClick={() => this.triggerRowAudio(i)}
-								type="button"
-							>
-								{this.renderSentenceWithoutChoices(segments)}
-							</button>
+						{renderInlineChoices ? (
+							<div className="col-start-2 min-w-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base">
+								{segments.map((segment, segmentIndex) => {
+									if (segment.type !== "choice") {
+										return (
+											<React.Fragment key={segment.key || `seg-${segmentIndex}`}>
+												{segment.value}
+											</React.Fragment>
+										);
+									}
+
+									const blankIndex = segment.blankIndex;
+									const localIndex = rowBlankIndices.indexOf(blankIndex);
+									const selectId = `${id}-select-${blankIndex}`;
+									const meta = this.blanksMeta[blankIndex];
+									const currentValue = values[blankIndex] ?? "";
+
+									return (
+										<span className="mx-1 inline-flex align-middle" key={selectId}>
+											<label className="sr-only" htmlFor={selectId}>
+												{`Select answer for blank ${blankIndex + 1}`}
+											</label>
+											<Select
+												value={currentValue}
+												onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
+											>
+												<SelectTrigger className={SELECT_EXERCISE_INLINE_TRIGGER_CLASS} id={selectId}>
+													<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
+												</SelectTrigger>
+												<SelectContent>
+													{meta.options.map((option, optionIndex) => (
+														<SelectItem
+															className="text-[var(--font-size-sm)] md:text-base"
+															key={`${selectId}-option-${optionIndex}`}
+															value={String(optionIndex)}
+														>
+															{option}
+														</SelectItem>
+													))}
+												</SelectContent>
+											</Select>
+										</span>
+									);
+								})}
+							</div>
 						) : (
-							<p className="col-start-2 row-start-1 m-0 min-w-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base">
-								{this.renderSentenceWithoutChoices(segments)}
-							</p>
+							<>
+								{item.audio ? (
+									<button
+										aria-label={`Play audio for row ${i + 1}`}
+										className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : "text-foreground hover:text-[var(--chart-2)]"}`}
+										onClick={() => this.triggerRowAudio(i)}
+										type="button"
+									>
+										{this.renderSentenceWithoutChoices(segments)}
+									</button>
+								) : (
+									<p className="col-start-2 row-start-1 m-0 min-w-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base">
+										{this.renderSentenceWithoutChoices(segments)}
+									</p>
+								)}
+
+								<div className="col-start-2 row-start-2 min-w-0 space-y-2">
+									{rowBlankIndices.map((blankIndex, localIndex) => {
+										const selectId = `${id}-select-${blankIndex}`;
+										const meta = this.blanksMeta[blankIndex];
+										const currentValue = values[blankIndex] ?? "";
+
+										return (
+											<div className="w-full" key={selectId}>
+												<label className="sr-only" htmlFor={selectId}>
+													{`Select answer for blank ${blankIndex + 1}`}
+												</label>
+												<Select
+													value={currentValue}
+													onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
+												>
+													<SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
+														<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
+													</SelectTrigger>
+													<SelectContent>
+														{meta.options.map((option, optionIndex) => (
+															<SelectItem
+																className="text-[var(--font-size-sm)] md:text-base"
+																key={`${selectId}-option-${optionIndex}`}
+																value={String(optionIndex)}
+															>
+																{option}
+															</SelectItem>
+														))}
+													</SelectContent>
+												</Select>
+											</div>
+										);
+									})}
+								</div>
+							</>
 						)}
-
-						<div className="col-start-2 row-start-2 min-w-0 space-y-2">
-							{rowBlankIndices.map((blankIndex, localIndex) => {
-								const selectId = `${id}-select-${blankIndex}`;
-								const meta = this.blanksMeta[blankIndex];
-								const currentValue = values[blankIndex] ?? "";
-
-								return (
-									<div className="w-full" key={selectId}>
-										<label className="sr-only" htmlFor={selectId}>
-											{`Select answer for blank ${blankIndex + 1}`}
-										</label>
-										<Select
-											value={currentValue}
-											onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
-										>
-											<SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
-												<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
-											</SelectTrigger>
-											<SelectContent>
-												{meta.options.map((option, optionIndex) => (
-													<SelectItem
-														className="text-[var(--font-size-sm)] md:text-base"
-														key={`${selectId}-option-${optionIndex}`}
-														value={String(optionIndex)}
-													>
-														{option}
-													</SelectItem>
-												))}
-											</SelectContent>
-										</Select>
-									</div>
-								);
-							})}
-						</div>
 
 						<span
 							aria-hidden="true"
-							className={`col-start-3 row-start-2 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+							className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
 						>
 							{rowIsCorrect ? (
 								<CircleCheck className="h-10 w-10" />

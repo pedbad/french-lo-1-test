@@ -2,6 +2,18 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-04 - LO4 Exercise 3 Migration to SelectExercise
+
+- Migrated LO4 exercise 3 ("Where do you live?") from legacy `DropDowns` to `SelectExercise` in:
+  - `src/learningObjectConfigurations/fr/4.json`
+- Config updates:
+  - key/id: `dropdowns4` -> `selectExercise3`
+  - component: `"DropDowns"` -> `"SelectExercise"`
+  - added `informationTextHTML` with shared icon-cue pattern (`Check answers`, `Show answer`, `Reset`)
+- Result:
+  - LO4 exercise flow now aligns with LO2 "Answering Questions" interaction model.
+  - LO4 exercises no longer depend on `DropDowns`.
+
 ## 2026-03-04 - InlineChoiceGroup Optional Sampling/Shuffle + LO4 Exercise 2 Migration
 
 - Added backward-compatible randomization contract to:

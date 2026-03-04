@@ -259,8 +259,6 @@ Pilot migration implemented:
 - During an attempt, option order remains stable until the learner resets.
 
 The following learning object activities currently use `component: "DropDowns"`:
-- LO4
-  - `dropdowns4` - `3. Where do you live?`
 - LO5
   - `dropdowns1` - `2. Do you remember the gender?`
   - `dropdowns2` - `3. Practise descriptions`
@@ -349,6 +347,10 @@ Latest applied step:
     - `shuffleItems: true`
     - `sampleSize: 8`
   - behavior: a fresh random 8-item subset is shown on initial load and on reset.
+- LO4 Exercise 3 (`dropdowns4`) now uses `SelectExercise` as `selectExercise3`:
+  - aligns interaction model with LO2 “Answering Questions”
+  - keeps audio-on-left + full-width select layout consistency
+  - uses shared instruction icon cues for Check/Show/Reset flow.
 - `InlineChoiceGroup` now supports optional randomized subset config (backward compatible):
   - `shuffleItems` (boolean, default false)
   - `sampleSize` (number, optional; if set, first N items from shuffled/ordered set are used)
