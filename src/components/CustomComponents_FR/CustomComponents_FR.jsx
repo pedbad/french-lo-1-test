@@ -1495,29 +1495,41 @@ export class LO4EX1 extends PureComponent{
 					key={`${id}Panel1`}
 				>
 					<div>
-						<p>
-							<strong>Tu aimes… ?</strong>
-							<span className="mt-2 mb-2 block">
-								<SequenceAudioController sources={[resolveAsset(`/audio/lo4/exercises/lo4exercise1/001-nonsense-rhyme.mp3`)]} />
-							</span>
-							<br/>
-					Tu aimes Quent<strong>in</strong> ?<br/>
-					Je n'aime pas Quent<strong>in</strong>, <br/>
-					Il lit T<strong>in</strong>t<strong>in</strong> ! <br/>
-					Tu aimes Mart<strong>in</strong> ?<br/>
-					Je n'aime pas Mart<strong>in</strong> !<br/>
-					Il boit du v<strong>in</strong> ! <br/>
-					Tu aimes Corent<strong>in</strong> ?<br/>
-					J'aime bi<strong>en</strong> Corent<strong>in</strong> !<br/>
-					Il a un beau jard<strong>in</strong>.<br/>
-					Tu aimes Dami<strong>en</strong> ?<br/>
-					Je n'aime pas Dami<strong>en</strong>.<br/>
-					Il ne se lave pas les ma<strong>in</strong>s! <br/>
-					Tu aimes Sébasti<strong>en</strong> ?<br/>
-							Oh, j'adore Sébasti<strong>en</strong> !<br/>
-							C'est mon vois<strong>in</strong> !<br /><br />
-							&copy; Jacqueline Rosen
-						</p>
+						<div className="mb-3">
+							<SequenceAudioController sources={[resolveAsset(`/audio/lo4/exercises/lo4exercise1/001-nonsense-rhyme.mp3`)]} />
+						</div>
+						{/* Use poem semantics so assistive tech gets title, lines, and attribution structure instead of a single paragraph with <br>. */}
+						<article aria-labelledby={id ? `${id}-poem-title` : undefined} className="pl-3 sm:pl-4">
+							<h4 className="mt-0 mb-2" id={id ? `${id}-poem-title` : undefined}>Tu aimes… ?</h4>
+							<div className="space-y-3.5">
+								<p className="m-0">
+									<span className="block">Tu aimes Quent<strong>in</strong> ?</span>
+									<span className="block">Je n&apos;aime pas Quent<strong>in</strong>,</span>
+									<span className="block">Il lit T<strong>in</strong>t<strong>in</strong> !</span>
+								</p>
+								<p className="m-0">
+									<span className="block">Tu aimes Mart<strong>in</strong> ?</span>
+									<span className="block">Je n&apos;aime pas Mart<strong>in</strong> !</span>
+									<span className="block">Il boit du v<strong>in</strong> !</span>
+								</p>
+								<p className="m-0">
+									<span className="block">Tu aimes Corent<strong>in</strong> ?</span>
+									<span className="block">J&apos;aime bi<strong>en</strong> Corent<strong>in</strong> !</span>
+									<span className="block">Il a un beau jard<strong>in</strong>.</span>
+								</p>
+								<p className="m-0">
+									<span className="block">Tu aimes Dami<strong>en</strong> ?</span>
+									<span className="block">Je n&apos;aime pas Dami<strong>en</strong>.</span>
+									<span className="block">Il ne se lave pas les ma<strong>in</strong>s!</span>
+								</p>
+								<p className="m-0">
+									<span className="block">Tu aimes Sébasti<strong>en</strong> ?</span>
+									<span className="block">Oh, j&apos;adore Sébasti<strong>en</strong> !</span>
+									<span className="block">C&apos;est mon vois<strong>in</strong> !</span>
+								</p>
+							</div>
+							<p className="mt-3 text-sm text-muted-foreground" aria-label="Poem attribution">&copy; Jacqueline Rosen</p>
+						</article>
 					</div>
 				</div>
 			</div>
