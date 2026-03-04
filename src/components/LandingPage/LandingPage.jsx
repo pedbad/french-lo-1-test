@@ -2,14 +2,30 @@ import React from 'react';
 
 export class LandingPage extends React.Component{
 
+	buildLearningObjectURL = (learningObject, learningObjects = []) => {
+		const pathSegments = window.location.pathname.split('/').filter(Boolean);
+		const knownSlugs = new Set(
+			learningObjects
+				.map((entry) => `${entry?.slug || ''}`.trim().toLowerCase())
+				.filter(Boolean),
+		);
+		if (pathSegments.length > 0) {
+			const lastSegment = decodeURIComponent(pathSegments[pathSegments.length - 1]).trim().toLowerCase();
+			if (knownSlugs.has(lastSegment)) {
+				pathSegments.pop();
+			}
+		}
+
+		const slug = `${learningObject?.slug || learningObject?.file || ''}`.trim();
+		const basePath = `/${pathSegments.join('/')}${pathSegments.length ? '/' : '/'}`;
+		return `${window.location.origin}${basePath}${encodeURIComponent(slug)}/`;
+	};
+
 	render = () => {
 		const {
-			languageCode,
 			learningObjects = []
 		} = this.props;
 		// console.log("LandingPage learningObjects", learningObjects.length);
-		const { href } = window.location;
-		const [baseURL] = href.split('?');
 		if (learningObjects.length > 0) {
 			const cards = []; // [];
 			learningObjects.forEach((learningObject, index) => {
@@ -19,7 +35,7 @@ export class LandingPage extends React.Component{
 						key={`card-${index}`}>
 						<a
 							className="flex h-full w-full flex-col items-center justify-between p-5 text-center !no-underline"
-							href={`${baseURL}?lang=${languageCode}&lo=${learningObject.file}`}
+							href={this.buildLearningObjectURL(learningObject, learningObjects)}
 							onClick={() => this.selectLearningObject(index)}
 							target={`_blank`}
 						>

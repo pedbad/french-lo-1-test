@@ -167,7 +167,12 @@ export default class App extends React.Component {
     // Then resolve ?lo by numeric id OR slug, while keeping backward compatibility.
     if (languageCode) {
       this.loadIndex(-1, languageCode).then(({ learningObjects = [] }) => {
-        const resolvedLo = this.resolveLearningObjectParam(loParamRaw, learningObjects);
+        const loPathRaw = this.getLearningObjectPathParam(learningObjects);
+        const loSelectorRaw = loPathRaw || loParamRaw;
+        const resolvedLo = this.resolveLearningObjectParam(
+          loSelectorRaw,
+          learningObjects,
+        );
         if (!resolvedLo) {
           this.setState({ currentLearningObject: -1, config: null });
           return;
@@ -180,7 +185,12 @@ export default class App extends React.Component {
           titleShort: titleShort || "",
         });
 
-        this.normalizeLoQueryParam(loParamRaw, slug);
+        this.normalizeLearningObjectUrl({
+          currentLoPathRaw: loPathRaw,
+          currentLoQueryRaw: loParamRaw,
+          learningObjects,
+          resolvedSlug: slug,
+        });
 
         const configPromise = this.loadConfig(
           `/src/learningObjectConfigurations/${languageCode}/${file}.json`,
@@ -604,15 +614,80 @@ export default class App extends React.Component {
     };
   };
 
-  normalizeLoQueryParam = (currentLoParamRaw, resolvedSlug) => {
+  getLearningObjectPathParam = (learningObjects = []) => {
+    if (typeof window === "undefined") return "";
+    const pathSegments = window.location.pathname
+      .split("/")
+      .filter(Boolean);
+    if (!pathSegments.length) return "";
+
+    const lastSegment = decodeURIComponent(pathSegments[pathSegments.length - 1]);
+    const target = this.normalizeSlug(lastSegment);
+    const slugSet = new Set(
+      (learningObjects || [])
+        .map((entry) => this.normalizeSlug(entry?.slug || ""))
+        .filter(Boolean),
+    );
+    return slugSet.has(target) ? lastSegment : "";
+  };
+
+  normalizeLearningObjectUrl = ({
+    currentLoPathRaw = "",
+    learningObjects = [],
+    resolvedSlug = "",
+  }) => {
     if (typeof window === "undefined" || !resolvedSlug) return;
-    const currentLo = this.normalizeSlug(currentLoParamRaw || "");
-    const targetLo = this.normalizeSlug(resolvedSlug);
-    if (currentLo === targetLo) return;
+
+    const targetSlug = this.normalizeSlug(resolvedSlug);
+    if (!targetSlug) return;
 
     const url = new URL(window.location.href);
-    url.searchParams.set("lo", resolvedSlug);
-    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    const pathSegments = url.pathname.split("/").filter(Boolean);
+    const slugSet = new Set(
+      (learningObjects || [])
+        .map((entry) => this.normalizeSlug(entry?.slug || ""))
+        .filter(Boolean),
+    );
+
+    if (currentLoPathRaw && pathSegments.length > 0) {
+      pathSegments[pathSegments.length - 1] = resolvedSlug;
+    } else {
+      pathSegments.push(resolvedSlug);
+    }
+
+    if (url.searchParams.has("lo")) {
+      url.searchParams.delete("lo");
+    }
+
+    // If current path already contains an LO slug, ensure we keep only the
+    // resolved slug segment instead of accumulating nested /slug/slug/ paths.
+    if (!currentLoPathRaw && pathSegments.length > 1) {
+      const penultimateIndex = pathSegments.length - 2;
+      const penultimateIsSlug = slugSet.has(
+        this.normalizeSlug(pathSegments[penultimateIndex]),
+      );
+      if (penultimateIsSlug) {
+        pathSegments.splice(penultimateIndex, 1);
+      }
+    }
+
+    const targetPathname = `/${pathSegments.join("/")}/`;
+    const targetSearch = url.search;
+    const targetHash = url.hash;
+
+    if (
+      targetPathname === window.location.pathname &&
+      targetSearch === window.location.search &&
+      targetHash === window.location.hash
+    ) {
+      return;
+    }
+
+    window.history.replaceState(
+      {},
+      "",
+      `${targetPathname}${targetSearch}${targetHash}`,
+    );
   };
 
   normalizeInstructionSchemaNode = (node) => {
