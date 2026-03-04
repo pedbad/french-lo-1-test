@@ -125,6 +125,7 @@ Add these from day one to avoid late cleanup projects:
 9. Add branch-level "no new debt" checks (warnings/error budgets must not increase).
 10. Add a release checklist workflow for production preview validation (build + preview + smoke checks).
 11. Keep developer fixtures in a separate dev-only sandbox page (do not render hidden debug DOM in the production app tree).
+12. Use a portable build base by default (`base: './'` or env-driven equivalent), with optional fixed-path override for constrained hosting.
 
 ## What To Avoid In Future Projects
 
@@ -146,6 +147,7 @@ Use this as a hard "do not repeat" list.
 14. Do not use `<table>` for visual layout where flex/grid is the correct semantic choice.
 15. Do not add new image assets into a legacy catch-all folder (`public/images`); use `public/img/common`, `public/img/shared`, and `public/img/loX`.
 16. Do not use presentational emphasis tags (`<b>`, `<i>`) in authored HTML/JSON content; use semantic tags (`<strong>`, `<em>`) instead.
+17. Do not hardcode a single deployment mount path in build config (for example fixed Vite `base` tied to one folder name); make it env-configurable with a portable default.
 
 ### Image Asset Structure Rule (Carry Forward)
 

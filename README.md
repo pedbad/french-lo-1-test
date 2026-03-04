@@ -21,10 +21,10 @@ yarn install
 yarn dev
 ```
 
-By default the app is served under `/french-basic/`. Example:
+By default the app is served from the current path (portable base). Example:
 
 ```
-http://localhost:5173/french-basic/?lang=fr&lo=1
+http://localhost:5173/?lang=fr&lo=1
 ```
 
 ## Dev-Only Debug Sandbox
@@ -45,10 +45,22 @@ yarn dev
 Then open:
 
 ```
-http://localhost:5173/projects/french-basic/debug-sandbox.html
+http://localhost:5173/debug-sandbox.html
 ```
 
-Note: this repo sets `base: '/projects/french-basic/'` in `/Users/ped/Sites/french/french-lo-1/vite.config.js`, so local dev/preview URLs include that prefix.
+Base-path behavior (`vite.config.js`):
+- default: `VITE_BASE_PATH` unset -> `base: './'` (portable deploy; folder name does not matter)
+- optional override: set `VITE_BASE_PATH` (for example `/projects/french-basic/`) when environment requires fixed mount path.
+
+Examples:
+
+```bash
+# portable build (recommended default)
+yarn build
+
+# fixed-path build (optional)
+VITE_BASE_PATH=/projects/french-basic/ yarn build
+```
 
 Files:
 - `/Users/ped/Sites/french/french-lo-1/debug-sandbox.html`

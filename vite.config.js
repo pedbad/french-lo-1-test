@@ -16,7 +16,7 @@ logger.warn = (msg, options) => {
 	loggerWarn(msg, options);
 };
 
-const basePath = '/projects/french-basic/';
+const basePath = process.env.VITE_BASE_PATH || './';
 
 export default defineConfig(() => {
 	const includeDebug = process.env.VITE_INCLUDE_DEBUG === 'true';

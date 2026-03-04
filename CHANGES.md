@@ -2,6 +2,21 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-04 - Portable Build Base Path (Folder-Agnostic Deploys)
+
+- Updated Vite base-path strategy in:
+  - `vite.config.js`
+- Change:
+  - from fixed `base: '/projects/french-basic/'`
+  - to configurable `base: process.env.VITE_BASE_PATH || './'`
+- Result:
+  - default builds are now path-agnostic and can be deployed under any directory name (for example `/french/`, `/fr/`, `/projects/french-basic/`) without rebuild-specific coupling.
+  - environments that require a fixed mount path can still set `VITE_BASE_PATH` at build time.
+
+- Documentation updates:
+  - `README.md` now reflects portable default URLs and includes build examples for both portable and fixed-path modes.
+  - `FUTURE_PROJECTS.md` updated to carry this base-path rule into new projects.
+
 ## 2026-03-04 - LO4 Exercise 3 Migration to SelectExercise
 
 - Migrated LO4 exercise 3 ("Where do you live?") from legacy `DropDowns` to `SelectExercise` in:
