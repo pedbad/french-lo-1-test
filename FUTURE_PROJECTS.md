@@ -40,6 +40,10 @@ Non-negotiable architecture:
    - COMPONENT_GUIDELINES.md
    - CONTRIBUTING.md
 11. Provide a starter set of token-driven components (Button, Card, Input, Badge, Alert, Dialog) and example custom variants.
+12. Routing/SEO from day one:
+   - Use path-based slug routes for content pages (for example `/first-contact/`), not query-only routing (`?lo=1`).
+   - Keep a stable slug map in content index metadata (`slug` -> `file/id`) so URLs are human-readable while internal file naming can remain numeric if needed.
+   - Add canonical URL tags for each route and avoid duplicate route variants indexing.
 
 Output required:
 - exact setup commands
@@ -126,6 +130,9 @@ Add these from day one to avoid late cleanup projects:
 10. Add a release checklist workflow for production preview validation (build + preview + smoke checks).
 11. Keep developer fixtures in a separate dev-only sandbox page (do not render hidden debug DOM in the production app tree).
 12. Use a portable build base by default (`base: './'` or env-driven equivalent), with optional fixed-path override for constrained hosting.
+13. Use path-based slug routing for SEO:
+   - required public URL shape should be route paths (`/first-contact/`), not query-only params.
+   - if legacy query params are supported, redirect/canonicalize to slug path.
 
 ## What To Avoid In Future Projects
 
@@ -148,6 +155,7 @@ Use this as a hard "do not repeat" list.
 15. Do not add new image assets into a legacy catch-all folder (`public/images`); use `public/img/common`, `public/img/shared`, and `public/img/loX`.
 16. Do not use presentational emphasis tags (`<b>`, `<i>`) in authored HTML/JSON content; use semantic tags (`<strong>`, `<em>`) instead.
 17. Do not hardcode a single deployment mount path in build config (for example fixed Vite `base` tied to one folder name); make it env-configurable with a portable default.
+18. Do not ship query-only content routing as the primary URL strategy when SEO/discoverability matters; use path slugs as canonical routes.
 
 ### Image Asset Structure Rule (Carry Forward)
 

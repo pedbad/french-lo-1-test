@@ -37,6 +37,7 @@ import {
   handleResponse,
   isTouchChrome,
   playAudioLink,
+  resolveAsset,
   speak,
 } from "./utility";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -90,7 +91,7 @@ export default class App extends React.Component {
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const languageCode = urlParams.get("lang");
+    const languageCode = urlParams.get("lang") || "fr";
 
     this.state = {
       dark: false,
@@ -135,6 +136,15 @@ export default class App extends React.Component {
   };
 
   componentDidMount = () => {
+    if (typeof window !== "undefined") {
+      const { hash, pathname, search } = window.location;
+      const looksLikeFilePath = /\/[^/]+\.[^/]+$/.test(pathname);
+      if (!looksLikeFilePath && pathname !== "/" && !pathname.endsWith("/")) {
+        window.location.replace(`${pathname}/${search}${hash}`);
+        return;
+      }
+    }
+
     // Always start at the top on hard refresh/navigation load.
     // We intentionally persist accordion open/closed state only, not page scroll position.
     if (typeof window !== "undefined") {
@@ -151,31 +161,35 @@ export default class App extends React.Component {
     const urlParams = new URLSearchParams(queryString);
 
     const { languageCode } = this.state;
+    const loParamRaw = (urlParams.get("lo") || "").trim();
 
-    // lo is a 1-based "ID" in your URLs (e.g. ?lo=1). -1 means landing page.
-    const loParamRaw = urlParams.get("lo");
-    const loId = loParamRaw !== null ? parseInt(loParamRaw, 10) : NaN;
-    const isValidLoId = Number.isInteger(loId) && loId >= 1;
-
-    const currentLearningObject = isValidLoId ? loId : -1;
-
-    // Always load the index so the menu/landing page can render
+    // Always load the index so the menu/landing page can render.
+    // Then resolve ?lo by numeric id OR slug, while keeping backward compatibility.
     if (languageCode) {
-      this.loadIndex(currentLearningObject, languageCode);
-    }
+      this.loadIndex(-1, languageCode).then(({ learningObjects = [] }) => {
+        const resolvedLo = this.resolveLearningObjectParam(loParamRaw, learningObjects);
+        if (!resolvedLo) {
+          this.setState({ currentLearningObject: -1, config: null });
+          return;
+        }
 
-    // Only load a config when we have a valid LO id
-    let configPromise;
-    if (isValidLoId && languageCode) {
-      configPromise = this.loadConfig(
-        `./src/learningObjectConfigurations/${languageCode}/${loId}.json`,
-        loId,
-      );
-      this.initialiseModalLinks();
+        const { file, loId, slug, title, titleShort } = resolvedLo;
+        this.setState({
+          currentLearningObject: loId,
+          title,
+          titleShort: titleShort || "",
+        });
 
-      configPromise.then(this.initialiseSynth);
+        this.normalizeLoQueryParam(loParamRaw, slug);
+
+        const configPromise = this.loadConfig(
+          `/src/learningObjectConfigurations/${languageCode}/${file}.json`,
+          loId,
+        );
+        this.initialiseModalLinks();
+        configPromise.then(this.initialiseSynth);
+      });
     } else {
-      // No valid lo: ensure we're in landing page mode (and clear config)
       this.setState({ currentLearningObject: -1, config: null });
     }
 
@@ -516,7 +530,7 @@ export default class App extends React.Component {
     };
 
     return new Promise((resolve, reject) => {
-      fetch(`${configFile}`, requestOptions)
+      fetch(resolveAsset(configFile), requestOptions)
         .then(handleResponse)
         .then((res) => {
           const { settings } = res;
@@ -550,6 +564,56 @@ export default class App extends React.Component {
 
   hasNonEmptyInstructionValue = (value) =>
     typeof value === "string" && value.trim() !== "";
+
+  normalizeSlug = (value = "") =>
+    `${value}`
+      .trim()
+      .toLowerCase()
+      .replace(/[_\s]+/g, "-");
+
+  resolveLearningObjectParam = (loParamRaw, learningObjects = []) => {
+    if (!loParamRaw) return null;
+
+    const numericLoId = parseInt(loParamRaw, 10);
+    if (Number.isInteger(numericLoId) && numericLoId >= 1) {
+      const entry = learningObjects[numericLoId - 1];
+      if (!entry) return null;
+      return {
+        file: `${entry.file ?? numericLoId}`,
+        loId: numericLoId,
+        slug: entry.slug || "",
+        title: entry.title,
+        titleShort: entry.titleShort || "",
+      };
+    }
+
+    const normalizedTarget = this.normalizeSlug(loParamRaw);
+    const index = learningObjects.findIndex((entry) => {
+      const entrySlug = entry?.slug ? this.normalizeSlug(entry.slug) : "";
+      return entrySlug !== "" && entrySlug === normalizedTarget;
+    });
+    if (index < 0) return null;
+
+    const entry = learningObjects[index];
+    return {
+      file: `${entry.file}`,
+      loId: index + 1,
+      slug: entry.slug || normalizedTarget,
+      title: entry.title,
+      titleShort: entry.titleShort || "",
+    };
+  };
+
+  normalizeLoQueryParam = (currentLoParamRaw, resolvedSlug) => {
+    if (typeof window === "undefined" || !resolvedSlug) return;
+    const currentLo = this.normalizeSlug(currentLoParamRaw || "");
+    const targetLo = this.normalizeSlug(resolvedSlug);
+    if (currentLo === targetLo) return;
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("lo", resolvedSlug);
+    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+  };
 
   normalizeInstructionSchemaNode = (node) => {
     if (Array.isArray(node)) {
@@ -613,7 +677,7 @@ export default class App extends React.Component {
       redirect: "follow",
     };
 
-    fetch(`./src/index-${languageCode}.json`, requestOptions)
+    return fetch(resolveAsset(`/src/index-${languageCode}.json`), requestOptions)
       .then(handleResponse)
       .then((res) => {
         const { learningObjects, title: siteTitle } = res;
@@ -635,10 +699,12 @@ export default class App extends React.Component {
           title: title,
           titleShort: titleShort,
         });
+        return { learningObjects, siteTitle };
       })
       .catch((error) => {
         const action = `Loading index`;
         this.logError(action, error);
+        return { learningObjects: [], siteTitle: "" };
       });
   };
 
@@ -1117,7 +1183,7 @@ export default class App extends React.Component {
                     decoding="async"
                     fetchPriority="high"
                     loading="eager"
-                    src="img/common/branding/fr-banner.svg"
+                    src={resolveAsset("/img/common/branding/fr-banner.svg")}
                   />
                   <h2
                     aria-hidden="true"
