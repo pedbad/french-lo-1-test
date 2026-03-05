@@ -33,7 +33,7 @@ Runtime LO routing is now slug-path based and French-only for this app:
 - no `?lang=` parameter is required or read at runtime
 - index/config sources are fixed to:
   - `src/index-fr.json`
-  - `src/learningObjectConfigurations/fr/*.json`
+  - `src/lo-config/*.json`
 
 ## Dev-Only Debug Sandbox
 
@@ -372,7 +372,7 @@ The following learning object activities currently use `component: "DropDowns"`:
   - `dropdowns3` - `3. Select the correct form of the verb each time in Adèle's description of her holiday activities.`
 
 Also used in demo config:
-- `src/learningObjectConfigurations/fr/demo.json`
+- `src/lo-config/demo.json`
 
 Table semantics policy (important):
 - use flex/grid for layout and spacing.
@@ -541,7 +541,7 @@ yarn prepush:local
 
 There is an **index-fr.json** file which lists the various learning object configuration files. It is used to construct a navigation menu.
 
-The **learningObjectConfigurations/fr/\*.json** files define the component layout and phrases for each learning object.
+The **lo-config/\*.json** files define the component layout and phrases for each learning object.
 
 ## Styling
 
@@ -750,7 +750,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 ## LO3 Audio Migration Status
 
 - LO3 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo3/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/learningObjectConfigurations/fr/3.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/3.json`
   - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
 - New LO3 root:
   - `public/audio/lo3/...`
@@ -764,7 +764,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 ## LO4 Audio Migration Status
 
 - LO4 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo4/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/learningObjectConfigurations/fr/4.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/4.json`
   - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
 - New LO4 root:
   - `public/audio/lo4/...`

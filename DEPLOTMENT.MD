@@ -14,7 +14,7 @@ This app currently runs as French-only at runtime:
 - LOs are addressed by slug path (for example `/first-contact/`)
 - configuration sources are:
   - `src/index-fr.json`
-  - `src/learningObjectConfigurations/fr/*.json`
+  - `src/lo-config/*.json`
 
 ## 1) Build locally
 
@@ -37,7 +37,7 @@ After upload, this folder should include at least:
 - `src/main.js`
 - `src/main.css`
 - `src/index-fr.json`
-- `src/learningObjectConfigurations/fr/*.json`
+- `src/lo-config/*.json`
 - `img/`
 - `audio/`
 
@@ -86,7 +86,7 @@ Open and confirm these return expected content:
 2. `/projects/french-basic/first-contact/` -> LO1
 3. `/projects/french-basic/src/main.js` -> JavaScript file (not HTML)
 4. `/projects/french-basic/src/index-fr.json` -> JSON
-5. `/projects/french-basic/src/learningObjectConfigurations/fr/1.json` -> JSON
+5. `/projects/french-basic/src/lo-config/1.json` -> JSON
 
 ## 6) Quick troubleshooting
 

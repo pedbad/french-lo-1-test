@@ -194,7 +194,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 				.filter(Boolean);
 
 			const results = await Promise.all(files.map(async (file) => {
-				const configUrl = resolveAsset(`/src/learningObjectConfigurations/fr/${file}.json`);
+				const configUrl = resolveAsset(`/src/lo-config/${file}.json`);
 				try {
 					const response = await fetch(configUrl);
 					if (!response.ok) {

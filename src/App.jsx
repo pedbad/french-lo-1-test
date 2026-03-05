@@ -186,7 +186,7 @@ export default class App extends React.Component {
       });
 
       const configPromise = this.loadConfig(
-        `/src/learningObjectConfigurations/fr/${file}.json`,
+        `/src/lo-config/${file}.json`,
         loId,
       );
       this.initialiseModalLinks();

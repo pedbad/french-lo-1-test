@@ -1,0 +1,702 @@
+{
+	"settings": {
+		"class": "lo-3",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"introImage": {
+			"src": "img/lo3/origins-and-languages.svg",
+			"alt": "Origins and languages illustration"
+		},
+		"intro": "This lesson teaches how to correctly use and understand French vocabulary, verb groups, and pronunciation, while developing listening and speaking skills through contextual exercises that reinforce grammatical accuracy and gender agreement.",
+		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Ask and answer questions about nationality, origin, and languages in French.</li><li>Use core vocabulary for countries, nationalities, and language names with better accuracy.</li><li>Recognise and apply key verb patterns used in common conversation.</li><li>Improve pronunciation and listening confidence through guided audio practice.</li><li>Complete interactive exercises that reinforce comprehension and spoken forms.</li></ul>"
+	},
+	"dialogues": {
+		"component": "Section",
+		"expandable": false,
+		"instructionsTextHTML": "<p>This section introduces a series of short dialogues to show how to ask and answer questions about nationality, origin, and languages in French.</p>",
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "phraseTable1",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
+						[
+							"audio/lo3/dialogues/phraseTable1/001-tu-es-francaise.mp3",
+							"Tu es française ?",
+							"Are you French ?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/002-ah-non-je-ne-suis-pas-francaise.mp3",
+							"Ah non, je ne suis pas française !",
+							"Oh no, I'm not French!"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/003-tu-es-de-quelle-nationalite.mp3",
+							"Tu es de quelle nationalité ?",
+							"What nationality are you?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/004-je-suis-belge-je-viens-de-bruxelles-tu-viens-d-ou.mp3",
+							"Je suis belge. Je viens de Bruxelles.<br />Tu viens d'où ?",
+							"I'm Belgian. I come from Brussels.<br />Where do you come from?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/005-je-viens-d-espagne.mp3",
+							"Je viens d'Espagne.",
+							"I come from Spain."
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/006-d-ou-venez-vous-monsieur.mp3",
+							"D'où venez-vous, Monsieur ?",
+							"Where do you come from, sir? "
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/007-je-viens-des-etats-unis-je-suis-americain-ma-femme-est-canadienne-elle-vient-du-quebec-et-vous-vous-etes-suisse.mp3",
+							"Je viens des Etats-Unis. Je suis américain.<br />Ma femme est canadienne. Elle vient du Québec.<br />Et vous, vous êtes suisse ?",
+							"I come from the USA. I'm American.<br />My wife's Canadian. She comes from Quebec.<br />And are you Swiss?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/008-ah-non-je-suis-luxembourgeoise.mp3",
+							"Ah non, je suis luxembourgeoise.",
+							"Oh no, I'm Luxemburgish."
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/009-tu-parles-allemand.mp3",
+							"Tu parles allemand ?",
+							"Do you speak German?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/010-non-je-ne-parle-pas-allemand.mp3",
+							"Non, je ne parle pas allemand.",
+							"No, I don't speak German."
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/011-quelles-langues-parles-tu.mp3",
+							"Quelles langues parles-tu ?",
+							"Which languages do you speak?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/012-je-parle-francais-c-est-tout.mp3",
+							"Je parle français.<br />C'est tout.",
+							"I speak French.<br />That's all."
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/013-quelles-langues-parlez-vous.mp3",
+							"Quelles langues parlez-vous ?",
+							"Which languages do you speak?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/014-je-suis-trilingue-je-parle-francais-arabe-et-un-petit-peu-anglais.mp3",
+							"Je suis trilingue.<br />Je parle français, arabe et un petit peu anglais.",
+							"I'm trilingual.<br />I speak French, Arabic and a little bit of English."
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/015-et-les-enfants.mp3",
+							"Et les enfants ?",
+							"And the children?"
+						],
+						[
+							"audio/lo3/dialogues/phraseTable1/016-ils-sont-bilingues-ils-parlent-francais-et-arabe.mp3",
+							"Ils sont bilingues.<br />Ils parlent français et arabe.",
+							"They're bilingual.<br />They speak French and Arabic."
+						]
+					],
+					"titleText": "Nationalities and languages"
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "Group",
+		"expandable": false,
+		"id": "vocabulary",
+		"titleText": "Vocabulary",
+		"instructionsTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core nationality and country vocabulary, including masculine and feminine forms.</li><li>How to identify country gender and number cues used with place names.</li><li>Useful question-and-answer patterns for origin and language use (for example <em>D&apos;où viens-tu ?</em>, <em>Quelles langues parles-tu ?</em>).</li><li>How vocabulary choices support accurate speaking and listening in real interaction.</li></ul>",
+		"content": [
+			{
+				"vocabulary1": {
+					"component": "PhraseTable",
+					"id": "vocabulary1",
+					"instructionsTextHTML": "<p>Read each term and play the audio to practise nationality and country vocabulary.</p>",
+					"header": [
+						"",
+						"Nationalité",
+						"Pays",
+						"Nationality",
+						"Country"
+					],
+					"phrases": [
+						[
+							"audio/lo3/vocabulary/vocabulary/068-algerien-algerienne-algerie.mp3",
+							"algérien / algérienne",
+							"Algérie (f)",
+							"Algerian",
+							"Algeria"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/069-allemand-allemande-allemagne.mp3",
+							"allemand / allemande",
+							"Allemagne (f)",
+							"German",
+							"Germany"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/071-americain-americaine-etats-unis.mp3",
+							"américain / américaine",
+							"Etats-Unis (mpl)",
+							"American",
+							"USA"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/072-anglais-anglaise-angleterre.mp3",
+							"anglais / anglaise",
+							"Angleterre (f)",
+							"English",
+							"England"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/074-australien-australienne-australie.mp3",
+							"australien / australienne",
+							"Australie (f)",
+							"Australian",
+							"Australia"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/075-belge-belgique.mp3",
+							"belge",
+							"Belgique (f)",
+							"Belgian",
+							"Belgium"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/077-britannique-grande-bretagne.mp3",
+							"britannique",
+							"Grande-Bretagne (f)",
+							"British",
+							"Great Britain"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/078-canadien-canadienne-canada.mp3",
+							"canadien / canadienne",
+							"Canada (m)",
+							"Canadian",
+							"Canada"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/080-chinois-chinoise-chine.mp3",
+							"chinois / chinoise",
+							"Chine (f)",
+							"Chinese",
+							"China"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/088-ecossais-ecossaise-ecosse.mp3",
+							"écossais / écossaise",
+							"Ecosse (f)",
+							"Scottish",
+							"Scotland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/091-espagnol-espagnole-espagne.mp3",
+							"espagnol / espagnole",
+							"Espagne (f)",
+							"Spanish",
+							"Spain"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/095-francais-francaise-france.mp3",
+							"français / française",
+							"France (f)",
+							"French",
+							"France"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/096-gallois-galloise-pays-de-galles.mp3",
+							"gallois / galloise",
+							"Pays de Galles (m)",
+							"Welsh",
+							"Wales"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/097-ghaneen-ghaneenne-ghana.mp3",
+							"ghanéen / ghanéenne",
+							"Ghana (m)",
+							"Ghanaian",
+							"Ghana"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/115-libanais-libanaise-liban.mp3",
+							"libanais / libanaise",
+							"Liban (m)",
+							"Lebanese",
+							"Lebanon"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/117-luxembourgeois-luxembourgeoise-luxembourg.mp3",
+							"luxembourgeois / luxembourgeoise",
+							"Luxembourg (m)",
+							"Luxembourgish",
+							"Luxembourg"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/120-marocain-marocaine-maroc.mp3",
+							"marocain / marocaine",
+							"Maroc (m)",
+							"Moroccan",
+							"Morocco"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/100-irlandais-irlandaise-irelande.mp3",
+							"irlandais / irlandaise",
+							"Irlande (f)",
+							"Irish",
+							"Ireland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/124-nord-irlandais-nord-irlandaise-irelande-du-nord.mp3",
+							"nord irlandais / nord irlandaise",
+							"Irlande (f) du Nord",
+							"Northern Irish",
+							"Northern Ireland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/133-senegalais-senegalaise-senegal.mp3",
+							"sénégalais / sénégalaise",
+							"Sénégal (m)",
+							"Senegalese",
+							"Senegal"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/134-suisse-suisse.mp3",
+							"suisse",
+							"Suisse (f)",
+							"Swiss",
+							"Switzerland"
+						],
+						[
+							"audio/lo3/vocabulary/vocabulary/138-tunisien-tunisienne-tunisie.mp3",
+							"tunisien / tunisienne",
+							"Tunisie (f)",
+							"Tunisian",
+							"Tunisia"
+						]
+					],
+					"sortable": true,
+					"titleText": "Nationalities and countries"
+				}
+			},
+			{
+				"vocabulary2": {
+					"component": "PhraseTable",
+					"id": "vocabulary2",
+					"instructionsTextHTML": "<p>Use these model phrases to ask and answer where someone comes from and what languages they speak.</p>",
+					"phrases": [
+						[
+							"audio/lo3/vocabulary/phraseTable5/125-parler.mp3",
+							"parler",
+							"to speak"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/128-quelles-langues-parles-tu-tu-parles-quelles-langues.mp3",
+							"Quelles langues parles-tu ? / Tu parles quelles langues ?",
+							"Which languages do you speak?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/130-quelles-langues-parlez-vous-vous-parlez-quelles-langues.mp3",
+							"Quelles langues parlez-vous ? / Vous parlez quelles langues ?",
+							"Which languages do you speak?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/103-je-parle-anglais-je-ne-parle-pas-anglais.mp3",
+							"Je parle anglais / Je ne parle pas anglais",
+							"I speak / I don't speak English."
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/140-venir-de.mp3",
+							"venir de",
+							"to come from"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/084-d-ou-viens-tu-tu-viens-d-ou.mp3",
+							"D'où viens-tu ? / Tu viens d'où ?",
+							"Where do you come from?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/082-d-ou-venez-vous-vous-venez-d-ou.mp3",
+							"D'où venez-vous ? / Vous venez d'où ?",
+							"Where do you come from?"
+						],
+						[
+							"audio/lo3/vocabulary/phraseTable5/112-je-viens-de-je-ne-viens-pas-de.mp3",
+							"Je viens de … / Je ne viens pas de …",
+							"I come from … / don't come from …"
+						]
+					],
+					"titleText": "Useful phrases for origin and language"
+				}
+			}
+		]
+	},
+	"grammar": {
+		"component": "Group",
+		"content": [
+			{
+				"grammar1": {
+					"component": "LO3Grammar1",
+					"id": "grammar1",
+					"infoTextHTML": "In this section, you will practise essential verb patterns for introducing yourself and describing where people come from.<p>You will learn:</p><ul><li>How common <em class='grammar-term-em'>-er</em> verbs work in the present tense.</li><li>How to use <em class='grammar-term-em'>parler</em> and <em class='grammar-term-em'>venir</em> in practical context.</li><li>How French present-tense meaning maps to English forms.</li></ul>",
+					"titleText": "1. A bit about verbs in French"
+				}
+			},
+			{
+				"grammar2": {
+					"component": "LO3Grammar2",
+					"id": "grammar2",
+					"infoTextHTML": "This section helps you choose the correct form after <em class='grammar-term-em'>venir</em> when expressing origin.<p>You will learn:</p><ul><li>When to use <em class='grammar-term-em'>de</em>, <em class='grammar-term-em'>d&apos;</em>, <em class='grammar-term-em'>du</em>, and <em class='grammar-term-em'>des</em>.</li><li>How the form changes with gender, number, and initial sound.</li></ul>",
+					"titleTextHTML": "2. Saying where you come from: <em class='grammar-term-em'>de</em> / <em class='grammar-term-em'>d&apos;</em> / <em class='grammar-term-em'>du</em> / <em class='grammar-term-em'>des</em>"
+				}
+			},
+			{
+				"grammar3": {
+					"component": "LO3Grammar3",
+					"id": "grammar3",
+					"infoTextHTML": "In this section, you will focus on how adjective and profession forms change in feminine contexts.<p>You will learn:</p><ul><li>Common feminine formation patterns from masculine forms.</li><li>Typical spelling changes and key exceptions.</li><li>How agreement affects nationality adjectives and professions.</li></ul>",
+					"titleText": "3. Feminine forms of professions and adjectives"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"titleText": "Grammar and Usage",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section introduces key grammar and usage patterns for talking about nationality, origin, and languages in French. You will practise common verb groups, useful structures such as <em class='grammar-term-em'>parler</em> and <em class='grammar-term-em'>venir de</em>, and agreement patterns used in everyday communication.</p>",
+			"image": {
+				"src": "img/shared/grammar.svg",
+				"alt": "Grammar illustration"
+			}
+		},
+		"heroSection": true
+	},
+	"pronunciation": {
+		"component": "Group",
+		"content": [
+			{
+				"pronunciation1": {
+					"component": "LO3Pronunciation1",
+					"id": "pronunciation1",
+					"informationTextHTML": "<p><strong>To sound or not to sound?</strong></p><p>In this part, focus on silent <em>-ent</em> endings in third-person plural verb forms. Listen carefully and repeat each example aloud.</p>",
+					"titleTextHTML": "1. Silent <em>-ent</em> endings"
+				}
+			},
+			{
+				"pronunciation2": {
+					"component": "LO3Pronunciation2",
+					"id": "pronunciation2",
+					"informationTextHTML": "<p>Here, practise final consonants and liaison. Compare paired examples to hear when final letters stay silent and when they are sounded.</p>",
+					"titleText": "2. Final consonants and liaison"
+				}
+			},
+			{
+				"pronunciation3": {
+					"component": "LO3Pronunciation3",
+					"id": "pronunciation3",
+					"informationTextHTML": "<p>This part helps you recognise and produce the French <em>&quot;eh&quot;</em> sound across common spelling patterns.</p>",
+					"titleText": "3. The sound \"eh\""
+				}
+			}
+		],
+		"expandable": false,
+		"displayAsTabs": true,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"titleText": "Pronunciation Focus — Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"expandable": false,
+		"id": "exercises",
+		"component": "Group",
+		"content": [
+			{
+				"inlineChoiceGroup1": {
+					"component": "InlineChoiceGroup",
+					"id": "inlineChoiceGroup1",
+					"congratulationsText": "Excellent !",
+					"informationTextHTML": "Listen to each audio clip and select the correct nationality adjective. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"items": [
+						{
+							"text": "Je suis [marocain|*marocaine|africain|africaine].",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup1/001-je-suis-marocaine.mp3"
+						},
+						{
+							"text": "Je suis [américain|américaine|mexicain|*mexicaine].",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup1/002-je-suis-mexicaine.mp3"
+						},
+						{
+							"text": "Je suis [*canadien|canadienne|ghanéen|ghanéenne].",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup1/003-je-suis-canadien.mp3"
+						},
+						{
+							"text": "Je suis [français|*française|anglais|anglaise].",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup1/004-je-suis-francaise.mp3"
+						},
+						{
+							"text": "Je suis [*chinois|chinoise|gallois|galloise].",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup1/005-je-suis-chinois.mp3"
+						},
+						{
+							"text": "Je suis [anglais|anglaise|sénégalais|*sénégalaise].",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup1/006-je-suis-senegalaise.mp3"
+						}
+					],
+					"commented-out": "test [a|*b|c|d|e] and [*a|b|c|d].",
+					"titleText": "1. Select the Correct Adjective of Nationality"
+				}
+			},
+			{
+				"inlineChoiceGroup2": {
+					"component": "InlineChoiceGroup",
+					"id": "inlineChoiceGroup2",
+					"congratulationsText": "Très bien !",
+					"informationTextHTML": "Listen to each audio clip and choose the correct form: <strong>de</strong>, <strong>du</strong>, <strong>d'</strong>, or <strong>des</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answers",
+					"items": [
+						{
+							"text": "Je viens [*de|d'|du|des] France.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/001-je-viens-de-france.mp3"
+						},
+						{
+							"text": "Je viens [*de|d'|du|des] Suisse.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/002-je-viens-de-suisse.mp3"
+						},
+						{
+							"text": "Je viens [de|*d'|du|des] Orléans.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/003-je-viens-d-orleans.mp3"
+						},
+						{
+							"text": "Je viens [de|d'|*du|des] Maroc.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/004-je-viens-du-maroc.mp3"
+						},
+						{
+							"text": "Je viens [*de|d'|du|des] Tunisie.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/005-je-viens-de-tunisie.mp3"
+						},
+						{
+							"text": "Je viens [de|*d'|du|des] Ecosse.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/006-je-viens-d-ecosse.mp3"
+						},
+						{
+							"text": "Je viens [de|d'|*du|des] Gabon.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/007-je-viens-du-gabon.mp3"
+						},
+						{
+							"text": "Je viens [de|d'|du|*des] États-Unis.",
+							"audio": "audio/lo3/exercises/inlineChoiceGroup2/008-je-viens-des-etats-unis.mp3"
+						}
+					],
+					"titleText": "2. Practise saying where you're from"
+				}
+			},
+			{
+				"typedTransformExercise3": {
+					"component": "TypedTransformExercise",
+					"congratulationsText": "Superbe !",
+					"cheatText": "Show answers",
+					"id": "typedTransformExercise3",
+					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
+					"header": [
+						"Masculine",
+						"feminine",
+						"Listen (m & f)"
+					],
+					"phrases": [
+						[
+							"américain",
+							"[américaine]",
+							"audio/lo3/exercises/typedTransformExercise3/001-americain-americaine.mp3"
+						],
+						[
+							"asiatique",
+							"[asiatique]",
+							"audio/lo3/exercises/typedTransformExercise3/002-asiatique-m-asiatique-f.mp3"
+						],
+						[
+							"brésilien",
+							"[brésilienne]",
+							"audio/lo3/exercises/typedTransformExercise3/003-bresilien-bresilienne.mp3"
+						],
+						[
+							"croate",
+							"[croate]",
+							"audio/lo3/exercises/typedTransformExercise3/004-croate-m-croate-f.mp3"
+						],
+						[
+							"danois",
+							"[danoise]",
+							"audio/lo3/exercises/typedTransformExercise3/005-danois-danoise.mp3"
+						],
+						[
+							"italien",
+							"[italienne]",
+							"audio/lo3/exercises/typedTransformExercise3/006-italien-italienne.mp3"
+						],
+						[
+							"portugais",
+							"[portugaise]",
+							"audio/lo3/exercises/typedTransformExercise3/007-portugais-portugaise.mp3"
+						],
+						[
+							"russe",
+							"[russe]",
+							"audio/lo3/exercises/typedTransformExercise3/008-russe-m-russe-f.mp3"
+						],
+						[
+							"ukrainien",
+							"[ukrainienne]",
+							"audio/lo3/exercises/typedTransformExercise3/009-ukrainien-ukrainienne.mp3"
+						],
+						[
+							"célibataire",
+							"[célibataire]",
+							"audio/lo3/exercises/typedTransformExercise3/010-celibataire-m-celibataire-f.mp3"
+						],
+						[
+							"fatigué",
+							"[fatiguée]",
+							"audio/lo3/exercises/typedTransformExercise3/011-fatigue-fatiguee.mp3"
+						],
+						[
+							"malade",
+							"[malade]",
+							"audio/lo3/exercises/typedTransformExercise3/012-malade-m-malade-f.mp3"
+						],
+						[
+							"marié",
+							"[mariée]",
+							"audio/lo3/exercises/typedTransformExercise3/013-marie-mariee.mp3"
+						]
+					],
+					"titleText": "3. Practise masculine and feminine forms: Adjectives"
+				}
+			},
+			{
+				"typedTransformExercise4": {
+					"component": "TypedTransformExercise",
+					"congratulationsText": "Superbe !",
+					"cheatText": "Show answers",
+					"id": "typedTransformExercise4",
+					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
+					"header": [
+						"Masculine",
+						"feminine",
+						"Listen (m & f)"
+					],
+					"phrases": [
+						[
+							"dentiste",
+							"[dentiste]",
+							"audio/lo3/exercises/typedTransformExercise4/001-dentiste-m-dentiste-f.mp3"
+						],
+						[
+							"doctorant",
+							"[doctorante]",
+							"audio/lo3/exercises/typedTransformExercise4/002-doctorant-doctorante.mp3"
+						],
+						[
+							"étudiant",
+							"[étudiante]",
+							"audio/lo3/exercises/typedTransformExercise4/003-etudiant-etudiante.mp3"
+						],
+						[
+							"informaticien",
+							"[informaticienne]",
+							"audio/lo3/exercises/typedTransformExercise4/004-informaticien-informaticienne.mp3"
+						],
+						[
+							"journaliste",
+							"[journaliste]",
+							"audio/lo3/exercises/typedTransformExercise4/005-journaliste-m-journaliste-f.mp3"
+						],
+						[
+							"mécanicien",
+							"[mécanicienne]",
+							"audio/lo3/exercises/typedTransformExercise4/006-mecanicien-mecanicienne.mp3"
+						],
+						[
+							"médecin",
+							"[médecin]",
+							"audio/lo3/exercises/typedTransformExercise4/007-medecin-m-medecin-f.mp3"
+						],
+						[
+							"pharmacien",
+							"[pharmacienne]",
+							"audio/lo3/exercises/typedTransformExercise4/008-pharmacien-pharmacienne.mp3"
+						]
+					],
+					"titleText": "4. Practise masculine and feminine forms: Professions"
+				}
+			},
+			{
+				"dictationExercise5": {
+					"component": "DictationExercise",
+					"congratulationsText": "Excellent !",
+					"id": "dictationExercise5",
+					"instructionsText": "Listen and write what you hear.",
+					"phrases": [
+						[
+							"",
+							"[Je suis marié avec Lucie.]",
+							"audio/lo3/exercises/dictationExercise5/001-je-suis-marie-avec-lucie.mp3"
+						],
+						[
+							"",
+							"[Je suis canadien et je viens de Montréal.]",
+							"audio/lo3/exercises/dictationExercise5/002-je-suis-canadien-et-je-viens-de-montreal.mp3"
+						],
+						[
+							"",
+							"[Lucie est anglaise.]",
+							"audio/lo3/exercises/dictationExercise5/003-lucie-est-anglaise.mp3"
+						],
+						[
+							"",
+							"[Elle vient de Bristol.]",
+							"audio/lo3/exercises/dictationExercise5/004-elle-vient-de-bristol.mp3"
+						],
+						[
+							"",
+							"[Elle parle anglais et un petit peu français.]",
+							"audio/lo3/exercises/dictationExercise5/005-elle-parle-anglais-et-un-petit-peu-francais.mp3"
+						],
+						[
+							"",
+							"[Je suis bilingue.]",
+							"audio/lo3/exercises/dictationExercise5/006-je-suis-bilingue.mp3"
+						],
+						[
+							"",
+							"[Je parle anglais et français.]",
+							"audio/lo3/exercises/dictationExercise5/007-je-parle-anglais-et-francais.mp3"
+						],
+						[
+							"",
+							"[Je suis professeur de maths et Lucie est avocate.]",
+							"audio/lo3/exercises/dictationExercise5/008-je-suis-professeur-de-maths-et-lucie-est-avocate.mp3"
+						]
+					],
+					"titleText": "5. Practise your listening skills"
+				}
+			}
+		],
+		"titleText": "Exercises"
+	}
+}

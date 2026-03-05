@@ -52,8 +52,8 @@ export default defineConfig(() => {
 			viteStaticCopy({
 				targets: [
 					{
-						dest: './src/learningObjectConfigurations/fr', // destination inside dist/
-						src: 'src/learningObjectConfigurations/fr/*.json' // path to your file
+						dest: './src/lo-config', // destination inside dist/
+						src: 'src/lo-config/*.json' // path to your file
 					},
 					{
 						dest: './src', // destination inside dist/

@@ -1,0 +1,588 @@
+{
+	"settings": {
+		"class": "lo-1",
+		"flag": "fr-flag.png",
+		"showCongratulations": true,
+		"targetLanguage": "french",
+		"targetLanguageCode": "fr-FR",
+		"introHTML": "<p>This learning object introduces you to the essentials of greeting and introducing yourself politely. You'll learn how to choose appropriate forms of address depending on the level of formality and use common expressions for everyday social interactions. The unit also helps you build confidence in pronunciation through focused practice on key sounds.</p>",
+		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Greet others and introduce yourself confidently.</li><li>Use appropriate forms of address such as <em>tu/vous, Monsieur, Madame, </em>and <em>Mademoiselle</em>.</li><li>Express greetings, farewells, and polite social phrases.</li><li>Recognize and produce French sounds such as nasal vowels (<em>on/om</em>), the French <em>r</em>, and the <em>oi</em> sound.</li></ul>"
+	},
+	"dialogues": {
+		"component": "Group",
+		"expandable": false,
+		"instructionsTextHTMLOld": "<img src='images/handshake.png' style='width: 200px; border: 1px solid black;margin-bottom: 20px;'/><p>This section introduces a series of short dialogues to show how to greet and introduce oneself in both formal and informal situations in French.</p>",
+		"instructionsTextHTML": "<p>This section introduces a series of short dialogues to show how to greet and introduce oneself in both formal and informal situations in French.</p>",
+		"content": [
+			{
+				"phraseTable1": {
+					"component": "PhraseTable",
+					"id": "PhraseTable1",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
+						[
+							"audio/lo1/dialogues/phraseTable1/001-salut-ca-va.mp3",
+							"Salut, ça va ?",
+							"Hi, are you well?"
+						],
+						[
+							"audio/lo1/dialogues/phraseTable1/002-salut-ca-va-et-toi.mp3",
+							"Salut ! Ça va ! Et toi ?",
+							"Hi, I'm fine and you?"
+						],
+						[
+							"audio/lo1/dialogues/phraseTable1/003-tres-bien-merci.mp3",
+							"Très bien, merci !",
+							"Very well, thank you!"
+						]
+					],
+					"titleText": "Informal greetings: \"Salut, ça va ?\""
+				}
+			},
+			{
+				"phraseTable2": {
+					"component": "PhraseTable",
+					"id": "PhraseTable2",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
+						[
+							"audio/lo1/dialogues/phraseTable2/001-bonjour-madame-foucher-comment-ca-va.mp3",
+							"Bonjour, Madame Foucher ! Comment ça va ?",
+							"Hello, Mme Foucher! How are you?"
+						],
+						[
+							"audio/lo1/dialogues/phraseTable2/002-bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3",
+							"Bonjour Monsieur Letort ! Ça va très bien. Et <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> ?",
+							"Hello M Letort, I'm very well, thank you. And you?"
+						],
+						[
+							"audio/lo1/dialogues/phraseTable2/003-ca-va-merci.mp3",
+							"Ça va, merci !",
+							"I'm fine, thank you!"
+						]
+					],
+					"titleText": "Formal greetings: \"Bonjour Madame / Monsieur\""
+				}
+			},
+			{
+				"phraseTable3": {
+					"component": "PhraseTable",
+					"id": "PhraseTable3",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
+						[
+							"audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
+							"Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
+							"What's your name?"
+						],
+						[
+							"audio/lo1/dialogues/phraseTable3/002-je-mappelle-max-et-toi.mp3",
+							"Je m'appelle Max, et <a class='modal-link' href='#content' data-modal-target='toi'>toi</a> ?",
+							"My name is Max. And you're….?"
+						],
+						[
+							"audio/lo1/dialogues/phraseTable3/003-je-mappelle-camille.mp3",
+							"Je m'appelle Camille.",
+							"My name's Camille."
+						]
+					],
+					"titleText": "Informal introductions: \"Je m'appelle…\""
+				}
+			},
+			{
+				"phraseTable4": {
+					"component": "PhraseTable",
+					"id": "PhraseTable4",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
+						[
+							"audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
+							"Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
+							"What's your name?"
+						],
+						[
+							"audio/lo1/dialogues/phraseTable4/002-je-mappelle-isabelle-martin.mp3",
+							"Je m'appelle Isabelle Martin.",
+							"My name is Isabelle Martin."
+						]
+					],
+					"titleText": "Formal introductions: \"Comment vous appelez-vous?\""
+				}
+			}
+		],
+		"id": "dialogues",
+		"titleText": "Dialogues"
+	},
+	"vocabulary": {
+		"component": "PhraseTable",
+		"expandable": false,
+		"id": "vocabulary",
+		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Key greeting and farewell expressions (<em>Bonjour, Salut, Au revoir, À bientôt</em>).</li><li>Terms of address (<em>Monsieur, Madame, Mademoiselle, Jeune homme, Les enfants</em>).</li><li>Friendly and affectionate expressions (<em>Mon chéri, Ma chérie, Mon amour</em>).</li></ul>",
+		"phrases": [
+			[
+				"audio/lo1/vocabulary/001-bonjour.mp3",
+				"Bonjour",
+				"Hello, good morning, good afternoon"
+			],
+			[
+				"audio/lo1/vocabulary/002-bonsoir.mp3",
+				"Bonsoir",
+				"Hello, good evening"
+			],
+			[
+				"audio/lo1/vocabulary/003-coucou.mp3",
+				"Coucou",
+				"Hi, cooee, peek-a-boo"
+			],
+			[
+				"audio/lo1/vocabulary/004-salut.mp3",
+				"Salut",
+				"Hi, bye"
+			],
+			[
+				"audio/lo1/vocabulary/005-au-revoir.mp3",
+				"Au revoir",
+				"Goodbye"
+			],
+			[
+				"audio/lo1/vocabulary/006-a-bientot.mp3",
+				"À bientôt",
+				"See you soon!"
+			],
+			[
+				"audio/lo1/vocabulary/007-monsieur.mp3",
+				"Monsieur",
+				"Sir, Mr"
+			],
+			[
+				"audio/lo1/vocabulary/008-madame.mp3",
+				"<a class='modal-link' href='#content' data-modal-target='madame'>Madame</a>",
+				"Madam, Mrs / Ms"
+			],
+			[
+				"audio/lo1/vocabulary/009-mademoiselle.mp3",
+				"<a class='modal-link' href='#content' data-modal-target='mademoiselle'>Mademoiselle</a>",
+				"Young lady, Miss"
+			],
+			[
+				"audio/lo1/vocabulary/010-messieurs-dames.mp3",
+				"Messieurs-dames",
+				"Ladies and gentlemen"
+			],
+			[
+				"audio/lo1/vocabulary/011-jeune-homme.mp3",
+				"Jeune homme",
+				"Young man"
+			],
+			[
+				"audio/lo1/vocabulary/012-mon-petit-ma-petite.mp3",
+				"Mon petit (m) / Ma petite (f)",
+				"Poppet  (literally: my little one)"
+			],
+			[
+				"audio/lo1/vocabulary/013-mon-amour.mp3",
+				"Mon amour",
+				"My love"
+			],
+			[
+				"audio/lo1/vocabulary/014-mon-cheri-ma-cherie.mp3",
+				"Mon chéri (m) / ma chérie (f)",
+				"My darling"
+			],
+			[
+				"audio/lo1/vocabulary/015-les-enfants.mp3",
+				"Les enfants",
+				"Children"
+			],
+			[
+				"audio/lo1/vocabulary/016-tout-le-monde.mp3",
+				"Tout le monde",
+				"Everyone (literally : all the world)"
+			],
+			[
+				"audio/lo1/vocabulary/017-ca-va-question.mp3",
+				"Ça va ?",
+				"Are you well / OK?  Are things alright/ OK?"
+			],
+			[
+				"audio/lo1/vocabulary/018-comment-ca-va.mp3",
+				"Comment ça va ?",
+				"How are you? (literally: how's it going?)"
+			],
+			[
+				"audio/lo1/vocabulary/019-tres-bien.mp3",
+				"Très bien",
+				"Very well"
+			],
+			[
+				"audio/lo1/vocabulary/020-ca-va.mp3",
+				"Ça va.",
+				"(I'm) fine"
+			],
+			[
+				"audio/lo1/vocabulary/021-pas-mal.mp3",
+				"Pas mal",
+				"Not bad"
+			],
+			[
+				"audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
+				"Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
+				"What's your name?"
+			],
+			[
+				"audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
+				"Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
+				"What's your name?"
+			],
+			[
+				"audio/lo1/vocabulary/022-je-mappelle.mp3",
+				"Je m'appelle …",
+				"My name is …"
+			],
+			[
+				"audio/lo1/vocabulary/023-bonne-journee.mp3",
+				"Bonne journée !",
+				"Have a nice day!"
+			],
+			[
+				"audio/lo1/vocabulary/024-bonne-soiree.mp3",
+				"Bonne soirée !",
+				"Have a nice evening!   "
+			],
+			[
+				"audio/lo1/vocabulary/025-bonne-nuit.mp3",
+				"Bonne nuit !",
+				"Good night!"
+			],
+			[
+				"audio/lo1/vocabulary/026-bon-voyage.mp3",
+				"Bon voyage !",
+				"Have a safe journey! / Have a good trip!"
+			],
+			[
+				"audio/lo1/vocabulary/027-bonnes-vacances.mp3",
+				"Bonnes vacances !",
+				"Enjoy your holiday!"
+			],
+			[
+				"audio/lo1/vocabulary/028-oui-non.mp3",
+				"Oui, non",
+				"Yes, no"
+			],
+			[
+				"audio/lo1/vocabulary/029-merci.mp3",
+				"Merci",
+				"Thank you"
+			],
+			[
+				"audio/lo1/vocabulary/030-daccord.mp3",
+				"D'accord",
+				"OK then, alright"
+			],
+			[
+				"audio/lo1/vocabulary/031-aujourdhui.mp3",
+				"Aujourd'hui",
+				"Today"
+			],
+			[
+				"audio/lo1/vocabulary/032-enchante.mp3",
+				"Enchanté.e",
+				"Pleased to meet you (literally: delighted)"
+			]
+		],
+		"sortable": true,
+		"titleText": "Vocabulary"
+	},
+	"grammar": {
+		"component": "Group",
+		"content": [
+			{
+				"grammar1": {
+					"component": "LO1Grammar1",
+					"id": "grammar1",
+					"infoTextHTML": "In this section, you'll explore how to address people politely in French.<p>You will learn:</p><ul><li>When to use <em>Monsieur</em>, <span class='modal-highlight'><em>Madame</em></span>, and <span class='modal-highlight'><em>Mademoiselle</em></span>.</li><li>Abbreviations: <em>M.</em>, <em>Mme.</em>, <em>Mlle</em>.</li></ul>",
+					"titleText": "1. Forms of address and politeness"
+				}
+			},
+			{
+				"grammar2": {
+					"component": "LO1Grammar2",
+					"id": "grammar2",
+					"infoTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><em class='grammar-term-em'>tu</em></span> and <span class='modal-highlight'><em class='grammar-term-em'>vous</em></span> to show different levels of formality. You'll practise using <em class='grammar-term-em'>tu</em> with friends, family, and children, and <em class='grammar-term-em'>vous</em> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <em class='grammar-term-em'>tu</em> with friends, family, and children.</li><li>How to use <em class='grammar-term-em'>vous</em> formally or when speaking to several people.</li><li>How <em class='grammar-term-em'>toi</em> replaces <em class='grammar-term-em'>tu</em> in responses (<em class='grammar-term-em'>Et toi ?</em>).</li></ul>",
+					"titleTextHTML": "2. The \"<em class='grammar-term-em'>tu</em>\" vs \"<em class='grammar-term-em'>vous</em>\" distinction"
+				}
+			}
+		],
+		"expandable": false,
+		"id": "grammar",
+		"menuText": "Grammar",
+		"comment": "menuText wins over titleText",
+		"titleText": "Grammar and Usage",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section introduces key grammar and usage points to show how forms of address and the \"<em class='grammar-term-em'>tu</em>\" vs \"<em class='grammar-term-em'>vous</em>\" distinction reflect levels of politeness and familiarity in French.</p>",
+			"image": {
+				"src": "img/shared/grammar.svg",
+				"alt": "Grammar illustration"
+			}
+		},
+		"heroSection": true
+	},
+	"pronunciation": {
+		"component": "Group",
+		"content": [
+			{
+				"pronunciation1": {
+					"component": "LO1Demystify1",
+					"id": "pronunciation1",
+					"comment": "menuText wins over titleText",
+					"titleText": "1. Nasal vowels: \"on / om\""
+				}
+			},
+			{
+				"pronunciation2": {
+					"component": "LO1Demystify2",
+					"id": "pronunciation2",
+					"comment": "menuText wins over titleText",
+					"titleText": "2. The French \"r\""
+				}
+			},
+			{
+				"pronunciation3": {
+					"component": "LO1Demystify3",
+					"id": "pronunciation3",
+					"comment": "menuText wins over titleText",
+					"titleText": "3. The sound \"oi\""
+				}
+			},
+			{
+				"pronunciation4": {
+					"component": "LO1Demystify4",
+					"id": "pronunciation4",
+					"comment": "menuText wins over titleText",
+					"titleText": "4. The silent \"h\""
+				}
+			}
+		],
+		"expandable": false,
+		"displayAsTabs": true,
+		"id": "pronunciation",
+		"menuText": "Pronunciation",
+		"comment": "menuText wins over titleText",
+		"titleText": "Pronunciation Focus — Demystifying French Pronunciation"
+	},
+	"exercises": {
+		"component": "Group",
+		"content": [
+			{
+				"wordparts1": {
+					"cheatText": "Show answer",
+					"component": "WordParts",
+					"congratulationsText": "Superbe !",
+					"id": "wordparts1",
+					"informationTextHTML": "Select the part of each word that contains the nasal, <em>r</em>, or <em>oi</em> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
+					"showHintsText": "Hints",
+					"items": [
+						{
+							"text": "b[on]jou[r] m[on] ché[r]i",
+							"audio": "audio/lo1/exercises/wordparts1/001-bonjour-mon-cheri.mp3"
+						},
+						{
+							"text": "b[on]s[oi][r] m[on] amou[r]",
+							"audio": "audio/lo1/exercises/wordparts1/002-bonsoir-mon-amour.mp3"
+						},
+						{
+							"text": "au [r]ev[oi][r] ma ché[r]ie",
+							"audio": "audio/lo1/exercises/wordparts1/003-au-revoir-ma-cherie.mp3"
+						},
+						{
+							"text": "quelle [h]o[rr]eu[r] Valé[r]ie !",
+							"audio": "audio/lo1/exercises/wordparts1/004-quelle-horreur-valerie.mp3"
+						}
+					],
+					"titleText": "1. Identify pronunciation features"
+				}
+			},
+			{
+				"phrases2": {
+					"component": "DraggableFillGaps",
+					"id": "phrases2",
+					"congratulationsText": "Excellent !",
+					"informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>), then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"showHintsText": "Hints",
+					"cheatText": "Show answer",
+					"blanksType": "phrases",
+					"items": [
+						{
+							"text": "Coucou [mon] amour ! Ça [va] aujourd'hui ?",
+							"audio": "audio/lo1/exercises/draggableFillGaps2/001-coucou-mon-amour-ca-va-aujourdhui.mp3"
+						},
+						{
+							"text": "Oui, ma [chérie] ! Ça va [très] bien ! Et [toi] ?",
+							"audio": "audio/lo1/exercises/draggableFillGaps2/002-oui-ma-cherie-ca-va-tres-bien-et-toi.mp3"
+						},
+						{
+							"text": "Ça va !",
+							"audio": "audio/lo1/exercises/draggableFillGaps2/003-ca-va.mp3"
+						}
+					],
+					"titleText": "2. Fill in the gaps: greetings and introductions (part1)"
+				}
+			},
+			{
+				"phrases3": {
+					"component": "DraggableFillGaps",
+					"blanksType": "phrases",
+					"cheatText": "Show answer",
+					"congratulationsText": "Superbe !",
+					"id": "phrases3",
+					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"showHintsText": "Hints",
+					"items": [
+						{
+							"text": "Bonsoir Monsieur Galipot ! [comment] ça va ?",
+							"audio": "audio/lo1/exercises/draggableFillGaps3/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
+						},
+						{
+							"text": "Bonsoir Madame Bernard, ça va très bien, merci. Et [vous] ?",
+							"audio": "audio/lo1/exercises/draggableFillGaps3/002-bonsoir-madame-bernard-ca-va-tres-bien-merci-et-vous.mp3"
+						},
+						{
+							"text": "Ah pas mal [merci] !",
+							"audio": "audio/lo1/exercises/draggableFillGaps3/003-ah-pas-mal-merci.mp3"
+						}
+					],
+					"titleText": "3. Fill in the gaps: greetings and introductions (part2)"
+				}
+			},
+			{
+				"phrases4": {
+					"blanksType": "phrases",
+					"cheatText": "Show answer",
+					"component": "DraggableFillGaps",
+					"congratulationsText": "Très bien !",
+					"id": "phrases4",
+					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"instructionsTextHTMLXXX": "<a id='nested' class='modal-link-target' data-modal-target='nested'>nested target, how are we doing?</a>",
+					"showHintsText": "Hints",
+					"items": [
+						{
+							"text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
+							"audio": "audio/lo1/exercises/draggableFillGaps4/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
+						},
+						{
+							"text": "Bonjour Madame ! Je m' [appelle] Annie.",
+							"audio": "audio/lo1/exercises/draggableFillGaps4/002-bonjour-madame-je-mappelle-annie.mp3"
+						},
+						{
+							"text": "Et [moi], je m'appelle David.",
+							"audio": "audio/lo1/exercises/draggableFillGaps4/003-et-moi-je-mappelle-david.mp3"
+						},
+						{
+							"text": "D'accord. Très bien !",
+							"audio": "audio/lo1/exercises/draggableFillGaps4/004-daccord-tres-bien.mp3"
+						},
+						{
+							"text": "Merci Madame ! Bonne journée !",
+							"audio": "audio/lo1/exercises/draggableFillGaps4/005-merci-madame-bonne-journee.mp3"
+						},
+						{
+							"text": "Au [revoir] les enfants !  Bonne journée !",
+							"audio": "audio/lo1/exercises/draggableFillGaps4/006-au-revoir-les-enfants-bonne-journee.mp3"
+						}
+					],
+					"titleText": "4. Fill in the gaps: greetings and introductions (part3)"
+				}
+			},
+			{
+				"listeningOrder1": {
+					"component": "SequenceOrder",
+					"id": "listeningOrder1",
+					"congratulationsText": "Très bien !",
+					"informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"listenDescriptionText": "Full audio",
+					"showHintsText": "Hints",
+					"cheatText": "Show answer",
+					"blanksType": "table",
+					"words": [
+						"bonbon",
+						"mon",
+						"ton",
+						"non",
+						"bon",
+						"son",
+						"prénom",
+						"bonjour"
+					],
+					"soundFile": "audio/lo1/exercises/listeningOrder1/001-listening-order-1.mp3",
+					"titleText": "5. Listening comprehension (part1)"
+				}
+			},
+			{
+				"listeningOrder2": {
+					"component": "SequenceOrder",
+					"id": "listeningOrder2",
+					"congratulationsText": "Très bien !",
+					"informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"listenDescriptionText": "Full audio",
+					"showHintsText": "Hints",
+					"cheatText": "Show answer",
+					"blanksType": "table",
+					"words": [
+						"moi",
+						"roi",
+						"loi",
+						"au revoir",
+						"trois",
+						"toi",
+						"quoi",
+						"froid"
+					],
+					"soundFile": "audio/lo1/exercises/listeningOrder2/001-listening-order-2.mp3",
+					"titleText": "6. Listening comprehension (part2)"
+				}
+			},
+			{
+				"listeningOrder3": {
+					"component": "Sortable",
+					"id": "listeningOrder3",
+					"titleText": "7. Listening comprehension (part3)",
+					"shuffleOnLoad": true,
+					"phrases": [
+						[
+							"",
+							"homme",
+							"audio/lo1/exercises/listeningOrder3/001-homme.mp3"
+						],
+						[
+							"",
+							"hôtel",
+							"audio/lo1/exercises/listeningOrder3/002-hotel.mp3"
+						],
+						[
+							"",
+							"hôpital",
+							"audio/lo1/exercises/listeningOrder3/003-hopital.mp3"
+						],
+						[
+							"",
+							"horrible",
+							"audio/lo1/exercises/listeningOrder3/004-horrible.mp3"
+						]
+					],
+					"informationTextHTML": "Listen to each pronunciation clip, then drag the matching French word into the correct position. Focus on the silent <em>h</em> words from this section. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again."
+				}
+			}
+		],
+		"expandable": false,
+		"id": "exercises",
+		"titleText": "Exercises",
+		"instructionsLayout": {
+			"paragraph": "This section introduces a range of exercises to help practise French pronunciation, greetings, introductions, and listening comprehension through interactive gap-filling and sound recognition activities.",
+			"image": {
+				"src": "img/lo1/first-contact.svg",
+				"alt": "Interactive exercises"
+			}
+		}
+	}
+}
