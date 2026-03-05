@@ -41,7 +41,7 @@
   - `dropdowns2` migrated to `InlineChoiceGroup` to match LO2 verb-practice pattern.
 - `InlineChoiceGroup` row audio icons are now left-first for exercise consistency.
 - `Blanks` semantic migration completed across FR configs:
-  - all `component: "Blanks"` entries migrated to `component: "DraggableFillGaps"` in `src/learningObjectConfigurations/fr/*.json` (including `demo.json`).
+  - all `component: "Blanks"` entries migrated to `component: "DraggableFillGaps"` in `src/lo-config/*.json` (including `demo.json`).
   - runtime fallback alias retained so legacy `Blanks` configs still render safely.
 
 ## Next Suggested Steps

@@ -1,7 +1,7 @@
 # AnswerTable Refactor Checklist
 
 ## Discovery and Classification
-- [ ] Find every `component: "AnswerTable"` usage in `src/learningObjectConfigurations/fr/*.json`.
+- [ ] Find every `component: "AnswerTable"` usage in `src/lo-config/*.json`.
 - [ ] Classify each usage as one of:
   - [ ] `DictationExercise`
   - [ ] `TypedTransformExercise`

@@ -21,16 +21,16 @@ Update (2026-02-15):
   - `<b>` -> `<strong>`
   - `<i>` -> `<em>`
   - files:
-    - `src/learningObjectConfigurations/fr/1.json`
-    - `src/learningObjectConfigurations/fr/2.json`
-    - `src/learningObjectConfigurations/fr/3.json`
-    - `src/learningObjectConfigurations/fr/4.json`
-    - `src/learningObjectConfigurations/fr/6.json`
-    - `src/learningObjectConfigurations/fr/10.json`
-    - `src/learningObjectConfigurations/fr/11.json`
-    - `src/learningObjectConfigurations/fr/12.json`
-    - `src/learningObjectConfigurations/fr/answer.json`
-    - `src/learningObjectConfigurations/fr/demo.json`
+    - `src/lo-config/first-contact.json`
+    - `src/lo-config/about-me.json`
+    - `src/lo-config/origins-and-languages.json`
+    - `src/lo-config/current-location.json`
+    - `src/lo-config/family-friends-and-neighbours.json`
+    - `src/lo-config/making-arrangements.json`
+    - `src/lo-config/going-to-a-cafe.json`
+    - `src/lo-config/shopping-in-the-market.json`
+    - `src/lo-config/answer-table-test.json`
+    - `src/lo-config/demo.json`
 - Why this matters:
   - semantic emphasis is announced more consistently by assistive technologies than presentational tags;
   - keeps markup meaning-driven (not style-driven), which reduces future drift and validator churn.

@@ -1,11 +1,11 @@
 # Pronunciation TODO (LO Unification)
 
 ## Scope
-- Focus area: Pronunciation sections across French LOs (`src/learningObjectConfigurations/fr/*.json`)
+- Focus area: Pronunciation sections across French LOs (`src/lo-config/*.json`)
 - Priority baseline: LO1 and LO2 parity first
 - Primary implementation files:
-  - `src/learningObjectConfigurations/fr/1.json`
-  - `src/learningObjectConfigurations/fr/2.json`
+  - `src/lo-config/first-contact.json`
+  - `src/lo-config/about-me.json`
   - `src/App.jsx` (Group + Tabs rendering path)
   - `src/components/CustomComponents_FR/CustomComponents_FR.jsx`
 

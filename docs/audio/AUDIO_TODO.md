@@ -6,7 +6,7 @@ Audio playback responsibility is currently spread across multiple places:
 
 - `AudioClip` starts ad-hoc `new Audio(...)` clips.
 - `SequenceAudioController` manages its own `<audio>` element.
-- `playAudioLink` in `src/utility.js` starts additional ad-hoc `new Audio(...)` clips.
+- `playAudioLink` in `src/utils/audioPlayback.js` starts additional ad-hoc `new Audio(...)` clips.
 - Native `<audio controls>` elements can also play directly.
 
 Because these paths are independent, multiple clips can play at the same time.  
@@ -16,14 +16,14 @@ This caused overlap bugs where users could trigger several audio clips concurren
 
 - Mapping file created: `AUDIO_LO2_MIGRATION_MAP.md`
 - Scope covered:
-  - `src/learningObjectConfigurations/fr/2.json`
+  - `src/lo-config/about-me.json`
   - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar`, `LO2Demystify`)
 - Result:
   - 78 unique legacy LO2 audio refs mapped to proposed `audio/lo2/...` targets.
   - Phase 2 executed for all existing refs:
     - 75 files copied to `public/audio/lo2/...`
     - LO2 refs rewritten from `sounds/fr/...` to `audio/lo2/...` in:
-      - `src/learningObjectConfigurations/fr/2.json`
+      - `src/lo-config/about-me.json`
       - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (LO2 blocks only)
   - Initial 3 missing refs were resolved using controlled fallback files:
     - `sounds/fr/Je m'appelle.mp3`
@@ -37,7 +37,7 @@ This caused overlap bugs where users could trigger several audio clips concurren
 ## LO3 Migration Status (Phase 1 Complete)
 
 - Scope covered:
-  - `src/learningObjectConfigurations/fr/3.json`
+  - `src/lo-config/origins-and-languages.json`
   - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
 - Result:
   - 140 unique legacy LO3 refs mapped (`sounds/fr/...` -> `audio/lo3/...`)
@@ -52,7 +52,7 @@ This caused overlap bugs where users could trigger several audio clips concurren
 ## LO4 Migration Status (Phase 1 Complete)
 
 - Scope covered:
-  - `src/learningObjectConfigurations/fr/4.json`
+  - `src/lo-config/current-location.json`
   - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
 - Result:
   - 61 unique legacy LO4 refs mapped (`sounds/fr/...` -> `audio/lo4/...`)
@@ -71,7 +71,7 @@ This caused overlap bugs where users could trigger several audio clips concurren
 
 ## Temporary Fix Implemented
 
-As a short-term stabilization, a utility-based global audio stop mechanism was added in `src/utility.js`:
+As a short-term stabilization, a utility-based global audio stop mechanism was added in `src/utils/audioPlayback.js`:
 
 - `trackFloatingAudio(audio)`: tracks non-DOM `new Audio(...)` instances.
 - `stopAllAudioPlayback(exceptAudio)`: pauses all active audio (DOM `<audio>` + tracked floating audio), except the one about to play.
@@ -80,7 +80,7 @@ This helper is now called from all key playback entry points:
 
 - `src/components/AudioClip/AudioClip.jsx`
 - `src/components/SequenceAudioController/SequenceAudioController.jsx`
-- `playAudioLink` in `src/utility.js`
+- `playAudioLink` in `src/utils/audioPlayback.js`
 
 Result: only one audio clip should remain active at a time.
 

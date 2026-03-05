@@ -42,7 +42,7 @@ Vite already copies the whole `public/` directory by default, so those plugin co
   - `./public/images`
   - `./public/sounds`
 - Kept copy targets for:
-  - `src/learningObjectConfigurations/fr/*.json`
+  - `src/lo-config/*.json`
   - `src/index*.json`
 
 ## Verification checklist

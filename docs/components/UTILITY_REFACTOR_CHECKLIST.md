@@ -12,7 +12,7 @@ Use this checklist for each utility refactor PR/batch.
 
 - [ ] New module file added under `src/utils/`.
 - [ ] Functions moved without semantic changes.
-- [ ] Compatibility exports preserved in `src/utility.js` (if migration not complete).
+- [x] Compatibility layer handled appropriately for migration stage (preserved when needed, removed when complete).
 - [ ] No new duplicate helper logic introduced.
 
 ## Consumer Migration
@@ -34,4 +34,3 @@ Use this checklist for each utility refactor PR/batch.
 - [ ] `README.md` migration trackers updated.
 - [ ] `CHANGES.md` includes a dated entry.
 - [ ] This checklist and TODO reflect new progress status.
-

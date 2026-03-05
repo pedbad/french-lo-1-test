@@ -9,7 +9,7 @@ Pronunciation sections now share the same **section architecture**:
 This is true for LO1, LO2, and LO3.
 
 LO4 is currently the outlier:
-- `src/learningObjectConfigurations/fr/4.json` uses `component: "LO4Demystify"` for the whole pronunciation section.
+- `src/lo-config/current-location.json` uses `component: "LO4Demystify"` for the whole pronunciation section.
 - It bypasses the shared Group+Tabs shell and increases drift risk.
 
 However, LO1 and LO2 still use different **tab body components**:

@@ -5,7 +5,7 @@ Phase 2 has now been executed for all existing refs (75 files copied + rewritten
 
 ## Scope
 
-- Config source: `src/learningObjectConfigurations/fr/2.json`
+- Config source: `src/lo-config/about-me.json`
 - Custom component source: `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar`, `LO2Demystify`)
 
 ## Summary
@@ -37,7 +37,7 @@ Note:
 - Phase 2 complete for existing refs:
   - 75 files copied to `public/audio/lo2/...`
   - LO2 refs rewritten in:
-    - `src/learningObjectConfigurations/fr/2.json`
+    - `src/lo-config/about-me.json`
     - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (LO2 blocks only)
 - Initial unresolved refs are listed in the blocker section below (now resolved).
 

@@ -18,7 +18,7 @@ The following legacy refs were initially unresolved:
 
 ### Where they appeared
 
-- `src/learningObjectConfigurations/fr/2.json`
+- `src/lo-config/about-me.json`
   - pronunciation HTML block:
     - `/sounds/fr/Salut.mp3`
     - `/sounds/fr/Je m&apos;appelle.mp3`
@@ -56,7 +56,7 @@ For LO2-only blockers, fallback files were created under LO2 paths:
   - seeded from `public/audio/lo1/vocabulary/022-je-mappelle.mp3`
 
 Then all remaining LO2 references were rewritten to these LO2 targets in:
-- `src/learningObjectConfigurations/fr/2.json`
+- `src/lo-config/about-me.json`
 - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Demystify`)
 
 ## Current status

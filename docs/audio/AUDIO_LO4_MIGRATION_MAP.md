@@ -1,7 +1,7 @@
 # LO4 Audio Migration Map
 
 ## Scope
-- `src/learningObjectConfigurations/fr/4.json`
+- `src/lo-config/current-location.json`
 - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (LO4 blocks only: `LO4Demystify`, `LO4EX1`)
 
 ## Summary

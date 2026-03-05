@@ -3,7 +3,7 @@
 ## Scope
 - Learning object: LO2 (`?lang=fr&lo=2`)
 - Primary section: Grammar and Usage
-- Current grammar config source: `src/learningObjectConfigurations/fr/2.json`
+- Current grammar config source: `src/lo-config/about-me.json`
 - Current grammar implementation source: `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar1`, `LO2Grammar2`, `LO2Grammar3`; legacy `LO2Grammar` retained)
 
 ## Problem Statement
@@ -48,7 +48,7 @@
   - LO1: config-driven `Group` with child items rendered through shared app accordion pipeline.
   - LO2 (before fix): monolithic `LO2Grammar` with nested accordion rendering inside custom component.
 - Short-term decision (implemented): move LO2 grammar to LO1-style config architecture.
-  - LO2 grammar now uses `Group` in `src/learningObjectConfigurations/fr/2.json`.
+  - LO2 grammar now uses `Group` in `src/lo-config/about-me.json`.
   - LO2 grammar content is decomposed into `LO2Grammar1/2/3` components.
   - Shared app accordion rendering path now handles both LO1 and LO2 grammar.
 - Rationale: this eliminates spacing/interaction drift from mixed rendering paths and lowers regression risk.

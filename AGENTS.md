@@ -14,13 +14,13 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - `src/main.jsx`: app entry point
 - `src/components/`: UI components (lowercase for Linux-safe imports)
 - `src/styles/`: styling assets
-- `src/learningObjectConfigurations/`: learning object JSON configs
+- `src/lo-config/`: learning object JSON configs
 - `src/index-fr.json`: menu index file for learning object configs
 - `public/`: static assets
 
 ## Learning object configuration
-- `src/index-fr.json` references the configuration files in `src/learningObjectConfigurations/fr/`.
-- Configuration files in `src/learningObjectConfigurations/fr/` define component layout and phrases.
+- `src/index-fr.json` references the configuration files in `src/lo-config/`.
+- Configuration files in `src/lo-config/` define component layout and phrases.
 
 ## Tooling
 - Vite + React SWC plugin
@@ -66,8 +66,8 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Modal links open shadcn/Radix dialogs. The dialog accepts React content (not just HTML strings) so `AudioClip` components can render; for key grammar links the modal renders React content from `src/components/CustomComponents_FR/CustomComponents_FR.jsx` so audio clips work and text stays in sync with the on-page content.
 - In rendered JSX content, use semantic emphasis tags (`<strong>`, `<em>`) instead of presentational (`<b>`, `<i>`).
 - For sentence text containing inline components (for example `AudioClip`), use explicit React spaces (`{' '}`) where needed rather than relying on incidental whitespace collapse behavior.
-- Audio playback is globally single-active: when a new clip starts, all other currently playing clips are paused (`stopAllAudioPlayback` + `trackFloatingAudio` in `src/utility.js`, used by `AudioClip`, `SequenceAudioController`, and `playAudioLink`).
-- LO1 exercise naming has been refactored to behavior-based ids in `src/learningObjectConfigurations/fr/1.json`:
+- Audio playback is globally single-active: when a new clip starts, all other currently playing clips are paused (`stopAllAudioPlayback` + `trackFloatingAudio` in `src/utils/audioPlayback.js`, used by `AudioClip`, `SequenceAudioController`, and `playAudioLink`).
+- LO1 exercise naming has been refactored to behavior-based ids in `src/lo-config/first-contact.json`:
   - `listeningOrder1`
   - `listeningOrder2`
   - `listeningOrder3`

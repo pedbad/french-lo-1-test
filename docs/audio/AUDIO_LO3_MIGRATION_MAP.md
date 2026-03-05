@@ -1,7 +1,7 @@
 # LO3 Audio Migration Map
 
 ## Scope
-- `src/learningObjectConfigurations/fr/3.json`
+- `src/lo-config/origins-and-languages.json`
 - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
 
 ## Summary

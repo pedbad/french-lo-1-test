@@ -6,7 +6,7 @@
 - [ ] Confirm current modal behavior for `#subject-pronouns` links (`il`, `elle`, `ils`, `elles`).
 
 ## Config Refactor
-- [x] Update LO2 grammar config in `src/learningObjectConfigurations/fr/2.json` from single component to grouped grammar items.
+- [x] Update LO2 grammar config in `src/lo-config/about-me.json` from single component to grouped grammar items.
 - [ ] Keep section id/menu/title unchanged (`id: grammar`, `menuText: Grammar`, `titleText: Grammar and Usage`).
 - [x] Add section-level instructional framing for parity with LO1 (if approved).
 

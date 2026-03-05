@@ -27,7 +27,7 @@ Example:
 
 LO audio uses many accented filenames (for example `Salut, ça va.mp3`, `Très bien, merci !.mp3`), so normalization must be consistent across:
 
-- JSON references in `src/learningObjectConfigurations/fr/*.json`
+- JSON references in `src/lo-config/*.json`
 - runtime URL construction (`resolveAsset()`)
 - actual files in `public/sounds/fr`
 
