@@ -140,8 +140,11 @@ Apache requirement:
 Use `.htaccess` in the deploy folder:
 
 ```apache
+Options -MultiViews
 RewriteEngine On
 RewriteBase /projects/french-basic/
+
+RewriteRule ^index\.html$ - [L]
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -149,6 +152,39 @@ RewriteRule ^ - [L]
 
 RewriteRule ^ index.html [L]
 ```
+
+### Apache Troubleshooting (if slug URLs still 404)
+
+If landing page works but `/first-contact/` returns 404:
+
+1. Ensure `.htaccess` is in the same directory as deployed `index.html` (`/projects/french-basic/`).
+2. Verify `.htaccess` is being applied:
+   - add a temporary invalid line like `THIS_SHOULD_BREAK`
+   - reload `/projects/french-basic/`
+   - if you do **not** get HTTP 500, Apache is ignoring `.htaccess` (likely `AllowOverride None`)
+3. If `.htaccess` is ignored, use VirtualHost/Directory rewrite config instead:
+
+```apache
+<Directory /var/www/html/projects/french-basic>
+  AllowOverride None
+  Require all granted
+  Options -MultiViews
+  RewriteEngine On
+  RewriteBase /projects/french-basic/
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  RewriteRule ^ /projects/french-basic/index.html [L]
+</Directory>
+```
+
+4. Re-test these URLs:
+   - `/projects/french-basic/`
+   - `/projects/french-basic/first-contact/`
+   - `/projects/french-basic/src/lo-config/1.json`
+
+No-rewrite fallback URL (temporary):
+- `/projects/french-basic/?lo=first-contact`
 
 Full deployment checklist is in:
 - `/Users/ped/Sites/french/french-lo-1/DEPLOTMENT.MD`
