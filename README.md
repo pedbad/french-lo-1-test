@@ -27,6 +27,14 @@ By default the app is served from the current path (portable base). Example:
 http://localhost:5173/first-contact/
 ```
 
+Runtime LO routing is now slug-path based and French-only for this app:
+
+- canonical LO URLs: `/first-contact/`, `/about-me/`, ...
+- no `?lang=` parameter is required or read at runtime
+- index/config sources are fixed to:
+  - `src/index-fr.json`
+  - `src/learningObjectConfigurations/fr/*.json`
+
 ## Dev-Only Debug Sandbox
 
 Debug/sample UI has been moved out of the production app tree into a dedicated sandbox page.
@@ -112,6 +120,60 @@ yarn dev --force
 ```bash
 yarn build
 ```
+
+## Apache Routing + SEO (Current Project)
+
+This project now uses canonical slug-path URLs for learning objects, for example:
+
+- `/first-contact/`
+- `/about-me/`
+
+Why:
+- cleaner, human-readable URLs
+- better crawl/index behavior than query-only routing
+- clearer canonical route strategy for SEO
+
+Apache requirement:
+- for SPA slug routes, Apache must rewrite unknown paths to `index.html`
+- static assets (`src/*.js`, `src/*.css`, `img/*`, `audio/*`, JSON files) must be excluded from rewrite
+
+Use `.htaccess` in the deploy folder:
+
+```apache
+RewriteEngine On
+RewriteBase /projects/french-basic/
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^ index.html [L]
+```
+
+Full deployment checklist is in:
+- `/Users/ped/Sites/french/french-lo-1/DEPLOTMENT.MD`
+
+## Future Projects: Avoiding `.htaccess` for New Language Series
+
+If you want to ship a Spanish LO series without server rewrites, choose one of these architectures from day one:
+
+1. Pre-rendered/static route files (recommended if SEO matters and hosting is static-only)
+- Build real HTML per route (`/es/first-contact/index.html`, etc.).
+- No runtime SPA fallback rewrite needed.
+- Best no-rewrite SEO option.
+
+2. Query routing only (`/?lo=first-contact`)
+- No rewrite needed.
+- Lower SEO quality than path routes.
+
+3. Hash routing (`/#/first-contact`)
+- No rewrite needed.
+- Usually weakest SEO/readability tradeoff.
+
+Pragmatic recommendation for future multilingual projects:
+- use a framework with file-based static generation (for example Next.js static export, Astro, or another SSG pipeline)
+- generate per-language/per-LO route files at build time
+- host as plain static files with no rewrite dependency
 
 ## Typography Guardrails
 

@@ -133,6 +133,8 @@ Add these from day one to avoid late cleanup projects:
 13. Use path-based slug routing for SEO:
    - required public URL shape should be route paths (`/first-contact/`), not query-only params.
    - if legacy query params are supported, redirect/canonicalize to slug path.
+14. If the app is single-language in production, do not keep dormant `?lang=` runtime routing; hard-wire one language config source and remove dead multi-language branches early.
+15. If infrastructure cannot guarantee rewrite support, do not choose client-side SPA-only slug routing. Prefer static pre-rendered route files (per language/per LO) so clean paths work without `.htaccess`/server rewrites.
 
 ## What To Avoid In Future Projects
 
@@ -156,6 +158,10 @@ Use this as a hard "do not repeat" list.
 16. Do not use presentational emphasis tags (`<b>`, `<i>`) in authored HTML/JSON content; use semantic tags (`<strong>`, `<em>`) instead.
 17. Do not hardcode a single deployment mount path in build config (for example fixed Vite `base` tied to one folder name); make it env-configurable with a portable default.
 18. Do not ship query-only content routing as the primary URL strategy when SEO/discoverability matters; use path slugs as canonical routes.
+19. Do not retain unused language-query routing (`?lang=`) in single-language deployments; it creates unnecessary URL surface and debugging drift.
+20. Do not start multilingual LO programs (for example French + Spanish series) without deciding route serving strategy first:
+   - rewrite-capable SPA hosting, or
+   - pre-rendered static routes (preferred when rewrite access is limited).
 
 ### Image Asset Structure Rule (Carry Forward)
 

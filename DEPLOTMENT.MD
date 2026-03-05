@@ -8,6 +8,14 @@ Deploy the built app under Apache with path-based LO URLs, for example:
 
 while keeping SPA routing and static assets working.
 
+This app currently runs as French-only at runtime:
+
+- no `?lang=` URL parameter is needed
+- LOs are addressed by slug path (for example `/first-contact/`)
+- configuration sources are:
+  - `src/index-fr.json`
+  - `src/learningObjectConfigurations/fr/*.json`
+
 ## 1) Build locally
 
 ```bash

@@ -17,6 +17,20 @@ This file summarizes the work completed in this repo during the session. It incl
   - `README.md` now reflects portable default URLs and includes build examples for both portable and fixed-path modes.
   - `FUTURE_PROJECTS.md` updated to carry this base-path rule into new projects.
 
+## 2026-03-05 - Slug-Path Canonical Routing + French-Only Runtime
+
+- Updated runtime routing and loading in:
+  - `src/App.jsx`
+  - `src/components/LandingPage/LandingPage.jsx`
+  - `src/debug/components/LearningObjectStructureSummary.jsx`
+- Changes:
+  - LO selection now resolves primarily from slug path URLs (for example `/first-contact/`), with legacy `?lo=` fallback support.
+  - runtime no longer reads `?lang=`; language source is fixed for this app.
+  - index/config fetch paths are fixed to French:
+    - `src/index-fr.json`
+    - `src/learningObjectConfigurations/fr/*.json`
+  - debug LO summary fetch now uses base-aware asset resolution (`resolveAsset`) to avoid path drift under prefixed routes.
+
 ## 2026-03-04 - LO4 Exercise 3 Migration to SelectExercise
 
 - Migrated LO4 exercise 3 ("Where do you live?") from legacy `DropDowns` to `SelectExercise` in:
