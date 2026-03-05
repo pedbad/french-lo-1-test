@@ -15,6 +15,28 @@ This file summarizes the work completed in this repo during the session. It incl
 - Updated tracker links in:
   - `README.md` (`Migration Trackers` section)
 
+## 2026-03-05 - Custom Component Extraction Completed for Active LOs
+
+- Completed Phase 1 extraction of active custom LO components out of monolithic:
+  - source monolith (legacy): `src/components/CustomComponents_FR/CustomComponents_FR.jsx`
+  - new source-of-truth domains:
+    - `src/components/custom/grammar/*.jsx`
+    - `src/components/custom/pronunciation/*.jsx`
+    - `src/components/custom/exercises/*.jsx`
+    - `src/components/custom/misc/*.jsx`
+- Extracted and rewired active config-mapped keys for LO1-LO15 usage:
+  - grammar: `LO1Grammar1/2`, `LO2Grammar1/2/3`, `LO3Grammar1/2/3`, `LO4Grammar1`, `LO5Grammar`, `LO6Grammar`, `LO7Grammar`, `LO8Grammar`, `LO9Grammar`, `L10Grammar`, `L11Grammar`, `L12Grammar`, `L13Grammar`, `L14Grammar`, `L15Grammar`
+  - pronunciation: `LO1Demystify1-4`, `LO2Pronunciation1/2`, `LO3Pronunciation1/2/3`, `LO4Pronunciation1/2/3`, `LO5Demystify`, `LO6Demystify`, `LO7Demystify`, `LO8Demystify`, `LO9Demystify`, `L10Demystify`, `L12Demystify`
+  - misc/exercise: `L13ASummersDay`, `LO4EX1`
+- Registry updates:
+  - `src/components/custom/registry.js` now composes `grammar + pronunciation + exercises + misc` as the runtime custom component map.
+- Compatibility:
+  - `src/components/CustomComponents_FR/index.js` still re-exports from `@/components/custom`.
+  - legacy monolith file `src/components/CustomComponents_FR/CustomComponents_FR.jsx` removed after final extraction.
+- Validation:
+  - `yarn build` passes.
+  - `yarn eslint src/components/custom --ext js,jsx` passes with warnings only (no errors).
+
 ## 2026-03-05 - Utility Refactor Phase 1 (Module Extraction + Compatibility Facade)
 
 - Added focused utility modules:

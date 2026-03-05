@@ -1,3 +1,4 @@
+import * as exercisesComponents from "./exercises";
 import * as grammarComponents from "./grammar";
 import * as miscComponents from "./misc";
 import * as pronunciationComponents from "./pronunciation";
@@ -7,6 +8,7 @@ import * as pronunciationComponents from "./pronunciation";
 export const AllCustomComponentsFR = {
 	...grammarComponents,
 	...pronunciationComponents,
+	...exercisesComponents,
 	...miscComponents,
 };
 

@@ -7,6 +7,17 @@ This document defines a safe, staged refactor plan for custom French learning-ob
 
 Goal: reduce monolithic structure, improve maintainability, and enforce DRY reuse without breaking existing LO behavior.
 
+## Current Status (2026-03-05)
+
+- Phase 1 extraction is complete for active LO config-mapped components (LO1-LO15 in current index/config usage).
+- Runtime source of truth is now `src/components/custom/registry.js`.
+- Active custom components now live in:
+  - `src/components/custom/grammar/*.jsx`
+  - `src/components/custom/pronunciation/*.jsx`
+  - `src/components/custom/exercises/*.jsx`
+  - `src/components/custom/misc/*.jsx`
+- Legacy monolith has been retired; custom runtime keys are owned by `src/components/custom/*`.
+
 ## Current Issues
 
 1. Monolithic file growth
@@ -43,42 +54,24 @@ Goal: reduce monolithic structure, improve maintainability, and enforce DRY reus
 ## Proposed Target Structure
 
 ```text
-src/components/custom/fr/
+src/components/custom/
   index.js                      # barrel exports used by app/config resolver
-  lo1.jsx
-  lo2.jsx
-  lo3.jsx
-  lo4.jsx
-  shared/
-    InfoInstructionBlock.jsx
-    PronunciationTabPanel.jsx
-    LearningTableBlock.jsx
-    ExerciseActionRow.jsx
-    AudioLinkedList.jsx
-  data/
-    lo1/
-      grammar.js
-      pronunciation.js
-    lo2/
-      grammar.js
-      pronunciation.js
-    lo3/
-      grammar.js
-      pronunciation.js
-    lo4/
-      grammar.js
-      pronunciation.js
+  registry.js                   # runtime map for custom component keys
+  grammar/
+  pronunciation/
+  exercises/
+  misc/
+  shared/                       # optional next-phase reusable blocks
+  data/                         # optional next-phase extracted static datasets
 ```
 
 ## Migration Plan (Staged)
 
 ### Phase 1: File split only (no behavior changes)
-- Move LO-specific components out of `CustomComponents_FR.jsx` into per-LO files.
-- Keep existing component names and exports.
-- Add a barrel (`index.js`) to preserve import contract.
-- Expected impact: maintainability gain, near-zero UX change risk.
+- Status: completed for active LO1-LO15 custom mappings.
 
 ### Phase 2: Shared block extraction
+- Status: pending
 - Extract duplicated patterns into `shared/` components:
   - instruction/info blocks
   - table wrappers
@@ -87,10 +80,12 @@ src/components/custom/fr/
 - Use existing design tokens and utility classes (no SCSS reintroduction).
 
 ### Phase 3: Data/content separation
+- Status: pending
 - Move static row/list data to `data/` files.
 - Keep render components focused on layout and interaction logic.
 
 ### Phase 4: Contract hardening
+- Status: in progress (naming and registry hardening underway)
 - Normalize conventions:
   - action labels: `Check answers`, `Show answer`, `Reset`
   - icon cue syntax in instruction text
@@ -106,12 +101,13 @@ src/components/custom/fr/
 
 ## Verification Checklist
 
-- [ ] `yarn build` passes.
-- [ ] Critical LO pages render without runtime errors.
-- [ ] Config keys still resolve to correct components.
-- [ ] Instruction callouts/icons still render correctly.
-- [ ] Exercise buttons and labels remain consistent.
-- [ ] Audio playback works as before.
+- [x] `yarn build` passes.
+- [x] Critical LO pages render without runtime errors.
+- [x] Config keys still resolve to correct components.
+- [x] Instruction callouts/icons still render correctly.
+- [x] Exercise buttons and labels remain consistent.
+- [x] Audio playback works as before.
+- [x] Remove remaining legacy exports from `CustomComponents_FR.jsx` after dead-key audit.
 
 ## Risks and Mitigations
 

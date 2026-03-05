@@ -801,7 +801,8 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 
 - LO3 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo3/...` in:
   - `/Users/ped/Sites/french/french-lo-1/src/lo-config/origins-and-languages.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/origins-and-languages-grammar.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/origins-and-languages-pronunciation.jsx`
 - New LO3 root:
   - `public/audio/lo3/...`
 - Migration record:
@@ -815,7 +816,8 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 
 - LO4 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo4/...` in:
   - `/Users/ped/Sites/french/french-lo-1/src/lo-config/current-location.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/current-location-pronunciation.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/exercises/current-location-exercises.jsx`
 - New LO4 root:
   - `public/audio/lo4/...`
 - Migration record:
@@ -832,8 +834,22 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - `variant="learning"` centralizes learner-facing table look/feel (top spacing + row background/hover treatment).
 - Current adopters:
   - `src/components/PhraseTable/PhraseTable.jsx`
-  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Grammar1`)
+  - `src/components/custom/grammar/current-location-grammar.jsx` (`LO4Grammar1`)
 - Goal: reduce per-section table CSS drift by moving repeated styling into the shared shadcn table layer.
+
+## Custom Component Extraction Status
+
+- Active LO custom components are now extracted by domain under `src/components/custom/`:
+  - `grammar/` (LO1-LO15 grammar components)
+  - `pronunciation/` (LO1-LO12 pronunciation components in use)
+  - `exercises/` (currently `LO4EX1`)
+  - `misc/` (currently `L13ASummersDay`, `AudioClipSamples`)
+- Runtime registry source of truth:
+  - `src/components/custom/registry.js`
+- Legacy bridge still exists for compatibility:
+  - `src/components/CustomComponents_FR/index.js`
+- Former monolith `src/components/CustomComponents_FR/CustomComponents_FR.jsx` has been removed.
+  - any remaining custom/legacy exports now live under `src/components/custom/*`.
 
 ## Separators (shadcn/Radix)
 
