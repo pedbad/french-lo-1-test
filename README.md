@@ -559,6 +559,7 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
 - `/Users/ped/Sites/french/french-lo-1/docs/styling/FONTS_PROBLEM.md` (build asset duplication root-cause note)
 - `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
+- `/Users/ped/Sites/french/french-lo-1/docs/process/JSON_CONFIG_REFACTOR_AUDIT.md` (runtime-based JSON key audit baseline + LO1 findings)
 
 DOM semantics contract (current migration target):
 - one primary nav landmark for the main IA (`header > nav`), while preserving responsive behavior

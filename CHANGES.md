@@ -31,6 +31,20 @@ This file summarizes the work completed in this repo during the session. It incl
     - `src/learningObjectConfigurations/fr/*.json`
   - debug LO summary fetch now uses base-aware asset resolution (`resolveAsset`) to avoid path drift under prefixed routes.
 
+## 2026-03-05 - JSON Config Refactor Audit Baseline
+
+- Added:
+  - `docs/process/JSON_CONFIG_REFACTOR_AUDIT.md`
+- Includes:
+  - runtime consumption contract for JSON keys (`App.jsx` normalization behavior)
+  - LO1 (`src/lo-config/1.json`) audit findings:
+    - dead/legacy keys
+    - alias key drift (`infoTextHTML` vs `informationTextHTML`)
+    - content-style drift notes
+  - reusable project-wide rules/checklist for auditing all remaining LO config files
+- Updated:
+  - `README.md` migration tracker links now include the JSON audit baseline doc.
+
 ## 2026-03-04 - LO4 Exercise 3 Migration to SelectExercise
 
 - Migrated LO4 exercise 3 ("Where do you live?") from legacy `DropDowns` to `SelectExercise` in:
