@@ -58,6 +58,16 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build` passes after final extraction batch.
 
+## 2026-03-05 - Utility Refactor Finalization (Legacy Utility Files Removed)
+
+- Removed legacy compatibility utility files after migration completion:
+  - `src/utility.js`
+  - `src/audioutility.js`
+- Verified there are no remaining runtime imports to these paths.
+- Utility source of truth is now fully under `src/utils/*`.
+- Validation:
+  - `yarn build` passes after legacy file removal.
+
 ## 2026-03-05 - Utility Refactor Planning Docs Added
 
 - Added utility refactor planning/documentation set:

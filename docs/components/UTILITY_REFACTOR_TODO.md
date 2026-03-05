@@ -2,9 +2,9 @@
 
 ## Phase 0 - Baseline
 
-- [ ] Inventory all exports in `src/utility.js`.
-- [ ] Map every import site by function usage.
-- [ ] Confirm no hidden utility usage from inline dynamic calls.
+- [x] Inventory all exports in legacy utility layers.
+- [x] Map every import site by function usage.
+- [x] Confirm no hidden utility usage from inline dynamic calls.
 
 ## Phase 1 - Extract Pure Modules (No Behavior Change)
 
@@ -49,6 +49,7 @@
 
 ## Phase 5 - Cleanup
 
-- [ ] Remove dead/redundant exports from `src/utility.js`.
-- [ ] Remove `src/utility.js` facade only after zero imports remain.
-- [ ] Update docs and architecture references.
+- [x] Remove dead/redundant exports from legacy utility facades.
+- [x] Remove `src/utility.js` facade only after zero imports remain.
+- [x] Remove `src/audioutility.js` shim after zero imports remain.
+- [x] Update docs and architecture references.

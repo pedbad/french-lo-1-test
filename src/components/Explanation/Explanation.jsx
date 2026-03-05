@@ -1,7 +1,3 @@
-// import {
-// 	resolveAsset,
-// 	speak,
-// } from '../../utility';
 import DOMPurify from "dompurify";
 import { Panel } from "./Panel";
 import React from 'react';
