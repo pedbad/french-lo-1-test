@@ -580,6 +580,11 @@ There is an **index-fr.json** file which lists the various learning object confi
 
 The **lo-config/\*.json** files define the component layout and phrases for each learning object.
 
+JSON mapping decision (to prevent drift):
+- migrate to slug-only config mapping (`<slug>.json`) as each LO is touched
+- do not keep dual fallback mapping (`file` + `slug`) during migration
+- each LO migration should rename file + update index + test in one pass
+
 ## Styling
 
 The app uses shadcn tokens for the base palette plus custom theme tokens in `src/index.css` as the single source of truth:

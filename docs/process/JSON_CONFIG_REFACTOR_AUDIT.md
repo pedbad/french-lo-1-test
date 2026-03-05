@@ -24,6 +24,17 @@ Current behavior:
 Implication:
 - alias keys still work, but they are technical debt and should be migrated to canonical keys in config.
 
+## Mapping Decision (Locked)
+
+We will move from numeric `file` mapping to **slug-only mapping** with a strict migration rule:
+
+- config filename must match slug (`src/lo-config/<slug>.json`)
+- index entries should use `slug` as the single source of truth for config lookup
+- do **not** keep dual fallback support (`file` + `slug`) during migration
+
+Reason:
+- dual support increases drift risk between URL route, index metadata, and config file naming.
+
 ## LO1 Audit (`src/lo-config/1.json`)
 
 ### Confirmed dead/legacy keys (safe removal candidates)
@@ -82,9 +93,12 @@ Implication:
 ## Recommended Rollout
 
 1. Audit each LO config file against runtime usage.
-2. Apply dead-key removal + canonical-key normalization in small batches.
-3. Build + smoke test each batch.
-4. Record decisions in `CHANGES.md`.
+2. For each LO touched:
+   - rename config file to slug immediately
+   - update index entry to slug-only mapping for that LO immediately
+   - remove dead/legacy keys in the same pass
+3. Build + LO smoke test after each LO migration.
+4. Record decisions and migrated files in `CHANGES.md`.
 
 ## Future Files To Audit
 

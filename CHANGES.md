@@ -45,6 +45,16 @@ This file summarizes the work completed in this repo during the session. It incl
 - Updated:
   - `README.md` migration tracker links now include the JSON audit baseline doc.
 
+## 2026-03-05 - JSON Mapping Decision (Anti-Drift)
+
+- Decision documented in:
+  - `docs/process/JSON_CONFIG_REFACTOR_AUDIT.md`
+  - `README.md`
+- Locked approach:
+  - migrate LO config mapping to slug-only filenames (`src/lo-config/<slug>.json`)
+  - no dual compatibility fallback (`file` + `slug`) during migration
+  - each LO migration must be atomic: rename config file + update index mapping + smoke test in one pass.
+
 ## 2026-03-04 - LO4 Exercise 3 Migration to SelectExercise
 
 - Migrated LO4 exercise 3 ("Where do you live?") from legacy `DropDowns` to `SelectExercise` in:
