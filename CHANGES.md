@@ -2,6 +2,20 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-05 - Utility Refactor Planning Docs Added
+
+- Added utility refactor planning/documentation set:
+  - `docs/components/UTILITY_REFACTOR_README.md`
+  - `docs/components/UTILITY_REFACTOR_TODO.md`
+  - `docs/components/UTILITY_REFACTOR_CHECKLIST.md`
+- Scope covered in docs:
+  - current split analysis (`utility.js` vs `audioutility.js` vs `utils/*`)
+  - target module structure under `src/utils/`
+  - compatibility-facade strategy for safe migration
+  - phased execution and per-batch verification gates
+- Updated tracker links in:
+  - `README.md` (Migration Trackers section)
+
 ## 2026-03-05 - LO Config Content Notation Standardization
 
 - Standardized learner-facing compact notation across all LO config files in:
