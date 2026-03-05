@@ -3,4 +3,5 @@ export {
 	Grammar1Body,
 	Grammar2Body,
 	LO2SubjectPronounsBody,
-} from "@/components/custom";
+} from "./registry";
+

@@ -44,7 +44,7 @@ import {
   Grammar1Body,
   Grammar2Body,
   LO2SubjectPronounsBody,
-} from "./components/CustomComponents_FR/index.js";
+} from "@/components/custom";
 import DOMPurify from "dompurify";
 
 import React from "react";
@@ -133,8 +133,9 @@ export default class App extends React.Component {
       const { hash, pathname, search } = window.location;
       const looksLikeFilePath = /\/[^/]+\.[^/]+$/.test(pathname);
       if (!looksLikeFilePath && pathname !== "/" && !pathname.endsWith("/")) {
-        window.location.replace(`${pathname}/${search}${hash}`);
-        return;
+        // Normalize trailing slash without forcing a full page reload.
+        // This avoids reload loops when server canonicalization differs.
+        window.history.replaceState({}, "", `${pathname}/${search}${hash}`);
       }
     }
 
