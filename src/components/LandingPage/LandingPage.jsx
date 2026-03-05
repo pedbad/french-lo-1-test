@@ -36,7 +36,6 @@ export class LandingPage extends React.Component{
 						<a
 							className="flex h-full w-full flex-col items-center justify-between p-5 text-center !no-underline"
 							href={this.buildLearningObjectURL(learningObject, learningObjects)}
-							onClick={() => this.selectLearningObject(index)}
 							target={`_blank`}
 						>
 							<h1 className="font-bold text-[var(--primary-foreground)]">{learningObject.title}</h1>

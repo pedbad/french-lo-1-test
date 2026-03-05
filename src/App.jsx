@@ -89,15 +89,11 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const languageCode = urlParams.get("lang") || "fr";
-
     this.state = {
       dark: false,
       dialogContent: "",
       errors: [],
-      languageCode: languageCode,
+      languageCode: "fr",
       showDialog: false,
       showModalLinkDialog: false,
       modalLinkDialogTitle: "",
@@ -160,48 +156,42 @@ export default class App extends React.Component {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
-    const { languageCode } = this.state;
     const loParamRaw = (urlParams.get("lo") || "").trim();
 
     // Always load the index so the menu/landing page can render.
     // Then resolve ?lo by numeric id OR slug, while keeping backward compatibility.
-    if (languageCode) {
-      this.loadIndex(-1, languageCode).then(({ learningObjects = [] }) => {
-        const loPathRaw = this.getLearningObjectPathParam(learningObjects);
-        const loSelectorRaw = loPathRaw || loParamRaw;
-        const resolvedLo = this.resolveLearningObjectParam(
-          loSelectorRaw,
-          learningObjects,
-        );
-        if (!resolvedLo) {
-          this.setState({ currentLearningObject: -1, config: null });
-          return;
-        }
+    this.loadIndex(-1).then(({ learningObjects = [] }) => {
+      const loPathRaw = this.getLearningObjectPathParam(learningObjects);
+      const loSelectorRaw = loPathRaw || loParamRaw;
+      const resolvedLo = this.resolveLearningObjectParam(
+        loSelectorRaw,
+        learningObjects,
+      );
+      if (!resolvedLo) {
+        this.setState({ currentLearningObject: -1, config: null });
+        return;
+      }
 
-        const { file, loId, slug, title, titleShort } = resolvedLo;
-        this.setState({
-          currentLearningObject: loId,
-          title,
-          titleShort: titleShort || "",
-        });
-
-        this.normalizeLearningObjectUrl({
-          currentLoPathRaw: loPathRaw,
-          currentLoQueryRaw: loParamRaw,
-          learningObjects,
-          resolvedSlug: slug,
-        });
-
-        const configPromise = this.loadConfig(
-          `/src/learningObjectConfigurations/${languageCode}/${file}.json`,
-          loId,
-        );
-        this.initialiseModalLinks();
-        configPromise.then(this.initialiseSynth);
+      const { file, loId, slug, title, titleShort } = resolvedLo;
+      this.setState({
+        currentLearningObject: loId,
+        title,
+        titleShort: titleShort || "",
       });
-    } else {
-      this.setState({ currentLearningObject: -1, config: null });
-    }
+
+      this.normalizeLearningObjectUrl({
+        currentLoPathRaw: loPathRaw,
+        learningObjects,
+        resolvedSlug: slug,
+      });
+
+      const configPromise = this.loadConfig(
+        `/src/learningObjectConfigurations/fr/${file}.json`,
+        loId,
+      );
+      this.initialiseModalLinks();
+      configPromise.then(this.initialiseSynth);
+    });
 
     if (sessionStorage.getItem(`dark`)) {
       const dark = JSON.parse(sessionStorage.getItem(`dark`));
@@ -742,7 +732,7 @@ export default class App extends React.Component {
     return normalized;
   };
 
-  loadIndex = (currentLearningObject, languageCode) => {
+  loadIndex = (currentLearningObject) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
 
@@ -752,7 +742,7 @@ export default class App extends React.Component {
       redirect: "follow",
     };
 
-    return fetch(resolveAsset(`/src/index-${languageCode}.json`), requestOptions)
+    return fetch(resolveAsset(`/src/index-fr.json`), requestOptions)
       .then(handleResponse)
       .then((res) => {
         const { learningObjects, title: siteTitle } = res;
@@ -1351,10 +1341,7 @@ export default class App extends React.Component {
                   {currentLearningObject !== -1 ? topLevelSections : null}
                   {learningObjects.length > 0 &&
                   currentLearningObject === -1 ? (
-                    <LandingPage
-                      languageCode={languageCode}
-                      learningObjects={learningObjects}
-                    />
+                    <LandingPage learningObjects={learningObjects} />
                   ) : null}
                 </main>
               </>
