@@ -1,5 +1,5 @@
 import React from "react";
-import { resolveAsset } from "../../utility";
+import { resolveAsset } from "../../utils/assets";
 
 const TORTOISE_ICON_BASE_CLASS =
 	"h-[1.5rem] w-[1.5rem] min-[420px]:h-[1.625rem] min-[420px]:w-[1.625rem] sm:h-[2.25rem] sm:w-[2.25rem]";

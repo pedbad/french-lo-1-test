@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
 import { injectAudioCueIntoHTML } from "../instructionCues";
-import { resolveAsset } from "../../utility";
+import { resolveAsset } from "../../utils/assets";
 import { InstructionCallout } from "../InstructionCallout";
 
 export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-xl)] leading-[var(--line-height-body)] [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--line-height-body)]";

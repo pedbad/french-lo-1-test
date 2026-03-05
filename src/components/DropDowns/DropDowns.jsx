@@ -19,7 +19,7 @@ import {
 import DOMPurify from "dompurify";
 import React from "react";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
-import { resolveAsset } from "../../utility";
+import { resolveAsset } from "../../utils/assets";
 
 const DROPDOWN_TRIGGER_TEXT_CLASS = "min-w-[9rem] p-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:min-w-[12rem] md:p-1 md:text-[calc(var(--font-size-sm)*1.2)]";
 const DROPDOWNS_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base";

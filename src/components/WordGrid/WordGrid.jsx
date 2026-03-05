@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import { IconButton } from "..";
-import {resolveAsset} from "../../utility";
+import { resolveAsset } from "../../utils/assets";
 
 const WORD_GRID_TABLE_TEXT_CLASS = "text-base";
 

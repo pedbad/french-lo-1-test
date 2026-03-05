@@ -3,7 +3,7 @@ import { BackToTopButton, Info, InstructionCallout } from "..";
 import DOMPurify from "dompurify";
 import React from "react";
 import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
-import { resolveAsset } from "../../utility";
+import { resolveAsset } from "../../utils/assets";
 import { Separator } from "@/components/ui/separator";
 
 const splitDisplayTitle = (value) => {

@@ -1,7 +1,7 @@
 import {
 	isTouchChrome,
-	speak,
-} from '../../utility';
+} from '../../utils/device';
+import { speak } from '../../utils/speech';
 import React, { createRef, PureComponent } from 'react';
 
 export class Mockney extends PureComponent {

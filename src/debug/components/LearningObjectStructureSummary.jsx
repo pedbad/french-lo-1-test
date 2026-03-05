@@ -5,7 +5,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import { resolveAsset } from '../../utility';
+import { resolveAsset } from '../../utils/assets';
 
 const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'AnswerTable',

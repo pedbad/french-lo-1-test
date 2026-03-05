@@ -2,6 +2,62 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-05 - Utility Refactor Phase 1 (Module Extraction + Compatibility Facade)
+
+- Added focused utility modules:
+  - `src/utils/assets.js`
+  - `src/utils/network.js`
+  - `src/utils/dom.js`
+  - `src/utils/audioPlayback.js`
+  - `src/utils/exerciseDiff.js`
+  - `src/utils/audioConcat.js`
+- Converted `src/utility.js` to a compatibility facade that re-exports extracted functions while keeping remaining legacy helpers unchanged.
+- Migrated concatenated playlist import to canonical module path:
+  - `src/components/AudioClip/ConcatenatedPlayList.jsx` now imports from `src/utils/audioConcat.js`
+- Added compatibility shim:
+  - `src/audioutility.js` now re-exports from `src/utils/audioConcat.js` to avoid breaking older imports during transition.
+- Validation:
+  - `yarn build` passes after extraction.
+
+## 2026-03-05 - Utility Refactor Phase 3 Batch (Callsite Migration)
+
+- Migrated extracted-domain imports away from `src/utility.js` into focused modules across app/components:
+  - `src/utils/assets.js`
+  - `src/utils/network.js`
+  - `src/utils/dom.js`
+  - `src/utils/audioPlayback.js`
+  - `src/utils/exerciseDiff.js`
+- Updated callsites in:
+  - `src/App.jsx`
+  - `src/components/AudioClip/AudioClip.jsx`
+  - `src/components/AnswerTable/AnswerTableRuntime.jsx`
+  - `src/components/PhraseTable/PhraseTable.jsx`
+  - `src/components/MainMenu/MainMenu.jsx`
+  - `src/components/Monologue/Monologue.jsx`
+  - `src/components/ReadAloud/ReadAloud.jsx`
+  - `src/components/RadioQuiz/RadioQuiz.jsx`
+  - `src/components/SequenceAudioController/SequenceAudioController.jsx`
+  - and resolveAsset consumer components/debug modules.
+- Remaining `src/utility.js` imports are now limited to non-extracted legacy helpers (`shuffleArray`, `copyObject`, `isTouchChrome`, `speak`).
+- Validation:
+  - `yarn build` passes after migration batch.
+
+## 2026-03-05 - Utility Refactor Phase 3 Completion (Legacy Helpers Extracted)
+
+- Extracted remaining helper domains from `src/utility.js`:
+  - `src/utils/collections.js` (`copyObject`, `shuffleArray`)
+  - `src/utils/device.js` (`isTouchChrome`)
+  - `src/utils/speech.js` (`speak`)
+- Updated app/component imports to use focused modules directly:
+  - `src/App.jsx`
+  - `src/components/Mockney/Mockney.jsx`
+  - `src/components/ConnectFour/ConnectFour.jsx`
+  - `src/components/Blanks/Blanks.jsx`
+  - `src/components/SequenceOrder/SequenceOrder.jsx`
+- `src/utility.js` now re-exports these helpers from focused modules (compatibility facade remains intact).
+- Validation:
+  - `yarn build` passes after final extraction batch.
+
 ## 2026-03-05 - Utility Refactor Planning Docs Added
 
 - Added utility refactor planning/documentation set:

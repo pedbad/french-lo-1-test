@@ -1,6 +1,6 @@
 // ConcatenatedPlaylist.jsx
 import React from 'react';
-import { concatAudioFiles } from '../../audioutility';
+import { concatAudioFiles } from '../../utils/audioConcat';
 
 export class ConcatenatedPlaylist extends React.Component {
 	constructor(props) {

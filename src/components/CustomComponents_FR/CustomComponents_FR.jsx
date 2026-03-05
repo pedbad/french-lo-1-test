@@ -24,7 +24,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import {
 	resolveAsset,
-} from '../../utility';
+} from '../../utils/assets';
 
 const isInteractiveTarget = (target) =>
 	target instanceof Element &&

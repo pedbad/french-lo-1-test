@@ -9,7 +9,8 @@ import {
 	DraggableWordTile,
 } from '../../components';
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
-import { resolveAsset, shuffleArray } from '../../utility';
+import { resolveAsset } from '../../utils/assets';
+import { shuffleArray } from '../../utils/collections';
 import { Card, CardContent } from "@/components/ui/card";
 import {
 	Table,

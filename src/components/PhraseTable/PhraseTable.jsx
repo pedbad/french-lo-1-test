@@ -17,7 +17,8 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import DOMPurify from "dompurify";
 import React from "react";
 // eslint-disable-next-line no-unused-vars
-import { playAudioLink, resolveAsset } from "../../utility";
+import { resolveAsset } from "../../utils/assets";
+import { playAudioLink } from "../../utils/audioPlayback";
 
 export class PhraseTable extends React.PureComponent {
 	// Table of phrases with translations column and sound files column.

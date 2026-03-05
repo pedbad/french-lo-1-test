@@ -2,10 +2,8 @@ import {
 	AudioClip,
 	IconButton,
 } from '../';
-import {
-	highlightTextDiff,
-	resolveAsset,
-} from '../../utility';
+import { resolveAsset } from '../../utils/assets';
+import { highlightTextDiff } from '../../utils/exerciseDiff';
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import { Input } from "@/components/ui/input";

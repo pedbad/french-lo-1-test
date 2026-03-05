@@ -5,7 +5,7 @@ import {
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { MessageCircleMore } from "lucide-react";
-import { handleModalLinkClick } from "../../utility.js";
+import { handleModalLinkClick } from "../../utils/dom.js";
 import { IconButton } from "..";
 import React from "react";
 

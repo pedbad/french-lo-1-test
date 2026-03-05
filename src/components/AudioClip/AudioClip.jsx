@@ -2,9 +2,11 @@ import { CircularAudioProgressAnimatedSpeakerDisplay } from '.';
 import React from 'react';
 import {
 	resolveAsset,
+} from '../../utils/assets';
+import {
 	stopAllAudioPlayback,
 	trackFloatingAudio,
-} from '../../utility';
+} from '../../utils/audioPlayback';
 
 
 export class AudioClip extends React.PureComponent {

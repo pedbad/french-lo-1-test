@@ -32,6 +32,13 @@ Move to a clear utility module architecture:
 - `src/utils/audioConcat.js` (rename of `src/audioutility.js`)
 - keep `src/utils/reorderAnimation.js`
 
+## Current Status
+
+- Phase 1 extraction implemented.
+- `src/utility.js` now acts as a compatibility facade for extracted modules.
+- `src/audioutility.js` is now a compatibility shim re-exporting `src/utils/audioConcat.js`.
+- Phase 3 import migration completed for all extracted helper domains.
+
 ## Safety Strategy
 
 1. Extract by concern with behavior-preserving moves only.
@@ -52,4 +59,3 @@ Move to a clear utility module architecture:
 - `yarn check:typography:branch`
 - `yarn check:color:branch`
 - `yarn check:a11y:branch`
-

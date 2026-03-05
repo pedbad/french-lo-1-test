@@ -19,9 +19,9 @@ import { CircleCheck, CircleX, Mars, Venus } from "lucide-react";
 import React from "react";
 import {
 	resolveAsset,
-	stopAllAudioPlayback,
-	highlightTextDiff,
-} from "../../utility";
+} from "../../utils/assets";
+import { stopAllAudioPlayback } from "../../utils/audioPlayback";
+import { highlightTextDiff } from "../../utils/exerciseDiff";
 
 // Shared runtime for typed-response table exercises.
 // This is the compatibility layer used by:

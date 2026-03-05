@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import {
 	highlightTextDiff,
-} from '../../utility';
+} from '../../utils/exerciseDiff';
 import { IconButton } from '..';
 import React from 'react';
 

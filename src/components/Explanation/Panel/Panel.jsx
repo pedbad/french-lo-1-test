@@ -1,5 +1,5 @@
 import React from 'react';
-import { resolveAssetHTML } from '../../../utility.js';
+import { resolveAssetHTML } from '../../../utils/assets.js';
 
 export class Panel extends React.PureComponent {
 

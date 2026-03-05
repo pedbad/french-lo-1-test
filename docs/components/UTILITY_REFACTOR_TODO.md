@@ -8,47 +8,47 @@
 
 ## Phase 1 - Extract Pure Modules (No Behavior Change)
 
-- [ ] Create `src/utils/assets.js` and move:
-  - [ ] `resolveAsset`
-  - [ ] `resolveAssetHTML`
-- [ ] Create `src/utils/network.js` and move:
-  - [ ] `handleResponse`
-  - [ ] `handleResponseCSV`
-  - [ ] `handleResponseText`
-- [ ] Create `src/utils/audioPlayback.js` and move:
-  - [ ] `trackFloatingAudio`
-  - [ ] `stopAllAudioPlayback`
-  - [ ] `playAudioLink`
-- [ ] Create `src/utils/dom.js` and move:
-  - [ ] `scrollToElement`
-  - [ ] `handleModalLinkClick`
-- [ ] Create `src/utils/exerciseDiff.js` and move:
-  - [ ] `highlightTextDiff`
+- [x] Create `src/utils/assets.js` and move:
+  - [x] `resolveAsset`
+  - [x] `resolveAssetHTML`
+- [x] Create `src/utils/network.js` and move:
+  - [x] `handleResponse`
+  - [x] `handleResponseCSV`
+  - [x] `handleResponseText`
+- [x] Create `src/utils/audioPlayback.js` and move:
+  - [x] `trackFloatingAudio`
+  - [x] `stopAllAudioPlayback`
+  - [x] `playAudioLink`
+- [x] Create `src/utils/dom.js` and move:
+  - [x] `scrollToElement`
+  - [x] `handleModalLinkClick`
+- [x] Create `src/utils/exerciseDiff.js` and move:
+  - [x] `highlightTextDiff`
 
 ## Phase 2 - Keep Compatibility
 
-- [ ] Convert `src/utility.js` into compatibility exports from new modules.
-- [ ] Keep existing import paths working while migration is in progress.
+- [x] Convert `src/utility.js` into compatibility exports from new modules.
+- [x] Keep existing import paths working while migration is in progress.
 
 ## Phase 3 - Incremental Callsite Migration
 
-- [ ] Migrate `App.jsx` imports off `src/utility.js`.
-- [ ] Migrate component imports batch-by-batch:
-  - [ ] audio-related components
-  - [ ] exercise components
-  - [ ] navigation/modal components
-  - [ ] debug components
-- [ ] Validate each batch with build + smoke tests.
+- [x] Migrate `App.jsx` imports off `src/utility.js` for extracted domains.
+- [x] Migrate component imports batch-by-batch:
+  - [x] audio-related components
+  - [x] exercise components
+  - [x] navigation/modal components
+  - [x] debug components
+- [x] Validate each batch with build + smoke tests.
+- [x] Migrate remaining non-extracted helper imports (`shuffleArray`, `copyObject`, `isTouchChrome`, `speak`) after extracting them to focused modules.
 
 ## Phase 4 - Audio Utility Consolidation
 
-- [ ] Rename `src/audioutility.js` to `src/utils/audioConcat.js`.
-- [ ] Update all imports (`ConcatenatedPlayList`).
-- [ ] Add compatibility shim only if needed during transition.
+- [x] Rename `src/audioutility.js` to `src/utils/audioConcat.js`.
+- [x] Update all imports (`ConcatenatedPlayList`).
+- [x] Add compatibility shim only if needed during transition.
 
 ## Phase 5 - Cleanup
 
 - [ ] Remove dead/redundant exports from `src/utility.js`.
 - [ ] Remove `src/utility.js` facade only after zero imports remain.
 - [ ] Update docs and architecture references.
-

@@ -1,6 +1,6 @@
 import { FooterSocialLinks } from './FooterSocialLinks';
 import React from 'react';
-import { resolveAsset } from '../../utility';
+import { resolveAsset } from '../../utils/assets';
 
 export class Footer extends React.PureComponent{
 

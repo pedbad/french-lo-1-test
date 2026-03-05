@@ -1,9 +1,16 @@
+export { resolveAsset, resolveAssetHTML } from './utils/assets';
+export { handleResponse, handleResponseCSV, handleResponseText } from './utils/network';
+export { scrollToElement, handleModalLinkClick } from './utils/dom';
+export { trackFloatingAudio, stopAllAudioPlayback, playAudioLink } from './utils/audioPlayback';
+export { highlightTextDiff } from './utils/exerciseDiff';
+export { copyObject, shuffleArray } from './utils/collections';
+export { isTouchChrome } from './utils/device';
+export { speak } from './utils/speech';
+
 export const initialViewOffset = 24; // To reveal edge of card table
 
 export const addNonDuplicateHeaders = (dataSet, headers) => {
-
 	const flatHeaders = dataSet.headers.map((header) => JSON.stringify(header));
-	// console.log("flatHeaders", flatHeaders);
 	headers.forEach((header) => {
 		const flatHeader = JSON.stringify(header);
 		const foundIndex = flatHeaders.indexOf(flatHeader);
@@ -12,7 +19,7 @@ export const addNonDuplicateHeaders = (dataSet, headers) => {
 };
 
 export const appendScript = (scriptToAppend, DOMnode, callback) => {
-	const script = document.createElement("script");
+	const script = document.createElement('script');
 	script.type = 'text/javascript';
 	script.async = true;
 	script.src = scriptToAppend;
@@ -21,9 +28,8 @@ export const appendScript = (scriptToAppend, DOMnode, callback) => {
 };
 
 export const arrayIncludesObject = (seeking, arrayToSearch) => {
-
 	// For an array of objects, checks if it includes the object in question
-	return arrayToSearch.some(element => {
+	return arrayToSearch.some((element) => {
 		return JSON.stringify(seeking) === JSON.stringify(element);
 	});
 };
@@ -32,7 +38,7 @@ export const base64ToBlob = (base64String, contentType = '') => {
 	const byteCharacters = atob(base64String);
 	const byteArrays = [];
 
-	for (let i = 0; i < byteCharacters.length; i++) {
+	for (let i = 0; i < byteCharacters.length; i += 1) {
 		byteArrays.push(byteCharacters.charCodeAt(i));
 	}
 
@@ -45,20 +51,14 @@ export const clearCanvas = (canvas) => {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 };
 
-export const copyObject = (originalObject) => {
-	// console.log("copyObject", originalObject);
-	if (originalObject) return JSON.parse(JSON.stringify(originalObject)); // If you know of a better solution, please enlighten me.
-	return;
-};
-
 export const getCardById = (id, dataSet) => {
 	// Note - card - any card including stacked card or 'stack'
 	const { rows: molecules = [], stacks = [] } = dataSet;
-	const stack = stacks.find(item => {
+	const stack = stacks.find((item) => {
 		return item.id === `${id}`;
 	});
 	if (stack) return stack;
-	const molecule = molecules.find(item => {
+	const molecule = molecules.find((item) => {
 		return item.id === `${id}`;
 	});
 	return molecule;
@@ -71,10 +71,8 @@ export const getHighAndLow = (s1, s2) => {
 
 export const getMoleculeById = (id, dataSet) => {
 	// Molecules only, no stacks
-	// const { dataSets, currentDataSet } = this.state;
-	// const dataSet = dataSets[currentDataSet];
 	const { rows } = dataSet;
-	return rows.find(item => {
+	return rows.find((item) => {
 		return item.id === id;
 	});
 };
@@ -84,268 +82,27 @@ export const getStackSelectedCount = (stack, molecules) => {
 	let nSelected = 0;
 	const { molecules: stackMolecules } = stack;
 	stackMolecules.map((moleculeId) => {
-		const { 0: m } = molecules.filter(item => moleculeId === item.id);
+		const { 0: m } = molecules.filter((item) => moleculeId === item.id);
 		if (m) {
-			nMolecules++;
-			if (m.selected) nSelected++;
+			nMolecules += 1;
+			if (m.selected) nSelected += 1;
 		}
 		return false;
 	});
-	return 100 * nSelected / nMolecules;
+	return (100 * nSelected) / nMolecules;
 };
 
-export const handleResponse = (response) => {
-	// Used in all API calls
-	if (response.status === 204) return Promise.resolve(true);
-	return response.json()
-		.then((json) => {
-			if (!response.ok) {
-				const error = {
-					...json,
-					...{
-						message: json.message,
-						status: response.status,
-						statusText: response.statusText,
-					}
-				};
-				return Promise.reject(error);
-			}
-			return json;
-		});
-};
+export const isAlphaNumeric = (str) => {
+	let code;
+	let i;
+	let len;
 
-export const handleResponseCSV = (response) => {
-	// Used in all CSV API calls
-	if (response.status === 204 /* || response.status === 200 */) return Promise.resolve(true);
-	return response.text()
-		.then((text) => {
-			let error = '';
-			if (response.status === 404) {
-				error = { message: "Sorry, file is unavailable at this time" };
-				return Promise.reject(error);
-			}
-			if (!response.ok) {
-				if (typeof (text) === 'string') {
-					try {
-						error = JSON.parse(text);
-					}
-					catch {
-						error = { message: text };
-					}
-					return Promise.reject(error);
-				} else {
-					error = {
-						...text,
-						...{
-							message: text.message,
-							status: response.status,
-							statusText: response.statusText,
-						}
-					};
-					return Promise.reject(error);
-				}
-			}
-			return text;
-		});
-};
-
-export const handleResponseText = (response) => {
-	// Used in all API calls
-	if (response.status === 204) return Promise.resolve(true);
-	return response.text()
-		.then((res) => {
-			if (!response.ok) {
-				const error = {
-					...res,
-					...{
-						message: res.message,
-						status: response.status,
-						statusText: response.statusText,
-					}
-				};
-				return Promise.reject(error);
-			}
-			return res;
-		});
-};
-
-let programmaticScrollTimeout;
-
-export const scrollToElement = (element) => {
-	// console.log("scrollToElement");
-	if (!element) return;
-
-	const mainMenu = document.getElementById('mainMenu');
-	if (!mainMenu) return;
-
-	// Start with the full mainMenu height (this was your original behaviour
-	// and works correctly on desktop).
-	let mainMenuHeight = mainMenu.offsetHeight;
-	// console.log(10, "mainMenuHight", mainMenuHeight);
-
-	// If the mobile dropdown is open, its height is included in mainMenuHeight.
-	// We want only the fixed header height, so subtract the dropdown height.
-	const mobileMenu = mainMenu.querySelector('.mobile-menu');
-	if (mobileMenu && mobileMenu.offsetHeight > 0) {
-		// dropdown visible -> remove its height from the offset
-		mainMenuHeight -= mobileMenu.offsetHeight;
-	}
-
-	// console.log("mainMenuHeight (adjusted)", mainMenuHeight);
-
-	// Get bounding rectangle relative to viewport
-	const rect = element.getBoundingClientRect();
-
-	// Adjust by the current scroll position
-	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-	// Keep nav-targeted headings tight under the fixed menu.
-	// The old large fudge value caused visible bleed from previous sections.
-	const extraOffset = 16;
-	const top = Math.max(0, rect.top + scrollTop - mainMenuHeight - extraOffset);
-	const left = rect.left + scrollLeft;
-
-	// Flag this as a programmatic scroll so listeners can ignore it
-	window.__programmaticScroll = true;
-	if (programmaticScrollTimeout) clearTimeout(programmaticScrollTimeout);
-
-	// Scroll to that position
-	window.scrollTo({
-		behavior: 'smooth',
-		left,
-		top,
-	});
-
-	programmaticScrollTimeout = setTimeout(() => {
-		window.__programmaticScroll = false;
-	}, 2000);
-
-};
-export const handleModalLinkClick = (e, options = {}) => {
-	e.preventDefault();
-
-	const linkEl =
-		options.linkEl ||
-		(e.currentTarget instanceof Element ? e.currentTarget : null) ||
-		(e.target instanceof Element ? e.target.closest("a[href]") : null);
-	if (!linkEl) return;
-	const href = linkEl.getAttribute("href") || "";
-	const explicitTarget = (linkEl.getAttribute("data-modal-target") || "").trim();
-
-	const rawAfterHash = href.split("#").pop() || "";
-	const parsedTarget = rawAfterHash.replace(/^[.#]+/, "").trim();
-	const targetId = explicitTarget || parsedTarget;
-	if (!targetId) return;
-
-	const { mode = "modal", findModalLinkContent, showModalLinkDialog } = options;
-
-	if (mode === "scroll") {
-		const targetEl =
-			document.getElementById(`${targetId}-heading`) ||
-			document.getElementById(targetId) ||
-			document.querySelector(`.modal-link-target[data-modal-target="${targetId}"]`);
-		if (targetEl) scrollToElement(targetEl);
-		return;
-	}
-
-	if (
-		typeof findModalLinkContent !== "function" ||
-		typeof showModalLinkDialog !== "function"
-	) {
-		return;
-	}
-
-	const { title, contentHTML, content } = findModalLinkContent(targetId);
-	showModalLinkDialog(title, contentHTML, content);
-};
-
-const renderTextAsPlainSpans = (text = "") =>
-	`${text}`.split("").map((char) => `<span>${char}</span>`).join("");
-
-const normalizeForDictationCompare = (text = "") => {
-	return `${text}`
-		.normalize("NFC")
-		// Normalize apostrophe variants to straight apostrophe.
-		.replace(/[’`´ʻʼ]/g, "'")
-		// Ignore trivial punctuation differences.
-		.replace(/[.,!?;:…]/g, " ")
-		.replace(/[«»“”„"]/g, " ")
-		// Ignore duplicate/extra whitespace.
-		.replace(/\s+/g, " ")
-		.trim();
-};
-
-export const highlightTextDiff = (a, b, countCorrect, sounds = false, options = {}) => {
-	const m = a.length, n = b.length;
-	const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
-	const correctAudio = new Audio(resolveAsset('/sounds/ting.mp3'));
-	const errorAudio = new Audio(resolveAsset('/sounds/error.mp3'));
-	const { comparisonMode = "strict" } = options;
-
-	// Dictation mode: accept answers that only differ by punctuation/apostrophe/spacing.
-	// Accents remain strict by design (no accent stripping).
-	if (comparisonMode === "dictation") {
-		const normalizedA = normalizeForDictationCompare(a);
-		const normalizedB = normalizeForDictationCompare(b);
-		if (normalizedA === normalizedB) {
-			if (sounds) correctAudio.play();
-			countCorrect();
-			return renderTextAsPlainSpans(a);
-		}
-	}
-	// const {
-	// 	countCorrect = () => { },
-	// } = this.props;
-
-	// Fill LCS table
-	for (let i = 1; i <= m; i++) {
-		for (let j = 1; j <= n; j++) {
-			if (a[i - 1] === b[j - 1]) {
-				dp[i][j] = dp[i - 1][j - 1] + 1;
-			} else {
-				dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-			}
-		}
-	}
-
-	// Backtrack to build diff
-	let i = m, j = n;
-	const result = [];
-	let correct = true;
-	while (i > 0 || j > 0) {
-		if (i > 0 && j > 0 && a[i - 1] === b[j - 1]) {
-			result.unshift(`<span>${a[i - 1]}</span>`);
-			i--; j--;
-		} else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
-			result.unshift(`<span class='inserted'>${b[j - 1]}</span>`);
-			correct = false;
-			j--;
-		} else if (i > 0 && (j === 0 || dp[i][j - 1] < dp[i - 1][j])) {
-			result.unshift(`<span class='deleted'>${a[i - 1]}</span>`);
-			correct = false;
-			i--;
-		}
-	}
-	if (correct) {
-		if(sounds)correctAudio.play();
-		countCorrect();
-	} else {
-		if(sounds)errorAudio.play();
-	}
-
-	return result.join('');
-};
-
-export const isAlphaNumeric = (str) => { // Within the rules for datasets
-	let code, i, len;
-
-	for (i = 0, len = str.length; i < len; i++) {
+	for (i = 0, len = str.length; i < len; i += 1) {
 		code = str.charCodeAt(i);
 		if (
 			!(code > 47 && code < 58) && // numeric (0-9)
 			!(code > 64 && code < 91) && // upper alpha (A-Z)
-			!(code > 96 && code < 123) &&// lower alpha (a-z)
+			!(code > 96 && code < 123) && // lower alpha (a-z)
 			!(code === 95 || code === 45)
 		) {
 			return false;
@@ -354,183 +111,26 @@ export const isAlphaNumeric = (str) => { // Within the rules for datasets
 	return true;
 };
 
-export const isTouchChrome = () => {
-	const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-	const ua = navigator.userAgent;
-	const {vendor} = navigator;
-
-	const isChrome = /Chrome/.test(ua) && /Google Inc/.test(vendor);
-	const isEdge = /Edg\//.test(ua); // Detect Edge explicitly
-
-	return isTouchDevice && isChrome && !isEdge;
-};
-
-// Tracks Audio objects created with `new Audio(...)` (not attached to DOM),
-// so they can be paused when another clip starts.
-const getFloatingAudioSet = () => {
-	if (typeof window === "undefined") return null;
-	if (!window.__floatingAudios) window.__floatingAudios = new Set();
-	return window.__floatingAudios;
-};
-
-export const trackFloatingAudio = (audio) => {
-	const floatingAudios = getFloatingAudioSet();
-	if (!floatingAudios || !audio) return;
-	floatingAudios.add(audio);
-	audio.addEventListener("ended", () => floatingAudios.delete(audio), { once: true });
-	audio.addEventListener("error", () => floatingAudios.delete(audio), { once: true });
-};
-
-// Enforces a global "single active audio" policy:
-// pause every currently playing DOM <audio> and every tracked floating Audio,
-// except the one we are about to play (if provided).
-export const stopAllAudioPlayback = (exceptAudio = null) => {
-	if (typeof document !== "undefined") {
-		document.querySelectorAll("audio").forEach((audioEl) => {
-			if (audioEl === exceptAudio) return;
-			audioEl.pause();
-		});
-	}
-
-	const floatingAudios = getFloatingAudioSet();
-	if (!floatingAudios) return;
-
-	floatingAudios.forEach((audio) => {
-		if (audio === exceptAudio) return;
-		audio.pause();
-	});
-};
-
-export const playAudioLink = (soundFile) => {
-	// console.log("playAudioLink", soundFile);
-	const soundFileAudio = new Audio(resolveAsset(soundFile));
-	// Ensure row-link playback also participates in single-audio behavior.
-	trackFloatingAudio(soundFileAudio);
-	stopAllAudioPlayback(soundFileAudio);
-	soundFileAudio.play().catch(() => {});
-};
-
 export const replaceSelectWithSpan = (selectElement) => {
-	// console.log("replaceSelectWithSpan");
 	const selectedText = selectElement.options[selectElement.selectedIndex].text;
 	const span = document.createElement('span');
 	span.textContent = selectedText;
-	// span.className = 'replaced-select'; // Optional: for styling
-	selectElement.classList.forEach(cls => span.classList.add(cls));
+	selectElement.classList.forEach((cls) => span.classList.add(cls));
 
 	// Replace the <select> in the DOM
 	selectElement.parentNode.replaceChild(span, selectElement);
 };
 
-export const resolveAsset = (path = '') => {
-	// console.log(`resolveAsset(${path}) => ${import.meta.env.BASE_URL}${path}`);
-	// console.log(path.search(import.meta.env.BASE_URL));
-	if (!path) return path;
-	// Do not alter absolute URLs.
-	if (/^https?:\/\//i.test(path)) return path;
-	const base = import.meta.env.BASE_URL || '/';
-	const normalizedBase = base.endsWith('/') ? base : `${base}/`;
-	const normalizedPath = `${path}`.startsWith('/') ? `${path}`.slice(1) : `${path}`;
-	// Mac-origin audio file names are often NFD; normalize requests to match on-disk assets.
-	const normalizedPathNfd = normalizedPath.normalize("NFD");
-	// If already resolved against BASE_URL, just URI-encode it.
-	if (`${path}`.startsWith(normalizedBase)) return encodeURI(`${path}`.normalize("NFD"));
-	return encodeURI(`${normalizedBase}${normalizedPathNfd}`);
-};
-
-export const resolveAssetHTML = (html) => {
-	const base = import.meta.env.BASE_URL || '/';
-	return html.replace(/(src|href)=["'](?!https?:\/\/)([^"']+)["']/g, (match, attr, path) => {
-		const resolved = path.startsWith(base) ? path : `${base}${path}`;
-		return `${attr}="${resolved}"`;
-	});
-};
-
-export const shuffleArray = (array) => {
-	let currentIndex = array.length;
-
-	// While there remain elements to shuffle...
-	while (currentIndex !== 0) {
-
-		// Pick a remaining element...
-		const randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex--;
-
-		// And swap it with the current element.
-		[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-	}
-	return array;
-};
-
-export const speak = (e, synth, targetLanguageCode, voices, text) => {
-	// console.log("speak", synth, targetLanguageCode, voices);
-	// alert("speak", synth, targetLanguageCode, voices);
-	e.preventDefault();
-	let utterThis;
-	if (text !== undefined) {
-		utterThis = new SpeechSynthesisUtterance(text);
-	} else {
-		let { target } = e;
-		while (!target.classList.contains('speak')) target = target.parentNode;
-		utterThis = new SpeechSynthesisUtterance(target.innerText);
-	}
-	utterThis.onend = () => {
-		console.log("SpeechSynthesisUtterance.onend"); // eslint-disable-line
-	};
-
-	utterThis.onerror = () => {
-		console.error("SpeechSynthesisUtterance.onerror"); // eslint-disable-line
-	};
-
-	utterThis.onpause = (event) => {
-		const char = event.utterance.text.charAt(event.charIndex);
-		console.log(`Speech paused at character ${event.charIndex} of "${event.utterance.text}", which is "${char}".`); // eslint-disable-line
-	};
-
-	utterThis.lang = targetLanguageCode;
-	switch (targetLanguageCode){
-		case "fr-FR": {
-			utterThis.name = 'Google français';
-			utterThis.voiceURI = 'Google français';
-			break;
-		}
-		case "de-DE": {
-			utterThis.name = 'Google Deutsch';
-			utterThis.voiceURI = 'Google Deutsch';
-			break;
-		}
-		case "es-ES": {
-			utterThis.name = 'Google español';
-			utterThis.voiceURI = 'Google español';
-			break;
-		}
-		default: {
-			utterThis.name = 'Google français';
-			utterThis.voiceURI = 'Google français';
-			break;
-		}
-	}
-	[utterThis.voice] = voices;
-	utterThis.pitch = 1;
-	utterThis.rate = 1;
-	synth.speak(utterThis);
-
-};
-
 export const titleCase = (str) => {
 	const splitStr = str.toLowerCase().split(' ');
-	for (let i = 0; i < splitStr.length; i++) {
-		// You do not need to check if i is larger than splitStr length, as your for does that for you
-		// Assign it back to the array
+	for (let i = 0; i < splitStr.length; i += 1) {
 		splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
 	}
-	// Directly return the joined string
 	return splitStr.join(' ');
 };
 
 export const uuidv4 = () => {
-	// console.trace('uuidv4');
-	return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-		(c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> c) / 4)).toString(16)
+	return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+		(c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> c) / 4)).toString(16),
 	);
 };

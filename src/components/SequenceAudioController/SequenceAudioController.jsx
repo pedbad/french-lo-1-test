@@ -1,5 +1,5 @@
 import React from "react";
-import { stopAllAudioPlayback } from "../../utility";
+import { stopAllAudioPlayback } from "../../utils/audioPlayback";
 
 export class SequenceAudioController extends React.Component {
 	constructor(props) {

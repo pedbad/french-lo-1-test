@@ -31,14 +31,12 @@ import {
   WordGrid,
   WordParts,
 } from "./components";
-import {
-  handleModalLinkClick,
-  handleResponse,
-  isTouchChrome,
-  playAudioLink,
-  resolveAsset,
-  speak,
-} from "./utility";
+import { resolveAsset } from "./utils/assets";
+import { handleResponse } from "./utils/network";
+import { handleModalLinkClick } from "./utils/dom";
+import { playAudioLink } from "./utils/audioPlayback";
+import { isTouchChrome } from "./utils/device";
+import { speak } from "./utils/speech";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import {

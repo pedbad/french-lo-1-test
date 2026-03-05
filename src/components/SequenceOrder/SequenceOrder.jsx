@@ -4,7 +4,8 @@ import { ProgressDots } from "../ProgressDots";
 import { SequenceAudioController } from "../SequenceAudioController";
 import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
-import { resolveAsset, shuffleArray } from "../../utility";
+import { resolveAsset } from "../../utils/assets";
+import { shuffleArray } from "../../utils/collections";
 import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
 
 const buildTokens = (words = []) =>

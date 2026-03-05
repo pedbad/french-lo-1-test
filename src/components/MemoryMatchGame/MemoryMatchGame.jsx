@@ -7,7 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from "react";
-import {resolveAsset} from "../../utility";
+import { resolveAsset } from "../../utils/assets";
 import { MEMORY_CARD_TRANSITION_TIME_MS } from "../../constants/layout";
 
 const getShuffledDeck = (cards, nCards) => {
