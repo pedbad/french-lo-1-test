@@ -2,6 +2,19 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-05 - Canonical Component Architecture Audit Added
+
+- Added canonical component architecture audit:
+  - `docs/components/COMPONENT_ARCHITECTURE_AUDIT.md`
+- Audit covers:
+  - current runtime component resolution model
+  - monolithic `CustomComponents_FR` risk and naming drift (`Blanks`/`DraggableFillGaps`, `DropDowns`/`SelectExercise`)
+  - single-source-of-truth risks caused by custom fallback growth
+  - target directory structure for shared components vs domain-scoped custom FR content
+  - phased low-risk migration plan and guardrails
+- Updated tracker links in:
+  - `README.md` (`Migration Trackers` section)
+
 ## 2026-03-05 - Utility Refactor Phase 1 (Module Extraction + Compatibility Facade)
 
 - Added focused utility modules:
