@@ -138,7 +138,7 @@
 			],
 			[
 				"sounds/fr/professeur.mp3",
-				"professeur.e",
+				"professeur(e)",
 				"professor"
 			],
 			[
@@ -299,7 +299,7 @@
 			[
 				"sounds/fr/cours magistral, cours magistraux.mp3",
 				"cours magistral (m), cours magistraux (mpl)",
-				"lecture (s)"
+				"lecture(s)"
 			],
 			[
 				"sounds/fr/séminaire.mp3",
@@ -343,7 +343,7 @@
 			],
 			[
 				"sounds/fr/Je suis stressé.mp3",
-				"Je suis stressé.e",
+				"Je suis stressé(e)",
 				"I'm stressed"
 			],
 			[
@@ -353,7 +353,7 @@
 			],
 			[
 				"sounds/fr/Je suis fatigué.mp3",
-				"Je suis fatigué.e",
+				"Je suis fatigué(e)",
 				"I'm tired"
 			],
 			[
@@ -363,7 +363,7 @@
 			],
 			[
 				"sounds/fr/Je suis très occupé.mp3",
-				"Je suis très occupé.e",
+				"Je suis très occupé(e)",
 				"I'm very busy"
 			]
 		],

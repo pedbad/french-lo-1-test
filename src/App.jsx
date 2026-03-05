@@ -172,7 +172,7 @@ export default class App extends React.Component {
         return;
       }
 
-      const { file, loId, slug, title, titleShort } = resolvedLo;
+      const { configKey, loId, slug, title, titleShort } = resolvedLo;
       this.setState({
         currentLearningObject: loId,
         title,
@@ -186,7 +186,7 @@ export default class App extends React.Component {
       });
 
       const configPromise = this.loadConfig(
-        `/src/lo-config/${file}.json`,
+        `/src/lo-config/${configKey}.json`,
         loId,
       );
       this.initialiseModalLinks();
@@ -578,10 +578,12 @@ export default class App extends React.Component {
     if (Number.isInteger(numericLoId) && numericLoId >= 1) {
       const entry = learningObjects[numericLoId - 1];
       if (!entry) return null;
+      const entrySlug = entry.slug ? this.normalizeSlug(entry.slug) : "";
+      if (!entrySlug) return null;
       return {
-        file: `${entry.file ?? numericLoId}`,
+        configKey: entrySlug,
         loId: numericLoId,
-        slug: entry.slug || "",
+        slug: entry.slug || entrySlug,
         title: entry.title,
         titleShort: entry.titleShort || "",
       };
@@ -595,8 +597,9 @@ export default class App extends React.Component {
     if (index < 0) return null;
 
     const entry = learningObjects[index];
+    const entrySlug = entry.slug ? this.normalizeSlug(entry.slug) : normalizedTarget;
     return {
-      file: `${entry.file}`,
+      configKey: entrySlug,
       loId: index + 1,
       slug: entry.slug || normalizedTarget,
       title: entry.title,

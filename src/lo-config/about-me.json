@@ -51,7 +51,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (<em>marié(e), divorcé(e), séparé(e), fiancé(e), pacsé(e), célibataire</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>How compact forms work: <em>marié.e</em> / <em>étudiant.e</em> show masculine and feminine forms.</li></ul>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (<em>marié(e), divorcé(e), séparé(e), fiancé(e), pacsé(e), célibataire</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>How compact forms work: <em>marié(e)</em> / <em>étudiant(e)</em> show masculine and feminine forms.</li></ul>",
 		"phrases": [
 			[
 				"audio/lo2/vocabulary/011-etre.mp3",
@@ -60,27 +60,27 @@
 			],
 			[
 				"audio/lo2/vocabulary/017-marie.mp3",
-				"marié.e",
+				"marié(e)",
 				"married"
 			],
 			[
 				"audio/lo2/vocabulary/008-divorce.mp3",
-				"divorcé.e",
+				"divorcé(e)",
 				"divorced"
 			],
 			[
 				"audio/lo2/vocabulary/025-separe.mp3",
-				"séparé.e",
+				"séparé(e)",
 				"separated"
 			],
 			[
 				"audio/lo2/vocabulary/013-fiance.mp3",
-				"fiancé.e",
+				"fiancé(e)",
 				"engaged"
 			],
 			[
 				"audio/lo2/vocabulary/019-pacse.mp3",
-				"pacsé.e",
+				"pacsé(e)",
 				"In a civil partnership"
 			],
 			[

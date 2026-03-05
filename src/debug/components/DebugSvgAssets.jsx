@@ -56,7 +56,7 @@ const SVG_USAGE_MANIFEST = [
 	{
 		path: '/img/lo1/first-contact.svg',
 		referenceCount: 2,
-		sources: ['/src/App.jsx', '/src/lo-config/1.json'],
+		sources: ['/src/App.jsx', '/src/lo-config/first-contact.json'],
 	},
 	{
 		path: '/img/common/branding/fr-banner.svg',
@@ -66,7 +66,7 @@ const SVG_USAGE_MANIFEST = [
 	{
 		path: '/img/shared/grammar.svg',
 		referenceCount: 1,
-		sources: ['/src/lo-config/1.json'],
+		sources: ['/src/lo-config/first-contact.json'],
 	},
 	{
 		path: '/images/icons/circle-check.svg',

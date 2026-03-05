@@ -183,7 +183,7 @@
 			],
 			[
 				"/sounds/fr/désolé.mp3",
-				"désolé.e",
+				"désolé(e)",
 				"sorry"
 			],
 			[
@@ -208,17 +208,17 @@
 			],
 			[
 				"/sounds/fr/Je me suis trompé de numéro.mp3",
-				"Je me suis trompé.e  de numéro.",
+				"Je me suis trompé(e) de numéro.",
 				"I've made a mistake about the number.  "
 			],
 			[
 				"/sounds/fr/Tu t'es trompé de numéro.mp3",
-				"Tu t'es trompé.e de numéro.",
+				"Tu t'es trompé(e) de numéro.",
 				"You've made a mistake about the number."
 			],
 			[
 				"/sounds/fr/Vous vous êtes trompé de numéro.mp3",
-				"Vous vous êtes trompé.e  de numéro.",
+				"Vous vous êtes trompé(e) de numéro.",
 				"You've made a mistake about the number."
 			]
 		],

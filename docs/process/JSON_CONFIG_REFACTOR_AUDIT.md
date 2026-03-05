@@ -7,7 +7,7 @@ Provide a repeatable audit method for `src/lo-config/*.json` so we can:
 - remove dead/legacy keys safely
 - normalize naming conventions to reduce drift
 
-This file starts with LO1 (`1.json`) findings and serves as the baseline for auditing all remaining LO configs.
+This file starts with LO1 (`first-contact.json`) findings and serves as the baseline for auditing all remaining LO configs.
 
 ## Runtime Contract (Current)
 
@@ -15,7 +15,7 @@ Primary loader/normalizer:
 - `src/App.jsx`
 
 Current behavior:
-- LO config files are loaded from `/src/lo-config/<file>.json`
+- LO config files are loaded from `/src/lo-config/<slug>.json`
 - legacy aliases are normalized:
   - `infoTextHTML` -> `informationTextHTML`
   - `infoText` -> `informationText`
@@ -35,41 +35,59 @@ We will move from numeric `file` mapping to **slug-only mapping** with a strict 
 Reason:
 - dual support increases drift risk between URL route, index metadata, and config file naming.
 
-## LO1 Audit (`src/lo-config/1.json`)
+## LO1 Audit (`src/lo-config/first-contact.json`)
 
 ### Confirmed dead/legacy keys (safe removal candidates)
 
 1. `settings.flag`
-- Location: `src/lo-config/1.json:4`
+- Location: `src/lo-config/first-contact.json:4`
 - Reason: no current app render path consumes it.
 
 2. `settings.targetLanguage`
-- Location: `src/lo-config/1.json:6`
+- Location: `src/lo-config/first-contact.json:6`
 - Reason: runtime uses `targetLanguageCode`; this string is unused.
 
 3. `dialogues.instructionsTextHTMLOld`
-- Location: `src/lo-config/1.json:14`
+- Location: `src/lo-config/first-contact.json:14`
 - Reason: no runtime reader for `*Old` keys.
 
 4. `phrases4.instructionsTextHTMLXXX`
-- Location: `src/lo-config/1.json:466`
+- Location: `src/lo-config/first-contact.json:466`
 - Reason: non-schema debug/test key, never consumed.
 
 ### Naming drift (works via compatibility, should normalize)
 
 1. `infoTextHTML` still used in grammar nodes
 - Locations:
-  - `src/lo-config/1.json:304`
-  - `src/lo-config/1.json:312`
+  - `src/lo-config/first-contact.json:304`
+  - `src/lo-config/first-contact.json:312`
 - Current status: works via alias normalization.
 - Target: use `informationTextHTML` directly in config.
 
 ### Content style drift (editorial consistency)
 
 1. `Enchanté.e` notation
-- Location: `src/lo-config/1.json:290`
+- Location: `src/lo-config/first-contact.json:290`
 - Drift: notation differs from `(e)` style used in other units.
 - Action: decide one project-wide convention and normalize.
+
+## Content Notation Standard (Locked)
+
+To prevent cross-LO editorial drift, all `src/lo-config/*.json` must follow:
+
+1. Gender-inclusive compact forms:
+- use `(e)` only
+- examples: `marié(e)`, `étudiant(e)`, `né(e)`, `stressé(e)`
+- do not use `.e` forms
+
+2. Optional plural forms:
+- use `(s)` directly attached to the word
+- examples: `horse(s)`, `lecture(s)`
+- do not use `word (s)` style
+
+3. Spacing hygiene:
+- no double spaces introduced around converted forms
+- no trailing spaces in phrase strings
 
 ## Project-Wide JSON Refactor Rules
 
@@ -90,6 +108,10 @@ Reason:
 - no component switching during key cleanup pass
 - refactor key names/unused fields first
 
+5. Keep notation standardized:
+- enforce `(e)` / `(s)` conventions in learner-facing phrase text
+- reject mixed notation during review (`.e`, `word (s)`)
+
 ## Recommended Rollout
 
 1. Audit each LO config file against runtime usage.
@@ -102,10 +124,10 @@ Reason:
 
 ## Future Files To Audit
 
-- `src/lo-config/2.json`
-- `src/lo-config/3.json`
-- `src/lo-config/4.json`
-- ... through `src/lo-config/15.json`
+- `src/lo-config/about-me.json`
+- `src/lo-config/origins-and-languages.json`
+- `src/lo-config/current-location.json`
+- ... through all LO slug files in `src/lo-config/`
 - `src/lo-config/demo.json`
-- `src/lo-config/answer.json`
+- `src/lo-config/answer-table-test.json`
 - `src/lo-config/summer.json`

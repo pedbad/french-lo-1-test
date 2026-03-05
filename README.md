@@ -181,7 +181,7 @@ If landing page works but `/first-contact/` returns 404:
 4. Re-test these URLs:
    - `/projects/french-basic/`
    - `/projects/french-basic/first-contact/`
-   - `/projects/french-basic/src/lo-config/1.json`
+   - `/projects/french-basic/src/lo-config/first-contact.json`
 
 No-rewrite fallback URL (temporary):
 - `/projects/french-basic/?lo=first-contact`
@@ -584,6 +584,10 @@ JSON mapping decision (to prevent drift):
 - migrate to slug-only config mapping (`<slug>.json`) as each LO is touched
 - do not keep dual fallback mapping (`file` + `slug`) during migration
 - each LO migration should rename file + update index + test in one pass
+- content notation standardization (applies to all `src/lo-config/*.json`):
+  - gender-inclusive compact forms use `(e)` (example: `marié(e)`, `né(e)`)
+  - optional plurals use `(s)` with no leading space (example: `horse(s)`)
+  - do not use mixed legacy styles (`.e`, `word (s)`)
 
 ## Styling
 
@@ -792,7 +796,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 ## LO3 Audio Migration Status
 
 - LO3 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo3/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/3.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/origins-and-languages.json`
   - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
 - New LO3 root:
   - `public/audio/lo3/...`
@@ -806,7 +810,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 ## LO4 Audio Migration Status
 
 - LO4 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo4/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/4.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/current-location.json`
   - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
 - New LO4 root:
   - `public/audio/lo4/...`

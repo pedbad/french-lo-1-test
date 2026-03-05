@@ -169,15 +169,14 @@ function getSectionSummaries(config) {
 	return sections;
 }
 
-function getLearningObjectBadge(file, index) {
-	if (file === 'demo') return 'Demo';
-	if (file === 'answer') return 'Answer';
-	if (/^\d+$/.test(file)) return `LO ${file.padStart(2, '0')}`;
-	return `LO ${index + 1}`;
+function getLearningObjectBadge(slug, index) {
+	if (slug === 'demo') return 'Demo';
+	if (slug === 'answer-table-test') return 'Answer';
+	return `LO ${String(index + 1).padStart(2, '0')}`;
 }
 
 export function LearningObjectStructureSummary({ appHrefBase, learningObjects = [] }) {
-	const [configByFile, setConfigByFile] = React.useState(() => new Map());
+	const [configBySlug, setConfigBySlug] = React.useState(() => new Map());
 	const [loadError, setLoadError] = React.useState('');
 	const [loading, setLoading] = React.useState(false);
 	const defaultAppHrefBase = React.useMemo(() => `${window.location.origin}${import.meta.env.BASE_URL}`, []);
@@ -189,36 +188,36 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 			setLoading(true);
 			setLoadError('');
 			const nextMap = new Map();
-			const files = learningObjects
-				.map((learningObject) => String(learningObject?.file ?? ''))
+			const slugs = learningObjects
+				.map((learningObject) => String(learningObject?.slug ?? ''))
 				.filter(Boolean);
 
-			const results = await Promise.all(files.map(async (file) => {
-				const configUrl = resolveAsset(`/src/lo-config/${file}.json`);
+			const results = await Promise.all(slugs.map(async (slug) => {
+				const configUrl = resolveAsset(`/src/lo-config/${slug}.json`);
 				try {
 					const response = await fetch(configUrl);
 					if (!response.ok) {
 						throw new Error(`HTTP ${response.status}`);
 					}
 					const config = await response.json();
-					return { config, file };
+					return { config, slug };
 				} catch (error) {
-					return { error, file };
+					return { error, slug };
 				}
 			}));
 
 			let firstErrorMessage = '';
-			results.forEach(({ config, error, file }) => {
+			results.forEach(({ config, error, slug }) => {
 				if (config && typeof config === 'object') {
-					nextMap.set(file, config);
+					nextMap.set(slug, config);
 				}
 				if (error && !firstErrorMessage) {
-					firstErrorMessage = `Failed to load one or more LO config files (for example LO ${file}).`;
+					firstErrorMessage = `Failed to load one or more LO config files (for example ${slug}).`;
 				}
 			});
 
 			if (!cancelled) {
-				setConfigByFile(nextMap);
+				setConfigBySlug(nextMap);
 				setLoadError(firstErrorMessage);
 				setLoading(false);
 			}
@@ -238,18 +237,18 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 
 	const summaries = React.useMemo(() => {
 		return learningObjects.map((learningObject, index) => {
-			const file = String(learningObject?.file ?? '');
-			const title = learningObject?.titleShort || learningObject?.title || `LO ${file || index + 1}`;
-			const config = configByFile.get(file);
+			const slug = String(learningObject?.slug ?? '');
+			const title = learningObject?.titleShort || learningObject?.title || `LO ${index + 1}`;
+			const config = configBySlug.get(slug);
 			return {
-				badge: getLearningObjectBadge(file, index),
-				file,
-				href: `${resolvedAppHrefBase}${resolvedAppHrefBase.endsWith('/') ? '' : '/'}${encodeURIComponent(learningObject?.slug || file)}/`,
+				badge: getLearningObjectBadge(slug, index),
+				slug,
+				href: `${resolvedAppHrefBase}${resolvedAppHrefBase.endsWith('/') ? '' : '/'}${encodeURIComponent(slug)}/`,
 				title,
 				sections: getSectionSummaries(config),
 			};
 		});
-	}, [configByFile, learningObjects, resolvedAppHrefBase]);
+	}, [configBySlug, learningObjects, resolvedAppHrefBase]);
 
 	return (
 		<section aria-labelledby="sandbox-lo-structure">
@@ -265,7 +264,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 			) : null}
 			<div className="space-y-3">
 				{summaries.map((summary) => (
-					<div className="rounded-xl border border-border bg-card p-3" key={`lo-summary-${summary.file}`}>
+					<div className="rounded-xl border border-border bg-card p-3" key={`lo-summary-${summary.slug}`}>
 						<div className="grid gap-3 min-[1180px]:grid-cols-[17.5rem,1fr] min-[1180px]:items-start">
 							<a
 								aria-label={`Open ${summary.badge}: ${summary.title}`}
@@ -280,7 +279,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 								className="rounded-lg border border-border/70 px-3"
 								type="single"
 							>
-								<AccordionItem className="border-none" value={`${summary.file}-structure`}>
+								<AccordionItem className="border-none" value={`${summary.slug}-structure`}>
 									<AccordionTrigger
 										className="rounded-md px-2 text-base font-semibold min-[1180px]:text-lg transition-[background-color,color,box-shadow] duration-700 ease-in-out hover:no-underline hover:bg-[var(--accordion-mist)] hover:text-[var(--accordion-hover-text)] hover:shadow-[0_8px_18px_color-mix(in_oklab,var(--foreground)_10%,transparent)] data-[state=open]:bg-[var(--accordion-mist)] data-[state=open]:text-[var(--accordion-hover-text)] data-[state=open]:shadow-[0_8px_18px_color-mix(in_oklab,var(--foreground)_10%,transparent)]"
 									>
@@ -292,7 +291,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 										) : (
 											<ol className="mt-2 list-decimal space-y-4 pl-6">
 												{summary.sections.map((section) => (
-													<li className="rounded-lg border border-border/70 p-3" key={`${summary.file}-${section.key}`}>
+													<li className="rounded-lg border border-border/70 p-3" key={`${summary.slug}-${section.key}`}>
 														<h3 className="text-lg font-semibold leading-snug">{section.sectionTitle}</h3>
 														<ol className="mt-2 list-decimal space-y-2 pl-6 text-base leading-relaxed">
 															<li>
@@ -304,7 +303,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 																{section.contentTypes.length > 0 ? (
 																	<ol className="mt-1 list-decimal space-y-1 pl-6">
 																		{section.contentTypes.map((componentType) => (
-																			<li key={`${summary.file}-${section.key}-content-type-${componentType}`}>{componentType}</li>
+																			<li key={`${summary.slug}-${section.key}-content-type-${componentType}`}>{componentType}</li>
 																		))}
 																	</ol>
 																) : (
@@ -316,7 +315,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 																{section.topLevelContent.length > 0 ? (
 																	<ol className="mt-1 list-decimal space-y-1 pl-6">
 																		{section.topLevelContent.map((item, contentIndex) => (
-																			<li key={`${summary.file}-${section.key}-top-content-${contentIndex}`}>
+																			<li key={`${summary.slug}-${section.key}-top-content-${contentIndex}`}>
 																				{`${item.title} (${item.component})`}
 																			</li>
 																		))}
@@ -330,7 +329,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 																{section.accordionTitles.length > 0 ? (
 																	<ol className="mt-1 list-decimal space-y-1 pl-6">
 																		{section.accordionTitles.map((title, titleIndex) => (
-																			<li key={`${summary.file}-${section.key}-accordion-title-${titleIndex}`}>{title}</li>
+																			<li key={`${summary.slug}-${section.key}-accordion-title-${titleIndex}`}>{title}</li>
 																		))}
 																	</ol>
 																) : (
@@ -348,7 +347,7 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
 																	<span className="font-semibold">Exercise component types ({section.exerciseTypes.length}):</span>
 																	<ol className="mt-1 list-decimal space-y-1 pl-6">
 																		{section.exerciseTypes.map((exerciseType) => (
-																			<li key={`${summary.file}-${section.key}-exercise-type-${exerciseType}`}>{exerciseType}</li>
+																			<li key={`${summary.slug}-${section.key}-exercise-type-${exerciseType}`}>{exerciseType}</li>
 																		))}
 																	</ol>
 																</li>

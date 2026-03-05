@@ -2,6 +2,23 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-05 - LO Config Content Notation Standardization
+
+- Standardized learner-facing compact notation across all LO config files in:
+  - `src/lo-config/*.json`
+- Standard applied:
+  - gender-inclusive compact forms now use `(e)` (replacing `.e`)
+  - optional plural notation now uses `(s)` without leading spacing (replacing `word (s)`)
+- Why:
+  - removes mixed editorial notation drift between LOs
+  - improves consistency for learners and maintainers
+  - makes automated QA/search for notation patterns reliable
+- Examples normalized:
+  - `marié.e` -> `marié(e)`
+  - `né.e` -> `né(e)`
+  - `horse (s)` -> `horse(s)`
+  - `Enchanté.e` -> `Enchanté(e)`
+
 ## 2026-03-04 - Portable Build Base Path (Folder-Agnostic Deploys)
 
 - Updated Vite base-path strategy in:

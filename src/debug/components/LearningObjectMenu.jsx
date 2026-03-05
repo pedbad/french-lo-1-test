@@ -2,16 +2,15 @@ import React from 'react';
 
 export class LearningObjectMenu extends React.Component {
 	getLearningObjectLabel = (learningObject, index) => {
-		const file = String(learningObject?.file ?? '');
+		const slug = String(learningObject?.slug ?? '');
 		const friendlyTitle = learningObject?.titleShort || learningObject?.title || '';
-		if (file === 'demo') {
+		if (slug === 'demo') {
 			return { badge: 'Demo', title: friendlyTitle || 'Sample components' };
 		}
-		if (file === 'answer') {
+		if (slug === 'answer-table-test') {
 			return { badge: 'Answer', title: friendlyTitle || 'Answer table test' };
 		}
-		const loBadge = /^\d+$/.test(file) ? `LO ${file.padStart(2, '0')}` : `LO ${index + 1}`;
-		return { badge: loBadge, title: friendlyTitle || `Learning Object ${file}` };
+		return { badge: `LO ${String(index + 1).padStart(2, '0')}`, title: friendlyTitle || `Learning Object ${index + 1}` };
 	};
 
 	selectLearningObject = (index) => {
@@ -34,7 +33,7 @@ export class LearningObjectMenu extends React.Component {
 			const basePath = new URL(baseURL).pathname;
 			learningObjects.forEach((learningObject, index) => {
 				const { badge, title } = this.getLearningObjectLabel(learningObject, index);
-				const loPath = `${basePath}${basePath.endsWith('/') ? '' : '/'}${encodeURIComponent(learningObject.slug || learningObject.file)}/`;
+				const loPath = `${basePath}${basePath.endsWith('/') ? '' : '/'}${encodeURIComponent(learningObject.slug)}/`;
 				renderedMenu.push(
 					<li
 						className={`menu-item m-1 indent-0 rounded-lg no-underline ${currentLearningObject === index ? 'highlight' : ''}`}

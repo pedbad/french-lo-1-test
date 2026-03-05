@@ -3,91 +3,74 @@
 		{
 			"title": "First Contact: greetings, farewells and social niceties",
 			"titleShort": "First Contact",
-			"file": "1",
 			"slug": "first-contact"
 		},
 		{
 			"title": "About me: marital status, occupation",
 			"titleShort": "About me",
-			"file": "2",
 			"slug": "about-me"
 		},
 		{
 			"title": "Origins and Languages",
-			"file": "3",
 			"slug": "origins-and-languages"
 		},
 		{
 			"title": "Current location",
-			"file": "4",
 			"slug": "current-location"
 		},
 		{
 			"title": "House and Home",
-			"file": "5",
 			"slug": "house-and-home"
 		},
 		{
 			"title": "Family, friends and neighbours",
-			"file": "6",
 			"slug": "family-friends-and-neighbours"
 		},
 		{
 			"title": "Opinions matter: Likes and dislikes",
 			"titleShort": "Opinions matter",
-			"file": "7",
 			"slug": "opinions-matter"
 		},
 		{
 			"title": "Free Time",
-			"file": "8",
 			"slug": "free-time"
 		},
 		{
 			"title": "Phoning in France",
-			"file": "9",
 			"slug": "phoning-in-france"
 		},
 		{
 			"title": "Making Arrangements",
-			"file": "10",
 			"slug": "making-arrangements"
 		},
 		{
 			"title": "Out and about: going to a café",
 			"titleShort": "Going to a café",
-			"file": "11",
 			"slug": "going-to-a-cafe"
 		},
 		{
 			"title": "Out and about: Shopping in the market",
 			"titleShort": "Shopping in the market",
-			"file": "12",
 			"slug": "shopping-in-the-market"
 		},
 		{
 			"title": "Daily routine",
-			"file": "13",
 			"slug": "daily-routine"
 		},
 		{
 			"title": "Studying at university",
-			"file": "14",
 			"slug": "studying-at-university"
 		},
 		{
 			"title": "Making Arrangements",
-			"file": "15",
 			"slug": "making-arrangements-2"
 		},
 		{
 			"title": "Sample components to pick from",
-			"file": "demo",
 			"slug": "demo"
 		},
 		{
 			"title": "Answer Table Test",
-			"file": "answer",
 			"slug": "answer-table-test"
 		}
 	],

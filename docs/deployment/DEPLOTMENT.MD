@@ -86,7 +86,7 @@ Open and confirm these return expected content:
 2. `/projects/french-basic/first-contact/` -> LO1
 3. `/projects/french-basic/src/main.js` -> JavaScript file (not HTML)
 4. `/projects/french-basic/src/index-fr.json` -> JSON
-5. `/projects/french-basic/src/lo-config/1.json` -> JSON
+5. `/projects/french-basic/src/lo-config/first-contact.json` -> JSON
 
 ## 6) Quick troubleshooting
 
