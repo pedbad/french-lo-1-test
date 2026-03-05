@@ -71,7 +71,7 @@ export class WordParts extends React.PureComponent {
 		nPlaced++;
 		if (nPlaced === this.nToSolve){
 
-			// Last piece of the jigsaw placed
+			// Last draggable tile placed
 			// const { showDialog } = this.props;
 			// showDialog(congratulationsText);
 			// tadaAudio.play();

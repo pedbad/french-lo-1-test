@@ -25,8 +25,6 @@ export * from './Info';
 export * from './InlineChoiceGroup';
 export * from './InstructionCallout';
 export * from './HeroSection/HeroSection';
-export * from './Jigsaw';
-export * from './Jigsaw/Piece';
 export * from './LandingPage';
 export * from './MainMenu';
 export * from './MemoryMatchGame';

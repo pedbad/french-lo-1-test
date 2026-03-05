@@ -15,7 +15,6 @@ import {
   HeroSection,
   Info,
   InlineChoiceGroup,
-  Jigsaw,
   LandingPage,
   MainMenu,
   MemoryMatchGame,
@@ -860,7 +859,7 @@ export default class App extends React.Component {
         // New format: looks like a config object already
         if (item.component) return item;
 
-        // Old format wrapper: { "jigsaw1": { component:"Jigsaw", ... } }
+        // Old format wrapper: { "item1": { component:"SomeComponent", ... } }
         const keys = Object.keys(item);
         const values = Object.values(item);
         if (keys.length === 1 && values.length === 1 && values[0]?.component) {
@@ -1018,14 +1017,6 @@ export default class App extends React.Component {
               showDialog={this.showDialog}
             />
           </>
-        );
-      case "Jigsaw":
-        return (
-          <Jigsaw
-            config={value}
-            logError={this.logError}
-            showDialog={this.showDialog}
-          />
         );
       case "MemoryMatchGame":
         return (
@@ -1712,26 +1703,6 @@ export default class App extends React.Component {
           );
         }
 
-        break;
-      }
-      case "Jigsaw": {
-        articles.push(
-          <AccordionArticle
-            expandedByDefault={autoExpandSingleAccordion}
-            config={value}
-            id={`${compoundID}-Accordion`}
-            key={`${compoundID}-Accordion`}
-            target={targetId}
-            title={titleText}
-            titleHTML={titleTextHTML}
-          >
-            <Jigsaw
-              config={value}
-              logError={this.logError}
-              showDialog={this.showDialog}
-            />
-          </AccordionArticle>,
-        );
         break;
       }
       case "MemoryMatchGame": {

@@ -130,4 +130,3 @@ To prevent cross-LO editorial drift, all `src/lo-config/*.json` must follow:
 - ... through all LO slug files in `src/lo-config/`
 - `src/lo-config/demo.json`
 - `src/lo-config/answer-table-test.json`
-- `src/lo-config/summer.json`
