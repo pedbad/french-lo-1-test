@@ -187,7 +187,7 @@ No-rewrite fallback URL (temporary):
 - `/projects/french-basic/?lo=first-contact`
 
 Full deployment checklist is in:
-- `/Users/ped/Sites/french/french-lo-1/DEPLOTMENT.MD`
+- `/Users/ped/Sites/french/french-lo-1/docs/deployment/DEPLOTMENT.MD`
 
 ## Future Projects: Avoiding `.htaccess` for New Language Series
 
@@ -304,7 +304,7 @@ yarn check:image-path:branch
 ```
 
 Image migration docs:
-- `/Users/ped/Sites/french/french-lo-1/IMAGE_MIGRATION_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1/docs/styling/IMAGE_MIGRATION_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1/public/img/README.md`
 
 ## Accessibility & HTML Guardrails
@@ -537,28 +537,28 @@ It runs on every pull request and enforces:
 - `yarn check:a11y:branch`
 
 For future projects, copy the reusable CI baseline from:
-- `/Users/ped/Sites/french/french-lo-1/FUTURE_PROJECTS.md` (section: **Out-of-the-Box GitHub Actions CI (Default)**)
+- `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md` (section: **Out-of-the-Box GitHub Actions CI (Default)**)
 
 ## Migration Trackers
 
 The active migration/audit trackers are:
 
-- `/Users/ped/Sites/french/french-lo-1/TASKS_COMPLETED.md` (live checklist)
-- `/Users/ped/Sites/french/french-lo-1/ACCORDION_ISSUES.md` (current accordion risk analysis)
-- `/Users/ped/Sites/french/french-lo-1/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
-- `/Users/ped/Sites/french/french-lo-1/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
-- `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
-- `/Users/ped/Sites/french/french-lo-1/ANSWERTABLE_REFACTOR_TODO.md` (semantic split plan for generic `AnswerTable` usages)
-- `/Users/ped/Sites/french/french-lo-1/ANSWERTABLE_REFACTOR_CHECKLIST.md` (stepwise migration/QA checklist for AnswerTable variants)
-- `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
-- `/Users/ped/Sites/french/french-lo-1/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
-- `/Users/ped/Sites/french/french-lo-1/TYPOGRAPHY_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1/COLOR_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1/HTML_ACCESSIBILITY_ISSUES.md`
-- `/Users/ped/Sites/french/french-lo-1/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
-- `/Users/ped/Sites/french/french-lo-1/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
-- `/Users/ped/Sites/french/french-lo-1/FONTS_PROBLEM.md` (build asset duplication root-cause note)
-- `/Users/ped/Sites/french/french-lo-1/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
+- `/Users/ped/Sites/french/french-lo-1/docs/process/TASKS_COMPLETED.md` (live checklist)
+- `/Users/ped/Sites/french/french-lo-1/docs/components/ACCORDION_ISSUES.md` (current accordion risk analysis)
+- `/Users/ped/Sites/french/french-lo-1/docs/components/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
+- `/Users/ped/Sites/french/french-lo-1/docs/components/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
+- `/Users/ped/Sites/french/french-lo-1/docs/a11y/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
+- `/Users/ped/Sites/french/french-lo-1/docs/components/ANSWERTABLE_REFACTOR_TODO.md` (semantic split plan for generic `AnswerTable` usages)
+- `/Users/ped/Sites/french/french-lo-1/docs/components/ANSWERTABLE_REFACTOR_CHECKLIST.md` (stepwise migration/QA checklist for AnswerTable variants)
+- `/Users/ped/Sites/french/french-lo-1/docs/a11y/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
+- `/Users/ped/Sites/french/french-lo-1/docs/a11y/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
+- `/Users/ped/Sites/french/french-lo-1/docs/styling/TYPOGRAPHY_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1/docs/styling/COLOR_PLAN.md`
+- `/Users/ped/Sites/french/french-lo-1/docs/a11y/HTML_ACCESSIBILITY_ISSUES.md`
+- `/Users/ped/Sites/french/french-lo-1/docs/a11y/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
+- `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
+- `/Users/ped/Sites/french/french-lo-1/docs/styling/FONTS_PROBLEM.md` (build asset duplication root-cause note)
+- `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 
 DOM semantics contract (current migration target):
 - one primary nav landmark for the main IA (`header > nav`), while preserving responsive behavior
@@ -646,8 +646,8 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
   - align LO2 Grammar look/feel and behavior with LO1 section architecture.
   - preserve LO2-specific pedagogy and audio while improving a11y semantics.
 - Key docs:
-  - `/Users/ped/Sites/french/french-lo-1/GRAMMAR_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1/GRAMMAR_TASK_CHECKLIST.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/grammar/GRAMMAR_TODO.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/grammar/GRAMMAR_TASK_CHECKLIST.md`
 - Current implementation decision:
   - short-term (done): LO2 Grammar now follows the same top-level architecture pattern as LO1:
     - `grammar.component` is a `Group` in LO2 config.
@@ -791,9 +791,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - New LO3 root:
   - `public/audio/lo3/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/AUDIO_LO3_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO3_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/LO3_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO3_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - removed LO3 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
 
@@ -805,9 +805,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - New LO4 root:
   - `public/audio/lo4/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/AUDIO_LO4_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO4_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/LO4_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO4_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - removed 59 LO4 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
   - retained `sounds/fr/aimer.mp3`, `sounds/fr/jardin.mp3`, and `sounds/fr/peinture.mp3` because they are still referenced by non-LO4 content.
