@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-7",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"intro": "This lesson teaches learners how to express likes, dislikes, and preferences in French using verbs such as aimer, adorer, détester, and préférer. It introduces sentence patterns for talking about activities, sports, and favourite things, and shows how to use definite articles with general nouns (j’aime le football, je n’aime pas la natation). Learners also practise interrogative adjectives (quel, quelle, quels, quelles) to ask questions, and work on pronunciation of borrowed English words like le tennis, le foot, and le week-end."
 	},

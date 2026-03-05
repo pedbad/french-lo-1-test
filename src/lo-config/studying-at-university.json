@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-14",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This lesson focuses on talking about university life, studies, and academic routines. Through realistic dialogues, learners practise describing their courses (Je suis étudiant en mathématiques), level of study (Je fais une licence / un master / un doctorat), and workload (J’ai un emploi du temps chargé). The conversations also include common student experiences like attending lectures (cours magistraux), writing essays (dissertations), and feeling tired or stressed from academic demands.</p><p>The vocabulary covers university subjects, degrees, and academic terms — for example, la biologie, le droit, la thèse, le séminaire, la fac d’architecture — along with adjectives to express opinions and feelings (intéressant, fatigant, stressant, fascinant).</p><p>Grammar explains:</p><ul><li>The idiomatic structure with comme to ask “what kind” (Qu’est-ce que tu fais comme études ?).</li><li>The irregular verbs devoir (“to have to”) and pouvoir (“to be able to”) used with infinitives (Je dois partir, Je peux répondre).</li><li>The difference between present participles (-ant, e.g. intéressant, motivant) and past participles (-é, e.g. fatigué, fasciné), both of which can function as adjectives and must agree in gender and number.</li></ul><p>Overall, the topic helps learners describe their university studies, academic workload, and related emotions, while mastering essential verbs and idiomatic expressions for student life in French.</p>"
 	},

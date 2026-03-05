@@ -1,7 +1,5 @@
 {
 	"settings": {
-		"class": "lo-1",
-		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This learning object introduces you to the essentials of greeting and introducing yourself politely. You'll learn how to choose appropriate forms of address depending on the level of formality and use common expressions for everyday social interactions. The unit also helps you build confidence in pronunciation through focused practice on key sounds.</p>",
 		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Greet others and introduce yourself confidently.</li><li>Use appropriate forms of address such as <em>tu/vous, Monsieur, Madame, </em>and <em>Mademoiselle</em>.</li><li>Express greetings, farewells, and polite social phrases.</li><li>Recognize and produce French sounds such as nasal vowels (<em>on/om</em>), the French <em>r</em>, and the <em>oi</em> sound.</li></ul>"

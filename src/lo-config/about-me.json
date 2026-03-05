@@ -1,9 +1,5 @@
 {
 	"settings": {
-		"class": "lo-2",
-		"flag": "fr-flag.png",
-		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo2/about-me.svg",

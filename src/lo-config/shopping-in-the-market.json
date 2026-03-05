@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-12",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities (Donnez-moi deux kilos de pommes de terre, s’il vous plaît), checking prices (C’est combien ?), and responding to questions like Avec ça ? or C’est tout ? It introduces key vocabulary for shops, food items, quantities, and packaging, such as le marché, la boulangerie, du fromage, une barquette de framboises, un kilo de pommes.</p><p>Grammar focuses on the verb aller (“to go”) and the use of partitive and quantity articles (du, de la, de l’, des, de, d’) to express amounts and negation (Je n’ai pas de pain). It also explains plural noun formation, including irregular endings like -eau → -eaux and -au → -aux.</p><p>Pronunciation practice contrasts the vowel sounds u and ou, helping learners distinguish between similar words like tu / tout and pur / pour. Overall, the topic builds confidence in conducting everyday shopping interactions naturally in French.</p>"
 	},

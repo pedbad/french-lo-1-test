@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-5",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"intro": "This lesson teaches learners how to describe different types of housing and rooms in French, using vocabulary for household spaces and furnishings. It introduces the expression “il y a” (“there is/are”) and verbs used only in the third person (e.g. il pleut, il faut), while reinforcing adjectival agreement patterns such as spacieux/spacieuse. It also develops pronunciation through the nasal vowel sound “an” (as in blanc, chambre), helping learners speak naturally when describing their home and surroundings."
 	},

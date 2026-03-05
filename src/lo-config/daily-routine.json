@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-13",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This lesson focuses on talking about your daily routine and typical activities using time expressions and reflexive verbs. Through short conversations, learners practise describing what time they wake up (se réveiller), get up (se lever), eat meals, rest, and go to bed (se coucher), as well as expressing whether they are early risers (Je suis matinal) or night owls (Je suis une couche-tard).</p><p>Vocabulary covers daily activities and times of day, including meals (le petit déjeuner, le déjeuner, le dîner), reflexive actions (se brosser les dents, s’habiller, se reposer), and time phrases like à sept heures et demie, vers minuit, à midi.</p><p>Grammar introduces the reflexive verb structure (Je me lève, Tu te couches) and the subject pronoun on, commonly used in spoken French to mean “we.” Learners also explore telling the time precisely and approximately.</p><p>Overall, the topic helps learners describe and compare daily routines naturally, using reflexive verbs correctly and expressing time accurately in French conversation.</p>"
 	},

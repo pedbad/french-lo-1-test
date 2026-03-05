@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-8",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"intro": "This lesson teaches learners how to describe free-time activities in French, using verbs like faire and jouer with correct partitive articles (du, de la, des). It introduces vocabulary for sports, hobbies, and weekend routines, and shows how to distinguish between jouer à (for games and sports) and jouer de (for musical instruments). Learners also review adjective agreement (sportif/sportive) and practise pronunciation of –tion words, improving fluency when talking about leisure and pastimes."
 	},
 	"dialogues": {

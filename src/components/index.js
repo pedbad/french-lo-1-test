@@ -16,7 +16,6 @@ export * from './DropDowns';
 export * from './ErrorLog';
 export * from './Explanation';
 export * from './Figure';
-export * from './Flag';
 export * from './Footer';
 export * from './Form';
 export * from './Header';

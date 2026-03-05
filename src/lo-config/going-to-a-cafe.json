@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-11",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This lesson teaches how to order food and drinks in a café and manage polite exchanges with servers. Learners practise real-life café dialogues — ordering, clarifying mistakes, and paying — using expressions like Je voudrais…, Pour moi…, and Vous désirez ? It introduces vocabulary for drinks, snacks, ice creams, and flavours (un café-crème, une glace à la vanille, un croque-monsieur).</p><p>Grammar focuses on the conditional of vouloir (Je voudrais = I would like), the verb prendre for having food or drink (Je prends un café), and the preposition à for describing flavours (au fromage, à la vanille). It also introduces disjunctive pronouns (moi, toi, lui, elle, nous, vous, eux, elles) used after prepositions like pour or avec.</p><p>Overall, it helps learners confidently handle café conversations and make polite, accurate requests in French.</p>"
 	},

@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-9",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"intro": "This lesson teaches how to make and answer phone calls in French, including asking for and giving telephone and mobile numbers. Learners practise typical telephone phrases such as Âllo, C’est bien le… ?, and Je me suis trompé(e) de numéro. It also explains how French phone numbers are structured by region and how to group digits in pairs when speaking. Grammar focuses on using bien for confirmation (C’est bien ça !), and pronunciation covers the numbers 5–10, especially how their final consonants change depending on the following sound."
 	},

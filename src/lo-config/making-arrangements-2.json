@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-15",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This lesson focuses on making plans and talking about holidays and future activities. Through short dialogues, learners practise using the near future tense (aller + infinitive) to describe where they are going (Je vais passer mes vacances en France), what they are going to do (Je vais faire des randonnées), and how they will travel (en avion, à pied, à vélo).</p><p>Vocabulary covers holiday destinations, weather, and travel — including words for transport (en train, en voiture), activities (nager, bronzer, faire du tourisme), and seasonal expressions (en été, en hiver). Learners also encounter cultural and geographical terms like les Caraïbes and francophone.</p><p>Grammar highlights:</p><ul><li>The multiple uses of aller — to go, to ask how someone is (Comment ça va ?), and to form the near future tense (Je vais visiter Paris).</li><li>The correct use of faire and il y a in weather expressions, where English would use “to be”: Il fait chaud, Il y a du soleil.</li></ul><p>Overall, this topic enables learners to plan and describe travel experiences, talk about future intentions, and use natural French expressions for weather and holiday activities.</p>"
 	},

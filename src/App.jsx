@@ -9,7 +9,6 @@ import {
   ErrorLog,
   Explanation,
   Figure,
-  Flag,
   Footer,
   Header,
   HeroSection,

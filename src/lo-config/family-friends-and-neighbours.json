@@ -1,9 +1,6 @@
 {
 	"settings": {
-		"class": "lo-6",
-		"flag": "fr-flag.png",
 		"showCongratulations": true,
-		"targetLanguage": "french",
 		"targetLanguageCode": "fr-FR",
 		"intro": "This lesson teaches learners how to talk about family, friends, and relationships in French — describing relatives and using possessive adjectives correctly (e.g. mon frère, ma sœur, mes parents). It introduces the irregular verb avoir (“to have”) and common expressions that use it (j’ai faim, j’ai 25 ans). Learners also practise pronunciation of double l (as in famille, fille, bouteille), developing accurate and natural speech when discussing family and personal relationships."
 	},
