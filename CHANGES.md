@@ -45,6 +45,23 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build` passes.
 
+## 2026-03-06 - Semantic ID Cleanup in LO Config + Legacy Composite Removal
+
+- Renamed remaining legacy-style LO config ids to semantic ids:
+  - `src/lo-config/current-location.json`
+    - `LO4Exercise1` -> `currentLocationNasalRhymeExercise`
+  - `src/lo-config/daily-routine.json`
+    - `L13ASummersDay` -> `dailyRoutineASummersDay`
+  - `src/lo-config/demo.json`
+    - `LO9Grammar` -> `phoningInFranceGrammarDemo`
+    - `L13ASummersDay` -> `dailyRoutineASummersDay`
+    - `L13SummersDayRadioQuiz` -> `dailyRoutineASummersDayRadioQuiz`
+- Removed unused legacy composite custom components:
+  - deleted `src/components/custom/grammar/legacy-composite-grammar.jsx`
+  - removed `OriginsAndLanguagesPronunciationLegacyComposite` from `src/components/custom/pronunciation/origins-and-languages-pronunciation.jsx`
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-05 - Custom Component Extraction Completed for Active LOs
 
 - Completed Phase 1 extraction of active custom LO components out of monolithic:

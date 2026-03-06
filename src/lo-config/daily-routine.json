@@ -444,7 +444,7 @@
 			{
 				"custom1": {
 					"component": "DailyRoutineASummersDay",
-					"id": "L13ASummersDay",
+					"id": "dailyRoutineASummersDay",
 					"titleText": "4. A summer's day"
 				}
 			}

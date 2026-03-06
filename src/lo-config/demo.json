@@ -1416,7 +1416,7 @@
   },
   "custom1": {
     "component": "PhoningInFranceGrammar",
-    "id": "LO9Grammar",
+    "id": "phoningInFranceGrammarDemo",
     "titleText": "Regional map example"
   },
   "group4": {
@@ -1847,13 +1847,13 @@
   },
   "custom2": {
     "component": "DailyRoutineASummersDay",
-    "id": "L13ASummersDay",
+    "id": "dailyRoutineASummersDay",
     "titleText": "A summer's day"
   },
   "RQConfig": {
     "component": "RadioQuiz",
     "congratulationsText": "Well done!",
-    "id": "L13SummersDayRadioQuiz",
+    "id": "dailyRoutineASummersDayRadioQuiz",
     "options": [
       "Vrai",
       "Faux"

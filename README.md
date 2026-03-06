@@ -842,14 +842,15 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Active LO custom components are now extracted by domain under `src/components/custom/`:
   - `grammar/` (LO1-LO15 grammar components)
   - `pronunciation/` (LO1-LO12 pronunciation components in use)
-  - `exercises/` (currently `LO4EX1`)
-  - `misc/` (currently `L13ASummersDay`, `AudioClipSamples`)
+  - `exercises/` (for example `CurrentLocationNasalRhymeExercise`)
+  - `misc/` (for example `DailyRoutineASummersDay`, `AudioClipSamples`)
 - Runtime registry source of truth:
   - `src/components/custom/registry.js`
 - Legacy bridge still exists for compatibility:
   - `src/components/CustomComponents_FR/index.js`
 - Former monolith `src/components/CustomComponents_FR/CustomComponents_FR.jsx` has been removed.
   - any remaining custom/legacy exports now live under `src/components/custom/*`.
+- Legacy composite custom files have been removed; active runtime paths now use semantic component names and semantic LO config ids.
 
 ## Separators (shadcn/Radix)
 
