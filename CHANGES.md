@@ -62,6 +62,50 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build` passes.
 
+## 2026-03-06 - LO Config Wrapper-Key Normalization (Batch 1)
+
+- Renamed remaining legacy/generic wrapper keys and aligned their `id` values to semantic names in:
+  - `src/lo-config/first-contact.json`
+    - `phrases2` -> `draggableFillGaps2`
+    - `phrases3` -> `draggableFillGaps3`
+    - `phrases4` -> `draggableFillGaps4`
+  - `src/lo-config/current-location.json`
+    - `explanation4` -> `hiddenExplanation2`
+  - `src/lo-config/demo.json`
+    - `explanation4` -> `explanationSemanticsDemo`
+    - `phrases3` -> `draggableFillGapsPhrasesDemo`
+- Scope:
+  - naming-only cleanup (no component type/behavior changes).
+- Validation:
+  - `yarn build` passes.
+
+## 2026-03-06 - LO5+ Wrapper-Key Normalization (Batch 2)
+
+- Normalized legacy exercise wrapper keys/ids in LO5+ configs to behavior-based names while keeping component types unchanged.
+- Applied to:
+  - `src/lo-config/house-and-home.json`
+  - `src/lo-config/family-friends-and-neighbours.json`
+  - `src/lo-config/opinions-matter.json`
+  - `src/lo-config/free-time.json`
+  - `src/lo-config/phoning-in-france.json`
+  - `src/lo-config/making-arrangements.json`
+  - `src/lo-config/going-to-a-cafe.json`
+  - `src/lo-config/shopping-in-the-market.json`
+  - `src/lo-config/daily-routine.json`
+  - `src/lo-config/studying-at-university.json`
+  - `src/lo-config/making-arrangements-2.json`
+- Key migrations in this batch:
+  - `dropdowns*` -> `selectExercise*` (ids aligned)
+  - `wordsIntoSlots*` -> `draggableFillGaps*` (ids aligned)
+  - `phrases*` (DraggableFillGaps wrappers in exercises) -> `draggableFillGaps*` (ids aligned)
+  - `memorycards*` -> `memoryMatchGame*` (ids aligned)
+  - `pictureTable1` -> `draggableFillGapsPictures1` (id aligned)
+  - `custom1` (Daily Routine exercise wrapper) -> `dailyRoutineASummersDayExercise`
+- Follow-up fix included:
+  - resolved duplicate wrapper/id collision in `making-arrangements-2.json` by renaming the second draggable wrapper to `draggableFillGaps2`.
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-05 - Custom Component Extraction Completed for Active LOs
 
 - Completed Phase 1 extraction of active custom LO components out of monolithic:

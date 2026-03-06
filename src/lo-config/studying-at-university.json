@@ -378,12 +378,12 @@
 		"component": "Group",
 		"content": [
 			{
-				"phrases1": {
+				"draggableFillGaps1": {
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
-					"id": "phrases1",
+					"id": "draggableFillGaps1",
 					"instructionsText": "Drag the words in the box to fill in the gaps in the conversation below.",
 					"showHintsText": "Show hints when moving",
 					"items": [
@@ -479,10 +479,10 @@
 				}
 			},
 			{
-				"dropdowns1": {
+				"selectExercise1": {
 					"component": "DropDowns",
 					"congratulationsText": "Excellent !",
-					"id": "dropdowns1",
+					"id": "selectExercise1",
 					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -528,9 +528,9 @@
 				}
 			},
 			{
-				"dropdowns2": {
+				"selectExercise2": {
 					"component": "DropDowns",
-					"id": "dropdowns2",
+					"id": "selectExercise2",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the time that you hear.",
 					"showHintsText": "Show hints when moving",

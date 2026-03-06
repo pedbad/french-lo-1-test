@@ -305,9 +305,9 @@
 				}
 			},
 			{
-				"dropdowns1": {
+				"selectExercise1": {
 					"component": "DropDowns",
-					"id": "dropdowns1",
+					"id": "selectExercise1",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "",
 					"showHintsText": "Show hints when moving",
@@ -359,9 +359,9 @@
 				}
 			},
 			{
-				"phrases1": {
+				"draggableFillGaps1": {
 					"component": "DraggableFillGaps",
-					"id": "phrases1",
+					"id": "draggableFillGaps1",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",

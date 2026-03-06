@@ -350,11 +350,11 @@
 		"component": "Group",
 		"content": [
 			{
-				"memorycards1": {
+				"memoryMatchGame1": {
 					"cheatText": "Show answer",
 					"component": "MemoryMatchGame",
 					"congratulationsText": "Félicitations !",
-					"id": "MemoryMatchGame1",
+					"id": "memoryMatchGame1",
 					"instructionsText": "Match each picture to the correct French word.",
 					"nPairsToPlay": 8,
 					"cards": [
@@ -454,9 +454,9 @@
 				}
 			},
 			{
-				"dropdowns1": {
+				"selectExercise1": {
 					"component": "DropDowns",
-					"id": "dropdowns1",
+					"id": "selectExercise1",
 					"congratulationsText": "Superbe !",
 					"instructionsText": "Listen to the speakers and select the correct definite article.",
 					"showHintsText": "Show hints when moving",
@@ -511,12 +511,12 @@
 				}
 			},
 			{
-				"phrases1": {
+				"draggableFillGaps1": {
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
-					"id": "phrases1",
+					"id": "draggableFillGaps1",
 					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
 					"items": [
@@ -529,9 +529,9 @@
 				}
 			},
 			{
-				"dropdowns2": {
+				"selectExercise2": {
 					"component": "DropDowns",
-					"id": "dropdowns2",
+					"id": "selectExercise2",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Listen to this poem by Mymi Doinet about the rainbow and fill in the colours as you hear them.",
 					"showHintsText": "Show hints when moving",

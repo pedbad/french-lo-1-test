@@ -289,9 +289,9 @@
 		"component": "Group",
 		"content": [
 			{
-				"dropdowns1": {
+				"selectExercise1": {
 					"component": "DropDowns",
-					"id": "dropdowns1",
+					"id": "selectExercise1",
 					"congratulationsText": "Incroyable !",
 					"instructionsText": " Fill in the gaps with the correct reflexive pronoun supplied.",
 					"showHintsText": "Show hints when moving",
@@ -338,12 +338,12 @@
 				}
 			},
 			{
-				"phrases1": {
+				"draggableFillGaps1": {
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
-					"id": "phrases1",
+					"id": "draggableFillGaps1",
 					"instructionsText": "Drag the words in the box to fill the gaps in Martin's description of a typical day from when he wakes up until he goes to bed.",
 					"showHintsText": "Show hints when moving",
 					"items": [
@@ -373,9 +373,9 @@
 				}
 			},
 			{
-				"dropdowns3": {
+				"selectExercise3": {
 					"component": "DropDowns",
-					"id": "dropdowns3",
+					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Select the time that you hear.",
 					"showHintsText": "Show hints when moving",
@@ -442,7 +442,7 @@
 				}
 			},
 			{
-				"custom1": {
+				"dailyRoutineASummersDayExercise": {
 					"component": "DailyRoutineASummersDay",
 					"id": "dailyRoutineASummersDay",
 					"titleText": "4. A summer's day"

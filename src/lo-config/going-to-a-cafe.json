@@ -283,9 +283,9 @@
 		"component": "Group",
 		"content": [
 			{
-				"phrases1": {
+				"draggableFillGaps1": {
 					"component": "DraggableFillGaps",
-					"id": "phrases1",
+					"id": "draggableFillGaps1",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Use the words below to complete the conversation in the café.",
 					"showHintsText": "Show hints when moving",
@@ -341,9 +341,9 @@
 				}
 			},
 			{
-				"dropdowns1": {
+				"selectExercise1": {
 					"component": "DropDowns",
-					"id": "dropdowns1",
+					"id": "selectExercise1",
 					"congratulationsText": "Félicitations !",
 					"instructionsText": "Select the correct verb form for each gap.",
 					"showHintsText": "Show hints when moving",
@@ -378,9 +378,9 @@
 				}
 			},
 			{
-				"dropdowns2": {
+				"selectExercise2": {
 					"component": "DropDowns",
-					"id": "dropdowns2",
+					"id": "selectExercise2",
 					"congratulationsText": "Félicitations !",
 					"instructionsText": "Select the correct verb form for each gap.",
 					"showHintsText": "Show hints when moving",
@@ -419,9 +419,9 @@
 				}
 			},
 			{
-				"dropdowns3": {
+				"selectExercise3": {
 					"component": "DropDowns",
-					"id": "dropdowns3",
+					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"instructionsTextHTML": "Fill in the gaps with <strong>au</strong>, <strong>à la</strong>, <strong>à l'</strong> or <strong>aux</strong> as appropriate.",
 					"showHintsText": "Show hints when moving",
