@@ -142,7 +142,7 @@ export class SequenceAudioController extends React.Component {
 		return { index: 0, offset: 0 };
 	};
 
-	/* ---------- Events up to Blanks ---------- */
+	/* ---------- Events up to DraggableFillGaps ---------- */
 
 	emitTrackChange = (index) => {
 		if (this.props.onTrackChange) this.props.onTrackChange(index);
@@ -196,7 +196,7 @@ export class SequenceAudioController extends React.Component {
 		}
 	};
 
-	/* ---------- Public API (called by Blanks) ---------- */
+	/* ---------- Public API (called by DraggableFillGaps) ---------- */
 
 	playItem = (index, opts = {}) => {
 		const { sources = [] } = this.props;

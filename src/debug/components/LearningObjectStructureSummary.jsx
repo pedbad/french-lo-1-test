@@ -8,7 +8,6 @@ import {
 import { resolveAsset } from '../../utils/assets';
 
 const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
-	'Blanks',
 	'DictationExercise',
 	'DraggableFillGaps',
 	'InlineChoiceGroup',
@@ -30,7 +29,6 @@ const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 const CONTAINER_COMPONENTS = new Set(['Group', 'Section']);
 
 const EXERCISE_COMPONENTS = new Set([
-	'Blanks',
 	'DictationExercise',
 	'DraggableFillGaps',
 	'ConnectFour',

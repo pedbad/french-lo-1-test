@@ -959,7 +959,6 @@ export default class App extends React.Component {
             showDialog={this.showDialog}
           />
         );
-      case "Blanks":
       case "DraggableFillGaps":
         return (
           <DraggableFillGaps
@@ -1398,7 +1397,6 @@ export default class App extends React.Component {
         );
         break;
       }
-      case "Blanks":
       case "DraggableFillGaps": {
         articles.push(
           <AccordionArticle

@@ -2259,7 +2259,7 @@
 		transition: opacity 4s;
 	}
 
-	/* Blanks exercise styling extracted from Blanks.scss. */
+	/* DraggableFillGaps exercise styling extracted from legacy Blanks.scss. */
 	.blanks-container > .blanks,
 	.blanks-container > .target-board {
 		display: block;
