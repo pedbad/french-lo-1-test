@@ -68,6 +68,9 @@ yarn build
 
 # fixed-path build (optional)
 VITE_BASE_PATH=/projects/french-basic/ yarn build
+
+# fixed-path build via package script (recommended for server deploys)
+yarn build:server
 ```
 
 Files:
@@ -79,9 +82,15 @@ Files:
 
 - `yarn build`:
   - builds the main app only (no debug page in `dist`)
+- `yarn build:server`:
+  - builds the main app for `/projects/french-basic/` mount path
+  - emits absolute asset URLs that are safe for slug-route deep links on Apache
 - `yarn build:with-debug`:
   - builds main app + debug page in `dist/debug-sandbox.html`
   - debug entry is enabled via `VITE_INCLUDE_DEBUG=true`
+- `yarn build:server:with-debug`:
+  - builds main app + debug page for `/projects/french-basic/`
+  - includes `dist/debug-sandbox.html` for server-side diagnostics
 
 Sandbox includes:
 - LO navigation links for all French Basic learning objects.
@@ -137,14 +146,18 @@ Apache requirement:
 - for SPA slug routes, Apache must rewrite unknown paths to `index.html`
 - static assets (`src/*.js`, `src/*.css`, `img/*`, `audio/*`, JSON files) must be excluded from rewrite
 
-Use `.htaccess` in the deploy folder:
+Use `.htaccess` in the deploy folder. This repo now ships a ready-to-deploy file at:
+
+- `/Users/ped/Sites/french/french-lo-1/public/.htaccess`
+
+`Vite` copies `public/.htaccess` into `dist/.htaccess` during build, so DevOps can deploy it as-is.
+
+Default content:
 
 ```apache
 Options -MultiViews
 RewriteEngine On
 RewriteBase /projects/french-basic/
-
-RewriteRule ^index\.html$ - [L]
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

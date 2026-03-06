@@ -2,6 +2,23 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-06 - Server Deploy Packaging: Apache Rewrite File + Build Scripts
+
+- Added Apache SPA rewrite file to project public assets:
+  - `public/.htaccess`
+- Added server-targeted package scripts:
+  - `build:server` (`VITE_BASE_PATH=/projects/french-basic/ vite build`)
+  - `build:server:with-debug` (`VITE_BASE_PATH=/projects/french-basic/ VITE_INCLUDE_DEBUG=true vite build`)
+- Updated deployment docs in:
+  - `README.md`
+    - documented new server scripts
+    - documented that `public/.htaccess` is copied to `dist/.htaccess`
+    - retained Apache rewrite troubleshooting guidance
+- Validation:
+  - `yarn build:server:with-debug` passes
+  - `dist/.htaccess` is present after build
+  - `dist/debug-sandbox.html` is present after debug build
+
 ## 2026-03-05 - Canonical Component Architecture Audit Added
 
 - Added canonical component architecture audit:

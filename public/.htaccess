@@ -1,0 +1,14 @@
+# SPA slug-route fallback for Apache
+# Keep this file in the deploy root next to index.html.
+
+Options -MultiViews
+RewriteEngine On
+RewriteBase /projects/french-basic/
+
+# Serve real files/directories directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback all non-file requests to SPA entry.
+RewriteRule ^ index.html [L]
