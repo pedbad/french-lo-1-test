@@ -11,6 +11,8 @@
 		"build:with-debug": "VITE_INCLUDE_DEBUG=true vite build",
 		"build:server:with-debug": "VITE_BASE_PATH=/projects/french-basic/ VITE_INCLUDE_DEBUG=true vite build",
 		"lint": "eslint .",
+		"lint:changed": "bash scripts/lint-changed.sh --against origin/main",
+		"lint:changed:staged": "bash scripts/lint-changed.sh --staged",
 		"preview": "vite preview",
 		"check:typography": "bash scripts/check-typography-guard.sh --staged",
 		"check:typography:branch": "bash scripts/check-typography-guard.sh --against origin/main",

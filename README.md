@@ -265,6 +265,18 @@ Check all changes introduced by your branch vs `origin/main`:
 yarn check:typography:branch
 ```
 
+Lint only changed JS/TS files (avoids blocking on historical repo-wide lint baseline):
+
+```bash
+yarn lint:changed
+```
+
+Lint only staged JS/TS files:
+
+```bash
+yarn lint:changed:staged
+```
+
 Run the recommended local pre-push gate:
 
 ```bash

@@ -187,6 +187,20 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build` passes.
 
+## 2026-03-06 - Added Changed-File Lint Workflow
+
+- Added changed-file lint helper script:
+  - `scripts/lint-changed.sh`
+  - supports:
+    - `--against <ref>` (default `origin/main`)
+    - `--staged`
+- Added package scripts:
+  - `lint:changed`
+  - `lint:changed:staged`
+- Updated `README.md` manual checks to document changed-file lint commands.
+- Goal:
+  - enforce lint on touched files while global historical lint baseline is still being burned down.
+
 ## 2026-03-05 - Custom Component Extraction Completed for Active LOs
 
 - Completed Phase 1 extraction of active custom LO components out of monolithic:
