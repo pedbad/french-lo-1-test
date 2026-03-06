@@ -1,9 +1,10 @@
 import { createLogger, defineConfig } from 'vite';
-import path from 'path';
-import react from '@vitejs/plugin-react-swc';
-import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'url';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import path from 'path';
+import process from 'node:process';
+import react from '@vitejs/plugin-react-swc';
+import tailwindcss from '@tailwindcss/vite';
 
 const logger = createLogger();
 const loggerWarn = logger.warn;
@@ -25,30 +26,30 @@ export default defineConfig(() => {
 	};
 
 	return ({
-	assetsInclude: [
-		'**/*.mp3',
-		'**/*.jpg',
-		'**/*.otf',
-		'**/*.svg',
-		'**/*.ttf'
-	],
-	base: basePath,
-	build: {
-		assetsDir: "src",
-		emptyOutDir: true,
-		rollupOptions: {
-			input: htmlInputs,
-			output: {
-				assetFileNames: `src/[name].[ext]`,
-				chunkFileNames: `src/[name].js`,
-				entryFileNames: `src/[name].js`
+		assetsInclude: [
+			'**/*.mp3',
+			'**/*.jpg',
+			'**/*.otf',
+			'**/*.svg',
+			'**/*.ttf'
+		],
+		base: basePath,
+		build: {
+			assetsDir: "src",
+			emptyOutDir: true,
+			rollupOptions: {
+				input: htmlInputs,
+				output: {
+					assetFileNames: `src/[name].[ext]`,
+					chunkFileNames: `src/[name].js`,
+					entryFileNames: `src/[name].js`
+				}
 			}
-		}
-	},
-	customLogger: logger,
-	plugins: [
-		react(),
-		tailwindcss(),
+		},
+		customLogger: logger,
+		plugins: [
+			react(),
+			tailwindcss(),
 			viteStaticCopy({
 				targets: [
 					{
@@ -61,11 +62,11 @@ export default defineConfig(() => {
 					}
 				]
 			})
-	],
-	resolve: {
-		alias: {
-			"@": path.resolve(projectRoot, "./src"),
-		},
-	}
+		],
+		resolve: {
+			alias: {
+				"@": path.resolve(projectRoot, "./src"),
+			},
+		}
 	});
 });
