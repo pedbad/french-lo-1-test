@@ -8,12 +8,10 @@ import {
 import { resolveAsset } from '../../utils/assets';
 
 const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
-	'AnswerTable',
 	'Blanks',
 	'DictationExercise',
 	'DraggableFillGaps',
 	'InlineChoiceGroup',
-	'DropDowns',
 	'MemoryMatchGame',
 	'Monologue',
 	'RadioQuiz',
@@ -32,13 +30,11 @@ const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 const CONTAINER_COMPONENTS = new Set(['Group', 'Section']);
 
 const EXERCISE_COMPONENTS = new Set([
-	'AnswerTable',
 	'Blanks',
 	'DictationExercise',
 	'DraggableFillGaps',
 	'ConnectFour',
 	'CrossWord',
-	'DropDowns',
 	'InlineChoiceGroup',
 	'MemoryMatchGame',
 	'Monologue',

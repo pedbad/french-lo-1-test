@@ -37,6 +37,7 @@ export * from './SequenceAudioController';
 export * from './SequenceOrder';
 export * from './Social';
 export * from './Sortable';
+export * from './TextEntryExerciseRuntime';
 export * from './TypedTransformExercise';
 export * from './ModalLinkDialog/ModalLinkDialog';
 export * from './BackToTopButton';

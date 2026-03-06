@@ -1,4 +1,4 @@
-import { AnswerTableRuntime } from "../AnswerTable/AnswerTableRuntime";
+import { TextEntryExerciseRuntime } from "../TextEntryExerciseRuntime/TextEntryExerciseRuntime";
 import React from "react";
 
 // Semantic wrapper: listen + transcribe.
@@ -7,7 +7,7 @@ export class DictationExercise extends React.PureComponent {
 	// TODO(component-split): add dictation-specific normalization rules
 	// (punctuation/accents policy) without changing TypedTransformExercise.
 	render = () => (
-		<AnswerTableRuntime
+		<TextEntryExerciseRuntime
 			{...this.props}
 			audioClipClassName="super-compact-speaker"
 			audioColumnPosition="left"

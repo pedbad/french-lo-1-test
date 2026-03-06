@@ -25,14 +25,13 @@ import { highlightTextDiff } from "../../utils/exerciseDiff";
 
 // Shared runtime for typed-response table exercises.
 // This is the compatibility layer used by:
-// - AnswerTable (legacy)
 // - TypedTransformExercise (semantic)
 // - DictationExercise (semantic)
 //
 // TODO(component-split): once TypedTransformExercise and DictationExercise
 // have distinct scoring/normalization rules, move shared UI-only parts into a
 // base renderer and keep separate behavior controllers.
-export class AnswerTableRuntime extends React.PureComponent {
+export class TextEntryExerciseRuntime extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
