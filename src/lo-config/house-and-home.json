@@ -200,14 +200,14 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "LO5Grammar",
+		"component": "HouseAndHomeGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
 		"titleText": "Grammar and Usage"
 	},
 	"pronunciation": {
-		"component": "LO5Demystify",
+		"component": "HouseAndHomePronunciation",
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",

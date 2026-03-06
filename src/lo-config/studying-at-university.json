@@ -368,7 +368,7 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "L14Grammar",
+		"component": "StudyingAtUniversityGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",

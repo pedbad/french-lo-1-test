@@ -223,14 +223,14 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "LO9Grammar",
+		"component": "PhoningInFranceGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
 		"titleText": "Grammar and Usage"
 	},
 	"pronunciation": {
-		"component": "LO9Demystify",
+		"component": "PhoningInFrancePronunciation",
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",

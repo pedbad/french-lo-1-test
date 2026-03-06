@@ -1415,7 +1415,7 @@
     "titleText": "Explanation"
   },
   "custom1": {
-    "component": "LO9Grammar",
+    "component": "PhoningInFranceGrammar",
     "id": "LO9Grammar",
     "titleText": "Regional map example"
   },
@@ -1846,7 +1846,7 @@
     "titleText": "DraggableFillGaps"
   },
   "custom2": {
-    "component": "L13ASummersDay",
+    "component": "DailyRoutineASummersDay",
     "id": "L13ASummersDay",
     "titleText": "A summer's day"
   },

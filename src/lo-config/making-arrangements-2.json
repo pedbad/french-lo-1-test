@@ -236,7 +236,7 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "L15Grammar",
+		"component": "MakingArrangements2Grammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",

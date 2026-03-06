@@ -273,7 +273,7 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "L11Grammar",
+		"component": "GoingToACafeGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",

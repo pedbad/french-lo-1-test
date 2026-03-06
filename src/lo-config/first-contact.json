@@ -294,7 +294,7 @@
 		"content": [
 			{
 				"grammar1": {
-					"component": "LO1Grammar1",
+					"component": "FirstContactGrammarFormsOfAddress",
 					"id": "grammar1",
 					"informationTextHTML": "In this section, you'll explore how to address people politely in French.<p>You will learn:</p><ul><li>When to use <em>Monsieur</em>, <span class='modal-highlight'><em>Madame</em></span>, and <span class='modal-highlight'><em>Mademoiselle</em></span>.</li><li>Abbreviations: <em>M.</em>, <em>Mme.</em>, <em>Mlle</em>.</li></ul>",
 					"titleText": "1. Forms of address and politeness"
@@ -302,7 +302,7 @@
 			},
 			{
 				"grammar2": {
-					"component": "LO1Grammar2",
+					"component": "FirstContactGrammarTuVous",
 					"id": "grammar2",
 					"informationTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><em class='grammar-term-em'>tu</em></span> and <span class='modal-highlight'><em class='grammar-term-em'>vous</em></span> to show different levels of formality. You'll practise using <em class='grammar-term-em'>tu</em> with friends, family, and children, and <em class='grammar-term-em'>vous</em> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <em class='grammar-term-em'>tu</em> with friends, family, and children.</li><li>How to use <em class='grammar-term-em'>vous</em> formally or when speaking to several people.</li><li>How <em class='grammar-term-em'>toi</em> replaces <em class='grammar-term-em'>tu</em> in responses (<em class='grammar-term-em'>Et toi ?</em>).</li></ul>",
 					"titleTextHTML": "2. The \"<em class='grammar-term-em'>tu</em>\" vs \"<em class='grammar-term-em'>vous</em>\" distinction"
@@ -328,7 +328,7 @@
 		"content": [
 			{
 				"pronunciation1": {
-					"component": "LO1Demystify1",
+					"component": "FirstContactPronunciationNasalOnOm",
 					"id": "pronunciation1",
 					"comment": "menuText wins over titleText",
 					"titleText": "1. Nasal vowels: \"on / om\""
@@ -336,7 +336,7 @@
 			},
 			{
 				"pronunciation2": {
-					"component": "LO1Demystify2",
+					"component": "FirstContactPronunciationFrenchR",
 					"id": "pronunciation2",
 					"comment": "menuText wins over titleText",
 					"titleText": "2. The French \"r\""
@@ -344,7 +344,7 @@
 			},
 			{
 				"pronunciation3": {
-					"component": "LO1Demystify3",
+					"component": "FirstContactPronunciationOiSound",
 					"id": "pronunciation3",
 					"comment": "menuText wins over titleText",
 					"titleText": "3. The sound \"oi\""
@@ -352,7 +352,7 @@
 			},
 			{
 				"pronunciation4": {
-					"component": "LO1Demystify4",
+					"component": "FirstContactPronunciationSilentH",
 					"id": "pronunciation4",
 					"comment": "menuText wins over titleText",
 					"titleText": "4. The silent \"h\""

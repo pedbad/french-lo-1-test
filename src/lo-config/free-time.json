@@ -255,14 +255,14 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "LO8Grammar",
+		"component": "FreeTimeGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
 		"titleText": "Grammar and Usage"
 	},
 	"pronunciation": {
-		"component": "LO8Demystify",
+		"component": "FreeTimePronunciation",
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",

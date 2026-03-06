@@ -1,1 +1,3 @@
-export { LO4EX1 } from "./current-location-exercises";
+export {
+	LO4EX1 as CurrentLocationNasalRhymeExercise,
+} from "./current-location-exercises";

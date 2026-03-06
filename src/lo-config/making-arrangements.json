@@ -373,14 +373,14 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "L10Grammar",
+		"component": "MakingArrangementsGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
 		"titleText": "Grammar and Usage"
 	},
 	"pronunciation": {
-		"component": "L10Demystify",
+		"component": "MakingArrangementsPronunciation",
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",

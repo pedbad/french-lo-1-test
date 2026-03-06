@@ -279,7 +279,7 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "L13Grammar",
+		"component": "DailyRoutineGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
@@ -443,7 +443,7 @@
 			},
 			{
 				"custom1": {
-					"component": "L13ASummersDay",
+					"component": "DailyRoutineASummersDay",
 					"id": "L13ASummersDay",
 					"titleText": "4. A summer's day"
 				}

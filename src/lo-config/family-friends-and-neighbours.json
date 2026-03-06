@@ -264,14 +264,14 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "LO6Grammar",
+		"component": "FamilyFriendsAndNeighboursGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
 		"titleText": "Grammar and Usage"
 	},
 	"pronunciation": {
-		"component": "LO6Demystify",
+		"component": "FamilyFriendsAndNeighboursPronunciation",
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",

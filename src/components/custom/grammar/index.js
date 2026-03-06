@@ -1,38 +1,35 @@
 export {
+	LO1Grammar1 as FirstContactGrammarFormsOfAddress,
+	LO1Grammar2 as FirstContactGrammarTuVous,
 	Grammar1Body,
 	Grammar2Body,
-	LO1Grammar1,
-	LO1Grammar2,
 } from "./first-contact-grammar";
 
 export {
-	LO2Grammar1,
-	LO2Grammar2,
-	LO2Grammar3,
+	LO2Grammar1 as AboutMeGrammarVerbs,
+	LO2Grammar2 as AboutMeGrammarGenderAndArticles,
+	LO2Grammar3 as AboutMeGrammarSubjectPronouns,
 	LO2SubjectPronounsBody,
 } from "./about-me-grammar";
 
 export {
-	LO3Grammar1,
-	LO3Grammar2,
-	LO3Grammar3,
+	LO3Grammar1 as OriginsAndLanguagesGrammarVerbGroups,
+	LO3Grammar2 as OriginsAndLanguagesGrammarDeForms,
+	LO3Grammar3 as OriginsAndLanguagesGrammarFeminineForms,
 } from "./origins-and-languages-grammar";
 
-export { LO4Grammar1 } from "./current-location-grammar";
-export { LO5Grammar } from "./house-and-home-grammar";
-export { LO6Grammar } from "./family-friends-and-neighbours-grammar";
-export { LO7Grammar } from "./opinions-matter-grammar";
-export { LO8Grammar } from "./free-time-grammar";
-export { LO9Grammar } from "./phoning-in-france-grammar";
-
-export { L10Grammar } from "./making-arrangements-grammar";
-export { L11Grammar } from "./going-to-a-cafe-grammar";
-export { L12Grammar } from "./shopping-in-the-market-grammar";
-export { L13Grammar } from "./daily-routine-grammar";
-export { L14Grammar } from "./studying-at-university-grammar";
-export { L15Grammar } from "./making-arrangements-2-grammar";
-
 export {
-	LO2Grammar,
-	LO3Grammar,
-} from "./legacy-composite-grammar";
+	LO4Grammar1 as CurrentLocationGrammarPrepositionsInPlaces,
+} from "./current-location-grammar";
+export { LO5Grammar as HouseAndHomeGrammar } from "./house-and-home-grammar";
+export { LO6Grammar as FamilyFriendsAndNeighboursGrammar } from "./family-friends-and-neighbours-grammar";
+export { LO7Grammar as OpinionsMatterGrammar } from "./opinions-matter-grammar";
+export { LO8Grammar as FreeTimeGrammar } from "./free-time-grammar";
+export { LO9Grammar as PhoningInFranceGrammar } from "./phoning-in-france-grammar";
+
+export { L10Grammar as MakingArrangementsGrammar } from "./making-arrangements-grammar";
+export { L11Grammar as GoingToACafeGrammar } from "./going-to-a-cafe-grammar";
+export { L12Grammar as ShoppingInTheMarketGrammar } from "./shopping-in-the-market-grammar";
+export { L13Grammar as DailyRoutineGrammar } from "./daily-routine-grammar";
+export { L14Grammar as StudyingAtUniversityGrammar } from "./studying-at-university-grammar";
+export { L15Grammar as MakingArrangements2Grammar } from "./making-arrangements-2-grammar";

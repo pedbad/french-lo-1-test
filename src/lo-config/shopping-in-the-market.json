@@ -303,14 +303,14 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "L12Grammar",
+		"component": "ShoppingInTheMarketGrammar",
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
 		"titleText": "Grammar and Usage"
 	},
 	"pronunciation": {
-		"component": "L12Demystify",
+		"component": "ShoppingInTheMarketPronunciation",
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",

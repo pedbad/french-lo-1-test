@@ -15,6 +15,36 @@ This file summarizes the work completed in this repo during the session. It incl
 - Updated tracker links in:
   - `README.md` (`Migration Trackers` section)
 
+## 2026-03-06 - Custom Component Keys Migrated to Semantic Names (LO1-LO15)
+
+- Replaced numeric custom component keys in LO config with semantic names across:
+  - `src/lo-config/first-contact.json`
+  - `src/lo-config/about-me.json`
+  - `src/lo-config/origins-and-languages.json`
+  - `src/lo-config/current-location.json`
+  - `src/lo-config/house-and-home.json`
+  - `src/lo-config/family-friends-and-neighbours.json`
+  - `src/lo-config/opinions-matter.json`
+  - `src/lo-config/free-time.json`
+  - `src/lo-config/phoning-in-france.json`
+  - `src/lo-config/making-arrangements.json`
+  - `src/lo-config/going-to-a-cafe.json`
+  - `src/lo-config/shopping-in-the-market.json`
+  - `src/lo-config/daily-routine.json`
+  - `src/lo-config/studying-at-university.json`
+  - `src/lo-config/making-arrangements-2.json`
+  - `src/lo-config/demo.json`
+- Updated custom registry/barrel aliases to semantic exports:
+  - `src/components/custom/grammar/index.js`
+  - `src/components/custom/pronunciation/index.js`
+  - `src/components/custom/exercises/index.js`
+  - `src/components/custom/misc/index.js`
+- Result:
+  - active config no longer references `LO*` / `L*` numeric custom component ids
+  - runtime mapping remains stable through alias exports from domain modules
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-05 - Custom Component Extraction Completed for Active LOs
 
 - Completed Phase 1 extraction of active custom LO components out of monolithic:
