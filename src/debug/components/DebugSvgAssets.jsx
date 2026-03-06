@@ -138,7 +138,7 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'CircleAlert',
 		component: CircleAlert,
-		sources: ['/src/components/Blanks/Blanks.jsx', '/src/components/Info/Info.jsx'],
+		sources: ['/src/components/DraggableFillGaps/DraggableFillGapsRuntime.jsx', '/src/components/Info/Info.jsx'],
 	},
 	{
 		name: 'CircleCheck',
@@ -178,7 +178,7 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'SquareDashedMousePointer',
 		component: SquareDashedMousePointer,
-		sources: ['/src/components/Blanks/DraggableWordTile/DraggableWordTile.jsx'],
+		sources: ['/src/components/DraggableFillGaps/DraggableWordTile/DraggableWordTile.jsx'],
 	},
 	{
 		name: 'Volume1',

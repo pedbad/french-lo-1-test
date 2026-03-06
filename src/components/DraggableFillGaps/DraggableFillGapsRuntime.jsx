@@ -6,8 +6,8 @@ import {
 	Info,
 	ProgressDots,
 	SequenceAudioController,
-	DraggableWordTile,
 } from '../../components';
+import { DraggableWordTile } from './DraggableWordTile';
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { resolveAsset } from '../../utils/assets';
 import { shuffleArray } from '../../utils/collections';
@@ -34,7 +34,7 @@ const BLANKS_PHRASE_ROWS_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*2.6)]";
 const BLANKS_DROP_TARGET_CLASS = "blanks-drop-slot";
 const INVALID_DROP_HINT_DURATION_MS = 1800;
 
-export class Blanks extends React.Component {
+export class DraggableFillGapsRuntime extends React.Component {
 
 	// Stores original "home" positions for each tile (coords relative to words-container)
 	// Keyed by the first class on the tile: "word{index}"

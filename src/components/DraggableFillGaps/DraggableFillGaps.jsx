@@ -1,5 +1,4 @@
 import React from 'react';
-import { Blanks } from '../Blanks/Blanks';
+import { DraggableFillGapsRuntime } from './DraggableFillGapsRuntime';
 
-export const DraggableFillGaps = (props) => <Blanks {...props} />;
-
+export const DraggableFillGaps = (props) => <DraggableFillGapsRuntime {...props} />;

@@ -1,8 +1,7 @@
 export * from './Accordion';
 export * from './Attribution';
 export * from './AudioClip';
-export * from './Blanks';
-export * from './Blanks/DraggableWordTile';
+export * from './DraggableFillGaps/DraggableWordTile';
 // export * from './Catalyst';
 export * from './Congratulate';
 export * from './ConnectFour';
