@@ -438,7 +438,7 @@ Manual migration policy (status):
 - FR config migration is now complete:
   - `DropDowns` -> `SelectExercise`
   - `AnswerTable` -> `TypedTransformExercise` or `DictationExercise` (based on activity type)
-- Keep runtime compatibility aliases temporarily in `App.jsx` for legacy external configs until alias-removal cleanup.
+- Runtime legacy aliases for `DropDowns` and `AnswerTable` have now been removed from `App.jsx`.
 
 ## Exercise Component Naming & Semantic Refactor Plan
 

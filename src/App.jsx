@@ -1,11 +1,9 @@
 import {
   AccordionArticle,
-  AnswerTable,
   AudioClip,
   Congratulate,
   DictationExercise,
   DraggableFillGaps,
-  DropDowns,
   ErrorLog,
   Explanation,
   Figure,
@@ -945,14 +943,6 @@ export default class App extends React.Component {
     const { languageCode } = this.state;
 
     switch (component) {
-      case "AnswerTable":
-        return (
-          <AnswerTable
-            config={value}
-            logError={this.logError}
-            showDialog={this.showDialog}
-          />
-        );
       case "TypedTransformExercise":
         return (
           <TypedTransformExercise
@@ -973,14 +963,6 @@ export default class App extends React.Component {
       case "DraggableFillGaps":
         return (
           <DraggableFillGaps
-            config={value}
-            logError={this.logError}
-            showDialog={this.showDialog}
-          />
-        );
-      case "DropDowns":
-        return (
-          <DropDowns
             config={value}
             logError={this.logError}
             showDialog={this.showDialog}
@@ -1376,26 +1358,6 @@ export default class App extends React.Component {
     const compoundID = `LO${currentLearningObject}-${id}`;
 
     switch (component) {
-      case "AnswerTable": {
-        articles.push(
-          <AccordionArticle
-            expandedByDefault={autoExpandSingleAccordion}
-            config={value}
-            id={`${compoundID}-Accordion`}
-            key={`${compoundID}-Accordion`}
-            target={targetId}
-            title={titleText}
-            titleHTML={titleTextHTML}
-          >
-            <AnswerTable
-              config={value}
-              logError={this.logError}
-              showDialog={this.showDialog}
-            />
-          </AccordionArticle>,
-        );
-        break;
-      }
       case "TypedTransformExercise": {
         articles.push(
           <AccordionArticle
@@ -1449,26 +1411,6 @@ export default class App extends React.Component {
             titleHTML={titleTextHTML}
           >
             <DraggableFillGaps
-              config={value}
-              logError={this.logError}
-              showDialog={this.showDialog}
-            />
-          </AccordionArticle>,
-        );
-        break;
-      }
-      case "DropDowns": {
-        articles.push(
-          <AccordionArticle
-            expandedByDefault={autoExpandSingleAccordion}
-            config={value}
-            id={`${compoundID}-Accordion`}
-            key={`${compoundID}-Accordion`}
-            target={targetId}
-            title={titleText}
-            titleHTML={titleTextHTML}
-          >
-            <DropDowns
               config={value}
               logError={this.logError}
               showDialog={this.showDialog}

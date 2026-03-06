@@ -173,6 +173,20 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build` passes.
 
+## 2026-03-06 - Remove Legacy App Component Aliases (Batch 5)
+
+- Removed legacy runtime switch-case aliases in `src/App.jsx` for:
+  - `AnswerTable`
+  - `DropDowns`
+- Canonical exercise components now used directly:
+  - `SelectExercise`
+  - `TypedTransformExercise`
+  - `DictationExercise`
+- Notes:
+  - aligns runtime with completed FR config migration; reduces architecture drift and alias maintenance burden.
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-05 - Custom Component Extraction Completed for Active LOs
 
 - Completed Phase 1 extraction of active custom LO components out of monolithic:
