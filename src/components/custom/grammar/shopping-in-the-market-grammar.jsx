@@ -2,7 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 
-export class L12Grammar extends PureComponent {
+export class ShoppingInTheMarketGrammar extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 

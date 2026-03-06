@@ -42,7 +42,7 @@ import {
   AllCustomComponentsFR,
   Grammar1Body,
   Grammar2Body,
-  LO2SubjectPronounsBody,
+  AboutMeSubjectPronounsBody,
 } from "@/components/custom";
 import DOMPurify from "dompurify";
 
@@ -269,36 +269,36 @@ export default class App extends React.Component {
       },
       "subject-pronouns": {
         title: "3. Subject pronouns.",
-        content: <LO2SubjectPronounsBody />,
+        content: <AboutMeSubjectPronounsBody />,
       },
       "subject-pronouns-il": {
         title: "3. Subject pronouns.",
         content: (
-          <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-il`} />
+          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-il`} />
         ),
       },
       "subject-pronouns-elle": {
         title: "3. Subject pronouns.",
         content: (
-          <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-elle`} />
+          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-elle`} />
         ),
       },
       "subject-pronouns-ils": {
         title: "3. Subject pronouns.",
         content: (
-          <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-ils`} />
+          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-ils`} />
         ),
       },
       "subject-pronouns-elles": {
         title: "3. Subject pronouns.",
         content: (
-          <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-elles`} />
+          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-elles`} />
         ),
       },
       "subject-pronouns-iel": {
         title: "3. Subject pronouns.",
         content: (
-          <LO2SubjectPronounsBody highlightTarget={`subject-pronouns-iel`} />
+          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-iel`} />
         ),
       },
     };

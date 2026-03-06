@@ -3,7 +3,7 @@ import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { resolveAsset } from "@/utils/assets";
 import { Component } from "react";
 
-export class L13ASummersDay extends Component {
+export class DailyRoutineASummersDay extends Component {
 
 	constructor(props) {
 		super(props);

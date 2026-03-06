@@ -2,5 +2,5 @@ export {
 	AllCustomComponentsFR,
 	Grammar1Body,
 	Grammar2Body,
-	LO2SubjectPronounsBody,
+	AboutMeSubjectPronounsBody,
 } from "@/components/custom";

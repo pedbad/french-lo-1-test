@@ -21,7 +21,7 @@ const playAudioFromTableRow = (event) => {
 	}
 };
 
-export class LO3Grammar1 extends PureComponent {
+export class OriginsAndLanguagesGrammarVerbGroups extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -170,7 +170,7 @@ export class LO3Grammar1 extends PureComponent {
 	};
 }
 
-export class LO3Grammar2 extends PureComponent {
+export class OriginsAndLanguagesGrammarDeForms extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -202,7 +202,7 @@ export class LO3Grammar2 extends PureComponent {
 	};
 }
 
-export class LO3Grammar3 extends PureComponent {
+export class OriginsAndLanguagesGrammarFeminineForms extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

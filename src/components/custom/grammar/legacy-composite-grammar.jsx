@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 
-export class LO2Grammar extends PureComponent {
+export class AboutMeGrammarLegacyComposite extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -19,7 +19,7 @@ export class LO2Grammar extends PureComponent {
 					className={`mb-2`}
 					config={{}}
 					expandedByDefault
-					id={id ? `${id}VerbsInFrench` : `LO2GrammarVerbsInFrench`}
+					id={id ? `${id}VerbsInFrench` : `AboutMeGrammarLegacyVerbsInFrench`}
 					title={`1. Verbs in French`}
 				>
 					<Info>
@@ -86,7 +86,7 @@ export class LO2Grammar extends PureComponent {
 				<AccordionArticle
 					className={`mb-2`}
 					config={{}}
-					id={id ? `${id}GrammaticalGenders` : `LO2GrammarGrammaticalGenders`}
+					id={id ? `${id}GrammaticalGenders` : `AboutMeGrammarLegacyGrammaticalGenders`}
 					title={`2. Grammatical genders`}
 				>
 					<Info>
@@ -133,7 +133,7 @@ export class LO2Grammar extends PureComponent {
 				<AccordionArticle
 					className={`mb-0`}
 					config={{}}
-					id={id ? `${id}SubjectPronouns` : `LO2GrammarSubjectPronouns`}
+					id={id ? `${id}SubjectPronouns` : `AboutMeGrammarLegacySubjectPronouns`}
 					target={`subject-pronouns`}
 					title={`3. Subject pronouns.`}
 				>
@@ -160,7 +160,7 @@ export class LO2Grammar extends PureComponent {
 	};
 }
 
-export class LO3Grammar extends PureComponent {
+export class OriginsAndLanguagesGrammarLegacyComposite extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -341,4 +341,3 @@ export class LO3Grammar extends PureComponent {
 		);
 	};
 }
-

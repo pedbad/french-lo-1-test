@@ -2,7 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { Info } from "@/components/Info";
 import { PureComponent } from "react";
 
-export class LO1Demystify1 extends PureComponent {
+export class FirstContactPronunciationNasalOnOm extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -37,7 +37,7 @@ export class LO1Demystify1 extends PureComponent {
 	};
 }
 
-export class LO1Demystify2 extends PureComponent {
+export class FirstContactPronunciationFrenchR extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -71,7 +71,7 @@ export class LO1Demystify2 extends PureComponent {
 		);
 	};
 }
-export class LO1Demystify3 extends PureComponent {
+export class FirstContactPronunciationOiSound extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -104,7 +104,7 @@ export class LO1Demystify3 extends PureComponent {
 		);
 	};
 }
-export class LO1Demystify4 extends PureComponent {
+export class FirstContactPronunciationSilentH extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

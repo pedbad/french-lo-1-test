@@ -4,7 +4,7 @@ import { PureComponent } from "react";
 
 const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
 
-export class LO1Grammar1 extends PureComponent {
+export class FirstContactGrammarFormsOfAddress extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -50,7 +50,7 @@ export const Grammar1Body = ({ highlightIntro = false, showInfoBox = false } = {
 	);
 };
 
-export class LO1Grammar2 extends PureComponent {
+export class FirstContactGrammarTuVous extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

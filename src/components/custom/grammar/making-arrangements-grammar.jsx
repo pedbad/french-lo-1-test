@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { resolveAsset } from "@/utils/assets";
 import { PureComponent } from "react";
 
-export class L10Grammar extends PureComponent {
+export class MakingArrangementsGrammar extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

@@ -2,7 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { Info } from "@/components/Info";
 import { PureComponent } from "react";
 
-export class LO2Pronunciation1 extends PureComponent {
+export class AboutMePronunciationSilentE extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		const silentExamples = [
@@ -129,7 +129,7 @@ export class LO2Pronunciation1 extends PureComponent {
 	};
 }
 
-export class LO2Pronunciation2 extends PureComponent {
+export class AboutMePronunciationFrenchTh extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

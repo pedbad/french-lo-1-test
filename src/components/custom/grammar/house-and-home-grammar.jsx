@@ -2,7 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 
-export class LO5Grammar extends PureComponent{
+export class HouseAndHomeGrammar extends PureComponent{
 	render = () => {
 		const { id } = this.props;
 		return (

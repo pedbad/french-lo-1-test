@@ -1,7 +1,7 @@
 import { AudioClip } from "@/components/AudioClip";
 import { PureComponent } from "react";
 
-export class LO5Demystify extends PureComponent{
+export class HouseAndHomePronunciation extends PureComponent{
 	render = () => {
 		const { id } = this.props;
 		return (

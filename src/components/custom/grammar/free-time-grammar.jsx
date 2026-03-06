@@ -3,7 +3,7 @@ import { Figure } from "@/components/Figure";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 
-export class LO8Grammar extends PureComponent {
+export class FreeTimeGrammar extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

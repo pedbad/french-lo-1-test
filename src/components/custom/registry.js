@@ -15,5 +15,5 @@ export const AllCustomComponentsFR = {
 export const {
 	Grammar1Body,
 	Grammar2Body,
-	LO2SubjectPronounsBody,
+	AboutMeSubjectPronounsBody,
 } = grammarComponents;

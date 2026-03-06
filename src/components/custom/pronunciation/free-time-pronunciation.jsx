@@ -2,7 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { Figure } from "@/components/Figure";
 import { PureComponent } from "react";
 
-export class LO8Demystify extends PureComponent {
+export class FreeTimePronunciation extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

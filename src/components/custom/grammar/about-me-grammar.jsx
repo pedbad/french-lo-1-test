@@ -4,7 +4,7 @@ import { PureComponent } from "react";
 
 const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
 
-export const LO2SubjectPronounsBody = ({ highlightTarget = "" } = {}) => {
+export const AboutMeSubjectPronounsBody = ({ highlightTarget = "" } = {}) => {
 	const isActive = (target) => highlightTarget === target;
 	const highlight = (target) => (isActive(target) ? highlightClass : "");
 
@@ -41,10 +41,10 @@ export const LO2SubjectPronounsBody = ({ highlightTarget = "" } = {}) => {
 	);
 };
 
-export class LO2Grammar1 extends PureComponent {
+export class AboutMeGrammarVerbs extends PureComponent {
 	render = () => {
 		const { id } = this.props;
-		const tableId = id ? `${id}-verbs` : `LO2Grammar1-verbs`;
+		const tableId = id ? `${id}-verbs` : `AboutMeGrammarVerbs-verbs`;
 		const tableConfig = {
 			id: tableId,
 			sortable: false,
@@ -109,7 +109,7 @@ export class LO2Grammar1 extends PureComponent {
 	};
 }
 
-export class LO2Grammar2 extends PureComponent {
+export class AboutMeGrammarGenderAndArticles extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -151,14 +151,14 @@ export class LO2Grammar2 extends PureComponent {
 	};
 }
 
-export class LO2Grammar3 extends PureComponent {
+export class AboutMeGrammarSubjectPronouns extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
 			<div className={`lo2-grammar3-container container`} id={id || undefined} key={`${id}CustomComponent`}>
 				<div className={`panel`} id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
 					<div className={`modal-link-target`} id={`subject-pronouns`} />
-					<LO2SubjectPronounsBody />
+					<AboutMeSubjectPronounsBody />
 				</div>
 			</div>
 		);

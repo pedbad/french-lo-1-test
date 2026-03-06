@@ -2,7 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { PureComponent } from "react";
 import { resolveAsset } from "@/utils/assets";
 
-export class LO3Pronunciation1 extends PureComponent {
+export class OriginsAndLanguagesPronunciationSilentEnt extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -29,7 +29,7 @@ export class LO3Pronunciation1 extends PureComponent {
 	};
 }
 
-export class LO3Pronunciation2 extends PureComponent {
+export class OriginsAndLanguagesPronunciationFinalConsonantsLiaison extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -66,7 +66,7 @@ export class LO3Pronunciation2 extends PureComponent {
 	};
 }
 
-export class LO3Pronunciation3 extends PureComponent {
+export class OriginsAndLanguagesPronunciationEhSound extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -100,7 +100,7 @@ export class LO3Pronunciation3 extends PureComponent {
 	};
 }
 
-export class LO3Demystify extends PureComponent {
+export class OriginsAndLanguagesPronunciationLegacyComposite extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
@@ -164,4 +164,3 @@ export class LO3Demystify extends PureComponent {
 		);
 	};
 }
-

@@ -5,7 +5,7 @@ import { RadioQuiz } from "@/components/RadioQuiz";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 
-export class L11Grammar extends PureComponent {
+export class GoingToACafeGrammar extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (

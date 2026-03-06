@@ -6,7 +6,7 @@ import { resolveAsset } from "@/utils/assets";
 import { BookOpenText, Eye, EyeOff } from "lucide-react";
 import { PureComponent } from "react";
 
-export class LO4EX1 extends PureComponent{
+export class CurrentLocationNasalRhymeExercise extends PureComponent{
 	constructor(props) {
 		super(props);
 		this.state = {

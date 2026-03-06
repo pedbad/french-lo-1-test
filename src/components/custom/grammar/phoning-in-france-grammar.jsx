@@ -4,7 +4,7 @@ import { resolveAsset } from "@/utils/assets";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 
-export class LO9Grammar extends PureComponent {
+export class PhoningInFranceGrammar extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = ({

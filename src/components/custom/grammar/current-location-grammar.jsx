@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 
-export class LO4Grammar1 extends PureComponent {
+export class CurrentLocationGrammarPrepositionsInPlaces extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		const locationFormRows = [
