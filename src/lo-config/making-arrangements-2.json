@@ -375,7 +375,7 @@
 			},
 			{
 				"selectExercise3": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"showHintsText": "Show hints when moving",
@@ -432,7 +432,7 @@
 			},
 			{
 				"dictationExercise4": {
-					"component": "AnswerTable",
+					"component": "DictationExercise",
 					"id": "dictationExercise4",
 					"phrases": [
 						[

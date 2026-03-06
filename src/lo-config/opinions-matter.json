@@ -455,7 +455,7 @@
 			},
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Superbe !",
 					"instructionsText": "Listen to the speakers and select the correct definite article.",
@@ -530,7 +530,7 @@
 			},
 			{
 				"selectExercise2": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Listen to this poem by Mymi Doinet about the rainbow and fill in the colours as you hear them.",

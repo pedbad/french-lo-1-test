@@ -147,6 +147,32 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build` passes.
 
+## 2026-03-06 - Component Value Migration (Batch 4)
+
+- Replaced legacy config component values across FR configs:
+  - `DropDowns` -> `SelectExercise`
+  - `AnswerTable` -> `TypedTransformExercise` (transform/table tasks)
+  - `AnswerTable` -> `DictationExercise` (listen-and-type dictation tasks)
+- Applied in:
+  - `src/lo-config/answer-table-test.json`
+  - `src/lo-config/daily-routine.json`
+  - `src/lo-config/demo.json`
+  - `src/lo-config/family-friends-and-neighbours.json`
+  - `src/lo-config/free-time.json`
+  - `src/lo-config/going-to-a-cafe.json`
+  - `src/lo-config/house-and-home.json`
+  - `src/lo-config/making-arrangements.json`
+  - `src/lo-config/making-arrangements-2.json`
+  - `src/lo-config/opinions-matter.json`
+  - `src/lo-config/phoning-in-france.json`
+  - `src/lo-config/shopping-in-the-market.json`
+  - `src/lo-config/studying-at-university.json`
+- Notes:
+  - naming/typing cleanup only in config; no runtime logic changes.
+  - compatibility switch-cases remain in `App.jsx` for safe fallback while external legacy configs may still exist.
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-05 - Custom Component Extraction Completed for Active LOs
 
 - Completed Phase 1 extraction of active custom LO components out of monolithic:

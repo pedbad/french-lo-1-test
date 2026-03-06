@@ -377,7 +377,7 @@
 			},
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "",
@@ -430,7 +430,7 @@
 			},
 			{
 				"selectExercise2": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Superbe !",
 					"instructionsText": "In the following sentences and questions select au , à la, à l' or aux as appropriate:",
@@ -471,7 +471,7 @@
 			},
 			{
 				"selectExercise3": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Listen to the responses to this question and select answers accordingly:",

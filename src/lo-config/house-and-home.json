@@ -272,7 +272,7 @@
 			},
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Listen to the speakers and select the correct definite article to fill in the gaps.",
@@ -333,7 +333,7 @@
 			},
 			{
 				"selectExercise2": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "Listen to the speakers and select the correct form of the adjective to fill in the gaps.",

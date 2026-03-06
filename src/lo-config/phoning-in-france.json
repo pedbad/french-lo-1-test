@@ -241,7 +241,7 @@
 		"content": [
 			{
 				"typedTransformExercise1": {
-					"component": "AnswerTable",
+					"component": "TypedTransformExercise",
 					"congratulationsText": "Excellent !",
 					"id": "typedTransformExercise1",
 					"header": [
@@ -306,7 +306,7 @@
 			},
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "",

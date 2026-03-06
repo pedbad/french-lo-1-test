@@ -342,7 +342,7 @@
 			},
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Félicitations !",
 					"instructionsText": "Select the correct verb form for each gap.",
@@ -379,7 +379,7 @@
 			},
 			{
 				"selectExercise2": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Félicitations !",
 					"instructionsText": "Select the correct verb form for each gap.",
@@ -420,7 +420,7 @@
 			},
 			{
 				"selectExercise3": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"instructionsTextHTML": "Fill in the gaps with <strong>au</strong>, <strong>à la</strong>, <strong>à l'</strong> or <strong>aux</strong> as appropriate.",

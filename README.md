@@ -433,10 +433,12 @@ Table semantics policy (important):
 Migration cascade policy:
 - explicit layer order is declared in `src/index.css`: `@layer base, components, utilities`
 
-Manual migration policy (current):
+Manual migration policy (status):
 - LO2 pilot is complete on `SelectExercise`.
-- All remaining `DropDowns` instances from LO3 onward must be migrated and QA-verified manually, one activity at a time.
-- Do not bulk-switch all configs in one pass.
+- FR config migration is now complete:
+  - `DropDowns` -> `SelectExercise`
+  - `AnswerTable` -> `TypedTransformExercise` or `DictationExercise` (based on activity type)
+- Keep runtime compatibility aliases temporarily in `App.jsx` for legacy external configs until alias-removal cleanup.
 
 ## Exercise Component Naming & Semantic Refactor Plan
 

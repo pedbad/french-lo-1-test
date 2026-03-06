@@ -321,7 +321,7 @@
 		"content": [
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Incroyable !",
 					"instructionsText": "Select the correct word for each gap.",
@@ -382,7 +382,7 @@
 			},
 			{
 				"selectExercise2": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Select the correct word for each gap.",
@@ -419,7 +419,7 @@
 			},
 			{
 				"selectExercise3": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Select the correct word for each gap.",
@@ -452,7 +452,7 @@
 			},
 			{
 				"dictationExercise4": {
-					"component": "AnswerTable",
+					"component": "DictationExercise",
 					"congratulationsText": "Excellent !",
 					"id": "dictationExercise4",
 					"instructionsText": "Listen and write what you hear.",

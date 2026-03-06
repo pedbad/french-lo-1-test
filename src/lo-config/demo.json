@@ -1454,7 +1454,7 @@
       },
       {
         "selectExercise1": {
-          "component": "DropDowns",
+          "component": "SelectExercise",
           "id": "selectExercise1",
           "congratulationsText": "Well done!",
           "htmlContent": "<p>The <strong>DropDowns</strong> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase should be replaced by a 'dropdown' or 'select'. The verttical bar '|' separated phrases or words are used to populate the options of the select. The one preceded by the asterisk indicates the correct answer. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p>",
@@ -1492,7 +1492,7 @@
       },
       {
         "typedTransformExercise1": {
-          "component": "AnswerTable",
+          "component": "TypedTransformExercise",
           "congratulationsText": "Well done!",
           "htmlContent": "<p>The <strong>AnswerTable</strong> component, uses phrases to populate the left column of a table. The second of each phrase is the correct answer to the question. The user must type  the correct answer into the input in the right hand column and press the 'Check'. Button. The text box is a compact <strong>Monologue</strong> component, see below.</p>",
           "id": "typedTransformExercise1",

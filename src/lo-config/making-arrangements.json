@@ -391,7 +391,7 @@
 		"content": [
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Félicitations !",
 					"instructionsTextHTML": "Fill in the gaps in the rhyme <strong>'Chacun à son goût !'</strong> ('Each to their own!') with the correct part of <strong>vouloir</strong>:",
@@ -456,7 +456,7 @@
 			},
 			{
 				"selectExercise3": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"instructionsTextHTML": "Select <strong>au</strong>, <strong>à la</strong>, <strong>à l'</strong> or <strong>aux</strong> as appropriate.",
@@ -509,7 +509,7 @@
 			},
 			{
 				"dictationExercise4": {
-					"component": "AnswerTable",
+					"component": "DictationExercise",
 					"id": "dictationExercise4",
 					"phrases": [
 						[

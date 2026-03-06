@@ -4,7 +4,7 @@
 		"targetLanguageCode": "fr-FR"
 	},
 	"typedTransformExercise1": {
-		"component": "AnswerTable",
+		"component": "TypedTransformExercise",
 		"congratulationsText": "Well done!",
 		"htmlContent": "<p>The <strong>AnswerTable</strong> component, uses phrases to populate the left column of a table. The second of each phrase is the correct answer to the question. The user must type  the correct answer into the input in the right hand column and press the 'Check'. Button. The text box is a compact <strong>Monologue</strong> component, see below.</p>",
 		"id": "typedTransformExercise1",

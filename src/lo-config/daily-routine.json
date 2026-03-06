@@ -290,7 +290,7 @@
 		"content": [
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"congratulationsText": "Incroyable !",
 					"instructionsText": " Fill in the gaps with the correct reflexive pronoun supplied.",
@@ -374,7 +374,7 @@
 			},
 			{
 				"selectExercise3": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Excellent !",
 					"instructionsText": "Select the time that you hear.",

@@ -429,7 +429,7 @@
 			},
 			{
 				"typedTransformExercise1": {
-					"component": "AnswerTable",
+					"component": "TypedTransformExercise",
 					"congratulationsText": "Superbe !",
 					"id": "typedTransformExercise1",
 					"instructionsText": "What (sort of )… ? Complete the questions below.",
@@ -480,7 +480,7 @@
 			},
 			{
 				"selectExercise1": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"congratulationsText": "Excellent !",
 					"id": "selectExercise1",
 					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
@@ -529,7 +529,7 @@
 			},
 			{
 				"selectExercise2": {
-					"component": "DropDowns",
+					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the time that you hear.",
@@ -582,7 +582,7 @@
 					"content": [
 						{
 							"typedTransformExercise2": {
-								"component": "AnswerTable",
+								"component": "TypedTransformExercise",
 								"congratulationsText": "Superbe !",
 								"id": "typedTransformExercise2",
 								"instructionsText": "Fill in the gaps with the present participle of the verb supplied. Remember that the present participle is being used as an adjective so will need to agree with the noun it is describing.",
@@ -613,7 +613,7 @@
 						},
 						{
 							"typedTransformExercise3": {
-								"component": "AnswerTable",
+								"component": "TypedTransformExercise",
 								"congratulationsText": "Superbe !",
 								"id": "typedTransformExercise3",
 								"instructionsText": " Fill in the gaps with the past participle of the verb supplied. Remember that the past participle is being used as an adjective so will need to agree with the noun it is describing.",
