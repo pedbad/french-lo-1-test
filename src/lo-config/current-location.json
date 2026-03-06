@@ -298,12 +298,12 @@
 				}
 			},
 			{
-				"explanation4": {
+				"hiddenExplanation2": {
 					"component": "HIDE_Explanation",
 					"content": [
 						"<p>Try to make other nonsense rhymes yourself using the words below containing the nasal vowel sound <span class='audio-link' sound-file='/audio/lo4/pronunciation/demystify/001-ain.mp3'>in / ain</span> to fill in the gaps.</p>"
 					],
-					"id": "explanation4",
+					"id": "hiddenExplanation2",
 					"titleText": "2. You Try! MORE TO GO HERE WHEN I FIGURE OUT WHAT'S REQUIRED. Free text or fill the gaps? Please see question in word doc"
 				}
 			},

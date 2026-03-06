@@ -240,10 +240,10 @@
 		"component": "Group",
 		"content": [
 			{
-				"answerTable1": {
+				"typedTransformExercise1": {
 					"component": "AnswerTable",
 					"congratulationsText": "Excellent !",
-					"id": "AnswerTable1",
+					"id": "typedTransformExercise1",
 					"header": [
 						"Question",
 						"Answer",

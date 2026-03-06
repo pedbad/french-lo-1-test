@@ -3,7 +3,7 @@
     "showCongratulations": true,
     "targetLanguageCode": "fr-FR"
   },
-  "group2": {
+  "wordGridGroup": {
     "component": "Group",
     "content": [
       {
@@ -561,19 +561,19 @@
         }
       }
     ],
-    "id": "group2",
+    "id": "wordGridGroup",
     "titleText": "Word Grids"
   },
   "group3": {
     "component": "Group",
     "content": [
       {
-        "memorycards1": {
+        "memoryMatchGame1": {
           "cheatText": "Show answer",
           "component": "MemoryMatchGame",
           "congratulationsText": "Congratulations! You have a good memory!",
           "htmlContent": "<p>This <strong>MemoryMatchGame</strong> component presents <em>nPairsToPlay</em> pairs of cards face dwon. The student can turn over two at a time. If either are word cards the student can play the audio of the word. If there is one word card and one picture card and they match, the audio is read out once more and the pair added to a collection of matches on the right.</p>",
-          "id": "MemoryMatchGame1",
+          "id": "memoryMatchGame1",
           "instructionsText": "Match each picture to the correct French word.",
           "nPairsToPlay": 6,
           "cards": [
@@ -667,12 +667,12 @@
         }
       },
       {
-        "memorycards2": {
+        "memoryMatchGame2": {
           "cheatText": "Show answer",
           "component": "MemoryMatchGame",
           "congratulationsText": "Congratulations! You know your way around the house!",
           "htmlContent": "<p>Another example of the <strong>MemoryMatchGame</strong> component, this time showing 12 pairs from the stock pairs.</p>",
-          "id": "MemoryMatchGame2",
+          "id": "memoryMatchGame2",
           "instructionsText": "Match each picture to the correct French word.",
           "nPairsToPlay": 12,
           "cards": [
@@ -754,12 +754,12 @@
         }
       },
       {
-        "memorycards3": {
+        "memoryMatchGame3": {
           "cheatText": "Show answer",
           "component": "MemoryMatchGame",
           "congratulationsText": "Congratulations!",
           "htmlContent": "<p>Another example of the <strong>MemoryMatchGame</strong> component, this time showing 12 pairs from the stock pairs.</p>",
-          "id": "MemoryMatchGame3",
+          "id": "memoryMatchGame3",
           "instructionsText": "Match each picture to the correct French word.",
           "nPairsToPlay": 20,
           "cards": [
@@ -889,12 +889,12 @@
         }
       },
       {
-        "memorycards4": {
+        "memoryMatchGame4": {
           "cheatText": "Show answer",
           "component": "MemoryMatchGame",
           "congratulationsText": "Congratulations!",
           "htmlContent": "<p>Another example of the <strong>MemoryMatchGame</strong> component, this time showing 26 pairs from the stock pairs. It's a bit OTT, but challenging. Suggest reducing to 20 or less for acual incorporation.</p>",
-          "id": "MemoryMatchGame4",
+          "id": "memoryMatchGame4",
           "instructionsText": "Match each picture to the correct French word.",
           "nPairsToPlay": 26,
           "cards": [
@@ -1060,7 +1060,7 @@
         }
       },
       {
-        "memorycards5": {
+        "memoryMatchGame5": {
           "cheatText": "Show answer",
           "component": "MemoryMatchGame",
           "congratulationsText": "Congratulations!",
@@ -1290,7 +1290,7 @@
               "audio": "sounds/fr/du maïs.mp3"
             }
           ],
-          "id": "MemoryMatchGame5",
+          "id": "memoryMatchGame5",
           "titleText": "Food"
         }
       }
@@ -1405,13 +1405,13 @@
     ],
     "titleText": "PhraseTable"
   },
-  "explanation4": {
+  "explanationSemanticsDemo": {
     "component": "Explanation",
     "content": [
       "<p>1 Silent letters at the end of a word <img src='/img/lo2/shh.jpg' style='vertical-align: middle;' alt='lady with finger to lips. Shh'/></p><p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. Listen to the following examples.</p><p><span class='audio-link' sound-file='/sounds/fr/grand.mp3' alt='grand'>gran<strong>d</strong></span>, <span class='audio-link' sound-file='/sounds/fr/rond.mp3' alt='rond'>ron<strong>d</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/long.mp3' alt='long'>lon<strong>g</strong></span>, <span class='audio-link' sound-file='/sounds/fr/trop.mp3' alt='trop'>tro<strong>p</strong></span>, <span class='audio-link' sound-file='/sounds/fr/depuis.mp3' alt='depuis'>depui<strong>s</strong></span>,  <span class='audio-link' sound-file='/sounds/fr/pas.mp3' alt='pas'>pa<strong>s</strong></span>, <span class='audio-link' sound-file='/sounds/fr/petit.mp3' alt='petit'>peti<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/Salut.mp3' alt='salut'>salu<strong>t</strong></span>, <span class='audio-link' sound-file='/sounds/fr/gâteaux.mp3' alt='gâteaux'>gâteau<strong>x</strong></span>, <span class='audio-link' sound-file='/sounds/fr/appelez.mp3' alt='appelez'>appele<strong>z</strong></span></p><p>The letter <strong>e</strong> is not pronounced at the end of a word:</p><p><span class='audio-link' sound-file='/sounds/fr/Je m&#39appelle.mp3' alt='Je m''appelle'>Je m&#39appell<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/bibliothécaire.mp3' alt='bibliothécaire'>bibliothécair<strong>e</strong></span>, <span class='audio-link' sound-file='/sounds/fr/célibataire.mp3' alt='célibataire'>célibatair<strong>e</strong></span></p><p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p><p><span class='speak'>ce</span>, <span class='speak'>de</span>, <span class='speak'>je</span>,  <span class='speak'>le</span>, <span class='speak'>me</span>, <span class='speak'>ne</span>, <span class='speak'>se</span>, <span class='speak'>te</span></p><hr/><p>2 <strong>Th</strong></p><p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g. <span class='audio-link' sound-file='/sounds/fr/Thomas.mp3' alt='Thomas'><strong>Thomas</strong></span>, <span class='audio-link' sound-file='/sounds/fr/thé.mp3' alt='thé'><strong>thé</strong></span>, <span class='audio-link' sound-file='/sounds/fr/théologie.mp3' alt='théologie'><strong>théologie</strong></span>, <span class='audio-link' sound-file='/sounds/fr/maths.mp3' alt='maths'><strong>maths</strong></span></p>"
     ],
     "htmlContent": "<p>This <strong>Explanation</strong> component is for introducing passages of explanatory text. I'm not hugely happy with it as it involves putting HTML into strings which are then injected into divs.</p><p>So if you have a more complicated piece of content, I suggest you use a <strong>CustomComponent</strong>. The following Grammar section is an example of a <strong>CustomComponent</strong>.</p><p>If there is more than one string, more than one panel is presented.</p>",
-    "id": "explanation4",
+    "id": "explanationSemanticsDemo",
     "titleText": "Explanation"
   },
   "custom1": {
@@ -1453,9 +1453,9 @@
         }
       },
       {
-        "dropdowns1": {
+        "selectExercise1": {
           "component": "DropDowns",
-          "id": "dropdowns1",
+          "id": "selectExercise1",
           "congratulationsText": "Well done!",
           "htmlContent": "<p>The <strong>DropDowns</strong> component, uses phrases to populate the left column of a table. The set of phrases contains square brackets to indicate where a part of a phrase should be replaced by a 'dropdown' or 'select'. The verttical bar '|' separated phrases or words are used to populate the options of the select. The one preceded by the asterisk indicates the correct answer. If the student clicks on a correct part of the word or phrase, it spins and highlights in green. If incorrect, it highlights red. On the right hand side there are audio samples to assist the student if needed.</p>",
           "instructionsText": "Listen to the speakers and select the correct adjective of nationality.",
@@ -1491,11 +1491,11 @@
         }
       },
       {
-        "answerTable1": {
+        "typedTransformExercise1": {
           "component": "AnswerTable",
           "congratulationsText": "Well done!",
           "htmlContent": "<p>The <strong>AnswerTable</strong> component, uses phrases to populate the left column of a table. The second of each phrase is the correct answer to the question. The user must type  the correct answer into the input in the right hand column and press the 'Check'. Button. The text box is a compact <strong>Monologue</strong> component, see below.</p>",
-          "id": "AnswerTable1",
+          "id": "typedTransformExercise1",
           "instructionsText": "Supply the feminine form of the adjectives and nouns listed below. If the forms are different, compare the Pronunciation Write the feminine form in the empty cells, then click the check button.",
           "header": [
             "Masculine",
@@ -1599,10 +1599,10 @@
     "component": "Group",
     "content": [
       {
-        "wordsIntoSlots1": {
+        "draggableFillGaps1": {
           "component": "DraggableFillGaps",
           "htmlContent": "<p>The <strong>'blanksType': 'table'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>After two mistakes, help and cheat options are revealled.</p>",
-          "id": "wordsIntoSlots1",
+          "id": "draggableFillGaps1",
           "congratulationsText": "Well done!",
           "instructionsText": "You will hear words containing on / om or oi or h as described in the pronunciation section. Drop each word into the boxes below as you hear it.",
           "listenDescriptionText": "Full audio",
@@ -1635,11 +1635,11 @@
         }
       },
       {
-        "wordsIntoSlots2": {
+        "draggableFillGaps2": {
           "component": "DraggableFillGaps",
           "congratulationsText": "Well done!",
           "htmlContent": "<p>The <strong>'blanksType': 'questions-answers'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the answers to make tiles which can be dropped into the second column of a 2 column table, where the questions are used to populate the left column.</p><p>Sound files are in the third column.</p><p>After two mistakes, help and cheat options are revealled.</p>",
-          "id": "wordsIntoSlots2",
+          "id": "draggableFillGaps2",
           "instructionsText": "Match each question with the correct answer.",
           "showHintsText": "Show hints when moving",
           "cheatText": "Show answer",
@@ -1720,13 +1720,13 @@
         }
       },
       {
-        "phrases3": {
+        "draggableFillGapsPhrasesDemo": {
           "blanksType": "phrases",
           "cheatText": "Show answer",
           "component": "DraggableFillGaps",
           "congratulationsText": "Very good!",
           "htmlContent": "<p>The <strong>'blanksType': 'phrases'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the words to make tiles which can be dropped into the set of phrases. The set of phrases contains square brackets to show where the words must be dropped, the word is hidden in the phrase. On the right hand side there are audio samples to assist the student if needed. Note: the blank spaces are all the same width even for small words, so they don't give an extra clue!</p><p>After two mistakes, help and cheat options are revealled.</p>",
-          "id": "phrases3",
+          "id": "draggableFillGapsPhrasesDemo",
           "instructionsText": "Drag each word into the correct gap.",
           "showHintsText": "Show hints when moving",
           "items": [
@@ -1759,9 +1759,9 @@
         }
       },
       {
-        "groupTable1": {
+        "draggableFillGapsGroupTable1": {
           "component": "DraggableFillGaps",
-          "id": "groupTable1",
+          "id": "draggableFillGapsGroupTable1",
           "congratulationsText": "Well done!",
           "htmlContent": "<p>The <strong>'blanksType': 'group-table'</strong> configuration of the <strong>DraggableFillGaps</strong> component, uses the words to make tiles which can be dropped into a 2 column table.</p><p>The tile should be dropped in the left column or the right column based on the question and in the order heard from the sound file.</p><p>After two mistakes, help and cheat options are revealled.</p>",
           "instructionsTextHTML": "You will hear a series of words containing either the sound <strong>u</strong> or the sound <strong>ou</strong>. Drag the words below into the correct box as you hear them.",

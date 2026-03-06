@@ -428,10 +428,10 @@
 				}
 			},
 			{
-				"answerTable1": {
+				"typedTransformExercise1": {
 					"component": "AnswerTable",
 					"congratulationsText": "Superbe !",
-					"id": "AnswerTable1",
+					"id": "typedTransformExercise1",
 					"instructionsText": "What (sort of )… ? Complete the questions below.",
 					"phrases": [
 						[
@@ -577,14 +577,14 @@
 				}
 			},
 			{
-				"group2": {
+				"participlesGroup": {
 					"component": "Group",
 					"content": [
 						{
-							"answerTable2": {
+							"typedTransformExercise2": {
 								"component": "AnswerTable",
 								"congratulationsText": "Superbe !",
-								"id": "AnswerTable2",
+								"id": "typedTransformExercise2",
 								"instructionsText": "Fill in the gaps with the present participle of the verb supplied. Remember that the present participle is being used as an adjective so will need to agree with the noun it is describing.",
 								"phrases": [
 									[
@@ -612,10 +612,10 @@
 							}
 						},
 						{
-							"answerTable3": {
+							"typedTransformExercise3": {
 								"component": "AnswerTable",
 								"congratulationsText": "Superbe !",
-								"id": "AnswerTable3",
+								"id": "typedTransformExercise3",
 								"instructionsText": " Fill in the gaps with the past participle of the verb supplied. Remember that the past participle is being used as an adjective so will need to agree with the noun it is describing.",
 								"phrases": [
 									[
@@ -643,7 +643,7 @@
 							}
 						}
 					],
-					"id": "group2",
+					"id": "participlesGroup",
 					"titleText": "5. Using participles as adjectives"
 				}
 			}

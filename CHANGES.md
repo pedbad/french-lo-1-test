@@ -123,6 +123,30 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build` passes.
 
+## 2026-03-06 - Final Generic Wrapper Cleanup (Batch 3)
+
+- Normalized remaining generic exercise/demo wrapper keys and ids:
+  - `answerTable*` -> `typedTransformExercise*` (or `dictationExercise*` where activity copy is “type/listen and write”)
+  - `monologues1` (AnswerTable exercise wrappers) -> `dictationExercise4`
+  - `groupTable1` -> `draggableFillGapsGroupTable1`
+  - `radio2` -> `radioQuiz2`
+  - `group2` (exercise/demo grouping wrapper) -> semantic group ids (`participlesGroup`, `wordGridGroup`)
+  - `memorycards*` -> `memoryMatchGame*` (demo)
+  - `dropdowns1` -> `selectExercise1` (demo)
+  - `wordsIntoSlots*` -> `draggableFillGaps*` (demo)
+- Applied to:
+  - `src/lo-config/phoning-in-france.json`
+  - `src/lo-config/shopping-in-the-market.json`
+  - `src/lo-config/studying-at-university.json`
+  - `src/lo-config/making-arrangements.json`
+  - `src/lo-config/making-arrangements-2.json`
+  - `src/lo-config/demo.json`
+  - `src/lo-config/answer-table-test.json`
+- Scope:
+  - naming-only cleanup in config wrappers/ids; no runtime component logic changes.
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-05 - Custom Component Extraction Completed for Active LOs
 
 - Completed Phase 1 extraction of active custom LO components out of monolithic:

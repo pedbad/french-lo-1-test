@@ -508,9 +508,9 @@
 				}
 			},
 			{
-				"monologues1": {
+				"dictationExercise4": {
 					"component": "AnswerTable",
-					"id": "monologues1",
+					"id": "dictationExercise4",
 					"phrases": [
 						[
 							"",

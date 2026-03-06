@@ -399,9 +399,9 @@
 				}
 			},
 			{
-				"phrases2": {
+				"draggableFillGaps2": {
 					"component": "DraggableFillGaps",
-					"id": "phrases2",
+					"id": "draggableFillGaps2",
 					"congratulationsText": "Excellent !",
 					"informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>), then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
@@ -425,12 +425,12 @@
 				}
 			},
 			{
-				"phrases3": {
+				"draggableFillGaps3": {
 					"component": "DraggableFillGaps",
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"congratulationsText": "Superbe !",
-					"id": "phrases3",
+					"id": "draggableFillGaps3",
 					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"items": [
@@ -451,12 +451,12 @@
 				}
 			},
 			{
-				"phrases4": {
+				"draggableFillGaps4": {
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
-					"id": "phrases4",
+					"id": "draggableFillGaps4",
 					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"items": [

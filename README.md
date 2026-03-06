@@ -500,6 +500,13 @@ Latest applied step:
   - `draggableFillGaps2`
   - `draggableFillGaps3`
   - `draggableFillGaps4`
+- Config wrapper/id naming cleanup is now extended across LO5+ and demo for consistency:
+  - `dropdowns*` -> `selectExercise*`
+  - `wordsIntoSlots*` -> `draggableFillGaps*`
+  - `memorycards*` -> `memoryMatchGame*`
+  - `answerTable*` -> `typedTransformExercise*` (or `dictationExercise*` for type-what-you-hear activities)
+  - `groupTable1` -> `draggableFillGapsGroupTable1`
+  - `radio2` -> `radioQuiz2`
 - LO3 exercise instruction alerts now follow the same placement contract as LO1/LO2:
   - use accordion-level `informationTextHTML` in config
   - do not render child-level `Info` blocks inside typed exercise runtime (prevents spacing drift)

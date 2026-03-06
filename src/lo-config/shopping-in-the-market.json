@@ -451,10 +451,10 @@
 				}
 			},
 			{
-				"answerTable2": {
+				"dictationExercise4": {
 					"component": "AnswerTable",
 					"congratulationsText": "Excellent !",
-					"id": "AnswerTable2",
+					"id": "dictationExercise4",
 					"instructionsText": "Listen and write what you hear.",
 					"phrases": [
 						[
@@ -527,9 +527,9 @@
 				}
 			},
 			{
-				"groupTable1": {
+				"draggableFillGapsGroupTable1": {
 					"component": "HIDEBlanks",
-					"id": "groupTable1",
+					"id": "draggableFillGapsGroupTable1",
 					"congratulationsText": "Well done!",
 					"instructionsText": "You will hear a series of words containing either the sound u or the sound ou. Drag the words below into the correct box as you hear them.",
 					"listenDescriptionText": "Sample",
@@ -609,9 +609,9 @@
 				}
 			},
 			{
-				"radio2": {
+				"radioQuiz2": {
 					"component": "RadioQuiz",
-					"id": "radio2",
+					"id": "radioQuiz2",
 					"instructionsTextHTML": "Play each phrase, click <strong>u</strong> or <strong>ou</strong>.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
