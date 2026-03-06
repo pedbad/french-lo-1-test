@@ -3,9 +3,9 @@ export const eventComponent = undefined;
 export const mouseDown = false;
 
 // Default to a theme token so debug markers track the active palette.
-export const mark = (x, y, colour = 'hsl(var(--destructive))', text = '', node = document.getElementById('content')) => {
+export const mark = (x, y, colour = "hsl(var(--destructive))", text = "", node = document.getElementById("content")) => {
 	const marker = document.createElement("div");
-	if (text !== '') {
+	if (text !== "") {
 		text += `,${x}`;
 		text += `,${y}`;
 		const textNode = document.createTextNode(text);
@@ -13,8 +13,8 @@ export const mark = (x, y, colour = 'hsl(var(--destructive))', text = '', node =
 	}
 	marker.style.left = `${x}px`;
 	marker.style.top = `${y}px`;
-	marker.style.borderColor = `transparent transparent ${ colour } transparent`;
-	marker.classList.add('marker');
+	marker.style.borderColor = `transparent transparent ${colour} transparent`;
+	marker.classList.add("marker");
 	node.appendChild(marker);
 };
 
@@ -27,12 +27,12 @@ export const mouseRelativeTo = (e, selector, scale = 1) => {
 	let datumFound = false;
 	let dX = 0;
 	let dY = 0;
-	if (selector.includes('.')) className = selector.replace('.', '');
-	if (selector.includes('#')) id = selector.replace('#', '');
+	if (selector.includes(".")) className = selector.replace(".", "");
+	if (selector.includes("#")) id = selector.replace("#", "");
 	const scroll = window.scrollY;
 	// Find the datum node
 	while (!datumFound) {
-		if ((className && node.classList.contains(className)) || (id && node.getAttribute('id') === id)){
+		if ((className && node.classList.contains(className)) || (id && node.getAttribute("id") === id)) {
 			datumFound = true;
 			// console.log("found");
 			({ x: dX, y: dY } = node.getBoundingClientRect());
@@ -42,7 +42,7 @@ export const mouseRelativeTo = (e, selector, scale = 1) => {
 		} else {
 			// console.log("Step up");
 			node = node.parentNode;
-			if (node.getAttribute('id') === 'root') {
+			if (node.getAttribute("id") === "root") {
 				// console.log("mouseRelativeTo failed to find target", selector);
 				return;
 			}
