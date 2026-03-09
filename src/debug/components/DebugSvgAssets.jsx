@@ -109,12 +109,12 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'ArrowLeftRight',
 		component: ArrowLeftRight,
-		sources: ['/src/components/SortableWordCard/SortableWordCard.jsx'],
+		sources: ['/src/components/exercises/SortableWordCard/SortableWordCard.jsx'],
 	},
 	{
 		name: 'ArrowUpDown',
 		component: ArrowUpDown,
-		sources: ['/src/components/SortableWordCard/SortableWordCard.jsx'],
+		sources: ['/src/components/exercises/SortableWordCard/SortableWordCard.jsx'],
 	},
 	{
 		name: 'Check',

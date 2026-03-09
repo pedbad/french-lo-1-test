@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { copyObject } from '../../utils/collections.js';
+import { copyObject } from '@/utils/collections';
 import DOMPurify from "dompurify";
 
 const boardWidth = 4;

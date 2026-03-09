@@ -1,8 +1,8 @@
 import React from "react";
 import { IconButton } from "@/components/IconButton";
-import { ProgressDots } from "@/components/ProgressDots";
+import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
-import { SortableWordCard } from "@/components/SortableWordCard/SortableWordCard";
+import { SortableWordCard } from "@/components/exercises/SortableWordCard/SortableWordCard";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
