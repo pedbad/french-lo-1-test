@@ -383,57 +383,15 @@ Validator triage guidance:
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
-## DropDowns Usage Inventory (for SelectExercise migration)
+## SelectExercise Migration Status
 
-Current shared component in use:
-- `src/components/DropDowns/DropDowns.jsx`
-
-Pilot migration implemented:
-- LO2 final exercise now uses `component: "SelectExercise"` (new stacked layout), with semantic id `selectExercise2`.
-- `SelectExercise` shuffles answer option order on first load and on reset.
-- During an attempt, option order remains stable until the learner resets.
-
-The following learning object activities currently use `component: "DropDowns"`:
-- LO5
-  - `dropdowns1` - `2. Do you remember the gender?`
-  - `dropdowns2` - `3. Practise descriptions`
-- LO6
-  - `dropdowns1` - `1. Practise your listening skills`
-  - `dropdowns2` - `2. Camille`
-  - `dropdowns3` - `3. Annabelle.`
-  - `dropdowns4` - `4. Practise the verb <strong>avoir</strong>.`
-  - `dropdowns5` - `5. Practise the possessives.`
-- LO7
-  - `dropdowns1` - `2. Talking about likes and dislikes`
-  - `dropdowns2` - `4. Sept Couleurs Magiques`
-- LO8
-  - `dropdowns1` - `2. Talking about leisure activities.`
-  - `dropdowns2` - `3. Julien est très sportif`
-  - `dropdowns3` - `4. Qu’est-ce que tu fais le dimanche ?`
-- LO9
-  - `dropdowns1` - `2. Talking on the phone.`
-- LO10
-  - `dropdowns1` - `1. Chacun à son goût !`
-  - `dropdowns3` - `3. Practise the prepositions.`
-- LO11
-  - `dropdowns1` - `2. Practise the verb forms`
-  - `dropdowns2` - `3. More verb practice`
-  - `dropdowns3` - `4 Flavours, toppings and fillings`
-- LO12
-  - `dropdowns1` - `1. Where is everyone going?`
-  - `dropdowns2` - `2. Marion's shopping list`
-  - `dropdowns3` - `3. Yves' shopping list`
-- LO13
-  - `dropdowns1` - `1 Practise the reflexive verbs`
-  - `dropdowns3` - `3 What's the time? Practising the 12 hour clock`
-- LO14
-  - `dropdowns1` - `3 Practise using devoir`
-  - `dropdowns2` - `4 Practise using pouvoir`
-- LO15
-  - `dropdowns3` - `3. Select the correct form of the verb each time in Adèle's description of her holiday activities.`
-
-Also used in demo config:
-- `src/lo-config/demo.json`
+- Legacy `DropDowns` usage has been fully migrated in active FR configs.
+- Canonical select interaction component is:
+  - `src/components/SelectExercise/SelectExercise.jsx`
+- Legacy `DropDowns` wrapper/component files were removed on 2026-03-09.
+- Contract:
+  - use `component: "SelectExercise"` in LO config
+  - keep new behavior/config options in `SelectExercise` (single source of truth)
 
 Table semantics policy (important):
 - use flex/grid for layout and spacing.
@@ -496,7 +454,7 @@ Latest applied step:
 - LO3 exercises 3/4/5 now use semantic names for typed-table activities:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)
-  - both currently run through `AnswerTableRuntime` for low-risk migration parity.
+  - both currently run through shared `TextEntryExerciseRuntime` for low-risk migration parity.
   - `TypedTransformExercise` now uses global controls (`Check answers`, `Reset`, `Show answers`) with:
     - Enter-key submit support in input fields
     - preserved per-row diff feedback (`inserted`/`deleted`) after check
@@ -509,7 +467,7 @@ Latest applied step:
     - trimmed leading/trailing whitespace on check
     - stable row layout (fixed status slot and non-jittering input width)
 - legacy `Blanks` activities across FR configs (`LO1-LO15` + `demo`) now use semantic `DraggableFillGaps`.
-- runtime compatibility is preserved: `Blanks` remains an alias in `App` while configs use `DraggableFillGaps` as canonical naming.
+- runtime compatibility alias has now been removed from `App`; use `DraggableFillGaps` as canonical naming.
 - LO1 exercise audio folders for former `phrases2/3/4` are now aligned to semantic names:
   - `draggableFillGaps2`
   - `draggableFillGaps3`
@@ -880,8 +838,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - `misc/` (for example `DailyRoutineASummersDay`, `AudioClipSamples`)
 - Runtime registry source of truth:
   - `src/components/custom/registry.js`
-- Legacy bridge still exists for compatibility:
-  - `src/components/CustomComponents_FR/index.js`
+- Legacy `CustomComponents_FR` bridge has been removed.
+- Import custom component exports from:
+  - `src/components/custom/index.js`
 - Former monolith `src/components/CustomComponents_FR/CustomComponents_FR.jsx` has been removed.
   - any remaining custom/legacy exports now live under `src/components/custom/*`.
 - Legacy composite custom files have been removed; active runtime paths now use semantic component names and semantic LO config ids.

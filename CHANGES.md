@@ -2,6 +2,60 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-09 - Legacy Exercise Wrapper Cleanup (Runtime + Structure)
+
+- Removed unused legacy wrapper/component paths:
+  - `src/components/DropDowns/DropDowns.jsx`
+  - `src/components/DropDowns/index.js`
+  - `src/components/CustomComponents_FR/index.js`
+  - `src/components/AnswerTable/AnswerTable.jsx`
+  - `src/components/AnswerTable/index.js`
+- Updated barrel exports:
+  - `src/components/index.js`
+    - removed legacy exports for `DropDowns` and `AnswerTable`
+    - pointed custom exports to `src/components/custom`
+- Validation:
+  - `yarn build` passes.
+
+## 2026-03-09 - `Blanks` Runtime Moved Under `DraggableFillGaps`
+
+- Moved draggable fill-gaps runtime from legacy path into semantic component folder:
+  - `src/components/Blanks/Blanks.jsx` -> `src/components/DraggableFillGaps/DraggableFillGapsRuntime.jsx`
+  - `src/components/Blanks/DraggableWordTile/*` -> `src/components/DraggableFillGaps/DraggableWordTile/*`
+- Updated wrapper and exports:
+  - `src/components/DraggableFillGaps/DraggableFillGaps.jsx`
+  - `src/components/index.js`
+- Updated debug icon source manifests to match moved files:
+  - `src/debug/components/DebugSvgAssets.jsx`
+- Validation:
+  - `yarn build` passes.
+
+## 2026-03-09 - Shared Typed Runtime Renamed to `TextEntryExerciseRuntime`
+
+- Replaced legacy-named typed runtime path/class with semantic shared runtime:
+  - `src/components/AnswerTable/AnswerTableRuntime.jsx` -> `src/components/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
+- Updated semantic wrappers to use the new runtime:
+  - `src/components/TypedTransformExercise/TypedTransformExercise.jsx`
+  - `src/components/DictationExercise/DictationExercise.jsx`
+- Added runtime barrel:
+  - `src/components/TextEntryExerciseRuntime/index.js`
+- Updated debug structure inventory to remove stale `AnswerTable` and `DropDowns` labels:
+  - `src/debug/components/LearningObjectStructureSummary.jsx`
+- Validation:
+  - `yarn build` passes.
+
+## 2026-03-09 - Legacy `Blanks` Alias Removed from App Runtime
+
+- Removed runtime `component: "Blanks"` fallback from:
+  - `src/App.jsx`
+- Canonical drag/drop fill config component is now:
+  - `component: "DraggableFillGaps"`
+- Updated remaining internal comments/references:
+  - `src/components/SequenceAudioController/SequenceAudioController.jsx`
+  - `src/index.css`
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-06 - Server Deploy Packaging: Apache Rewrite File + Build Scripts
 
 - Added Apache SPA rewrite file to project public assets:
