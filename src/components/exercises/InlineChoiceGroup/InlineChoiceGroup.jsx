@@ -2,7 +2,7 @@ import {
 	AudioClip,
 	IconButton,
 	ProgressDots,
-} from "..";
+} from "@/components";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import {
 	Table,
@@ -13,7 +13,7 @@ import {
 import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
-import { resolveAsset } from "../../utils/assets";
+import { resolveAsset } from "@/utils/assets";
 
 const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-[var(--font-size-sm)] md:text-base";
 

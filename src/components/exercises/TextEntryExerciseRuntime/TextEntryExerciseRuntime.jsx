@@ -3,7 +3,7 @@ import {
 	IconButton,
 	Monologue,
 	ProgressDots,
-} from "..";
+} from "@/components";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { Input } from "@/components/ui/input";
 import {
@@ -19,9 +19,9 @@ import { CircleCheck, CircleX, Mars, Venus } from "lucide-react";
 import React from "react";
 import {
 	resolveAsset,
-} from "../../utils/assets";
-import { stopAllAudioPlayback } from "../../utils/audioPlayback";
-import { highlightTextDiff } from "../../utils/exerciseDiff";
+} from "@/utils/assets";
+import { stopAllAudioPlayback } from "@/utils/audioPlayback";
+import { highlightTextDiff } from "@/utils/exerciseDiff";
 
 // Shared runtime for typed-response table exercises.
 // This is the compatibility layer used by:

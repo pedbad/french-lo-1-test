@@ -7,7 +7,7 @@ import {
 	// Radio,
 	// RadioField,
 	// RadioGroup,
-} from '..';
+} from '@/components';
 import {
 	Table,
 	TableBody,
@@ -20,7 +20,7 @@ import DOMPurify from "dompurify";
 import React from 'react';
 import {
 	resolveAsset,
-} from '../../utils/assets';
+} from '@/utils/assets';
 
 const RADIO_QUIZ_TABLE_TEXT_CLASS = "radio-quiz-table text-[var(--font-size-sm)] md:text-base";
 

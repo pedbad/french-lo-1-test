@@ -1,4 +1,4 @@
-import * as exercisesComponents from "./exercises";
+import { CurrentLocationNasalRhymeExercise } from "@/components/exercises/current-location";
 import * as grammarComponents from "./grammar";
 import * as miscComponents from "./misc";
 import * as pronunciationComponents from "./pronunciation";
@@ -8,7 +8,7 @@ import * as pronunciationComponents from "./pronunciation";
 export const AllCustomComponentsFR = {
 	...grammarComponents,
 	...pronunciationComponents,
-	...exercisesComponents,
+	CurrentLocationNasalRhymeExercise,
 	...miscComponents,
 };
 

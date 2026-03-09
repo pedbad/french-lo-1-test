@@ -138,17 +138,17 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'CircleAlert',
 		component: CircleAlert,
-		sources: ['/src/components/DraggableFillGaps/DraggableFillGapsRuntime.jsx', '/src/components/Info/Info.jsx'],
+		sources: ['/src/components/exercises/DraggableFillGaps/DraggableFillGapsRuntime.jsx', '/src/components/Info/Info.jsx'],
 	},
 	{
 		name: 'CircleCheck',
 		component: CircleCheck,
-		sources: ['/src/components/Info/Info.jsx', '/src/components/InlineChoiceGroup/InlineChoiceGroup.jsx'],
+		sources: ['/src/components/Info/Info.jsx', '/src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx'],
 	},
 	{
 		name: 'CircleX',
 		component: CircleX,
-		sources: ['/src/components/Info/Info.jsx', '/src/components/InlineChoiceGroup/InlineChoiceGroup.jsx'],
+		sources: ['/src/components/Info/Info.jsx', '/src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx'],
 	},
 	{
 		name: 'Facebook',
@@ -178,7 +178,7 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'SquareDashedMousePointer',
 		component: SquareDashedMousePointer,
-		sources: ['/src/components/DraggableFillGaps/DraggableWordTile/DraggableWordTile.jsx'],
+		sources: ['/src/components/exercises/DraggableFillGaps/DraggableWordTile/DraggableWordTile.jsx'],
 	},
 	{
 		name: 'Volume1',

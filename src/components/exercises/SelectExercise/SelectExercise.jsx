@@ -2,7 +2,7 @@ import {
 	AudioClip,
 	IconButton,
 	ProgressDots,
-} from "..";
+} from "@/components";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import {
 	Select,
@@ -14,7 +14,7 @@ import {
 import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
-import { resolveAsset } from "../../utils/assets";
+import { resolveAsset } from "@/utils/assets";
 
 const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-[var(--font-size-sm)] md:text-base";
 const SELECT_EXERCISE_INLINE_TRIGGER_CLASS = "inline-flex min-h-9 w-auto min-w-[12rem] align-middle text-[var(--font-size-sm)] md:min-w-[14rem] md:text-base";

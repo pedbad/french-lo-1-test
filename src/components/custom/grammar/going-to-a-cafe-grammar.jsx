@@ -1,7 +1,7 @@
 import { AudioClip } from "@/components/AudioClip";
 import { Attribution } from "@/components/Attribution";
 import { Figure } from "@/components/Figure";
-import { RadioQuiz } from "@/components/RadioQuiz";
+import { RadioQuiz } from "@/components/exercises/RadioQuiz";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 

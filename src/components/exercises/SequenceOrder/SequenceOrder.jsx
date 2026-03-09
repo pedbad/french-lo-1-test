@@ -1,12 +1,12 @@
 import React from "react";
-import { IconButton } from "../IconButton";
-import { ProgressDots } from "../ProgressDots";
-import { SequenceAudioController } from "../SequenceAudioController";
-import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
+import { IconButton } from "@/components/IconButton";
+import { ProgressDots } from "@/components/ProgressDots";
+import { SequenceAudioController } from "@/components/SequenceAudioController";
+import { SortableWordCard } from "@/components/SortableWordCard/SortableWordCard";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
-import { resolveAsset } from "../../utils/assets";
-import { shuffleArray } from "../../utils/collections";
-import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
+import { resolveAsset } from "@/utils/assets";
+import { shuffleArray } from "@/utils/collections";
+import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
 
 const buildTokens = (words = []) =>
 	words.map((label, index) => ({

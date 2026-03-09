@@ -4,11 +4,11 @@ import {
 	IconButton,
 	Info,
 	ProgressDots,
-} from "../../components";
+} from "@/components";
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import React from "react";
-import { SortableWordCard } from "../SortableWordCard/SortableWordCard";
-import { captureFlipPositions, playFlipAnimation } from "../../utils/reorderAnimation";
+import { SortableWordCard } from "@/components/SortableWordCard/SortableWordCard";
+import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
 
 
 export class Sortable extends React.Component {

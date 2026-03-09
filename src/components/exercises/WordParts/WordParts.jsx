@@ -3,7 +3,7 @@ import {
 	IconButton,
 	Info,
 	ProgressDots,
-} from '..';
+} from '@/components';
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";

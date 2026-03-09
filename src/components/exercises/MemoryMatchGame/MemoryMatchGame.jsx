@@ -3,12 +3,12 @@ import {
 	Card,
 	// Congratulate,
 	IconButton
-} from "../../components";
+} from "@/components";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from "react";
-import { resolveAsset } from "../../utils/assets";
-import { MEMORY_CARD_TRANSITION_TIME_MS } from "../../constants/layout";
+import { resolveAsset } from "@/utils/assets";
+import { MEMORY_CARD_TRANSITION_TIME_MS } from "@/constants/layout";
 
 const getShuffledDeck = (cards, nCards) => {
 	cards = cards.sort(() => Math.random() - 0.5);

@@ -6,11 +6,11 @@ import {
 	Info,
 	ProgressDots,
 	SequenceAudioController,
-} from '../../components';
+} from '@/components';
 import { DraggableWordTile } from './DraggableWordTile';
 import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
-import { resolveAsset } from '../../utils/assets';
-import { shuffleArray } from '../../utils/collections';
+import { resolveAsset } from '@/utils/assets';
+import { shuffleArray } from '@/utils/collections';
 import { Card, CardContent } from "@/components/ui/card";
 import {
 	Table,
