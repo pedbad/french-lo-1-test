@@ -2,7 +2,7 @@
 	"settings": {
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This learning object introduces you to the essentials of greeting and introducing yourself politely. You'll learn how to choose appropriate forms of address depending on the level of formality and use common expressions for everyday social interactions. The unit also helps you build confidence in pronunciation through focused practice on key sounds.</p>",
-		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Greet others and introduce yourself confidently.</li><li>Use appropriate forms of address such as <em>tu/vous, Monsieur, Madame, </em>and <em>Mademoiselle</em>.</li><li>Express greetings, farewells, and polite social phrases.</li><li>Recognize and produce French sounds such as nasal vowels (<em>on/om</em>), the French <em>r</em>, and the <em>oi</em> sound.</li></ul>"
+		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Greet others and introduce yourself confidently.</li><li>Use appropriate forms of address such as <em>tu/vous, Monsieur, Madame, </em>and <em>Mademoiselle</em>.</li><li>Express greetings, farewells, and polite social phrases.</li><li>Recognise and produce French sounds such as the nasal vowel (<em>on/om</em>), the French <em>r</em>, and the <em>oi</em> sound.</li></ul>"
 	},
 	"dialogues": {
 		"component": "Group",
@@ -81,7 +81,7 @@
 							"My name's Camille."
 						]
 					],
-					"titleText": "Informal introductions: \"Je m'appelle…\""
+						"titleText": "Introductions in an informal context"
 				}
 			},
 			{
@@ -101,7 +101,7 @@
 							"My name is Isabelle Martin."
 						]
 					],
-					"titleText": "Formal introductions: \"Comment vous appelez-vous?\""
+						"titleText": "Introductions in a formal context"
 				}
 			}
 		],
@@ -331,7 +331,7 @@
 					"component": "FirstContactPronunciationNasalOnOm",
 					"id": "pronunciation1",
 					"comment": "menuText wins over titleText",
-					"titleText": "1. Nasal vowels: \"on / om\""
+					"titleText": "1. Nasal vowel: \"on / om\""
 				}
 			},
 			{
@@ -375,7 +375,7 @@
 					"component": "WordParts",
 					"congratulationsText": "Superbe !",
 					"id": "wordparts1",
-					"informationTextHTML": "Select the part of each word that contains the nasal, <em>r</em>, or <em>oi</em> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
+						"informationTextHTML": "Select the part of each word that contains the nasal, <em>r</em>, <em>oi</em>, or silent <em>h</em> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
 					"showHintsText": "Hints",
 					"items": [
 						{
@@ -403,7 +403,7 @@
 					"component": "DraggableFillGaps",
 					"id": "draggableFillGaps2",
 					"congratulationsText": "Excellent !",
-					"informationTextHTML": "Rebuild each short dialogue by choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>), then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+						"informationTextHTML": "Rebuild each short dialogue by choosing the correct words, then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
@@ -431,11 +431,11 @@
 					"cheatText": "Show answer",
 					"congratulationsText": "Superbe !",
 					"id": "draggableFillGaps3",
-					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+						"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"items": [
 						{
-							"text": "Bonsoir Monsieur Galipot ! [comment] ça va ?",
+							"text": "Bonsoir Monsieur Galipot ! [Comment] ça va ?",
 							"audio": "audio/lo1/exercises/draggableFillGaps3/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
 						},
 						{
@@ -457,7 +457,7 @@
 					"component": "DraggableFillGaps",
 					"congratulationsText": "Très bien !",
 					"id": "draggableFillGaps4",
-					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words and the appropriate register (<em>tu</em>/<em>vous</em>). Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+						"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"items": [
 						{

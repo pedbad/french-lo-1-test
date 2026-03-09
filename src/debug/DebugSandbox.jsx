@@ -37,7 +37,6 @@ const DEBUG_LEARNING_OBJECTS = [
 	{ slug: 'daily-routine', titleShort: 'Daily routine' },
 	{ slug: 'studying-at-university', titleShort: 'Studying at university' },
 	{ slug: 'making-arrangements-2', titleShort: 'Making Arrangements' },
-	{ slug: 'demo', titleShort: 'Sample components' },
 	{ slug: 'answer-table-test', titleShort: 'Answer table test' },
 ];
 

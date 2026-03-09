@@ -162,7 +162,6 @@ function getSectionSummaries(config) {
 }
 
 function getLearningObjectBadge(slug, index) {
-	if (slug === 'demo') return 'Demo';
 	if (slug === 'answer-table-test') return 'Answer';
 	return `LO ${String(index + 1).padStart(2, '0')}`;
 }

@@ -4,9 +4,6 @@ export class LearningObjectMenu extends React.Component {
 	getLearningObjectLabel = (learningObject, index) => {
 		const slug = String(learningObject?.slug ?? '');
 		const friendlyTitle = learningObject?.titleShort || learningObject?.title || '';
-		if (slug === 'demo') {
-			return { badge: 'Demo', title: friendlyTitle || 'Sample components' };
-		}
 		if (slug === 'answer-table-test') {
 			return { badge: 'Answer', title: friendlyTitle || 'Answer table test' };
 		}
