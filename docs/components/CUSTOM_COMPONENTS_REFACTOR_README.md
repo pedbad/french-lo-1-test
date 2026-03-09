@@ -3,7 +3,7 @@
 ## Scope
 This document defines a safe, staged refactor plan for custom French learning-object components, with current focus on:
 
-- `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx`
+- `/Users/ped/Sites/french/french-lo-1/src/components/custom/registry.js`
 
 Goal: reduce monolithic structure, improve maintainability, and enforce DRY reuse without breaking existing LO behavior.
 
@@ -14,8 +14,9 @@ Goal: reduce monolithic structure, improve maintainability, and enforce DRY reus
 - Active custom components now live in:
   - `src/components/custom/grammar/*.jsx`
   - `src/components/custom/pronunciation/*.jsx`
-  - `src/components/custom/exercises/*.jsx`
   - `src/components/custom/misc/*.jsx`
+- LO-specific exercise components are now grouped under:
+  - `src/components/exercises/current-location/*.jsx`
 - Legacy monolith has been retired; custom runtime keys are owned by `src/components/custom/*`.
 
 ## Current Issues
@@ -59,7 +60,6 @@ src/components/custom/
   registry.js                   # runtime map for custom component keys
   grammar/
   pronunciation/
-  exercises/
   misc/
   shared/                       # optional next-phase reusable blocks
   data/                         # optional next-phase extracted static datasets

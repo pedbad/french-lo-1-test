@@ -387,7 +387,7 @@ Validator triage guidance:
 
 - Legacy `DropDowns` usage has been fully migrated in active FR configs.
 - Canonical select interaction component is:
-  - `src/components/SelectExercise/SelectExercise.jsx`
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
 - Legacy `DropDowns` wrapper/component files were removed on 2026-03-09.
 - Contract:
   - use `component: "SelectExercise"` in LO config
@@ -809,7 +809,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - LO4 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo4/...` in:
   - `/Users/ped/Sites/french/french-lo-1/src/lo-config/current-location.json`
   - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/current-location-pronunciation.jsx`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/exercises/current-location-exercises.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/exercises/current-location/nasal-rhyme-exercise.jsx`
 - New LO4 root:
   - `public/audio/lo4/...`
 - Migration record:
