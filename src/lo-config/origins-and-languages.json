@@ -43,7 +43,17 @@
 							"audio/lo3/dialogues/phraseTable1/005-je-viens-d-espagne.mp3",
 							"Je viens d'Espagne.",
 							"I come from Spain."
-						],
+						]
+					],
+					"titleText": "Informal questions about origin"
+				}
+			},
+			{
+				"phraseTable2": {
+					"component": "PhraseTable",
+					"id": "phraseTable2",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/006-d-ou-venez-vous-monsieur.mp3",
 							"D'où venez-vous, Monsieur ?",
@@ -58,7 +68,17 @@
 							"audio/lo3/dialogues/phraseTable1/008-ah-non-je-suis-luxembourgeoise.mp3",
 							"Ah non, je suis luxembourgeoise.",
 							"Oh no, I'm Luxemburgish."
-						],
+						]
+					],
+					"titleText": "Formal questions about origin"
+				}
+			},
+			{
+				"phraseTable3": {
+					"component": "PhraseTable",
+					"id": "phraseTable3",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/009-tu-parles-allemand.mp3",
 							"Tu parles allemand ?",
@@ -78,7 +98,17 @@
 							"audio/lo3/dialogues/phraseTable1/012-je-parle-francais-c-est-tout.mp3",
 							"Je parle français.<br />C'est tout.",
 							"I speak French.<br />That's all."
-						],
+						]
+					],
+					"titleText": "Informal questions about languages"
+				}
+			},
+			{
+				"phraseTable4": {
+					"component": "PhraseTable",
+					"id": "phraseTable4",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/013-quelles-langues-parlez-vous.mp3",
 							"Quelles langues parlez-vous ?",
@@ -100,7 +130,7 @@
 							"They're bilingual.<br />They speak French and Arabic."
 						]
 					],
-					"titleText": "Nationalities and languages"
+					"titleText": "Formal questions about languages"
 				}
 			}
 		],
