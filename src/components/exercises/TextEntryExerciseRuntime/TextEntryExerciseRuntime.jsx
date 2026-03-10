@@ -1,10 +1,7 @@
-import {
-	AudioClip,
-	IconButton,
-	Monologue,
-	ProgressDots,
-} from "@/components";
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
+import { ProgressDots } from "@/components/exercises/ProgressDots";
+import { Monologue } from "@/components/content";
+import { AudioClip, IconButton } from "@/components/media";
 import { Input } from "@/components/ui/input";
 import {
 	Table,

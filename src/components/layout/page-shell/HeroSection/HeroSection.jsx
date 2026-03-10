@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BackToTopButton, Info, InstructionCallout } from "@/components";
+import { Info, InstructionCallout } from "@/components/content";
+import { BackToTopButton } from "@/components/layout";
 import DOMPurify from "dompurify";
 import React from "react";
 import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "@/components/Section/instructions-media";

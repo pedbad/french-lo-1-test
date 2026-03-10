@@ -1,9 +1,6 @@
 // React component for bilingual memory matching game
-import {
-	Card,
-	// Congratulate,
-	IconButton
-} from "@/components";
+import { Card } from "@/components/exercises/MemoryMatchGame/Card";
+import { IconButton } from "@/components/media";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from "react";

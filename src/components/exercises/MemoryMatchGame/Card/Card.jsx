@@ -1,4 +1,4 @@
-import { AudioClip } from '@/components';
+import { AudioClip } from "@/components/media";
 import React from 'react';
 
 export class Card extends React.PureComponent {

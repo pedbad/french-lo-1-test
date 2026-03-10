@@ -3,12 +3,12 @@ import {
 	// ConcatenatedPlaylist,
 	CircularAudioProgressAnimatedSpeakerDisplay,
 	IconButton,
-	Info,
-	ProgressDots,
 	SequenceAudioController,
-} from '@/components';
+} from "@/components/media";
 import { DraggableWordTile } from './DraggableWordTile';
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
+import { ProgressDots } from "@/components/exercises/ProgressDots";
+import { Info } from "@/components/content";
 import { resolveAsset } from '@/utils/assets';
 import { shuffleArray } from '@/utils/collections';
 import { Card, CardContent } from "@/components/ui/card";

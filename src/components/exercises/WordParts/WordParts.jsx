@@ -1,10 +1,7 @@
-import {
-	AudioClip,
-	IconButton,
-	Info,
-	ProgressDots,
-} from '@/components';
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
+import { ProgressDots } from "@/components/exercises/ProgressDots";
+import { Info } from "@/components/content";
+import { AudioClip, IconButton } from "@/components/media";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from 'react';

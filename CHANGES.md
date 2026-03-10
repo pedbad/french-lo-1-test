@@ -31,6 +31,17 @@ This file summarizes the work completed in this repo during the session. It incl
     - layout from `@/components/layout`
     - exercises from `@/components/exercises`
     - feedback from `@/components/feedback`
+- Removed remaining root barrel usage in runtime component files (`from "@/components"` -> explicit domains):
+  - `src/components/layout/page-shell/HeroSection/HeroSection.jsx`
+  - `src/components/exercises/DraggableFillGaps/DraggableFillGapsRuntime.jsx`
+  - `src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx`
+  - `src/components/exercises/MemoryMatchGame/Card/Card.jsx`
+  - `src/components/exercises/MemoryMatchGame/MemoryMatchGame.jsx`
+  - `src/components/exercises/RadioQuiz/RadioQuiz.jsx`
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - `src/components/exercises/Sortable/Sortable.jsx`
+  - `src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
+  - `src/components/exercises/WordParts/WordParts.jsx`
 - Validation:
   - `yarn build`
   - `yarn prepush:local`

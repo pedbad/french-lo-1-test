@@ -7,7 +7,7 @@ import {
 	// Radio,
 	// RadioField,
 	// RadioGroup,
-} from '@/components';
+} from "@/components/media";
 import {
 	Table,
 	TableBody,
