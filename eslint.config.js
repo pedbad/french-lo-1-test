@@ -81,6 +81,21 @@ export default [
 			"no-multi-spaces": [
 				"warn"
 			],
+			"no-restricted-imports": [
+				"error",
+				{
+					"paths": [
+						{
+							"message": "Import from domain barrels instead (for example @/components/content, @/components/layout, @/components/media, @/components/exercises, @/components/custom, @/components/feedback).",
+							"name": "@/components"
+						},
+						{
+							"message": "Import from domain barrels instead of the root components barrel.",
+							"name": "./components"
+						}
+					]
+				}
+			],
 			"no-self-assign": [
 				"warn"
 			],

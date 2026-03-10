@@ -46,6 +46,18 @@ This file summarizes the work completed in this repo during the session. It incl
   - `yarn build`
   - `yarn prepush:local`
 
+## 2026-03-10 - Root Barrel Import Guard (Batch C2)
+
+- Added lint guard to prevent runtime drift back to root `components` barrel imports:
+  - `eslint.config.js`
+    - added `no-restricted-imports` for:
+      - `@/components`
+      - `./components`
+- Updated component architecture standard to match guard policy:
+  - `docs/components/COMPONENT_TREE_STANDARD.md`
+    - runtime import rule now requires domain barrels only
+    - enforcement checklist now includes root-barrel prohibition
+
 ## 2026-03-10 - Unused Component Cleanup (Batch 3)
 
 - Removed dead runtime exercise engines no longer referenced by LO config:

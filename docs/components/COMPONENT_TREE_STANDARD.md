@@ -75,7 +75,9 @@ src/components/
 
 2. Barrel policy
 - allow/maintain domain barrels (`components/content/index.js`, `components/layout/index.js`, `components/media/index.js`, `components/feedback/index.js`, `components/exercises/index.js`, `components/custom/index.js`).
-- keep root barrel as domain-level export aggregator; avoid re-expanding it into a long per-component export list.
+- keep root barrel as domain-level export aggregator only.
+- runtime files must not import from root barrel (`@/components` or `./components`).
+- enforce via ESLint `no-restricted-imports` in `eslint.config.js`.
 
 3. Path consistency
 - prefer alias paths (`@/components/...`) over deep relative chains.
@@ -108,4 +110,5 @@ src/components/
 - [ ] New helpers are camelCase.
 - [ ] LO-specific components use slugs, not numeric ids.
 - [ ] No orphaned legacy paths after migration.
+- [ ] Runtime imports do not use root components barrel (`@/components` / `./components`).
 - [ ] `yarn build` passes.
