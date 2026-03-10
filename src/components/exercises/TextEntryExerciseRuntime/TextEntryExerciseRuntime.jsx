@@ -4,7 +4,7 @@ import {
 	Monologue,
 	ProgressDots,
 } from "@/components";
-import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { Input } from "@/components/ui/input";
 import {
 	Table,

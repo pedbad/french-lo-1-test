@@ -38,7 +38,7 @@ Why this is best practice for maintenance:
 4. Easier handover: new contributors follow a predictable pattern.
 
 Concrete example from this repo:
-1. Exercise action buttons moved from repeated per-component class strings to shared `cva` variants in `src/components/exerciseActionButtonVariants.js`.
+1. Exercise action buttons moved from repeated per-component class strings to shared `cva` variants in `src/components/exercises/shared/exerciseActionButtonVariants.js`.
 2. Result: color/state/visibility rules are edited once and reused everywhere.
 
 ## Common SCSS -> Tailwind Mappings
@@ -165,7 +165,7 @@ Why:
 2. Keep behavior/style composition in one file for easier refactor safety.
 
 Implementation:
-1. Define variants once in `src/components/exerciseActionButtonVariants.js`.
+1. Define variants once in `src/components/exercises/shared/exerciseActionButtonVariants.js`.
 2. Consume in components with explicit intent:
 
 ```jsx

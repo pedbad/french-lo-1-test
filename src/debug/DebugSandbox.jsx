@@ -6,7 +6,7 @@ import { IconButton } from '../components/IconButton';
 import { InstructionCallout } from '../components/InstructionCallout';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
 import { INSTRUCTION_TEXT_CLASS } from '../components/Section/instructions-media';
-import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -390,7 +390,7 @@ yarn preview`}</code>
 							The exercise action button contract is defined with{" "}
 							<code className="rounded bg-muted px-1 py-0.5 text-xs">cva</code> in{" "}
 							<code className="rounded bg-muted px-1 py-0.5 text-xs">
-								src/components/exerciseActionButtonVariants.js
+								src/components/exercises/shared/exerciseActionButtonVariants.js
 							</code>
 							. Components choose semantic variants (for example{" "}
 							<code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "warn"</code>,{" "}

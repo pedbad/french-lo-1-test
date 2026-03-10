@@ -1,5 +1,5 @@
 import { SequenceAudioController } from "@/components/SequenceAudioController";
-import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { resolveAsset } from "@/utils/assets";

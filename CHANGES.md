@@ -2,6 +2,29 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-10 - Component Structure Cleanup (Exercise Shared Helper)
+
+- Moved shared exercise action-button variant helper out of root components folder:
+  - `src/components/exerciseActionButtonVariants.js`
+  - -> `src/components/exercises/shared/exerciseActionButtonVariants.js`
+- Updated all exercise/debug imports to the new semantic path:
+  - `src/components/exercises/DraggableFillGaps/DraggableFillGapsRuntime.jsx`
+  - `src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx`
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - `src/components/exercises/SequenceOrder/SequenceOrder.jsx`
+  - `src/components/exercises/Sortable/Sortable.jsx`
+  - `src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
+  - `src/components/exercises/WordParts/WordParts.jsx`
+  - `src/components/exercises/current-location/nasal-rhyme-exercise.jsx`
+  - `src/debug/DebugSandbox.jsx`
+- Updated docs to keep component tree source-of-truth aligned:
+  - `docs/components/COMPONENT_TREE_STANDARD.md`
+  - `docs/process/TASKS_COMPLETED.md`
+  - `docs/styling/SCSS_TO_TAILWIND_REFACTOR_PLAN.md`
+  - `docs/styling/TAILWIND_MIGRATION_CHEATSHEET.md`
+- Validation:
+  - `yarn build` passes.
+
 ## 2026-03-10 - Unused Component Audit + Dead Code Removal (Batch 2)
 
 - Removed unused custom misc demo component:

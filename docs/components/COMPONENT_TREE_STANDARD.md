@@ -12,6 +12,7 @@ src/components/
 |- ui/                     # shadcn/Radix primitives only
 |- exercises/              # exercise engines + LO-specific exercise modules
 |  |- <engine-name>/
+|  |- shared/             # shared exercise-only helpers/variants
 |  |- <lo-slug>/          # only when exercise is LO-specific
 |- custom/                 # custom non-exercise authored blocks
 |  |- grammar/
@@ -41,7 +42,7 @@ src/components/
 - camelCase
 - examples:
   - `instructionCues.js`
-  - `exerciseActionButtonVariants.js`
+  - `exercises/shared/exerciseActionButtonVariants.js`
   - `registry.js`
 
 4. LO-specific naming

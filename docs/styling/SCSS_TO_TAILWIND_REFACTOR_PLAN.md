@@ -244,7 +244,7 @@ These are accepted refinements from peer review, adapted to this repo:
     - `src/components/DropDowns/DropDowns.jsx`
     - `src/components/WordParts/WordParts.jsx`
   - [x] introduced shared `cva` button variant API:
-    - `src/components/exerciseActionButtonVariants.js`
+    - `src/components/exercises/shared/exerciseActionButtonVariants.js`
   - [x] migrated exercise action buttons to the shared `cva` API in:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`

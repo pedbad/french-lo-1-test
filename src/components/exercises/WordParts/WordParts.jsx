@@ -4,7 +4,7 @@ import {
 	Info,
 	ProgressDots,
 } from '@/components';
-import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import React from 'react';

@@ -3,7 +3,7 @@ import { IconButton } from "@/components/IconButton";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { SortableWordCard } from "@/components/exercises/SortableWordCard/SortableWordCard";
-import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";

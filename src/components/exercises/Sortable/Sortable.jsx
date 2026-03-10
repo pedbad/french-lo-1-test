@@ -5,7 +5,7 @@ import {
 	Info,
 	ProgressDots,
 } from "@/components";
-import { exerciseActionButtonVariants } from "@/components/exerciseActionButtonVariants";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import React from "react";
 import { SortableWordCard } from "@/components/exercises/SortableWordCard/SortableWordCard";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";

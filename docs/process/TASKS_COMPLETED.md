@@ -426,7 +426,7 @@ Why this goal mattered (explicit):
     - `src/components/DropDowns/DropDowns.jsx`
     - `src/components/WordParts/WordParts.jsx`
   - [x] added shared `cva` exercise action button variant layer:
-    - `src/components/exerciseActionButtonVariants.js`
+    - `src/components/exercises/shared/exerciseActionButtonVariants.js`
   - [x] migrated exercise action button class composition to shared `cva` API in:
     - `src/components/Sortable/Sortable.jsx`
     - `src/components/SequenceOrder/SequenceOrder.jsx`
