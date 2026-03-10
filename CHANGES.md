@@ -2,6 +2,30 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-10 - Component Tree Standard + Docs Drift Sync
+
+- Added canonical component tree/naming contract:
+  - `docs/components/COMPONENT_TREE_STANDARD.md`
+- Updated README migration tracker links:
+  - `README.md`
+    - added `COMPONENT_TREE_STANDARD.md` as source-of-truth for folder and naming conventions
+- Synced active architecture audit doc to current runtime (monolith retired, registry/domain split live):
+  - `docs/components/COMPONENT_ARCHITECTURE_AUDIT.md`
+    - updated current runtime source to `src/components/custom/registry.js`
+    - updated target custom paths to `src/components/custom/{grammar,pronunciation,misc}`
+    - marked monolithic `CustomComponents_FR.jsx` risk as resolved
+- Synced active TODO docs to current component locations:
+  - `docs/grammar/GRAMMAR_TODO.md`
+  - `docs/grammar/GRAMMAR_TASK_CHECKLIST.md`
+  - `docs/pronunciation/PRONUNCIATION_TODO.md`
+  - `docs/audio/AUDIO_TODO.md`
+- Synced active audio migration maps/blocker docs to current component locations:
+  - `docs/audio/AUDIO_LO2_MIGRATION_MAP.md`
+  - `docs/audio/AUDIO_LO3_MIGRATION_MAP.md`
+  - `docs/audio/AUDIO_LO4_MIGRATION_MAP.md`
+  - `docs/audio/LO2_AUDIO_BLOCKERS.md`
+  - `docs/audio/LO4_AUDIO_BLOCKERS.md`
+
 ## 2026-03-09 - Legacy Exercise Wrapper Cleanup (Runtime + Structure)
 
 - Removed unused legacy wrapper/component paths:

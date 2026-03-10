@@ -2,7 +2,8 @@
 
 ## Scope
 - `src/lo-config/origins-and-languages.json`
-- `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
+- `src/components/custom/grammar/origins-and-languages-grammar.jsx`
+- `src/components/custom/pronunciation/origins-and-languages-pronunciation.jsx`
 
 ## Summary
 - Unique legacy refs: **140**

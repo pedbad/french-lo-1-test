@@ -2,7 +2,8 @@
 
 ## Scope
 - `src/lo-config/current-location.json`
-- `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (LO4 blocks only: `LO4Demystify`, `LO4EX1`)
+- `src/components/custom/pronunciation/current-location-pronunciation.jsx`
+- `src/components/exercises/current-location/nasal-rhyme-exercise.jsx`
 
 ## Summary
 - Unique legacy refs: **61**

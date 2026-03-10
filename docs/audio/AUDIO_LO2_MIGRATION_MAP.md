@@ -6,7 +6,9 @@ Phase 2 has now been executed for all existing refs (75 files copied + rewritten
 ## Scope
 
 - Config source: `src/lo-config/about-me.json`
-- Custom component source: `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar`, `LO2Demystify`)
+- Custom component sources:
+  - `src/components/custom/grammar/about-me-grammar.jsx`
+  - `src/components/custom/pronunciation/about-me-pronunciation.jsx`
 
 ## Summary
 
@@ -38,7 +40,8 @@ Note:
   - 75 files copied to `public/audio/lo2/...`
   - LO2 refs rewritten in:
     - `src/lo-config/about-me.json`
-    - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (LO2 blocks only)
+    - `src/components/custom/grammar/about-me-grammar.jsx`
+    - `src/components/custom/pronunciation/about-me-pronunciation.jsx`
 - Initial unresolved refs are listed in the blocker section below (now resolved).
 
 ## Blockers (Initial Missing Source Files, Now Resolved)

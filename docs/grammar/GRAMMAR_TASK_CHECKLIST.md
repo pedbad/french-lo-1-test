@@ -11,7 +11,7 @@
 - [x] Add section-level instructional framing for parity with LO1 (if approved).
 
 ## Component Refactor
-- [x] Split `LO2Grammar` into focused components (`LO2Grammar1`, `LO2Grammar2`, `LO2Grammar3`) in `src/components/CustomComponents_FR/CustomComponents_FR.jsx`.
+- [x] Split `LO2Grammar` into focused components (`LO2Grammar1`, `LO2Grammar2`, `LO2Grammar3`) in `src/components/custom/grammar/about-me-grammar.jsx`.
 - [ ] Preserve existing content order and audio references.
 - [x] Ensure each subsection remains independently maintainable.
 - [x] Implement immediate LO1 parity by rendering LO2 Grammar via `AccordionArticle` (same hover/expand/card behavior).

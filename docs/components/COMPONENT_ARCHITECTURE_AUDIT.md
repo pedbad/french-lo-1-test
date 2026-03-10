@@ -9,9 +9,9 @@ It is intended to prevent architecture drift while we continue LO-by-LO refactor
 
 1. Shared reusable components are rendered directly from config keys in `src/lo-config/*.json`.
 2. `src/App.jsx` resolves known component keys via explicit switch cases.
-3. Unknown keys are resolved through custom FR registry access:
+3. Unknown keys are resolved through the custom registry:
    - `AllCustomComponentsFR[component]`
-   - source: `src/components/CustomComponents_FR/CustomComponents_FR.jsx`
+   - source: `src/components/custom/registry.js`
 
 This means the app currently has two delivery paths:
 - reusable shared engines (`PhraseTable`, `InlineChoiceGroup`, `SelectExercise`, `DraggableFillGaps`, etc.)
@@ -19,19 +19,18 @@ This means the app currently has two delivery paths:
 
 ## Audit Findings
 
-### 1) Monolithic custom file
-- `src/components/CustomComponents_FR/CustomComponents_FR.jsx` is very large (3500+ lines).
-- It combines many unrelated concerns (multiple LOs, grammar, pronunciation, special exercises, demo-only content).
-- Risk:
-  - difficult review/debugging
-  - merge conflicts
-  - hidden regressions from unrelated edits
+### 1) Monolithic custom file risk (resolved)
+- The former monolith `src/components/CustomComponents_FR/CustomComponents_FR.jsx` has been retired.
+- Custom content is now split by domain:
+  - `src/components/custom/grammar/*.jsx`
+  - `src/components/custom/pronunciation/*.jsx`
+  - `src/components/custom/misc/*.jsx`
+- Registry remains explicit in `src/components/custom/registry.js`.
 
 ### 2) Naming drift
 - Legacy and semantic names coexist:
-  - `Blanks` and `DraggableFillGaps`
-  - `DropDowns` and `SelectExercise`
-  - `AnswerTable` alongside semantic wrappers (`TypedTransformExercise`, `DictationExercise`)
+  - modern semantic names now dominate (`DraggableFillGaps`, `SelectExercise`, `TypedTransformExercise`, `DictationExercise`)
+  - residual references to legacy names still exist mainly in historical docs/changelogs
 - Risk:
   - config ambiguity
   - slower onboarding
@@ -63,10 +62,10 @@ This is the correct foundation; remaining drift is mostly structural/naming and 
 - `src/components/ui/*` for shadcn primitives only
 
 ### B) Custom French authored blocks by domain
-- `src/components/custom/fr/grammar/*`
-- `src/components/custom/fr/pronunciation/*`
-- `src/components/custom/fr/misc/*`
-- `src/components/custom/fr/registry.js` as explicit registry map
+- `src/components/custom/grammar/*`
+- `src/components/custom/pronunciation/*`
+- `src/components/custom/misc/*`
+- `src/components/custom/registry.js` as explicit registry map
 
 ### C) Config contract
 - JSON remains content/data first.
@@ -76,17 +75,16 @@ This is the correct foundation; remaining drift is mostly structural/naming and 
 ## Migration Plan (low risk, phased)
 
 ### Phase 1 - Non-breaking structural split
-- Split `CustomComponents_FR.jsx` by domain files.
-- Keep exported names unchanged.
-- Add `src/components/custom/fr/registry.js`.
-- Wire `App.jsx` to registry import (no behavior change).
+- Status: completed.
+- `CustomComponents_FR.jsx` split by domain files.
+- `App.jsx` wired to `src/components/custom/registry.js`.
 
 ### Phase 2 - Naming convergence
 - Migrate config keys from legacy names to semantic names:
   - `DropDowns` -> `SelectExercise` or `InlineChoiceGroup` as appropriate
   - `Blanks` -> `DraggableFillGaps`
   - generic `AnswerTable` -> semantic wrappers where behavior differs
-- Keep compatibility aliases until all LOs are migrated.
+- Keep compatibility aliases only where still required by active config.
 
 ### Phase 3 - Remove dead/legacy paths
 - Remove unused component directories after usage confirmation.

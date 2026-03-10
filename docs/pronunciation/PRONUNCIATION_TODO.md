@@ -7,7 +7,9 @@
   - `src/lo-config/first-contact.json`
   - `src/lo-config/about-me.json`
   - `src/App.jsx` (Group + Tabs rendering path)
-  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx`
+  - `src/components/custom/pronunciation/about-me-pronunciation.jsx`
+  - `src/components/custom/pronunciation/first-contact-pronunciation.jsx`
+  - `src/components/custom/registry.js`
 
 ## Problem Statement
 - Pronunciation architecture is inconsistent:

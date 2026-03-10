@@ -17,14 +17,16 @@ This caused overlap bugs where users could trigger several audio clips concurren
 - Mapping file created: `AUDIO_LO2_MIGRATION_MAP.md`
 - Scope covered:
   - `src/lo-config/about-me.json`
-  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Grammar`, `LO2Demystify`)
+  - `src/components/custom/grammar/about-me-grammar.jsx`
+  - `src/components/custom/pronunciation/about-me-pronunciation.jsx`
 - Result:
   - 78 unique legacy LO2 audio refs mapped to proposed `audio/lo2/...` targets.
   - Phase 2 executed for all existing refs:
     - 75 files copied to `public/audio/lo2/...`
     - LO2 refs rewritten from `sounds/fr/...` to `audio/lo2/...` in:
       - `src/lo-config/about-me.json`
-      - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (LO2 blocks only)
+      - `src/components/custom/grammar/about-me-grammar.jsx`
+      - `src/components/custom/pronunciation/about-me-pronunciation.jsx`
   - Initial 3 missing refs were resolved using controlled fallback files:
     - `sounds/fr/Je m'appelle.mp3`
     - `sounds/fr/Je m&apos;appelle.mp3`
@@ -38,7 +40,8 @@ This caused overlap bugs where users could trigger several audio clips concurren
 
 - Scope covered:
   - `src/lo-config/origins-and-languages.json`
-  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO3Grammar`, `LO3Demystify`)
+  - `src/components/custom/grammar/origins-and-languages-grammar.jsx`
+  - `src/components/custom/pronunciation/origins-and-languages-pronunciation.jsx`
 - Result:
   - 140 unique legacy LO3 refs mapped (`sounds/fr/...` -> `audio/lo3/...`)
   - 140 files copied to `public/audio/lo3/...`
@@ -53,7 +56,8 @@ This caused overlap bugs where users could trigger several audio clips concurren
 
 - Scope covered:
   - `src/lo-config/current-location.json`
-  - `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO4Demystify`, `LO4EX1`)
+  - `src/components/custom/pronunciation/current-location-pronunciation.jsx`
+  - `src/components/exercises/current-location/nasal-rhyme-exercise.jsx`
 - Result:
   - 61 unique legacy LO4 refs mapped (`sounds/fr/...` -> `audio/lo4/...`)
   - 62 references rewritten (includes both `sounds/fr/ain.mp3` and `/sounds/fr/ain.mp3` forms)

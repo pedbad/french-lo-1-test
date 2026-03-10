@@ -22,8 +22,8 @@ The following legacy refs were initially unresolved:
   - pronunciation HTML block:
     - `/sounds/fr/Salut.mp3`
     - `/sounds/fr/Je m&apos;appelle.mp3`
-- `src/components/CustomComponents_FR/CustomComponents_FR.jsx`
-  - `LO2Demystify` block:
+- `src/components/custom/pronunciation/about-me-pronunciation.jsx`
+  - pronunciation block:
     - `sounds/fr/Salut.mp3`
     - `sounds/fr/Je m'appelle.mp3`
 
@@ -41,7 +41,7 @@ The following legacy refs were initially unresolved:
 ## Important note (non-LO2 scope)
 
 There was also a non-LO2 usage of `Je m'appelle.mp3` in:
-- `src/components/CustomComponents_FR/CustomComponents_FR.jsx` line ~2203
+- historical monolith `src/components/CustomComponents_FR/CustomComponents_FR.jsx` line ~2203
 
 During this pass, that non-LO2 usage was explicitly redirected to an LO1 canonical file:
 - `audio/lo1/vocabulary/022-je-mappelle.mp3`
@@ -57,7 +57,7 @@ For LO2-only blockers, fallback files were created under LO2 paths:
 
 Then all remaining LO2 references were rewritten to these LO2 targets in:
 - `src/lo-config/about-me.json`
-- `src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2Demystify`)
+- `src/components/custom/pronunciation/about-me-pronunciation.jsx`
 
 ## Current status
 
