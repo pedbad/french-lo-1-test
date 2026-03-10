@@ -135,6 +135,7 @@ Add these from day one to avoid late cleanup projects:
    - if legacy query params are supported, redirect/canonicalize to slug path.
 14. If the app is single-language in production, do not keep dormant `?lang=` runtime routing; hard-wire one language config source and remove dead multi-language branches early.
 15. If infrastructure cannot guarantee rewrite support, do not choose client-side SPA-only slug routing. Prefer static pre-rendered route files (per language/per LO) so clean paths work without `.htaccess`/server rewrites.
+16. For top navigation, do not keep desktop render, mobile render, nav data shaping, and scroll-highlight orchestration in one monolithic component file. Split them into small modules from day one.
 
 ## What To Avoid In Future Projects
 
@@ -230,6 +231,36 @@ Use this checklist whenever adding/refactoring an LO section (especially Grammar
    - Avoid extra nested `.container` wrappers that introduce additional horizontal padding layers and visual drift.
 5. Documentation parity check
    - Update README + task checklist immediately when architecture decisions differ from baseline so drift is visible early.
+
+### Responsive Navigation Pattern (Carry Forward)
+
+Use this pattern for all future projects that need a desktop nav + hamburger mobile nav:
+
+1. Keep structure and behavior separate
+   - Use shadcn/Radix primitives for structure (`NavigationMenu`, optional `Sheet`).
+   - Keep responsive orchestration (open/close/highlight/scroll offsets) in dedicated helper/hook files.
+
+2. Avoid monolithic menu files
+   - Split into:
+     - container/orchestrator
+     - desktop nav renderer
+     - mobile panel renderer
+     - actions block (theme toggle + hamburger)
+     - pure nav-entry mapping helper
+
+3. Preserve semantic accessibility defaults
+   - Keep one primary navigation landmark for one IA.
+   - If mobile panel duplicates same links, use non-primary container semantics for the panel shell.
+   - Keep keyboard close behavior (`Escape`) and explicit control wiring (`aria-controls`, `aria-expanded`).
+
+4. Keep one visual contract
+   - Tokenized Tailwind classes remain the source of truth.
+   - Do not create separate ad hoc style systems for desktop vs mobile nav.
+
+5. Add focused behavior tests early
+   - highlight update on scroll
+   - mobile open/close
+   - nav click behavior
 
 ### Semantic Emphasis Rule (Carry Forward)
 
