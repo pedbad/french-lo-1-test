@@ -18,8 +18,12 @@ src/components/
 |  |- pronunciation/
 |  |- misc/
 |  |- registry.js
+|- content/                # domain barrel for content-oriented shared components
+|- layout/                 # domain barrel for header/footer/nav/page shell
+|- media/                  # domain barrel for audio/image/icon shared components
+|- feedback/               # domain barrel for cross-cutting feedback/system components
 |- <feature folders>       # shared app components (header/footer/section/etc.)
-|- index.js                # root barrel (to be reduced over time)
+|- index.js                # root barrel exports domain barrels
 ```
 
 ## Naming Rules
@@ -69,8 +73,8 @@ src/components/
 - relative imports
 
 2. Barrel policy
-- allow domain barrels (`components/exercises/index.js`, `components/custom/index.js`).
-- avoid adding new broad wildcard exports in root barrel unless necessary.
+- allow/maintain domain barrels (`components/content/index.js`, `components/layout/index.js`, `components/media/index.js`, `components/feedback/index.js`, `components/exercises/index.js`, `components/custom/index.js`).
+- keep root barrel as domain-level export aggregator; avoid re-expanding it into a long per-component export list.
 
 3. Path consistency
 - prefer alias paths (`@/components/...`) over deep relative chains.

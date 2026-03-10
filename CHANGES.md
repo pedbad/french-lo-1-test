@@ -38,6 +38,21 @@ This file summarizes the work completed in this repo during the session. It incl
   - scanned source imports/usages (no runtime imports from `src/components/Form`)
   - `yarn build` passes after deletion
 
+## 2026-03-10 - Split Root Component Barrel into Domain Barrels
+
+- Added domain barrel modules:
+  - `src/components/content/index.js`
+  - `src/components/layout/index.js`
+  - `src/components/media/index.js`
+  - `src/components/feedback/index.js`
+- Refactored root barrel:
+  - `src/components/index.js`
+    - now exports domain barrels (`content`, `layout`, `media`, `feedback`) plus existing `custom` and `exercises` barrels
+    - removed long per-component export list
+- Validation:
+  - existing imports from `@/components` and `./components` preserved
+  - `yarn build` passes
+
 ## 2026-03-09 - Legacy Exercise Wrapper Cleanup (Runtime + Structure)
 
 - Removed unused legacy wrapper/component paths:
