@@ -26,6 +26,18 @@ This file summarizes the work completed in this repo during the session. It incl
   - `docs/audio/LO2_AUDIO_BLOCKERS.md`
   - `docs/audio/LO4_AUDIO_BLOCKERS.md`
 
+## 2026-03-10 - Remove Legacy `Form` Namespace (Dead Code)
+
+- Removed unused legacy component namespace:
+  - deleted `src/components/Form/**`
+- Removed root barrel export for removed namespace:
+  - `src/components/index.js`
+    - removed `export * from './Form';`
+- Validation:
+  - scanned all LO configs in `src/lo-config/*.json` (no Form component keys in use)
+  - scanned source imports/usages (no runtime imports from `src/components/Form`)
+  - `yarn build` passes after deletion
+
 ## 2026-03-09 - Legacy Exercise Wrapper Cleanup (Runtime + Structure)
 
 - Removed unused legacy wrapper/component paths:

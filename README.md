@@ -558,6 +558,10 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_TODO.md` (phased utility extraction tasks)
 - `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_CHECKLIST.md` (batch/PR verification checklist for utility refactor)
 
+Component cleanup status:
+- Legacy `src/components/Form/**` namespace has been removed as dead code.
+- Runtime form/select/dialog primitives now come from shadcn/UI paths (`src/components/ui/*`) and exercise-specific components.
+
 DOM semantics contract (current migration target):
 - one primary nav landmark for the main IA (`header > nav`), while preserving responsive behavior
 - mobile dropdown remains responsive but should not be a second primary `nav` for the same links (use a region/container)

@@ -8,7 +8,6 @@ export * from './ErrorLog';
 export * from './Explanation';
 export * from './Figure';
 export * from './Footer';
-export * from './Form';
 export * from './Header';
 export * from './Image';
 export * from './Info';
