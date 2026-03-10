@@ -1181,11 +1181,13 @@
 	/* Shared progressive reveal pattern used by exercise action controls. */
 	.hidden-help {
 		opacity: 0;
+		pointer-events: none;
 		transition: opacity 4s;
 	}
 
 	.hidden-help.show {
 		opacity: 1;
+		pointer-events: auto;
 	}
 
 	/* Shared draggable tile hint overlay + spacing extracted from DraggableWordTile.scss. */
