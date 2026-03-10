@@ -187,41 +187,41 @@ export class WordParts extends React.PureComponent {
 				}
 			}
 
-				phraseList.push(
-					<p key={`${id}-phraseLine${i}`}>{ phrase }</p>
-				);
-			}
+			phraseList.push(
+				<p key={`${id}-phraseLine${i}`}>{ phrase }</p>
+			);
+		}
 
-			const rows = [];
-			for (let i = 0; i < items.length; i++){
+		const rows = [];
+		for (let i = 0; i < items.length; i++){
 			const phrase = items[i].text;
 			const cells = [];
-				if (phrase[0] === '' && phrase.length === 1) {
-					// blank row
-					rows.push(
-						<div className="word-parts-row spacer" key={`row${i}`} aria-hidden="true" />
-					);
-				} else {
-					const soundFile = `${items[i].audio}`;
-					cells.push(
-						<div className="word-parts-audio-cell" key={`row${i}cell1`}>
-							<AudioClip className={`super-compact-speaker`} soundFile={soundFile} />
-						</div>
-					);
+			if (phrase[0] === '' && phrase.length === 1) {
+				// blank row
+				rows.push(
+					<div className="word-parts-row spacer" key={`row${i}`} aria-hidden="true" />
+				);
+			} else {
+				const soundFile = `${items[i].audio}`;
+				cells.push(
+					<div className="word-parts-audio-cell" key={`row${i}cell1`}>
+						<AudioClip className={`super-compact-speaker`} soundFile={soundFile} />
+					</div>
+				);
 
-					cells.push(
-						<div className="word-parts-text-cell" key={`row${i}cell2`}>
-							{phraseList[i]}
-						</div>
-					);
+				cells.push(
+					<div className="word-parts-text-cell" key={`row${i}cell2`}>
+						{phraseList[i]}
+					</div>
+				);
 
-					rows.push(
-						<div className="word-parts-row" key={`row${i}`} role="listitem">
-							{cells}
-						</div>
-					);
-				}
+				rows.push(
+					<div className="word-parts-row" key={`row${i}`} role="listitem">
+						{cells}
+					</div>
+				);
 			}
+		}
 		this.nToSolve = nToSolve;
 		return (
 			<div
@@ -235,45 +235,45 @@ export class WordParts extends React.PureComponent {
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
 
-					<div className={`word-parts-grid ${WORD_PARTS_TEXT_CLASS}`} role="list" aria-label="Pronunciation feature lines">
-						{rows}
-					</div>
+				<div className={`word-parts-grid ${WORD_PARTS_TEXT_CLASS}`} role="list" aria-label="Pronunciation feature lines">
+					{rows}
+				</div>
 
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 				<ProgressDots correct={nPlaced} total={nToSolve} />
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 
-					<div className="exercise-help exercise-help-end">
-						<IconButton
-							ariaLabel={cheatText}
-							className={exerciseActionButtonVariants({
-								progressive: true,
-								role: "reveal",
-								tone: "warn",
-								visible: failCount >= 2,
-							})}
-							disabled={nPlaced === this.nToSolve}
-							onClick={this.autoSolve}
-							theme={`eye`}
-							variant="default"
-						>
-							<span className="exercise-icon-button-label">{cheatText}</span>
-						</IconButton>
-						<IconButton
-							ariaLabel="Reset"
-							className={exerciseActionButtonVariants({
-								progressive: true,
-								role: "reset",
-								tone: "neutral",
-								visible: nPlaced >= 1 || failCount >= 1 || complete,
-							})}
-							onClick={this.handleReset}
-							theme={`reset`}
-							variant="outline"
-						>
-							<span className="exercise-icon-button-label">Reset</span>
-						</IconButton>
-					</div>
+				<div className="exercise-help exercise-help-end">
+					<IconButton
+						ariaLabel={cheatText}
+						className={exerciseActionButtonVariants({
+							progressive: true,
+							role: "reveal",
+							tone: "warn",
+							visible: failCount >= 2,
+						})}
+						disabled={nPlaced === this.nToSolve}
+						onClick={this.autoSolve}
+						theme={`eye`}
+						variant="default"
+					>
+						<span className="exercise-icon-button-label">{cheatText}</span>
+					</IconButton>
+					<IconButton
+						ariaLabel="Reset"
+						className={exerciseActionButtonVariants({
+							progressive: true,
+							role: "reset",
+							tone: "neutral",
+							visible: nPlaced >= 1 || failCount >= 1 || complete,
+						})}
+						onClick={this.handleReset}
+						theme={`reset`}
+						variant="outline"
+					>
+						<span className="exercise-icon-button-label">Reset</span>
+					</IconButton>
+				</div>
 			</div>
 		);
 	};

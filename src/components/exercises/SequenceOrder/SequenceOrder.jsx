@@ -257,40 +257,40 @@ export class SequenceOrder extends React.PureComponent {
 				<ProgressDots correct={correctCount} total={total} />
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 
-					<div className="exercise-actions-row">
-						{showReveal ? (
-							<IconButton
-								ariaLabel={cheatText}
-								className={exerciseActionButtonVariants({ tone: "warn" })}
-								onClick={this.handleShowAnswer}
-								theme="eye"
-								variant="default"
-							>
-								<span className="exercise-icon-button-label">{cheatText}</span>
-							</IconButton>
-						) : null}
-						{showReset ? (
-							<IconButton
-								ariaLabel="Reset"
-								className={exerciseActionButtonVariants({ tone: "neutral" })}
-								onClick={this.handleReset}
-								theme="reset"
-								variant="default"
-							>
-								<span className="exercise-icon-button-label">Reset</span>
-							</IconButton>
-						) : null}
+				<div className="exercise-actions-row">
+					{showReveal ? (
 						<IconButton
-							ariaLabel="Check answers"
-							className={exerciseActionButtonVariants({ tone: "primary" })}
-							disabled={!canCheck}
-							onClick={this.handleCheckAnswers}
-							theme="check"
+							ariaLabel={cheatText}
+							className={exerciseActionButtonVariants({ tone: "warn" })}
+							onClick={this.handleShowAnswer}
+							theme="eye"
 							variant="default"
 						>
-							<span className="exercise-icon-button-label">Check answers</span>
+							<span className="exercise-icon-button-label">{cheatText}</span>
 						</IconButton>
-					</div>
+					) : null}
+					{showReset ? (
+						<IconButton
+							ariaLabel="Reset"
+							className={exerciseActionButtonVariants({ tone: "neutral" })}
+							onClick={this.handleReset}
+							theme="reset"
+							variant="default"
+						>
+							<span className="exercise-icon-button-label">Reset</span>
+						</IconButton>
+					) : null}
+					<IconButton
+						ariaLabel="Check answers"
+						className={exerciseActionButtonVariants({ tone: "primary" })}
+						disabled={!canCheck}
+						onClick={this.handleCheckAnswers}
+						theme="check"
+						variant="default"
+					>
+						<span className="exercise-icon-button-label">Check answers</span>
+					</IconButton>
+				</div>
 			</div>
 		);
 	};

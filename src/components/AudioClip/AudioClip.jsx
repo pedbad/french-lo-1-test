@@ -178,7 +178,7 @@ export class AudioClip extends React.PureComponent {
 				return (
 					<label className='audio-clip' htmlFor={`${id}`}>{listenText}{listenText === '' ? '' : ':'}&nbsp;
 						<audio
-					aria-label={listenText || "Audio clip"}
+							aria-label={listenText || "Audio clip"}
 							className={`${className ? className : ''}`}
 							controls
 							id={`${id}`}

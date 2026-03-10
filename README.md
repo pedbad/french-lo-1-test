@@ -328,6 +328,16 @@ yarn check:image-path
 yarn check:image-path:branch
 ```
 
+## Audio Unicode Guardrails
+
+To avoid Unicode normalization drift in audio filenames/refs while migrating legacy audio incrementally:
+
+- `yarn check:audio-unicode` checks **staged** changes only.
+- `yarn check:audio-unicode:branch` checks branch diff vs `origin/main`.
+- `yarn fix:audio-unicode` applies NFC normalization renames (use with care).
+
+`yarn prepush:local` now uses `check:audio-unicode:branch`, so legacy untouched files in `public/sounds/fr` do not block refactor PRs.
+
 Image migration docs:
 - `/Users/ped/Sites/french/french-lo-1/docs/styling/IMAGE_MIGRATION_PLAN.md`
 - `/Users/ped/Sites/french/french-lo-1/public/img/README.md`

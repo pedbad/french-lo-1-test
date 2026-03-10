@@ -28,7 +28,7 @@ const normalizeParagraphTags = (html = "") =>
 		.replace(PARAGRAPH_CLOSE_TAG_PATTERN, "</div>");
 
 const normalizeParagraphElements = (node) => {
-	if (node == null || typeof node === "string" || typeof node === "number" || typeof node === "boolean") {
+	if (node === null || node === undefined || typeof node === "string" || typeof node === "number" || typeof node === "boolean") {
 		return node;
 	}
 	if (Array.isArray(node)) {
@@ -41,7 +41,7 @@ const normalizeParagraphElements = (node) => {
 	const normalizedChildren = normalizeParagraphElements(node.props?.children);
 
 	if (typeof node.type === "string" && node.type.toLowerCase() === "p") {
-		const { children, ...restProps } = node.props || {};
+		const { ...restProps } = node.props || {};
 		return (
 			<div {...restProps}>
 				{normalizedChildren}

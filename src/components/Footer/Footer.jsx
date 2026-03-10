@@ -18,14 +18,14 @@ export class Footer extends React.PureComponent{
 				<div className="footer-container font-semibold">
 					{/* Logo and social links container */}
 
-						<div className={`uclogo`}>
-							<a href="https://www.langcen.cam.ac.uk/" target="_blank" rel="noopener noreferrer">
-								<img src={resolveAsset('/img/common/footer/ucam-language-centre-horizontal-light.png')} className={`logo theme-light horizontal`} alt={ucLogoAlt}/>
-								<img src={resolveAsset('/img/common/footer/ucam-language-centre-vertical-light.png')} className={`logo theme-light vertical`} alt={ucLogoAlt} />
-								<img src={resolveAsset('/img/common/footer/ucam-language-centre-horizontal-dark.png')} className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
-								<img src={resolveAsset('/img/common/footer/ucam-language-centre-vertical-dark.png')} className={`logo theme-dark vertical`} alt={ucLogoAlt} />
-							</a>
-						</div>
+					<div className={`uclogo`}>
+						<a href="https://www.langcen.cam.ac.uk/" target="_blank" rel="noopener noreferrer">
+							<img src={resolveAsset('/img/common/footer/ucam-language-centre-horizontal-light.png')} className={`logo theme-light horizontal`} alt={ucLogoAlt}/>
+							<img src={resolveAsset('/img/common/footer/ucam-language-centre-vertical-light.png')} className={`logo theme-light vertical`} alt={ucLogoAlt} />
+							<img src={resolveAsset('/img/common/footer/ucam-language-centre-horizontal-dark.png')} className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
+							<img src={resolveAsset('/img/common/footer/ucam-language-centre-vertical-dark.png')} className={`logo theme-dark vertical`} alt={ucLogoAlt} />
+						</a>
+					</div>
 
 					{/* Square logos */}
 					<div className={`square-logos`}>

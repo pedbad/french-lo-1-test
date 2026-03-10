@@ -187,13 +187,13 @@ export function AccordionArticle({
 							<Card className="w-full sortable mt-2 border border-t-0 rounded-t-none">
 								<CardContent className="p-2 accordion-card-content">
 									{hasInfo ? (
-									<Info
-										id={`info-${id}`}
-										alertType={resolvedInfoAlertType}
-										informationText={informationText}
-										informationTextHTML={informationTextHTML}
-									/>
-								) : null}
+										<Info
+											id={`info-${id}`}
+											alertType={resolvedInfoAlertType}
+											informationText={informationText}
+											informationTextHTML={informationTextHTML}
+										/>
+									) : null}
 									{renderedChildren}
 								</CardContent>
 							</Card>

@@ -24,9 +24,10 @@
 		"check:scss:branch": "bash scripts/check-scss-guard.sh --against origin/main",
 		"check:image-path": "bash scripts/check-image-path-guard.sh --staged",
 		"check:image-path:branch": "bash scripts/check-image-path-guard.sh --against origin/main",
-		"check:audio-unicode": "node scripts/audio-unicode-guard.mjs --check",
+		"check:audio-unicode": "node scripts/audio-unicode-guard.mjs --staged --check",
+		"check:audio-unicode:branch": "node scripts/audio-unicode-guard.mjs --against origin/main --check",
 		"fix:audio-unicode": "node scripts/audio-unicode-guard.mjs --fix",
-		"prepush:local": "yarn lint && yarn check:typography:branch && yarn check:color:branch && yarn check:a11y:branch && yarn check:scss:branch && yarn check:image-path:branch && yarn check:audio-unicode"
+		"prepush:local": "yarn lint && yarn check:typography:branch && yarn check:color:branch && yarn check:a11y:branch && yarn check:scss:branch && yarn check:image-path:branch && yarn check:audio-unicode:branch"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.8",

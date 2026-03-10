@@ -67,33 +67,33 @@ export const SortableWordCard = React.forwardRef(function SortableWordCard(props
 		: style;
 
 	return (
-			<button
-				className={`group relative flex items-center rounded-lg border transition-[background-color,border-color,box-shadow] duration-200 ${layoutClass} ${stateClass} ${shadowClass} ${cursorClass} ${targetClass} ${className}`}
-				ref={ref}
-				style={mergedStyle}
-				type="button"
+		<button
+			className={`group relative flex items-center rounded-lg border transition-[background-color,border-color,box-shadow] duration-200 ${layoutClass} ${stateClass} ${shadowClass} ${cursorClass} ${targetClass} ${className}`}
+			ref={ref}
+			style={mergedStyle}
+			type="button"
 			{...rest}
 		>
-				{showIndex ? (
-					<span className={`inline-flex items-center justify-center rounded-full border border-[rgb(var(--color-primary-400)_/_0.45)] bg-[rgb(var(--color-primary-50)_/_0.8)] font-semibold text-[rgb(var(--color-text-secondary)_/_1)] ${stacked ? "absolute left-1.5 top-1.5 h-5 min-w-5 px-1 text-[calc(var(--font-size-sm)*0.68)] min-[1400px]:h-6 min-[1400px]:min-w-6 min-[1400px]:text-[calc(var(--font-size-sm)*0.72)]" : "h-7 min-w-7 px-2 text-xs"}`}>
-						{slotLabel}
+			{showIndex ? (
+				<span className={`inline-flex items-center justify-center rounded-full border border-[rgb(var(--color-primary-400)_/_0.45)] bg-[rgb(var(--color-primary-50)_/_0.8)] font-semibold text-[rgb(var(--color-text-secondary)_/_1)] ${stacked ? "absolute left-1.5 top-1.5 h-5 min-w-5 px-1 text-[calc(var(--font-size-sm)*0.68)] min-[1400px]:h-6 min-[1400px]:min-w-6 min-[1400px]:text-[calc(var(--font-size-sm)*0.72)]" : "h-7 min-w-7 px-2 text-xs"}`}>
+					{slotLabel}
+				</span>
+			) : null}
+			{stacked ? (
+				<>
+					<span className={`${textClass} font-semibold leading-tight text-[rgb(var(--color-text-primary)_/_1)]`}>
+						{label}
 					</span>
-				) : null}
-				{stacked ? (
-					<>
-						<span className={`${textClass} font-semibold leading-tight text-[rgb(var(--color-text-primary)_/_1)]`}>
-							{label}
-						</span>
-						<Icon className={`${iconClass} text-[rgb(var(--color-primary-400)_/_0.95)] transition group-hover:text-[rgb(var(--color-primary-400)_/_1)]`} />
-					</>
-				) : (
-					<>
-						<Icon className={`${iconClass} text-[rgb(var(--color-primary-400)_/_0.95)] transition group-hover:text-[rgb(var(--color-primary-400)_/_1)]`} />
-						<span className={`${textClass} font-semibold leading-tight text-[rgb(var(--color-text-primary)_/_1)]`}>
-							{label}
-						</span>
-					</>
-				)}
-			</button>
-		);
-	});
+					<Icon className={`${iconClass} text-[rgb(var(--color-primary-400)_/_0.95)] transition group-hover:text-[rgb(var(--color-primary-400)_/_1)]`} />
+				</>
+			) : (
+				<>
+					<Icon className={`${iconClass} text-[rgb(var(--color-primary-400)_/_0.95)] transition group-hover:text-[rgb(var(--color-primary-400)_/_1)]`} />
+					<span className={`${textClass} font-semibold leading-tight text-[rgb(var(--color-text-primary)_/_1)]`}>
+						{label}
+					</span>
+				</>
+			)}
+		</button>
+	);
+});

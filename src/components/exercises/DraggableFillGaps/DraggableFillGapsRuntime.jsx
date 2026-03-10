@@ -137,9 +137,9 @@ export class DraggableFillGapsRuntime extends React.Component {
 			...config,
 			id,
 			assignedCount: 0,
-				margin: 20,
-				nToPlace,
-				showHints: false,
+			margin: 20,
+			nToPlace,
+			showHints: false,
 			showInvalidDropHint: false,
 			slotWidthPx: null,
 			wordTiles,
@@ -493,13 +493,13 @@ export class DraggableFillGapsRuntime extends React.Component {
 				}
 
 				// Place tile center under pointer in words-container coords
-					const { x, y } = this.getMouseInWordsContainer(e);
-					const rect = this.movingPiece.getBoundingClientRect();
-					const left = x - rect.width / 2;
-					const top = y - rect.height / 2;
+				const { x, y } = this.getMouseInWordsContainer(e);
+				const rect = this.movingPiece.getBoundingClientRect();
+				const left = x - rect.width / 2;
+				const top = y - rect.height / 2;
 
-					this.movingPiece.style.left = `${left}px`;
-					this.movingPiece.style.top = `${top}px`;
+				this.movingPiece.style.left = `${left}px`;
+				this.movingPiece.style.top = `${top}px`;
 				this.movingPiece.classList.add("dragging");
 			}
 		}
@@ -511,14 +511,14 @@ export class DraggableFillGapsRuntime extends React.Component {
 		if (this.movingPiece && this.movingPiece.classList.contains("dragging")) {
 			e.preventDefault();
 
-				const { x, y } = this.getMouseInWordsContainer(e);
-				const rect = this.movingPiece.getBoundingClientRect();
+			const { x, y } = this.getMouseInWordsContainer(e);
+			const rect = this.movingPiece.getBoundingClientRect();
 
-				const left = x - rect.width / 2;
-				const top = y - rect.height / 2;
+			const left = x - rect.width / 2;
+			const top = y - rect.height / 2;
 
-				this.movingPiece.style.left = `${left}px`;
-				this.movingPiece.style.top = `${top}px`;
+			this.movingPiece.style.left = `${left}px`;
+			this.movingPiece.style.top = `${top}px`;
 
 			const { success, overTarget, targetWord } = this.inLimits();
 
@@ -552,87 +552,87 @@ export class DraggableFillGapsRuntime extends React.Component {
 
 		e.stopPropagation();
 
-			const clickAudio = new Audio(resolveAsset('/sounds/click.mp3'));
-			let { failCount = 0, showHints = false } = this.state;
+		const clickAudio = new Audio(resolveAsset('/sounds/click.mp3'));
+		let { failCount = 0, showHints = false } = this.state;
 
 		if (this.movingPiece !== undefined) {
 			const inLimitsResult = this.inLimits();
 			this.movingPiece.classList.remove('highlight');
 
-				if (inLimitsResult.overTarget) {
-					const { targetLeft, targetTop, targetWord, success } = inLimitsResult;
-					const tileKey = this.getTileKey(this.movingPiece);
-					const targetKey = this.getWordKeyFromEl(targetWord);
-					if (!tileKey || !targetKey) {
-						this.returnTileToHome(this.movingPiece);
-						this.movingPiece = undefined;
-						this.clearTargetHighlights();
-						return;
-					}
-
-					// In hint mode, reject incorrect slot immediately and make it obvious why.
-					if (showHints && !success) {
-						const droppedTile = this.movingPiece;
-						this.unassignTile(tileKey);
-						droppedTile.classList.remove("dragging");
-						droppedTile.classList.add("returning");
-						droppedTile.style.left = `${this.startX}px`;
-						droppedTile.style.top = `${this.startY}px`;
-
-						failCount++;
-						this.setState({ failCount });
-						this.triggerInvalidDropFeedback(droppedTile, targetWord);
-
-						setTimeout(() => {
-							droppedTile.classList.remove("returning");
-						}, 350);
-
-						this.movingPiece = undefined;
-						this.clearTargetHighlights();
-						return;
-					}
-
-					// One tile per target: replace existing occupant.
-					this.evictExistingOccupant(targetKey, tileKey);
-
-					clickAudio.play();
-
-					this.movingPiece.style.left = `${targetLeft}px`;
-					this.movingPiece.style.top = `${targetTop}px`;
-
-					this.movingPiece.classList.remove("dragging");
-					this.movingPiece.classList.remove("returning");
-					this.movingPiece.classList.remove("placed");
-					this.movingPiece.classList.add("draggable");
-
-					this.movingPiece.style.opacity = "1";
-					this.movingPiece.style.pointerEvents = "";
-
-					this.assignTileToTarget(tileKey, targetKey);
+			if (inLimitsResult.overTarget) {
+				const { targetLeft, targetTop, targetWord, success } = inLimitsResult;
+				const tileKey = this.getTileKey(this.movingPiece);
+				const targetKey = this.getWordKeyFromEl(targetWord);
+				if (!tileKey || !targetKey) {
+					this.returnTileToHome(this.movingPiece);
 					this.movingPiece = undefined;
-				} else {
-					const tileKey = this.getTileKey(this.movingPiece);
+					this.clearTargetHighlights();
+					return;
+				}
+
+				// In hint mode, reject incorrect slot immediately and make it obvious why.
+				if (showHints && !success) {
 					const droppedTile = this.movingPiece;
 					this.unassignTile(tileKey);
 					droppedTile.classList.remove("dragging");
 					droppedTile.classList.add("returning");
-
 					droppedTile.style.left = `${this.startX}px`;
 					droppedTile.style.top = `${this.startY}px`;
 
 					failCount++;
 					this.setState({ failCount });
-					this.triggerInvalidDropFeedback(droppedTile, null);
+					this.triggerInvalidDropFeedback(droppedTile, targetWord);
 
 					setTimeout(() => {
 						droppedTile.classList.remove("returning");
 					}, 350);
-					this.movingPiece = undefined;
-				}
-			}
 
-			this.clearTargetHighlights();
-		};
+					this.movingPiece = undefined;
+					this.clearTargetHighlights();
+					return;
+				}
+
+				// One tile per target: replace existing occupant.
+				this.evictExistingOccupant(targetKey, tileKey);
+
+				clickAudio.play();
+
+				this.movingPiece.style.left = `${targetLeft}px`;
+				this.movingPiece.style.top = `${targetTop}px`;
+
+				this.movingPiece.classList.remove("dragging");
+				this.movingPiece.classList.remove("returning");
+				this.movingPiece.classList.remove("placed");
+				this.movingPiece.classList.add("draggable");
+
+				this.movingPiece.style.opacity = "1";
+				this.movingPiece.style.pointerEvents = "";
+
+				this.assignTileToTarget(tileKey, targetKey);
+				this.movingPiece = undefined;
+			} else {
+				const tileKey = this.getTileKey(this.movingPiece);
+				const droppedTile = this.movingPiece;
+				this.unassignTile(tileKey);
+				droppedTile.classList.remove("dragging");
+				droppedTile.classList.add("returning");
+
+				droppedTile.style.left = `${this.startX}px`;
+				droppedTile.style.top = `${this.startY}px`;
+
+				failCount++;
+				this.setState({ failCount });
+				this.triggerInvalidDropFeedback(droppedTile, null);
+
+				setTimeout(() => {
+					droppedTile.classList.remove("returning");
+				}, 350);
+				this.movingPiece = undefined;
+			}
+		}
+
+		this.clearTargetHighlights();
+	};
 
 	triggerInvalidDropFeedback = (tileEl, targetEl) => {
 		if (tileEl) {
@@ -726,14 +726,14 @@ export class DraggableFillGapsRuntime extends React.Component {
 		// const targetSpans = document.querySelectorAll(`#${id} .target-board .blank span`);
 		// targetSpans.forEach((s) => { s.style.opacity = 0; });
 
-			this.clearTargetHighlights();
-			this.tileAssignments = {};
+		this.clearTargetHighlights();
+		this.tileAssignments = {};
 
-			this.setState(() => ({
-				assignedCount: 0,
-				failCount: 0,
-				matched: [],
-				nPlaced: 0,
+		this.setState(() => ({
+			assignedCount: 0,
+			failCount: 0,
+			matched: [],
+			nPlaced: 0,
 			complete: false,
 		}));
 	};
@@ -754,20 +754,20 @@ export class DraggableFillGapsRuntime extends React.Component {
 			const r = tw.getBoundingClientRect();
 
 			const pieceMid = pLeft + (pRight - pLeft) / 2;
-				if ((pieceMid >= r.left) && (pieceMid <= r.right) && pTop >= r.top - margin && pBottom <= r.bottom + margin) {
-					const wcRect = this.getWordsContainerRect();
-					if (!wcRect) return { overTarget: true, targetWord: tw };
-					const targetLeft = r.left - wcRect.left + (r.width - pieceRect.width) / 2;
-					const targetTop = r.top - wcRect.top + (r.height - pieceRect.height) / 2;
-					return {
-						overTarget: true,
-						success: this.getWordKeyFromEl(tw) === movingKey,
-						targetWord: tw,
-						targetLeft,
-						targetTop,
-					};
-				}
+			if ((pieceMid >= r.left) && (pieceMid <= r.right) && pTop >= r.top - margin && pBottom <= r.bottom + margin) {
+				const wcRect = this.getWordsContainerRect();
+				if (!wcRect) return { overTarget: true, targetWord: tw };
+				const targetLeft = r.left - wcRect.left + (r.width - pieceRect.width) / 2;
+				const targetTop = r.top - wcRect.top + (r.height - pieceRect.height) / 2;
+				return {
+					overTarget: true,
+					success: this.getWordKeyFromEl(tw) === movingKey,
+					targetWord: tw,
+					targetLeft,
+					targetTop,
+				};
 			}
+		}
 
 		return { success: false };
 	};
@@ -839,9 +839,9 @@ export class DraggableFillGapsRuntime extends React.Component {
 			nToPlace,
 			pictures,
 			questions,
-				showHints,
-				showHintsText,
-				showInvalidDropHint = false,
+			showHints,
+			showHintsText,
+			showInvalidDropHint = false,
 			soundFile,
 			soundFiles = [],
 			slotWidthPx,
@@ -904,11 +904,11 @@ export class DraggableFillGapsRuntime extends React.Component {
 								if (words[k] === cleaned) foundIndex = k;
 							}
 
-								phrase.push(
-									<DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={foundIndex} key={`phraseSpan${i}-${j}`}>
-										{cleaned}
-									</DraggableWordTile>
-								);
+							phrase.push(
+								<DraggableWordTile className={`blank target ${BLANKS_DROP_TARGET_CLASS}`} index={foundIndex} key={`phraseSpan${i}-${j}`}>
+									{cleaned}
+								</DraggableWordTile>
+							);
 						} else {
 							phrase.push(<span className='word' key={`phraseSpan${i}-${j}`}>{phraseSplit[j]} </span>);
 						}
@@ -1085,109 +1085,109 @@ export class DraggableFillGapsRuntime extends React.Component {
 					/>
 				) : null}
 
-					<div className={`blanks ${BLANKS_CONTENT_FLOW_CLASS} ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
-						<Card className="blanks-words-shell w-full max-w-[72rem] border-border/55 bg-muted/25 shadow-sm">
-							<CardContent className="p-2 min-[420px]:p-3 sm:p-4">
-								<div className={`words-container ${BLANKS_WORDS_CONTAINER_FLOW_CLASS}`} ref={this.wordsContainerRef}>
-									{wordTiles}
-								</div>
-							</CardContent>
-						</Card>
+				<div className={`blanks ${BLANKS_CONTENT_FLOW_CLASS} ${showHints ? 'show-hints' : ''} ${blanksType} mb-8`}>
+					<Card className="blanks-words-shell w-full max-w-[72rem] border-border/55 bg-muted/25 shadow-sm">
+						<CardContent className="p-2 min-[420px]:p-3 sm:p-4">
+							<div className={`words-container ${BLANKS_WORDS_CONTAINER_FLOW_CLASS}`} ref={this.wordsContainerRef}>
+								{wordTiles}
+							</div>
+						</CardContent>
+					</Card>
 
-						<Card
-							className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS} w-full max-w-[72rem] border-border/55 bg-card/60 shadow-sm`}
-							style={targetBoardStyle}
-						>
-							<CardContent className="p-2 min-[420px]:p-3 sm:p-4">
-								{blanksType === 'phrases' ? (
-									<ul className={BLANKS_PHRASE_ROWS_FLOW_CLASS}>{phraseList}</ul>
-								) : (
-									<Table className={BLANKS_TARGET_TABLE_TEXT_CLASS}>
-										{tableCaption ? <TableCaption className="sr-only">{tableCaption}</TableCaption> : null}
-										{headerCells.length > 0 ? (
-											<TableHeader><TableRow>{headerCells}</TableRow></TableHeader>
-										) : null}
-										<TableBody>{tableRows}</TableBody>
-									</Table>
-								)}
-							</CardContent>
-						</Card>
-					</div>
+					<Card
+						className={`target-board ${BLANKS_TARGET_BOARD_TEXT_CLASS} w-full max-w-[72rem] border-border/55 bg-card/60 shadow-sm`}
+						style={targetBoardStyle}
+					>
+						<CardContent className="p-2 min-[420px]:p-3 sm:p-4">
+							{blanksType === 'phrases' ? (
+								<ul className={BLANKS_PHRASE_ROWS_FLOW_CLASS}>{phraseList}</ul>
+							) : (
+								<Table className={BLANKS_TARGET_TABLE_TEXT_CLASS}>
+									{tableCaption ? <TableCaption className="sr-only">{tableCaption}</TableCaption> : null}
+									{headerCells.length > 0 ? (
+										<TableHeader><TableRow>{headerCells}</TableRow></TableHeader>
+									) : null}
+									<TableBody>{tableRows}</TableBody>
+								</Table>
+							)}
+						</CardContent>
+					</Card>
+				</div>
 
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 				<ProgressDots correct={nPlaced} total={nToPlace} />
 				<div className="exercise-divider" role="none" data-orientation="horizontal" />
 
 				<div className="exercise-help exercise-help-wrap">
-						<div className="exercise-help-hints">
-							<Switch
-								aria-label="Show hints"
-								id={id ? `showHintsId-${id}` : undefined}
-								aria-labelledby={id ? `showHintsLabel-${id}` : undefined}
-								checked={showHints}
-								onCheckedChange={this.handleToggle}
-							/>
-							<span id={id ? `showHintsLabel-${id}` : undefined} className="text-sm font-medium leading-none cursor-pointer">
-								{showHintsText}
-							</span>
-							{/* Keep this as a polite inline hint (not shadcn <Alert role="alert">):
+					<div className="exercise-help-hints">
+						<Switch
+							aria-label="Show hints"
+							id={id ? `showHintsId-${id}` : undefined}
+							aria-labelledby={id ? `showHintsLabel-${id}` : undefined}
+							checked={showHints}
+							onCheckedChange={this.handleToggle}
+						/>
+						<span id={id ? `showHintsLabel-${id}` : undefined} className="text-sm font-medium leading-none cursor-pointer">
+							{showHintsText}
+						</span>
+						{/* Keep this as a polite inline hint (not shadcn <Alert role="alert">):
 							    wrong-drop feedback can fire repeatedly during drag practice, and assertive
 							    announcements would be overly interruptive for screen-reader users. */}
-							<span
-								className={`invalid-drop-hint border border-[color-mix(in_oklab,var(--destructive)_72%,var(--foreground))] bg-[color-mix(in_oklab,var(--destructive)_14%,var(--card))] text-[var(--destructive)] ${showInvalidDropHint ? 'show' : ''}`}
-								aria-live="polite"
-							>
-								<CircleAlert aria-hidden="true" className="h-[1em] w-[1em]" />
+						<span
+							className={`invalid-drop-hint border border-[color-mix(in_oklab,var(--destructive)_72%,var(--foreground))] bg-[color-mix(in_oklab,var(--destructive)_14%,var(--card))] text-[var(--destructive)] ${showInvalidDropHint ? 'show' : ''}`}
+							aria-live="polite"
+						>
+							<CircleAlert aria-hidden="true" className="h-[1em] w-[1em]" />
 								Try another slot
-							</span>
-						</div>
+						</span>
+					</div>
 
-							<div className="exercise-help-actions">
-								<IconButton
-									ariaLabel={cheatText}
-									className={exerciseActionButtonVariants({
-										progressive: true,
-										tone: "warn",
-										visible: failCount >= 2,
-									})}
-									onClick={this.autoSolve}
-									theme={`eye`}
-									variant="default"
-								>
-									<span className="exercise-icon-button-label">{cheatText}</span>
-								</IconButton>
+					<div className="exercise-help-actions">
+						<IconButton
+							ariaLabel={cheatText}
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								tone: "warn",
+								visible: failCount >= 2,
+							})}
+							onClick={this.autoSolve}
+							theme={`eye`}
+							variant="default"
+						>
+							<span className="exercise-icon-button-label">{cheatText}</span>
+						</IconButton>
 
-								<IconButton
-									ariaLabel="Reset"
-									className={exerciseActionButtonVariants({
-										progressive: true,
-										tone: "neutral",
-										visible: nPlaced >= 1 || failCount >= 2 || complete,
-									})}
-									onClick={this.handleReset}
-									theme={`reset`}
-									variant="default"
-								>
-									<span className="exercise-icon-button-label">Reset</span>
-								</IconButton>
+						<IconButton
+							ariaLabel="Reset"
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								tone: "neutral",
+								visible: nPlaced >= 1 || failCount >= 2 || complete,
+							})}
+							onClick={this.handleReset}
+							theme={`reset`}
+							variant="default"
+						>
+							<span className="exercise-icon-button-label">Reset</span>
+						</IconButton>
 
-								<IconButton
-									ariaLabel="Check answers"
-									className={exerciseActionButtonVariants({
-										align: "right",
-										progressive: true,
-										tone: "primary",
-										visible: assignedCount >= 1,
-									})}
-									onClick={this.handleCheckAnswers}
-									theme={`check`}
-									variant="default"
-								>
-									<span className="exercise-icon-button-label">Check answers</span>
-								</IconButton>
-							</div>
+						<IconButton
+							ariaLabel="Check answers"
+							className={exerciseActionButtonVariants({
+								align: "right",
+								progressive: true,
+								tone: "primary",
+								visible: assignedCount >= 1,
+							})}
+							onClick={this.handleCheckAnswers}
+							theme={`check`}
+							variant="default"
+						>
+							<span className="exercise-icon-button-label">Check answers</span>
+						</IconButton>
 					</div>
 				</div>
+			</div>
 		);
 	};
 }

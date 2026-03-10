@@ -28,6 +28,31 @@ This file summarizes the work completed in this repo during the session. It incl
   - `yarn build` passes
   - `yarn lint` still reports existing baseline repo-wide indentation/style errors unrelated to this batch
 
+## 2026-03-10 - Step 5 Quality Gate Stabilization
+
+- Fixed lint **error** blockers so local pre-push can run to completion:
+  - `src/App.jsx`
+  - `src/components/Accordion/AccordionArticle.jsx`
+  - `src/components/AudioClip/AudioClip.jsx`
+  - `src/components/Footer/Footer.jsx`
+  - `src/components/ModalLinkDialog/ModalLinkDialog.jsx`
+  - `src/components/custom/pronunciation/first-contact-pronunciation.jsx`
+  - `src/components/exercises/DraggableFillGaps/DraggableFillGapsRuntime.jsx`
+  - `src/components/exercises/SequenceOrder/SequenceOrder.jsx`
+  - `src/components/exercises/SortableWordCard/SortableWordCard.jsx`
+  - `src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
+  - `src/components/exercises/WordParts/WordParts.jsx`
+  - `src/debug/components/LearningObjectStructureSummary.jsx`
+- Updated audio unicode guard to support scoped checks (`--staged`, `--working`, `--against <ref>`) instead of always scanning the full legacy audio tree:
+  - `scripts/audio-unicode-guard.mjs`
+- Updated npm scripts so branch pre-push uses branch-scoped audio unicode check:
+  - `package.json`
+    - `check:audio-unicode` => staged mode
+    - added `check:audio-unicode:branch`
+    - `prepush:local` now uses `check:audio-unicode:branch`
+- Validation:
+  - `yarn prepush:local` passes end-to-end (lint warnings remain, no lint errors).
+
 ## 2026-03-10 - Component Tree Standard + Docs Drift Sync
 
 - Added canonical component tree/naming contract:

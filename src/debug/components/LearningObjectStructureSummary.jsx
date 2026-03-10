@@ -80,7 +80,7 @@ function getRenderContainer(component, expandable = true) {
 
 function collectAccordionTitles(node, fallbackTitle = '') {
 	if (!node || typeof node !== 'object') return [];
-	const component = node.component;
+	const {component} = node;
 	if (typeof component !== 'string') return [];
 	const expandable = node.expandable !== false;
 	const container = getRenderContainer(component, expandable);
@@ -95,7 +95,7 @@ function collectAccordionTitles(node, fallbackTitle = '') {
 
 function collectComponentTypes(node) {
 	if (!node || typeof node !== 'object') return [];
-	const component = node.component;
+	const {component} = node;
 	const childTypes = normalizeContentItems(node.content).flatMap((child) => collectComponentTypes(child));
 	if (typeof component === 'string' && !CONTAINER_COMPONENTS.has(component)) {
 		return [component, ...childTypes];
@@ -105,7 +105,7 @@ function collectComponentTypes(node) {
 
 function countExerciseItems(node) {
 	if (!node || typeof node !== 'object') return 0;
-	const component = node.component;
+	const {component} = node;
 	const selfCount = EXERCISE_COMPONENTS.has(component) ? 1 : 0;
 	const childrenCount = normalizeContentItems(node.content)
 		.reduce((total, child) => total + countExerciseItems(child), 0);

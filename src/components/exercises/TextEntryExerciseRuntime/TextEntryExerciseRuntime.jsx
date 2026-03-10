@@ -357,11 +357,11 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 					? (shouldInlineAudioWithPrompt ? "align-top w-[66%]" : "align-top")
 					: undefined;
 
-					cells.push(
-						<TableCell className={answerCellClassName} key={`row${i}cell1`}>
-							<div className="space-y-1.5">
-								<div className="grid w-full grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-2">
-									<Input
+				cells.push(
+					<TableCell className={answerCellClassName} key={`row${i}cell1`}>
+						<div className="space-y-1.5">
+							<div className="grid w-full grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-2">
+								<Input
 									className={`min-h-10 text-[var(--font-size-sm)] md:text-base ${inputToneClass}`}
 									onChange={(event) => this.handleInputChange(i, event.target.value)}
 									onKeyDown={(event) => this.handleInputKeyDown(i, event)}
