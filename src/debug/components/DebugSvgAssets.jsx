@@ -153,7 +153,7 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'Facebook',
 		component: Facebook,
-		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 	{
 		name: 'Info',
@@ -163,17 +163,17 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'Instagram',
 		component: Instagram,
-		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 	{
 		name: 'Linkedin',
 		component: Linkedin,
-		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 	{
 		name: 'MessageCircleMore',
 		component: MessageCircleMore,
-		sources: ['/src/components/MainMenu/MainMenu.jsx'],
+		sources: ['/src/components/layout/page-shell/MainMenu/MainMenu.jsx'],
 	},
 	{
 		name: 'SquareDashedMousePointer',
@@ -188,12 +188,12 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		name: 'X',
 		component: X,
-		sources: ['/src/components/Footer/FooterSocialLinks.jsx', '/src/components/ui/dialog.jsx'],
+		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx', '/src/components/ui/dialog.jsx'],
 	},
 	{
 		name: 'Youtube',
 		component: Youtube,
-		sources: ['/src/components/Footer/FooterSocialLinks.jsx'],
+		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 ].sort((left, right) => left.name.localeCompare(right.name));
 

@@ -2,6 +2,27 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-10 - Layout Page-Shell Namespace (Batch A)
+
+- Reorganized page-shell components under layout domain:
+  - moved `src/components/MainMenu/**` -> `src/components/layout/page-shell/MainMenu/**`
+  - moved `src/components/Footer/**` -> `src/components/layout/page-shell/Footer/**`
+  - moved `src/components/HeroSection/**` -> `src/components/layout/page-shell/HeroSection/**`
+  - moved `src/components/BackToTopButton/**` -> `src/components/layout/page-shell/BackToTopButton/**`
+  - moved `src/components/LandingPage/**` -> `src/components/layout/page-shell/LandingPage/**`
+- Updated layout barrel exports to new namespace:
+  - `src/components/layout/index.js`
+- Updated moved component imports to alias-based paths to avoid deep relative drift:
+  - `src/components/layout/page-shell/MainMenu/MainMenu.jsx`
+  - `src/components/layout/page-shell/Footer/Footer.jsx`
+  - `src/components/layout/page-shell/HeroSection/HeroSection.jsx`
+- Synced debug/docs path references:
+  - `src/debug/components/DebugSvgAssets.jsx`
+  - `README.md`
+  - `docs/components/NAVIGATION_REFACTOR_README.md`
+- Validation:
+  - `yarn build`
+
 ## 2026-03-10 - Unused Component Cleanup (Batch 3)
 
 - Removed dead runtime exercise engines no longer referenced by LO config:

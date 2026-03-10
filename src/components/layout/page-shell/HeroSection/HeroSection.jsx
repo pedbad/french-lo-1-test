@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BackToTopButton, Info, InstructionCallout } from "..";
+import { BackToTopButton, Info, InstructionCallout } from "@/components";
 import DOMPurify from "dompurify";
 import React from "react";
-import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "../Section/instructions-media";
-import { resolveAsset } from "../../utils/assets";
+import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "@/components/Section/instructions-media";
+import { resolveAsset } from "@/utils/assets";
 import { Separator } from "@/components/ui/separator";
 
 const splitDisplayTitle = (value) => {

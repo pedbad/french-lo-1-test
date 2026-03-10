@@ -4,9 +4,9 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { IconButton } from "@/components/IconButton";
+import { handleModalLinkClick } from "@/utils/dom";
 import { MessageCircleMore } from "lucide-react";
-import { handleModalLinkClick } from "../../utils/dom.js";
-import { IconButton } from "..";
 import React from "react";
 
 export class MainMenu extends React.Component {

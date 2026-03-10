@@ -3,7 +3,7 @@
 ## Scope
 This document defines a low-risk refactor plan for the top navigation implementation in:
 
-- `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.jsx`
+- `/Users/ped/Sites/french/french-lo-1/src/components/layout/page-shell/MainMenu/MainMenu.jsx`
 
 Goal: keep current visual style and behavior while reducing complexity and improving maintainability, accessibility confidence, and testability.
 
@@ -44,7 +44,7 @@ The current top nav is a hybrid:
 ## Proposed Target Architecture
 
 ```text
-src/components/MainMenu/
+src/components/layout/page-shell/MainMenu/
 |- MainMenu.jsx                    # orchestrator/container only
 |- MainMenuDesktopNav.jsx          # desktop list rendering
 |- MainMenuMobilePanel.jsx         # mobile panel rendering

@@ -498,7 +498,7 @@ Latest applied step:
 - Root cause: LO3 contains a top-level section `phraseTable5` with `titleText: ""`.
 - The nav builder previously included any config section with `component + id`, even when the computed label was empty.
 - This produced a blank nav item (visual gap) between `Vocabulary` and `Grammar`.
-- Fix implemented in `src/components/MainMenu/MainMenu.jsx`:
+- Fix implemented in `src/components/layout/page-shell/MainMenu/MainMenu.jsx`:
   - nav entries now filter out empty/whitespace labels after label resolution.
 - Contract going forward:
   - any top-level section intended for nav must provide non-empty `menuText` or `titleText`.
