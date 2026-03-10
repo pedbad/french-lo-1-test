@@ -21,9 +21,6 @@ const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'TypedTransformExercise',
 	'WordGrid',
 	'WordParts',
-	'ConnectFour',
-	'CrossWord',
-	'TreasureGrid',
 ]);
 
 const CONTAINER_COMPONENTS = new Set(['Group', 'Section']);
@@ -31,8 +28,6 @@ const CONTAINER_COMPONENTS = new Set(['Group', 'Section']);
 const EXERCISE_COMPONENTS = new Set([
 	'DictationExercise',
 	'DraggableFillGaps',
-	'ConnectFour',
-	'CrossWord',
 	'InlineChoiceGroup',
 	'MemoryMatchGame',
 	'Monologue',
@@ -41,7 +36,6 @@ const EXERCISE_COMPONENTS = new Set([
 	'SelectExercise',
 	'SequenceOrder',
 	'Sortable',
-	'TreasureGrid',
 	'TypedTransformExercise',
 	'WordGrid',
 	'WordParts',

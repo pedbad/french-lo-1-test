@@ -1,5 +1,3 @@
-export * from './ConnectFour';
-export * from './CrossWord';
 export * from './DictationExercise';
 export * from './DraggableFillGaps';
 export * from './DraggableFillGaps/DraggableWordTile';
@@ -14,7 +12,6 @@ export * from './SequenceOrder';
 export * from './Sortable';
 export * from './SortableWordCard/SortableWordCard';
 export * from './TextEntryExerciseRuntime';
-export * from './TreasureGrid';
 export * from './TypedTransformExercise';
 export * from './WordGrid';
 export * from './WordParts';

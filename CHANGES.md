@@ -2,6 +2,32 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-10 - Unused Component Audit + Dead Code Removal (Batch 2)
+
+- Removed unused custom misc demo component:
+  - deleted `src/components/custom/misc/audio-clip-samples.jsx`
+- Updated misc barrel to remove dead export:
+  - `src/components/custom/misc/index.js`
+    - removed `AudioClipSamples` export
+- Removed dormant exercise engines not referenced by LO config or renderer:
+  - deleted `src/components/exercises/ConnectFour/**`
+  - deleted `src/components/exercises/CrossWord/**`
+  - deleted `src/components/exercises/TreasureGrid/**`
+- Updated exercise/domain inventories to remove deleted engines:
+  - `src/components/exercises/index.js`
+  - `src/debug/components/LearningObjectStructureSummary.jsx`
+- Removed dead crossword-only global styles after component removal:
+  - `src/index.css`
+- Updated app root imports to remove unused component imports:
+  - `src/App.jsx`
+    - removed `AudioClip`, `Figure`, and `Header` from `./components` import list
+- Updated architecture notes:
+  - `README.md`
+    - updated `custom/misc` examples to reflect active runtime components only
+- Validation:
+  - `yarn build` passes
+  - `yarn lint` still reports existing baseline repo-wide indentation/style errors unrelated to this batch
+
 ## 2026-03-10 - Component Tree Standard + Docs Drift Sync
 
 - Added canonical component tree/naming contract:

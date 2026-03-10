@@ -843,7 +843,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - `grammar/` (LO1-LO15 grammar components)
   - `pronunciation/` (LO1-LO12 pronunciation components in use)
   - `exercises/` (for example `CurrentLocationNasalRhymeExercise`)
-  - `misc/` (for example `DailyRoutineASummersDay`, `AudioClipSamples`)
+  - `misc/` (for example `DailyRoutineASummersDay`)
 - Runtime registry source of truth:
   - `src/components/custom/registry.js`
 - Legacy `CustomComponents_FR` bridge has been removed.
