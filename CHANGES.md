@@ -53,6 +53,26 @@ This file summarizes the work completed in this repo during the session. It incl
   - existing imports from `@/components` and `./components` preserved
   - `yarn build` passes
 
+## 2026-03-10 - Unused Component Audit + Dead Code Removal (Batch 1)
+
+- Audited LO config usage (`src/lo-config/*.json`) and runtime imports for dead components.
+- Removed dead components with no runtime/config usage:
+  - `src/components/Attribution/**`
+  - `src/components/Mockney/**`
+  - `src/components/Social/**`
+  - `src/components/AudioClip/ConcatenatedPlayList.jsx`
+- Removed stale exports/imports tied to deleted components:
+  - `src/components/feedback/index.js`
+    - removed `Attribution`, `Mockney`, `Social` exports
+  - `src/components/AudioClip/index.js`
+    - removed `ConcatenatedPlaylist` export
+  - `src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
+    - removed unused `Attribution` import
+- Notes:
+  - `ConcatenatedPlaylist` had no runtime usage and a stale export-path mismatch (`ConcatenatedPlayList.jsx` filename vs `./ConcatenatedPlaylist` export target), so deletion prevents future path/case drift.
+- Validation:
+  - `yarn build` passes after deletion.
+
 ## 2026-03-09 - Legacy Exercise Wrapper Cleanup (Runtime + Structure)
 
 - Removed unused legacy wrapper/component paths:

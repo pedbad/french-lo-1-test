@@ -562,6 +562,8 @@ Component cleanup status:
 - Legacy `src/components/Form/**` namespace has been removed as dead code.
 - Runtime form/select/dialog primitives now come from shadcn/UI paths (`src/components/ui/*`) and exercise-specific components.
 - Root component barrel has been split to domain barrels (`content`, `layout`, `media`, `feedback`) to reduce structural drift.
+- Dead component cleanup (usage-audited):
+  - removed unused `Attribution`, `Mockney`, `Social`, and `AudioClip` concatenated-playlist legacy component.
 
 DOM semantics contract (current migration target):
 - one primary nav landmark for the main IA (`header > nav`), while preserving responsive behavior
