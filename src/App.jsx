@@ -16,13 +16,11 @@ import {
 	Monologue,
 	PhraseTable,
 	RadioQuiz,
-	ReadAloud,
 	Section,
 	SelectExercise,
 	SequenceOrder,
 	Sortable,
 	TypedTransformExercise,
-	WordGrid,
 	WordParts,
 } from "./components";
 import { resolveAsset } from "./utils/assets";
@@ -1027,14 +1025,6 @@ export default class App extends React.Component {
 						showDialog={this.showDialog}
 					/>
 				);
-			case "ReadAloud":
-				return (
-					<ReadAloud
-						config={value}
-						logError={this.logError}
-						showDialog={this.showDialog}
-					/>
-				);
 			case "SequenceOrder":
 				return (
 					<SequenceOrder
@@ -1046,14 +1036,6 @@ export default class App extends React.Component {
 			case "Sortable":
 				return (
 					<Sortable
-						config={value}
-						logError={this.logError}
-						showDialog={this.showDialog}
-					/>
-				);
-			case "WordGrid":
-				return (
-					<WordGrid
 						config={value}
 						logError={this.logError}
 						showDialog={this.showDialog}
@@ -1742,26 +1724,6 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "ReadAloud": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<ReadAloud
-							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
 			case "SequenceOrder": {
 				articles.push(
 					<AccordionArticle
@@ -1818,26 +1780,6 @@ export default class App extends React.Component {
 						titleHTML={titleTextHTML}
 					>
 						<Sortable
-							config={value}
-							logError={this.logError}
-							showDialog={this.showDialog}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "WordGrid": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<WordGrid
 							config={value}
 							logError={this.logError}
 							showDialog={this.showDialog}

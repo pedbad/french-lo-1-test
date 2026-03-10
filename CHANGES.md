@@ -2,6 +2,26 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-03-10 - Unused Component Cleanup (Batch 3)
+
+- Removed dead runtime exercise engines no longer referenced by LO config:
+  - deleted `src/components/exercises/ReadAloud/**`
+  - deleted `src/components/exercises/WordGrid/**`
+- Removed unused legacy header component:
+  - deleted `src/components/Header/**`
+- Removed all remaining runtime/app/debug references for removed components:
+  - `src/App.jsx`
+  - `src/components/exercises/index.js`
+  - `src/components/layout/index.js`
+  - `src/debug/components/LearningObjectStructureSummary.jsx`
+- Removed orphaned global CSS blocks tied only to deleted components:
+  - `src/index.css`
+    - removed `.read-aloud-container*` styles
+    - removed `.word-grid-container*` styles
+- Validation:
+  - `yarn build`
+  - `yarn prepush:local`
+
 ## 2026-03-10 - Component Structure Cleanup (Exercise Shared Helper)
 
 - Moved shared exercise action-button variant helper out of root components folder:

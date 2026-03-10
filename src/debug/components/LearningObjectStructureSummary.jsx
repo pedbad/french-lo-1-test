@@ -14,12 +14,10 @@ const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'MemoryMatchGame',
 	'Monologue',
 	'RadioQuiz',
-	'ReadAloud',
 	'SelectExercise',
 	'SequenceOrder',
 	'Sortable',
 	'TypedTransformExercise',
-	'WordGrid',
 	'WordParts',
 ]);
 
@@ -32,12 +30,10 @@ const EXERCISE_COMPONENTS = new Set([
 	'MemoryMatchGame',
 	'Monologue',
 	'RadioQuiz',
-	'ReadAloud',
 	'SelectExercise',
 	'SequenceOrder',
 	'Sortable',
 	'TypedTransformExercise',
-	'WordGrid',
 	'WordParts',
 ]);
 
