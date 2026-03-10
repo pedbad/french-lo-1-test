@@ -1175,10 +1175,11 @@ export class DraggableFillGapsRuntime extends React.Component {
 							ariaLabel="Check answers"
 							className={exerciseActionButtonVariants({
 								align: "right",
-								progressive: true,
+								progressive: false,
 								tone: "primary",
-								visible: assignedCount >= 1,
+								visible: true,
 							})}
+							disabled={assignedCount < 1}
 							onClick={this.handleCheckAnswers}
 							theme={`check`}
 							variant="default"
