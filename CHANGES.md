@@ -23,6 +23,18 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build`
 
+## 2026-03-10 - App Domain-Barrel Imports (Batch B)
+
+- Updated app runtime imports to use domain barrels directly (no root `./components` barrel dependency in App):
+  - `src/App.jsx`
+    - content from `@/components/content`
+    - layout from `@/components/layout`
+    - exercises from `@/components/exercises`
+    - feedback from `@/components/feedback`
+- Validation:
+  - `yarn build`
+  - `yarn prepush:local`
+
 ## 2026-03-10 - Unused Component Cleanup (Batch 3)
 
 - Removed dead runtime exercise engines no longer referenced by LO config:

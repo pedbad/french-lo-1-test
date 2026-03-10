@@ -1,28 +1,26 @@
 import {
 	AccordionArticle,
-	Congratulate,
-	DictationExercise,
-	DraggableFillGaps,
-	ErrorLog,
 	Explanation,
-	Footer,
-	HeroSection,
 	Info,
-	InlineChoiceGroup,
-	LandingPage,
-	MainMenu,
-	MemoryMatchGame,
 	ModalLinkDialog,
 	Monologue,
 	PhraseTable,
-	RadioQuiz,
 	Section,
+} from "@/components/content";
+import { Congratulate, ErrorLog } from "@/components/feedback";
+import {
+	DictationExercise,
+	DraggableFillGaps,
+	InlineChoiceGroup,
+	MemoryMatchGame,
+	RadioQuiz,
 	SelectExercise,
 	SequenceOrder,
 	Sortable,
 	TypedTransformExercise,
 	WordParts,
-} from "./components";
+} from "@/components/exercises";
+import { Footer, HeroSection, LandingPage, MainMenu } from "@/components/layout";
 import { resolveAsset } from "./utils/assets";
 import { handleResponse } from "./utils/network";
 import { handleModalLinkClick } from "./utils/dom";
