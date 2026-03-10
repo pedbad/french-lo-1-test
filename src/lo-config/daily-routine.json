@@ -15,12 +15,12 @@
 					"phrases": [
 						[
 							"sounds/fr/Tu te lèves à quelle heure.mp3",
-							"Tu te lèves à quelle heure ?",
+							"Tu te lèves à quelle heure?",
 							"What time do you get up?"
 						],
 						[
-							"sounds/fr/Ça dépend ! En semaine, je me lève à sept heures, mais le week-end, je me lève vers neuf heures et demie. Et toi.mp3",
-							"Ça dépend ! En semaine, je me lève à sept heures, mais le week-end, je me lève vers neuf heures et demie. Et toi ?",
+							"sounds/fr/Ça dépend! En semaine, je me lève à sept heures, mais le week-end, je me lève vers neuf heures et demie. Et toi.mp3",
+							"Ça dépend! En semaine, je me lève à sept heures, mais le week-end, je me lève vers neuf heures et demie. Et toi?",
 							"It depends. During the week I get up at seven o'clock, but at the weekend I get up at about half past nine. What about you?"
 						],
 						[
@@ -34,8 +34,8 @@
 							"Well, I'm more of a night owl. I go to bed at about half past midnight."
 						],
 						[
-							"sounds/fr/Vers minuit et demi Oh là là ! Je me couche à neuf heures et demie. Le soir, je suis toujours très fatigué.mp3",
-							"Vers minuit et demi ? Oh là là ! Je me couche à neuf heures et demie. Le soir, je suis toujours très fatigué.",
+							"sounds/fr/Vers minuit et demi Oh là là! Je me couche à neuf heures et demie. Le soir, je suis toujours très fatigué.mp3",
+							"Vers minuit et demi? Oh là là! Je me couche à neuf heures et demie. Le soir, je suis toujours très fatigué.",
 							"At about half past midnight? Oh goodness! I go to bed at half past nine. In the evening I'm always very tired."
 						]
 					],
@@ -50,17 +50,17 @@
 					"phrases": [
 						[
 							"sounds/fr/Ça va les amis.mp3",
-							"Ça va les amis ?",
+							"Ça va les amis?",
 							"Are you alright guys?"
 						],
 						[
-							"sounds/fr/Ça va mais nous sommes un peu fatigués. Notre fille a neuf semaines et elle se réveille trois fois la nuit. Nous ne dormons pas bien !.mp3",
-							"Ça va mais nous sommes un peu fatigués. Notre fille a neuf semaines et elle se réveille trois fois la nuit. Nous ne dormons pas bien !",
+							"sounds/fr/Ça va mais nous sommes un peu fatigués. Notre fille a neuf semaines et elle se réveille trois fois la nuit. Nous ne dormons pas bien!.mp3",
+							"Ça va mais nous sommes un peu fatigués. Notre fille a neuf semaines et elle se réveille trois fois la nuit. Nous ne dormons pas bien!",
 							"Yes, we're alright, but we're a bit tired. Our daughter is nine weeks old, and she wakes up three times a night. We aren't sleeping well."
 						],
 						[
-							"sounds/fr/Quelle horreur ! Mais vous vous reposez pendant la journée, j'imagine.mp3",
-							"Quelle horreur ! Mais vous vous reposez pendant la journée, j'imagine.",
+							"sounds/fr/Quelle horreur! Mais vous vous reposez pendant la journée, j'imagine.mp3",
+							"Quelle horreur! Mais vous vous reposez pendant la journée, j'imagine.",
 							"How awful! But you do rest during the day, I imagine."
 						],
 						[
@@ -80,27 +80,27 @@
 					"phrases": [
 						[
 							"sounds/fr/Tu déjeunes à la cantine aujourd'hui.mp3",
-							"Tu déjeunes à la cantine aujourd'hui ?",
+							"Tu déjeunes à la cantine aujourd'hui?",
 							"Are you having lunch at the canteen today?"
 						],
 						[
-							"sounds/fr/À la cantine Ah non, on ne mange pas bien à la cantine ! Je déjeune au café en face de la bibliothèque. Tu veux déjeuner avec moi.mp3",
-							"À la cantine ? Ah non, on ne mange pas bien à la cantine ! Je déjeune au café en face de la bibliothèque. Tu veux déjeuner avec moi ?",
+							"sounds/fr/À la cantine Ah non, on ne mange pas bien à la cantine! Je déjeune au café en face de la bibliothèque. Tu veux déjeuner avec moi.mp3",
+							"À la cantine? Ah non, on ne mange pas bien à la cantine! Je déjeune au café en face de la bibliothèque. Tu veux déjeuner avec moi?",
 							"At the canteen? Oh no, the food isn't good at the canteen. (Literally: One doesn't eat well at the canteen.) I have lunch at the cafe opposite the library. Do you want to have lunch with me?"
 						],
 						[
 							"sounds/fr/À quelle heure.mp3",
-							"À quelle heure ?",
+							"À quelle heure?",
 							"At what time?"
 						],
 						[
 							"sounds/fr/À une heure.mp3",
-							"À une heure ?",
+							"À une heure?",
 							"At one o'clock?"
 						],
 						[
-							"sounds/fr/Oui, ça va très bien ! À tout à l'heure !.mp3",
-							"Oui, ça va très bien ! À tout à l'heure !",
+							"sounds/fr/Oui, ça va très bien! À tout à l'heure!.mp3",
+							"Oui, ça va très bien! À tout à l'heure!",
 							"Yes, that's fine. See you later!"
 						]
 					],
@@ -215,12 +215,12 @@
 			],
 			[
 				"sounds/fr/Quelle heure est-il Il est quelle heure.mp3",
-				"Quelle heure est-il ? Il est quelle heure ?",
+				"Quelle heure est-il? Il est quelle heure?",
 				"What's the time?"
 			],
 			[
 				"sounds/fr/À quelle heure.mp3",
-				"À quelle heure ?",
+				"À quelle heure?",
 				"At what time?"
 			],
 			[
@@ -292,7 +292,7 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Incroyable !",
+					"congratulationsText": "Incroyable!",
 					"instructionsText": " Fill in the gaps with the correct reflexive pronoun supplied.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -307,7 +307,7 @@
 							"text": "Adèle [m'|me|t'|te|s'|*se|nous|vous] lève vers dix heures. (se lever)"
 						},
 						{
-							"text": "Vous [m'|me|t'|te|s'|se|nous|*vous] levez à quelle heure ? (se lever)"
+							"text": "Vous [m'|me|t'|te|s'|se|nous|*vous] levez à quelle heure? (se lever)"
 						},
 						{
 							"text": "Nous [m'|me|t'|te|s'|se|*nous|vous] reposons pendant le week-end. (se reposer)"
@@ -322,13 +322,13 @@
 							"text": "Patrick [m'|me|t'|te|s'|*se|nous|vous] couche à minuit. (se coucher)"
 						},
 						{
-							"text": "Tu [m'|me|t'|*te|s'|se|nous|vous] maquilles aujourd'hui ? (se maquiller) "
+							"text": "Tu [m'|me|t'|*te|s'|se|nous|vous] maquilles aujourd'hui? (se maquiller) "
 						},
 						{
-							"text": "Tu [m'|me|*t'|te|s'|se|nous|vous] appelles comment ? (s'appeler) "
+							"text": "Tu [m'|me|*t'|te|s'|se|nous|vous] appelles comment? (s'appeler) "
 						},
 						{
-							"text": "Et ta sœur, elle [m'|me|t'|te|*s'|se|nous|vous] appelle comment ? (s'appeler)"
+							"text": "Et ta sœur, elle [m'|me|t'|te|*s'|se|nous|vous] appelle comment? (s'appeler)"
 						},
 						{
 							"text": "La Tour Eiffel [m'|me|t'|te|s'|*se|nous|vous] trouve à Paris (se trouver)."
@@ -342,7 +342,7 @@
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Drag the words in the box to fill the gaps in Martin's description of a typical day from when he wakes up until he goes to bed.",
 					"showHintsText": "Show hints when moving",
@@ -376,7 +376,7 @@
 				"selectExercise3": {
 					"component": "SelectExercise",
 					"id": "selectExercise3",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"instructionsText": "Select the time that you hear.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",

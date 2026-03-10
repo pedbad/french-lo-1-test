@@ -17,21 +17,21 @@
 					"phrases": [
 						[
 							"audio/lo1/dialogues/phraseTable1/001-salut-ca-va.mp3",
-							"Salut, ça va ?",
+							"Salut, ça va?",
 							"Hi, are you well?"
 						],
 						[
 							"audio/lo1/dialogues/phraseTable1/002-salut-ca-va-et-toi.mp3",
-							"Salut ! Ça va ! Et toi ?",
+							"Salut! Ça va! Et toi?",
 							"Hi, I'm fine and you?"
 						],
 						[
 							"audio/lo1/dialogues/phraseTable1/003-tres-bien-merci.mp3",
-							"Très bien, merci !",
+							"Très bien, merci!",
 							"Very well, thank you!"
 						]
 					],
-					"titleText": "Informal greetings: \"Salut, ça va ?\""
+					"titleText": "Informal greetings: \"Salut, ça va?\""
 				}
 			},
 			{
@@ -42,17 +42,17 @@
 					"phrases": [
 						[
 							"audio/lo1/dialogues/phraseTable2/001-bonjour-madame-foucher-comment-ca-va.mp3",
-							"Bonjour, Madame Foucher ! Comment ça va ?",
+							"Bonjour, Madame Foucher! Comment ça va?",
 							"Hello, Mme Foucher! How are you?"
 						],
 						[
 							"audio/lo1/dialogues/phraseTable2/002-bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3",
-							"Bonjour Monsieur Letort ! Ça va très bien. Et <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> ?",
+							"Bonjour Monsieur Letort! Ça va très bien. Et <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a>?",
 							"Hello M Letort, I'm very well, thank you. And you?"
 						],
 						[
 							"audio/lo1/dialogues/phraseTable2/003-ca-va-merci.mp3",
-							"Ça va, merci !",
+							"Ça va, merci!",
 							"I'm fine, thank you!"
 						]
 					],
@@ -67,12 +67,12 @@
 					"phrases": [
 						[
 							"audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
-							"Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
+							"Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a>?",
 							"What's your name?"
 						],
 						[
 							"audio/lo1/dialogues/phraseTable3/002-je-mappelle-max-et-toi.mp3",
-							"Je m'appelle Max, et <a class='modal-link' href='#content' data-modal-target='toi'>toi</a> ?",
+							"Je m'appelle Max, et <a class='modal-link' href='#content' data-modal-target='toi'>toi</a>?",
 							"My name is Max. And you're….?"
 						],
 						[
@@ -92,7 +92,7 @@
 					"phrases": [
 						[
 							"audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
-							"Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
+							"Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous?",
 							"What's your name?"
 						],
 						[
@@ -197,12 +197,12 @@
 			],
 			[
 				"audio/lo1/vocabulary/017-ca-va-question.mp3",
-				"Ça va ?",
+				"Ça va?",
 				"Are you well / OK?  Are things alright/ OK?"
 			],
 			[
 				"audio/lo1/vocabulary/018-comment-ca-va.mp3",
-				"Comment ça va ?",
+				"Comment ça va?",
 				"How are you? (literally: how's it going?)"
 			],
 			[
@@ -222,12 +222,12 @@
 			],
 			[
 				"audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
-				"Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
+				"Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a>?",
 				"What's your name?"
 			],
 			[
 				"audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
-				"Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
+				"Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous?",
 				"What's your name?"
 			],
 			[
@@ -237,27 +237,27 @@
 			],
 			[
 				"audio/lo1/vocabulary/023-bonne-journee.mp3",
-				"Bonne journée !",
+				"Bonne journée!",
 				"Have a nice day!"
 			],
 			[
 				"audio/lo1/vocabulary/024-bonne-soiree.mp3",
-				"Bonne soirée !",
+				"Bonne soirée!",
 				"Have a nice evening!   "
 			],
 			[
 				"audio/lo1/vocabulary/025-bonne-nuit.mp3",
-				"Bonne nuit !",
+				"Bonne nuit!",
 				"Good night!"
 			],
 			[
 				"audio/lo1/vocabulary/026-bon-voyage.mp3",
-				"Bon voyage !",
+				"Bon voyage!",
 				"Have a safe journey! / Have a good trip!"
 			],
 			[
 				"audio/lo1/vocabulary/027-bonnes-vacances.mp3",
-				"Bonnes vacances !",
+				"Bonnes vacances!",
 				"Enjoy your holiday!"
 			],
 			[
@@ -304,7 +304,7 @@
 				"grammar2": {
 					"component": "FirstContactGrammarTuVous",
 					"id": "grammar2",
-					"informationTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><em class='grammar-term-em'>tu</em></span> and <span class='modal-highlight'><em class='grammar-term-em'>vous</em></span> to show different levels of formality. You'll practise using <em class='grammar-term-em'>tu</em> with friends, family, and children, and <em class='grammar-term-em'>vous</em> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <em class='grammar-term-em'>tu</em> with friends, family, and children.</li><li>How to use <em class='grammar-term-em'>vous</em> formally or when speaking to several people.</li><li>How <em class='grammar-term-em'>toi</em> replaces <em class='grammar-term-em'>tu</em> in responses (<em class='grammar-term-em'>Et toi ?</em>).</li></ul>",
+					"informationTextHTML": "Here, you'll discover when to use <span class='modal-highlight'><em class='grammar-term-em'>tu</em></span> and <span class='modal-highlight'><em class='grammar-term-em'>vous</em></span> to show different levels of formality. You'll practise using <em class='grammar-term-em'>tu</em> with friends, family, and children, and <em class='grammar-term-em'>vous</em> in formal settings or when speaking to more than one person.<p>You will learn:</p><ul><li>How to use <em class='grammar-term-em'>tu</em> with friends, family, and children.</li><li>How to use <em class='grammar-term-em'>vous</em> formally or when speaking to several people.</li><li>How <em class='grammar-term-em'>toi</em> replaces <em class='grammar-term-em'>tu</em> in responses (<em class='grammar-term-em'>Et toi?</em>).</li></ul>",
 					"titleTextHTML": "2. The \"<em class='grammar-term-em'>tu</em>\" vs \"<em class='grammar-term-em'>vous</em>\" distinction"
 				}
 			}
@@ -373,7 +373,7 @@
 				"wordparts1": {
 					"cheatText": "Show answer",
 					"component": "WordParts",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"id": "wordparts1",
 						"informationTextHTML": "Select the part of each word that contains the nasal, <em>r</em>, <em>oi</em>, or silent <em>h</em> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
 					"showHintsText": "Hints",
@@ -391,7 +391,7 @@
 							"audio": "audio/lo1/exercises/wordparts1/003-au-revoir-ma-cherie.mp3"
 						},
 						{
-							"text": "quelle [h]o[rr]eu[r] Valé[r]ie !",
+							"text": "quelle [h]o[rr]eu[r] Valé[r]ie!",
 							"audio": "audio/lo1/exercises/wordparts1/004-quelle-horreur-valerie.mp3"
 						}
 					],
@@ -402,22 +402,22 @@
 				"draggableFillGaps2": {
 					"component": "DraggableFillGaps",
 					"id": "draggableFillGaps2",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 						"informationTextHTML": "Rebuild each short dialogue by choosing the correct words, then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [
 						{
-							"text": "Coucou [mon] amour ! Ça [va] aujourd'hui ?",
+							"text": "Coucou [mon] amour! Ça [va] aujourd'hui?",
 							"audio": "audio/lo1/exercises/draggableFillGaps2/001-coucou-mon-amour-ca-va-aujourdhui.mp3"
 						},
 						{
-							"text": "Oui, ma [chérie] ! Ça va [très] bien ! Et [toi] ?",
+							"text": "Oui, ma [chérie]! Ça va [très] bien! Et [toi]?",
 							"audio": "audio/lo1/exercises/draggableFillGaps2/002-oui-ma-cherie-ca-va-tres-bien-et-toi.mp3"
 						},
 						{
-							"text": "Ça va !",
+							"text": "Ça va!",
 							"audio": "audio/lo1/exercises/draggableFillGaps2/003-ca-va.mp3"
 						}
 					],
@@ -429,21 +429,21 @@
 					"component": "DraggableFillGaps",
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"id": "draggableFillGaps3",
 						"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"items": [
 						{
-							"text": "Bonsoir Monsieur Galipot ! [Comment] ça va ?",
+							"text": "Bonsoir Monsieur Galipot! [Comment] ça va?",
 							"audio": "audio/lo1/exercises/draggableFillGaps3/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
 						},
 						{
-							"text": "Bonsoir Madame Bernard, ça va très bien, merci. Et [vous] ?",
+							"text": "Bonsoir Madame Bernard, ça va très bien, merci. Et [vous]?",
 							"audio": "audio/lo1/exercises/draggableFillGaps3/002-bonsoir-madame-bernard-ca-va-tres-bien-merci-et-vous.mp3"
 						},
 						{
-							"text": "Ah pas mal [merci] !",
+							"text": "Ah pas mal [merci]!",
 							"audio": "audio/lo1/exercises/draggableFillGaps3/003-ah-pas-mal-merci.mp3"
 						}
 					],
@@ -455,17 +455,17 @@
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"id": "draggableFillGaps4",
 						"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"items": [
 						{
-							"text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
+							"text": "Bonjour les [enfants]. Comment vous [appelez]-vous?",
 							"audio": "audio/lo1/exercises/draggableFillGaps4/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
 						},
 						{
-							"text": "Bonjour Madame ! Je m' [appelle] Annie.",
+							"text": "Bonjour Madame! Je m' [appelle] Annie.",
 							"audio": "audio/lo1/exercises/draggableFillGaps4/002-bonjour-madame-je-mappelle-annie.mp3"
 						},
 						{
@@ -473,15 +473,15 @@
 							"audio": "audio/lo1/exercises/draggableFillGaps4/003-et-moi-je-mappelle-david.mp3"
 						},
 						{
-							"text": "D'accord. Très bien !",
+							"text": "D'accord. Très bien!",
 							"audio": "audio/lo1/exercises/draggableFillGaps4/004-daccord-tres-bien.mp3"
 						},
 						{
-							"text": "Merci Madame ! Bonne journée !",
+							"text": "Merci Madame! Bonne journée!",
 							"audio": "audio/lo1/exercises/draggableFillGaps4/005-merci-madame-bonne-journee.mp3"
 						},
 						{
-							"text": "Au [revoir] les enfants !  Bonne journée !",
+							"text": "Au [revoir] les enfants!  Bonne journée!",
 							"audio": "audio/lo1/exercises/draggableFillGaps4/006-au-revoir-les-enfants-bonne-journee.mp3"
 						}
 					],
@@ -492,7 +492,7 @@
 				"listeningOrder1": {
 					"component": "SequenceOrder",
 					"id": "listeningOrder1",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"listenDescriptionText": "Full audio",
 					"showHintsText": "Hints",
@@ -516,7 +516,7 @@
 				"listeningOrder2": {
 					"component": "SequenceOrder",
 					"id": "listeningOrder2",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"listenDescriptionText": "Full audio",
 					"showHintsText": "Hints",

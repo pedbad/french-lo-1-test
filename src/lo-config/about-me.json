@@ -6,7 +6,7 @@
 			"alt": "About me themed illustration"
 		},
 		"introHTML": "<p>This lesson helps you talk about who you are in French. You will practise introducing yourself, describing your personal situation and profession, and answering common personal questions politely. Through listening and speaking tasks, you will also improve key pronunciation patterns for clearer, more natural French.</p>",
-		"informationHTML": "<h3>You will learn:</h3><ul><li>How to introduce yourself and describe your situation and profession (for example <em>célibataire</em>, <em>marié(e)</em>, <em>bibliothécaire</em>, <em>professeur(e)</em>).</li><li>How to use the verb <em>être</em> with common subject pronouns.</li><li>How grammatical gender affects articles and agreement in everyday expressions.</li><li>How to recognise and produce key pronunciation features, including silent final consonants and <em>th</em>.</li><li>How to respond accurately in guided listening and interactive practice activities.</li></ul>"
+		"informationHTML": "<h3>You will learn:</h3><ul><li>How to introduce yourself and describe your situation and profession (for example <em>célibataire</em>, <em>marié(e)</em>, <em>bibliothécaire</em>, <em>professeur(e)</em>).</li><li>How to use the verb <em>être</em> with subject pronouns.</li><li>How grammatical gender affects articles and agreement in everyday expressions.</li><li>How to recognise and produce key pronunciation features, including silent final consonants and <em>th</em>.</li><li>How to respond accurately in guided listening and interactive practice activities.</li></ul>"
 	},
 	"monologues": {
 		"component": "Section",
@@ -26,12 +26,12 @@
 						],
 						[
 							"audio/lo2/monologues/monologues1/001-bonjour-je-m-appelle-jacqueline-je-suis-divorcee-je-suis-prof-de-maths.mp3",
-							"Bonjour ! Je m'appelle Jacqueline.<br />Je suis divorcée.<br />Je suis prof de maths.",
+							"Bonjour! Je m'appelle Jacqueline.<br />Je suis divorcée.<br />Je suis prof de maths.",
 							"Hello, my name's Jacqueline.<br />I'm divorced.<br />I'm a maths teacher"
 						],
 						[
 							"audio/lo2/monologues/monologues1/002-bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3",
-							"Bonsoir ! Je m'appelle Olivier Durand.<br />Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
+							"Bonsoir! Je m'appelle Olivier Durand.<br />Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
 							"Good evening, my name's Olivier Durand.<br />I've been married to Alex for three years and I'm a librarian."
 						]
 					],
@@ -47,7 +47,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (for example <em>célibataire</em>, <em>marié(e)</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>Masculine and feminine forms of adjectives and professions (for example <em>divorcé(e)</em>, <em>avocat(e)</em>).</li></ul>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (for example <em>célibataire</em>, <em>marié(e)</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous?</em>, <em>Quel est votre métier?</em>).</li><li>Masculine and feminine forms of adjectives and professions (for example <em>divorcé(e)</em>, <em>avocat(e)</em>).</li></ul>",
 		"phrases": [
 			[
 				"audio/lo2/vocabulary/011-etre.mp3",
@@ -141,22 +141,22 @@
 			],
 			[
 				"audio/lo2/vocabulary/022-que-faites-vous-dans-la-vie.mp3",
-				"Que faites-vous (dans la vie) ?",
+				"Que faites-vous (dans la vie)?",
 				"What do you do (for a living)?"
 			],
 			[
 				"audio/lo2/vocabulary/021-que-fais-tu-dans-la-vie.mp3",
-				"Que fais-tu (dans la vie) ?",
+				"Que fais-tu (dans la vie)?",
 				"What do you do (for a living)?"
 			],
 			[
 				"audio/lo2/vocabulary/024-quelle-est-ta-profession-quelle-est-votre-profession.mp3",
-				"Quelle est ta profession ? Quelle est votre profession ?",
+				"Quelle est ta profession? Quelle est votre profession?",
 				"What's your profession?"
 			],
 			[
 				"audio/lo2/vocabulary/023-quel-est-ton-metier-quel-est-votre-metier.mp3",
-				"Quel est ton / votre métier ?",
+				"Quel est ton / votre métier?",
 				"What's your profession?"
 			],
 			[
@@ -252,20 +252,20 @@
 				"inlineChoiceGroup1": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup1",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"instructionsText": "Select the correct part of être to fill in the gaps.",
 					"informationTextHTML": "Read each sentence and choose the correct form of <em>être</em> for the subject. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"items": [
 						{
-							"text": "Tu [*es|est|êtes] fiancé ? "
+							"text": "Tu [*es|est|êtes] fiancé? "
 						},
 						{
 							"text": "Je [sommes|*suis|sont] mariée avec Steffi. "
 						},
 						{
-							"text": "Vous [est|*êtes|sommes] professeurs ?"
+							"text": "Vous [est|*êtes|sommes] professeurs?"
 						},
 						{
 							"text": "Nous [es|êtes|*sommes] pacsés."
@@ -300,19 +300,19 @@
 					"cheatText": "Show answers",
 					"items": [
 						{
-							"text": "Salut les enfants ! Tout va bien ? [*Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
+							"text": "Salut les enfants! Tout va bien? [*Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
 							"audio": "audio/lo2/exercises/selectExercise2/003-salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
 						},
 						{
-							"text": "Tu es archiviste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|*Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
+							"text": "Tu es archiviste? [Moi, oui, ça va … mais Teri est malade depuis hier.|*Ah non! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
 							"audio": "audio/lo2/exercises/selectExercise2/004-tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
 						},
 						{
-							"text": "Monsieur Tondereau est journaliste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|*Non, il est bibliothécaire.|Je suis professeur de géographie.]",
+							"text": "Monsieur Tondereau est journaliste? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non! je suis étudiant en histoire.|*Non, il est bibliothécaire.|Je suis professeur de géographie.]",
 							"audio": "audio/lo2/exercises/selectExercise2/001-monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
 						},
 						{
-							"text": "Que faites-vous dans la vie ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|*Je suis professeur de géographie.]",
+							"text": "Que faites-vous dans la vie? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non! je suis étudiant en histoire.|Non, il est bibliothécaire.|*Je suis professeur de géographie.]",
 							"audio": "audio/lo2/exercises/selectExercise2/002-que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
 						}
 					],

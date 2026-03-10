@@ -50,7 +50,7 @@
 						],
 						[
 							"sounds/fr/Le dimanche, je fais de la natation. L'après-midi, s'il fait beau, je fais de la randonnée avec mon frère. S'il fait mauvais, je lis un peu ou je regarde la télé. Et toi.mp3",
-							"Le dimanche, je fais de la natation. L'après-midi, s'il fait beau, je fais de la randonnée avec mon frère. S'il fait mauvais, je lis un peu ou je regarde la télé. Et toi ?",
+							"Le dimanche, je fais de la natation. L'après-midi, s'il fait beau, je fais de la randonnée avec mon frère. S'il fait mauvais, je lis un peu ou je regarde la télé. Et toi?",
 							"On Sundays, I go swimming. In the afternoon, if the weather's good, I go hiking with my brother. If the weather's bad. I read a bit, or I watch the tv. What about you?"
 						],
 						[
@@ -379,7 +379,7 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"instructionsText": "",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -389,11 +389,11 @@
 							"audio": "sounds/fr/Je fais du shopping.mp3"
 						},
 						{
-							"text": "Vous faites [*du|de la|*de l'|des] jogging le matin ?",
+							"text": "Vous faites [*du|de la|*de l'|des] jogging le matin?",
 							"audio": "sounds/fr/Vous faites du jogging le matin.mp3"
 						},
 						{
-							"text": "Tu fais [du|de la|*de l'|des] aviron ?",
+							"text": "Tu fais [du|de la|*de l'|des] aviron?",
 							"audio": "sounds/fr/Tu fais de l'aviron.mp3"
 						},
 						{
@@ -413,7 +413,7 @@
 							"audio": "sounds/fr/Je joue de la batterie.mp3"
 						},
 						{
-							"text": "Tu joues [du|*de la|de l'|des] guitare ?",
+							"text": "Tu joues [du|*de la|de l'|des] guitare?",
 							"audio": "sounds/fr/Tu joues de la guitare.mp3"
 						},
 						{
@@ -421,7 +421,7 @@
 							"audio": "sounds/fr/Mes parents jouent du piano.mp3"
 						},
 						{
-							"text": "Vous jouez [*du|de la|de l'|des] trombone ?",
+							"text": "Vous jouez [*du|de la|de l'|des] trombone?",
 							"audio": "sounds/fr/Vous jouez du trombone.mp3"
 						}
 					],
@@ -432,7 +432,7 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"instructionsText": "In the following sentences and questions select au , à la, à l' or aux as appropriate:",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -473,7 +473,7 @@
 				"selectExercise3": {
 					"component": "SelectExercise",
 					"id": "selectExercise3",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"instructionsText": "Listen to the responses to this question and select answers accordingly:",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -511,7 +511,7 @@
 							"audio": "sounds/fr/Je fais de la boxe.mp3"
 						}
 					],
-					"titleText": "4. Qu’est-ce que tu fais le dimanche ?"
+					"titleText": "4. Qu’est-ce que tu fais le dimanche?"
 				}
 			},
 			{
@@ -519,13 +519,13 @@
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
 					"items": [
 						{
-							"text": "Je ne fais pas [grand-chose]. Je fais la [grasse matinée]. Je vois mes [amis]. Quelquefois, je vais au [cinéma] ou je vais en [boîte]. Ça dépend !",
+							"text": "Je ne fais pas [grand-chose]. Je fais la [grasse matinée]. Je vois mes [amis]. Quelquefois, je vais au [cinéma] ou je vais en [boîte]. Ça dépend!",
 							"audio": "sounds/fr/Je ne fais pas grand chose. Je fais la grasse matinée. Je vois mes amis. Quelquefois, je vais au cinéma ou je vais en boîte. Ça dépend !.mp3"
 						},
 						{
@@ -537,7 +537,7 @@
 							"audio": "sounds/fr/Le dimanche, je fais de la natation L'après-midi, s'il fait beau, je fais de la randonnée avec ma sœur S'il fait mauvais, je fais de la peinture ou je regarde la télé.mp3"
 						}
 					],
-					"titleText": "5. Qu'est-ce que tu fais le weekend ?"
+					"titleText": "5. Qu'est-ce que tu fais le weekend?"
 				}
 			}
 		],

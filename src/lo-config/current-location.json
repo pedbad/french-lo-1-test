@@ -20,7 +20,7 @@
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/001-o-u-habites-tuo-habites-tu.mp3",
-							"Où habites-tu ?",
+							"Où habites-tu?",
 							"Where do you live?"
 						],
 						[
@@ -30,23 +30,33 @@
 						],
 						[
 							"/audio/lo4/dialogues/phraseTable1/003-o-u-exactemento-exactement.mp3",
-							"Où exactement ?",
+							"Où exactement?",
 							"Where exactly?"
 						],
 						[
 							"/audio/lo4/dialogues/phraseTable1/004-a-bruxelles-et-toi.mp3",
-							"A Bruxelles. Et toi ?",
+							"A Bruxelles. Et toi?",
 							"In Brussels. What about you?"
 						],
 						[
 							"/audio/lo4/dialogues/phraseTable1/005-j-habite-a-cardiff-au-pays-de-gallesj-habite-cardiff-au-pays-de-galles.mp3",
 							"J'habite à Cardiff au Pays de Galles.",
 							"I live in Cardiff in Wales"
-						],
+						]
+					],
+					"titleText": "Informal questions about where you live"
+				}
+			},
+			{
+				"phraseTable2": {
+					"component": "PhraseTable",
+					"id": "phraseTable2",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/006-o-u-habitez-vouso-habitez-vous.mp3",
-							"Où habitez-vous ?",
-							"Where do you live ?"
+							"Où habitez-vous?",
+							"Where do you live?"
 						],
 						[
 							"/audio/lo4/dialogues/phraseTable1/007-j-habite-aux-etats-unis.mp3",
@@ -57,20 +67,40 @@
 							"/audio/lo4/dialogues/phraseTable1/008-et-moi-j-habite-au-maroc.mp3",
 							"Et moi, j'habite au Maroc.",
 							"And I live in Morocco."
-						],
+						]
+					],
+					"titleText": "Formal questions about where you live"
+				}
+			},
+			{
+				"phraseTable3": {
+					"component": "PhraseTable",
+					"id": "phraseTable3",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/009-o-u-se-trouve-la-cath-edrale-de-notre-dameo-se-trouve-la-cath-drale-de-notre-dame.mp3",
-							"Où se trouve la cathédrale de Notre Dame ?",
+							"Où se trouve la cathédrale de Notre Dame?",
 							"Where is Notre Dame Cathedral?"
 						],
 						[
 							"/audio/lo4/dialogues/phraseTable1/010-la-cath-edrale-de-notre-dame-se-trouve-a-parisla-cath-drale-de-notre-dame-se-trouve-paris.mp3",
-							"La cathédrale de Notre Dame se trouve à Paris !",
+							"La cathédrale de Notre Dame se trouve à Paris!",
 							"Notre Dame Cathedral is in Paris!"
-						],
+						]
+					],
+					"titleText": "Asking where places are"
+				}
+			},
+			{
+				"phraseTable4": {
+					"component": "PhraseTable",
+					"id": "phraseTable4",
+					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/011-tu-habites-au-centre-ville.mp3",
-							"Tu habites au centre-ville ?",
+							"Tu habites au centre-ville?",
 							"Do you live in the city centre? "
 						],
 						[
@@ -79,7 +109,7 @@
 							"No, I live in a small village an hour away from here."
 						]
 					],
-					"titleText": "Where do you live?"
+					"titleText": "Town centre or village"
 				}
 			}
 		],
@@ -105,22 +135,22 @@
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/003-o-u-habites-tu-tu-habites-o-uo-habites-tu-tu-habites-o.mp3",
-				"Où habites-tu ? Tu habites où ?",
+				"Où habites-tu? Tu habites où?",
 				"Where do you live?"
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/004-o-u-habitez-vous-vous-habitez-o-uo-habitez-vous-vous-habitez-o.mp3",
-				"Où habitez-vous ? Vous habitez où ?",
+				"Où habitez-vous? Vous habitez où?",
 				"Where do you live?"
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/005-o-u-se-trouve-lille-lille-se-trouve-en-franceo-se-trouve-lille-lille-se-trouve-en-france.mp3",
-				"Où se trouve Lille ? Lille se trouve en France.",
+				"Où se trouve Lille? Lille se trouve en France.",
 				"Where is Lille? Lille is in France."
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/006-o-u-es-tu-n-e-uo-e-tes-vous-n-eeo-es-tu-n-o-tes-vous-n-e.mp3",
-				"Où es-tu né(e) ? Où êtes-vous né(e) ?",
+				"Où es-tu né(e)? Où êtes-vous né(e)?",
 				"Where were you born?"
 			],
 			[
@@ -311,7 +341,7 @@
 				"inlineChoiceGroup3": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup3",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"instructionsText": "Select the correct form of 'in' to fill in the gaps.",
 					"informationTextHTML": "Choose the correct form of <strong>in</strong> for each place name: <strong>à</strong>, <strong>au</strong>, <strong>en</strong>, <strong>aux</strong>, or <strong>dans le</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
 					"shuffleItems": true,
@@ -375,7 +405,7 @@
 				"selectExercise3": {
 					"component": "SelectExercise",
 					"id": "selectExercise3",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"instructionsText": "Listen and choose the correct option to fill in the gaps.",
 					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"renderInlineChoices": true,
@@ -384,7 +414,7 @@
 					"cheatText": "Show answer",
 					"items": [
 						{
-							"text": "Tu habites [*à la campagne | à la montagne | au bord de la mer] ?",
+							"text": "Tu habites [*à la campagne | à la montagne | au bord de la mer]?",
 							"audio": "/audio/lo4/exercises/dropdowns4/001-tu-habites-a-la-campagnetu-habites-la-campagne.mp3"
 						},
 						{

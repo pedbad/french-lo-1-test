@@ -27,7 +27,7 @@
 						],
 						[
 							"/sounds/fr/LO5 monologue3.mp3",
-							"Mes parents ont une grande maison à la campagne.  Au rez-de-chaussée, il y a une grande cuisine et une buanderie ainsi qu'un salon et une salle à manger et une petite salle de séjour. Ils n'ont pas de bureau.  Au premier étage, il y a une salle de bains, des toilettes, une douche et quatre chambres. Ils ont une cave aussi où ils mettent leur vin !",
+							"Mes parents ont une grande maison à la campagne.  Au rez-de-chaussée, il y a une grande cuisine et une buanderie ainsi qu'un salon et une salle à manger et une petite salle de séjour. Ils n'ont pas de bureau.  Au premier étage, il y a une salle de bains, des toilettes, une douche et quatre chambres. Ils ont une cave aussi où ils mettent leur vin!",
 							"My parents have a big house in the countryside. On the ground floor there's a big kitchen, a utility room as well as a lounge and a dining room and a small living room. They don't have a study. On the first floor there's a bathroom, a toilet, a shower room and four bedrooms. They've also got a cellar where they put their wine!"
 						]
 					],
@@ -219,7 +219,7 @@
 			{
 				"draggableFillGapsPictures1": {
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"id": "draggableFillGapsPictures1",
 					"instructionsText": "Match each picture with the correct word.",
 					"showHintsText": "Show hints when moving",
@@ -274,7 +274,7 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"instructionsText": "Listen to the speakers and select the correct definite article to fill in the gaps.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -335,7 +335,7 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"instructionsText": "Listen to the speakers and select the correct form of the adjective to fill in the gaps.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
@@ -373,14 +373,14 @@
 				"draggableFillGaps1": {
 					"component": "DraggableFillGaps",
 					"id": "draggableFillGaps1",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"instructionsText": "Drag each word into the correct gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [
 						{
-							"text": "J'habite [seule]. Mon appartement n'est pas [très] grand, mais il est très [confortable].  Il y a [une] salle de séjour [lumineuse]. Elle [est] très jolie. J'ai un petit [balcon] – c'est super !  Il y a [deux] chambres, une pour [moi] et une autre [petite] chambre pour mes invités. J'ai une salle de bains et des [toilettes], bien sûr ! Il y a [un] jardin devant l'immeuble.",
+							"text": "J'habite [seule]. Mon appartement n'est pas [très] grand, mais il est très [confortable].  Il y a [une] salle de séjour [lumineuse]. Elle [est] très jolie. J'ai un petit [balcon] – c'est super!  Il y a [deux] chambres, une pour [moi] et une autre [petite] chambre pour mes invités. J'ai une salle de bains et des [toilettes], bien sûr! Il y a [un] jardin devant l'immeuble.",
 							"audio": "sounds/fr/LO5 phrases1.mp3"
 						}
 					],

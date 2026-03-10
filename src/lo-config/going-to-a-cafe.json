@@ -2,7 +2,7 @@
 	"settings": {
 		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
-		"introHTML": "<p>This lesson teaches how to order food and drinks in a café and manage polite exchanges with servers. Learners practise real-life café dialogues — ordering, clarifying mistakes, and paying — using expressions like Je voudrais…, Pour moi…, and Vous désirez ? It introduces vocabulary for drinks, snacks, ice creams, and flavours (un café-crème, une glace à la vanille, un croque-monsieur).</p><p>Grammar focuses on the conditional of vouloir (Je voudrais = I would like), the verb prendre for having food or drink (Je prends un café), and the preposition à for describing flavours (au fromage, à la vanille). It also introduces disjunctive pronouns (moi, toi, lui, elle, nous, vous, eux, elles) used after prepositions like pour or avec.</p><p>Overall, it helps learners confidently handle café conversations and make polite, accurate requests in French.</p>"
+		"introHTML": "<p>This lesson teaches how to order food and drinks in a café and manage polite exchanges with servers. Learners practise real-life café dialogues — ordering, clarifying mistakes, and paying — using expressions like Je voudrais…, Pour moi…, and Vous désirez? It introduces vocabulary for drinks, snacks, ice creams, and flavours (un café-crème, une glace à la vanille, un croque-monsieur).</p><p>Grammar focuses on the conditional of vouloir (Je voudrais = I would like), the verb prendre for having food or drink (Je prends un café), and the preposition à for describing flavours (au fromage, à la vanille). It also introduces disjunctive pronouns (moi, toi, lui, elle, nous, vous, eux, elles) used after prepositions like pour or avec.</p><p>Overall, it helps learners confidently handle café conversations and make polite, accurate requests in French.</p>"
 	},
 	"dialogues": {
 		"component": "Section",
@@ -15,8 +15,8 @@
 					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
-							"sounds/fr/Bonjour ! Vous désirez.mp3",
-							"Bonjour ! Vous désirez ?",
+							"sounds/fr/Bonjour! Vous désirez.mp3",
+							"Bonjour! Vous désirez?",
 							"Hello! What can I get you? "
 						],
 						[
@@ -26,7 +26,7 @@
 						],
 						[
 							"sounds/fr/Qu'est-ce que vous préférez au lait, au citron, nature.mp3",
-							"Qu'est-ce que vous préférez ? au lait, au citron, nature ?",
+							"Qu'est-ce que vous préférez? au lait, au citron, nature?",
 							"What do you prefer? With milk, with lemon, on its own? "
 						],
 						[
@@ -35,13 +35,13 @@
 							"A tea with lemon. And a large coffee with milk for my sister."
 						],
 						[
-							"sounds/fr/D'accord ! Un thé au lait et un grand chocolat chaud.mp3",
-							"D'accord ! Un thé au lait et un grand chocolat chaud.",
+							"sounds/fr/D'accord! Un thé au lait et un grand chocolat chaud.mp3",
+							"D'accord! Un thé au lait et un grand chocolat chaud.",
 							"OK! A tea with milk and a large hot chocolate."
 						],
 						[
-							"sounds/fr/Non, non, il y a une erreur ! Un thé au citron et un grand café-crème.mp3",
-							"Non, non, il y a une erreur ! Un thé au citron et un grand café-crème.",
+							"sounds/fr/Non, non, il y a une erreur! Un thé au citron et un grand café-crème.mp3",
+							"Non, non, il y a une erreur! Un thé au citron et un grand café-crème.",
 							"No, no, that's wrong! A tea with lemon and a large coffee with milk."
 						]
 					],
@@ -55,8 +55,8 @@
 					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
-							"sounds/fr/Bonsoir Amélie ! Qu'est-ce que vous prenez.mp3",
-							"Bonsoir Amélie ! Qu'est-ce que vous prenez ?",
+							"sounds/fr/Bonsoir Amélie! Qu'est-ce que vous prenez.mp3",
+							"Bonsoir Amélie! Qu'est-ce que vous prenez?",
 							"Good evening, Amélie! What are you having?"
 						],
 						[
@@ -66,12 +66,12 @@
 						],
 						[
 							"sounds/fr/Et vous, Michel, vous voulez une bière.mp3",
-							"Et vous, Michel, vous voulez une bière ?",
+							"Et vous, Michel, vous voulez une bière?",
 							"And what about you Michel, do you want a beer?"
 						],
 						[
-							"sounds/fr/Non merci. pas d'alcool pour moi aujourd'hui ! Pour moi une eau minérale s'il vous plait !.mp3",
-							"Non merci ... pas d'alcool pour moi aujourd'hui ! Pour moi une eau minérale s'il vous plait !",
+							"sounds/fr/Non merci. pas d'alcool pour moi aujourd'hui! Pour moi une eau minérale s'il vous plait!.mp3",
+							"Non merci ... pas d'alcool pour moi aujourd'hui! Pour moi une eau minérale s'il vous plait!",
 							"No thanks, no alcohol for me today! A mineral water for me please!"
 						]
 					],
@@ -85,13 +85,13 @@
 					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
 					"phrases": [
 						[
-							"sounds/fr/Bonjour ! Je voudrais deux glaces, s'il vous plaît.mp3",
-							"Bonjour ! Je voudrais deux glaces, s'il vous plaît.",
+							"sounds/fr/Bonjour! Je voudrais deux glaces, s'il vous plaît.mp3",
+							"Bonjour! Je voudrais deux glaces, s'il vous plaît.",
 							"Hello, I'd like two ice-creams please."
 						],
 						[
 							"sounds/fr/Quels parfums.mp3",
-							"Quels parfums ?",
+							"Quels parfums?",
 							"What flavours? "
 						],
 						[
@@ -100,18 +100,18 @@
 							"A vanilla ice-cream for me, two scoops, and for the little girl a strawberry ice-cream, one scoop please."
 						],
 						[
-							"sounds/fr/Voilà ! Ça fait 5 euros.mp3",
-							"Voilà ! Ça fait 5 euros.",
+							"sounds/fr/Voilà! Ça fait 5 euros.mp3",
+							"Voilà! Ça fait 5 euros.",
 							"Here you are. That comes to 5 euros."
 						],
 						[
-							"sounds/fr/Voilà !.mp3",
-							"Voilà !",
+							"sounds/fr/Voilà!.mp3",
+							"Voilà!",
 							"Here you are."
 						],
 						[
-							"sounds/fr/Merci beaucoup ! Bonne journée !.mp3",
-							"Merci beaucoup ! Bonne journée !",
+							"sounds/fr/Merci beaucoup! Bonne journée!.mp3",
+							"Merci beaucoup! Bonne journée!",
 							"Thank you very much! Have a nice day!"
 						]
 					],
@@ -130,12 +130,12 @@
 		"phrases": [
 			[
 				"sounds/fr/Vous désirez.mp3",
-				"Vous désirez ?",
+				"Vous désirez?",
 				"What can I get you? "
 			],
 			[
 				"sounds/fr/Qu'est-ce que vous prenez.mp3",
-				"Qu'est-ce que vous prenez ?",
+				"Qu'est-ce que vous prenez?",
 				"What are you having? "
 			],
 			[
@@ -200,17 +200,17 @@
 			],
 			[
 				"sounds/fr/Vous voulez quelque chose à manger.mp3",
-				"Vous voulez quelque chose à manger ?",
+				"Vous voulez quelque chose à manger?",
 				"Do you want something to eat?"
 			],
 			[
 				"sounds/fr/Tu veux quelque chose à manger.mp3",
-				"Tu veux quelque chose à manger ?",
+				"Tu veux quelque chose à manger?",
 				"Do you want something to eat?"
 			],
 			[
 				"sounds/fr/Qu'est-ce que vous avez comme sandwiches.mp3",
-				"Qu'est-ce que vous avez comme sandwiches ?",
+				"Qu'est-ce que vous avez comme sandwiches?",
 				"What sort of sandwiches do you have?"
 			],
 			[
@@ -255,7 +255,7 @@
 			],
 			[
 				"sounds/fr/Quel parfum.mp3",
-				"Quel(s) parfum(s) ?",
+				"Quel(s) parfum(s)?",
 				"What flavour(s)?"
 			],
 			[
@@ -265,8 +265,8 @@
 			],
 			[
 				"sounds/fr/Combien de boules.mp3",
-				"Combien de boules ?",
-				"How many scoops ?"
+				"Combien de boules?",
+				"How many scoops?"
 			]
 		],
 		"sortable": true,
@@ -286,15 +286,15 @@
 				"draggableFillGaps1": {
 					"component": "DraggableFillGaps",
 					"id": "draggableFillGaps1",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"instructionsText": "Use the words below to complete the conversation in the café.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [
 						{
-							"text": "Bonjour ! Vous [désirez] ? ",
-							"audio": "sounds/fr/Bonjour ! Vous désirez (m).mp3"
+							"text": "Bonjour! Vous [désirez]? ",
+							"audio": "sounds/fr/Bonjour! Vous désirez (m).mp3"
 						},
 						{
 							"text": "Je [voudrais] un café-crème, s'il vous plaît.",
@@ -305,12 +305,12 @@
 							"audio": "sounds/fr/Et pour moi un chocolat chaud, s'il vous plaît.mp3"
 						},
 						{
-							"text": "Très bien ! Vous [voulez] quelque chose à [manger] ?",
-							"audio": "sounds/fr/Très bien ! Vous voulez quelque chose à manger.mp3"
+							"text": "Très bien! Vous [voulez] quelque chose à [manger]?",
+							"audio": "sounds/fr/Très bien! Vous voulez quelque chose à manger.mp3"
 						},
 						{
-							"text": "Oui ! Qu'est-ce que vous avez [comme] sandwiches ?",
-							"audio": "sounds/fr/Oui ! Qu'est-ce que vous avez comme sandwiches.mp3"
+							"text": "Oui! Qu'est-ce que vous avez [comme] sandwiches?",
+							"audio": "sounds/fr/Oui! Qu'est-ce que vous avez comme sandwiches.mp3"
 						},
 						{
 							"text": "Aujourd'hui, nous [avons] des sandwiches au fromage, au jambon et au saumon.",
@@ -321,7 +321,7 @@
 							"audio": "sounds/fr/Pour moi un sandwich au saumon, s'il vous plaît.mp3"
 						},
 						{
-							"text": "Et pour [vous] Madame ?",
+							"text": "Et pour [vous] Madame?",
 							"audio": "sounds/fr/Et pour vous Madame.mp3"
 						},
 						{
@@ -329,12 +329,12 @@
 							"audio": "sounds/fr/Je voudrais un croque-monsieur avec de la salade verte s'il vous plaît.mp3"
 						},
 						{
-							"text": "Très bien ! C'est [tout] ?",
-							"audio": "sounds/fr/Très bien ! C'est tout.mp3"
+							"text": "Très bien! C'est [tout]?",
+							"audio": "sounds/fr/Très bien! C'est tout.mp3"
 						},
 						{
-							"text": "Oui, [c'est] tout merci ! ",
-							"audio": "sounds/fr/Oui, c'est tout merci !.mp3"
+							"text": "Oui, [c'est] tout merci! ",
+							"audio": "sounds/fr/Oui, c'est tout merci!.mp3"
 						}
 					],
 					"titleText": "1. Ordering food and drink"
@@ -344,7 +344,7 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Félicitations !",
+					"congratulationsText": "Félicitations!",
 					"instructionsText": "Select the correct verb form for each gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -381,17 +381,17 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Félicitations !",
+					"congratulationsText": "Félicitations!",
 					"instructionsText": "Select the correct verb form for each gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
 						{
-							"text": "Qu'est-ce que tu [*prends|prend|prenez|prenons|prennent] ?",
+							"text": "Qu'est-ce que tu [*prends|prend|prenez|prenons|prennent]?",
 							"audio": "sounds/fr/Qu'est-ce que tu prends.mp3"
 						},
 						{
-							"text": "Vous [prends|prend|*prenez|prenons|prennent] un café ?",
+							"text": "Vous [prends|prend|*prenez|prenons|prennent] un café?",
 							"audio": "sounds/fr/Vous prenez un café.mp3"
 						},
 						{
@@ -422,7 +422,7 @@
 				"selectExercise3": {
 					"component": "SelectExercise",
 					"id": "selectExercise3",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"instructionsTextHTML": "Fill in the gaps with <strong>au</strong>, <strong>à la</strong>, <strong>à l'</strong> or <strong>aux</strong> as appropriate.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -448,7 +448,7 @@
 							"audio": "sounds/fr/J'aime la sauce à l'orange.mp3"
 						},
 						{
-							"text": "Tu prends une glace [au|*à la|à l'|aux] vanille, ou [au|*à la|à l'|aux] fraise ?",
+							"text": "Tu prends une glace [au|*à la|à l'|aux] vanille, ou [au|*à la|à l'|aux] fraise?",
 							"audio": "sounds/fr/Tu prends une glace à la vanille, ou à la fraise.mp3"
 						},
 						{

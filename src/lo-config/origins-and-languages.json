@@ -21,22 +21,22 @@
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/001-tu-es-francaise.mp3",
-							"Tu es française ?",
-							"Are you French ?"
+							"Tu es française?",
+							"Are you French?"
 						],
 						[
 							"audio/lo3/dialogues/phraseTable1/002-ah-non-je-ne-suis-pas-francaise.mp3",
-							"Ah non, je ne suis pas française !",
+							"Ah non, je ne suis pas française!",
 							"Oh no, I'm not French!"
 						],
 						[
 							"audio/lo3/dialogues/phraseTable1/003-tu-es-de-quelle-nationalite.mp3",
-							"Tu es de quelle nationalité ?",
+							"Tu es de quelle nationalité?",
 							"What nationality are you?"
 						],
 						[
 							"audio/lo3/dialogues/phraseTable1/004-je-suis-belge-je-viens-de-bruxelles-tu-viens-d-ou.mp3",
-							"Je suis belge. Je viens de Bruxelles.<br />Tu viens d'où ?",
+							"Je suis belge. Je viens de Bruxelles.<br />Tu viens d'où?",
 							"I'm Belgian. I come from Brussels.<br />Where do you come from?"
 						],
 						[
@@ -56,12 +56,12 @@
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/006-d-ou-venez-vous-monsieur.mp3",
-							"D'où venez-vous, Monsieur ?",
+							"D'où venez-vous, Monsieur?",
 							"Where do you come from, sir? "
 						],
 						[
 							"audio/lo3/dialogues/phraseTable1/007-je-viens-des-etats-unis-je-suis-americain-ma-femme-est-canadienne-elle-vient-du-quebec-et-vous-vous-etes-suisse.mp3",
-							"Je viens des Etats-Unis. Je suis américain.<br />Ma femme est canadienne. Elle vient du Québec.<br />Et vous, vous êtes suisse ?",
+							"Je viens des Etats-Unis. Je suis américain.<br />Ma femme est canadienne. Elle vient du Québec.<br />Et vous, vous êtes suisse?",
 							"I come from the USA. I'm American.<br />My wife's Canadian. She comes from Quebec.<br />And are you Swiss?"
 						],
 						[
@@ -81,7 +81,7 @@
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/009-tu-parles-allemand.mp3",
-							"Tu parles allemand ?",
+							"Tu parles allemand?",
 							"Do you speak German?"
 						],
 						[
@@ -91,7 +91,7 @@
 						],
 						[
 							"audio/lo3/dialogues/phraseTable1/011-quelles-langues-parles-tu.mp3",
-							"Quelles langues parles-tu ?",
+							"Quelles langues parles-tu?",
 							"Which languages do you speak?"
 						],
 						[
@@ -111,7 +111,7 @@
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/013-quelles-langues-parlez-vous.mp3",
-							"Quelles langues parlez-vous ?",
+							"Quelles langues parlez-vous?",
 							"Which languages do you speak?"
 						],
 						[
@@ -121,7 +121,7 @@
 						],
 						[
 							"audio/lo3/dialogues/phraseTable1/015-et-les-enfants.mp3",
-							"Et les enfants ?",
+							"Et les enfants?",
 							"And the children?"
 						],
 						[
@@ -143,7 +143,7 @@
 		"id": "vocabulary",
 		"titleText": "Vocabulary",
 		"instructionsTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core nationality and country vocabulary, including masculine and feminine forms.</li><li>How to identify country gender and number cues used with place names.</li><li>Useful question-and-answer patterns for origin and language use (for example <em>D&apos;où viens-tu ?</em>, <em>Quelles langues parles-tu ?</em>).</li><li>How vocabulary choices support accurate speaking and listening in real interaction.</li></ul>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core nationality and country vocabulary, including masculine and feminine forms.</li><li>How to identify country gender and number cues used with place names.</li><li>Useful question-and-answer patterns for origin and language use (for example <em>D&apos;où viens-tu?</em>, <em>Quelles langues parles-tu?</em>).</li><li>How vocabulary choices support accurate speaking and listening in real interaction.</li></ul>",
 		"content": [
 			{
 				"vocabulary1": {
@@ -330,12 +330,12 @@
 						],
 						[
 							"audio/lo3/vocabulary/phraseTable5/128-quelles-langues-parles-tu-tu-parles-quelles-langues.mp3",
-							"Quelles langues parles-tu ? / Tu parles quelles langues ?",
+							"Quelles langues parles-tu? / Tu parles quelles langues?",
 							"Which languages do you speak?"
 						],
 						[
 							"audio/lo3/vocabulary/phraseTable5/130-quelles-langues-parlez-vous-vous-parlez-quelles-langues.mp3",
-							"Quelles langues parlez-vous ? / Vous parlez quelles langues ?",
+							"Quelles langues parlez-vous? / Vous parlez quelles langues?",
 							"Which languages do you speak?"
 						],
 						[
@@ -350,12 +350,12 @@
 						],
 						[
 							"audio/lo3/vocabulary/phraseTable5/084-d-ou-viens-tu-tu-viens-d-ou.mp3",
-							"D'où viens-tu ? / Tu viens d'où ?",
+							"D'où viens-tu? / Tu viens d'où?",
 							"Where do you come from?"
 						],
 						[
 							"audio/lo3/vocabulary/phraseTable5/082-d-ou-venez-vous-vous-venez-d-ou.mp3",
-							"D'où venez-vous ? / Vous venez d'où ?",
+							"D'où venez-vous? / Vous venez d'où?",
 							"Where do you come from?"
 						],
 						[
@@ -453,7 +453,7 @@
 				"inlineChoiceGroup1": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup1",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"informationTextHTML": "Listen to each audio clip and select the correct nationality adjective. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
@@ -491,7 +491,7 @@
 				"inlineChoiceGroup2": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup2",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"informationTextHTML": "Listen to each audio clip and choose the correct form: <strong>de</strong>, <strong>du</strong>, <strong>d'</strong>, or <strong>des</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -535,7 +535,7 @@
 			{
 				"typedTransformExercise3": {
 					"component": "TypedTransformExercise",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
 					"id": "typedTransformExercise3",
 					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
@@ -617,7 +617,7 @@
 			{
 				"typedTransformExercise4": {
 					"component": "TypedTransformExercise",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
 					"id": "typedTransformExercise4",
 					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
@@ -674,7 +674,7 @@
 			{
 				"dictationExercise5": {
 					"component": "DictationExercise",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"id": "dictationExercise5",
 					"instructionsText": "Listen and write what you hear.",
 					"phrases": [

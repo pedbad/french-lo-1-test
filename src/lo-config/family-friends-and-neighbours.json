@@ -17,12 +17,12 @@
 					"phrases": [
 						[
 							"sounds/fr/Tu as des frères et des sœurs.mp3",
-							"Tu as des frères et des sœurs ?",
+							"Tu as des frères et des sœurs?",
 							"Have you got brothers and sisters?"
 						],
 						[
 							"sounds/fr/Oui, j'ai un grand frère et deux petites sœurs. Et toi.mp3",
-							"Oui, j'ai un grand frère et deux petites sœurs. Et toi ?",
+							"Oui, j'ai un grand frère et deux petites sœurs. Et toi?",
 							"Yes, I have a big (older) brother and two little (younger) sisters. What about you?"
 						],
 						[
@@ -42,12 +42,12 @@
 					"phrases": [
 						[
 							"sounds/fr/Vous avez des frères et des sœurs.mp3",
-							"Vous avez des frères et des sœurs ?",
+							"Vous avez des frères et des sœurs?",
 							"Have you got brothers and sisters?"
 						],
 						[
 							"sounds/fr/Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous.mp3",
-							"Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous ?",
+							"Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous?",
 							"No, I've got neither brothers nor sisters. I'm an only child. What about you?"
 						],
 						[
@@ -67,12 +67,12 @@
 					"phrases": [
 						[
 							"sounds/fr/Caroline, vous avez des enfants.mp3",
-							"Caroline, vous avez des enfants ?",
+							"Caroline, vous avez des enfants?",
 							"Caroline, do you have any children?"
 						],
 						[
-							"sounds/fr/Ah non, nous n'avons pas d'enfants, pas encore ! Et vous.mp3",
-							"Ah non, nous n'avons pas d'enfants, pas encore ! Et vous ?",
+							"sounds/fr/Ah non, nous n'avons pas d'enfants, pas encore! Et vous.mp3",
+							"Ah non, nous n'avons pas d'enfants, pas encore! Et vous?",
 							"Oh no, we haven't got any children, not yet. What about you?"
 						],
 						[
@@ -82,7 +82,7 @@
 						],
 						[
 							"sounds/fr/Il a quel âge.mp3",
-							"Il a quel âge ?",
+							"Il a quel âge?",
 							"How old is he?"
 						],
 						[
@@ -246,13 +246,13 @@
 			],
 			[
 				"sounds/fr/Quel âge as-tu. Tu as quel âge.mp3",
-				"Quel âge as-tu ? Tu as quel âge ?",
-				"How old are you ?"
+				"Quel âge as-tu? Tu as quel âge?",
+				"How old are you?"
 			],
 			[
 				"sounds/fr/Quel âge avez-vous. Vous avez quel âge.mp3",
-				"Quel âge avez-vous ? Vous avez quel âge ?",
-				"How old are you ?"
+				"Quel âge avez-vous? Vous avez quel âge?",
+				"How old are you?"
 			],
 			[
 				"sounds/fr/gentil, gentille.mp3",
@@ -284,7 +284,7 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"instructionsText": "Listen to the speakers and select what you hear.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -317,7 +317,7 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"htmlContent": "<div><h2>All the words containing double&nbsp;<strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select <strong>y</strong> or <strong>l</strong> in the box below. Once you've completed each task listen to the text.</h2><table class='camille'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/La famille de Camille habite à Paris.mp3'>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de Camille est très gentille.mp3'>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de sa fille s&apos;appelle Myrtille.mp3'>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</span></br><span class='audio-link' sound-file='sounds/fr/Camille aime les tilleuls de Versailles.mp3'><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</span></td></tr></tbody></table><p class='footnote'>les tilleuls - lime trees</p></div>&copy; Jacqueline Rosen",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -362,8 +362,8 @@
 				"selectExercise3": {
 					"component": "SelectExercise",
 					"id": "selectExercise3",
-					"congratulationsText": "Très bien !",
-					"htmlContent": "<div><h2>All the words containing double <strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select y or l in the box below. Once you've completed each task listen to the text.</h2><table class='annabelle'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/Annabelle a une petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Elle s&apos;appelle Isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle nest pas belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Mais Isabelle est très gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle habite à Lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Elle y habite avec Gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Ce nest pas très tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Mais quelle belle ville, la ville de Lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong> !</span></td></tr></tbody></table>&copy; Jacqueline Rosen</div>",
+					"congratulationsText": "Très bien!",
+					"htmlContent": "<div><h2>All the words containing double <strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select y or l in the box below. Once you've completed each task listen to the text.</h2><table class='annabelle'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/Annabelle a une petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Elle s&apos;appelle Isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle nest pas belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Mais Isabelle est très gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle habite à Lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Elle y habite avec Gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Ce nest pas très tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Mais quelle belle ville, la ville de Lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong>!</span></td></tr></tbody></table>&copy; Jacqueline Rosen</div>",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -416,7 +416,7 @@
 				"selectExercise4": {
 					"component": "SelectExercise",
 					"id": "selectExercise4",
-					"congratulationsText": "Superbe !",
+					"congratulationsText": "Superbe!",
 					"instructionsTextHTML": "Fill in the gaps with the correct part of <strong>avoir</strong>.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -430,11 +430,11 @@
 							"audio": "sounds/fr/Nous avons trois enfants.mp3"
 						},
 						{
-							"text": "Vous [ai|as|a|avons|*avez|ont] soif ?",
+							"text": "Vous [ai|as|a|avons|*avez|ont] soif?",
 							"audio": "sounds/fr/Vous avez soif.mp3"
 						},
 						{
-							"text": "Tu [ai|*as|a|avons|avez|ont] faim ?",
+							"text": "Tu [ai|*as|a|avons|avez|ont] faim?",
 							"audio": "sounds/fr/Tu as faim.mp3"
 						},
 						{
@@ -458,7 +458,7 @@
 							"audio": "sounds/fr/J'ai froid.mp3"
 						},
 						{
-							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge ?",
+							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge?",
 							"audio": "sounds/fr/Vous avez quel âge.mp3"
 						}
 					],
@@ -469,7 +469,7 @@
 				"selectExercise5": {
 					"component": "SelectExercise",
 					"id": "selectExercise5",
-					"congratulationsText": "Excellent !",
+					"congratulationsText": "Excellent!",
 					"instructionsText": "Select the correct word for each gap.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
@@ -487,15 +487,15 @@
 							"audio": "sounds/fr/Mes cousines habitent aux Etats-Unis.mp3"
 						},
 						{
-							"text": "Où habite [ton|*ta|tes] famille ?",
+							"text": "Où habite [ton|*ta|tes] famille?",
 							"audio": "sounds/fr/Où habite ta famille.mp3"
 						},
 						{
-							"text": "Comment s'appelle [*ton|ta|tes] voisin ?",
+							"text": "Comment s'appelle [*ton|ta|tes] voisin?",
 							"audio": "sounds/fr/Comment s'appelle ton voisin.mp3"
 						},
 						{
-							"text": "[Ton|Ta|*Tes] amis habitent en banlieue ?",
+							"text": "[Ton|Ta|*Tes] amis habitent en banlieue?",
 							"audio": "sounds/fr/Tes amis habitent en banlieue.mp3"
 						},
 						{
@@ -515,11 +515,11 @@
 							"audio": "sounds/fr/Nos petits-enfants sont bilingues.mp3"
 						},
 						{
-							"text": "Où sont [votre|*vos] enfants ?",
+							"text": "Où sont [votre|*vos] enfants?",
 							"audio": "sounds/fr/Où sont vos enfants.mp3"
 						},
 						{
-							"text": "Et [*votre|vos] mari ?",
+							"text": "Et [*votre|vos] mari?",
 							"audio": "sounds/fr/Et votre mari.mp3"
 						},
 						{
@@ -527,7 +527,7 @@
 							"audio": "sounds/fr/Ils sont chez leurs grands-parents.mp3"
 						},
 						{
-							"text": "Où se trouve [*leur|leurs] appartement ?",
+							"text": "Où se trouve [*leur|leurs] appartement?",
 							"audio": "sounds/fr/Où se trouve leur appartement.mp3"
 						}
 					],
@@ -537,7 +537,7 @@
 			{
 				"draggableFillGaps2": {
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien !",
+					"congratulationsText": "Très bien!",
 					"id": "draggableFillGaps2",
 					"instructionsText": "Match each question with the correct answer.",
 					"showHintsText": "Show hints when moving",
