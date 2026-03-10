@@ -126,7 +126,9 @@ export default [
 			"sort-imports": [
 				"warn",
 				{
-					"ignoreCase": true
+					"allowSeparatedGroups": true,
+					"ignoreCase": true,
+					"ignoreDeclarationSort": true
 				}
 			],
 			"sort-keys": [
