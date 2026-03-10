@@ -6,7 +6,7 @@
 			"alt": "About me themed illustration"
 		},
 		"introHTML": "<p>This lesson helps you talk about who you are in French. You will practise introducing yourself, describing your personal situation and profession, and answering common personal questions politely. Through listening and speaking tasks, you will also improve key pronunciation patterns for clearer, more natural French.</p>",
-		"informationHTML": "<h3>You will learn:</h3><ul><li>How to introduce yourself and describe your situation (for example <em>célibataire</em>, <em>marié(e)</em>, professions).</li><li>How to use the verb <em>être</em> with common subject pronouns.</li><li>How grammatical gender affects articles and agreement in everyday expressions.</li><li>How to recognise and produce key pronunciation features, including silent final consonants and <em>th</em>.</li><li>How to respond accurately in guided listening and interactive practice activities.</li></ul>"
+		"informationHTML": "<h3>You will learn:</h3><ul><li>How to introduce yourself and describe your situation and profession (for example <em>célibataire</em>, <em>marié(e)</em>, <em>bibliothécaire</em>, <em>professeur(e)</em>).</li><li>How to use the verb <em>être</em> with common subject pronouns.</li><li>How grammatical gender affects articles and agreement in everyday expressions.</li><li>How to recognise and produce key pronunciation features, including silent final consonants and <em>th</em>.</li><li>How to respond accurately in guided listening and interactive practice activities.</li></ul>"
 	},
 	"monologues": {
 		"component": "Section",
@@ -31,8 +31,8 @@
 						],
 						[
 							"audio/lo2/monologues/monologues1/002-bonsoir-je-m-appelle-olivier-durand-je-suis-marie-avec-alex-depuis-trois-ans-et-je-suis-bibliothecaire.mp3",
-							"Bonsoir ! Je m'appelle Olivier Durand.<br />Je suis marié avec Alex depuis trois ans.<br />Je suis bibliothécaire.",
-							"Good evening, my name's Olivier Durand.<br />I've been married to Alex for three years.<br />I'm a librarian."
+							"Bonsoir ! Je m'appelle Olivier Durand.<br />Je suis marié avec Alex depuis trois ans et je suis bibliothécaire.",
+							"Good evening, my name's Olivier Durand.<br />I've been married to Alex for three years and I'm a librarian."
 						]
 					],
 					"titleText": "A bit about me"
@@ -47,7 +47,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (<em>marié(e), divorcé(e), séparé(e), fiancé(e), pacsé(e), célibataire</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>How compact forms work: <em>marié(e)</em> / <em>étudiant(e)</em> show masculine and feminine forms.</li></ul>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (for example <em>célibataire</em>, <em>marié(e)</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>Masculine and feminine forms of adjectives and professions (for example <em>divorcé(e)</em>, <em>avocat(e)</em>).</li></ul>",
 		"phrases": [
 			[
 				"audio/lo2/vocabulary/011-etre.mp3",
@@ -201,7 +201,7 @@
 				"subject-pronouns": {
 					"component": "AboutMeGrammarSubjectPronouns",
 					"id": "subject-pronouns",
-					"infoTextHTML": "In this section, you will clarify how French subject pronouns map to people and grammatical gender.<p>You will learn:</p><ul><li>How singular and plural pronouns are used in real sentences.</li><li>When to use <em class='grammar-term-em'>il/elle</em> and <em class='grammar-term-em'>ils/elles</em>.</li><li>How <em class='grammar-term-em'>iel</em> functions as a gender-neutral singular pronoun.</li></ul>",
+					"infoTextHTML": "In this section, you will clarify how French subject pronouns map to people and grammatical gender.<p>You will learn:</p><ul><li>How singular and plural pronouns are used in sentences.</li><li>When to use <em class='grammar-term-em'>il/elle</em> and <em class='grammar-term-em'>ils/elles</em>.</li><li>How <em class='grammar-term-em'>iel</em> functions as a gender-neutral singular pronoun.</li></ul>",
 					"titleText": "3. Subject pronouns"
 				}
 			}

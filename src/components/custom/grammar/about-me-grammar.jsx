@@ -115,7 +115,6 @@ export class AboutMeGrammarGenderAndArticles extends PureComponent {
 		return (
 			<div className={`lo2-grammar2-container container`} id={id || undefined} key={`${id}CustomComponent`}>
 				<div className={`panel`} id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
-					<p>(I think this lends itself to illustration/pic ?)</p>
 					<p>All French nouns have gender, not just people or animals but inanimate objects too.
 						There are just two genders in French called masculine and feminine.
 						This simply means that all nouns belong in one category or the other.
@@ -164,4 +163,3 @@ export class AboutMeGrammarSubjectPronouns extends PureComponent {
 		);
 	};
 }
-
