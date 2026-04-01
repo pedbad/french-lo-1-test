@@ -292,6 +292,15 @@ export default class App extends React.Component {
 					<AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-iel`} />
 				),
 			},
+			"toilettes-note": {
+				title: "Toilettes (fpl)",
+				content: (
+					<Info
+						variant="warning"
+						informationTextHTML="<p>In France the plural form is used even if there is just one facility. In other francophone countries, the singular <em>la toilette</em> occurs.</p>"
+					/>
+				),
+			},
 		};
 
 		if (modalContentMap[targetId]) return modalContentMap[targetId];

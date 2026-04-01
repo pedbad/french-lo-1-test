@@ -21,7 +21,10 @@ export {
 export {
 	CurrentLocationGrammarPrepositionsInPlaces,
 } from "./current-location-grammar";
-export { HouseAndHomeGrammar } from "./house-and-home-grammar";
+export {
+	HouseAndHomeGrammarThirdPersonForms,
+	HouseAndHomeGrammarAdjectivalAgreement,
+} from "./house-and-home-grammar";
 export { FamilyFriendsAndNeighboursGrammar } from "./family-friends-and-neighbours-grammar";
 export { OpinionsMatterGrammar } from "./opinions-matter-grammar";
 export { FreeTimeGrammar } from "./free-time-grammar";

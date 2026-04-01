@@ -303,11 +303,18 @@ export class PhraseTable extends React.PureComponent {
 					<TableBody>{rows}</TableBody>
 				</Table>
 
-				{footnote ? <p className="ootnote">{footnote}</p> : null}
+				{footnote ? (
+					<Info
+						className={`mt-4`}
+						variant={`warning`}
+						informationText={footnote}
+					/>
+				) : null}
 				{footnoteHTML ? (
-					<p
-						className="footNote"
-						dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(footnoteHTML) }}
+					<Info
+						className={`mt-4`}
+						variant={`warning`}
+						informationTextHTML={footnoteHTML}
 					/>
 				) : null}
 			</div>

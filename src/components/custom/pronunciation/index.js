@@ -22,7 +22,10 @@ export {
 	CurrentLocationPronunciationFinalEnEns,
 } from "./current-location-pronunciation";
 
-export { HouseAndHomePronunciation } from "./house-and-home-pronunciation";
+export {
+	HouseAndHomePronunciationNasalAn,
+	HouseAndHomePronunciationRelatedSpellings,
+} from "./house-and-home-pronunciation";
 export { FamilyFriendsAndNeighboursPronunciation } from "./family-friends-and-neighbours-pronunciation";
 export { OpinionsMatterPronunciation } from "./opinions-matter-pronunciation";
 export { FreeTimePronunciation } from "./free-time-pronunciation";
