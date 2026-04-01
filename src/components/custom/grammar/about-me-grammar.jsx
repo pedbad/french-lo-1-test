@@ -23,12 +23,12 @@ export const AboutMeSubjectPronounsBody = ({ highlightTarget = "" } = {}) => {
 				</p>
 				<p>
 					<span className={`modal-link-target ${highlight("subject-pronouns-ils")}`} id={`subject-pronouns-ils`}>
-						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3`}><strong>Ils</strong></AudioClip> is used to replace more than one masculine noun or a mixture of masculine and feminine nouns.
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/004-ils.mp3`}><strong>Ils</strong></AudioClip> is used to replace more than one masculine noun or a mixture of masculine and feminine nouns.
 					</span>
 				</p>
 				<p>
 					<span className={`modal-link-target ${highlight("subject-pronouns-elles")}`} id={`subject-pronouns-elles`}>
-						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3`}><strong>Elles</strong></AudioClip> is used to replace more than one feminine noun.
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/002-elles.mp3`}><strong>Elles</strong></AudioClip> is used to replace more than one feminine noun.
 					</span>
 				</p>
 				<p>
@@ -84,14 +84,19 @@ export class AboutMeGrammarVerbs extends PureComponent {
 					"you are",
 				],
 				[
-					"audio/lo2/grammar/grammar-and-usage/004-ils-sont.mp3",
+					"audio/lo2/grammar/grammar-and-usage/004-ils.mp3",
 					"<a class='modal-link' href='#content' data-modal-target='subject-pronouns-ils'>ils</a> sont",
 					"they are",
 				],
 				[
-					"audio/lo2/grammar/grammar-and-usage/002-elles-sont.mp3",
+					"audio/lo2/grammar/grammar-and-usage/002-elles.mp3",
 					"<a class='modal-link' href='#content' data-modal-target='subject-pronouns-elles'>elles</a> sont",
 					"they are",
+				],
+				[
+					"audio/lo2/grammar/grammar-and-usage/025-iel.mp3",
+					"<a class='modal-link' href='#content' data-modal-target='subject-pronouns-iel'>iel</a>",
+					"is a gender-neutral singular pronoun",
 				],
 			],
 		};
