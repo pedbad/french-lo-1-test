@@ -22,6 +22,8 @@ All other project documentation is grouped under `docs/`:
   - SCSS/Tailwind, color, typography, and image migration plans
 - `docs/components/`
   - component-specific refactor plans/checklists
+- `docs/navigation/`
+  - navigation-specific TODO/checklist/change log
 - `docs/process/`
   - project process notes, future project blueprint, and task trackers
 

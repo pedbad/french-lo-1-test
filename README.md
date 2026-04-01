@@ -567,11 +567,15 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_README.md` (utility module architecture plan and compatibility approach)
 - `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_TODO.md` (phased utility extraction tasks)
 - `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_CHECKLIST.md` (batch/PR verification checklist for utility refactor)
+- `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_TODO.md` (human-readable nav refactor rationale + phased plan)
+- `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_CHECKLIST.md` (parity and regression checklist for nav split)
+- `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_CHANGES.md` (navigation decision/change log)
 
 Component cleanup status:
 - Legacy `src/components/Form/**` namespace has been removed as dead code.
 - Runtime form/select/dialog primitives now come from shadcn/UI paths (`src/components/ui/*`) and exercise-specific components.
-- Root component barrel has been split to domain barrels (`content`, `layout`, `media`, `feedback`) to reduce structural drift.
+- Root component barrel is now an aggregator only; runtime imports use domain barrels (`content`, `layout`, `media`, `feedback`, `exercises`, `custom`) to reduce structural drift.
+- ESLint now enforces this import policy (`no-restricted-imports`) by blocking root-barrel runtime imports (`@/components`, `./components`).
 - Dead component cleanup (usage-audited):
   - removed unused `Attribution`, `Mockney`, `Social`, and `AudioClip` concatenated-playlist legacy component.
 

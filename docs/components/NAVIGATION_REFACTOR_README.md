@@ -7,6 +7,17 @@ This document defines a low-risk refactor plan for the top navigation implementa
 
 Goal: keep current visual style and behavior while reducing complexity and improving maintainability, accessibility confidence, and testability.
 
+## Source Of Truth
+
+To prevent documentation drift:
+
+- this file = technical architecture rationale and target shape
+- `docs/navigation/NAV_TODO.md` = human-readable plan and priorities
+- `docs/navigation/NAV_CHECKLIST.md` = execution + QA checklist (canonical checklist)
+- `docs/navigation/NAV_CHANGES.md` = status log (canonical progress log)
+
+When there is overlap, treat `docs/navigation/*` as canonical for task/status tracking.
+
 ## Current Implementation (Summary)
 
 The current top nav is a hybrid:
@@ -77,13 +88,7 @@ src/components/layout/page-shell/MainMenu/
 
 ## Validation Checklist
 
-- [ ] Desktop nav links match existing labels/order.
-- [ ] Mobile panel opens/closes exactly as before.
-- [ ] Active highlight updates correctly on scroll.
-- [ ] Escape closes mobile panel.
-- [ ] No duplicate nav landmarks introduced.
-- [ ] `yarn build` passes.
-- [ ] `yarn lint` passes.
+Use `docs/navigation/NAV_CHECKLIST.md` as the canonical checklist.
 
 ## Notes for Future Projects
 

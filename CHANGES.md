@@ -2,6 +2,20 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-01 - Navigation Documentation Consolidation
+
+- Added dedicated navigation docs under `docs/navigation/`:
+  - `docs/navigation/NAV_TODO.md`
+  - `docs/navigation/NAV_CHECKLIST.md`
+  - `docs/navigation/NAV_CHANGES.md`
+- Synced doc index and migration tracker links to avoid drift:
+  - `docs/README.md`
+  - `README.md`
+  - `docs/components/NAVIGATION_REFACTOR_README.md`
+- Purpose:
+  - keep nav refactor rationale, checklist, and change log in one place
+  - preserve parity-first approach for future nav split work
+
 ## 2026-03-10 - Layout Page-Shell Namespace (Batch A)
 
 - Reorganized page-shell components under layout domain:
