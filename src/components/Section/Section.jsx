@@ -192,7 +192,7 @@ export class Section extends React.PureComponent {
 									/>
 								) : null}
 								<div
-									className={`pb-5 text-sm text-slate-500`}
+									className={`pb-5 text-sm text-slate-500 ${(informationText || informationTextHTML) ? "mt-2" : ""}`}
 								>
 									{enhancedChildren}
 								</div>
