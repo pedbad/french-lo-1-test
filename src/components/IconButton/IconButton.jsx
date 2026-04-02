@@ -22,6 +22,7 @@ export class IconButton extends React.PureComponent {
 		const {
 			children,
 			className,
+			disabled,
 			id,
 			onClick,
 			size,
@@ -286,6 +287,7 @@ export class IconButton extends React.PureComponent {
 
 		return (
 			<Button
+				disabled={disabled}
 				id={id || undefined}
 				size={size}
 				variant={variant} // ✅ only affects places where you explicitly pass it

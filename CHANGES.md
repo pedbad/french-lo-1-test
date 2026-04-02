@@ -2,6 +2,41 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-01 - LineMatch Component (Initial Build Steps)
+
+- Added planning docs for the new connector-style matching exercise:
+  - `docs/components/LINEMATCH_DESIGN.md`
+  - `docs/components/LINEMATCH_CHECKLIST.md`
+- Added new exercise component scaffold and registry wiring:
+  - `src/components/exercises/LineMatch/LineMatch.jsx`
+  - `src/components/exercises/LineMatch/index.js`
+  - `src/components/exercises/index.js`
+  - `src/App.jsx`
+- Implemented the first two build slices:
+  - static two-column desktop scaffold with square image tiles sized to match existing sortable card proportions
+  - mobile dropdown/select fallback with the same sampled image set
+- Implemented the interaction state model before line rendering:
+  - sampled item round generation
+  - randomized right-side word bank
+  - active source tracking
+  - current desktop connection mapping
+- Wired LO5 Exercise 1 to the new component:
+  - `src/lo-config/house-and-home.json`
+  - replaced the first exercise's `DraggableFillGaps` config with `LineMatch`
+  - preserved teacher-authored title/instruction text and reused the same room image/audio bank
+- Added standard exercise controls and scoring to `LineMatch`:
+  - progress indicator with shared `ProgressDots`
+  - `Check answers`, `Reset`, and `Show answer` buttons using shared exercise button styles
+  - correct matches remain and turn green
+  - incorrect matches are cleared on check
+  - mobile dropdown answers are validated/reset through the same control row
+- Updated shared icon button behavior:
+  - `src/components/IconButton/IconButton.jsx`
+  - forwards `disabled` to the underlying button so exercise actions can be properly gated
+- Purpose:
+  - replace LO5 Exercise 1's overly long drag/drop interaction with a more structured connector-matching pattern
+  - keep mobile interaction simpler and lower-friction than desktop
+
 ## 2026-04-01 - Navigation Documentation Consolidation
 
 - Added dedicated navigation docs under `docs/navigation/`:

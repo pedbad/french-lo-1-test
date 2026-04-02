@@ -2,6 +2,7 @@ export * from './DictationExercise';
 export * from './DraggableFillGaps';
 export * from './DraggableFillGaps/DraggableWordTile';
 export * from './InlineChoiceGroup';
+export * from './LineMatch';
 export * from './MemoryMatchGame';
 export * from './MemoryMatchGame/Card';
 export * from './ProgressDots';
