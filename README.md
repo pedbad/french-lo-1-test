@@ -104,6 +104,7 @@ Sandbox includes:
   - Structure panels now use the shared shadcn/Radix accordion primitive (`src/components/ui/accordion.jsx`) instead of native `details/summary`.
   - Accordion content uses ordered lists (`ol`) with item counts (for example exercise entries) to make auditing easier.
   - Data is loaded via runtime JSON fetch (matching app config loading) to keep debug entry stable with Vite base-path handling.
+  - Exercise-type summaries include newer reusable engines such as `LineMatch`, so LO5's connector-style matching task appears in the debug sandbox structure output.
 
 Debug sandbox guardrails:
 - Panels should fail independently (show local error text) so one broken diagnostic module does not blank the page.
@@ -442,6 +443,10 @@ Migration method:
 5. only remove legacy aliases after full rollout.
 
 Latest applied step:
+- LO5 Exercise 1 now uses `LineMatch`:
+  - desktop: connector-style picture-to-word matching
+  - mobile: select/dropdown fallback
+  - debug sandbox structure summary has been updated to recognize `LineMatch` as an exercise component
 - LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.
 - `InlineChoiceGroup` row audio icon order is now left-first for consistency with the exercise layout standard.
 - LO4 Exercise 2 (`dropdowns3`) now uses `InlineChoiceGroup` as `inlineChoiceGroup3`:

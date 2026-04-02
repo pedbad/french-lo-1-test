@@ -370,13 +370,16 @@
 				}
 			},
 			{
-				"selectExercise1": {
-					"component": "SelectExercise",
-					"id": "selectExercise1",
+				"inlineChoiceGroup1": {
+					"component": "InlineChoiceGroup",
+					"id": "inlineChoiceGroup1",
 					"congratulationsText": "Excellent!",
-					"instructionsText": "Listen to the speakers and select the correct definite article to fill in the gaps.",
+					"instructionsText": "Select the correct definite article to fill in the gaps.",
+					"informationTextHTML": "Read each sentence and choose the correct definite article for the noun. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"sampleSize": 6,
+					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
+					"cheatText": "Show answer",
 					"items": [
 						{
 							"text": "[le|*la|les] salle de bains",
@@ -436,11 +439,12 @@
 					"id": "selectExercise2",
 					"congratulationsText": "Très bien!",
 					"instructionsText": "Listen to the speakers and select the correct form of the adjective to fill in the gaps.",
+					"informationTextHTML": "Listen to each sentence and choose the correct adjective form to fill in the gap. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct form, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"items": [
 						{
-							"text": "Le bureau est [*lumineux|lumineuse/ lumineuses].",
+							"text": "Le bureau est [*lumineux|lumineuse|lumineuses].",
 							"audio": "audio/lo5/exercises/selectExercise2/001-le-bureau-est-lumineux.mp3"
 						},
 						{
@@ -474,13 +478,13 @@
 					"id": "draggableFillGaps1",
 					"congratulationsText": "Superbe!",
 					"instructionsText": "Drag each word into the correct gap.",
+					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [
 						{
-							"text": "J'habite [seule]. Mon appartement n'est pas [très] grand, mais il est très [confortable].  Il y a [une] salle de séjour [lumineuse]. Elle [est] très jolie. J'ai un petit [balcon] – c'est super!  Il y a [deux] chambres, une pour [moi] et une autre [petite] chambre pour mes invités. J'ai une salle de bains et des [toilettes], bien sûr! Il y a [un] jardin devant l'immeuble.",
-							"audio": "audio/lo5/exercises/draggableFillGaps1/001-complete-the-description.mp3"
+							"text": "J'habite [seule]. Mon appartement n'est pas [très] grand, mais il est très [confortable].  Il y a [une] salle de séjour [lumineuse]. Elle [est] très jolie. J'ai un petit [balcon] – c'est super!  Il y a [deux] chambres, une pour [moi] et une autre [petite] chambre pour mes invités. J'ai une salle de bains et des [toilettes], bien sûr! Il y a [un] jardin devant l'immeuble."
 						}
 					],
 					"titleText": "4. Complete the description"

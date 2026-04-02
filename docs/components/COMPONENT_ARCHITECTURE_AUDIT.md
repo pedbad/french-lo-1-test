@@ -14,7 +14,7 @@ It is intended to prevent architecture drift while we continue LO-by-LO refactor
    - source: `src/components/custom/registry.js`
 
 This means the app currently has two delivery paths:
-- reusable shared engines (`PhraseTable`, `InlineChoiceGroup`, `SelectExercise`, `DraggableFillGaps`, etc.)
+- reusable shared engines (`PhraseTable`, `InlineChoiceGroup`, `SelectExercise`, `LineMatch`, `DraggableFillGaps`, etc.)
 - custom one-off FR blocks (`LOxGrammarY`, `LOxPronunciationY`, etc.)
 
 ## Audit Findings

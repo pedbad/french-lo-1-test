@@ -76,5 +76,6 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Listening order UI conventions:
   - `SequenceOrder` is used for continuous single-track order tasks.
   - `Sortable` is used for per-row/per-item clip matching tasks.
+  - `LineMatch` is used for connector-style picture/word matching with a desktop connector UI and a mobile select fallback.
   - `SortableWordCard` provides shared draggable card visuals across both.
   - `ProgressDots` is the shared circle-based progress indicator for exercise components.

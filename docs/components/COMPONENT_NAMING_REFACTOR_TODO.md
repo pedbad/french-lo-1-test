@@ -11,6 +11,7 @@
 - Component names should describe learner interaction:
   - `InlineChoiceGroup` (inline single-choice per blank)
   - `SelectExercise` (select/dropdown choice per row)
+  - `LineMatch` (connector-style picture/word matching)
   - `Sortable` / `ListeningOrder` (reorder-based tasks)
   - `Draggable*` / `Droppable*` for drag-target activities
 - Avoid ambiguous names that hide UX behavior.
@@ -34,6 +35,8 @@
 6. Remove deprecated names only after full LO coverage + QA sign-off.
 
 ## Current Status
+- LO5:
+  - `lineMatch1` uses `LineMatch` for connector-style picture/word matching with a mobile select fallback.
 - LO2:
   - `inlineChoiceGroup1` uses `InlineChoiceGroup` (practise verb forms).
   - `selectExercise2` uses `SelectExercise`.

@@ -322,6 +322,7 @@ Include these by default in new projects:
 4. Navigation helpers for QA
    - index links to key pages/learning objects.
    - high-level structure summary (sections/accordions/component types).
+   - if the structure summary classifies exercise/component types, keep that exercise-type registry in sync whenever a new reusable engine is added (for example `LineMatch`).
 5. Explicit diagnostics state
    - clear loading/error messages per panel so one failing panel does not blank the entire sandbox.
 

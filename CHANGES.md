@@ -69,6 +69,25 @@ This file summarizes the work completed in this repo during the session. It incl
 - Validation:
   - `yarn build`
 
+## 2026-04-02 - LO5 Completion + Debug/Docs Sync
+
+- Completed the LO5 `House and Home` exercise refactor:
+  - Exercise 1 remains the new `LineMatch` connector activity
+  - Exercise 2 now uses a single `InlineChoiceGroup` with a 12-item pool, `sampleSize: 6`, and reshuffled practice on load/reset
+  - Exercise 3 stays on `SelectExercise`, with corrected option parsing and shared instruction callout
+  - Exercise 4 keeps `DraggableFillGaps`, removes redundant row audio, and now includes the shared blue instruction callout
+- Synced repo docs to avoid drift:
+  - `README.md`
+    - added explicit mention of the new `LineMatch` activity and debug sandbox coverage
+  - `AGENTS.md`
+    - added `LineMatch` to the exercise UI conventions
+- Updated debug sandbox structure summary support:
+  - `src/debug/components/LearningObjectStructureSummary.jsx`
+    - `LineMatch` now counts as an exercise component and accordion-by-default component
+  - result: LO5 in `debug-sandbox.html` now reports the new activity type in its exercise/component summary
+- Validation:
+  - `yarn build`
+
 ## 2026-04-01 - Navigation Documentation Consolidation
 
 - Added dedicated navigation docs under `docs/navigation/`:
