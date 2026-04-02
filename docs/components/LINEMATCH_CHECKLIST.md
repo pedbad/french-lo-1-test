@@ -2,8 +2,8 @@
 
 ## Discovery
 - [x] Confirm LO5 Exercise 1 is the pilot target.
-- [ ] Confirm source image bank and audio bank already exist.
-- [ ] Confirm `sampleSize: 6` is the target interaction size.
+- [x] Confirm source image bank and audio bank already exist.
+- [x] Confirm `sampleSize: 6` is the target interaction size.
 - [x] Confirm mobile fallback should be dropdown/select, not connector drag.
 
 ## New Component Scaffold
@@ -14,9 +14,9 @@
 - [x] Ensure `App.jsx` can resolve `component: "LineMatch"`.
 
 ## Config Contract
-- [ ] Define final config shape for `items`, `sampleSize`, audio, labels, and images.
-- [ ] Keep teacher-authored content unchanged.
-- [ ] Keep LO5 wording stable while replacing only interaction format.
+- [x] Define final config shape for `items`, `sampleSize`, audio, labels, and images.
+- [x] Keep teacher-authored content unchanged unless explicitly requested.
+- [x] Keep LO5 wording stable while replacing only interaction format.
 
 ## Static Layout
 - [x] Render 6 sampled picture rows on the left.
@@ -29,14 +29,16 @@
 - [x] Desktop uses connector UI.
 - [x] Mobile uses select/dropdown fallback.
 - [x] Confirm breakpoint choice.
-- [ ] Confirm no excessive scrolling on narrow screens.
+- [x] Confirm no excessive scrolling on narrow screens.
 
 ## Interaction State
 - [x] Track sampled item set.
 - [x] Track randomized right-side bank.
-- [x] Track active drag source.
+- [x] Track active source selection.
+- [x] Track active target selection.
 - [x] Track current connections.
 - [x] Track checked/correct state.
+- [x] Allow two-way matching flow (picture -> word and word -> picture).
 
 ## Connector Drawing
 - [ ] Draw active connector while dragging.
@@ -55,16 +57,17 @@
 - [x] Add `Reset`.
 - [x] Add `Show answer`.
 - [ ] `Show answer` should not trigger celebration side effects.
-- [ ] Reset clears state predictably.
+- [x] Reset starts a fresh round predictably.
 
 ## Audio
 - [x] Right-side French words support audio playback.
 - [x] One-audio-at-a-time rule remains intact.
+- [x] Mobile rows expose audio without duplicating a separate word-bank block.
 
 ## LO5 Migration
 - [x] Replace LO5 Exercise 1 config from `DraggableFillGaps` to `LineMatch`.
-- [ ] Preserve image set and vocabulary items.
-- [ ] Preserve title and teacher-authored instructional copy unless explicitly changed.
+- [x] Preserve image set and vocabulary items.
+- [x] Preserve title and teacher-authored instructional copy unless explicitly changed.
 
 ## QA
 - [x] Desktop test: connect, re-connect, check, reset, show answer.
@@ -76,3 +79,4 @@
 - [x] Add design doc.
 - [x] Add checklist doc.
 - [x] Update `CHANGES.md` once implementation begins.
+- [x] Sync docs after later interaction/mobile refinements.

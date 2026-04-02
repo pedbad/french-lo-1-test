@@ -24,18 +24,22 @@ The activity should reinforce:
 - audio support for pronunciation
 - low-stakes recognition before later article/gender/description tasks
 
-## Final Interaction Pattern
+## Current Interaction Pattern
 
 ### Desktop / larger screens
 - Show 6 pictures in a left column.
 - Show the 6 matching French words in a right column.
 - Randomize the order of the 6 right-side words.
-- Keep the left image tiles visually aligned with the square `SortableWordCard` footprint used in `SequenceOrder`.
+- Keep the left image tiles compact and visually aligned with the existing exercise card scale.
 - Each left item has a source point.
 - Each right item has a circular target point.
-- Learner drags an elastic line from the left item to a right-side target.
+- Learner can start from either side:
+  - click a picture, then a word
+  - or click a word, then a picture
 - One connection per image.
 - A right-side target can only accept one connection.
+- Entire picture wrappers act as source hit areas.
+- Entire word-bank rows act as target hit areas, except the word/audio area which remains audio-only.
 
 ### Check behavior
 - Learner clicks `Check answers`.
@@ -45,20 +49,24 @@ The activity should reinforce:
 - Incorrect matches:
   - recoil back to the source
   - do not remain attached
+- Partial checking is allowed after the first completed match.
 
 ### Reset behavior
-- `Reset` clears all connections and checked state.
-- New random sample and/or new order should be controlled explicitly by config/logic.
+- `Reset` starts a fresh round.
+- A new random sample and new word order are generated.
 
 ### Audio
-- Audio should live with the right-side French word bank, not the image tiles.
-- Each right-side French word should support audio playback.
+- On desktop, audio lives with the right-side French word bank.
+- On mobile, each image row includes an audio control before the image.
 - Audio remains secondary support, not the main task mechanic.
 
 ## Mobile Behavior
 - Do not use the wire/connector UI on small screens.
-- Use a simpler mobile fallback.
-- Recommended fallback: `SelectExercise`-style dropdown per picture.
+- Use a simpler built-in fallback row for each item:
+  - audio icon
+  - image
+  - dropdown/select
+  - correct/incorrect result icon after checking
 
 This means `LineMatch` is really a responsive hybrid:
 - desktop/tablet landscape: connector matching
@@ -74,21 +82,23 @@ This means `LineMatch` is really a responsive hybrid:
 - easier to validate quickly
 
 ## Scope For V1
-V1 should stay deliberately narrow.
+V1 is now implemented as a deliberately narrow first release.
 
-Include:
+Implemented:
 - 6 sampled items from a larger config bank
 - desktop connector matching
 - mobile dropdown fallback
-- audio playback on word items
+- audio support on desktop word items and mobile image rows
 - check / reset / show answer
 - correct/incorrect persistence rules
+- desktop recoil animation for wrong matches
+- mobile per-row result icons
 
-Do not include yet:
-- animated bezier physics polish beyond simple recoil
-- keyboard connector control
-- partial scoring beyond correct count
-- complex accessibility shortcuts beyond the mobile fallback
+Still deferred:
+- true live drag with a moving active line
+- keyboard-first connector controls
+- richer accessibility announcements beyond the current visual/mobile fallback behavior
+- more physical elastic motion beyond the current simple recoil
 
 ## Proposed Config Shape
 High-level idea only:
@@ -106,6 +116,7 @@ High-level idea only:
     {
       "image": "/images/memory-rooms/balcony.jpg",
       "label": "balcon",
+      "localLanguage": "balcony",
       "audio": "audio/lo5/..."
     }
   ]
@@ -120,113 +131,9 @@ Why:
 - matches the visible interaction
 - still understandable if the line feels like an elastic connector
 
-## Baby-Step Implementation Plan
+## Implementation Notes
 
-### Step 1
-Define the contract and checklist.
-
-Output:
-- this design doc
-- checklist doc
-
-### Step 2
-Scaffold the component with static layout only.
-
-Build:
-- new `LineMatch` component folder
-- left/right columns
-- sample 6 items from config
-- right-side randomized word bank with audio access
-- left image tiles sized to match the square sortable-card footprint
-- no dragging yet
-
-Goal:
-- validate data shape and visual layout first
-
-### Step 3
-Add responsive split.
-
-Build:
-- desktop layout for line matching
-- mobile fallback branch using select controls
-
-Goal:
-- avoid building drag logic before the responsive structure is settled
-
-### Step 4
-Add connector state model.
-
-Build:
-- source item state
-- target occupancy state
-- active drag state
-- completed connection state
-
-Goal:
-- confirm data model before drawing/animation complexity
-
-### Step 5
-Add line rendering.
-
-Build:
-- render an active line while dragging
-- render fixed lines for completed matches
-
-Goal:
-- confirm visual connector system before validation logic
-
-### Step 6
-Add drop logic and target locking.
-
-Build:
-- attach source to target
-- enforce one target per source and one source per target
-- allow replacement or clear previous connection by rule
-
-Goal:
-- make the interaction usable before grading
-
-### Step 7
-Add `Check answers`.
-
-Build:
-- compare current connections against canonical answers
-- keep correct lines
-- recoil incorrect lines
-- surface score/result text
-
-Goal:
-- add learning feedback only after interaction is stable
-
-### Step 8
-Add `Reset` and `Show answer`.
-
-Build:
-- reset state
-- reveal correct connections
-- suppress celebration side effects when showing answers
-
-Goal:
-- parity with existing exercise conventions
-
-### Step 9
-Wire LO5 Exercise 1 to `LineMatch`.
-
-Build:
-- swap LO5 config from current draggable activity
-- preserve teacher vocabulary and images
-- keep sample size at 6
-
-Goal:
-- controlled pilot rollout in one lesson only
-
-### Step 10
-Polish and verify.
-
-Check:
-- desktop usability
-- mobile fallback usability
-- audio behavior
-- spacing
-- check/reset/show-answer flows
-- no regression in existing exercises
+- The current connector model is click-to-connect, not true pointer-drag.
+- The recoil effect is implemented with the existing SVG connector layer and a short timed animation.
+- LO5 is the pilot rollout and keeps the teacher-authored vocabulary bank, images, and lesson structure.
+- The left desktop status area doubles as lightweight support text by showing the English room label until the item becomes `Selected` or `Matched`.

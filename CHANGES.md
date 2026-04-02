@@ -37,6 +37,38 @@ This file summarizes the work completed in this repo during the session. It incl
   - replace LO5 Exercise 1's overly long drag/drop interaction with a more structured connector-matching pattern
   - keep mobile interaction simpler and lower-friction than desktop
 
+## 2026-04-02 - LineMatch Interaction Refinement
+
+- Refined the new `LineMatch` exercise interaction and feedback:
+  - desktop matching now works in both directions
+    - picture -> word
+    - word -> picture
+  - entire picture wrappers are clickable as source selectors
+  - entire word-bank rows are clickable as targets, while the word/audio area remains audio-only
+  - connected circles now fill so used vs unused connection points are easier to distinguish
+  - incorrect desktop connections now use a short recoil animation on `Check answers` instead of disappearing instantly
+- Refined desktop layout and visual alignment:
+  - removed extra `Pictures` / `Word Bank` headings
+  - moved left-side status text inside the image wrapper
+  - added English helper labels on the left by default using `localLanguage`
+  - normalized left/right row heights so picture rows and word-bank rows align more predictably
+  - reduced image tile size and tuned hover/cursor states on both columns
+- Refined mobile fallback behavior:
+  - simplified each mobile row to audio icon + image + select box
+  - removed the extra mobile word-bank tiles and redundant heading/instruction text
+  - added per-row correct/incorrect feedback icons to match earlier LO exercise conventions
+  - fixed mobile select value handling for items whose internal `id` differs from the visible French label
+- Refined LO5 config and instruction rendering:
+  - `src/lo-config/house-and-home.json`
+    - added `localLanguage` labels for LO5 room items used by `LineMatch`
+    - updated the first exercise instruction copy to use the shared inline action icons and shorter audio guidance
+  - `src/components/exercises/LineMatch/LineMatch.jsx`
+    - now respects `suppressInfo` so exercise instructions are not duplicated inside accordions
+  - `src/App.jsx`
+    - ensured `LineMatch` resolves in the main section renderer as well as the tab renderer
+- Validation:
+  - `yarn build`
+
 ## 2026-04-01 - Navigation Documentation Consolidation
 
 - Added dedicated navigation docs under `docs/navigation/`:
