@@ -2,6 +2,17 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-02 - Shared Compact Audio Hover Consistency
+
+- Unified compact circular audio icon hover/focus behavior in the shared audio styling:
+  - `src/index.css`
+  - compact `AudioClip` buttons used in exercises now inherit the same orange rollover treatment already expected in grammar/vocabulary contexts
+  - applied at the shared selector level so `SelectExercise`, `InlineChoiceGroup`, `Sortable`, `DraggableFillGaps`, `LineMatch`, and other exercise surfaces do not need per-component hover overrides
+- Synced docs to record the shared interaction contract:
+  - `README.md`
+  - `AGENTS.md`
+  - `docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md`
+
 ## 2026-04-01 - LineMatch Component (Initial Build Steps)
 
 - Added planning docs for the new connector-style matching exercise:

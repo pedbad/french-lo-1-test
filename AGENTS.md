@@ -67,6 +67,7 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - In rendered JSX content, use semantic emphasis tags (`<strong>`, `<em>`) instead of presentational (`<b>`, `<i>`).
 - For sentence text containing inline components (for example `AudioClip`), use explicit React spaces (`{' '}`) where needed rather than relying on incidental whitespace collapse behavior.
 - Audio playback is globally single-active: when a new clip starts, all other currently playing clips are paused (`stopAllAudioPlayback` + `trackFloatingAudio` in `src/utils/audioPlayback.js`, used by `AudioClip`, `SequenceAudioController`, and `playAudioLink`).
+- Compact circular `AudioClip` buttons now share the same orange hover/focus rollover globally, including exercises, so do not add one-off per-exercise hover overrides for those icons.
 - LO1 exercise naming has been refactored to behavior-based ids in `src/lo-config/first-contact.json`:
   - `listeningOrder1`
   - `listeningOrder2`

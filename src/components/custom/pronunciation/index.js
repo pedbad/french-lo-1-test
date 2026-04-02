@@ -26,7 +26,11 @@ export {
 	HouseAndHomePronunciationNasalAn,
 	HouseAndHomePronunciationRelatedSpellings,
 } from "./house-and-home-pronunciation";
-export { FamilyFriendsAndNeighboursPronunciation } from "./family-friends-and-neighbours-pronunciation";
+export {
+	FamilyFriendsAndNeighboursPronunciationDoubleLlAsL,
+	FamilyFriendsAndNeighboursPronunciationDoubleLlAsY,
+	FamilyFriendsAndNeighboursPronunciationExceptions,
+} from "./family-friends-and-neighbours-pronunciation";
 export { OpinionsMatterPronunciation } from "./opinions-matter-pronunciation";
 export { FreeTimePronunciation } from "./free-time-pronunciation";
 export { PhoningInFrancePronunciation } from "./phoning-in-france-pronunciation";

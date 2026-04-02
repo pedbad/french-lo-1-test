@@ -2,96 +2,101 @@
 	"settings": {
 		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
-		"intro": "This lesson teaches learners how to talk about family, friends, and relationships in French — describing relatives and using possessive adjectives correctly (e.g. mon frère, ma sœur, mes parents). It introduces the irregular verb avoir (“to have”) and common expressions that use it (j’ai faim, j’ai 25 ans). Learners also practise pronunciation of double l (as in famille, fille, bouteille), developing accurate and natural speech when discussing family and personal relationships."
+		"introImage": {
+			"src": "img/lo6/family-friends-neighbours.svg",
+			"alt": "Family, friends and neighbours illustration"
+		},
+		"introHTML": "<p>This lesson teaches learners how to talk about family, friends, and relationships in French, describing relatives and using possessive adjectives correctly (for example <em>mon frère</em>, <em>ma sœur</em>, <em>mes parents</em>). It introduces the irregular verb <em>avoir</em> and common expressions that use it (for example <em>j&apos;ai faim</em>, <em>j&apos;ai 25 ans</em>). Learners also practise pronunciation of double <em>ll</em> (as in <em>famille</em>, <em>fille</em>, <em>bouteille</em>), developing accurate and natural speech when discussing family and personal relationships.</p>",
+		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Talk about family members, friends, and neighbours in French.</li><li>Use possessive adjectives more accurately with singular and plural nouns.</li><li>Recognise and use common forms of <em>avoir</em> and everyday expressions built with it.</li><li>Improve listening comprehension through guided relationship and family-based tasks.</li><li>Recognise and produce the pronunciation patterns of French double <em>ll</em> more confidently.</li></ul>"
 	},
 	"dialogues": {
 		"component": "Section",
 		"expandable": false,
-		"instructionsTextHTML": "<a href='https://commons.wikimedia.org/wiki/File:Waldburg_Ahnentafel.jpg'><img width='256' src='https://upload.wikimedia.org/wikipedia/commons/2/26/Waldburg_Ahnentafel.jpg' style='border: 1px solid black;'></a>",
+		"instructionsTextHTML": "<p>This section introduces short dialogues that show how to ask and answer questions about family, relatives, and relationships in French.</p>",
 		"content": [
 			{
 				"dialogues1": {
 					"component": "PhraseTable",
 					"id": "dialogues1",
-					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"sounds/fr/Tu as des frères et des sœurs.mp3",
+							"audio/lo6/dialogues/tu-as-des-freres-et-des-s-urs.mp3",
 							"Tu as des frères et des sœurs?",
 							"Have you got brothers and sisters?"
 						],
 						[
-							"sounds/fr/Oui, j'ai un grand frère et deux petites sœurs. Et toi.mp3",
+							"audio/lo6/dialogues/oui-j-ai-un-grand-frere-et-deux-petites-s-urs-et-toi.mp3",
 							"Oui, j'ai un grand frère et deux petites sœurs. Et toi?",
 							"Yes, I have a big (older) brother and two little (younger) sisters. What about you?"
 						],
 						[
-							"sounds/fr/Je n'ai pas de frères, mais j'ai une sœur-jumelle.mp3",
+							"audio/lo6/dialogues/je-n-ai-pas-de-freres-mais-j-ai-une-s-ur-jumelle.mp3",
 							"Je n'ai pas de frères, mais j'ai une sœur-jumelle.",
 							"I haven't got any brothers, but I've got a twin sister."
 						]
 					],
-					"titleText": "Dialogues 1"
+					"titleText": "Informal questions about brothers and sisters"
 				}
 			},
 			{
 				"dialogues2": {
 					"component": "PhraseTable",
 					"id": "dialogues2",
-					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"sounds/fr/Vous avez des frères et des sœurs.mp3",
+							"audio/lo6/dialogues/vous-avez-des-freres-et-des-s-urs.mp3",
 							"Vous avez des frères et des sœurs?",
 							"Have you got brothers and sisters?"
 						],
 						[
-							"sounds/fr/Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous.mp3",
+							"audio/lo6/dialogues/non-je-n-ai-ni-freres-ni-s-urs-je-suis-enfant-unique-et-vous.mp3",
 							"Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous?",
 							"No, I've got neither brothers nor sisters. I'm an only child. What about you?"
 						],
 						[
-							"sounds/fr/J'ai un demi-frère et une demi-sœur.mp3",
+							"audio/lo6/dialogues/j-ai-un-demi-frere-et-une-demi-s-ur.mp3",
 							"J'ai un demi-frère et une demi-sœur.",
 							"I've got a half-brother and a half-sister."
 						]
 					],
-					"titleText": "Dialogues 2"
+					"titleText": "Formal questions about brothers and sisters"
 				}
 			},
 			{
 				"dialogues3": {
 					"component": "PhraseTable",
 					"id": "dialogues3",
-					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"sounds/fr/Caroline, vous avez des enfants.mp3",
+							"audio/lo6/dialogues/caroline-vous-avez-des-enfants.mp3",
 							"Caroline, vous avez des enfants?",
 							"Caroline, do you have any children?"
 						],
 						[
-							"sounds/fr/Ah non, nous n'avons pas d'enfants, pas encore! Et vous.mp3",
+							"audio/lo6/dialogues/ah-non-nous-n-avons-pas-d-enfants-pas-encore-et-vous.mp3",
 							"Ah non, nous n'avons pas d'enfants, pas encore! Et vous?",
 							"Oh no, we haven't got any children, not yet. What about you?"
 						],
 						[
-							"sounds/fr/Oui, j'ai un fils.mp3",
+							"audio/lo6/dialogues/oui-j-ai-un-fils.mp3",
 							"Oui, j'ai un fils.",
 							"Yes, I've got a son."
 						],
 						[
-							"sounds/fr/Il a quel âge.mp3",
+							"audio/lo6/dialogues/il-a-quel-age.mp3",
 							"Il a quel âge?",
 							"How old is he?"
 						],
 						[
-							"sounds/fr/C'est un bébé. Il a cinq mois.mp3",
+							"audio/lo6/dialogues/c-est-un-bebe-il-a-cinq-mois.mp3",
 							"C'est un bébé. Il a cinq mois.",
 							"He's a baby. He's five months old."
 						]
 					],
-					"titleText": "Dialogues 3"
+					"titleText": "Asking about children and age"
 				}
 			}
 		],
@@ -102,160 +107,161 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+		"instructionsTextHTML": "<p>This section introduces key family, relationship, and neighbour vocabulary used throughout the unit.</p>",
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core family vocabulary (for example <em>frère</em>, <em>sœur</em>, <em>grands-parents</em>).</li><li>Words for relationships and households (for example <em>mari</em>, <em>femme</em>, <em>compagnon</em>, <em>voisin</em>).</li><li>Useful ways to ask about age and family structure.</li><li>Vocabulary that supports the grammar, pronunciation, and exercise work in this unit.</li></ul>",
 		"phrases": [
 			[
-				"sounds/fr/famille.mp3",
+				"audio/lo6/shared/famille.mp3",
 				"famille (f)",
 				"family"
 			],
 			[
-				"sounds/fr/père mère.mp3",
+				"audio/lo6/vocabulary/pere-mere.mp3",
 				"père (m) mère (f)",
 				"father, mother"
 			],
 			[
-				"sounds/fr/parent.mp3",
+				"audio/lo6/vocabulary/parent.mp3",
 				"parent (m)",
 				"parent / relative"
 			],
 			[
-				"sounds/fr/maman, papa.mp3",
+				"audio/lo6/vocabulary/maman-papa.mp3",
 				"maman, papa",
 				"mum, dad"
 			],
 			[
-				"sounds/fr/frère, sœur.mp3",
+				"audio/lo6/vocabulary/frere-s-ur.mp3",
 				"frère (m) sœur (f)",
 				"brother, sister"
 			],
 			[
-				"sounds/fr/jumeau, jumelle.mp3",
+				"audio/lo6/vocabulary/jumeau-jumelle.mp3",
 				"jumeau (m) jumelle (f)",
 				"twin brother, twin sister"
 			],
 			[
-				"sounds/fr/fils, fille.mp3",
+				"audio/lo6/vocabulary/fils-fille.mp3",
 				"fils (m) fille (f)",
 				"son, daughter"
 			],
 			[
-				"sounds/fr/garçon, fille.mp3",
+				"audio/lo6/vocabulary/garcon-fille.mp3",
 				"garçon (m) fille (f)",
 				"boy, girl"
 			],
 			[
-				"sounds/fr/bébé.mp3",
+				"audio/lo6/vocabulary/bebe.mp3",
 				"bébé (m)",
 				"baby"
 			],
 			[
-				"sounds/fr/oncle, tante.mp3",
+				"audio/lo6/vocabulary/oncle-tante.mp3",
 				"oncle (m) tante (f)",
 				"uncle, aunt"
 			],
 			[
-				"sounds/fr/cousin, cousine.mp3",
+				"audio/lo6/vocabulary/cousin-cousine.mp3",
 				"cousin (m) cousine (f)",
 				"cousin"
 			],
 			[
-				"sounds/fr/grands-parents.mp3",
+				"audio/lo6/vocabulary/grands-parents.mp3",
 				"grands-parents (mpl)",
 				"grandparents"
 			],
 			[
-				"sounds/fr/grand-père, grand-mère.mp3",
+				"audio/lo6/vocabulary/grand-pere-grand-mere.mp3",
 				"grand-père (m) grand-mère (f)",
 				"grandfather"
 			],
 			[
-				"sounds/fr/beau-père.mp3",
+				"audio/lo6/vocabulary/beau-pere.mp3",
 				"beau-père (m)",
 				"father-in-law, stepfather"
 			],
 			[
-				"sounds/fr/belle-mère.mp3",
+				"audio/lo6/vocabulary/belle-mere.mp3",
 				"belle-mère (f)",
 				"mother-in-law, stepmother"
 			],
 			[
-				"sounds/fr/beau-frère.mp3",
+				"audio/lo6/vocabulary/beau-frere.mp3",
 				"beau-frère  (m)",
 				"brother-in-law, stepbrother"
 			],
 			[
-				"sounds/fr/belle-sœur.mp3",
+				"audio/lo6/vocabulary/belle-s-ur.mp3",
 				"belle-sœur (f)",
 				"sister-in-law, stepsister"
 			],
 			[
-				"sounds/fr/enfant unique.mp3",
+				"audio/lo6/vocabulary/enfant-unique.mp3",
 				"enfant unique",
 				"only child"
 			],
 			[
-				"sounds/fr/demi-frère, demi-sœur.mp3",
+				"audio/lo6/vocabulary/demi-frere-demi-s-ur.mp3",
 				"demi-frère (m) demi-sœur (f)",
 				"half-brother, half-sister"
 			],
 			[
-				"sounds/fr/petits-enfants.mp3",
+				"audio/lo6/vocabulary/petits-enfants.mp3",
 				"petits-enfants (mpl)",
 				"grandchildren"
 			],
 			[
-				"sounds/fr/petit-fils, petite-fille.mp3",
+				"audio/lo6/vocabulary/petit-fils-petite-fille.mp3",
 				"petit-fils (m) petite-fille (f)",
 				"grandson, granddaughter"
 			],
 			[
-				"sounds/fr/mari, femme.mp3",
+				"audio/lo6/vocabulary/mari-femme.mp3",
 				"mari (m) femme (f)",
 				"husband, wife"
 			],
 			[
-				"sounds/fr/personne.mp3",
+				"audio/lo6/vocabulary/personne.mp3",
 				"personne (f)",
 				"person"
 			],
 			[
-				"sounds/fr/ami, amie.mp3",
+				"audio/lo6/vocabulary/ami-amie.mp3",
 				"ami (m) amie (f)",
 				"friend"
 			],
 			[
-				"sounds/fr/copain, copine.mp3",
+				"audio/lo6/vocabulary/copain-copine.mp3",
 				"copain (m) copine (f)",
 				"friend / boyfriend, girlfriend"
 			],
 			[
-				"sounds/fr/compagnon, compagne.mp3",
+				"audio/lo6/vocabulary/compagnon-compagne.mp3",
 				"compagnon (m) compagne (f)",
 				"partner"
 			],
 			[
-				"sounds/fr/conjoint, conjointe.mp3",
+				"audio/lo6/vocabulary/conjoint-conjointe.mp3",
 				"conjoint (m) conjointe (f)",
 				"spouse"
 			],
 			[
-				"sounds/fr/voisin, voisine.mp3",
+				"audio/lo6/vocabulary/voisin-voisine.mp3",
 				"voisin (m) voisine (f)",
 				"neighbour"
 			],
 			[
-				"sounds/fr/Quel âge as-tu. Tu as quel âge.mp3",
+				"audio/lo6/vocabulary/quel-age-as-tu-tu-as-quel-age.mp3",
 				"Quel âge as-tu? Tu as quel âge?",
 				"How old are you?"
 			],
 			[
-				"sounds/fr/Quel âge avez-vous. Vous avez quel âge.mp3",
+				"audio/lo6/vocabulary/quel-age-avez-vous-vous-avez-quel-age.mp3",
 				"Quel âge avez-vous? Vous avez quel âge?",
 				"How old are you?"
 			],
 			[
-				"sounds/fr/gentil, gentille.mp3",
+				"audio/lo6/vocabulary/gentil-gentille.mp3",
 				"gentil (m) gentille (f)",
 				"nice, kind"
 			]
@@ -264,14 +270,67 @@
 		"titleText": "Vocabulary"
 	},
 	"grammar": {
-		"component": "FamilyFriendsAndNeighboursGrammar",
+		"component": "Group",
+		"content": [
+			{
+				"grammar1": {
+					"component": "FamilyFriendsAndNeighboursGrammarPossessives",
+					"id": "grammar1",
+					"infoTextHTML": "<p>This section explains how possessive adjectives change according to noun gender and number in French.</p>",
+					"titleText": "1. Possessive adjectives"
+				}
+			},
+			{
+				"grammar2": {
+					"component": "FamilyFriendsAndNeighboursGrammarAvoir",
+					"id": "grammar2",
+					"infoTextHTML": "<p>This section introduces the irregular verb <em class='grammar-term-em'>avoir</em> and some common expressions that use it.</p>",
+					"titleTextHTML": "2. The verb <em class='grammar-term-em'>avoir</em>"
+				}
+			}
+		],
 		"expandable": false,
 		"id": "grammar",
 		"menuText": "Grammar",
-		"titleText": "Grammar and Usage"
+		"titleText": "Grammar and Usage",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section introduces key grammar and usage for talking about family, relationships, and age in French, with a focus on possessive adjectives and the verb <em class='grammar-term-em'>avoir</em>.</p>",
+			"image": {
+				"src": "img/shared/grammar.svg",
+				"alt": "Grammar illustration"
+			}
+		},
+		"heroSection": true
 	},
 	"pronunciation": {
-		"component": "FamilyFriendsAndNeighboursPronunciation",
+		"component": "Group",
+		"content": [
+			{
+				"pronunciation1": {
+					"component": "FamilyFriendsAndNeighboursPronunciationDoubleLlAsL",
+					"id": "pronunciation1",
+					"informationTextHTML": "<p>In this part, focus on cases where French double <em>ll</em> is pronounced like a clear <em>l</em> sound. Listen carefully and repeat each example aloud.</p>",
+					"titleText": "1. Double ll pronounced l"
+				}
+			},
+			{
+				"pronunciation2": {
+					"component": "FamilyFriendsAndNeighboursPronunciationDoubleLlAsY",
+					"id": "pronunciation2",
+					"informationTextHTML": "<p>Here, focus on words where double <em>ll</em> is pronounced like the English letter <em>y</em>. Listen, compare, and repeat.</p>",
+					"titleText": "2. Double ll pronounced y"
+				}
+			},
+			{
+				"pronunciation3": {
+					"component": "FamilyFriendsAndNeighboursPronunciationExceptions",
+					"id": "pronunciation3",
+					"informationTextHTML": "<p>Finally, practise some common exception words where the spelling pattern does not follow the usual double <em>ll</em> rule.</p>",
+					"titleText": "3. Exceptions"
+				}
+			}
+		],
+		"displayAsTabs": true,
 		"expandable": false,
 		"id": "pronunciation",
 		"menuText": "Pronunciation",
@@ -286,28 +345,29 @@
 					"id": "selectExercise1",
 					"congratulationsText": "Excellent!",
 					"instructionsText": "Listen to the speakers and select what you hear.",
+					"informationTextHTML": "Play each audio clip and choose the French sentence that matches what you hear. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "[J'ai des sœurs.|*J'ai deux sœurs.|Je n'ai pas de sœurs.]",
-							"audio": "sounds/fr/J'ai deux sœurs.mp3"
+							"audio": "audio/lo6/exercises/j-ai-deux-s-urs.mp3"
 						},
 						{
 							"text": "[Il a un frère.|*Elle a un frère.|Elles ont un frère.]",
-							"audio": "sounds/fr/Elle a un frère.mp3"
+							"audio": "audio/lo6/exercises/elle-a-un-frere.mp3"
 						},
 						{
 							"text": "[Mon copain s'appelle David.|Mon conjoint s'appelle David.|*Mon compagnon s'appelle David.]",
-							"audio": "sounds/fr/Mon compagnon s'appelle David.mp3"
+							"audio": "audio/lo6/exercises/mon-compagnon-s-appelle-david.mp3"
 						},
 						{
 							"text": "[*Ils ont un fils.|Ils ont deux fils.|Ils ont deux filles.]",
-							"audio": "sounds/fr/Ils ont un fils.mp3"
+							"audio": "audio/lo6/exercises/ils-ont-un-fils.mp3"
 						},
 						{
 							"text": "[Mon amie est allemande.|Mes amis sont allemands.|*Mes amies sont allemandes.]",
-							"audio": "sounds/fr/Mes amies sont allemandes.mp3"
+							"audio": "audio/lo6/exercises/mes-amies-sont-allemandes.mp3"
 						}
 					],
 					"titleText": "1. Practise your listening skills"
@@ -318,41 +378,41 @@
 					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Très bien!",
-					"htmlContent": "<div><h2>All the words containing double&nbsp;<strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select <strong>y</strong> or <strong>l</strong> in the box below. Once you've completed each task listen to the text.</h2><table class='camille'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/La famille de Camille habite à Paris.mp3'>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de Camille est très gentille.mp3'>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</span></br><span class='audio-link' sound-file='sounds/fr/La fille de sa fille s&apos;appelle Myrtille.mp3'>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</span></br><span class='audio-link' sound-file='sounds/fr/Camille aime les tilleuls de Versailles.mp3'><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</span></td></tr></tbody></table><p class='footnote'>les tilleuls - lime trees</p></div>&copy; Jacqueline Rosen",
+					"htmlContent": "<div><h2>All the words containing double&nbsp;<strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select <strong>y</strong> or <strong>l</strong> in the box below. Once you've completed each task listen to the text.</h2><table class='camille'><tbody><tr><td><span class='audio-link' sound-file='audio/lo6/exercises/la-famille-de-camille-habite-a-paris.mp3'>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</span></br><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-camille-est-tres-gentille.mp3'>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</span></br><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-sa-fille-s-appelle-myrtille.mp3'>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</span></br><span class='audio-link' sound-file='audio/lo6/exercises/camille-aime-les-tilleuls-de-versailles.mp3'><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</span></td></tr></tbody></table><p class='footnote'>les tilleuls - lime trees</p></div>&copy; Jacqueline Rosen",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "famille ([*y|l])",
-							"audio": "sounds/fr/famille.mp3"
+							"audio": "audio/lo6/shared/famille.mp3"
 						},
 						{
 							"text": "Camille ([*y|l])",
-							"audio": "sounds/fr/Camille.mp3"
+							"audio": "audio/lo6/exercises/camille.mp3"
 						},
 						{
 							"text": "fille ([*y|l])",
-							"audio": "sounds/fr/fille.mp3"
+							"audio": "audio/lo6/exercises/fille.mp3"
 						},
 						{
 							"text": "gentille ([*y|l])",
-							"audio": "sounds/fr/gentille.mp3"
+							"audio": "audio/lo6/exercises/gentille.mp3"
 						},
 						{
 							"text": "s'appelle ([y|*l])",
-							"audio": "sounds/fr/s'appelle.mp3"
+							"audio": "audio/lo6/exercises/s-appelle.mp3"
 						},
 						{
 							"text": "Myrtille ([*y|l])",
-							"audio": "sounds/fr/Myrtille.mp3"
+							"audio": "audio/lo6/exercises/myrtille.mp3"
 						},
 						{
 							"text": "tilleuls ([*y|l])",
-							"audio": "sounds/fr/tilleuls.mp3"
+							"audio": "audio/lo6/exercises/tilleuls.mp3"
 						},
 						{
 							"text": "Versailles ([*y|l])",
-							"audio": "sounds/fr/Versailles.mp3"
+							"audio": "audio/lo6/exercises/versailles.mp3"
 						}
 					],
 					"titleText": "2. Camille"
@@ -363,49 +423,49 @@
 					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Très bien!",
-					"htmlContent": "<div><h2>All the words containing double <strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select y or l in the box below. Once you've completed each task listen to the text.</h2><table class='annabelle'><tbody><tr><td><span class='audio-link' sound-file='sounds/fr/Annabelle a une petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Elle s&apos;appelle Isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle nest pas belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Mais Isabelle est très gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Isabelle habite à Lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong></span><br/><span class='audio-link' sound-file='sounds/fr/Elle y habite avec Gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Ce nest pas très tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span><br/><span class='audio-link' sound-file='sounds/fr/Mais quelle belle ville, la ville de Lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong>!</span></td></tr></tbody></table>&copy; Jacqueline Rosen</div>",
+					"htmlContent": "<div><h2>All the words containing double <strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Select y or l in the box below. Once you've completed each task listen to the text.</h2><table class='annabelle'><tbody><tr><td><span class='audio-link' sound-file='audio/lo6/exercises/annabelle-a-une-petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span><br/><span class='audio-link' sound-file='audio/lo6/exercises/elle-s-appelle-isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span><br/><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-nest-pas-belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong></span><br/><span class='audio-link' sound-file='audio/lo6/exercises/mais-isabelle-est-tres-gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span><br/><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-habite-a-lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong></span><br/><span class='audio-link' sound-file='audio/lo6/exercises/elle-y-habite-avec-gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span><br/><span class='audio-link' sound-file='audio/lo6/exercises/ce-nest-pas-tres-tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span><br/><span class='audio-link' sound-file='audio/lo6/exercises/mais-quelle-belle-ville-la-ville-de-lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong>!</span></td></tr></tbody></table>&copy; Jacqueline Rosen</div>",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "Annabelle ([y|*l])",
-							"audio": "sounds/fr/Annabelle.mp3"
+							"audio": "audio/lo6/exercises/annabelle.mp3"
 						},
 						{
 							"text": "elle ([y|*l])",
-							"audio": "sounds/fr/elle.mp3"
+							"audio": "audio/lo6/exercises/elle.mp3"
 						},
 						{
 							"text": "petite-fille ([*y|l])",
-							"audio": "sounds/fr/petite-fille.mp3"
+							"audio": "audio/lo6/exercises/petite-fille.mp3"
 						},
 						{
 							"text": "Isabelle ([y|*l])",
-							"audio": "sounds/fr/Isabelle.mp3"
+							"audio": "audio/lo6/exercises/isabelle.mp3"
 						},
 						{
 							"text": "Lille ([y|*l])",
-							"audio": "sounds/fr/Lille.mp3"
+							"audio": "audio/lo6/shared/lille.mp3"
 						},
 						{
 							"text": "Gilles ([y|*l])",
-							"audio": "sounds/fr/Gilles.mp3"
+							"audio": "audio/lo6/shared/gilles.mp3"
 						},
 						{
 							"text": "tranquille ([y|*l])",
-							"audio": "sounds/fr/tranquille.mp3"
+							"audio": "audio/lo6/shared/tranquille.mp3"
 						},
 						{
 							"text": "quelle ([y|*l])",
-							"audio": "sounds/fr/quelle.mp3"
+							"audio": "audio/lo6/exercises/quelle.mp3"
 						},
 						{
 							"text": "belle ([y|*l])",
-							"audio": "sounds/fr/belle.mp3"
+							"audio": "audio/lo6/exercises/belle.mp3"
 						},
 						{
 							"text": "ville ([y|*l])",
-							"audio": "sounds/fr/ville.mp3"
+							"audio": "audio/lo6/exercises/ville.mp3"
 						}
 					],
 					"audio": [],
@@ -423,43 +483,43 @@
 					"items": [
 						{
 							"text": "J' [*ai|as|a|avons|avez|ont] 30 ans.",
-							"audio": "sounds/fr/J'ai 30 ans.mp3"
+							"audio": "audio/lo6/exercises/j-ai-30-ans.mp3"
 						},
 						{
 							"text": "Nous [ai|as|a|*avons|avez|ont] trois enfants.",
-							"audio": "sounds/fr/Nous avons trois enfants.mp3"
+							"audio": "audio/lo6/exercises/nous-avons-trois-enfants.mp3"
 						},
 						{
 							"text": "Vous [ai|as|a|avons|*avez|ont] soif?",
-							"audio": "sounds/fr/Vous avez soif.mp3"
+							"audio": "audio/lo6/exercises/vous-avez-soif.mp3"
 						},
 						{
 							"text": "Tu [ai|*as|a|avons|avez|ont] faim?",
-							"audio": "sounds/fr/Tu as faim.mp3"
+							"audio": "audio/lo6/exercises/tu-as-faim.mp3"
 						},
 						{
 							"text": "Elle [ai|as|*a|avons|avez|ont] un fils de deux ans.",
-							"audio": "sounds/fr/Elle a un fils de deux ans.mp3"
+							"audio": "audio/lo6/exercises/elle-a-un-fils-de-deux-ans.mp3"
 						},
 						{
 							"text": "Ils [ai|as|a|avons|avez|*ont] un bébé de trois mois.",
-							"audio": "sounds/fr/Ils ont un bébé de trois mois.mp3"
+							"audio": "audio/lo6/exercises/ils-ont-un-bebe-de-trois-mois.mp3"
 						},
 						{
 							"text": "Elles [ai|as|a|avons|avez|*ont] peur.",
-							"audio": "sounds/fr/Elles ont peur.mp3"
+							"audio": "audio/lo6/exercises/elles-ont-peur.mp3"
 						},
 						{
 							"text": "Il [ai|as|*a|avons|avez|ont] un appartement en ville.",
-							"audio": "sounds/fr/Il a un appartement en ville.mp3"
+							"audio": "audio/lo6/exercises/il-a-un-appartement-en-ville.mp3"
 						},
 						{
 							"text": "J' [*ai|as|a|avons|avez|ont] froid.",
-							"audio": "sounds/fr/J'ai froid.mp3"
+							"audio": "audio/lo6/exercises/j-ai-froid.mp3"
 						},
 						{
 							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge?",
-							"audio": "sounds/fr/Vous avez quel âge.mp3"
+							"audio": "audio/lo6/exercises/vous-avez-quel-age.mp3"
 						}
 					],
 					"titleTextHTML": "4. Practise the verb <strong>avoir</strong>"
@@ -476,59 +536,59 @@
 					"items": [
 						{
 							"text": "Louis n'est pas [*mon|ma|mes] frère. C'est [*mon|ma|mes] cousin.  ",
-							"audio": "sounds/fr/Louis n'est pas mon frère C'est mon cousin.mp3"
+							"audio": "audio/lo6/exercises/louis-n-est-pas-mon-frere-c-est-mon-cousin.mp3"
 						},
 						{
 							"text": "Je vous présente [mon|*ma|mes] tante, Géraldine et [*mon|ma|mes] oncle, Simon. ",
-							"audio": "sounds/fr/Je vous présente ma tante, Géraldine et mon oncle, Simon.mp3"
+							"audio": "audio/lo6/exercises/je-vous-presente-ma-tante-geraldine-et-mon-oncle-simon.mp3"
 						},
 						{
 							"text": "[Mon|Ma|*Mes] cousines habitent aux Etats-Unis.",
-							"audio": "sounds/fr/Mes cousines habitent aux Etats-Unis.mp3"
+							"audio": "audio/lo6/exercises/mes-cousines-habitent-aux-etats-unis.mp3"
 						},
 						{
 							"text": "Où habite [ton|*ta|tes] famille?",
-							"audio": "sounds/fr/Où habite ta famille.mp3"
+							"audio": "audio/lo6/exercises/ou-habite-ta-famille.mp3"
 						},
 						{
 							"text": "Comment s'appelle [*ton|ta|tes] voisin?",
-							"audio": "sounds/fr/Comment s'appelle ton voisin.mp3"
+							"audio": "audio/lo6/exercises/comment-s-appelle-ton-voisin.mp3"
 						},
 						{
 							"text": "[Ton|Ta|*Tes] amis habitent en banlieue?",
-							"audio": "sounds/fr/Tes amis habitent en banlieue.mp3"
+							"audio": "audio/lo6/exercises/tes-amis-habitent-en-banlieue.mp3"
 						},
 						{
 							"text": "Mélanie n'habite pas chez [*son|sa|ses] père, elle habite chez [son|*sa|ses] mère.",
-							"audio": "sounds/fr/Mélanie n'habite pas chez son père, elle habite chez sa mère.mp3"
+							"audio": "audio/lo6/exercises/melanie-n-habite-pas-chez-son-pere-elle-habite-chez-sa-mere.mp3"
 						},
 						{
 							"text": "[Son|Sa|*Ses] sœurs sont en Australie.",
-							"audio": "sounds/fr/Ses sœurs sont en Australie.mp3"
+							"audio": "audio/lo6/exercises/ses-s-urs-sont-en-australie.mp3"
 						},
 						{
 							"text": "[*Notre|Nos] maison se trouve à cinq kilomètres d'ici.",
-							"audio": "sounds/fr/Notre maison se trouve à cinq kilomètres d'ici.mp3"
+							"audio": "audio/lo6/exercises/notre-maison-se-trouve-a-cinq-kilometres-d-ici.mp3"
 						},
 						{
 							"text": "[Notre|*Nos] petits-enfants sont bilingues.",
-							"audio": "sounds/fr/Nos petits-enfants sont bilingues.mp3"
+							"audio": "audio/lo6/exercises/nos-petits-enfants-sont-bilingues.mp3"
 						},
 						{
 							"text": "Où sont [votre|*vos] enfants?",
-							"audio": "sounds/fr/Où sont vos enfants.mp3"
+							"audio": "audio/lo6/exercises/ou-sont-vos-enfants.mp3"
 						},
 						{
 							"text": "Et [*votre|vos] mari?",
-							"audio": "sounds/fr/Et votre mari.mp3"
+							"audio": "audio/lo6/exercises/et-votre-mari.mp3"
 						},
 						{
 							"text": "Ils sont chez [leur|*leurs] grands-parents.",
-							"audio": "sounds/fr/Ils sont chez leurs grands-parents.mp3"
+							"audio": "audio/lo6/exercises/ils-sont-chez-leurs-grands-parents.mp3"
 						},
 						{
 							"text": "Où se trouve [*leur|leurs] appartement?",
-							"audio": "sounds/fr/Où se trouve leur appartement.mp3"
+							"audio": "audio/lo6/exercises/ou-se-trouve-leur-appartement.mp3"
 						}
 					],
 					"titleText": "5. Practise the possessives"
@@ -568,16 +628,16 @@
 						"plus âgés que moi."
 					],
 					"soundFiles": [
-						"sounds/fr/Ma famille est une famille nombreuse.mp3",
-						"sounds/fr/Il y a huit personnes dans ma famille.mp3",
-						"sounds/fr/La personne la plus âgée est ma grand-mère.mp3",
-						"sounds/fr/Elle a 89 ans.mp3",
-						"sounds/fr/Elle est veuve.mp3",
-						"sounds/fr/Mon grand-père est décédé.mp3",
-						"sounds/fr/Mes parents s'appellent Julie et Marc.mp3",
-						"sounds/fr/Ils sont mariés depuis 26 ans.mp3",
-						"sounds/fr/J'ai deux sœurs et deux frères.mp3",
-						"sounds/fr/Ils sont tous plus âgés que moi.mp3"
+						"audio/lo6/exercises/ma-famille-est-une-famille-nombreuse.mp3",
+						"audio/lo6/exercises/il-y-a-huit-personnes-dans-ma-famille.mp3",
+						"audio/lo6/exercises/la-personne-la-plus-agee-est-ma-grand-mere.mp3",
+						"audio/lo6/exercises/elle-a-89-ans.mp3",
+						"audio/lo6/exercises/elle-est-veuve.mp3",
+						"audio/lo6/exercises/mon-grand-pere-est-decede.mp3",
+						"audio/lo6/exercises/mes-parents-s-appellent-julie-et-marc.mp3",
+						"audio/lo6/exercises/ils-sont-maries-depuis-26-ans.mp3",
+						"audio/lo6/exercises/j-ai-deux-s-urs-et-deux-freres.mp3",
+						"audio/lo6/exercises/ils-sont-tous-plus-ages-que-moi.mp3"
 					],
 					"titleText": "6. Jeanne's Family"
 				}

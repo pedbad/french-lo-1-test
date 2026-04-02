@@ -2874,6 +2874,10 @@
 		z-index: 1;
 		display: block;
 		position: relative;
+		transition:
+			color 160ms ease,
+			transform 160ms ease,
+			filter 160ms ease;
 	}
 
 	.audio-container.playing {
@@ -2922,6 +2926,12 @@
 		height: var(--compact-dimension);
 		border-radius: calc(var(--compact-dimension) / 2);
 		cursor: pointer;
+	}
+
+	button.circular-audio-progress:not(.playing):is(:hover, :focus-visible),
+	button.circular-audio-progress-speaker:not(.playing):is(:hover, :focus-visible) {
+		color: var(--ped-warn);
+		filter: drop-shadow(0 0 6px color-mix(in oklab, var(--ped-warn) 22%, transparent));
 	}
 
 	.circular-audio-progress-speaker svg,

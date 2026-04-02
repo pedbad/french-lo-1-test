@@ -25,7 +25,10 @@ export {
 	HouseAndHomeGrammarThirdPersonForms,
 	HouseAndHomeGrammarAdjectivalAgreement,
 } from "./house-and-home-grammar";
-export { FamilyFriendsAndNeighboursGrammar } from "./family-friends-and-neighbours-grammar";
+export {
+	FamilyFriendsAndNeighboursGrammarPossessives,
+	FamilyFriendsAndNeighboursGrammarAvoir,
+} from "./family-friends-and-neighbours-grammar";
 export { OpinionsMatterGrammar } from "./opinions-matter-grammar";
 export { FreeTimeGrammar } from "./free-time-grammar";
 export { PhoningInFranceGrammar } from "./phoning-in-france-grammar";

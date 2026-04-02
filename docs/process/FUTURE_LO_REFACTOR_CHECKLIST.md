@@ -32,7 +32,7 @@ Use this checklist for each new LO (LO4 onward) to avoid architecture and stylin
 - [ ] Avoid monolithic LO-specific pronunciation blocks (for example single large `LOxDemystify` renderers) once a refactor starts.
 - [ ] Keep even single-topic pronunciation sections inside the tabs shell for cross-LO consistency.
 - [ ] Include per-tab instructional alert copy.
-- [ ] Ensure list/audio presentation matches prior LO UX patterns (stacked one-item-per-line where needed, same `AudioClip` behavior).
+- [ ] Ensure list/audio presentation matches prior LO UX patterns (stacked one-item-per-line where needed, same `AudioClip` behavior, including the shared compact orange hover/focus rollover).
 - [ ] Avoid per-LO inline visual hacks in pronunciation content (`float`, inline border styles, ad-hoc spacing); use shared classes/tokens.
 
 ## 5) Exercise Semantics + Naming

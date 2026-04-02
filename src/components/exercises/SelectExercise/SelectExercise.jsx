@@ -298,13 +298,13 @@ export class SelectExercise extends React.PureComponent {
 					<div className={`grid grid-cols-[auto_minmax(0,1fr)_2.75rem] ${renderInlineChoices ? "items-center gap-x-3" : "grid-rows-[auto_auto] items-start gap-x-3 gap-y-2"}`}>
 						{item.audio ? (
 							<span
-								className={renderInlineChoices ? "" : "row-span-2"}
+								className={renderInlineChoices ? "" : "row-span-2 self-center"}
 								ref={(el) => {
 									if (el) this.rowAudioRefs[i] = el;
 								}}
 							>
 								<AudioClip
-									className="super-compact-speaker shrink-0 pt-0.5"
+									className="super-compact-speaker shrink-0"
 									id={`selectExerciseRowAudio-${i}`}
 									onStatusChange={(status) => this.handleRowAudioStatusChange(i, status)}
 									soundFile={resolveAsset(item.audio)}

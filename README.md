@@ -815,6 +815,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 
 - Rows inside PhraseTable/Dialogue sections now forward clicks to the same audio clip as the speaker icon, so learners can tap anywhere in the row to hear the pronunciation.
 - Audio playback now follows a single-active rule: when a new clip starts, any currently playing clip is paused first (across `AudioClip`, row-link playback, and `SequenceAudioController`).
+- Compact circular `AudioClip` buttons now share one global orange hover/focus rollover treatment across vocabulary, grammar, pronunciation, and exercise contexts, so compact speaker icons stay visually consistent wherever they appear.
 
 ## LO3 Audio Migration Status
 
