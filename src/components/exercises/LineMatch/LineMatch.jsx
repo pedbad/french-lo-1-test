@@ -30,7 +30,10 @@ const LINE_MATCH_CONNECTOR_STROKE = "var(--chart-5)";
 const LINE_MATCH_CONNECTOR_GLOW = "color-mix(in oklab, var(--chart-5) 26%, transparent)";
 const LINE_MATCH_CORRECT_STROKE = "var(--chart-2)";
 const LINE_MATCH_CORRECT_GLOW = "color-mix(in oklab, var(--chart-2) 28%, transparent)";
+const LINE_MATCH_RECOIL_STROKE = "var(--destructive)";
+const LINE_MATCH_RECOIL_GLOW = "color-mix(in oklab, var(--destructive) 24%, transparent)";
 const LINE_MATCH_DESKTOP_BREAKPOINT = 980;
+const LINE_MATCH_RECOIL_DURATION_MS = 380;
 
 const buildRound = (config = {}) => {
 	const { items = [], sampleSize = 6 } = config;
@@ -51,6 +54,7 @@ export class LineMatch extends React.PureComponent {
 		this.desktopStageRef = React.createRef();
 		this.resizeObserver = null;
 		this.measureFrame = null;
+		this.recoilFrame = null;
 		this.sourceNodeMap = new Map();
 		this.targetNodeMap = new Map();
 		this.state = {
@@ -64,6 +68,8 @@ export class LineMatch extends React.PureComponent {
 			isDesktopViewport: false,
 			mobileValues: {},
 			nCorrect: 0,
+			recoilProgress: 1,
+			recoilingConnections: [],
 			usedShowAnswer: false,
 		};
 	}
@@ -97,8 +103,11 @@ export class LineMatch extends React.PureComponent {
 				isDesktopViewport: this.getIsDesktopViewport(),
 				mobileValues: {},
 				nCorrect: 0,
+				recoilProgress: 1,
+				recoilingConnections: [],
 				usedShowAnswer: false,
 			});
+			this.stopRecoilAnimation();
 			return;
 		}
 
@@ -117,6 +126,8 @@ export class LineMatch extends React.PureComponent {
 		if (typeof window !== "undefined" && this.measureFrame) {
 			window.cancelAnimationFrame(this.measureFrame);
 		}
+
+		this.stopRecoilAnimation();
 	}
 
 	getItemKey = (item, index) => item.id || item.label || `item-${index}`;
@@ -311,11 +322,48 @@ export class LineMatch extends React.PureComponent {
 		].join(" ");
 	};
 
+	stopRecoilAnimation = () => {
+		if (typeof window !== "undefined" && this.recoilFrame) {
+			window.cancelAnimationFrame(this.recoilFrame);
+		}
+		this.recoilFrame = null;
+	};
+
+	startRecoilAnimation = () => {
+		if (typeof window === "undefined") return;
+		this.stopRecoilAnimation();
+
+		const startedAt = window.performance.now();
+		const step = (now) => {
+			const elapsed = now - startedAt;
+			const nextProgress = Math.min(1, elapsed / LINE_MATCH_RECOIL_DURATION_MS);
+
+			this.setState({
+				recoilProgress: nextProgress,
+			});
+
+			if (nextProgress < 1) {
+				this.recoilFrame = window.requestAnimationFrame(step);
+				return;
+			}
+
+			this.recoilFrame = null;
+			this.setState({
+				recoilProgress: 1,
+				recoilingConnections: [],
+			});
+		};
+
+		this.recoilFrame = window.requestAnimationFrame(step);
+	};
+
 	handleCheckAnswers = () => {
+		let nextIncorrectConnections = [];
 		this.setState((prevState) => {
 			const checkedResults = {};
 			const nextDesktopConnections = {};
 			const nextMobileValues = { ...prevState.mobileValues };
+			nextIncorrectConnections = [];
 
 			prevState.sampledItems.forEach((item, index) => {
 				const itemKey = this.getItemKey(item, index);
@@ -326,6 +374,11 @@ export class LineMatch extends React.PureComponent {
 					checkedResults[itemKey] = isCorrect;
 					if (isCorrect) {
 						nextDesktopConnections[itemKey] = selectedTargetId;
+					} else {
+						nextIncorrectConnections.push({
+							sourceId: itemKey,
+							targetId: selectedTargetId,
+						});
 					}
 				} else {
 					const selectedValue = prevState.mobileValues[itemKey];
@@ -346,12 +399,19 @@ export class LineMatch extends React.PureComponent {
 				hasChecked: true,
 				mobileValues: prevState.isDesktopViewport ? prevState.mobileValues : nextMobileValues,
 				nCorrect: this.getCorrectCount(checkedResults),
+				recoilProgress: nextIncorrectConnections.length > 0 ? 0 : 1,
+				recoilingConnections: prevState.isDesktopViewport ? nextIncorrectConnections : [],
 				usedShowAnswer: false,
 			};
+		}, () => {
+			if (nextIncorrectConnections.length > 0 && this.state.isDesktopViewport) {
+				this.startRecoilAnimation();
+			}
 		});
 	};
 
 	handleReset = () => {
+		this.stopRecoilAnimation();
 		this.setState((prevState) => ({
 			...buildRound(this.props.config),
 			activeSourceId: null,
@@ -362,12 +422,15 @@ export class LineMatch extends React.PureComponent {
 			hasChecked: false,
 			mobileValues: {},
 			nCorrect: 0,
+			recoilProgress: 1,
+			recoilingConnections: [],
 			usedShowAnswer: false,
 			isDesktopViewport: prevState.isDesktopViewport,
 		}));
 	};
 
 	handleShowAnswers = () => {
+		this.stopRecoilAnimation();
 		this.setState((prevState) => {
 			const checkedResults = {};
 			const nextDesktopConnections = {};
@@ -388,12 +451,20 @@ export class LineMatch extends React.PureComponent {
 				hasChecked: true,
 				mobileValues: nextMobileValues,
 				nCorrect: prevState.sampledItems.length,
+				recoilProgress: 1,
+				recoilingConnections: [],
 				usedShowAnswer: true,
 			};
 		});
 	};
 
-	renderDesktopConnectors = (connectorLayout, desktopConnections, checkedResults) => {
+	renderDesktopConnectors = (
+		connectorLayout,
+		desktopConnections,
+		checkedResults,
+		recoilingConnections,
+		recoilProgress,
+	) => {
 		if (!connectorLayout) return null;
 
 		const paths = Object.entries(desktopConnections)
@@ -410,7 +481,23 @@ export class LineMatch extends React.PureComponent {
 			})
 			.filter(Boolean);
 
-		if (paths.length === 0) return null;
+		const recoilPaths = recoilingConnections
+			.map(({ sourceId, targetId }) => {
+				const sourcePoint = connectorLayout.sourcePoints[sourceId];
+				const targetPoint = connectorLayout.targetPoints[targetId];
+				if (!sourcePoint || !targetPoint) return null;
+				const animatedTargetPoint = {
+					x: targetPoint.x + ((sourcePoint.x - targetPoint.x) * recoilProgress),
+					y: targetPoint.y + ((sourcePoint.y - targetPoint.y) * recoilProgress),
+				};
+				return {
+					d: this.buildConnectorPath(sourcePoint, animatedTargetPoint),
+					id: `${sourceId}-${targetId}`,
+				};
+			})
+			.filter(Boolean);
+
+		if (paths.length === 0 && recoilPaths.length === 0) return null;
 
 		return (
 			<svg
@@ -433,6 +520,24 @@ export class LineMatch extends React.PureComponent {
 							d={path.d}
 							fill="none"
 							stroke={path.isCorrect ? LINE_MATCH_CORRECT_STROKE : LINE_MATCH_CONNECTOR_STROKE}
+							strokeLinecap="round"
+							strokeWidth="4"
+						/>
+					</g>
+				))}
+				{recoilPaths.map((path) => (
+					<g key={`line-match-recoil-${path.id}`}>
+						<path
+							d={path.d}
+							fill="none"
+							stroke={LINE_MATCH_RECOIL_GLOW}
+							strokeLinecap="round"
+							strokeWidth="9"
+						/>
+						<path
+							d={path.d}
+							fill="none"
+							stroke={LINE_MATCH_RECOIL_STROKE}
 							strokeLinecap="round"
 							strokeWidth="4"
 						/>
@@ -466,6 +571,8 @@ export class LineMatch extends React.PureComponent {
 			wordBank,
 			mobileValues,
 			nCorrect,
+			recoilProgress,
+			recoilingConnections,
 		} = this.state;
 		const connectedSourcesByTarget = this.buildTargetSourceMap(desktopConnections);
 		const totalItems = sampledItems.length;
@@ -554,7 +661,13 @@ export class LineMatch extends React.PureComponent {
 					</div>
 
 					<div className="relative hidden min-[980px]:block" ref={this.desktopStageRef}>
-						{this.renderDesktopConnectors(connectorLayout, desktopConnections, checkedResults)}
+						{this.renderDesktopConnectors(
+							connectorLayout,
+							desktopConnections,
+							checkedResults,
+							recoilingConnections,
+							recoilProgress,
+						)}
 
 						<div className="space-y-4 min-[980px]:grid min-[980px]:grid-cols-[minmax(0,1fr)_minmax(16rem,18rem)] min-[980px]:gap-6 min-[980px]:space-y-0">
 							<section className="relative z-10 space-y-3">
