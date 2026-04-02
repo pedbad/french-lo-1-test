@@ -4664,6 +4664,16 @@ hr {
   -webkit-mask-image: url("/images/icons/volume-1.svg");
   mask-image: url("/images/icons/volume-1.svg");
 }
+#content .inline-icon-book-outline {
+  background-color: var(--chart-3);
+  -webkit-mask-image: url("/images/icons/book-open-text-outline.svg");
+  mask-image: url("/images/icons/book-open-text-outline.svg");
+}
+#content .inline-icon-book {
+  background-color: var(--chart-3);
+  -webkit-mask-image: url("/images/icons/book-open-text.svg");
+  mask-image: url("/images/icons/book-open-text.svg");
+}
 #content .word-parts-container :is(table td, table span, .word-parts-text-cell, .word-parts-text-cell span) {
   font-size: calc(var(--font-size-base) * 1.5);
   line-height: var(--line-height-wordparts);
@@ -4791,14 +4801,168 @@ hr {
   width: 210px;
 }
 
-.lo-6 #dropdowns2 table.annabelle td, .lo-6 #dropdowns2 table.camille td,
-.lo-6 #dropdowns3 table.annabelle td,
-.lo-6 #dropdowns3 table.camille td {
-  text-align: initial;
+.lo-6 .lo6-rhyme-card {
+  border: 1px solid color-mix(in oklab, var(--border) 78%, transparent);
+  border-radius: 0.85rem;
+  background: color-mix(in oklab, var(--card) 86%, var(--muted) 14%);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 1rem 0.9rem;
 }
-.lo-6 #dropdowns2 table td,
-.lo-6 #dropdowns3 table td {
+
+.lo-6 .lo6-rhyme-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 64%, transparent);
+  padding-bottom: 0.55rem;
+}
+
+.lo-6 .lo6-rhyme-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  font-size: calc(var(--font-size-base) * 1.08);
+  line-height: 1.2;
+  text-align: left;
+  font-weight: 500;
+}
+
+.lo-6 .lo6-rhyme-title-text:empty::after {
+  content: "";
+  display: inline-block;
+  width: 0.25rem;
+}
+
+.lo-6 .lo6-rhyme-attribution {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.lo-6 .lo6-rhyme-body {
+  margin-top: 0.8rem;
+  text-align: left;
+}
+
+.lo-6 .lo6-rhyme-stanza {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  line-height: 1.9;
+}
+
+.lo-6 .lo6-rhyme-stanza + .lo6-rhyme-stanza {
+  margin-top: 0.75rem;
+}
+
+.lo-6 .lo6-rhyme-line {
+  display: block;
+}
+
+.lo-6 .lo6-rhyme-line .audio-link {
+  display: inline;
+}
+
+.lo-6 .lo6-rhyme-line + .lo6-rhyme-line {
+  margin-top: 0.1rem;
+}
+
+.lo-6 .lo6-reading-card {
+  border: 1px solid color-mix(in oklab, var(--border) 72%, transparent);
+  border-radius: 0.85rem;
+  background: color-mix(in oklab, var(--card) 90%, var(--muted) 10%);
+  padding: 1rem 1rem 0.95rem;
+}
+
+.lo-6 .lo6-reading-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 64%, transparent);
+  padding-bottom: 0.55rem;
+}
+
+.lo-6 .lo6-reading-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: 1.2;
+  font-weight: 600;
+  text-align: left;
+}
+
+.lo-6 .lo6-reading-title svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  color: var(--chart-3);
+}
+
+.lo-6 .lo6-reading-attribution {
+  margin: 0 0 0 auto;
+  color: var(--muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: 1.2;
   text-align: right;
+  white-space: nowrap;
+}
+
+.lo-6 .lo6-reading-body {
+  margin-top: 0.8rem;
+  text-align: left;
+}
+
+.lo-6 .lo6-reading-line {
+  display: block;
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+}
+
+.lo-6 .lo6-reading-line + .lo6-reading-line {
+  margin-top: 0.1rem;
+}
+
+.lo-6 .lo6-reading-meta {
+  margin-top: 0.65rem;
+  color: var(--muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: 1.35;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .lo-6 .lo6-rhyme-card {
+    padding: 0.9rem 0.85rem 0.8rem;
+  }
+
+  .lo-6 .lo6-rhyme-header {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .lo-6 .lo6-reading-card {
+    padding: 0.9rem 0.85rem 0.8rem;
+  }
+
+  .lo-6 .lo6-reading-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .lo-6 .lo6-reading-attribution {
+    margin-left: 0;
+    text-align: left;
+  }
 }
 
 .lo-demo #picturesAndWords1 .word {
