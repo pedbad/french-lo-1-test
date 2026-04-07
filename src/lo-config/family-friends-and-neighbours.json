@@ -374,104 +374,91 @@
 				}
 			},
 			{
-				"selectExercise2": {
-					"component": "SelectExercise",
-					"id": "selectExercise2",
+				"inlineChoiceGroup2": {
+					"component": "InlineChoiceGroup",
+					"id": "inlineChoiceGroup2",
 					"congratulationsText": "Très bien!",
-					"informationTextHTML": "All the words with double <strong>ll</strong> are shown in bold. Choose whether each one is pronounced like <strong>y</strong> or <strong>l</strong>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions. Then listen to the full text.",
-					"htmlContent": "<article class='lo6-reading-card'><div class='lo6-reading-body'><p class='lo6-reading-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-famille-de-camille-habite-a-paris.mp3'>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</span></p><p class='lo6-reading-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-camille-est-tres-gentille.mp3'>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</span></p><p class='lo6-reading-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-sa-fille-s-appelle-myrtille.mp3'>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</span></p><p class='lo6-reading-line'><span class='audio-link' sound-file='audio/lo6/exercises/camille-aime-les-tilleuls-de-versailles.mp3'><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</span></p><p class='lo6-reading-meta'><small>les tilleuls - lime trees &nbsp;&middot;&nbsp; &copy; Jacqueline Rosen</small></p></div></article>",
+					"informationTextHTML": "All the words containing double <strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Listen to each word and choose the correct answer. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solutions and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"htmlContent": "<div class='lo6-reference-texts'><article class='lo6-reference-block'><p class='lo6-reference-title'><small>les tilleuls - lime trees</small></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-famille-de-camille-habite-a-paris.mp3'>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-camille-est-tres-gentille.mp3'>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-sa-fille-s-appelle-myrtille.mp3'>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/camille-aime-les-tilleuls-de-versailles.mp3'><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</span></p></article><article class='lo6-reference-block'><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/annabelle-a-une-petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/elle-s-appelle-isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-nest-pas-belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/mais-isabelle-est-tres-gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-habite-a-lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/elle-y-habite-avec-gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/ce-nest-pas-tres-tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/mais-quelle-belle-ville-la-ville-de-lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong>!</span></p></article><p class='lo6-reference-meta'><small>&copy; Jacqueline Rosen</small></p></div>",
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
+					"cheatText": "Show answer",
+					"shuffleItems": true,
+					"sampleSize": 8,
 					"items": [
 						{
-							"text": "famille ([*y|l])",
+							"text": "famille [*y|l]",
 							"audio": "audio/lo6/shared/famille.mp3"
 						},
 						{
-							"text": "Camille ([*y|l])",
+							"text": "Camille [*y|l]",
 							"audio": "audio/lo6/exercises/camille.mp3"
 						},
 						{
-							"text": "fille ([*y|l])",
+							"text": "fille [*y|l]",
 							"audio": "audio/lo6/exercises/fille.mp3"
 						},
 						{
-							"text": "gentille ([*y|l])",
+							"text": "gentille [*y|l]",
 							"audio": "audio/lo6/exercises/gentille.mp3"
 						},
 						{
-							"text": "s'appelle ([y|*l])",
+							"text": "s'appelle [y|*l]",
 							"audio": "audio/lo6/exercises/s-appelle.mp3"
 						},
 						{
-							"text": "Myrtille ([*y|l])",
+							"text": "Myrtille [*y|l]",
 							"audio": "audio/lo6/exercises/myrtille.mp3"
 						},
 						{
-							"text": "tilleuls ([*y|l])",
+							"text": "tilleuls [*y|l]",
 							"audio": "audio/lo6/exercises/tilleuls.mp3"
 						},
 						{
-							"text": "Versailles ([*y|l])",
+							"text": "Versailles [*y|l]",
 							"audio": "audio/lo6/exercises/versailles.mp3"
-						}
-					],
-					"titleText": "2. Double ll pronounced y"
-				}
-			},
-			{
-				"selectExercise3": {
-					"component": "SelectExercise",
-					"id": "selectExercise3",
-					"congratulationsText": "Très bien!",
-					"informationTextHTML": "All the words with double <strong>ll</strong> are shown in bold. Choose whether each one is pronounced like <strong>y</strong> or <strong>l</strong>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions. Then listen to the full text.",
-					"htmlContent": "<article class='lo6-rhyme-card'><div class='lo6-rhyme-header'><h4 class='lo6-rhyme-title'><span class='inline-icon inline-icon-book' aria-hidden='true'></span><span class='lo6-rhyme-title-text'></span></h4><p class='lo6-rhyme-attribution' aria-label='Poem attribution'>&copy; Jacqueline Rosen</p></div><div class='lo6-rhyme-body'><p class='lo6-rhyme-stanza'><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/annabelle-a-une-petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span></span><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/elle-s-appelle-isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span></span><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-nest-pas-belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong>.</span></span><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/mais-isabelle-est-tres-gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span></span><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-habite-a-lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong>.</span></span><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/elle-y-habite-avec-gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span></span><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/ce-nest-pas-tres-tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span></span><span class='lo6-rhyme-line'><span class='audio-link' sound-file='audio/lo6/exercises/mais-quelle-belle-ville-la-ville-de-lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong>!</span></span></p></div></article>",
-					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
-					"items": [
+						},
 						{
-							"text": "Annabelle ([y|*l])",
+							"text": "Annabelle [y|*l]",
 							"audio": "audio/lo6/exercises/annabelle.mp3"
 						},
 						{
-							"text": "elle ([y|*l])",
+							"text": "elle [y|*l]",
 							"audio": "audio/lo6/exercises/elle.mp3"
 						},
 						{
-							"text": "petite-fille ([*y|l])",
+							"text": "petite-fille [*y|l]",
 							"audio": "audio/lo6/exercises/petite-fille.mp3"
 						},
 						{
-							"text": "Isabelle ([y|*l])",
+							"text": "Isabelle [y|*l]",
 							"audio": "audio/lo6/exercises/isabelle.mp3"
 						},
 						{
-							"text": "Lille ([y|*l])",
+							"text": "Lille [y|*l]",
 							"audio": "audio/lo6/shared/lille.mp3"
 						},
 						{
-							"text": "Gilles ([y|*l])",
+							"text": "Gilles [y|*l]",
 							"audio": "audio/lo6/shared/gilles.mp3"
 						},
 						{
-							"text": "tranquille ([y|*l])",
+							"text": "tranquille [y|*l]",
 							"audio": "audio/lo6/shared/tranquille.mp3"
 						},
 						{
-							"text": "quelle ([y|*l])",
+							"text": "quelle [y|*l]",
 							"audio": "audio/lo6/exercises/quelle.mp3"
 						},
 						{
-							"text": "belle ([y|*l])",
+							"text": "belle [y|*l]",
 							"audio": "audio/lo6/exercises/belle.mp3"
 						},
 						{
-							"text": "ville ([y|*l])",
+							"text": "ville [y|*l]",
 							"audio": "audio/lo6/exercises/ville.mp3"
 						}
 					],
-					"audio": [],
-					"titleText": "3. Double ll pronounced l"
+					"titleText": "2. Double ll: y or l?"
 				}
 			},
 			{
@@ -524,7 +511,7 @@
 							"audio": "audio/lo6/exercises/vous-avez-quel-age.mp3"
 						}
 					],
-					"titleTextHTML": "4. Practise the verb <strong>avoir</strong>"
+					"titleTextHTML": "3. Practise the verb <strong>avoir</strong>"
 				}
 			},
 			{
@@ -593,7 +580,7 @@
 							"audio": "audio/lo6/exercises/ou-se-trouve-leur-appartement.mp3"
 						}
 					],
-					"titleText": "5. Practise the possessives"
+					"titleText": "4. Practise the possessives"
 				}
 			},
 			{
@@ -641,7 +628,7 @@
 						"audio/lo6/exercises/j-ai-deux-s-urs-et-deux-freres.mp3",
 						"audio/lo6/exercises/ils-sont-tous-plus-ages-que-moi.mp3"
 					],
-					"titleText": "6. Jeanne's Family"
+					"titleText": "5. Jeanne's Family"
 				}
 			}
 		],

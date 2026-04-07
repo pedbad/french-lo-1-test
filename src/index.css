@@ -4940,6 +4940,62 @@ hr {
   text-align: left;
 }
 
+#content .lo6-reference-texts {
+  display: grid;
+  gap: 0.9rem;
+}
+
+#content .lo6-reference-block {
+  border: 1px solid color-mix(in oklab, var(--border) 72%, transparent);
+  border-radius: 0.85rem;
+  background: color-mix(in oklab, var(--card) 90%, var(--muted) 10%);
+  padding: 0.9rem 1rem;
+}
+
+#content .lo6-reference-title {
+  margin: 0 0 0.45rem;
+  color: var(--muted-foreground);
+  font-size: calc(var(--font-size-xs) * 1.5);
+  line-height: 1.3;
+  text-align: left;
+}
+
+#content .lo6-reference-line {
+  display: block;
+  margin: 0;
+  line-height: 1.8;
+  text-align: left;
+}
+
+#content .lo6-reference-line + .lo6-reference-line {
+  margin-top: 0.1rem;
+}
+
+#content .lo6-reference-line .audio-link {
+  white-space: normal;
+}
+
+#content .lo6-reference-meta {
+  margin: 0.15rem 0 0;
+  padding: 0.2rem 0 0.7rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 64%, transparent);
+  color: var(--muted-foreground);
+  font-size: calc(var(--font-size-xs) * 1.5);
+  line-height: 1.3;
+  text-align: right;
+}
+
+@media (min-width: 960px) {
+  #content .lo6-reference-texts {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  #content .lo6-reference-meta {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 640px) {
   .lo-6 .lo6-rhyme-card {
     padding: 0.9rem 0.85rem 0.8rem;
@@ -4962,6 +5018,10 @@ hr {
   .lo-6 .lo6-reading-attribution {
     margin-left: 0;
     text-align: left;
+  }
+
+  #content .lo6-reference-block {
+    padding: 0.9rem 0.85rem;
   }
 }
 
