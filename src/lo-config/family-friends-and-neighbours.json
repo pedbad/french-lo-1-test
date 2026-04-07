@@ -517,12 +517,14 @@
 			},
 			{
 				"selectExercise5": {
-					"component": "SelectExercise",
+					"component": "InlineChoiceGroup",
 					"id": "selectExercise5",
 					"congratulationsText": "Excellent!",
-					"instructionsText": "Select the correct word for each gap.",
+					"informationTextHTML": "Read each sentence and choose the correct possessive adjective. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"sampleSize": 8,
+					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
+					"cheatText": "Show answer",
 					"items": [
 						{
 							"text": "Louis n'est pas [*mon|ma|mes] frère. C'est [*mon|ma|mes] cousin.  ",
