@@ -510,11 +510,12 @@
 				}
 			},
 			{
-				"selectExercise1": {
-					"component": "SelectExercise",
-					"id": "selectExercise1",
+				"inlineChoiceGroup1": {
+					"component": "InlineChoiceGroup",
+					"id": "inlineChoiceGroup1",
 					"congratulationsText": "Superbe!",
-					"instructionsText": "Listen to the speakers and select the correct definite article.",
+					"informationTextHTML": "Listen to each sentence and choose the correct definite article. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
@@ -527,7 +528,7 @@
 							"audio": "audio/lo7/exercises/articles/serge-deteste-le-foot.mp3"
 						},
 						{
-							"text": "Tu aimes  [*le|la|l'|les] surf?",
+							"text": "Tu aimes [*le|la|l'|les] surf?",
 							"audio": "audio/lo7/exercises/articles/tu-aimes-le-surf.mp3"
 						},
 						{
