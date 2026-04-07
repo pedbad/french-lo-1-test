@@ -39,8 +39,10 @@ Use this checklist for each new LO (LO4 onward) to avoid architecture and stylin
 
 - [ ] Prefer behavior-based component names (`InlineChoiceGroup`, `SelectExercise`, `DraggableFillGaps`, etc.).
 - [ ] Keep exercise ids/folders aligned with semantic component naming.
+- [ ] Prefer lesson-owned image assets under `public/img/loX/exercises/...` over generic shared folders when the images are specific to one LO.
 - [ ] Confirm global controls consistency (`Check answers`, `Show answer`, `Reset`) where applicable.
 - [ ] Preserve expected keyboard behavior (for example Enter to check when supported).
+- [ ] Prefer Tailwind/shadcn-style card/tile implementation in JSX first; add shared CSS only for the narrow effects utilities cannot express cleanly.
 
 ## 6) Table System Consistency
 

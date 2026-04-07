@@ -1,5 +1,11 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import React from 'react';
+
+const AUDIO_ICON_VIEWBOX_SIZE = 24;
+const AUDIO_ICON_CENTER = AUDIO_ICON_VIEWBOX_SIZE / 2;
+const AUDIO_ICON_RADIUS = 11;
+const AUDIO_ICON_CIRCUMFERENCE = 2 * Math.PI * AUDIO_ICON_RADIUS;
+
 export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureComponent {
 	constructor(props) {
 		super(props);
@@ -21,21 +27,9 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 
 	updateCircleOffset = () => {
 		const { progress = 0, duration = 0 } = this.props;
-
-		const root = getComputedStyle(document.documentElement);
-		let compactDimension = root.getPropertyValue('--compact-dimension').trim();
-		compactDimension = parseInt(compactDimension, 10);
-
-		if (isNaN(compactDimension) || !this.circleRef.current) return;
-
-		const size = compactDimension;
-		const strokeWidth = 2;
-		const radius = (size - strokeWidth) / 2;
-
-		const circumference = 2 * Math.PI * radius;
+		if (!this.circleRef.current) return;
 		const ratio = duration > 0 ? progress / duration : 0;
-
-		const offset = circumference * (1 - ratio);
+		const offset = AUDIO_ICON_CIRCUMFERENCE * (1 - ratio);
 		this.circleRef.current.style.strokeDashoffset = offset;
 	};
 
@@ -51,19 +45,21 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 			interactive = true,
 		} = this.props;
 
-		const strokeWidth = 2;
+		const strokeWidth = 1.8;
 		const arcStrokeWidth = 1.2;
 		const bgColour = 'var(--border)';
 
 		const root = getComputedStyle(document.documentElement);
 		let compactDimension = root.getPropertyValue('--compact-dimension').trim();
 		compactDimension = parseInt(compactDimension, 10);
+		const requestedSize = Number.parseInt(this.props.size, 10);
+		if (Number.isFinite(requestedSize) && requestedSize > 0) {
+			compactDimension = requestedSize;
+		}
 
 		if (isNaN(compactDimension)) return null;
 
 		const size = compactDimension;
-		const radius = (size - strokeWidth) / 2;
-		const circumference = 2 * Math.PI * radius;
 
 		const tooltipText = title || (status === 'playing' ? 'Click to pause' : 'Click to play');
 
@@ -76,13 +72,14 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 							aria-label={tooltipText}
 							className={`audio-container ${inline ? 'inline' : ''} super-compact-speaker circular-audio-progress-speaker ${status} ${className}`}
 							onClick={handleClick}
+							style={{ width: `${size}px`, height: `${size}px` }}
 						>
-							<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+							<svg className="pointer-events-none" width={size} height={size} viewBox={`0 0 ${AUDIO_ICON_VIEWBOX_SIZE} ${AUDIO_ICON_VIEWBOX_SIZE}`}>
 								{/* Background ring */}
 								<circle
-									cx={size / 2}
-									cy={size / 2}
-									r={radius}
+									cx={AUDIO_ICON_CENTER}
+									cy={AUDIO_ICON_CENTER}
+									r={AUDIO_ICON_RADIUS}
 									stroke={bgColour}
 									strokeWidth={strokeWidth}
 									fill="none"
@@ -91,22 +88,22 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 								{/* Progress ring */}
 								<circle
 									ref={this.circleRef}
-									cx={size / 2}
-									cy={size / 2}
-									r={radius}
+									cx={AUDIO_ICON_CENTER}
+									cy={AUDIO_ICON_CENTER}
+									r={AUDIO_ICON_RADIUS}
 									stroke="currentColor"
 									strokeWidth={strokeWidth}
 									fill="none"
-									strokeDasharray={circumference}
-									strokeDashoffset={circumference}
-									transform={`rotate(-90 ${size / 2} ${size / 2})`}
+									strokeDasharray={AUDIO_ICON_CIRCUMFERENCE}
+									strokeDashoffset={AUDIO_ICON_CIRCUMFERENCE}
+									transform={`rotate(-90 ${AUDIO_ICON_CENTER} ${AUDIO_ICON_CENTER})`}
 									style={{ transition: 'stroke-dashoffset 0.2s linear' }}
 								/>
 
 								{/* Speaker */}
 								<path
 									fill="currentColor"
-									d="m 13.43611,6.201 a 0.705,0.705 0 0 0 -1.203,-0.498 L 8.8491185,9.086 a 1.4,1.4 0 0 1 -0.997,0.413 H 5.4361182 a 1,1 0 0 0 -1,1 v 6 a 1,1 0 0 0 1,1 h 2.4160003 a 1.4,1.4 0 0 1 0.997,0.413 l 3.3829915,3.384 a 0.705,0.705 0 0 0 1.204,-0.499 z"
+									d="M10.4 8.1a.8.8 0 0 0-1.36-.57L6.2 10.35a1.15 1.15 0 0 1-.82.34H3.9a.9.9 0 0 0-.9.9v.82a.9.9 0 0 0 .9.9h1.48c.31 0 .61.12.82.34l2.84 2.82a.8.8 0 0 0 1.36-.57z"
 								/>
 
 								{/* Arcs */}
@@ -117,7 +114,7 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 									strokeLinecap="round"
 									strokeWidth={arcStrokeWidth}
 									vectorEffect="non-scaling-stroke"
-									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+									d="M13.9 9.3a4.5 4.5 0 0 1 0 5.4"
 								/>
 								<path
 									className="speaker-arc speaker-arc2"
@@ -126,7 +123,7 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 									strokeLinecap="round"
 									strokeWidth={arcStrokeWidth}
 									vectorEffect="non-scaling-stroke"
-									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+									d="M16.2 7.3a7.5 7.5 0 0 1 0 9.4"
 								/>
 							</svg>
 						</button>
@@ -134,13 +131,14 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 						<span
 							aria-hidden="true"
 							className={`audio-container ${inline ? 'inline' : ''} super-compact-speaker circular-audio-progress-speaker ${status} ${className}`}
+							style={{ width: `${size}px`, height: `${size}px` }}
 						>
-							<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+							<svg className="pointer-events-none" width={size} height={size} viewBox={`0 0 ${AUDIO_ICON_VIEWBOX_SIZE} ${AUDIO_ICON_VIEWBOX_SIZE}`}>
 								{/* Background ring */}
 								<circle
-									cx={size / 2}
-									cy={size / 2}
-									r={radius}
+									cx={AUDIO_ICON_CENTER}
+									cy={AUDIO_ICON_CENTER}
+									r={AUDIO_ICON_RADIUS}
 									stroke={bgColour}
 									strokeWidth={strokeWidth}
 									fill="none"
@@ -149,22 +147,22 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 								{/* Progress ring */}
 								<circle
 									ref={this.circleRef}
-									cx={size / 2}
-									cy={size / 2}
-									r={radius}
+									cx={AUDIO_ICON_CENTER}
+									cy={AUDIO_ICON_CENTER}
+									r={AUDIO_ICON_RADIUS}
 									stroke="currentColor"
 									strokeWidth={strokeWidth}
 									fill="none"
-									strokeDasharray={circumference}
-									strokeDashoffset={circumference}
-									transform={`rotate(-90 ${size / 2} ${size / 2})`}
+									strokeDasharray={AUDIO_ICON_CIRCUMFERENCE}
+									strokeDashoffset={AUDIO_ICON_CIRCUMFERENCE}
+									transform={`rotate(-90 ${AUDIO_ICON_CENTER} ${AUDIO_ICON_CENTER})`}
 									style={{ transition: 'stroke-dashoffset 0.2s linear' }}
 								/>
 
 								{/* Speaker */}
 								<path
 									fill="currentColor"
-									d="m 13.43611,6.201 a 0.705,0.705 0 0 0 -1.203,-0.498 L 8.8491185,9.086 a 1.4,1.4 0 0 1 -0.997,0.413 H 5.4361182 a 1,1 0 0 0 -1,1 v 6 a 1,1 0 0 0 1,1 h 2.4160003 a 1.4,1.4 0 0 1 0.997,0.413 l 3.3829915,3.384 a 0.705,0.705 0 0 0 1.204,-0.499 z"
+									d="M10.4 8.1a.8.8 0 0 0-1.36-.57L6.2 10.35a1.15 1.15 0 0 1-.82.34H3.9a.9.9 0 0 0-.9.9v.82a.9.9 0 0 0 .9.9h1.48c.31 0 .61.12.82.34l2.84 2.82a.8.8 0 0 0 1.36-.57z"
 								/>
 
 								{/* Arcs */}
@@ -175,7 +173,7 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 									strokeLinecap="round"
 									strokeWidth={arcStrokeWidth}
 									vectorEffect="non-scaling-stroke"
-									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+									d="M13.9 9.3a4.5 4.5 0 0 1 0 5.4"
 								/>
 								<path
 									className="speaker-arc speaker-arc2"
@@ -184,7 +182,7 @@ export class CircularAudioProgressAnimatedSpeakerDisplay extends React.PureCompo
 									strokeLinecap="round"
 									strokeWidth={arcStrokeWidth}
 									vectorEffect="non-scaling-stroke"
-									d="m 15.19902,17.870116 c 1.839235,-0.04527 3.312505,-1.987363 3.314457,-4.369171 -0.0012,-2.382542 -1.474655,-4.3257717 -3.314457,-4.371061"
+									d="M16.2 7.3a7.5 7.5 0 0 1 0 9.4"
 								/>
 							</svg>
 						</span>

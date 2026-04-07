@@ -26,6 +26,22 @@ This file summarizes the work completed in this repo during the session. It incl
 - Refined shared exercise layout parity:
   - `src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx`
   - tightened audio-to-word spacing to better match earlier inline-choice exercises
+- Reworked lesson-owned image placement and memory-card rendering:
+  - `src/lo-config/house-and-home.json`
+    - LO5 Exercise 1 room images now live under `public/img/lo5/exercises/rooms/`
+  - `src/lo-config/opinions-matter.json`
+    - LO7 memory-game images now live under `public/img/lo7/exercises/vocabulary/`
+  - `src/components/exercises/MemoryMatchGame/Card/Card.jsx`
+  - `src/components/exercises/MemoryMatchGame/MemoryMatchGame.jsx`
+    - memory cards now use Tailwind/shadcn-style card visuals in JSX
+    - removed the old separate back-face card layer and matched-pairs sidebar
+    - board now presents the cards as a single square grid
+  - `src/index.css`
+    - retained only the small shared CSS needed for special image-size overrides
+- Styling rule reinforced for future work:
+  - prefer Tailwind and shadcn-style primitives first
+  - avoid introducing custom CSS unless Tailwind/shadcn cannot express the effect cleanly
+  - only drop to shared CSS for the parts Tailwind does not cover well
 - Validation:
   - `yarn build`
   - `yarn build:with-debug`

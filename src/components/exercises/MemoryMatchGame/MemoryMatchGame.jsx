@@ -1,7 +1,10 @@
 // React component for bilingual memory matching game
 import { Card } from "@/components/exercises/MemoryMatchGame/Card";
+import { ProgressDots } from "@/components/exercises/ProgressDots/ProgressDots";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
+import { Info } from "@/components/content";
 import { IconButton } from "@/components/media";
-import { Button } from "@/components/ui/button";
+import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
 import DOMPurify from "dompurify";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
@@ -31,6 +34,17 @@ const getShuffledDeck = (cards, nCards) => {
 	return combined.sort(() => Math.random() - 0.5);
 };
 
+const getResetState = (cards, nPairsToPlay) => ({
+	beenFlipped: [],
+	cards: getShuffledDeck(cards, nPairsToPlay),
+	flipped: [],
+	matched: [],
+	nPairs: 0,
+	nTries: 0,
+	startTime: undefined,
+	timeReport: '',
+});
+
 export class MemoryMatchGame extends React.PureComponent {
 	constructor(props) {
 		super(props);
@@ -48,10 +62,41 @@ export class MemoryMatchGame extends React.PureComponent {
 			nPairs: 0,
 			nTries: 0,
 		});
-		// this.handleClick = this.handleClick.bind(this);
-		// this.handleReset = this.handleReset.bind(this);
-		// this.handleShuffle = this.handleShuffle.bind(this);
+		this.cardRefs = new Map();
 	}
+
+	setCardRef = (cardId, element) => {
+		if (!cardId) return;
+		if (element) this.cardRefs.set(cardId, element);
+		else this.cardRefs.delete(cardId);
+	};
+
+	getSolvedCards = (cards = []) => {
+		const pairMap = new Map();
+		cards.forEach((card) => {
+			const pairId = card.id.slice(0, -1);
+			const existing = pairMap.get(pairId) || {};
+			if (card.id.endsWith('a')) existing.text = card;
+			if (card.id.endsWith('b')) existing.image = card;
+			pairMap.set(pairId, existing);
+		});
+
+		const orderedPairs = Array.from(pairMap.entries())
+			.sort(([pairA], [pairB]) => Number(pairA) - Number(pairB))
+			.map(([, pair]) => pair)
+			.filter((pair) => pair.text && pair.image);
+
+		const solved = [];
+		for (let index = 0; index < orderedPairs.length; index += 2) {
+			const leftPair = orderedPairs[index];
+			const rightPair = orderedPairs[index + 1];
+
+			solved.push(leftPair.text, leftPair.image);
+			if (rightPair) solved.push(rightPair.image, rightPair.text);
+		}
+
+		return solved;
+	};
 
 	handleClick = (card) => {
 		const {
@@ -138,39 +183,46 @@ export class MemoryMatchGame extends React.PureComponent {
 	};
 
 	handleReset = () => {
-		// console.log("RESET!");
-		this.setState({
-			matched: [],
-			startTime: undefined,
-			timeReport: '',
-		});
-	};
-
-	handleShuffle = () => {
-		// console.log("Shuffle!");
-
 		const {
 			cards,
 			nPairsToPlay,
 		} = this.props.config;
 
+		this.setState(getResetState(cards, nPairsToPlay));
+	};
+
+	handleShowAnswers = () => {
+		const { cards } = this.state;
+		const idsBefore = cards.map((card) => card.id);
+		const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
+		const solvedCards = this.getSolvedCards(cards);
+		const matched = solvedCards.map((card) => card.id);
+
 		this.setState({
+			beenFlipped: matched,
+			cards: solvedCards,
 			flipped: [],
-			matched: [],
+			matched,
+			nPairs: solvedCards.length / 2,
 			startTime: undefined,
 			timeReport: '',
 		}, () => {
-			this.setState({
-				cards: getShuffledDeck(cards, nPairsToPlay)
+			playFlipAnimation({
+				before,
+				duration: 620,
+				easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+				getElement: (id) => this.cardRefs.get(id),
+				ids: this.state.cards.map((card) => card.id),
+				stagger: 18,
 			});
 		});
 	};
 
 	render = () => {
+		const { config = {}, suppressInfo = false } = this.props;
 		const {
 			beenFlipped,
 			cards,
-			descriptionText,
 			flipped,
 			htmlContent,
 			id,
@@ -178,68 +230,70 @@ export class MemoryMatchGame extends React.PureComponent {
 			// instructionsTextHTML,
 			matched,
 			nPairs,
-			nTries,
-			timeReport = '',
 		} = this.state;
-		const sortedMatches = cards.filter(card =>
-			matched.includes(card.id)
-		);
-		sortedMatches.sort((a, b) => {
-			if (a.id < b.id) {
-				return -1;
-			}
-			if (a.id > b.id) {
-				return 1;
-			}
-			return 0;
-		});
+		const {
+			informationText,
+			informationTextHTML,
+			instructionsText,
+			instructionsTextHTML,
+		} = config;
+		const resolvedInfoTextHTML = informationTextHTML || instructionsTextHTML;
+		const resolvedInfoText = informationText || instructionsText;
+		const hasInstructionContent = Boolean(resolvedInfoText || resolvedInfoTextHTML);
+		const hasInfo = !suppressInfo && hasInstructionContent;
 		return (
-			<div id={`${id}`} className={`memory-match-game-container`}>
+			<div className="memory-match-game-container relative" id={`${id}`}>
+				{hasInfo ? (
+					<Info informationText={resolvedInfoText} informationTextHTML={resolvedInfoTextHTML} />
+				) : null}
 				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-				<div className={`memory-match-game`}>
-					<p className='clue'>{descriptionText}&nbsp;</p>
-
-					<div
-						className={`memory-map-container num${cards.length}cards`}
-					>
-						{/* dirty max-height, but the container won't shrink down for the scaled down content :-( */}
-						<h2 className="text-base">Cards</h2>
-						<h2 className="text-base">Matched&nbsp;pairs</h2>
-						<div className="cards text-[calc(var(--font-size-sm)*0.8)] xl:text-[calc(var(--font-size-sm)*0.9)] 2xl:text-[var(--font-size-sm)]">
+				<div className={`memory-match-game flex flex-col items-center ${hasInstructionContent ? "pt-8" : ""}`}>
+					<div className={`memory-map-container num${cards.length}cards w-full`}>
+						<div className="cards mx-auto grid w-full max-w-[30.24rem] grid-cols-2 gap-3 text-[calc(var(--font-size-sm)*0.8)] md:max-w-[31.68rem] md:grid-cols-4 xl:max-w-[37.44rem] xl:text-[calc(var(--font-size-sm)*0.9)] 2xl:text-[var(--font-size-sm)]">
 							{cards.map(card => (
 								<Card
 									card={card}
+									cardRef={(element) => this.setCardRef(card.id, element)}
 									className={`${card.localLanguage} ${beenFlipped.includes(card.id) || matched.includes(card.id) ? 'been-flipped' : ''} ${flipped.includes(card.id) || matched.includes(card.id) ? 'flipped' : ''} ${matched.includes(card.id) ? 'matched' : ''}`}
 									handleClick={this.handleClick}
 									key={`card${card.id}`}
 								/>
 							))}
 						</div>
-						<div className={`matches-container`}>{/* To force align top */}
-							<div className="matches text-[calc(var(--font-size-sm)*0.6)] lg:text-[calc(var(--font-size-sm)*0.7)] xl:text-[calc(var(--font-size-sm)*0.8)]">
-								{sortedMatches.map(card =>
-									matched.includes(card.id) ?
-										(
-											<div key={`enclosingDivMatchedCard${card.id}`}>
-												<Card
-													card={card}
-													className={`${card.type} ${flipped.includes(card.id) || matched.includes(card.id) ? 'flipped' : ''} ${matched.includes(card.id) ? 'matched' : ''}`}
-													handleClick={this.handleClick}
-													key={`matchedCard${card.id}`}
-												/>
-											</div>
-										) : null
-								)}
-							</div>
-						</div>
 					</div>
-					<p>{`${nTries} tries. ${nPairs} matched.${timeReport}`}</p>
-
 				</div>
-				<div className={`help`}>
-					<IconButton className={`hidden-help`} onClick={this.handleReset} theme={`reset`} >Reset</IconButton>
-					<IconButton className={`shuffle`} onClick={this.handleShuffle} theme={`shuffle`}>Shuffle</IconButton>
+				<div className="exercise-divider mt-6" data-orientation="horizontal" role="none" />
+				<ProgressDots correct={nPairs} total={cards.length / 2} />
+				<div className="exercise-divider mt-4" data-orientation="horizontal" role="none" />
+				<div className="exercise-help exercise-help-wrap">
+					<div className="exercise-help-actions">
+						<IconButton
+							ariaLabel="Show answer"
+							className={exerciseActionButtonVariants({
+								progressive: false,
+								tone: "warn",
+								visible: true,
+							})}
+							onClick={this.handleShowAnswers}
+							theme={`eye`}
+						>
+							<span className="exercise-icon-button-label">Show answer</span>
+						</IconButton>
+
+						<IconButton
+							ariaLabel="Reset"
+							className={exerciseActionButtonVariants({
+								progressive: false,
+								tone: "neutral",
+								visible: true,
+							})}
+							onClick={this.handleReset}
+							theme={`reset`}
+						>
+							<span className="exercise-icon-button-label">Reset</span>
+						</IconButton>
+					</div>
 				</div>
 			</div>
 		);

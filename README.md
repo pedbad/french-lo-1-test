@@ -434,6 +434,7 @@ Naming principles:
 - prefer names like `InlineChoiceGroup`, `SelectExercise`, `DraggableFillGaps`, `ListeningOrder`, `Sortable` over generic/ambiguous names.
 - avoid umbrella names that hide interaction intent (for example `Blanks` when activity is drag/drop fill).
 - each component name should make expected UX clear from config alone.
+- for visual implementation, prefer Tailwind utilities and shadcn-style primitives first; only add shared CSS when the effect cannot be expressed cleanly with the existing utility/token system (for example small targeted 3D/perspective or legacy image-size overrides).
 
 Migration method:
 1. inventory all exercise component usages across LO configs.
@@ -475,6 +476,10 @@ Latest applied step:
   - `shuffleItems` (boolean, default false)
   - `sampleSize` (number, optional; if set, first N rows from shuffled/ordered items are used)
   - behavior: rows can reshuffle on initial load and on reset, while option order inside each row still shuffles independently
+- `MemoryMatchGame` card presentation has been moved closer to the same Tailwind/shadcn card language used elsewhere:
+  - lesson-owned exercise images should prefer `public/img/loX/exercises/...`
+  - card sizing/layout/interaction should be expressed in component JSX with utilities first
+  - shared CSS should be reserved for small targeted cases that utilities do not handle cleanly
 - LO3 exercises 3/4/5 now use semantic names for typed-table activities:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)

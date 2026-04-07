@@ -138,6 +138,7 @@ export class AudioClip extends React.PureComponent {
 		if (classes.includes('link')) {
 			return (
 				<LinkAudioProgress
+					className={className}
 					id={id}
 					key={id}
 					soundFile={soundFile}
@@ -146,18 +147,22 @@ export class AudioClip extends React.PureComponent {
 		} else if (classes.includes('super-compact')) {
 			return (
 				<CircularAudioProgress
+					className={className}
 					id={id}
 					inline={inline}
 					key={id}
+					size={this.props.size}
 					soundFile={soundFile}
 				/>
 			);
 		} else if (classes.includes('super-compact-speaker')) {
 			return (
 				<CircularAudioProgressAnimatedSpeaker
+					className={className}
 					id={id}
 					inline={inline}
 					key={id}
+					size={this.props.size}
 					soundFile={soundFile}
 				/>
 			);
@@ -205,6 +210,11 @@ export class AudioClip extends React.PureComponent {
 		}
 	};
 }
+
+const getCompactControlSize = (size, fallback) => {
+	const parsedSize = Number.parseInt(size, 10);
+	return Number.isFinite(parsedSize) && parsedSize > 0 ? parsedSize : fallback;
+};
 
 class CircularAudioProgress extends AudioClip {
 	constructor(props) {
@@ -265,10 +275,10 @@ class CircularAudioProgress extends AudioClip {
 
 	updateCircleOffset = () => {
 		const { progress, duration } = this.state;
-		const compactDimension = 27;
-		const size = compactDimension;
+		const { size } = this.props;
+		const controlSize = getCompactControlSize(size, 27);
 
-		const circumference = Math.PI * size;
+		const circumference = Math.PI * controlSize;
 		const offset = circumference * (1 - (progress / duration || 0));
 		if (this.circleRef.current) {
 			this.circleRef.current.style.strokeDashoffset = offset;
@@ -279,35 +289,41 @@ class CircularAudioProgress extends AudioClip {
 		const strokeWidth = 2;
 		const bgColour = 'var(--border)'; // Keep ring subtle in both light and dark themes.
 
-		const inline = this.props;
+		const {
+			className = '',
+			inline = false,
+			size,
+		} = this.props;
 
 		const root = getComputedStyle(document.documentElement);
 		let compactDimension = root.getPropertyValue('--compact-dimension').trim();
-		compactDimension = parseInt(compactDimension);
-		const size = compactDimension;
-		const radius = (size - strokeWidth) / 2;
+		compactDimension = parseInt(compactDimension, 10);
+		const controlSize = getCompactControlSize(size, compactDimension);
+		const radius = (controlSize - strokeWidth) / 2;
 
-		const circumference = Math.PI * size;
+		const circumference = Math.PI * controlSize;
 		const { status = 'stopped' } = this.state;
-		if (isNaN(size)){
+		if (isNaN(controlSize)){
 			return null;
 		} else {
 			return (
 				<button
 					type="button"
-					className={`audio-container ${inline ? 'inline' : ''} super-compact circular-audio-progress ${status}`}
+					className={`audio-container ${inline ? 'inline' : ''} super-compact circular-audio-progress ${status} ${className}`.trim()}
 					onClick={this.handleClick}
 					ref={this.audioRef}
 					aria-label={`${status !== 'playing' ? 'Click to play' : 'Click to pause'}`}
+					style={{ width: `${controlSize}px`, height: `${controlSize}px` }}
 				>
 					<svg
 						fill="none"
-						width={size}
-						height={size}>
+						width={controlSize}
+						height={controlSize}
+						className="pointer-events-none">
 						{/* Background ring */}
 						<circle
-							cx={size / 2}
-							cy={size / 2}
+							cx={controlSize / 2}
+							cy={controlSize / 2}
 							r={radius}
 							stroke={bgColour}
 							strokeWidth={strokeWidth}
@@ -316,15 +332,15 @@ class CircularAudioProgress extends AudioClip {
 						{/* Progress ring */}
 						<circle
 							ref={this.circleRef}
-							cx={size / 2}
-							cy={size / 2}
+							cx={controlSize / 2}
+							cy={controlSize / 2}
 							r={radius}
 							stroke="currentColor"
 							strokeWidth={strokeWidth}
 							fill="none"
 							strokeDasharray={circumference}
 							strokeDashoffset={circumference}
-							transform={`rotate(-90 ${size / 2} ${size / 2})`}
+							transform={`rotate(-90 ${controlSize / 2} ${controlSize / 2})`}
 							style={{ transition: 'stroke-dashoffset 0.2s linear' }}
 						/>
 						<path fill="currentColor" d="m18.64 13.5-5.14 3.448-5.14 3.447V6.604l5.14 3.447z" className="play" />
@@ -339,7 +355,7 @@ class CircularAudioProgress extends AudioClip {
 
 class CircularAudioProgressAnimatedSpeaker extends CircularAudioProgress {
 	render = () => {
-		const { inline } = this.props;
+		const { className = '', inline, size, title } = this.props;
 		const { status = 'stopped', progress = 0, duration = 0 } = this.state;
 
 		return (
@@ -350,11 +366,14 @@ class CircularAudioProgressAnimatedSpeaker extends CircularAudioProgress {
 				ref={this.audioRef}
 			>
 				<CircularAudioProgressAnimatedSpeakerDisplay
+					className={className}
+					size={size}
 					inline={inline}
 					status={status}
 					progress={progress}
 					duration={duration}
 					handleClick={this.handleClick}
+					title={title}
 				/>
 			</span>
 		);
@@ -383,22 +402,25 @@ class LinkAudioProgress extends CircularAudioProgress {
 	}
 
 	render = () => {
-		const { children } = this.props;
+		const { children, className = '', title } = this.props;
 		const { status = 'stopped', progress = 0, duration = 0 } = this.state;
+		const tooltipText = title || (status !== 'playing' ? 'Click to play' : 'Click to pause');
 
 		return (
 			<button
 				type="button"
-				className={`audio-link ${status}`}
+				className={`audio-link ${status} ${className}`.trim()}
 				onClick={this.handleClick}
 				ref={this.linkRef}
-				aria-label={`${status !== 'playing' ? 'Click to play' : 'Click to pause'}`}>
+				aria-label={tooltipText}>
 				<CircularAudioProgressAnimatedSpeakerDisplay
+					className={className}
 					inline={true}
 					status={status}
 					progress={progress}
 					duration={duration}
 					interactive={false}
+					title={tooltipText}
 				/>
 				{/* Simple compact link SVG speaker icon <svg xmlns="http://www.w3.org/2000/svg"
 					width="24"

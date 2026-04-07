@@ -2845,6 +2845,20 @@
 		color: var(--ped-warn);
 	}
 
+	.audio-link.memory-card-audio-link {
+		color: var(--foreground);
+	}
+
+	.audio-link.memory-card-audio-link:is(:hover, :focus-visible) {
+		background-color: color-mix(in oklab, var(--chart-3) 12%, transparent);
+		color: var(--ped-warn);
+	}
+
+	.audio-link.memory-card-audio-link svg {
+		width: 1.6em;
+		height: 1.6em;
+	}
+
 	.audio-link svg {
 		display: inline-block;
 		width: var(--audio-inline-size);
@@ -2868,12 +2882,20 @@
 	}
 
 	.audio-container {
+		appearance: none;
 		background-color: transparent;
+		border: 0;
+		cursor: pointer;
+		font: inherit;
 		width: var(--compact-dimension);
 		height: var(--compact-dimension);
 		z-index: 1;
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		position: relative;
+		padding: 0;
+		user-select: none;
 		transition:
 			color 160ms ease,
 			transform 160ms ease,
@@ -2885,7 +2907,7 @@
 	}
 
 	.audio-container.inline {
-		display: inline-block;
+		display: inline-flex;
 		vertical-align: middle;
 	}
 
@@ -3590,390 +3612,36 @@
 		border: 1px solid color-mix(in oklab, var(--destructive) 20%, transparent);
 	}
 
-	.memory-match-game-container {
-		position: relative;
-	}
-
-	.memory-match-game {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.memory-map-container {
-		display: grid;
-		grid-template-columns: 1fr 0.1fr;
-		grid-template-rows: auto 1fr;
-		max-width: 100%;
-		min-height: 500px;
-		align-items: start;
-	}
-
-	.memory-map-container > h2 {
-		text-align: center;
-		margin: 0;
-		color: var(--primary-foreground);
-		font-weight: bold;
-	}
-
-	.memory-map-container .cards {
-		max-width: 1000px;
-		margin: 0 auto;
-		perspective: 2000px;
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-auto-rows: auto;
-		gap: 0.5rem;
-		width: fit-content;
-	}
-
-	.memory-map-container .matches-container {
-		display: flex;
-		align-items: flex-end;
-	}
-
-	.memory-map-container .matches {
-		transform-origin: top;
-		grid-row-gap: 0.5rem;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		width: fit-content;
-		margin: auto;
-	}
-
-	.memory-map-container .matches > div {
-		max-height: 60px;
-		display: flex;
-		align-items: flex-start;
-		justify-content: flex-end;
-	}
-
-	.memory-map-container .matches > div:nth-child(even) {
-		justify-content: flex-start;
-	}
-
-	.memory-map-container .matches .card {
-		cursor: not-allowed;
-		transform: rotateX(180deg);
-	}
-
-	.memory-map-container .matches .card.flipped {
-		transition: opacity 1s;
-	}
-
-	.memory-map-container .matches .card.text {
-		transform: rotateX(180deg) rotateZ(10deg);
-		animation: reveal-memory-text 1s linear;
-	}
-
-	.memory-map-container .matches .card.image {
-		transform: rotateX(180deg) rotateZ(-10deg);
-		animation: reveal-memory-image 1s linear;
-	}
-
-	.memory-map-container .matches .card .audio-container {
-		display: none;
-	}
-
-	@keyframes reveal-memory-text {
-		0% {
-			transform: rotateX(0deg) rotateZ(-5deg);
-		}
-
-		100% {
-			transform: rotateX(180deg) rotateZ(10deg);
-		}
-	}
-
-	@keyframes reveal-memory-image {
-		0% {
-			transform: rotateX(0deg) rotateZ(5deg);
-		}
-
-		100% {
-			transform: rotateX(180deg) rotateZ(-10deg);
-		}
-	}
-
-	@media (min-width: 768px) {
-		.memory-map-container {
-			min-width: 670px;
-		}
-
-		.memory-map-container .matches {
-			min-width: 280px;
-		}
-
-		.memory-map-container .cards {
-			grid-template-columns: repeat(4, 1fr);
-			padding: 0 0 2rem 1rem;
-		}
-	}
-
-	@media (min-width: 768px) and (orientation: landscape) {
-		.memory-map-container .cards {
-			grid-template-columns: repeat(5, 1fr);
-		}
-	}
-
-	@media (min-width: 960px) {
-		.memory-map-container.num16cards {
-			min-height: 600px;
-		}
-
-		.memory-map-container.num20cards {
-			min-height: 760px;
-		}
-
-		.memory-map-container .cards {
-			grid-template-columns: repeat(5, 1fr);
-			grid-row-gap: 0.5rem;
-		}
-
-		.memory-map-container .matches {
-			min-width: 250px;
-			padding: 0 0.6rem;
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.memory-map-container {
-			gap: 0.5rem;
-		}
-
-		.memory-map-container .cards {
-			grid-template-columns: repeat(5, 1fr);
-			grid-row-gap: 0.5rem;
-		}
-
-		.memory-map-container .matches {
-			min-width: 300px;
-			padding: 1.25rem 1rem;
-			gap: 0.5rem;
-		}
-	}
-
-	@media (min-width: 1280px) {
-		.memory-map-container {
-			min-height: 600px;
-		}
-
-		.memory-map-container.num16cards {
-			min-height: 730px;
-		}
-
-		.memory-map-container.num20cards {
-			min-height: 860px;
-		}
-
-		.memory-map-container .matches {
-			min-width: 280px;
-		}
-
-		.memory-map-container .matches > div {
-			max-height: 70px;
-		}
-	}
-
 	/* MemoryMatch card skin migrated from MemoryMatchGame/Card/Card.scss. */
-	#MemoryMatchGame4 .card .card-contents-container .card-image-container {
+	#MemoryMatchGame4 .memory-card .memory-card-image {
 		background-size: 80%;
 	}
 
-	#MemoryMatchGame4 .card.aeroplane .card-contents-container .card-image-container,
-	#MemoryMatchGame4 .card.airship .card-contents-container .card-image-container,
-	#MemoryMatchGame4 .card.car .card-contents-container .card-image-container,
-	#MemoryMatchGame4 .card.hang-glider .card-contents-container .card-image-container,
-	#MemoryMatchGame4 .card.hovercraft .card-contents-container .card-image-container,
-	#MemoryMatchGame4 .card.narrowboat .card-contents-container .card-image-container {
+	#MemoryMatchGame4 .memory-card.aeroplane .memory-card-image,
+	#MemoryMatchGame4 .memory-card.airship .memory-card-image,
+	#MemoryMatchGame4 .memory-card.car .memory-card-image,
+	#MemoryMatchGame4 .memory-card.hang-glider .memory-card-image,
+	#MemoryMatchGame4 .memory-card.hovercraft .memory-card-image,
+	#MemoryMatchGame4 .memory-card.narrowboat .memory-card-image {
 		background-size: 100%;
 	}
 
-	#MemoryMatchGame4 .card.monorail .card-contents-container .card-image-container,
-	#MemoryMatchGame4 .card.bicycle .card-contents-container .card-image-container {
+	#MemoryMatchGame4 .memory-card.monorail .memory-card-image,
+	#MemoryMatchGame4 .memory-card.bicycle .memory-card-image {
 		background-size: 86%;
 	}
 
-	#MemoryMatchGame4 .card.tram .card-contents-container .card-image-container,
-	#MemoryMatchGame4 .card.balloon .card-contents-container .card-image-container {
+	#MemoryMatchGame4 .memory-card.tram .memory-card-image,
+	#MemoryMatchGame4 .memory-card.balloon .memory-card-image {
 		background-size: 68%;
 	}
 
-	#MemoryMatchGame4 .card.cablecar .card-contents-container .card-image-container {
+	#MemoryMatchGame4 .memory-card.cablecar .memory-card-image {
 		background-size: 60%;
 	}
 
-	#MemoryMatchGame4 .card.rocket .card-contents-container .card-image-container {
+	#MemoryMatchGame4 .memory-card.rocket .memory-card-image {
 		background-size: 40%;
-	}
-
-	.memory-match-game .card {
-		background-color: var(--card);
-		background-image: radial-gradient(
-			circle,
-			var(--card) 0%,
-			var(--card) 79%,
-			color-mix(in oklab, var(--card) 90%, var(--muted)) 100%
-		);
-		border-radius: 10px;
-		border: 1px solid var(--border);
-		box-shadow: 2px 2px 2px color-mix(in oklab, var(--foreground) 60%, transparent);
-		cursor: pointer;
-		height: 50px;
-		width: 80px;
-		padding: 10px;
-		position: relative;
-		text-align: center;
-		font-weight: bold;
-		transform: rotateX(0deg);
-		transform-style: preserve-3d;
-		transition:
-			transform 1s,
-			box-shadow 1s;
-	}
-
-	.memory-match-game .card .card-contents-container {
-		top: 0;
-		left: 0;
-		border-radius: 10px;
-		position: absolute;
-		backface-visibility: hidden;
-		transform: rotateX(180deg);
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.memory-match-game .card .card-contents-container::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		backface-visibility: hidden;
-		border-radius: 10px;
-	}
-
-	.memory-match-game .card .card-contents-container .card-image-container {
-		max-height: 100px;
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center center;
-		width: calc(100% - 20px);
-		height: calc(100% - 20px);
-		display: inline-block;
-	}
-
-	.memory-match-game .card .card-back {
-		border-radius: 10px;
-		position: absolute;
-		backface-visibility: hidden;
-		top: 0;
-		left: 0;
-		height: 100%;
-		z-index: 1;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		display: flex;
-		border: 8px solid var(--background);
-		box-sizing: border-box;
-		background-image:
-			repeating-linear-gradient(45deg, transparent, transparent 4px, var(--primary) 4px, var(--primary) 8px),
-			repeating-linear-gradient(-45deg, transparent, transparent 4px, var(--primary) 4px, var(--primary) 8px);
-	}
-
-	.memory-match-game .card .card-back span {
-		display: none;
-	}
-
-	.memory-match-game .card .card-back::before,
-	.memory-match-game .card .card-back::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.memory-match-game .card .card-back::after {
-		background-image: url("/images/memory/yorkshire-rose.png");
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: 60px;
-		backface-visibility: hidden;
-		z-index: -1;
-		border: 3px solid var(--primary);
-		box-sizing: border-box;
-	}
-
-	.memory-match-game .card.been-flipped .card-back::before {
-		animation: memory-card-shade-half 0.25s ease-in-out 0.25s;
-	}
-
-	.memory-match-game .card.been-flipped .card-contents-container::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		animation: memory-card-shade 0.5s ease-in-out;
-	}
-
-	.memory-match-game .card.flipped {
-		transform: rotateX(180deg);
-		transition:
-			transform 1s,
-			box-shadow 1s;
-		box-shadow: 2px -2px 2px color-mix(in oklab, var(--foreground) 60%, transparent);
-	}
-
-	.memory-match-game .card.flipped .card-back::before {
-		animation: memory-card-shade 0.5s ease-in-out;
-	}
-
-	.memory-match-game .card.flipped .card-contents-container::before {
-		animation: memory-card-shade-half 0.5s ease-in-out 0.25s;
-	}
-
-	.memory-match-game .cards .card {
-		height: 70px;
-		width: 112px;
-	}
-
-	.memory-match-game .matches .card {
-		height: 60px;
-		width: 96px;
-	}
-
-	@media (min-width: 1024px) {
-		.memory-match-game .cards .card {
-			height: 80px;
-			width: 128px;
-		}
-
-		.memory-match-game .matches .card {
-			height: 60px;
-			width: 96px;
-		}
-	}
-
-	@media (min-width: 1280px) {
-		.memory-match-game .cards .card {
-			height: 100px;
-			width: 160px;
-		}
-
-		.memory-match-game .matches .card {
-			height: 70px;
-			width: 112px;
-		}
 	}
 
 	@keyframes memory-card-shade {

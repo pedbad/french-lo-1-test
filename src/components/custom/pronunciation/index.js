@@ -31,7 +31,10 @@ export {
 	FamilyFriendsAndNeighboursPronunciationDoubleLlAsY,
 	FamilyFriendsAndNeighboursPronunciationExceptions,
 } from "./family-friends-and-neighbours-pronunciation";
-export { OpinionsMatterPronunciation } from "./opinions-matter-pronunciation";
+export {
+	OpinionsMatterPronunciationBorrowedWords,
+	OpinionsMatterPronunciationFinalConsonants,
+} from "./opinions-matter-pronunciation";
 export { FreeTimePronunciation } from "./free-time-pronunciation";
 export { PhoningInFrancePronunciation } from "./phoning-in-france-pronunciation";
 export { MakingArrangementsPronunciation } from "./making-arrangements-pronunciation";

@@ -136,6 +136,9 @@ Add these from day one to avoid late cleanup projects:
 14. If the app is single-language in production, do not keep dormant `?lang=` runtime routing; hard-wire one language config source and remove dead multi-language branches early.
 15. If infrastructure cannot guarantee rewrite support, do not choose client-side SPA-only slug routing. Prefer static pre-rendered route files (per language/per LO) so clean paths work without `.htaccess`/server rewrites.
 16. For top navigation, do not keep desktop render, mobile render, nav data shaping, and scroll-highlight orchestration in one monolithic component file. Split them into small modules from day one.
+17. For interactive tiles/cards, prefer shadcn/Tailwind composition in the component JSX first:
+   - use tokenized Tailwind utilities for sizing, spacing, shadows, transitions, z-index, and 2D transforms
+   - only add shared CSS when the effect cannot be expressed cleanly with utilities (for example narrow 3D/perspective helpers or image-specific overrides)
 
 ## What To Avoid In Future Projects
 
@@ -163,6 +166,7 @@ Use this as a hard "do not repeat" list.
 20. Do not start multilingual LO programs (for example French + Spanish series) without deciding route serving strategy first:
    - rewrite-capable SPA hosting, or
    - pre-rendered static routes (preferred when rewrite access is limited).
+21. Do not default to bespoke CSS for card/tile interactions when Tailwind and shadcn primitives can express the layout cleanly. Drop to shared CSS only for the narrow pieces utilities do not cover well.
 
 ### Image Asset Structure Rule (Carry Forward)
 
