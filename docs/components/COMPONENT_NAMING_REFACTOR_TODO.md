@@ -42,6 +42,11 @@
   - `selectExercise2` uses `SelectExercise`.
 - LO3:
   - `dropdowns2` migrated to `InlineChoiceGroup` to match LO2 verb-practice pattern.
+- LO6:
+  - pronunciation discrimination now uses a mixed `InlineChoiceGroup` instead of two separate dropdown-driven sets.
+  - `Practise the verb avoir` uses `InlineChoiceGroup`.
+  - `Practise the possessives` uses `InlineChoiceGroup` with sampled shuffled practice.
+  - `Jeanne's Family` uses `SelectExercise` with inline select rendering and shuffled row order.
 - `InlineChoiceGroup` row audio icons are now left-first for exercise consistency.
 - `Blanks` semantic migration completed across FR configs:
   - all `component: "Blanks"` entries migrated to `component: "DraggableFillGaps"` in `src/lo-config/*.json` (including `demo.json`).

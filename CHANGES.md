@@ -2,6 +2,34 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-07 - LO6 Exercise Refactor + SelectExercise Row Shuffle
+
+- Completed the LO6 `Family, friends & neighbours` exercise modernization:
+  - `src/lo-config/family-friends-and-neighbours.json`
+  - Exercise 2 is now a single mixed `InlineChoiceGroup` (`Double ll: y or l?`) with:
+    - two side-by-side reference texts
+    - one shared `© Jacqueline Rosen`
+    - `sampleSize: 8`
+    - `shuffleItems: true`
+  - Exercise 3 (`Practise the verb avoir`) now uses `InlineChoiceGroup` with shared blue instruction copy and shuffled practice on load/reset
+  - Exercise 4 (`Practise the possessives`) now uses `InlineChoiceGroup` with shared blue instruction copy, `sampleSize: 8`, and shuffled practice on load/reset
+  - Exercise 5 (`Jeanne's Family`) now uses `SelectExercise` with inline-rendered select choices instead of drag/drop
+- Extended `SelectExercise` to support optional row-order shuffling and sampling:
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - added prepared-item handling so `shuffleItems: true` can randomize row order on first load and on `Reset`
+  - `sampleSize` is now also honored by `SelectExercise` when configured
+  - existing per-row option shuffling remains intact
+- Applied the new `SelectExercise` row shuffle behavior to LO6 `Jeanne's Family`:
+  - `src/lo-config/family-friends-and-neighbours.json`
+  - rows now reshuffle on first load, browser refresh, and `Reset`
+  - each row still keeps the full 10-ending answer bank to preserve the original difficulty
+- Refined shared exercise layout parity:
+  - `src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx`
+  - tightened audio-to-word spacing to better match earlier inline-choice exercises
+- Validation:
+  - `yarn build`
+  - `yarn build:with-debug`
+
 ## 2026-04-02 - Shared Compact Audio Hover Consistency
 
 - Unified compact circular audio icon hover/focus behavior in the shared audio styling:

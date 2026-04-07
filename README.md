@@ -447,6 +447,11 @@ Latest applied step:
   - desktop: connector-style picture-to-word matching
   - mobile: select/dropdown fallback
   - debug sandbox structure summary has been updated to recognize `LineMatch` as an exercise component
+- LO6 exercise refactor is now substantially complete:
+  - Exercise 2 uses a mixed `InlineChoiceGroup` for `double ll` discrimination with two reference texts above the practice rows
+  - Exercise 3 (`Practise the verb avoir`) uses `InlineChoiceGroup`
+  - Exercise 4 (`Practise the possessives`) uses `InlineChoiceGroup` with `sampleSize: 8`
+  - Exercise 5 (`Jeanne's Family`) uses `SelectExercise` with inline select rendering and row-order shuffle on load/reset
 - LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.
 - `InlineChoiceGroup` row audio icon order is now left-first for consistency with the exercise layout standard.
 - LO4 Exercise 2 (`dropdowns3`) now uses `InlineChoiceGroup` as `inlineChoiceGroup3`:
@@ -466,6 +471,10 @@ Latest applied step:
   - `sampleSize` (number, optional; if set, first N items from shuffled/ordered set are used)
   - `sampleOnReset` (boolean, optional, default true when `sampleSize` is set)
   - if omitted, existing exercises keep prior behavior (no shuffle/sampling).
+- `SelectExercise` now supports optional row-order preparation config (backward compatible):
+  - `shuffleItems` (boolean, default false)
+  - `sampleSize` (number, optional; if set, first N rows from shuffled/ordered items are used)
+  - behavior: rows can reshuffle on initial load and on reset, while option order inside each row still shuffles independently
 - LO3 exercises 3/4/5 now use semantic names for typed-table activities:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)
