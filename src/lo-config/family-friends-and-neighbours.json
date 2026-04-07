@@ -587,49 +587,56 @@
 				}
 			},
 			{
-				"draggableFillGaps2": {
-					"component": "DraggableFillGaps",
+				"selectExercise6": {
+					"component": "SelectExercise",
 					"congratulationsText": "Très bien!",
-					"id": "draggableFillGaps2",
-					"instructionsText": "Match each question with the correct answer.",
+					"id": "selectExercise6",
+					"informationTextHTML": "Listen to each sentence and choose the correct ending to complete it. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct ending, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"renderInlineChoices": true,
+					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
-					"blanksType": "questions-answers",
-					"questions": [
-						"Ma famille est",
-						"Il y a",
-						"La personne la plus âgée",
-						"Elle a",
-						"Elle est",
-						"Mon grand-père est",
-						"Mes parents",
-						"Ils sont mariés",
-						"J'ai deux sœurs",
-						"Ils sont tous"
-					],
-					"answers": [
-						"une famille nombreuse.",
-						"huit personnes dans ma famille.",
-						"est ma grand-mère.",
-						"89 ans.",
-						"veuve.",
-						"décédé.",
-						"s'appellent Julie et Marc.",
-						"depuis 26 ans.",
-						"et deux frères.",
-						"plus âgés que moi."
-					],
-					"soundFiles": [
-						"audio/lo6/exercises/ma-famille-est-une-famille-nombreuse.mp3",
-						"audio/lo6/exercises/il-y-a-huit-personnes-dans-ma-famille.mp3",
-						"audio/lo6/exercises/la-personne-la-plus-agee-est-ma-grand-mere.mp3",
-						"audio/lo6/exercises/elle-a-89-ans.mp3",
-						"audio/lo6/exercises/elle-est-veuve.mp3",
-						"audio/lo6/exercises/mon-grand-pere-est-decede.mp3",
-						"audio/lo6/exercises/mes-parents-s-appellent-julie-et-marc.mp3",
-						"audio/lo6/exercises/ils-sont-maries-depuis-26-ans.mp3",
-						"audio/lo6/exercises/j-ai-deux-s-urs-et-deux-freres.mp3",
-						"audio/lo6/exercises/ils-sont-tous-plus-ages-que-moi.mp3"
+					"items": [
+						{
+							"text": "Ma famille est [*une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/ma-famille-est-une-famille-nombreuse.mp3"
+						},
+						{
+							"text": "Il y a [une famille nombreuse.|*huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/il-y-a-huit-personnes-dans-ma-famille.mp3"
+						},
+						{
+							"text": "La personne la plus âgée [une famille nombreuse.|huit personnes dans ma famille.|*est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/la-personne-la-plus-agee-est-ma-grand-mere.mp3"
+						},
+						{
+							"text": "Elle a [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|*89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/elle-a-89-ans.mp3"
+						},
+						{
+							"text": "Elle est [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|*veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/elle-est-veuve.mp3"
+						},
+						{
+							"text": "Mon grand-père est [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|*décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/mon-grand-pere-est-decede.mp3"
+						},
+						{
+							"text": "Mes parents [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|*s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/mes-parents-s-appellent-julie-et-marc.mp3"
+						},
+						{
+							"text": "Ils sont mariés [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|*depuis 26 ans.|et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/ils-sont-maries-depuis-26-ans.mp3"
+						},
+						{
+							"text": "J'ai deux sœurs [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|*et deux frères.|plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/j-ai-deux-s-urs-et-deux-freres.mp3"
+						},
+						{
+							"text": "Ils sont tous [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|*plus âgés que moi.]",
+							"audio": "audio/lo6/exercises/ils-sont-tous-plus-ages-que-moi.mp3"
+						}
 					],
 					"titleText": "5. Jeanne's Family"
 				}

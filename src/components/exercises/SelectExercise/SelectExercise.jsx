@@ -28,7 +28,7 @@ export class SelectExercise extends React.PureComponent {
 			hasChecked: false,
 			nCorrect: 0,
 			rowAudioStatus: {},
-			shuffledItems: this.buildShuffledItems(initialItems),
+			shuffledItems: this.buildPreparedItems(initialItems, props?.config),
 			values: {},
 		};
 
@@ -46,7 +46,7 @@ export class SelectExercise extends React.PureComponent {
 				hasChecked: false,
 				nCorrect: 0,
 				rowAudioStatus: {},
-				shuffledItems: this.buildShuffledItems(nextItems),
+				shuffledItems: this.buildPreparedItems(nextItems, this.props?.config),
 				values: {},
 			});
 			this.blanksMeta = [];
@@ -85,6 +85,21 @@ export class SelectExercise extends React.PureComponent {
 				text: this.shuffleItemText(item.text),
 			};
 		});
+	};
+
+	buildPreparedItems = (items = [], config = this.props?.config || {}) => {
+		const withShuffledChoices = this.buildShuffledItems(items);
+		const shouldShuffleItems = Boolean(config?.shuffleItems);
+		const sampleSize = Number.isInteger(config?.sampleSize) ? config.sampleSize : null;
+		const orderedItems = shouldShuffleItems
+			? this.shuffleArray(withShuffledChoices)
+			: withShuffledChoices;
+
+		if (sampleSize && sampleSize > 0) {
+			return orderedItems.slice(0, sampleSize);
+		}
+
+		return orderedItems;
 	};
 
 	parseSentence = (text, startBlankIndex) => {
@@ -183,7 +198,7 @@ export class SelectExercise extends React.PureComponent {
 			hasChecked: false,
 			nCorrect: 0,
 			rowAudioStatus: {},
-			shuffledItems: this.buildShuffledItems(sourceItems),
+			shuffledItems: this.buildPreparedItems(sourceItems, this.props?.config),
 			values: {},
 		});
 	};
