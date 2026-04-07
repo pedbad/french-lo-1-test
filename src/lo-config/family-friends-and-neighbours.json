@@ -463,12 +463,13 @@
 			},
 			{
 				"selectExercise4": {
-					"component": "SelectExercise",
+					"component": "InlineChoiceGroup",
 					"id": "selectExercise4",
 					"congratulationsText": "Superbe!",
-					"instructionsTextHTML": "Fill in the gaps with the correct part of <strong>avoir</strong>.",
+					"informationTextHTML": "Read each sentence and choose the correct form of <strong>avoir</strong>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
+					"cheatText": "Show answer",
 					"items": [
 						{
 							"text": "J' [*ai|as|a|avons|avez|ont] 30 ans.",

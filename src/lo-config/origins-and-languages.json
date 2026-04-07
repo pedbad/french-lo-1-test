@@ -455,6 +455,7 @@
 					"id": "inlineChoiceGroup1",
 					"congratulationsText": "Excellent!",
 					"informationTextHTML": "Listen to each audio clip and select the correct nationality adjective. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"items": [
@@ -493,6 +494,7 @@
 					"id": "inlineChoiceGroup2",
 					"congratulationsText": "Très bien!",
 					"informationTextHTML": "Listen to each audio clip and choose the correct form: <strong>de</strong>, <strong>du</strong>, <strong>d'</strong>, or <strong>des</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
+					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
