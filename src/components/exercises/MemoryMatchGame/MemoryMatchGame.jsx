@@ -10,10 +10,19 @@ import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { MEMORY_CARD_TRANSITION_TIME_MS } from "@/constants/layout";
 
+const toMemoryCardSlug = (value = "") =>
+	String(value)
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "")
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/^-+|-+$/g, "");
+
 const getShuffledDeck = (cards, nCards) => {
 	cards = cards.sort(() => Math.random() - 0.5);
 	cards = cards.slice(0, nCards);
 	const imageCards = cards.map((obj, idx) => ({
+		classNameSlug: toMemoryCardSlug(obj.localLanguage),
 		content: obj.localLanguage,
 		id: `${idx}b`,
 		image: obj.image,
@@ -23,6 +32,7 @@ const getShuffledDeck = (cards, nCards) => {
 	}));
 	const textCards = cards.map((obj, idx) => ({
 		audio: obj.audio,
+		classNameSlug: toMemoryCardSlug(obj.localLanguage),
 		content: obj.foreignLanguage,
 		id: `${idx}a`,
 		image: `img-${idx}`,
@@ -255,7 +265,7 @@ export class MemoryMatchGame extends React.PureComponent {
 								<Card
 									card={card}
 									cardRef={(element) => this.setCardRef(card.id, element)}
-									className={`${card.localLanguage} ${beenFlipped.includes(card.id) || matched.includes(card.id) ? 'been-flipped' : ''} ${flipped.includes(card.id) || matched.includes(card.id) ? 'flipped' : ''} ${matched.includes(card.id) ? 'matched' : ''}`}
+									className={`${card.classNameSlug || ""} ${beenFlipped.includes(card.id) || matched.includes(card.id) ? 'been-flipped' : ''} ${flipped.includes(card.id) || matched.includes(card.id) ? 'flipped' : ''} ${matched.includes(card.id) ? 'matched' : ''}`}
 									handleClick={this.handleClick}
 									key={`card${card.id}`}
 								/>
