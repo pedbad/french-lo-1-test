@@ -589,29 +589,37 @@
 					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"congratulationsText": "Excellent!",
-					"instructionsText": "Listen to this poem by Mymi Doinet about the rainbow and fill in the colours as you hear them.",
+					"informationTextHTML": "Read this poem by Mymi Doinet about the rainbow and choose the correct colour for each line. The coloured strips on the left are shown as hints. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"layoutMode": "inline-passage",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"items": [
 						{
+							"passageAccent": "red",
 							"text": "[Bleu|Indigo|Jaune|Orangé|Violet|Vert|*Rouge] comme un fruit du Mexique"
 						},
 						{
+							"passageAccent": "orange",
 							"text": "[Bleu|Indigo|Jaune|*Orangé|Violet|Vert|Rouge] comme le sable d'Afrique"
 						},
 						{
+							"passageAccent": "yellow",
 							"text": "[Bleu|Indigo|*Jaune|Orangé|Violet|Vert|Rouge] comme les girafes chics"
 						},
 						{
+							"passageAccent": "green",
 							"text": "[Bleu|Indigo|Jaune|Orangé|Violet|*Vert|Rouge] comme un sorbet de Jamaïque"
 						},
 						{
+							"passageAccent": "blue",
 							"text": "[*Bleu|Indigo|Jaune|Orangé|Violet|Vert|Rouge] comme les vagues du Pacifique"
 						},
 						{
+							"passageAccent": "indigo",
 							"text": "[Bleu|*Indigo|Jaune|Orangé|Violet|Vert|Rouge] comme un papillon des tropiques"
 						},
 						{
+							"passageAccent": "violet",
 							"text": "[Bleu|Indigo|Jaune|Orangé|*Violet|Vert|Rouge] comme les volcans de Martinique"
 						},
 						{
@@ -627,7 +635,8 @@
 							"text": "L'arc aux sept couleurs magiques."
 						},
 						{
-							"text": "Mymi Doinet"
+							"passageMeta": true,
+							"text": "© Mymi Doinet"
 						}
 					],
 					"titleText": "4. Sept Couleurs Magiques"

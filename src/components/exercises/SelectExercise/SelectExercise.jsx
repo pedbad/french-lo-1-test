@@ -15,6 +15,16 @@ import { resolveAsset } from "@/utils/assets";
 
 const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-[var(--font-size-sm)] md:text-base";
 const SELECT_EXERCISE_INLINE_TRIGGER_CLASS = "inline-flex min-h-9 w-auto min-w-[12rem] align-middle text-[var(--font-size-sm)] md:min-w-[14rem] md:text-base";
+const SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS = "inline-flex h-8 w-auto min-w-[7.5rem] px-2 align-middle text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:min-w-[8.5rem]";
+const SELECT_EXERCISE_PASSAGE_ACCENTS = {
+	blue: "var(--poem-accent-blue)",
+	green: "var(--poem-accent-green)",
+	indigo: "var(--poem-accent-indigo)",
+	orange: "var(--poem-accent-orange)",
+	red: "var(--poem-accent-red)",
+	violet: "var(--poem-accent-violet)",
+	yellow: "var(--poem-accent-yellow)",
+};
 
 export class SelectExercise extends React.PureComponent {
 	constructor(props) {
@@ -260,6 +270,52 @@ export class SelectExercise extends React.PureComponent {
 			.trim();
 	};
 
+	renderInlineSelect = (blankIndex, localIndex, rowBlankIndices, triggerClassName = SELECT_EXERCISE_INLINE_TRIGGER_CLASS) => {
+		const { id = "", values = {} } = this.state;
+		const selectId = `${id}-select-${blankIndex}`;
+		const meta = this.blanksMeta[blankIndex];
+		const currentValue = values[blankIndex] ?? "";
+
+		return (
+			<span className="mx-1 inline-flex align-middle" key={selectId}>
+				<label className="sr-only" htmlFor={selectId}>
+					{`Select answer for blank ${blankIndex + 1}`}
+				</label>
+				<Select
+					value={currentValue}
+					onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
+				>
+					<SelectTrigger className={triggerClassName} id={selectId}>
+						<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
+					</SelectTrigger>
+					<SelectContent>
+						{meta.options.map((option, optionIndex) => (
+							<SelectItem
+								className="text-[var(--font-size-sm)] md:text-base"
+								key={`${selectId}-option-${optionIndex}`}
+								value={String(optionIndex)}
+							>
+								{option}
+							</SelectItem>
+						))}
+					</SelectContent>
+				</Select>
+			</span>
+		);
+	};
+
+	getInlinePassageLineStyle = (accentKey) => {
+		const accentColor = accentKey ? SELECT_EXERCISE_PASSAGE_ACCENTS[accentKey] : null;
+		if (!accentColor) return {};
+
+		return {
+			accentColor,
+			lineStyle: {
+				boxShadow: `inset 0 1px 0 color-mix(in oklab, ${accentColor} 10%, transparent)`,
+			},
+		};
+	};
+
 	render = () => {
 		const {
 			cheatText = "Show answers",
@@ -268,6 +324,7 @@ export class SelectExercise extends React.PureComponent {
 			htmlContent = "",
 			id = "",
 			items = [],
+			layoutMode = "rows",
 			listenDescriptionText,
 			renderInlineChoices = false,
 			rowAudioStatus = {},
@@ -280,6 +337,7 @@ export class SelectExercise extends React.PureComponent {
 		this.nToSolve = 0;
 
 		const rows = [];
+		const passageLines = [];
 		let blankCursor = 0;
 
 		const renderedItems = shuffledItems.length > 0 ? shuffledItems : items;
@@ -304,6 +362,75 @@ export class SelectExercise extends React.PureComponent {
 				rowResults.every((result) => typeof result === "boolean");
 			const rowHasResult = this.state.hasChecked && rowAttempted && rowFullyChecked;
 			const rowIsCorrect = rowHasResult && rowResults.every((result) => result === true);
+
+			if (layoutMode === "inline-passage") {
+				const { accentColor, lineStyle } = this.getInlinePassageLineStyle(item?.passageAccent);
+				const isPassageMeta = Boolean(item?.passageMeta);
+
+				passageLines.push(
+					<p
+						className={`relative m-0 overflow-hidden text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base ${
+							isPassageMeta
+								? "pt-1 text-right text-muted-foreground"
+								: `rounded-lg border border-border/70 bg-background/80 px-3 py-2 shadow-sm ${rowBlankIndices.length === 0 ? "text-foreground/90" : ""}`
+						}`}
+						key={`select-passage-line-${id}-${i}`}
+						style={isPassageMeta ? undefined : lineStyle}
+					>
+						{accentColor && !isPassageMeta ? (
+							<span
+								aria-hidden="true"
+								className="absolute inset-y-0 left-0 w-3"
+								style={{ backgroundColor: accentColor }}
+							/>
+						) : null}
+						<span
+							className={`relative z-10 ${
+								isPassageMeta
+									? "block"
+									: "grid grid-cols-[minmax(0,1fr)_2.75rem] items-center gap-x-3 pl-2"
+							}`}
+						>
+							<span className="block min-w-0">
+								{segments.map((segment, segmentIndex) => {
+									if (segment.type !== "choice") {
+										return (
+											<React.Fragment key={segment.key || `seg-${segmentIndex}`}>
+												{segment.value}
+											</React.Fragment>
+										);
+									}
+
+									const blankIndex = segment.blankIndex;
+									const localIndex = rowBlankIndices.indexOf(blankIndex);
+
+									return this.renderInlineSelect(
+										blankIndex,
+										localIndex,
+										rowBlankIndices,
+										SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS
+									);
+								})}
+							</span>
+							{isPassageMeta ? null : (
+								<span
+									aria-hidden="true"
+									className={`inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+								>
+									{rowBlankIndices.length > 0 ? (
+										rowIsCorrect ? (
+											<CircleCheck className="h-10 w-10" />
+										) : (
+											<CircleX className="h-10 w-10" />
+										)
+									) : null}
+								</span>
+							)}
+						</span>
+					</p>
+				);
+				continue;
+			}
 
 			rows.push(
 				<div
@@ -340,35 +467,11 @@ export class SelectExercise extends React.PureComponent {
 
 									const blankIndex = segment.blankIndex;
 									const localIndex = rowBlankIndices.indexOf(blankIndex);
-									const selectId = `${id}-select-${blankIndex}`;
-									const meta = this.blanksMeta[blankIndex];
-									const currentValue = values[blankIndex] ?? "";
 
-									return (
-										<span className="mx-1 inline-flex align-middle" key={selectId}>
-											<label className="sr-only" htmlFor={selectId}>
-												{`Select answer for blank ${blankIndex + 1}`}
-											</label>
-											<Select
-												value={currentValue}
-												onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
-											>
-												<SelectTrigger className={SELECT_EXERCISE_INLINE_TRIGGER_CLASS} id={selectId}>
-													<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
-												</SelectTrigger>
-												<SelectContent>
-													{meta.options.map((option, optionIndex) => (
-														<SelectItem
-															className="text-[var(--font-size-sm)] md:text-base"
-															key={`${selectId}-option-${optionIndex}`}
-															value={String(optionIndex)}
-														>
-															{option}
-														</SelectItem>
-													))}
-												</SelectContent>
-											</Select>
-										</span>
+									return this.renderInlineSelect(
+										blankIndex,
+										localIndex,
+										rowBlankIndices
 									);
 								})}
 							</div>
@@ -467,7 +570,13 @@ export class SelectExercise extends React.PureComponent {
 					/>
 				) : null}
 
-				<div className="space-y-3">{rows}</div>
+				{layoutMode === "inline-passage" ? (
+					<div className="rounded-xl border border-border/70 bg-card/60 p-4 text-left shadow-sm md:p-5">
+						<div className="space-y-3">{passageLines}</div>
+					</div>
+				) : (
+					<div className="space-y-3">{rows}</div>
+				)}
 
 				<div className="exercise-divider" data-orientation="horizontal" role="none" />
 				<ProgressDots correct={nCorrect} total={this.nToSolve} />
