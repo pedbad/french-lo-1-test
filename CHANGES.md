@@ -2,6 +2,42 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-08 - LO7 Poem Layout + Memory Game Rendering Fixes
+
+- Completed the LO7 `Opinions matter` exercise modernization for the remaining custom/problematic cases:
+  - `src/lo-config/opinions-matter.json`
+  - Exercise 2 (`Talking about likes and dislikes`) now uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 4 (`Sept Couleurs Magiques`) now uses a shared poem/passage render mode with:
+    - inline select controls inside the poem lines
+    - coloured left accent strips as hints
+    - shared tick/cross result icons on answer lines
+    - right-aligned poet attribution (`© Mymi Doinet`) as passage metadata
+    - corrected instruction copy that no longer mentions missing audio
+- Extended `SelectExercise` with a reusable passage/poem rendering mode:
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - new config support:
+    - `layoutMode: "inline-passage"`
+    - `passageAccent`
+    - `passageMeta`
+  - keeps the same parsing, checking, show-answer, and reset logic while changing only the render layout
+- Fixed LO7 `MemoryMatchGame` rendering regressions and interaction drift:
+  - `src/components/exercises/MemoryMatchGame/Card/Card.jsx`
+  - `src/components/exercises/MemoryMatchGame/MemoryMatchGame.jsx`
+  - separated transform responsibilities so:
+    - the outer frame can be reordered safely
+    - the inner surface can hold the resting tilt
+    - the innermost layer handles the face flip
+  - added stronger back-face rendering safeguards (`-webkit-backface-visibility`, `translateZ`) to reduce intermittent missing/misaligned back-face content
+  - replaced the plain `?` with Lucide `BadgeQuestionMark`
+  - stopped leaking raw lesson text into DOM class names; memory cards now use slug-safe class hooks so labels like `table football` cannot collide with global utility classes
+- Reworked LO7 memory-game visuals and controls:
+  - lesson-owned image assets now live under `public/img/lo7/exercises/vocabulary/`
+  - text cards now use the same inline speaker-link pattern as pronunciation/vocabulary rather than a separate speaker-under-text layout
+  - progress now uses the shared turtle indicator
+  - controls now use `Reset` and `Show answer` only, with the shared exercise action styling
+- Validation:
+  - `yarn build`
+
 ## 2026-04-07 - LO6 Exercise Refactor + SelectExercise Row Shuffle
 
 - Completed the LO6 `Family, friends & neighbours` exercise modernization:

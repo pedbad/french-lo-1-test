@@ -47,6 +47,9 @@
   - `Practise the verb avoir` uses `InlineChoiceGroup`.
   - `Practise the possessives` uses `InlineChoiceGroup` with sampled shuffled practice.
   - `Jeanne's Family` uses `SelectExercise` with inline select rendering and shuffled row order.
+- LO7:
+  - `Talking about likes and dislikes` uses `InlineChoiceGroup`.
+  - `Sept Couleurs Magiques` uses `SelectExercise` in shared `inline-passage` mode rather than row-by-row dropdown cards.
 - `InlineChoiceGroup` row audio icons are now left-first for exercise consistency.
 - `Blanks` semantic migration completed across FR configs:
   - all `component: "Blanks"` entries migrated to `component: "DraggableFillGaps"` in `src/lo-config/*.json` (including `demo.json`).

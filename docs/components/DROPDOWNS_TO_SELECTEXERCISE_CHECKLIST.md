@@ -46,7 +46,7 @@
 - [ ] Migrate LO4 dropdown exercises one-by-one and validate each before continuing.
 - [ ] Migrate LO5 dropdown exercises one-by-one and validate each before continuing.
 - [x] Migrate LO6 dropdown exercises one-by-one and validate each before continuing.
-- [ ] Migrate LO7 dropdown exercises one-by-one and validate each before continuing.
+- [x] Migrate LO7 dropdown exercises one-by-one and validate each before continuing.
 - [ ] Migrate LO8 dropdown exercises one-by-one and validate each before continuing.
 - [ ] Migrate LO9 dropdown exercises one-by-one and validate each before continuing.
 - [ ] Migrate LO10 dropdown exercises one-by-one and validate each before continuing.

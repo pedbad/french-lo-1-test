@@ -453,6 +453,19 @@ Latest applied step:
   - Exercise 3 (`Practise the verb avoir`) uses `InlineChoiceGroup`
   - Exercise 4 (`Practise the possessives`) uses `InlineChoiceGroup` with `sampleSize: 8`
   - Exercise 5 (`Jeanne's Family`) uses `SelectExercise` with inline select rendering and row-order shuffle on load/reset
+- LO7 exercise refactor is now substantially complete:
+  - Exercise 1 remains `MemoryMatchGame`, but now uses lesson-owned images under `public/img/lo7/exercises/vocabulary/`
+  - the memory cards now use a shared Tailwind/shadcn-style card surface with:
+    - speaker-style inline audio links on text cards
+    - a badge-style question-mark back face
+    - safer transform layering to avoid intermittent back-face rendering glitches
+    - slug-safe card class names so lesson text like `table football` cannot collide with global utility classes
+  - Exercise 2 (`Talking about likes and dislikes`) uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 4 (`Sept Couleurs Magiques`) now uses `SelectExercise` in shared `inline-passage` mode:
+    - narrow inline selects inside a poem/passage block
+    - coloured left accent strips as hints
+    - right-aligned poet attribution metadata
+    - shared right/wrong icons on answer lines
 - LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.
 - `InlineChoiceGroup` row audio icon order is now left-first for consistency with the exercise layout standard.
 - LO4 Exercise 2 (`dropdowns3`) now uses `InlineChoiceGroup` as `inlineChoiceGroup3`:
@@ -476,10 +489,17 @@ Latest applied step:
   - `shuffleItems` (boolean, default false)
   - `sampleSize` (number, optional; if set, first N rows from shuffled/ordered items are used)
   - behavior: rows can reshuffle on initial load and on reset, while option order inside each row still shuffles independently
+- `SelectExercise` now also supports a shared passage/poem rendering mode:
+  - `layoutMode: "inline-passage"`
+  - keeps the same parsing/check/reset/show-answer engine while rendering inline selects inside a continuous passage block
+  - supports optional per-line metadata:
+    - `passageAccent` for coloured hint strips on the left
+    - `passageMeta` for right-aligned attribution/footer lines
 - `MemoryMatchGame` card presentation has been moved closer to the same Tailwind/shadcn card language used elsewhere:
   - lesson-owned exercise images should prefer `public/img/loX/exercises/...`
   - card sizing/layout/interaction should be expressed in component JSX with utilities first
   - shared CSS should be reserved for small targeted cases that utilities do not handle cleanly
+  - avoid injecting raw lesson text into `className`; use safe slugs for any card-specific hooks
 - LO3 exercises 3/4/5 now use semantic names for typed-table activities:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)
