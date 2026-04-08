@@ -35,7 +35,10 @@ export {
 	OpinionsMatterPronunciationBorrowedWords,
 	OpinionsMatterPronunciationFinalConsonants,
 } from "./opinions-matter-pronunciation";
-export { FreeTimePronunciation } from "./free-time-pronunciation";
+export {
+	FreeTimePronunciationTionSound,
+	FreeTimePronunciationMoreTionWords,
+} from "./free-time-pronunciation";
 export { PhoningInFrancePronunciation } from "./phoning-in-france-pronunciation";
 export { MakingArrangementsPronunciation } from "./making-arrangements-pronunciation";
 export { ShoppingInTheMarketPronunciation } from "./shopping-in-the-market-pronunciation";

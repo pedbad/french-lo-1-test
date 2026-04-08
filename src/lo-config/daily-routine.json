@@ -294,7 +294,7 @@
 					"id": "selectExercise1",
 					"congratulationsText": "Incroyable!",
 					"instructionsText": " Fill in the gaps with the correct reflexive pronoun supplied.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answers",
 					"items": [
 						{
@@ -345,7 +345,7 @@
 					"congratulationsText": "Très bien!",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Drag the words in the box to fill the gaps in Martin's description of a typical day from when he wakes up until he goes to bed.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"items": [
 						{
 							"text": "Je me réveille tous les matins à six heures et demie et je [me lève] tout de suite."

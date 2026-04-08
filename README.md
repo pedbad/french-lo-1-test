@@ -461,11 +461,18 @@ Latest applied step:
     - safer transform layering to avoid intermittent back-face rendering glitches
     - slug-safe card class names so lesson text like `table football` cannot collide with global utility classes
   - Exercise 2 (`Talking about likes and dislikes`) uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 3 (`Practise your listening skills`) keeps `DraggableFillGaps`, restores its shared blue instruction panel and long playlist audio, and now hides the redundant row-level speaker icon
   - Exercise 4 (`Sept Couleurs Magiques`) now uses `SelectExercise` in shared `inline-passage` mode:
     - narrow inline selects inside a poem/passage block
     - coloured left accent strips as hints
     - right-aligned poet attribution metadata
     - shared right/wrong icons on answer lines
+- LO8 exercise refactor is now substantially complete:
+  - Exercise 1 remains `MemoryMatchGame` with lesson-owned images under `public/img/lo8/exercises/vocabulary/`
+  - Exercise 2 (`Talking about leisure activities`) uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 3 (`Julien est très sportif`) uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 4 (`Qu’est-ce que tu fais le dimanche?`) stays on `SelectExercise`, but now uses inline row rendering with shuffled rows and no numeric item prefixes
+  - Exercise 5 (`Qu'est-ce que tu fais le weekend?`) remains `DraggableFillGaps` with lesson-owned audio and the shared blue instruction panel
 - LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.
 - `InlineChoiceGroup` row audio icon order is now left-first for consistency with the exercise layout standard.
 - LO4 Exercise 2 (`dropdowns3`) now uses `InlineChoiceGroup` as `inlineChoiceGroup3`:
@@ -500,6 +507,7 @@ Latest applied step:
   - card sizing/layout/interaction should be expressed in component JSX with utilities first
   - shared CSS should be reserved for small targeted cases that utilities do not handle cleanly
   - avoid injecting raw lesson text into `className`; use safe slugs for any card-specific hooks
+- drag-based activities now standardize the hint toggle label as `Hints` to avoid copy drift across lessons.
 - LO3 exercises 3/4/5 now use semantic names for typed-table activities:
   - `TypedTransformExercise` (adjectives/professions)
   - `DictationExercise` (listening + typing)
@@ -598,6 +606,8 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1/docs/a11y/HTML_ACCESSIBILITY_ISSUES.md`
 - `/Users/ped/Sites/french/french-lo-1/docs/a11y/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
 - `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
+- `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO8_MIGRATION_MAP.md` (LO8 audio migration record)
+- `/Users/ped/Sites/french/french-lo-1/docs/audio/LO8_AUDIO_BLOCKERS.md` (LO8 blocker/status note)
 - `/Users/ped/Sites/french/french-lo-1/docs/styling/FONTS_PROBLEM.md` (build asset duplication root-cause note)
 - `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 - `/Users/ped/Sites/french/french-lo-1/docs/process/JSON_CONFIG_REFACTOR_AUDIT.md` (runtime-based JSON key audit baseline + LO1 findings)
@@ -881,6 +891,23 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Legacy cleanup:
   - removed 59 LO4 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
   - retained `sounds/fr/aimer.mp3`, `sounds/fr/jardin.mp3`, and `sounds/fr/peinture.mp3` because they are still referenced by non-LO4 content.
+
+## LO8 Audio Migration Status
+
+- LO8 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo8/...` in:
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/free-time.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/free-time-grammar.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/free-time-pronunciation.jsx`
+- New LO8 root:
+  - `public/audio/lo8/...`
+- LO8 exercise images now use lesson-owned paths:
+  - `public/img/lo8/exercises/vocabulary/...`
+- Migration record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO8_MIGRATION_MAP.md`
+- Blocker record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO8_AUDIO_BLOCKERS.md`
+- Legacy cleanup:
+  - old `public/sounds/fr/...` and `public/images/memory/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
 
 ## Shared Table Variants
 

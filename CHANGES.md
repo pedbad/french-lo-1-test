@@ -2,6 +2,92 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-08 - LO7/LO8 Exercise QA + Hint Label Drift Cleanup
+
+- Completed the LO8 `Free Time` exercise QA/refinement pass:
+  - `src/lo-config/free-time.json`
+  - Exercise 2 now uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 3 now uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 4 stays on `SelectExercise`, but now uses inline row rendering (`renderInlineChoices: true`), shuffled rows on load/reset, and no numeric sentence prefixes
+  - Exercise 5 remains `DraggableFillGaps` and was confirmed to have:
+    - one drag target per answer tile
+    - no duplicate answer strings
+    - one long playlist audio controller plus one per-row audio clip per sentence
+- Fixed LO7 `Opinions matter` exercise 3 regression/drift:
+  - `src/lo-config/opinions-matter.json`
+  - restored item-level audio (`audio/lo7/exercises/listening/lo7-dialogue-1.mp3`) so the long audio player renders again
+  - restored the shared blue instruction panel via `informationTextHTML`
+  - normalized the hint toggle label to `Hints`
+  - kept the long audio player while hiding the redundant per-row speaker icon
+- Extended `DraggableFillGaps` with an opt-in row-audio visibility flag:
+  - `src/components/exercises/DraggableFillGaps/DraggableFillGapsRuntime.jsx`
+  - added `showRowAudio` support for phrase-mode gap fills
+  - default behavior remains unchanged for existing lessons
+- Removed dead memory-game config drift:
+  - `src/components/exercises/MemoryMatchGame/MemoryMatchGame.jsx`
+  - `src/lo-config/opinions-matter.json`
+  - `src/lo-config/free-time.json`
+  - removed unused `congratulationsText` handling/fields for memory games after confirming no live runtime read path
+- Normalized draggable-activity hint labels to `Hints` across the affected lessons:
+  - `src/lo-config/daily-routine.json`
+  - `src/lo-config/free-time.json`
+  - `src/lo-config/going-to-a-cafe.json`
+  - `src/lo-config/house-and-home.json`
+  - `src/lo-config/making-arrangements.json`
+  - `src/lo-config/making-arrangements-2.json`
+  - `src/lo-config/opinions-matter.json`
+  - `src/lo-config/phoning-in-france.json`
+  - `src/lo-config/studying-at-university.json`
+- Synced docs/checklists to avoid drift:
+  - `README.md`
+  - `docs/components/DROPDOWNS_TO_SELECTEXERCISE_CHECKLIST.md`
+- Validation:
+  - `yarn build`
+  - targeted drag-component scan confirmed no remaining non-`Hints` `showHintsText` values for `DraggableFillGaps`, `SequenceOrder`, `Sortable`, `WordParts`, or `LineMatch`
+
+## 2026-04-08 - LO8 Free Time Section Refactor + Audio Migration
+
+- Started the LO8 `Free Time` modernization by aligning its config structure with the newer LO1-LO7 contract:
+  - `src/lo-config/free-time.json`
+  - added `targetLanguageCode`, `introImage`, `introHTML`, and `informationHTML`
+  - rewrote dialogues, vocabulary, grammar, pronunciation, and exercise instruction copy onto the current `instructionsTextHTML` / `informationTextHTML` patterns
+  - replaced the monolithic grammar/pronunciation section config with grouped grammar articles and tabbed pronunciation items
+- Split the old LO8 custom grammar and pronunciation monoliths into semantic lesson-owned components:
+  - `src/components/custom/grammar/free-time-grammar.jsx`
+  - `src/components/custom/pronunciation/free-time-pronunciation.jsx`
+  - `src/components/custom/grammar/index.js`
+  - `src/components/custom/pronunciation/index.js`
+  - grammar now uses:
+    - `FreeTimeGrammarAdjectiveAgreement`
+    - `FreeTimeGrammarFaireAndPartitives`
+    - `FreeTimeGrammarJouerPatterns`
+    - `FreeTimeGrammarNounEndings`
+  - pronunciation now uses:
+    - `FreeTimePronunciationTionSound`
+    - `FreeTimePronunciationMoreTionWords`
+- Migrated LO8 audio off legacy `sounds/fr/...` refs and into lesson-owned folders:
+  - new root: `public/audio/lo8/...`
+  - updated LO8 refs in:
+    - `src/lo-config/free-time.json`
+    - `src/components/custom/grammar/free-time-grammar.jsx`
+    - `src/components/custom/pronunciation/free-time-pronunciation.jsx`
+  - copied 128 LO8-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - pronunciation
+    - exercises
+- Migrated LO8 memory-game images to lesson-owned paths:
+  - new root: `public/img/lo8/exercises/vocabulary/`
+  - updated `src/lo-config/free-time.json` to stop using generic legacy `images/memory/...` paths
+- Added LO8 audio migration notes:
+  - `docs/audio/AUDIO_LO8_MIGRATION_MAP.md`
+  - `docs/audio/LO8_AUDIO_BLOCKERS.md`
+- Validation:
+  - `yarn build`
+  - targeted ESLint pass on changed LO8 source files
+  - `yarn lint` still fails because of pre-existing unrelated repo-wide errors in files such as `src/App.jsx`, `src/components/exercises/LineMatch/LineMatch.jsx`, and `src/components/custom/pronunciation/opinions-matter-pronunciation.jsx`
+
 ## 2026-04-08 - LO7 Poem Layout + Memory Game Rendering Fixes
 
 - Completed the LO7 `Opinions matter` exercise modernization for the remaining custom/problematic cases:

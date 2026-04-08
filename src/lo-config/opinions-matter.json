@@ -409,7 +409,6 @@
 				"memoryMatchGame1": {
 					"cheatText": "Show answer",
 					"component": "MemoryMatchGame",
-					"congratulationsText": "Félicitations!",
 					"id": "memoryMatchGame1",
 					"informationTextHTML": "Match each picture to the correct French word. You can also listen to the French word cards for help. Use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the matched pairs, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to start a new round.",
 					"nPairsToPlay": 8,
@@ -516,7 +515,7 @@
 					"congratulationsText": "Superbe!",
 					"informationTextHTML": "Listen to each sentence and choose the correct definite article. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"shuffleItems": true,
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answers",
 					"items": [
 						{
@@ -575,10 +574,13 @@
 					"congratulationsText": "Très bien!",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Drag each word into the correct gap.",
-					"showHintsText": "Show hints when moving",
+					"informationTextHTML": "Listen to the text and drag the missing words into the correct gaps. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"showRowAudio": false,
+					"showHintsText": "Hints",
 					"items": [
 						{
-							"text": "Je suis très [sportif]. J'aime beaucoup [le foot]. J'aime aussi le tennis et [le cricket] mais je n'aime pas [du tout] le rugby. C'est [dangereux]! Ma sœur est [active] mais elle n'est pas très sportive. Elle [préfère] le yoga. C'est [relaxant]. Mes parents [aiment] le ski! Ils adorent [la neige]! Moi, je n'aime pas [le froid]! Je [déteste] le shopping! Qu'est-ce que tu [aimes] faire pendant ton [temps] libre?"
+							"text": "Je suis très [sportif]. J'aime beaucoup [le foot]. J'aime aussi le tennis et [le cricket] mais je n'aime pas [du tout] le rugby. C'est [dangereux]! Ma sœur est [active] mais elle n'est pas très sportive. Elle [préfère] le yoga. C'est [relaxant]. Mes parents [aiment] le ski! Ils adorent [la neige]! Moi, je n'aime pas [le froid]! Je [déteste] le shopping! Qu'est-ce que tu [aimes] faire pendant ton [temps] libre?",
+							"audio": "audio/lo7/exercises/listening/lo7-dialogue-1.mp3"
 						}
 					],
 					"titleText": "3. Practise your listening skills"

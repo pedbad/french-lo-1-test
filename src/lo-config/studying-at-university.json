@@ -385,7 +385,7 @@
 					"congratulationsText": "Très bien!",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Drag the words in the box to fill in the gaps in the conversation below.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"items": [
 						{
 							"text": "Qu'est-ce que tu fais [comme] études?",

@@ -337,7 +337,7 @@
 					"congratulationsText": "Superbe!",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Match each French item with its English equivalent.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"blanksType": "questions-answers",
 					"questions": [
@@ -378,7 +378,7 @@
 					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"congratulationsText": "Excellent!",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answers",
 					"instructionsText": "Quand je suis en vacances...",
 					"items": [
@@ -475,7 +475,7 @@
 					"id": "draggableFillGaps2",
 					"congratulationsText": "Excellent!",
 					"instructionsText": "Drag each word into the correct gap.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [

@@ -378,7 +378,7 @@
 					"informationTextHTML": "Read each sentence and choose the correct definite article for the noun. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"sampleSize": 6,
 					"shuffleItems": true,
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"items": [
 						{
@@ -479,7 +479,7 @@
 					"congratulationsText": "Superbe!",
 					"instructionsText": "Drag each word into the correct gap.",
 					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [

@@ -288,7 +288,7 @@
 					"id": "draggableFillGaps1",
 					"congratulationsText": "Excellent!",
 					"instructionsText": "Use the words below to complete the conversation in the café.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [

@@ -842,6 +842,7 @@ export class DraggableFillGapsRuntime extends React.Component {
 			showHints,
 			showHintsText,
 			showInvalidDropHint = false,
+			showRowAudio = true,
 			soundFile,
 			soundFiles = [],
 			slotWidthPx,
@@ -917,7 +918,7 @@ export class DraggableFillGapsRuntime extends React.Component {
 					phraseList.push(
 						<li key={`phrase${i}`}>
 							<div className='phrase'>
-								{item.audio ? (
+								{showRowAudio && item.audio ? (
 									<CircularAudioProgressAnimatedSpeakerDisplay
 										className={`super-compact-speaker`}
 										status={status}

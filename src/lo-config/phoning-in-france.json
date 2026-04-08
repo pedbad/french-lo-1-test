@@ -310,7 +310,7 @@
 					"id": "selectExercise1",
 					"congratulationsText": "Très bien!",
 					"instructionsText": "",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answers",
 					"items": [
 						{
@@ -364,7 +364,7 @@
 					"id": "draggableFillGaps1",
 					"congratulationsText": "Excellent!",
 					"instructionsText": "Drag each word into the correct gap.",
-					"showHintsText": "Show hints when moving",
+					"showHintsText": "Hints",
 					"cheatText": "Show answer",
 					"blanksType": "phrases",
 					"items": [

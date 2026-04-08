@@ -34,7 +34,12 @@ export {
 	OpinionsMatterGrammarLikesAndInfinitives,
 	OpinionsMatterGrammarInterrogatives,
 } from "./opinions-matter-grammar";
-export { FreeTimeGrammar } from "./free-time-grammar";
+export {
+	FreeTimeGrammarAdjectiveAgreement,
+	FreeTimeGrammarFaireAndPartitives,
+	FreeTimeGrammarJouerPatterns,
+	FreeTimeGrammarNounEndings,
+} from "./free-time-grammar";
 export { PhoningInFranceGrammar } from "./phoning-in-france-grammar";
 
 export { MakingArrangementsGrammar } from "./making-arrangements-grammar";
