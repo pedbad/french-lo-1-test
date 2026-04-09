@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioClip";
 import franceTelephoneMapSvg from "@/assets/lo9/france-telephone-area-codes.svg?raw";
 import { resolveAsset } from "@/utils/assets";
 import { stopAllAudioPlayback, trackFloatingAudio } from "@/utils/audioPlayback";
@@ -6,23 +7,50 @@ import { stopAllAudioPlayback, trackFloatingAudio } from "@/utils/audioPlayback"
 const REGION_DETAILS = {
 	"01": {
 		audio: "audio/lo9/grammar/telephone-regions/001-region-01.mp3",
+		cities: ["Paris", "Versailles", "Saint-Denis"],
+		coverage: "Capital region — all Paris landlines and 8 surrounding departments.",
 		label: "Île-de-France",
+		regions: ["Île-de-France"],
 	},
 	"02": {
 		audio: "audio/lo9/grammar/telephone-regions/002-region-02.mp3",
+		cities: ["Lille", "Rouen", "Rennes", "Nantes", "Tours"],
+		coverage:
+			"Hauts-de-France, Normandy, Brittany, Pays de la Loire, Centre-Val de Loire.",
 		label: "Northwest France",
+		regions: [
+			"Normandie",
+			"Hauts-de-France",
+			"Bretagne",
+			"Pays de la Loire",
+			"Centre-Val de Loire",
+		],
 	},
 	"03": {
 		audio: "audio/lo9/grammar/telephone-regions/003-region-03.mp3",
+		cities: ["Lyon", "Strasbourg", "Dijon", "Grenoble"],
+		coverage:
+			"Grand Est, Bourgogne-Franche-Comté, Auvergne-Rhône-Alpes.",
 		label: "Northeast France",
+		regions: [
+			"Grand Est",
+			"Bourgogne-Franche-Comté",
+			"Auvergne-Rhône-Alpes",
+		],
 	},
 	"04": {
 		audio: "audio/lo9/grammar/telephone-regions/004-region-04.mp3",
+		cities: ["Marseille", "Nice", "Toulon", "Ajaccio"],
+		coverage: "Provence-Alpes-Côte d'Azur and Corsica.",
 		label: "Southeast France",
+		regions: ["Provence-Alpes-Côte d'Azur", "Corse"],
 	},
 	"05": {
 		audio: "audio/lo9/grammar/telephone-regions/005-region-05.mp3",
+		cities: ["Bordeaux", "Toulouse", "Montpellier"],
+		coverage: "Nouvelle-Aquitaine and Occitanie.",
 		label: "Southwest France",
+		regions: ["Nouvelle-Aquitaine", "Occitanie"],
 	},
 };
 
@@ -40,6 +68,40 @@ const FILL_TO_REGION_CODE = {
 };
 
 const SVG_MARKUP = franceTelephoneMapSvg.replace(/<\?xml[\s\S]*?\?>\s*/i, "").trim();
+
+const LEGEND_ITEMS = [
+	{
+		code: "01",
+		label: "Île-de-France",
+		swatchClassName: "regional-telephone-map__legend-swatch--01",
+	},
+	{
+		code: "02",
+		label: "Northwest",
+		swatchClassName: "regional-telephone-map__legend-swatch--02",
+	},
+	{
+		code: "03",
+		label: "Northeast",
+		swatchClassName: "regional-telephone-map__legend-swatch--03",
+	},
+	{
+		code: "04",
+		label: "Southeast",
+		swatchClassName: "regional-telephone-map__legend-swatch--04",
+	},
+	{
+		code: "05",
+		label: "Southwest",
+		swatchClassName: "regional-telephone-map__legend-swatch--05",
+	},
+	{
+		code: "06 / 07",
+		isMobile: true,
+		label: "Mobile (nationwide)",
+		swatchClassName: "regional-telephone-map__legend-swatch--mobile",
+	},
+];
 
 function normalizeColor(value = "") {
 	return value.trim().toLowerCase().replace(/\s+/g, " ");
@@ -293,49 +355,101 @@ export function PhoningInFranceRegionsMap() {
 				<div className="regional-telephone-map__legend" aria-label="Telephone region key">
 					<div className="regional-telephone-map__legend-title">Key</div>
 					<dl className="regional-telephone-map__legend-list">
-						<div className="regional-telephone-map__legend-item">
-							<dt>
-								<span className="regional-telephone-map__legend-swatch regional-telephone-map__legend-swatch--01" aria-hidden="true" />
-								<span>01</span>
-							</dt>
-							<dd>Île-de-France</dd>
-						</div>
-						<div className="regional-telephone-map__legend-item">
-							<dt>
-								<span className="regional-telephone-map__legend-swatch regional-telephone-map__legend-swatch--02" aria-hidden="true" />
-								<span>02</span>
-							</dt>
-							<dd>Northwest</dd>
-						</div>
-						<div className="regional-telephone-map__legend-item">
-							<dt>
-								<span className="regional-telephone-map__legend-swatch regional-telephone-map__legend-swatch--03" aria-hidden="true" />
-								<span>03</span>
-							</dt>
-							<dd>Northeast</dd>
-						</div>
-						<div className="regional-telephone-map__legend-item">
-							<dt>
-								<span className="regional-telephone-map__legend-swatch regional-telephone-map__legend-swatch--04" aria-hidden="true" />
-								<span>04</span>
-							</dt>
-							<dd>Southeast</dd>
-						</div>
-						<div className="regional-telephone-map__legend-item">
-							<dt>
-								<span className="regional-telephone-map__legend-swatch regional-telephone-map__legend-swatch--05" aria-hidden="true" />
-								<span>05</span>
-							</dt>
-							<dd>Southwest</dd>
-						</div>
-						<div className="regional-telephone-map__legend-item regional-telephone-map__legend-item--mobile">
-							<dt>
-								<span className="regional-telephone-map__legend-swatch regional-telephone-map__legend-swatch--mobile" aria-hidden="true" />
-								<span>06 / 07</span>
-							</dt>
-							<dd>Mobile (nationwide)</dd>
-						</div>
+						{LEGEND_ITEMS.map((item) => {
+							const soundFile =
+								item.audio ?? REGION_DETAILS[item.code]?.audio;
+
+							return (
+								<div
+									key={item.code}
+									className={`regional-telephone-map__legend-item${item.isMobile ? " regional-telephone-map__legend-item--mobile" : ""}`}
+								>
+									<dt>
+										<span
+											className={`regional-telephone-map__legend-swatch ${item.swatchClassName}`}
+											aria-hidden="true"
+										/>
+									</dt>
+									<dd>
+										{item.isMobile ? (
+											<span className="regional-telephone-map__legend-static">
+												<span className="regional-telephone-map__legend-code">{item.code}</span>
+												<span>{item.label}</span>
+											</span>
+										) : (
+											<button
+												type="button"
+												className="regional-telephone-map__legend-trigger"
+												onBlur={() => setActiveRegionCode(null)}
+												onClick={() => {
+													setActiveRegionCode(item.code);
+													playRegionAudio(soundFile);
+												}}
+												onFocus={() => setActiveRegionCode(item.code)}
+												onMouseEnter={() => setActiveRegionCode(item.code)}
+												onMouseLeave={() => setActiveRegionCode(null)}
+											>
+												<CircularAudioProgressAnimatedSpeakerDisplay
+													className="regional-telephone-map__legend-trigger-icon"
+													inline={true}
+													interactive={false}
+													size="20"
+													status={activeRegionCode === item.code ? "playing" : "stopped"}
+													title={`Play ${item.code}`}
+												/>
+												<span className="regional-telephone-map__legend-code">{item.code}</span>
+												<span>{item.label}</span>
+											</button>
+										)}
+									</dd>
+								</div>
+							);
+						})}
 					</dl>
+					{activeRegion ? (
+						<div
+							className={`regional-telephone-map__detail regional-telephone-map__detail--${activeRegionCode}`}
+							aria-live="polite"
+						>
+							<div className="regional-telephone-map__detail-header">
+								<span className="regional-telephone-map__detail-code">
+									{activeRegionCode}
+								</span>
+								<span className="regional-telephone-map__detail-name">
+									{activeRegion.label}
+								</span>
+							</div>
+							<div className="regional-telephone-map__detail-section">
+								<p className="regional-telephone-map__detail-label">Regions</p>
+								<div className="regional-telephone-map__detail-pills">
+									{activeRegion.regions.map((region) => (
+										<span
+											key={region}
+											className="regional-telephone-map__detail-pill"
+										>
+											{region}
+										</span>
+									))}
+								</div>
+							</div>
+							<div className="regional-telephone-map__detail-section">
+								<p className="regional-telephone-map__detail-label">Cities</p>
+								<div className="regional-telephone-map__detail-pills">
+									{activeRegion.cities.map((city) => (
+										<span
+											key={city}
+											className="regional-telephone-map__detail-pill regional-telephone-map__detail-pill--soft"
+										>
+											{city}
+										</span>
+									))}
+								</div>
+							</div>
+							<p className="regional-telephone-map__detail-summary">
+								{activeRegion.coverage}
+							</p>
+						</div>
+					) : null}
 				</div>
 				<div
 					className="regional-telephone-map__canvas"
@@ -344,20 +458,10 @@ export function PhoningInFranceRegionsMap() {
 				>
 					<div ref={mapContainerRef} className="regional-telephone-map__svg-host" />
 				</div>
-			</div>
-			<figcaption>
-				Telephone regions of France. Base map: Wikimedia Commons, Babsy, CC BY
-				3.0.
-			</figcaption>
-			<div className="regional-telephone-map__status" aria-live="polite">
-				{activeRegion ? (
-					<>
-						<strong>{activeRegionCode}</strong>
-						<span>{activeRegion.label}</span>
-					</>
-				) : (
-					<span>Hover, tap, or focus a region code to hear its prefix.</span>
-				)}
+				<figcaption className="regional-telephone-map__caption">
+					Telephone regions of France. Base map: Wikimedia Commons, Babsy, CC BY
+					3.0.
+				</figcaption>
 			</div>
 		</figure>
 	);

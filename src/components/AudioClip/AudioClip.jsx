@@ -313,7 +313,7 @@ class CircularAudioProgress extends AudioClip {
 					onClick={this.handleClick}
 					ref={this.audioRef}
 					aria-label={`${status !== 'playing' ? 'Click to play' : 'Click to pause'}`}
-					style={{ width: `${controlSize}px`, height: `${controlSize}px` }}
+					style={{ height: `${controlSize}px`, width: `${controlSize}px` }}
 				>
 					<svg
 						fill="none"
@@ -402,7 +402,7 @@ class LinkAudioProgress extends CircularAudioProgress {
 	}
 
 	render = () => {
-		const { children, className = '', title } = this.props;
+		const { children, className = '', size, title } = this.props;
 		const { status = 'stopped', progress = 0, duration = 0 } = this.state;
 		const tooltipText = title || (status !== 'playing' ? 'Click to play' : 'Click to pause');
 
@@ -420,6 +420,7 @@ class LinkAudioProgress extends CircularAudioProgress {
 					progress={progress}
 					duration={duration}
 					interactive={false}
+					size={size}
 					title={tooltipText}
 				/>
 				{/* Simple compact link SVG speaker icon <svg xmlns="http://www.w3.org/2000/svg"

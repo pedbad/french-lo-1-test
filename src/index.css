@@ -2637,7 +2637,8 @@
 		gap: 1rem;
 		grid-template-areas:
 			"legend"
-			"map";
+			"map"
+			"caption";
 		padding: 1rem;
 		border: 1px solid var(--border);
 		background: color-mix(in oklab, var(--card) 94%, var(--background));
@@ -2664,7 +2665,7 @@
 
 	#RegionalTelephoneMap .regional-telephone-map__legend-item {
 		display: grid;
-		grid-template-columns: minmax(4.5rem, auto) 1fr;
+		grid-template-columns: auto 1fr;
 		gap: 0.5rem;
 		align-items: baseline;
 	}
@@ -2677,8 +2678,6 @@
 	#RegionalTelephoneMap .regional-telephone-map__legend-item dt {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
-		font-weight: 700;
 	}
 
 	#RegionalTelephoneMap .regional-telephone-map__legend-swatch {
@@ -2718,6 +2717,155 @@
 		border-top: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
 	}
 
+	#RegionalTelephoneMap .regional-telephone-map__detail {
+		margin-top: 1rem;
+		padding: 1rem;
+		border-top: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+		border-radius: calc(var(--radius) * 1.1);
+		background:
+			linear-gradient(
+				135deg,
+				color-mix(in oklab, var(--regional-detail-accent, var(--card)) 12%, var(--background)) 0%,
+				color-mix(in oklab, var(--card) 96%, var(--background)) 70%
+			);
+		box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--regional-detail-accent, var(--border)) 16%, transparent);
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail--01 {
+		--regional-detail-accent: #ffcc00;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail--02 {
+		--regional-detail-accent: #00ccff;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail--03 {
+		--regional-detail-accent: #ff0000;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail--04 {
+		--regional-detail-accent: #55d400;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail--05 {
+		--regional-detail-accent: #ff6600;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 0.875rem;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-code,
+	#RegionalTelephoneMap .regional-telephone-map__detail-name {
+		display: inline-flex;
+		align-items: center;
+		border-radius: 999px;
+		padding: 0.25rem 0.7rem;
+		font-weight: 700;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-code {
+		background: var(--regional-detail-accent, var(--card));
+		color: var(--foreground);
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-name {
+		background: color-mix(in oklab, var(--regional-detail-accent, var(--card)) 16%, var(--background));
+		color: var(--foreground);
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-section + .regional-telephone-map__detail-section {
+		margin-top: 0.875rem;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-label {
+		margin: 0 0 0.45rem;
+		font-size: calc(var(--font-size-sm) * 0.9);
+		font-weight: 700;
+		color: color-mix(in oklab, var(--foreground) 80%, transparent);
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-pill {
+		display: inline-flex;
+		align-items: center;
+		border-radius: 999px;
+		padding: 0.2rem 0.65rem;
+		font-size: calc(var(--font-size-sm) * 0.9);
+		background: color-mix(in oklab, var(--regional-detail-accent, var(--card)) 18%, var(--background));
+		color: var(--foreground);
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__detail-pill--soft {
+		background: color-mix(in oklab, var(--regional-detail-accent, var(--card)) 10%, var(--background));
+	}
+
+	#RegionalTelephoneMap p.regional-telephone-map__detail-summary {
+		margin: 0.95rem 0 0;
+		font-size: calc(var(--font-size-sm) * 0.72) !important;
+		line-height: 1.35 !important;
+		color: color-mix(in oklab, var(--foreground) 88%, transparent);
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-trigger,
+	#RegionalTelephoneMap .regional-telephone-map__legend-static {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-trigger {
+		appearance: none;
+		background: transparent;
+		border: 0;
+		color: var(--chart-2);
+		cursor: pointer;
+		font: inherit;
+		padding: 0;
+		text-align: left;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-trigger:hover {
+		color: var(--ped-warn);
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-code {
+		font-weight: 700;
+		min-width: 2.75rem;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-trigger .regional-telephone-map__legend-code {
+		min-width: 2rem;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-trigger-icon {
+		flex: 0 0 auto;
+		margin-right: 0.125rem;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-trigger > span:last-child,
+	#RegionalTelephoneMap .regional-telephone-map__legend-static {
+		display: inline-flex;
+		align-items: baseline;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-trigger > span:last-child {
+		margin-left: 0.2rem;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__legend-static > span:last-child {
+		margin-left: 0.5rem;
+	}
+
 	#RegionalTelephoneMap .regional-telephone-map__canvas {
 		grid-area: map;
 		width: 100%;
@@ -2744,41 +2892,22 @@
 		overflow: visible;
 	}
 
-	#RegionalTelephoneMap .regional-telephone-map figcaption {
-		margin-top: 0.75rem;
-		color: color-mix(in oklab, var(--foreground) 78%, transparent);
+	#RegionalTelephoneMap .regional-telephone-map__caption {
+		grid-area: caption;
+		margin: 0;
+		font-size: var(--font-size-xs);
+		line-height: var(--line-height-xs);
+		color: color-mix(in oklab, var(--foreground) 68%, transparent);
 		text-align: center;
-	}
-
-	#RegionalTelephoneMap .regional-telephone-map__status {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 0.75rem;
-		padding: 0.75rem 1rem;
-		border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
-		background: color-mix(in oklab, var(--card) 92%, var(--background));
-		text-align: center;
-	}
-
-	#RegionalTelephoneMap .regional-telephone-map__status strong {
-		color: var(--foreground);
-		font-size: calc(var(--font-size-base) * 1.1);
 	}
 
 	@media (min-width: 768px) {
 		#RegionalTelephoneMap .regional-telephone-map__layout {
 			align-items: start;
 			grid-template-columns: minmax(0, 1fr) minmax(13rem, 15rem);
-			grid-template-areas: "map legend";
-		}
-	}
-
-	@media (max-width: 767px) {
-		#RegionalTelephoneMap .regional-telephone-map__status {
-			flex-direction: column;
-			gap: 0.25rem;
+			grid-template-areas:
+				"map legend"
+				"caption caption";
 		}
 	}
 
