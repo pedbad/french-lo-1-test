@@ -2,6 +2,45 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-08 - LO9 Phoning in France Refactor + Audio Migration
+
+- Modernized the LO9 `Phoning in France` config to match the newer LO1-LO8 lesson contract:
+  - `src/lo-config/phoning-in-france.json`
+  - replaced legacy `settings.intro` with `introImage`, `introHTML`, and `informationHTML`
+  - rewrote dialogue, vocabulary, grammar, pronunciation, and exercise copy onto the current `instructionsTextHTML` / `informationTextHTML` patterns
+  - split the old grammar/pronunciation section config into grouped grammar articles and tabbed pronunciation items
+- Replaced the monolithic LO9 grammar and pronunciation custom blocks with semantic lesson-owned components:
+  - `src/components/custom/grammar/phoning-in-france-grammar.jsx`
+  - `src/components/custom/pronunciation/phoning-in-france-pronunciation.jsx`
+  - `src/components/custom/grammar/index.js`
+  - `src/components/custom/pronunciation/index.js`
+  - grammar now uses:
+    - `PhoningInFranceGrammarTelephoneNumbers`
+    - `PhoningInFranceGrammarBienForConfirmation`
+  - pronunciation now uses:
+    - `PhoningInFrancePronunciationNumbers`
+    - `PhoningInFrancePronunciationFinalConsonants`
+- Migrated LO9 audio off legacy `sounds/fr/...` refs and into lesson-owned folders:
+  - new root: `public/audio/lo9/...`
+  - updated LO9 refs in:
+    - `src/lo-config/phoning-in-france.json`
+    - `src/components/custom/grammar/phoning-in-france-grammar.jsx`
+    - `src/components/custom/pronunciation/phoning-in-france-pronunciation.jsx`
+  - copied 85 LO9-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - pronunciation
+    - exercises
+- Synced docs/checklists to avoid drift:
+  - `README.md`
+  - `docs/audio/AUDIO_LO9_MIGRATION_MAP.md`
+  - `docs/audio/LO9_AUDIO_BLOCKERS.md`
+  - `docs/components/DROPDOWNS_TO_SELECTEXERCISE_CHECKLIST.md`
+- Validation:
+  - `yarn build`
+  - targeted ESLint pass on the changed LO9 source files
+
 ## 2026-04-08 - LO7/LO8 Exercise QA + Hint Label Drift Cleanup
 
 - Completed the LO8 `Free Time` exercise QA/refinement pass:

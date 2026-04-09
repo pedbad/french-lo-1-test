@@ -2614,21 +2614,7 @@
 	}
 
 	#RegionalTelephoneMap {
-		--regional-map-label-size: calc(var(--font-size-base) * 4.058);
-		--regional-map-label-size-small: calc(var(--font-size-base) * 2.174);
-	}
-
-	#RegionalTelephoneMap .svg-container {
-		overflow: hidden;
-		border: 1px solid var(--border);
-		max-width: 600px;
-		width: 100%;
-		height: 120%;
-	}
-
-	#RegionalTelephoneMap .svg-container svg {
-		width: 100%;
-		height: 100%;
+		--regional-map-shadow: 0 14px 26px color-mix(in oklab, var(--foreground) 10%, transparent);
 	}
 
 	#RegionalTelephoneMap .lo9-figure-container {
@@ -2637,78 +2623,55 @@
 		flex-direction: column;
 	}
 
-	#RegionalTelephoneMap .zoomable-svg g {
-		transform-origin: center center;
-		transition: transform 0.3s ease;
-		z-index: 1;
-		cursor: pointer;
-		will-change: transform;
+	#RegionalTelephoneMap .regional-telephone-map {
+		max-width: 52rem;
+		width: 100%;
 	}
 
-	#RegionalTelephoneMap .zoomable-svg g text {
-		transform-origin: 50% 50%;
-		transition: transform 0.3s ease;
-		transform: scale(1);
-		font-weight: 700;
-		font-size: var(--regional-map-label-size);
-		fill: var(--background);
+	#RegionalTelephoneMap .regional-telephone-map__canvas {
+		width: 100%;
+		border: 1px solid var(--border);
+		background: color-mix(in oklab, var(--card) 94%, var(--background));
+		box-shadow: var(--regional-map-shadow);
+		overflow: hidden;
 	}
 
-	#RegionalTelephoneMap .zoomable-svg g:hover {
-		transform: scale(1.1);
-		z-index: 2;
+	#RegionalTelephoneMap .regional-telephone-map__object,
+	#RegionalTelephoneMap .regional-telephone-map__fallback {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 491.8125 / 542.4375;
 	}
 
-	#RegionalTelephoneMap .zoomable-svg g:hover text {
-		transform: scale(1.1);
+	#RegionalTelephoneMap .regional-telephone-map figcaption {
+		margin-top: 0.75rem;
+		color: color-mix(in oklab, var(--foreground) 78%, transparent);
+		text-align: center;
 	}
 
-	#RegionalTelephoneMap .zoomable-svg g .land {
-		stroke: color-mix(in oklab, var(--background) 30%, transparent);
+	#RegionalTelephoneMap .regional-telephone-map__status {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+		background: color-mix(in oklab, var(--card) 92%, var(--background));
+		text-align: center;
 	}
 
-	#RegionalTelephoneMap .zoomable-svg #g01 {
-		transform-origin: 50% 50%;
+	#RegionalTelephoneMap .regional-telephone-map__status strong {
+		color: var(--foreground);
+		font-size: calc(var(--font-size-base) * 1.1);
 	}
 
-	#RegionalTelephoneMap .zoomable-svg #g01 text {
-		font-size: var(--regional-map-label-size-small);
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g01 .land {
-		fill: var(--chart-1);
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g02 {
-		transform-origin: 100% 70%;
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g02 .land {
-		fill: var(--chart-2);
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g03 {
-		transform-origin: 20% 50%;
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g03 .land {
-		fill: var(--destructive);
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g04 {
-		transform-origin: 0 0;
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g04 .land {
-		fill: var(--chart-2);
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g05 {
-		transform-origin: 100% 0;
-	}
-
-	#RegionalTelephoneMap .zoomable-svg #g05 .land {
-		fill: var(--chart-4);
+	@media (max-width: 767px) {
+		#RegionalTelephoneMap .regional-telephone-map__status {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
 	}
 
 	#LO10-grammar-Section div.two-columns {

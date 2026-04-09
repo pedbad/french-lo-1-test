@@ -40,7 +40,10 @@ export {
 	FreeTimeGrammarJouerPatterns,
 	FreeTimeGrammarNounEndings,
 } from "./free-time-grammar";
-export { PhoningInFranceGrammar } from "./phoning-in-france-grammar";
+export {
+	PhoningInFranceGrammarTelephoneNumbers,
+	PhoningInFranceGrammarBienForConfirmation,
+} from "./phoning-in-france-grammar";
 
 export { MakingArrangementsGrammar } from "./making-arrangements-grammar";
 export { GoingToACafeGrammar } from "./going-to-a-cafe-grammar";
