@@ -3,6 +3,7 @@ import { Info } from "@/components/Info";
 import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
+import { playAudioLink } from "@/utils/audioPlayback";
 
 export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent {
 	render = () => {
@@ -122,8 +123,114 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 }
 
 export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
+	handleRowClick = (soundFile, event) => {
+		if (!soundFile) return;
+		if (event?.defaultPrevented) return;
+
+		const targetNode = event?.target;
+		if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+			return;
+		}
+
+		const rowEl = event?.currentTarget;
+		const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+		if (audioTrigger) {
+			audioTrigger.click();
+			return;
+		}
+
+		playAudioLink(soundFile);
+	};
+
 	render = () => {
 		const { id } = this.props;
+		const avoirRows = [
+			{
+				english: "I have",
+				french: "j&apos;ai",
+				soundFile: "audio/lo6/grammar/j-ai.mp3",
+			},
+			{
+				english: "you have",
+				french: "tu as",
+				soundFile: "audio/lo6/grammar/tu-as.mp3",
+			},
+			{
+				english: "he has, it has",
+				french: "il a",
+				soundFile: "audio/lo6/grammar/il-a.mp3",
+			},
+			{
+				english: "she has, it has",
+				french: "elle a",
+				soundFile: "audio/lo6/grammar/elle-a.mp3",
+			},
+			{
+				english: "we have",
+				french: "nous avons",
+				soundFile: "audio/lo6/grammar/nous-avons.mp3",
+			},
+			{
+				english: "you have",
+				french: "vous avez",
+				soundFile: "audio/lo6/grammar/vous-avez.mp3",
+			},
+			{
+				english: "they have",
+				french: "ils ont",
+				soundFile: "audio/lo6/grammar/ils-ont.mp3",
+			},
+			{
+				english: "they have",
+				french: "elles ont",
+				soundFile: "audio/lo6/grammar/elles-ont.mp3",
+			},
+		];
+		const expressionRows = [
+			{
+				english: "I&apos;m 25 years old.",
+				example: <strong>J&apos;ai 25 ans.</strong>,
+				label: "avoir … ans",
+				meaning: "to be … years old",
+				soundFile: "audio/lo6/grammar/j-ai-25-ans.mp3",
+			},
+			{
+				english: "I&apos;m thirsty.",
+				example: <strong>J&apos;ai soif.</strong>,
+				label: "avoir soif",
+				meaning: "to be thirsty",
+				soundFile: "audio/lo6/grammar/j-ai-soif.mp3",
+			},
+			{
+				english: "She&apos;s hungry.",
+				example: <strong>Elle a faim.</strong>,
+				label: "avoir faim",
+				meaning: "to be hungry",
+				soundFile: "audio/lo6/grammar/elle-a-faim.mp3",
+			},
+			{
+				english: "He&apos;s frightened.",
+				example: <strong>Il a peur.</strong>,
+				label: "avoir peur",
+				meaning: "to be frightened",
+				soundFile: "audio/lo6/grammar/il-a-peur.mp3",
+			},
+			{
+				english: "Are you / do you feel cold?",
+				example: <strong>Tu as froid ?</strong>,
+				label: "avoir froid",
+				meaning: "to be / feel cold",
+				soundFile: "audio/lo6/grammar/tu-as-froid.mp3",
+			},
+			{
+				english: "Are you hot / do you feel hot?",
+				example: <strong>Vous avez chaud ?</strong>,
+				label: "avoir chaud",
+				meaning: "to be / feel hot",
+				soundFile: "audio/lo6/grammar/vous-avez-chaud.mp3",
+			},
+		];
+
 		return (
 			<div
 				className={`lo6-grammar2-container container`}
@@ -150,38 +257,20 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 					<p>It occurs very frequently and so is worth memorising if possible.</p>
 					<Table>
 						<TableBody>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/j-ai.mp3`}>j&apos;ai</AudioClip></TableCell>
-								<TableCell>I have</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/tu-as.mp3`}>tu as</AudioClip></TableCell>
-								<TableCell>you have</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/il-a.mp3`}>il a</AudioClip></TableCell>
-								<TableCell>he has, it has</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/elle-a.mp3`}>elle a</AudioClip></TableCell>
-								<TableCell>she has, it has</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/nous-avons.mp3`}>nous avons</AudioClip></TableCell>
-								<TableCell>we have</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/vous-avez.mp3`}>vous avez</AudioClip></TableCell>
-								<TableCell>you have</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/ils-ont.mp3`}>ils ont</AudioClip></TableCell>
-								<TableCell>they have</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><AudioClip className={`link`} soundFile={`audio/lo6/grammar/elles-ont.mp3`}>elles ont</AudioClip></TableCell>
-								<TableCell>they have</TableCell>
-							</TableRow>
+							{avoirRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo6-grammar2"}-avoir-row-${index}`}
+									onClick={(event) => this.handleRowClick(row.soundFile, event)}
+								>
+									<TableCell className="cursor-pointer">
+										<AudioClip className="link" soundFile={row.soundFile}>
+											<span dangerouslySetInnerHTML={{ __html: row.french }} />
+										</AudioClip>
+									</TableCell>
+									<TableCell className="cursor-pointer">{row.english}</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 					<Separator className="my-4 bg-border-subtle" />
@@ -192,42 +281,25 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 					</p>
 					<Table>
 						<TableBody>
-							<TableRow>
-								<TableCell><strong>avoir … ans</strong></TableCell>
-								<TableCell>to be … years old</TableCell>
-								<TableCell>e.g. <AudioClip className={`link`} soundFile={`audio/lo6/grammar/j-ai-25-ans.mp3`}><strong>J&apos;ai 25 ans.</strong></AudioClip></TableCell>
-								<TableCell>I&apos;m 25 years old.</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><strong>avoir soif</strong></TableCell>
-								<TableCell>to be thirsty</TableCell>
-								<TableCell>e.g. <AudioClip className={`link`} soundFile={`audio/lo6/grammar/j-ai-soif.mp3`}><strong>J&apos;ai soif.</strong></AudioClip></TableCell>
-								<TableCell>I&apos;m thirsty.</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><strong>avoir faim</strong></TableCell>
-								<TableCell>to be hungry</TableCell>
-								<TableCell>e.g. <AudioClip className={`link`} soundFile={`audio/lo6/grammar/elle-a-faim.mp3`}><strong>Elle a faim.</strong></AudioClip></TableCell>
-								<TableCell>She&apos;s hungry.</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><strong>avoir peur</strong></TableCell>
-								<TableCell>to be frightened</TableCell>
-								<TableCell>e.g. <AudioClip className={`link`} soundFile={`audio/lo6/grammar/il-a-peur.mp3`}><strong>Il a peur.</strong></AudioClip></TableCell>
-								<TableCell>He&apos;s frightened.</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><strong>avoir froid</strong></TableCell>
-								<TableCell>to be / feel cold</TableCell>
-								<TableCell>e.g. <AudioClip className={`link`} soundFile={`audio/lo6/grammar/tu-as-froid.mp3`}><strong>Tu as froid ?</strong></AudioClip></TableCell>
-								<TableCell>Are you / do you feel cold?</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell><strong>avoir chaud</strong></TableCell>
-								<TableCell>to be / feel hot</TableCell>
-								<TableCell>e.g. <AudioClip className={`link`} soundFile={`audio/lo6/grammar/vous-avez-chaud.mp3`}><strong>Vous avez chaud ?</strong></AudioClip></TableCell>
-								<TableCell>Are you hot / do you feel hot?</TableCell>
-							</TableRow>
+							{expressionRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo6-grammar2"}-expression-row-${index}`}
+									onClick={(event) => this.handleRowClick(row.soundFile, event)}
+								>
+									<TableCell className="cursor-pointer"><strong>{row.label}</strong></TableCell>
+									<TableCell className="cursor-pointer">{row.meaning}</TableCell>
+									<TableCell className="cursor-pointer">
+										e.g.{" "}
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.example}
+										</AudioClip>
+									</TableCell>
+									<TableCell className="cursor-pointer">
+										<span dangerouslySetInnerHTML={{ __html: row.english }} />
+									</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 				</div>

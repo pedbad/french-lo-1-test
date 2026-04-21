@@ -1529,6 +1529,11 @@
 		font-size: calc(var(--font-size-base) * 1.2);
 	}
 
+	table tbody tr.has-audio-row,
+	table tbody tr.has-audio-row td {
+		cursor: pointer;
+	}
+
 	.phrases-table-container table tbody tr td span {
 		white-space: initial;
 	}

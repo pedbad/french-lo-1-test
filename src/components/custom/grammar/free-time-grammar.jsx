@@ -1,6 +1,7 @@
 import { AudioClip } from "@/components/AudioClip";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
+import { playAudioLink } from "@/utils/audioPlayback";
 
 export class FreeTimeGrammarAdjectiveAgreement extends PureComponent {
 	render = () => {
@@ -59,8 +60,77 @@ export class FreeTimeGrammarAdjectiveAgreement extends PureComponent {
 }
 
 export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
+	handleRowClick = (soundFile, event) => {
+		if (!soundFile) return;
+		if (event?.defaultPrevented) return;
+
+		const targetNode = event?.target;
+		if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+			return;
+		}
+
+		const rowEl = event?.currentTarget;
+		const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+		if (audioTrigger) {
+			audioTrigger.click();
+			return;
+		}
+
+		playAudioLink(soundFile);
+	};
+
 	render = () => {
 		const { id } = this.props;
+		const faireRows = [
+			{
+				english: "I do / make",
+				french: <>je <strong>fais</strong></>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/002-je-fais.mp3",
+			},
+			{
+				english: "you do / make",
+				french: <>tu <strong>fais</strong></>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/003-tu-fais.mp3",
+			},
+			{
+				english: "he / she / it does / makes",
+				french: <>il / elle <strong>fait</strong></>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/004-il-elle-fait.mp3",
+			},
+			{
+				english: "we do / make",
+				french: <>nous <strong>faisons</strong></>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/005-nous-faisons.mp3",
+			},
+			{
+				english: "you do / make",
+				french: <>vous <strong>faites</strong></>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/006-vous-faites.mp3",
+			},
+			{
+				english: "they do / make",
+				french: <>ils / elles <strong>font</strong></>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/007-ils-elles-font.mp3",
+			},
+		];
+		const exampleRows = [
+			{
+				english: "I do gymnastics",
+				french: <strong>Je fais de la gymnastique</strong>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/012-je-fais-de-la-gymnastique.mp3",
+			},
+			{
+				english: "I do gardening",
+				french: <strong>Je fais du jardinage</strong>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/013-je-fais-du-jardinage.mp3",
+			},
+			{
+				english: "I make cakes",
+				french: <strong>Je fais des gâteaux</strong>,
+				soundFile: "audio/lo8/grammar/faire-and-partitives/014-je-fais-des-gateaux.mp3",
+			},
+		];
+
 		return (
 			<div
 				className="lo8-grammar2-container container"
@@ -86,72 +156,20 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 					<p>Here it is in the present tense:</p>
 					<Table>
 						<TableBody>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/002-je-fais.mp3"
-									>
-										je <strong>fais</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I do / make</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/003-tu-fais.mp3"
-									>
-										tu <strong>fais</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>you do / make</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/004-il-elle-fait.mp3"
-									>
-										il / elle <strong>fait</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>he / she / it does / makes</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/005-nous-faisons.mp3"
-									>
-										nous <strong>faisons</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>we do / make</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/006-vous-faites.mp3"
-									>
-										vous <strong>faites</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>you do / make</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/007-ils-elles-font.mp3"
-									>
-										ils / elles <strong>font</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>they do / make</TableCell>
-							</TableRow>
+							{faireRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo8-grammar2"}-faire-row-${index}`}
+									onClick={(event) => this.handleRowClick(row.soundFile, event)}
+								>
+									<TableCell className="cursor-pointer">
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.french}
+										</AudioClip>
+									</TableCell>
+									<TableCell className="cursor-pointer">{row.english}</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 					<p>
@@ -190,39 +208,20 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 					<p>Here are some examples:</p>
 					<Table>
 						<TableBody>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/012-je-fais-de-la-gymnastique.mp3"
-									>
-										<strong>Je fais de la gymnastique</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I do gymnastics</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/013-je-fais-du-jardinage.mp3"
-									>
-										<strong>Je fais du jardinage</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I do gardening</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/faire-and-partitives/014-je-fais-des-gateaux.mp3"
-									>
-										<strong>Je fais des gâteaux</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I make cakes</TableCell>
-							</TableRow>
+							{exampleRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo8-grammar2"}-example-row-${index}`}
+									onClick={(event) => this.handleRowClick(row.soundFile, event)}
+								>
+									<TableCell className="cursor-pointer">
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.french}
+										</AudioClip>
+									</TableCell>
+									<TableCell className="cursor-pointer">{row.english}</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 				</div>
@@ -232,8 +231,52 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 }
 
 export class FreeTimeGrammarJouerPatterns extends PureComponent {
+	handleRowClick = (soundFile, event) => {
+		if (!soundFile) return;
+		if (event?.defaultPrevented) return;
+
+		const targetNode = event?.target;
+		if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+			return;
+		}
+
+		const rowEl = event?.currentTarget;
+		const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+		if (audioTrigger) {
+			audioTrigger.click();
+			return;
+		}
+
+		playAudioLink(soundFile);
+	};
+
 	render = () => {
 		const { id } = this.props;
+		const instrumentRows = [
+			{
+				english: "I play the piano",
+				french: <strong>Je joue du piano</strong>,
+				soundFile: "audio/lo8/grammar/jouer-patterns/002-je-joue-du-piano.mp3",
+			},
+			{
+				english: "I play the clarinet",
+				french: <strong>Je joue de la clarinette</strong>,
+				soundFile: "audio/lo8/grammar/jouer-patterns/003-je-joue-de-la-clarinette.mp3",
+			},
+		];
+		const gameRows = [
+			{
+				english: "I play football",
+				french: <strong>Je joue au football</strong>,
+				soundFile: "audio/lo8/grammar/jouer-patterns/009-je-joue-au-football.mp3",
+			},
+			{
+				english: "I play pétanque",
+				french: <strong>Je joue à la pétanque</strong>,
+				soundFile: "audio/lo8/grammar/jouer-patterns/010-je-joue-a-la-petanque.mp3",
+			},
+		];
+
 		return (
 			<div
 				className="lo8-grammar3-container container"
@@ -268,28 +311,20 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 					</p>
 					<Table>
 						<TableBody>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/jouer-patterns/002-je-joue-du-piano.mp3"
-									>
-										<strong>Je joue du piano</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I play the piano</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/jouer-patterns/003-je-joue-de-la-clarinette.mp3"
-									>
-										<strong>Je joue de la clarinette</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I play the clarinet</TableCell>
-							</TableRow>
+							{instrumentRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo8-grammar3"}-instrument-row-${index}`}
+									onClick={(event) => this.handleRowClick(row.soundFile, event)}
+								>
+									<TableCell className="cursor-pointer">
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.french}
+										</AudioClip>
+									</TableCell>
+									<TableCell className="cursor-pointer">{row.english}</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 					<p>
@@ -340,28 +375,20 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 					<p>For example:</p>
 					<Table>
 						<TableBody>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/jouer-patterns/009-je-joue-au-football.mp3"
-									>
-										<strong>Je joue au football</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I play football</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo8/grammar/jouer-patterns/010-je-joue-a-la-petanque.mp3"
-									>
-										<strong>Je joue à la pétanque</strong>
-									</AudioClip>
-								</TableCell>
-								<TableCell>I play pétanque</TableCell>
-							</TableRow>
+							{gameRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo8-grammar3"}-game-row-${index}`}
+									onClick={(event) => this.handleRowClick(row.soundFile, event)}
+								>
+									<TableCell className="cursor-pointer">
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.french}
+										</AudioClip>
+									</TableCell>
+									<TableCell className="cursor-pointer">{row.english}</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 				</div>

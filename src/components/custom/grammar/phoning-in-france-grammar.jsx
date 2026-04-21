@@ -2,6 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { Info } from "@/components/Info";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
+import { playAudioLink } from "@/utils/audioPlayback";
 import { PhoningInFranceRegionsMap } from "./phoning-in-france-regions-map";
 
 export class PhoningInFranceGrammarTelephoneNumbers extends PureComponent {
@@ -50,8 +51,50 @@ export class PhoningInFranceGrammarTelephoneNumbers extends PureComponent {
 }
 
 export class PhoningInFranceGrammarBienForConfirmation extends PureComponent {
+	handleRowClick = (soundFile, event) => {
+		if (!soundFile) return;
+		if (event?.defaultPrevented) return;
+
+		const targetNode = event?.target;
+		if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+			return;
+		}
+
+		const rowEl = event?.currentTarget;
+		const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+		if (audioTrigger) {
+			audioTrigger.click();
+			return;
+		}
+
+		playAudioLink(soundFile);
+	};
+
 	render = () => {
 		const { id } = this.props;
+		const confirmationRows = [
+			{
+				english: "This is 06 22 14 66 33, isn&apos;t it?",
+				french: "C&apos;est bien le 06 22 14 66 33 ?",
+				soundFile: "audio/lo9/grammar/bien-for-confirmation/002-cest-bien-le-06-22-14-66-33.mp3",
+			},
+			{
+				english: "That&apos;s right. / It is indeed.",
+				french: "C&apos;est bien ça !",
+				soundFile: "audio/lo9/grammar/bien-for-confirmation/003-cest-bien-ca.mp3",
+			},
+			{
+				english: "You are Madame Galipot, aren&apos;t you?",
+				french: "Vous êtes bien Madame Galipot ?",
+				soundFile: "audio/lo9/grammar/bien-for-confirmation/004-vous-etes-bien-madame-galipot.mp3",
+			},
+			{
+				english: "That&apos;s right. / I am indeed.",
+				french: "C&apos;est bien ça !",
+				soundFile: "audio/lo9/grammar/bien-for-confirmation/003-cest-bien-ca.mp3",
+			},
+		];
+
 		return (
 			<div
 				className="lo9-grammar2-container container"
@@ -77,50 +120,22 @@ export class PhoningInFranceGrammarBienForConfirmation extends PureComponent {
 					</p>
 					<Table variant="learning">
 						<TableBody>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo9/grammar/bien-for-confirmation/002-cest-bien-le-06-22-14-66-33.mp3"
-									>
-										C&apos;est bien le 06 22 14 66 33 ?
-									</AudioClip>
-								</TableCell>
-								<TableCell>This is 06 22 14 66 33, isn&apos;t it?</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo9/grammar/bien-for-confirmation/003-cest-bien-ca.mp3"
-									>
-										C&apos;est bien ça !
-									</AudioClip>
-								</TableCell>
-								<TableCell>That&apos;s right. / It is indeed.</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo9/grammar/bien-for-confirmation/004-vous-etes-bien-madame-galipot.mp3"
-									>
-										Vous êtes bien Madame Galipot ?
-									</AudioClip>
-								</TableCell>
-								<TableCell>You are Madame Galipot, aren&apos;t you?</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip
-										className="link"
-										soundFile="audio/lo9/grammar/bien-for-confirmation/003-cest-bien-ca.mp3"
-									>
-										C&apos;est bien ça !
-									</AudioClip>
-								</TableCell>
-								<TableCell>That&apos;s right. / I am indeed.</TableCell>
-							</TableRow>
+							{confirmationRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo9-grammar2"}-row-${index}`}
+									onClick={(event) => this.handleRowClick(row.soundFile, event)}
+								>
+									<TableCell>
+										<AudioClip className="link" soundFile={row.soundFile}>
+											<span dangerouslySetInnerHTML={{ __html: row.french }} />
+										</AudioClip>
+									</TableCell>
+									<TableCell>
+										<span dangerouslySetInnerHTML={{ __html: row.english }} />
+									</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 				</div>
