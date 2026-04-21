@@ -22,7 +22,7 @@
 					"phrases": [
 						[
 							"audio/lo5/monologues/monologues1/001-apartment-monologue.mp3",
-							"J'habite dans un appartement au premier étage d'un grand immeuble.  J'ai une petite cuisine et une salle de séjour et un petit balcon aussi. Ma chambre n'est pas grande, mais elle est confortable. Derrière l'immeuble il y a un jardin communautaire.",
+							"J'habite dans un appartement au premier étage d'un grand immeuble.  J'ai une petite cuisine et une salle de séjour et un petit balcon aussi. Ma chambre n'est pas grande, mais elle est confortable. Derrière l'immeuble, il y a un jardin communautaire.",
 							"I live in a flat on the first floor of a large block of flats. I've got a small kitchen, a living room and a small balcony as well. My bedroom isn't big, but it's comfortable. Behind the block of flats there's a communal garden."
 						],
 						[
@@ -193,7 +193,7 @@
 			[
 				"audio/lo5/vocabulary/029-courageux-courageuse.mp3",
 				"courageux / courageuse",
-				"courageous /brave"
+				"courageous / brave"
 			],
 			[
 				"audio/lo5/vocabulary/030-ambitieux-ambitieuse.mp3",
@@ -224,7 +224,7 @@
 				"grammar2": {
 					"component": "HouseAndHomeGrammarAdjectivalAgreement",
 					"id": "grammar2",
-					"infoTextHTML": "This section extends adjective agreement with common home-description adjectives.<p>You will learn:</p><ul><li>How adjectives ending in <em class='grammar-term-em'>-eux</em> behave in masculine and feminine forms.</li><li>How to recognise the feminine singular ending <em class='grammar-term-em'>-euse</em>.</li><li>How agreement changes in singular and plural examples used to describe rooms and homes.</li></ul>",
+						"infoTextHTML": "This section introduces some new adjectives.<p>You will learn:</p><ul><li>How adjectives ending in <em class='grammar-term-em'>-eux</em> behave in masculine and feminine forms.</li><li>How to recognise the feminine singular ending <em class='grammar-term-em'>-euse</em>.</li><li>How agreement changes in singular and plural examples used to describe rooms and homes.</li></ul>",
 					"titleTextHTML": "2. Adjectival agreement: <em class='grammar-term-em'>-eux / -euse</em>"
 				}
 			}
@@ -281,90 +281,78 @@
 					"sampleSize": 6,
 					"mobileFallback": "SelectExercise",
 					"items": [
-						{
-							"id": "salle-de-bains",
-							"image": "/img/lo5/exercises/rooms/bathroom.jpg",
-							"localLanguage": "bathroom",
-							"label": "salle de bains",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/001-la-salle-de-bains.mp3"
-						},
-						{
-							"id": "chambre",
-							"image": "/img/lo5/exercises/rooms/bedroom.jpg",
-							"localLanguage": "bedroom",
-							"label": "chambre",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/002-la-chambre.mp3"
-						},
-						{
-							"id": "cave",
-							"image": "/img/lo5/exercises/rooms/cellar.jpg",
-							"localLanguage": "cellar",
-							"label": "cave",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/003-la-cave.mp3"
-						},
-						{
-							"id": "douche",
-							"image": "/img/lo5/exercises/rooms/shower-room.jpg",
-							"localLanguage": "shower room",
-							"label": "douche",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/004-la-douche.mp3"
-						},
-						{
-							"id": "salle-a-manger",
-							"image": "/img/lo5/exercises/rooms/dining-room.jpg",
-							"localLanguage": "dining room",
-							"label": "salle à manger",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/005-la-salle-a-manger.mp3"
-						},
-						{
-							"id": "buanderie",
-							"image": "/img/lo5/exercises/rooms/utility-room.jpg",
-							"localLanguage": "utility room",
-							"label": "buanderie",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/006-la-buanderie.mp3"
-						},
-						{
-							"id": "salon",
-							"image": "/img/lo5/exercises/rooms/lounge.jpg",
-							"localLanguage": "lounge",
-							"label": "salon",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/007-le-salon.mp3"
-						},
-						{
-							"id": "toilettes",
-							"image": "/img/lo5/exercises/rooms/toilet.jpg",
-							"localLanguage": "toilet",
-							"label": "toilettes",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/008-les-toilettes.mp3"
-						},
-						{
-							"id": "grenier",
-							"image": "/img/lo5/exercises/rooms/attic.jpg",
-							"localLanguage": "attic",
-							"label": "grenier",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/009-le-grenier.mp3"
-						},
-						{
-							"id": "balcon",
-							"image": "/img/lo5/exercises/rooms/balcony.jpg",
-							"localLanguage": "balcony",
-							"label": "balcon",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/010-le-balcon.mp3"
-						},
-						{
-							"id": "cuisine",
-							"image": "/img/lo5/exercises/rooms/kitchen.jpg",
-							"localLanguage": "kitchen",
-							"label": "cuisine",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/011-la-cuisine.mp3"
-						},
-						{
-							"id": "bureau",
-							"image": "/img/lo5/exercises/rooms/study.jpg",
-							"localLanguage": "study",
-							"label": "bureau",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/012-le-bureau.mp3"
-						}
+							{
+								"id": "salle-de-bains",
+								"image": "/img/lo5/exercises/rooms/bathroom.jpg",
+								"label": "salle de bains",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/001-la-salle-de-bains.mp3"
+							},
+							{
+								"id": "chambre",
+								"image": "/img/lo5/exercises/rooms/bedroom.jpg",
+								"label": "chambre",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/002-la-chambre.mp3"
+							},
+							{
+								"id": "cave",
+								"image": "/img/lo5/exercises/rooms/cellar.jpg",
+								"label": "cave",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/003-la-cave.mp3"
+							},
+							{
+								"id": "douche",
+								"image": "/img/lo5/exercises/rooms/shower-room.jpg",
+								"label": "douche",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/004-la-douche.mp3"
+							},
+							{
+								"id": "salle-a-manger",
+								"image": "/img/lo5/exercises/rooms/dining-room.jpg",
+								"label": "salle à manger",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/005-la-salle-a-manger.mp3"
+							},
+							{
+								"id": "buanderie",
+								"image": "/img/lo5/exercises/rooms/utility-room.jpg",
+								"label": "buanderie",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/006-la-buanderie.mp3"
+							},
+							{
+								"id": "salon",
+								"image": "/img/lo5/exercises/rooms/lounge.jpg",
+								"label": "salon",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/007-le-salon.mp3"
+							},
+							{
+								"id": "toilettes",
+								"image": "/img/lo5/exercises/rooms/toilet.jpg",
+								"label": "toilettes",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/008-les-toilettes.mp3"
+							},
+							{
+								"id": "grenier",
+								"image": "/img/lo5/exercises/rooms/attic.jpg",
+								"label": "grenier",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/009-le-grenier.mp3"
+							},
+							{
+								"id": "balcon",
+								"image": "/img/lo5/exercises/rooms/balcony.jpg",
+								"label": "balcon",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/010-le-balcon.mp3"
+							},
+							{
+								"id": "cuisine",
+								"image": "/img/lo5/exercises/rooms/kitchen.jpg",
+								"label": "cuisine",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/011-la-cuisine.mp3"
+							},
+							{
+								"id": "bureau",
+								"image": "/img/lo5/exercises/rooms/study.jpg",
+								"label": "bureau",
+								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/012-le-bureau.mp3"
+							}
 					],
 					"titleText": "1. The Rooms of the House"
 				}
@@ -444,27 +432,27 @@
 					"cheatText": "Show answer",
 					"items": [
 						{
-							"text": "Le bureau est [*lumineux|lumineuse|lumineuses].",
+							"text": "Le bureau est [*lumineux|lumineuse|lumineuses]",
 							"audio": "audio/lo5/exercises/selectExercise2/001-le-bureau-est-lumineux.mp3"
 						},
 						{
-							"text": "La cave est [dangereux|*dangereuse|dangereuses].",
+							"text": "La cave est [dangereux|*dangereuse|dangereuses]",
 							"audio": "audio/lo5/exercises/selectExercise2/002-la-cave-est-dangereuse.mp3"
 						},
 						{
-							"text": "Mme Leserre est très [curieux|*curieuse|curieuses].",
+							"text": "Mme Leserre est très [curieux|*curieuse|curieuses]",
 							"audio": "audio/lo5/exercises/selectExercise2/003-mme-leserre-est-tres-curieuse.mp3"
 						},
 						{
-							"text": "Pauline, tu es très [courageux|*courageuse|courageuses]. ",
+							"text": "Pauline, tu es très [courageux|*courageuse|courageuses]",
 							"audio": "audio/lo5/exercises/selectExercise2/004-pauline-tu-es-tres-courageuse.mp3"
 						},
 						{
-							"text": "Le Champagne est [*délicieux|délicieuse|délicieuses].",
+							"text": "Le Champagne est [*délicieux|délicieuse|délicieuses]",
 							"audio": "audio/lo5/exercises/selectExercise2/005-le-champagne-est-delicieux.mp3"
 						},
 						{
-							"text": "Les étudiantes sont [ambitieux|ambitieuse|*ambitieuses].",
+							"text": "Les étudiantes sont [ambitieux|ambitieuse|*ambitieuses]",
 							"audio": "audio/lo5/exercises/selectExercise2/006-les-etudiantes-sont-ambitieuses.mp3"
 						}
 					],

@@ -677,46 +677,53 @@ export class LineMatch extends React.PureComponent {
 										const isActive = activeSourceId === itemKey;
 										const connectedTargetId = desktopConnections[itemKey];
 										const isCorrect = checkedResults[itemKey] === true;
-										const pictureStatusText = connectedTargetId
+										const pictureStatusText = isCorrect
 											? "Matched"
-											: isActive
-												? "Selected"
-												: item.localLanguage || "";
+											: connectedTargetId
+												? "Connected"
+												: isActive
+													? "Selected"
+													: item.localLanguage || "";
+										const pictureCardLayoutClass = pictureStatusText
+											? "min-w-[10.5rem] justify-end"
+											: "justify-center";
 										return (
 											<li className="flex items-center" key={`line-match-picture-${itemKey}`}>
-											<div
-												className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} min-w-[10.5rem] cursor-pointer items-center justify-end gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--chart-3)_12%,transparent)] transition ${isCorrect ? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--chart-5)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--ped-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--ped-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[rgb(var(--color-primary-200)_/_0.42)]"}`}
-												onClick={() => this.handleSourceActivate(itemKey)}
-											>
-												<div className="min-w-[4.5rem] text-right text-xs leading-tight text-muted-foreground">
-													{pictureStatusText}
-												</div>
-												<button
-													className={`${LINE_MATCH_IMAGE_TILE_CLASS} cursor-pointer transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_color-mix(in_oklab,var(--chart-3)_22%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_oklab,var(--chart-5)_44%,transparent)] ${isCorrect ? "border-[var(--chart-2)]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--ped-warn)_42%,var(--foreground))]" : ""}`}
-													onClick={(event) => {
-														event.stopPropagation();
-														this.handleSourceActivate(itemKey);
-													}}
-													type="button"
+												<div
+													className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} ${pictureCardLayoutClass} cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--chart-3)_12%,transparent)] transition ${isCorrect ? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--chart-5)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--ped-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--ped-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[rgb(var(--color-primary-200)_/_0.42)]"}`}
+													onClick={() => this.handleSourceActivate(itemKey)}
 												>
-													<img
-														alt={item.alt || item.localLanguage || item.label || `Line match image ${index + 1}`}
-														className="h-full w-full object-cover"
-														loading="lazy"
-														src={resolveAsset(item.image)}
+													{pictureStatusText ? (
+														<div className="min-w-[4.5rem] text-right text-xs leading-tight text-muted-foreground">
+															{pictureStatusText}
+														</div>
+													) : null}
+													<button
+														className={`${LINE_MATCH_IMAGE_TILE_CLASS} cursor-pointer transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_color-mix(in_oklab,var(--chart-3)_22%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_oklab,var(--chart-5)_44%,transparent)] ${isCorrect ? "border-[var(--chart-2)]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--ped-warn)_42%,var(--foreground))]" : ""}`}
+														onClick={(event) => {
+															event.stopPropagation();
+															this.handleSourceActivate(itemKey);
+														}}
+														type="button"
+													>
+														<img
+															alt={item.alt || item.localLanguage || item.label || `Line match image ${index + 1}`}
+															className="h-full w-full object-cover"
+															loading="lazy"
+															src={resolveAsset(item.image)}
+														/>
+													</button>
+													<button
+														aria-label={`Select picture ${index + 1} as connection source`}
+														className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--chart-2)] bg-[var(--chart-2)] ring-2 ring-[color-mix(in_oklab,var(--chart-2)_28%,transparent)]" : isActive ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--chart-5)_40%,transparent)]" : connectedTargetId ? "border-[var(--ped-warn)] bg-[var(--ped-warn)]" : "border-[color-mix(in_oklab,var(--chart-3)_72%,var(--foreground))] bg-background"}`}
+														onClick={(event) => {
+															event.stopPropagation();
+															this.handleSourceActivate(itemKey);
+														}}
+														ref={(node) => this.setSourceNode(itemKey, node)}
+														type="button"
 													/>
-												</button>
-												<button
-													aria-label={`Select picture ${index + 1} as connection source`}
-													className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--chart-2)] bg-[var(--chart-2)] ring-2 ring-[color-mix(in_oklab,var(--chart-2)_28%,transparent)]" : isActive ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--chart-5)_40%,transparent)]" : connectedTargetId ? "border-[var(--ped-warn)] bg-[var(--ped-warn)]" : "border-[color-mix(in_oklab,var(--chart-3)_72%,var(--foreground))] bg-background"}`}
-													onClick={(event) => {
-														event.stopPropagation();
-														this.handleSourceActivate(itemKey);
-													}}
-													ref={(node) => this.setSourceNode(itemKey, node)}
-													type="button"
-												/>
-											</div>
+												</div>
 											</li>
 										);
 									})}
@@ -761,7 +768,7 @@ export class LineMatch extends React.PureComponent {
 													)}
 												</div>
 												<div className="ml-auto min-w-[3rem] text-right text-xs leading-tight text-muted-foreground">
-													{connectedSourceId ? "Matched" : isActiveTarget ? "Selected" : ""}
+													{isCorrect ? "Matched" : connectedSourceId ? "Connected" : isActiveTarget ? "Selected" : ""}
 												</div>
 											</li>
 										);
