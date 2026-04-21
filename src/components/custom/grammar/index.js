@@ -28,6 +28,7 @@ export {
 export {
 	FamilyFriendsAndNeighboursGrammarPossessives,
 	FamilyFriendsAndNeighboursGrammarAvoir,
+	FamilyFriendsAndNeighboursDoubleLlPractice,
 } from "./family-friends-and-neighbours-grammar";
 export {
 	OpinionsMatterGrammarBorrowedNouns,

@@ -4827,6 +4827,11 @@ hr {
   text-align: left;
 }
 
+#content #content-doubleLlPractice > div {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+}
+
 #content .lo6-reference-texts {
   display: grid;
   gap: 0.9rem;
@@ -4839,12 +4844,50 @@ hr {
   padding: 0.9rem 1rem;
 }
 
+#content .lo6-reference-audio-card {
+  display: block;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    background-color 160ms ease;
+}
+
+#content .lo6-reference-audio-card:hover,
+#content .lo6-reference-audio-card:focus-visible {
+  outline: none;
+  border-color: rgb(var(--color-primary-400) / 1);
+  background: color-mix(in oklab, rgb(var(--color-primary-50) / 1) 78%, var(--card));
+  box-shadow: 0 0 0 3px color-mix(in oklab, rgb(var(--color-primary-200) / 1) 55%, transparent);
+  transform: translateY(-1px);
+}
+
 #content .lo6-reference-title {
   margin: 0 0 0.45rem;
   color: var(--muted-foreground);
   font-size: calc(var(--font-size-xs) * 1.5);
   line-height: 1.3;
   text-align: left;
+}
+
+#content .lo6-reference-audio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-app);
+  margin-bottom: 0.25rem;
+}
+
+#content .lo6-reference-audio-label .inline-icon {
+  flex: 0 0 auto;
+}
+
+#content .lo6-reference-title small {
+  display: block;
+  margin-top: 0.1rem;
 }
 
 #content .lo6-reference-line {

@@ -374,15 +374,14 @@
 				}
 			},
 			{
-				"inlineChoiceGroup2": {
-					"component": "InlineChoiceGroup",
-					"id": "inlineChoiceGroup2",
-					"congratulationsText": "Très bien!",
-					"informationTextHTML": "All the words containing double <strong>ll</strong> are in bold. Do you know which are pronounced <strong>l</strong> and which <strong>y</strong>? Listen to each word and choose the correct answer. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solutions and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-					"htmlContent": "<div class='lo6-reference-texts'><article class='lo6-reference-block'><p class='lo6-reference-title'><small>les tilleuls - lime trees</small></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-famille-de-camille-habite-a-paris.mp3'>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-camille-est-tres-gentille.mp3'>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/la-fille-de-sa-fille-s-appelle-myrtille.mp3'>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/camille-aime-les-tilleuls-de-versailles.mp3'><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</span></p></article><article class='lo6-reference-block'><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/annabelle-a-une-petite-fille.mp3'><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/elle-s-appelle-isabelle.mp3'><strong>Elle s'appelle Isabelle</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-nest-pas-belle.mp3'><strong>Isabelle</strong> n'est pas <strong>belle</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/mais-isabelle-est-tres-gentille.mp3'>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/isabelle-habite-a-lille.mp3'><strong>Isabelle</strong> habite à <strong>Lille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/elle-y-habite-avec-gilles.mp3'><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/ce-nest-pas-tres-tranquille.mp3'>Ce n'est pas très <strong>tranquille</strong>.</span></p><p class='lo6-reference-line'><span class='audio-link' sound-file='audio/lo6/exercises/mais-quelle-belle-ville-la-ville-de-lille.mp3'>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong>!</span></p></article><p class='lo6-reference-meta'><small>&copy; Jacqueline Rosen</small></p></div>",
-					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answer",
-					"shuffleItems": true,
+					"inlineChoiceGroup2": {
+						"component": "InlineChoiceGroup",
+						"id": "inlineChoiceGroup2",
+						"congratulationsText": "Très bien!",
+						"informationTextHTML": "The following words all contain double <strong>ll</strong>. Listen to them carefully, and decide whether the double <strong>ll</strong> is pronounced <strong>y</strong> or <strong>l</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solutions and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+						"showHintsText": "Show hints when moving",
+						"cheatText": "Show answer",
+						"shuffleItems": true,
 					"sampleSize": 8,
 					"items": [
 						{
@@ -457,17 +456,25 @@
 							"text": "ville [y|*l]",
 							"audio": "audio/lo6/exercises/ville.mp3"
 						}
-					],
-					"titleText": "2. Double ll: y or l?"
-				}
-			},
-			{
-				"selectExercise4": {
-					"component": "InlineChoiceGroup",
+						],
+						"titleText": "2. Double ll: y or l?"
+					}
+				},
+				{
+					"doubleLlPractice": {
+						"component": "FamilyFriendsAndNeighboursDoubleLlPractice",
+						"id": "doubleLlPractice",
+						"informationTextHTML": "<p>Listen to <strong>La famille de Camille</strong> and <strong>Annabelle a une petite-fille</strong>, which contain lots of examples of double <strong>ll</strong>.</p>",
+						"titleText": "Double ll pronunciation practice"
+					}
+				},
+				{
+					"selectExercise4": {
+						"component": "InlineChoiceGroup",
 					"id": "selectExercise4",
 					"congratulationsText": "Superbe!",
 					"informationTextHTML": "Read each sentence and choose the correct form of <strong>avoir</strong>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-					"shuffleItems": true,
+					"shuffleItems": false,
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
 					"items": [

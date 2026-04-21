@@ -35,7 +35,11 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon-jardin.mp3`}>
 							<strong>mon</strong> jardin
 						</AudioClip>
-						, and <strong>ma</strong> for feminine nouns, for example{" "}
+						, and{" "}
+						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma.mp3`}>
+							<strong>ma</strong>
+						</AudioClip>
+						{" "}for feminine nouns, for example{" "}
 						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma-femme.mp3`}>
 							<strong>ma</strong> femme
 						</AudioClip>
@@ -303,6 +307,103 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 						</TableBody>
 					</Table>
 				</div>
+			</div>
+		);
+	};
+}
+
+export class FamilyFriendsAndNeighboursDoubleLlPractice extends PureComponent {
+	handleCardClick = (soundFile, event) => {
+		if (!soundFile) return;
+		if (event?.defaultPrevented) return;
+
+		const targetNode = event?.target;
+		if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+			return;
+		}
+
+		const cardEl = event?.currentTarget;
+		const audioTrigger = cardEl?.querySelector(".audio-container, button.audio-link");
+		if (audioTrigger instanceof HTMLElement) {
+			audioTrigger.click();
+			return;
+		}
+
+		playAudioLink(soundFile);
+	};
+
+	handleCardKeyDown = (soundFile, event) => {
+		if (event.key !== "Enter" && event.key !== " ") return;
+		event.preventDefault();
+		this.handleCardClick(soundFile, event);
+	};
+
+	render = () => {
+		const { id } = this.props;
+		const practiceBlocks = [
+			{
+				audioFile: "audio/lo6/exercises/double-ll-rhyme-la-famille-de-camille.mp3",
+				audioLabel: "La famille de Camille",
+				lines: [
+					<>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</>,
+					<>La <strong>fille</strong> de <strong>Camille</strong> est très <strong>gentille</strong>.</>,
+					<>La <strong>fille</strong> de sa <strong>fille</strong> <strong>s'appelle Myrtille</strong>.</>,
+					<><strong>Camille</strong> aime les <strong>tilleuls</strong> de <strong>Versailles</strong>.</>,
+				],
+				note: "les tilleuls - lime trees",
+			},
+			{
+				audioFile: "audio/lo6/exercises/double-ll-rhyme-annabelle-a-une-petite-fille.mp3",
+				audioLabel: "Annabelle a une petite-fille",
+				lines: [
+					<><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</>,
+					<><strong>Elle s'appelle Isabelle</strong>.</>,
+					<><strong>Isabelle</strong> n'est pas <strong>belle</strong>.</>,
+					<>Mais <strong>Isabelle</strong> est très <strong>gentille</strong>.</>,
+					<><strong>Isabelle</strong> habite à <strong>Lille</strong>.</>,
+					<><strong>Elle</strong> y habite avec <strong>Gilles</strong>.</>,
+					<>Ce n'est pas très <strong>tranquille</strong>.</>,
+					<>Mais <strong>quelle belle ville</strong>, la <strong>ville</strong> de <strong>Lille</strong>!</>,
+				],
+			},
+		];
+
+		return (
+			<div
+				className={`lo6-double-ll-practice-container container`}
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div className="lo6-reference-texts">
+					{practiceBlocks.map(({ audioFile, audioLabel, lines, note }, index) => (
+						<article
+							aria-label={`Play ${audioLabel}`}
+							className="lo6-reference-block lo6-reference-audio-card"
+							key={`${id || "doubleLlPractice"}-block-${index}`}
+							onClick={(event) => this.handleCardClick(audioFile, event)}
+							onKeyDown={(event) => this.handleCardKeyDown(audioFile, event)}
+							role="button"
+							tabIndex={0}
+						>
+							<p className="lo6-reference-title">
+								<span className="lo6-reference-audio-label">
+									<AudioClip className="super-compact-speaker" soundFile={audioFile} />
+									<strong>{audioLabel}</strong>
+								</span>
+								{note ? <small>{note}</small> : null}
+							</p>
+							{lines.map((line, lineIndex) => (
+								<p className="lo6-reference-line" key={`${id || "doubleLlPractice"}-block-${index}-line-${lineIndex}`}>
+									{line}
+								</p>
+							))}
+						</article>
+					))}
+					<p className="lo6-reference-meta">
+						<small>&copy; Jacqueline Rosen</small>
+					</p>
+				</div>
+				<p className="lo6-reading-meta">Try reading the rhymes aloud to practice your pronunciation.</p>
 			</div>
 		);
 	};
