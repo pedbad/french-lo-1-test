@@ -22,12 +22,12 @@
 					"phrases": [
 						[
 							"audio/lo6/dialogues/tu-as-des-freres-et-des-s-urs.mp3",
-							"Tu as des frères et des sœurs?",
+							"Tu as des frères et des sœurs ?",
 							"Have you got brothers and sisters?"
 						],
 						[
 							"audio/lo6/dialogues/oui-j-ai-un-grand-frere-et-deux-petites-s-urs-et-toi.mp3",
-							"Oui, j'ai un grand frère et deux petites sœurs. Et toi?",
+							"Oui, j'ai un grand frère et deux petites sœurs. Et toi ?",
 							"Yes, I have a big (older) brother and two little (younger) sisters. What about you?"
 						],
 						[
@@ -47,12 +47,12 @@
 					"phrases": [
 						[
 							"audio/lo6/dialogues/vous-avez-des-freres-et-des-s-urs.mp3",
-							"Vous avez des frères et des sœurs?",
+							"Vous avez des frères et des sœurs ?",
 							"Have you got brothers and sisters?"
 						],
 						[
 							"audio/lo6/dialogues/non-je-n-ai-ni-freres-ni-s-urs-je-suis-enfant-unique-et-vous.mp3",
-							"Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous?",
+							"Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous ?",
 							"No, I've got neither brothers nor sisters. I'm an only child. What about you?"
 						],
 						[
@@ -72,12 +72,12 @@
 					"phrases": [
 						[
 							"audio/lo6/dialogues/caroline-vous-avez-des-enfants.mp3",
-							"Caroline, vous avez des enfants?",
+							"Caroline, vous avez des enfants ?",
 							"Caroline, do you have any children?"
 						],
 						[
 							"audio/lo6/dialogues/ah-non-nous-n-avons-pas-d-enfants-pas-encore-et-vous.mp3",
-							"Ah non, nous n'avons pas d'enfants, pas encore! Et vous?",
+							"Ah non, nous n'avons pas d'enfants, pas encore ! Et vous ?",
 							"Oh no, we haven't got any children, not yet. What about you?"
 						],
 						[
@@ -87,7 +87,7 @@
 						],
 						[
 							"audio/lo6/dialogues/il-a-quel-age.mp3",
-							"Il a quel âge?",
+							"Il a quel âge ?",
 							"How old is he?"
 						],
 						[
@@ -252,12 +252,12 @@
 			],
 			[
 				"audio/lo6/vocabulary/quel-age-as-tu-tu-as-quel-age.mp3",
-				"Quel âge as-tu? Tu as quel âge?",
+				"Quel âge as-tu ? Tu as quel âge ?",
 				"How old are you?"
 			],
 			[
 				"audio/lo6/vocabulary/quel-age-avez-vous-vous-avez-quel-age.mp3",
-				"Quel âge avez-vous? Vous avez quel âge?",
+				"Quel âge avez-vous ? Vous avez quel âge ?",
 				"How old are you?"
 			],
 			[
@@ -374,14 +374,14 @@
 				}
 			},
 			{
-					"inlineChoiceGroup2": {
-						"component": "InlineChoiceGroup",
-						"id": "inlineChoiceGroup2",
-						"congratulationsText": "Très bien!",
-						"informationTextHTML": "The following words all contain double <strong>ll</strong>. Listen to them carefully, and decide whether the double <strong>ll</strong> is pronounced <strong>y</strong> or <strong>l</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solutions and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-						"showHintsText": "Show hints when moving",
-						"cheatText": "Show answer",
-						"shuffleItems": true,
+				"inlineChoiceGroup2": {
+					"component": "InlineChoiceGroup",
+					"id": "inlineChoiceGroup2",
+					"congratulationsText": "Très bien !",
+					"informationTextHTML": "The following words all contain double <strong>ll</strong>. Listen to them carefully, and decide whether the double <strong>ll</strong> is pronounced <strong>y</strong> or <strong>l</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solutions and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"showHintsText": "Show hints when moving",
+					"cheatText": "Show answer",
+					"shuffleItems": true,
 					"sampleSize": 8,
 					"items": [
 						{
@@ -456,21 +456,21 @@
 							"text": "ville [y|*l]",
 							"audio": "audio/lo6/exercises/ville.mp3"
 						}
-						],
-						"titleText": "2. Double ll: y or l?"
-					}
-				},
-				{
-					"doubleLlPractice": {
-						"component": "FamilyFriendsAndNeighboursDoubleLlPractice",
-						"id": "doubleLlPractice",
-						"informationTextHTML": "<p>Listen to <strong>La famille de Camille</strong> and <strong>Annabelle a une petite-fille</strong>, which contain lots of examples of double <strong>ll</strong>.</p>",
-						"titleText": "Double ll pronunciation practice"
-					}
-				},
-				{
-					"selectExercise4": {
-						"component": "InlineChoiceGroup",
+					],
+					"titleText": "2. Double ll: y or l?"
+				}
+			},
+			{
+				"doubleLlPractice": {
+					"component": "FamilyFriendsAndNeighboursDoubleLlPractice",
+					"id": "doubleLlPractice",
+					"informationTextHTML": "<p>Listen to <strong>La famille de Camille</strong> and <strong>Annabelle a une petite-fille</strong>, which contain lots of examples of double <strong>ll</strong>.</p>",
+					"titleText": "Double ll pronunciation practice"
+				}
+			},
+			{
+				"selectExercise4": {
+					"component": "InlineChoiceGroup",
 					"id": "selectExercise4",
 					"congratulationsText": "Superbe!",
 					"informationTextHTML": "Read each sentence and choose the correct form of <strong>avoir</strong>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
@@ -487,11 +487,11 @@
 							"audio": "audio/lo6/exercises/nous-avons-trois-enfants.mp3"
 						},
 						{
-							"text": "Vous [ai|as|a|avons|*avez|ont] soif?",
+							"text": "Vous [ai|as|a|avons|*avez|ont] soif ?",
 							"audio": "audio/lo6/exercises/vous-avez-soif.mp3"
 						},
 						{
-							"text": "Tu [ai|*as|a|avons|avez|ont] faim?",
+							"text": "Tu [ai|*as|a|avons|avez|ont] faim ?",
 							"audio": "audio/lo6/exercises/tu-as-faim.mp3"
 						},
 						{
@@ -515,7 +515,7 @@
 							"audio": "audio/lo6/exercises/j-ai-froid.mp3"
 						},
 						{
-							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge?",
+							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge ?",
 							"audio": "audio/lo6/exercises/vous-avez-quel-age.mp3"
 						}
 					],
@@ -546,15 +546,15 @@
 							"audio": "audio/lo6/exercises/mes-cousines-habitent-aux-etats-unis.mp3"
 						},
 						{
-							"text": "Où habite [ton|*ta|tes] famille?",
+							"text": "Où habite [ton|*ta|tes] famille ?",
 							"audio": "audio/lo6/exercises/ou-habite-ta-famille.mp3"
 						},
 						{
-							"text": "Comment s'appelle [*ton|ta|tes] voisin?",
+							"text": "Comment s'appelle [*ton|ta|tes] voisin ?",
 							"audio": "audio/lo6/exercises/comment-s-appelle-ton-voisin.mp3"
 						},
 						{
-							"text": "[Ton|Ta|*Tes] amis habitent en banlieue?",
+							"text": "[Ton|Ta|*Tes] amis habitent en banlieue ?",
 							"audio": "audio/lo6/exercises/tes-amis-habitent-en-banlieue.mp3"
 						},
 						{
@@ -574,11 +574,11 @@
 							"audio": "audio/lo6/exercises/nos-petits-enfants-sont-bilingues.mp3"
 						},
 						{
-							"text": "Où sont [votre|*vos] enfants?",
+							"text": "Où sont [votre|*vos] enfants ?",
 							"audio": "audio/lo6/exercises/ou-sont-vos-enfants.mp3"
 						},
 						{
-							"text": "Et [*votre|vos] mari?",
+							"text": "Et [*votre|vos] mari ?",
 							"audio": "audio/lo6/exercises/et-votre-mari.mp3"
 						},
 						{
@@ -586,7 +586,7 @@
 							"audio": "audio/lo6/exercises/ils-sont-chez-leurs-grands-parents.mp3"
 						},
 						{
-							"text": "Où se trouve [*leur|leurs] appartement?",
+							"text": "Où se trouve [*leur|leurs] appartement ?",
 							"audio": "audio/lo6/exercises/ou-se-trouve-leur-appartement.mp3"
 						}
 					],
@@ -596,7 +596,7 @@
 			{
 				"selectExercise6": {
 					"component": "SelectExercise",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"id": "selectExercise6",
 					"informationTextHTML": "Listen to each sentence and choose the correct ending to complete it. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct ending, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"renderInlineChoices": true,

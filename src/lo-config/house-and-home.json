@@ -32,7 +32,7 @@
 						],
 						[
 							"audio/lo5/monologues/monologues1/003-country-house-monologue.mp3",
-							"Mes parents ont une grande maison à la campagne.  Au rez-de-chaussée, il y a une grande cuisine et une buanderie ainsi qu'un salon et une salle à manger et une petite salle de séjour. Ils n'ont pas de bureau.  Au premier étage, il y a une salle de bains, des toilettes, une douche et quatre chambres. Ils ont une cave aussi où ils mettent leur vin!",
+							"Mes parents ont une grande maison à la campagne.  Au rez-de-chaussée, il y a une grande cuisine et une buanderie ainsi qu'un salon et une salle à manger et une petite salle de séjour. Ils n'ont pas de bureau.  Au premier étage, il y a une salle de bains, des toilettes, une douche et quatre chambres. Ils ont une cave aussi où ils mettent leur vin !",
 							"My parents have a big house in the countryside. On the ground floor there's a big kitchen, a utility room as well as a lounge and a dining room and a small living room. They don't have a study. On the first floor there's a bathroom, a toilet, a shower room and four bedrooms. They've also got a cellar where they put their wine!"
 						]
 					],
@@ -224,7 +224,7 @@
 				"grammar2": {
 					"component": "HouseAndHomeGrammarAdjectivalAgreement",
 					"id": "grammar2",
-						"infoTextHTML": "This section introduces some new adjectives.<p>You will learn:</p><ul><li>How adjectives ending in <em class='grammar-term-em'>-eux</em> behave in masculine and feminine forms.</li><li>How to recognise the feminine singular ending <em class='grammar-term-em'>-euse</em>.</li><li>How agreement changes in singular and plural examples used to describe rooms and homes.</li></ul>",
+					"infoTextHTML": "This section introduces some new adjectives.<p>You will learn:</p><ul><li>How adjectives ending in <em class='grammar-term-em'>-eux</em> behave in masculine and feminine forms.</li><li>How to recognise the feminine singular ending <em class='grammar-term-em'>-euse</em>.</li><li>How agreement changes in singular and plural examples used to describe rooms and homes.</li></ul>",
 					"titleTextHTML": "2. Adjectival agreement: <em class='grammar-term-em'>-eux / -euse</em>"
 				}
 			}
@@ -274,85 +274,85 @@
 			{
 				"lineMatch1": {
 					"component": "LineMatch",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"id": "lineMatch1",
 					"informationTextHTML": "Match each picture with the correct French word. For help, you can listen to the French words. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct matches, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"cheatText": "Show answer",
 					"sampleSize": 6,
 					"mobileFallback": "SelectExercise",
 					"items": [
-							{
-								"id": "salle-de-bains",
-								"image": "/img/lo5/exercises/rooms/bathroom.jpg",
-								"label": "salle de bains",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/001-la-salle-de-bains.mp3"
-							},
-							{
-								"id": "chambre",
-								"image": "/img/lo5/exercises/rooms/bedroom.jpg",
-								"label": "chambre",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/002-la-chambre.mp3"
-							},
-							{
-								"id": "cave",
-								"image": "/img/lo5/exercises/rooms/cellar.jpg",
-								"label": "cave",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/003-la-cave.mp3"
-							},
-							{
-								"id": "douche",
-								"image": "/img/lo5/exercises/rooms/shower-room.jpg",
-								"label": "douche",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/004-la-douche.mp3"
-							},
-							{
-								"id": "salle-a-manger",
-								"image": "/img/lo5/exercises/rooms/dining-room.jpg",
-								"label": "salle à manger",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/005-la-salle-a-manger.mp3"
-							},
-							{
-								"id": "buanderie",
-								"image": "/img/lo5/exercises/rooms/utility-room.jpg",
-								"label": "buanderie",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/006-la-buanderie.mp3"
-							},
-							{
-								"id": "salon",
-								"image": "/img/lo5/exercises/rooms/lounge.jpg",
-								"label": "salon",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/007-le-salon.mp3"
-							},
-							{
-								"id": "toilettes",
-								"image": "/img/lo5/exercises/rooms/toilet.jpg",
-								"label": "toilettes",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/008-les-toilettes.mp3"
-							},
-							{
-								"id": "grenier",
-								"image": "/img/lo5/exercises/rooms/attic.jpg",
-								"label": "grenier",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/009-le-grenier.mp3"
-							},
-							{
-								"id": "balcon",
-								"image": "/img/lo5/exercises/rooms/balcony.jpg",
-								"label": "balcon",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/010-le-balcon.mp3"
-							},
-							{
-								"id": "cuisine",
-								"image": "/img/lo5/exercises/rooms/kitchen.jpg",
-								"label": "cuisine",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/011-la-cuisine.mp3"
-							},
-							{
-								"id": "bureau",
-								"image": "/img/lo5/exercises/rooms/study.jpg",
-								"label": "bureau",
-								"audio": "audio/lo5/exercises/draggableFillGapsPictures1/012-le-bureau.mp3"
-							}
+						{
+							"id": "salle-de-bains",
+							"image": "/img/lo5/exercises/rooms/bathroom.jpg",
+							"label": "salle de bains",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/001-la-salle-de-bains.mp3"
+						},
+						{
+							"id": "chambre",
+							"image": "/img/lo5/exercises/rooms/bedroom.jpg",
+							"label": "chambre",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/002-la-chambre.mp3"
+						},
+						{
+							"id": "cave",
+							"image": "/img/lo5/exercises/rooms/cellar.jpg",
+							"label": "cave",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/003-la-cave.mp3"
+						},
+						{
+							"id": "douche",
+							"image": "/img/lo5/exercises/rooms/shower-room.jpg",
+							"label": "douche",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/004-la-douche.mp3"
+						},
+						{
+							"id": "salle-a-manger",
+							"image": "/img/lo5/exercises/rooms/dining-room.jpg",
+							"label": "salle à manger",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/005-la-salle-a-manger.mp3"
+						},
+						{
+							"id": "buanderie",
+							"image": "/img/lo5/exercises/rooms/utility-room.jpg",
+							"label": "buanderie",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/006-la-buanderie.mp3"
+						},
+						{
+							"id": "salon",
+							"image": "/img/lo5/exercises/rooms/lounge.jpg",
+							"label": "salon",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/007-le-salon.mp3"
+						},
+						{
+							"id": "toilettes",
+							"image": "/img/lo5/exercises/rooms/toilet.jpg",
+							"label": "toilettes",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/008-les-toilettes.mp3"
+						},
+						{
+							"id": "grenier",
+							"image": "/img/lo5/exercises/rooms/attic.jpg",
+							"label": "grenier",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/009-le-grenier.mp3"
+						},
+						{
+							"id": "balcon",
+							"image": "/img/lo5/exercises/rooms/balcony.jpg",
+							"label": "balcon",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/010-le-balcon.mp3"
+						},
+						{
+							"id": "cuisine",
+							"image": "/img/lo5/exercises/rooms/kitchen.jpg",
+							"label": "cuisine",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/011-la-cuisine.mp3"
+						},
+						{
+							"id": "bureau",
+							"image": "/img/lo5/exercises/rooms/study.jpg",
+							"label": "bureau",
+							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/012-le-bureau.mp3"
+						}
 					],
 					"titleText": "1. The Rooms of the House"
 				}
@@ -425,7 +425,7 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"instructionsText": "Listen to the speakers and select the correct form of the adjective to fill in the gaps.",
 					"informationTextHTML": "Listen to each sentence and choose the correct adjective form to fill in the gap. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct form, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
@@ -472,7 +472,7 @@
 					"blanksType": "phrases",
 					"items": [
 						{
-							"text": "J'habite [seule]. Mon appartement n'est pas [très] grand, mais il est très [confortable].  Il y a [une] salle de séjour [lumineuse]. Elle [est] très jolie. J'ai un petit [balcon] – c'est super!  Il y a [deux] chambres, une pour [moi] et une autre [petite] chambre pour mes invités. J'ai une salle de bains et des [toilettes], bien sûr! Il y a [un] jardin devant l'immeuble."
+							"text": "J'habite [seule]. Mon appartement n'est pas [très] grand, mais il est très [confortable].  Il y a [une] salle de séjour [lumineuse]. Elle [est] très jolie. J'ai un petit [balcon] – c'est super !  Il y a [deux] chambres, une pour [moi] et une autre [petite] chambre pour mes invités. J'ai une salle de bains et des [toilettes], bien sûr ! Il y a [un] jardin devant l'immeuble."
 						}
 					],
 					"titleText": "4. Complete the description"

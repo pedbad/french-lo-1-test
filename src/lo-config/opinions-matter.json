@@ -22,17 +22,17 @@
 					"phrases": [
 						[
 							"audio/lo7/dialogues/vous-aimez-le-rugby-guillaume.mp3",
-							"Vous aimez le rugby, Guillaume?",
+							"Vous aimez le rugby, Guillaume ?",
 							"Do you like rugby, Guillaume?"
 						],
 						[
 							"audio/lo7/dialogues/le-rugby-ah-non-je-deteste-le-rugby-et-vous-qu-est-ce-que-vous-aimez-comme-sports.mp3",
-							"Le rugby? Ah non! Je déteste le rugby! Et vous, qu'est-ce que vous aimez comme sports?",
+							"Le rugby ? Ah non ! Je déteste le rugby ! Et vous, qu'est-ce que vous aimez comme sports ?",
 							"Rugby? Oh no! I hate rugby! What about you, what sports do you like?"
 						],
 						[
 							"audio/lo7/dialogues/je-suis-tres-sportif-j-aime-beaucoup-le-rugby-et-le-foot-j-aime-aussi-le-squash-et-le-badminton.mp3",
-							"Je suis très sportif! J'aime beaucoup le rugby et le foot. J'aime aussi le squash et le badminton.",
+							"Je suis très sportif ! J'aime beaucoup le rugby et le foot. J'aime aussi le squash et le badminton.",
 							"I like rugby and football very much. I also like squash and badminton."
 						]
 					],
@@ -47,12 +47,12 @@
 					"phrases": [
 						[
 							"audio/lo7/dialogues/tu-aimes-le-karate.mp3",
-							"Tu aimes le karaté?",
+							"Tu aimes le karaté ?",
 							"Do you like karate?"
 						],
 						[
 							"audio/lo7/dialogues/je-n-aime-pas-du-tout-le-karate-c-est-dangereux-je-prefere-le-yoga-c-est-relaxant.mp3",
-							"Je n'aime pas du tout le karaté.  C'est dangereux! Je préfère le yoga. C'est relaxant.",
+							"Je n'aime pas du tout le karaté.  C'est dangereux ! Je préfère le yoga. C'est relaxant.",
 							"I don't like karate at all. It's dangerous! I prefer yoga. It's relaxing."
 						]
 					],
@@ -67,12 +67,12 @@
 					"phrases": [
 						[
 							"audio/lo7/dialogues/qu-est-ce-que-tu-aimes-faire-pendant-ton-temps-libre.mp3",
-							"Qu'est-ce que tu aimes faire pendant ton temps libre?",
+							"Qu'est-ce que tu aimes faire pendant ton temps libre ?",
 							"What do you like to do in your spare time?"
 						],
 						[
 							"audio/lo7/dialogues/j-aime-danser-et-j-aime-voir-mes-amis-j-aime-regarder-la-tele-aussi-et-toi-tu-aimes-danser.mp3",
-							"J'aime danser et j'aime voir mes amis. J'aime regarder la télé aussi. Et toi, tu aimes danser?",
+							"J'aime danser et j'aime voir mes amis. J'aime regarder la télé aussi. Et toi, tu aimes danser ?",
 							"I like to dance, and I like to see my friends. I like to watch the tv too. And what about you, do you like to dance?"
 						],
 						[
@@ -92,7 +92,7 @@
 					"phrases": [
 						[
 							"audio/lo7/dialogues/quel-est-ton-pays-prefere.mp3",
-							"Quel est ton pays préféré?",
+							"Quel est ton pays préféré ?",
 							"Which is your favourite country?"
 						],
 						[
@@ -112,12 +112,12 @@
 					"phrases": [
 						[
 							"audio/lo7/dialogues/quelle-est-ta-couleur-preferee.mp3",
-							"Quelle est ta couleur préférée?",
+							"Quelle est ta couleur préférée ?",
 							"Which is your favourite colour?"
 						],
 						[
 							"audio/lo7/dialogues/j-aime-le-rose-et-le-violet-et-le-rouge-aussi-mais-je-n-ai-pas-de-couleur-preferee-et-toi.mp3",
-							"J'aime le rose et le violet et le rouge aussi, mais je n'ai pas de couleur préférée. Et toi?",
+							"J'aime le rose et le violet et le rouge aussi, mais je n'ai pas de couleur préférée. Et toi ?",
 							"I like pink and purple and red as well, but I don't have a favourite colour. What about you?"
 						],
 						[
@@ -307,7 +307,7 @@
 			],
 			[
 				"audio/lo7/vocabulary/pourquoi.mp3",
-				"pourquoi?",
+				"pourquoi ?",
 				"why? "
 			],
 			[
@@ -527,7 +527,7 @@
 							"audio": "audio/lo7/exercises/articles/serge-deteste-le-foot.mp3"
 						},
 						{
-							"text": "Tu aimes [*le|la|l'|les] surf?",
+							"text": "Tu aimes [*le|la|l'|les] surf ?",
 							"audio": "audio/lo7/exercises/articles/tu-aimes-le-surf.mp3"
 						},
 						{
@@ -543,23 +543,23 @@
 							"audio": "audio/lo7/exercises/articles/je-prefere-la-musculation.mp3"
 						},
 						{
-							"text": "Vous aimez [*le|la|l'|les] basket?",
+							"text": "Vous aimez [*le|la|l'|les] basket ?",
 							"audio": "audio/lo7/exercises/articles/vous-aimez-le-basket.mp3"
 						},
 						{
-							"text": "Vous préférez [le|*la|l'|les] France ou [le|*la|l'|les] Suisse?",
+							"text": "Vous préférez [le|*la|l'|les] France ou [le|*la|l'|les] Suisse ?",
 							"audio": "audio/lo7/exercises/articles/vous-preferez-la-france-ou-la-suisse.mp3"
 						},
 						{
-							"text": "Je déteste [le|*la|l'|les] pluie!",
+							"text": "Je déteste [le|*la|l'|les] pluie !",
 							"audio": "audio/lo7/exercises/articles/je-deteste-la-pluie.mp3"
 						},
 						{
-							"text": "J'adore [le|*la|l'|les] neige!",
+							"text": "J'adore [le|*la|l'|les] neige !",
 							"audio": "audio/lo7/exercises/articles/j-adore-la-neige.mp3"
 						},
 						{
-							"text": "Tu aimes [le|la|l'|*les] animaux?",
+							"text": "Tu aimes [le|la|l'|*les] animaux ?",
 							"audio": "audio/lo7/exercises/articles/tu-aimes-les-animaux.mp3"
 						}
 					],
@@ -571,7 +571,7 @@
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Drag each word into the correct gap.",
 					"informationTextHTML": "Listen to the text and drag the missing words into the correct gaps. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
@@ -579,7 +579,7 @@
 					"showHintsText": "Hints",
 					"items": [
 						{
-							"text": "Je suis très [sportif]. J'aime beaucoup [le foot]. J'aime aussi le tennis et [le cricket] mais je n'aime pas [du tout] le rugby. C'est [dangereux]! Ma sœur est [active] mais elle n'est pas très sportive. Elle [préfère] le yoga. C'est [relaxant]. Mes parents [aiment] le ski! Ils adorent [la neige]! Moi, je n'aime pas [le froid]! Je [déteste] le shopping! Qu'est-ce que tu [aimes] faire pendant ton [temps] libre?",
+							"text": "Je suis très [sportif]. J'aime beaucoup [le foot]. J'aime aussi le tennis et [le cricket] mais je n'aime pas [du tout] le rugby. C'est [dangereux] ! Ma sœur est [active] mais elle n'est pas très sportive. Elle [préfère] le yoga. C'est [relaxant]. Mes parents [aiment] le ski ! Ils adorent [la neige] ! Moi, je n'aime pas [le froid] ! Je [déteste] le shopping ! Qu'est-ce que tu [aimes] faire pendant ton [temps] libre ?",
 							"audio": "audio/lo7/exercises/listening/lo7-dialogue-1.mp3"
 						}
 					],
@@ -592,9 +592,12 @@
 					"id": "selectExercise2",
 					"congratulationsText": "Excellent!",
 					"informationTextHTML": "Read this poem by Mymi Doinet about the rainbow and choose the correct colour for each line. The coloured strips on the left are shown as hints. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"listenDescriptionText": "Full audio",
 					"layoutMode": "inline-passage",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
+					"soundFile": "audio/lo7/exercises/poem/sept-couleurs-magiques.mp3",
+					"useSequenceAudioController": true,
 					"items": [
 						{
 							"passageAccent": "red",
@@ -625,10 +628,10 @@
 							"text": "[Bleu|Indigo|Jaune|Orangé|*Violet|Vert|Rouge] comme les volcans de Martinique"
 						},
 						{
-							"text": "Qui donc est aussi fantastique?"
+							"text": "Qui donc est aussi fantastique ?"
 						},
 						{
-							"text": "Est-ce un rêve ou est-ce véridique?"
+							"text": "Est-ce un rêve ou est-ce véridique ?"
 						},
 						{
 							"text": "C'est dans le ciel magnifique"

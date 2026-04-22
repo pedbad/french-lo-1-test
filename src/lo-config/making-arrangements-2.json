@@ -2,7 +2,7 @@
 	"settings": {
 		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
-		"introHTML": "<p>This lesson focuses on making plans and talking about holidays and future activities. Through short dialogues, learners practise using the near future tense (aller + infinitive) to describe where they are going (Je vais passer mes vacances en France), what they are going to do (Je vais faire des randonnées), and how they will travel (en avion, à pied, à vélo).</p><p>Vocabulary covers holiday destinations, weather, and travel — including words for transport (en train, en voiture), activities (nager, bronzer, faire du tourisme), and seasonal expressions (en été, en hiver). Learners also encounter cultural and geographical terms like les Caraïbes and francophone.</p><p>Grammar highlights:</p><ul><li>The multiple uses of aller — to go, to ask how someone is (Comment ça va?), and to form the near future tense (Je vais visiter Paris).</li><li>The correct use of faire and il y a in weather expressions, where English would use “to be”: Il fait chaud, Il y a du soleil.</li></ul><p>Overall, this topic enables learners to plan and describe travel experiences, talk about future intentions, and use natural French expressions for weather and holiday activities.</p>"
+		"introHTML": "<p>This lesson focuses on making plans and talking about holidays and future activities. Through short dialogues, learners practise using the near future tense (aller + infinitive) to describe where they are going (Je vais passer mes vacances en France), what they are going to do (Je vais faire des randonnées), and how they will travel (en avion, à pied, à vélo).</p><p>Vocabulary covers holiday destinations, weather, and travel — including words for transport (en train, en voiture), activities (nager, bronzer, faire du tourisme), and seasonal expressions (en été, en hiver). Learners also encounter cultural and geographical terms like les Caraïbes and francophone.</p><p>Grammar highlights:</p><ul><li>The multiple uses of aller — to go, to ask how someone is (Comment ça va ?), and to form the near future tense (Je vais visiter Paris).</li><li>The correct use of faire and il y a in weather expressions, where English would use “to be”: Il fait chaud, Il y a du soleil.</li></ul><p>Overall, this topic enables learners to plan and describe travel experiences, talk about future intentions, and use natural French expressions for weather and holiday activities.</p>"
 	},
 	"dialogues": {
 		"component": "Section",
@@ -15,7 +15,7 @@
 					"phrases": [
 						[
 							"sounds/fr/Où vas-tu passer tes vacances.mp3",
-							"Où vas-tu passer tes vacances?",
+							"Où vas-tu passer tes vacances ?",
 							"Where are you going to spend your holidays?"
 						],
 						[
@@ -25,12 +25,12 @@
 						],
 						[
 							"sounds/fr/Ah oui, où exactement.mp3",
-							"Ah oui, où exactement?",
+							"Ah oui, où exactement ?",
 							"Oh yes, where exactly? "
 						],
 						[
 							"sounds/fr/À Bordeaux. C'est une très belle ville!.mp3",
-							"À Bordeaux. C'est une très belle ville!",
+							"À Bordeaux. C'est une très belle ville !",
 							"In Bordeaux. It's a very beautiful town."
 						]
 					],
@@ -45,37 +45,37 @@
 					"phrases": [
 						[
 							"sounds/fr/Tu vas passer tes vacances en Europe cette année.mp3",
-							"Tu vas passer tes vacances en Europe cette année?",
+							"Tu vas passer tes vacances en Europe cette année ?",
 							"Are you going to spend your holidays in Europe this year?"
 						],
 						[
 							"sounds/fr/Non, je vais passer mes vacances dans les Caraïbes! Je vais aller en Guadeloupe! J'ai de la famille là-bas.mp3",
-							"Non, je vais passer mes vacances dans les Caraïbes! Je vais aller en Guadeloupe! J'ai de la famille là-bas.",
+							"Non, je vais passer mes vacances dans les Caraïbes ! Je vais aller en Guadeloupe ! J'ai de la famille là-bas.",
 							"No, I'm going to spend my holidays in the Caribbean. I'm going to go to Guadeloupe. I've got family there."
 						],
 						[
 							"sounds/fr/Et qu'est-ce que tu vas faire là-bas.mp3",
-							"Et qu'est-ce que tu vas faire là-bas?",
+							"Et qu'est-ce que tu vas faire là-bas ?",
 							"And what are you going to do there?"
 						],
 						[
 							"sounds/fr/Il y a beaucoup de choses à faire. Je vais faire des randonnées. Je vais aller au Jardin botanique. Je vais voir les Chutes du Carbet. Et je vais bronzer sur la plage. Il fait très beau en Guadeloupe!.mp3",
-							"Il y a beaucoup de choses à faire. Je vais faire des randonnées. Je vais aller au Jardin botanique. Je vais voir les Chutes du Carbet. Et je vais bronzer sur la plage. Il fait très beau en Guadeloupe!",
+							"Il y a beaucoup de choses à faire. Je vais faire des randonnées. Je vais aller au Jardin botanique. Je vais voir les Chutes du Carbet. Et je vais bronzer sur la plage. Il fait très beau en Guadeloupe !",
 							"There's lots of things to do. I'm going to go hiking. I'm going to go the Botanic Garden. I'm going to see the Carbet Falls. And I'm going to sunbathe on the beach. The weather's very good in Guadeloupe! "
 						],
 						[
 							"sounds/fr/C'est super! Quelles vacances!.mp3",
-							"C'est super! Quelles vacances!",
+							"C'est super ! Quelles vacances !",
 							"That's super! What a (great) holiday!"
 						],
 						[
 							"sounds/fr/Et toi, tu vas aller où.mp3",
-							"Et toi, tu vas aller où?",
+							"Et toi, tu vas aller où ?",
 							"What about you? Where are you going to go?"
 						],
 						[
 							"sounds/fr/Je ne vais pas partir en vacances cet été. Je vais rester chez moi pour écrire ma thèse!.mp3",
-							"Je ne vais pas partir en vacances cet été. Je vais rester chez moi pour écrire ma thèse!",
+							"Je ne vais pas partir en vacances cet été. Je vais rester chez moi pour écrire ma thèse !",
 							"I'm not going away on holiday this summer, I'm going to stay at home to write my dissertation."
 						]
 					],
@@ -193,7 +193,7 @@
 			],
 			[
 				"sounds/fr/Quel temps fait-il.mp3",
-				"Quel temps fait-il?",
+				"Quel temps fait-il ?",
 				"What's the weather like?"
 			],
 			[
@@ -387,7 +387,7 @@
 							"audio": "sounds/fr/Quand je suis en vacances je ne travaille pas.mp3"
 						},
 						{
-							"text": "je me [détend|*détends|détendent]!",
+							"text": "je me [détend|*détends|détendent] !",
 							"audio": "sounds/fr/Quand je suis en vacances je me détends!.mp3"
 						},
 						{
@@ -480,7 +480,7 @@
 					"blanksType": "phrases",
 					"items": [
 						{
-							"text": "Cette année, je vais [passer] mes vacances au Canada! Je vais [revoir] ma famille!",
+							"text": "Cette année, je vais [passer] mes vacances au Canada ! Je vais [revoir] ma famille !",
 							"audio": "sounds/fr/Cette année, je vais passer mes vacances au Canada! Je vais revoir ma famille!.mp3"
 						},
 						{
@@ -492,7 +492,7 @@
 							"audio": "sounds/fr/Pendant mes vacances, je vais faire du ski et du snow-rafting. J'adore la neige. Je vais retrouver mes amis et on va sortir ensemble. On va dîner au restaurant.mp3"
 						},
 						{
-							"text": "Je vais [aller] au Carnaval de Québec. Je vais bien [m'amuser]! C'est sûr!",
+							"text": "Je vais [aller] au Carnaval de Québec. Je vais bien [m'amuser] ! C'est sûr !",
 							"audio": "sounds/fr/Je vais aller au Carnaval de Québec. Je vais bien m'amuser! C'est sûr!.mp3"
 						}
 					],

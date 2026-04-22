@@ -6,7 +6,7 @@
 			"src": "img/lo9/phoning-in-france.svg",
 			"alt": "Phoning in France illustration"
 		},
-		"introHTML": "<p>This lesson teaches you how to make and answer phone calls in French, including asking for and giving telephone and mobile numbers. You will practise typical telephone phrases such as <em>allô</em>, <em>C&apos;est bien le...?</em>, and <em>Je me suis trompé(e) de numéro</em>, while also learning how French phone numbers are organised and spoken in pairs.</p>",
+		"introHTML": "<p>This lesson teaches you how to make and answer phone calls in French, including asking for and giving telephone and mobile numbers. You will practise typical telephone phrases such as <em>allô</em>, <em>C&apos;est bien le... ?</em>, and <em>Je me suis trompé(e) de numéro</em>, while also learning how French phone numbers are organised and spoken in pairs.</p>",
 		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Ask for and give a telephone or mobile number in French.</li><li>Recognise and respond to common telephone expressions for checking, correcting, and ending a call politely.</li><li>Understand the main French landline and mobile prefixes and how numbers are grouped when spoken aloud.</li><li>Use <em>bien</em> to confirm information in expressions such as <em>C&apos;est bien ça</em>.</li><li>Pronounce the numbers <em>cinq</em>, <em>six</em>, <em>sept</em>, <em>huit</em>, <em>neuf</em>, and <em>dix</em> more confidently in connected speech.</li></ul>"
 	},
 	"dialogues": {
@@ -24,7 +24,7 @@
 					"phrases": [
 						[
 							"audio/lo9/dialogues/phraseTable1/001-quel-est-ton-numero-de-portable.mp3",
-							"Quel est ton numéro de portable?",
+							"Quel est ton numéro de portable ?",
 							"What&apos;s your mobile number?"
 						],
 						[
@@ -34,7 +34,7 @@
 						],
 						[
 							"audio/lo9/dialogues/phraseTable1/003-quel-est-votre-numero-de-telephone-sil-vous-plait-madame.mp3",
-							"Quel est votre numéro de téléphone s&apos;il vous plaît Madame?",
+							"Quel est votre numéro de téléphone s&apos;il vous plaît Madame ?",
 							"What&apos;s your phone number please, Madam?"
 						],
 						[
@@ -54,27 +54,27 @@
 					"phrases": [
 						[
 							"audio/lo9/dialogues/phraseTable2/001-oui-allo.mp3",
-							"Oui, allô?",
+							"Oui, allô ?",
 							"Yes, hello?"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable2/002-bonjour-madame-cest-bien-le-01-23-08-09-15.mp3",
-							"Bonjour Madame, c&apos;est bien le 01 23 08 09 15?",
+							"Bonjour Madame, c&apos;est bien le 01 23 08 09 15 ?",
 							"Hello Madam, this is 01 23 08 09 15, isn&apos;t it?"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable2/003-ah-non-je-suis-desolee-il-y-a-une-erreur.mp3",
-							"Ah non, je suis désolée, il y a une erreur! C&apos;est le 01 23 08 08 16.",
+							"Ah non, je suis désolée, il y a une erreur ! C&apos;est le 01 23 08 08 16.",
 							"Oh no, I&apos;m sorry, there&apos;s a mistake. This is 01 23 08 08 16."
 						],
 						[
 							"audio/lo9/dialogues/phraseTable2/004-oh-excusez-moi-au-revoir-madame.mp3",
-							"Oh! Excusez-moi! Au revoir Madame!",
+							"Oh ! Excusez-moi ! Au revoir Madame !",
 							"Oh, excuse me! Goodbye!"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable2/005-au-revoir-monsieur.mp3",
-							"Au revoir Monsieur!",
+							"Au revoir Monsieur !",
 							"Goodbye!"
 						]
 					],
@@ -89,12 +89,12 @@
 					"phrases": [
 						[
 							"audio/lo9/dialogues/phraseTable3/001-allo-oui.mp3",
-							"Allô, oui?",
+							"Allô, oui ?",
 							"Hello?"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable3/002-bonjour-cest-bien-le-01-23-08-09-15.mp3",
-							"Bonjour, c&apos;est bien le 01 23 08 09 15?",
+							"Bonjour, c&apos;est bien le 01 23 08 09 15 ?",
 							"Hello, this is 01 23 08 09 15, isn&apos;t it?"
 						],
 						[
@@ -104,7 +104,7 @@
 						],
 						[
 							"audio/lo9/dialogues/phraseTable3/004-andre-est-la-sil-vous-plait.mp3",
-							"André est là, s&apos;il vous plaît?",
+							"André est là, s&apos;il vous plaît ?",
 							"Is André there please?"
 						],
 						[
@@ -114,27 +114,27 @@
 						],
 						[
 							"audio/lo9/dialogues/phraseTable3/006-andre-tu-veux-prendre-un-verre-avec-moi-ce-soir.mp3",
-							"André, tu veux prendre un verre avec moi ce soir?",
+							"André, tu veux prendre un verre avec moi ce soir ?",
 							"André, do you want to have a drink with me this evening?"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable3/007-oui-je-veux-bien-a-quelle-heure.mp3",
-							"Oui, je veux bien. À quelle heure?",
+							"Oui, je veux bien. À quelle heure ?",
 							"Yes, I&apos;d like that. At what time?"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable3/008-a-huit-heures.mp3",
-							"À huit heures?",
+							"À huit heures ?",
 							"At 8 o&apos;clock?"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable3/009-daccord-a-ce-soir.mp3",
-							"D&apos;accord! À ce soir!",
+							"D&apos;accord ! À ce soir !",
 							"Alright! See you this evening!"
 						],
 						[
 							"audio/lo9/dialogues/phraseTable3/010-a-plus-tard.mp3",
-							"À plus tard!",
+							"À plus tard !",
 							"See you later!"
 						]
 					],
@@ -198,12 +198,12 @@
 			],
 			[
 				"audio/lo9/vocabulary/010-a-demain.mp3",
-				"À demain!",
+				"À demain !",
 				"See you tomorrow!"
 			],
 			[
 				"audio/lo9/vocabulary/011-a-plus-tard-a-plus.mp3",
-				"À plus tard! / À plus!",
+				"À plus tard ! / À plus !",
 				"See you later!"
 			],
 			[
@@ -308,52 +308,52 @@
 					],
 					"phrases": [
 						[
-							"Quel est ton numéro de portable?",
+							"Quel est ton numéro de portable ?",
 							"C&apos;est le [06 10 15 24 35]",
 							"audio/lo9/exercises/typedTransformExercise1/001-cest-le-06-10-15-24-35.mp3"
 						],
 						[
-							"Quel est ton numéro de portable?",
+							"Quel est ton numéro de portable ?",
 							"C&apos;est le [07 12 18 36 47]",
 							"audio/lo9/exercises/typedTransformExercise1/002-cest-le-07-12-18-36-47.mp3"
 						],
 						[
-							"Quel est votre numéro de portable?",
+							"Quel est votre numéro de portable ?",
 							"C&apos;est le [07 26 19 49 50]",
 							"audio/lo9/exercises/typedTransformExercise1/003-cest-le-07-26-19-49-50.mp3"
 						],
 						[
-							"Quel est ton numéro de portable?",
+							"Quel est ton numéro de portable ?",
 							"C&apos;est le [06 28 21 53 62]",
 							"audio/lo9/exercises/typedTransformExercise1/004-cest-le-06-28-21-53-62.mp3"
 						],
 						[
-							"Quel est votre numéro de téléphone?",
+							"Quel est votre numéro de téléphone ?",
 							"C&apos;est le [02 30 43 53 67]",
 							"audio/lo9/exercises/typedTransformExercise1/005-cest-le-02-30-43-53-67.mp3"
 						],
 						[
-							"Quel est votre numéro de téléphone?",
+							"Quel est votre numéro de téléphone ?",
 							"C&apos;est le [05 31 46 60 68]",
 							"audio/lo9/exercises/typedTransformExercise1/006-cest-le-05-31-46-60-68.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone?",
+							"Quel est ton numéro de téléphone ?",
 							"C&apos;est le [03 44 55 66 70]",
 							"audio/lo9/exercises/typedTransformExercise1/007-cest-le-03-44-55-66-70.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone?",
+							"Quel est ton numéro de téléphone ?",
 							"C&apos;est le [01 59 69 62 73]",
 							"audio/lo9/exercises/typedTransformExercise1/008-cest-le-01-59-69-62-73.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone?",
+							"Quel est ton numéro de téléphone ?",
 							"C&apos;est le [04 66 71 77 80]",
 							"audio/lo9/exercises/typedTransformExercise1/009-cest-le-04-66-71-77-80.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone?",
+							"Quel est ton numéro de téléphone ?",
 							"C&apos;est le [01 88 11 13 90]",
 							"audio/lo9/exercises/typedTransformExercise1/010-cest-le-01-88-11-13-90.mp3"
 						]
@@ -365,51 +365,51 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"instructionsText": "Listen to each exchange and choose the correct word or form.",
 					"informationTextHTML": "Listen carefully and complete each telephone exchange with the correct option. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"cheatText": "Show answers",
 					"items": [
 						{
-							"text": "Allô, oui?",
+							"text": "Allô, oui ?",
 							"audio": "audio/lo9/exercises/selectExercise1/001-allo-oui.mp3"
 						},
 						{
-							"text": "Bonjour Madame, c&apos;est [combien|*bien] le 02 25 09 10 44?",
+							"text": "Bonjour Madame, c&apos;est [combien|*bien] le 02 25 09 10 44 ?",
 							"audio": "audio/lo9/exercises/selectExercise1/002-bonjour-madame-cest-bien-le-02-25-09-10-44.mp3"
 						},
 						{
-							"text": "Ah non, Monsieur, je suis [désolé|*désolée]. Il y a [un|*une] erreur! C&apos;est [*le|la] 02 25 09 10 47.",
+							"text": "Ah non, Monsieur, je suis [désolé|*désolée]. Il y a [un|*une] erreur ! C&apos;est [*le|la] 02 25 09 10 47.",
 							"audio": "audio/lo9/exercises/selectExercise1/003-ah-non-monsieur-je-suis-desolee-il-y-a-une-erreur.mp3"
 						},
 						{
-							"text": "Oh! Excusez-moi! Au revoir Madame!",
+							"text": "Oh ! Excusez-moi ! Au revoir Madame !",
 							"audio": "audio/lo9/exercises/selectExercise1/004-oh-excusez-moi-au-revoir-madame.mp3"
 						},
 						{
-							"text": "Au revoir Monsieur!",
+							"text": "Au revoir Monsieur !",
 							"audio": "audio/lo9/exercises/selectExercise1/005-au-revoir-monsieur.mp3"
 						},
 						{},
 						{
-							"text": "Allô, oui?",
+							"text": "Allô, oui ?",
 							"audio": "audio/lo9/exercises/selectExercise1/001-allo-oui.mp3"
 						},
 						{
-							"text": "Bonjour Madame, [*c&apos;est|ces] bien le 03 25 09 13 45?",
+							"text": "Bonjour Madame, [*c&apos;est|ces] bien le 03 25 09 13 45 ?",
 							"audio": "audio/lo9/exercises/selectExercise1/006-bonjour-madame-cest-bien-le-03-25-09-13-45.mp3"
 						},
 						{
-							"text": "Ah non, Madame, je suis [*désolée|désolées]. Il y a une [horreur|*erreur]! C&apos;est [*le|les] 03 26 09 13 47.",
+							"text": "Ah non, Madame, je suis [*désolée|désolées]. Il y a une [horreur|*erreur] ! C&apos;est [*le|les] 03 26 09 13 47.",
 							"audio": "audio/lo9/exercises/selectExercise1/007-ah-non-madame-je-suis-desolee-il-y-a-une-erreur.mp3"
 						},
 						{
-							"text": "Oh! Excusez-moi! Au revoir Madame!",
+							"text": "Oh ! Excusez-moi ! Au revoir Madame !",
 							"audio": "audio/lo9/exercises/selectExercise1/004-oh-excusez-moi-au-revoir-madame.mp3"
 						},
 						{
-							"text": "Au revoir Madame!",
+							"text": "Au revoir Madame !",
 							"audio": "audio/lo9/exercises/selectExercise1/008-au-revoir-madame.mp3"
 						}
 					],
@@ -428,11 +428,11 @@
 					"blanksType": "phrases",
 					"items": [
 						{
-							"text": "Allô, oui?",
+							"text": "Allô, oui ?",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/001-allo-oui.mp3"
 						},
 						{
-							"text": "Bonjour, c&apos;est bien le 05 24 07 19 55?",
+							"text": "Bonjour, c&apos;est bien le 05 24 07 19 55 ?",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/002-bonjour-cest-bien-le-05-24-07-19-55.mp3"
 						},
 						{
@@ -440,7 +440,7 @@
 							"audio": "audio/lo9/exercises/draggableFillGaps1/003-oui-cest-bien-ca.mp3"
 						},
 						{
-							"text": "Dominique est là, s&apos;il vous plaît?",
+							"text": "Dominique est là, s&apos;il vous plaît ?",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/004-dominique-est-la-sil-vous-plait.mp3"
 						},
 						{
@@ -448,27 +448,27 @@
 							"audio": "audio/lo9/exercises/draggableFillGaps1/005-oui-cest-dominique-a-lappareil.mp3"
 						},
 						{
-							"text": "Dominique, tu veux prendre un verre avec moi ce soir?",
+							"text": "Dominique, tu veux prendre un verre avec moi ce soir ?",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/006-dominique-tu-veux-prendre-un-verre-avec-moi-ce-soir.mp3"
 						},
 						{
-							"text": "[Oui, je veux bien. À quelle heure?]",
+							"text": "[Oui, je veux bien. À quelle heure ?]",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/007-oui-je-veux-bien-a-quelle-heure.mp3"
 						},
 						{
-							"text": "À huit heures?",
+							"text": "À huit heures ?",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/008-a-huit-heures.mp3"
 						},
 						{
-							"text": "[Oui, d&apos;accord. Tu veux aller où?]",
+							"text": "[Oui, d&apos;accord. Tu veux aller où ?]",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/009-oui-daccord-tu-veux-aller-ou.mp3"
 						},
 						{
-							"text": "Au nouveau café au centre-ville?",
+							"text": "Au nouveau café au centre-ville ?",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/010-au-nouveau-cafe-au-centre-ville.mp3"
 						},
 						{
-							"text": "[Oui, très bien! J&apos;aime beaucoup le nouveau café.]",
+							"text": "[Oui, très bien ! J&apos;aime beaucoup le nouveau café.]",
 							"audio": "audio/lo9/exercises/draggableFillGaps1/011-oui-tres-bien-jaime-beaucoup-le-nouveau-cafe.mp3"
 						}
 					],

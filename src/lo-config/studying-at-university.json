@@ -2,7 +2,7 @@
 	"settings": {
 		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
-		"introHTML": "<p>This lesson focuses on talking about university life, studies, and academic routines. Through realistic dialogues, learners practise describing their courses (Je suis étudiant en mathématiques), level of study (Je fais une licence / un master / un doctorat), and workload (J’ai un emploi du temps chargé). The conversations also include common student experiences like attending lectures (cours magistraux), writing essays (dissertations), and feeling tired or stressed from academic demands.</p><p>The vocabulary covers university subjects, degrees, and academic terms — for example, la biologie, le droit, la thèse, le séminaire, la fac d’architecture — along with adjectives to express opinions and feelings (intéressant, fatigant, stressant, fascinant).</p><p>Grammar explains:</p><ul><li>The idiomatic structure with comme to ask “what kind” (Qu’est-ce que tu fais comme études?).</li><li>The irregular verbs devoir (“to have to”) and pouvoir (“to be able to”) used with infinitives (Je dois partir, Je peux répondre).</li><li>The difference between present participles (-ant, e.g. intéressant, motivant) and past participles (-é, e.g. fatigué, fasciné), both of which can function as adjectives and must agree in gender and number.</li></ul><p>Overall, the topic helps learners describe their university studies, academic workload, and related emotions, while mastering essential verbs and idiomatic expressions for student life in French.</p>"
+		"introHTML": "<p>This lesson focuses on talking about university life, studies, and academic routines. Through realistic dialogues, learners practise describing their courses (Je suis étudiant en mathématiques), level of study (Je fais une licence / un master / un doctorat), and workload (J’ai un emploi du temps chargé). The conversations also include common student experiences like attending lectures (cours magistraux), writing essays (dissertations), and feeling tired or stressed from academic demands.</p><p>The vocabulary covers university subjects, degrees, and academic terms — for example, la biologie, le droit, la thèse, le séminaire, la fac d’architecture — along with adjectives to express opinions and feelings (intéressant, fatigant, stressant, fascinant).</p><p>Grammar explains:</p><ul><li>The idiomatic structure with comme to ask “what kind” (Qu’est-ce que tu fais comme études ?).</li><li>The irregular verbs devoir (“to have to”) and pouvoir (“to be able to”) used with infinitives (Je dois partir, Je peux répondre).</li><li>The difference between present participles (-ant, e.g. intéressant, motivant) and past participles (-é, e.g. fatigué, fasciné), both of which can function as adjectives and must agree in gender and number.</li></ul><p>Overall, the topic helps learners describe their university studies, academic workload, and related emotions, while mastering essential verbs and idiomatic expressions for student life in French.</p>"
 	},
 	"dialogues": {
 		"component": "Section",
@@ -15,7 +15,7 @@
 					"phrases": [
 						[
 							"sounds/fr/Qu'est-ce que tu fais comme études (m).mp3",
-							"Qu'est-ce que tu fais comme études?",
+							"Qu'est-ce que tu fais comme études ?",
 							"What are you studying?"
 						],
 						[
@@ -25,7 +25,7 @@
 						],
 						[
 							"sounds/fr/Tu fais un master.mp3",
-							"Tu fais un master?",
+							"Tu fais un master ?",
 							"Are you doing a masters?"
 						],
 						[
@@ -35,7 +35,7 @@
 						],
 						[
 							"sounds/fr/Tu es en première année.mp3",
-							"Tu es en première année?",
+							"Tu es en première année ?",
 							"Are you in the first year?"
 						],
 						[
@@ -50,12 +50,12 @@
 						],
 						[
 							"sounds/fr/Et ton copain Il étudie l'architecture aussi.mp3",
-							"Et ton copain? Il étudie l'architecture aussi?",
+							"Et ton copain ? Il étudie l'architecture aussi ?",
 							"What about your boyfriend? Is he studying architecture too?"
 						],
 						[
 							"sounds/fr/Non, il est doctorant. Il fait un doctorat en langues médiévales. Il écrit sa thèse. Il est très occupé. Il passe des heures à la bibliothèque!.mp3",
-							"Non, il est doctorant. Il fait un doctorat en langues médiévales. Il écrit sa thèse. Il est très occupé. Il passe des heures à la bibliothèque!",
+							"Non, il est doctorant. Il fait un doctorat en langues médiévales. Il écrit sa thèse. Il est très occupé. Il passe des heures à la bibliothèque !",
 							"No, he's a PhD student. He's doing a PhD in medieval languages. He's writing his dissertation. He's very busy. He's spending hours at the library!"
 						]
 					],
@@ -70,37 +70,37 @@
 					"phrases": [
 						[
 							"sounds/fr/Alice, ça va Tu as l'air très fatigué aujourd'hui!.mp3",
-							"Alice, ça va? Tu as l'air très fatigué aujourd'hui!",
+							"Alice, ça va ? Tu as l'air très fatigué aujourd'hui !",
 							"Alice, are you alright? You look very tired today!"
 						],
 						[
 							"sounds/fr/Non, ça ne va pas aujourd'hui! Je suis très fatiguée.mp3",
-							"Non, ça ne va pas aujourd'hui! Je suis très fatiguée.",
+							"Non, ça ne va pas aujourd'hui ! Je suis très fatiguée.",
 							"No, I'm not alright today. I'm very tired."
 						],
 						[
 							"sounds/fr/pourquoi.mp3",
-							"Pourquoi?",
+							"Pourquoi ?",
 							"Why?"
 						],
 						[
 							"sounds/fr/Cette semaine j'ai cinq cours magistraux, deux séminaires et deux tutorats! Et beaucoup de lecture!.mp3",
-							"Cette semaine j'ai cinq cours magistraux, deux séminaires et deux tutorats! Et beaucoup de lecture!",
+							"Cette semaine j'ai cinq cours magistraux, deux séminaires et deux tutorats ! Et beaucoup de lecture !",
 							"This week I've got five lectures, two seminars and two tutorials. And lots of reading!"
 						],
 						[
 							"sounds/fr/C'est vraiment beaucoup! Tu as un emploi du temps très chargé, Alice!.mp3",
-							"C'est vraiment beaucoup! Tu as un emploi du temps très chargé, Alice!",
+							"C'est vraiment beaucoup ! Tu as un emploi du temps très chargé, Alice !",
 							"That really is a lot! You've got a very heavy timetable, Alice!"
 						],
 						[
 							"sounds/fr/Oui, et je dois écrire deux dissertations aussi! C'est trop! Je suis très stressée!.mp3",
-							"Oui, et je dois écrire deux dissertations aussi! C'est trop! Je suis très stressée!",
+							"Oui, et je dois écrire deux dissertations aussi ! C'est trop ! Je suis très stressée !",
 							"Yes, and I have to write two essays as well. It's too much! I'm very stressed!"
 						],
 						[
 							"sounds/fr/Mais ça va aller, Alice! C'est bientôt les vacances et tu peux te reposer!.mp3",
-							"Mais ça va aller, Alice! C'est bientôt les vacances et tu peux te reposer!",
+							"Mais ça va aller, Alice ! C'est bientôt les vacances et tu peux te reposer !",
 							"But it 'll be alright, Alice! It'll soon be the holidays, and you can have a rest!"
 						]
 					],
@@ -160,12 +160,12 @@
 			],
 			[
 				"sounds/fr/Qu'est-ce que tu fais comme études Qu'est-ce que vous faites comme études.mp3",
-				"Qu'est-ce que tu fais comme études? Qu'est-ce que vous faites comme études?",
+				"Qu'est-ce que tu fais comme études ? Qu'est-ce que vous faites comme études ?",
 				"What are you studying? "
 			],
 			[
 				"sounds/fr/Tu fais quoi comme études Vous faites quoi comme études.mp3",
-				"Tu fais quoi comme études? Vous faites quoi comme études? (colloquial)",
+				"Tu fais quoi comme études ? Vous faites quoi comme études ? (colloquial)",
 				"What are you studying?"
 			],
 			[
@@ -382,13 +382,13 @@
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Drag the words in the box to fill in the gaps in the conversation below.",
 					"showHintsText": "Hints",
 					"items": [
 						{
-							"text": "Qu'est-ce que tu fais [comme] études?",
+							"text": "Qu'est-ce que tu fais [comme] études ?",
 							"audio": "sounds/fr/Qu'est-ce que tu fais comme études (m).mp3"
 						},
 						{
@@ -396,7 +396,7 @@
 							"audio": "sounds/fr/Je suis étudiante en politique.mp3"
 						},
 						{
-							"text": "Tu fais une [licence]?",
+							"text": "Tu fais une [licence] ?",
 							"audio": "sounds/fr/Tu fais une licence.mp3"
 						},
 						{
@@ -404,7 +404,7 @@
 							"audio": "sounds/fr/Non, je fais un master.mp3"
 						},
 						{
-							"text": "Tu es en [quelle] année?",
+							"text": "Tu es en [quelle] année ?",
 							"audio": "sounds/fr/Tu es en quelle année.mp3"
 						},
 						{
@@ -416,11 +416,11 @@
 							"audio": "sounds/fr/Je fais une fac d'anthropologie. Je suis en troisième année de licence.mp3"
 						},
 						{
-							"text": "Et ta [copine]? Elle étudie l' [anthropologie] aussi?",
+							"text": "Et ta [copine] ? Elle étudie l' [anthropologie] aussi ?",
 							"audio": "sounds/fr/Et ta copine Elle étudie l'anthropologie aussi.mp3"
 						},
 						{
-							"text": "Non, elle est [doctorante]. Elle fait un doctorat en histoire [médiévale]. Elle écrit sa [thèse]. Elle est très [occupée]. Elle passe des heures à la [bibliothèque]!",
+							"text": "Non, elle est [doctorante]. Elle fait un doctorat en histoire [médiévale]. Elle écrit sa [thèse]. Elle est très [occupée]. Elle passe des heures à la [bibliothèque] !",
 							"audio": "sounds/fr/Non, elle est doctorante. Elle fait un doctorat en histoire médiévale. Elle écrit sa thèse. Elle est très occupée. Elle passe des heures à la bibliothèque!.mp3"
 						}
 					],
@@ -436,42 +436,42 @@
 					"phrases": [
 						[
 							"What (sort of) cheese do you like?",
-							"Qu'est-ce que tu [aimes] comme [fromage]?",
+							"Qu'est-ce que tu [aimes] comme [fromage] ?",
 							"sounds/fr/Qu'est-ce que tu aimes comme fromage.mp3"
 						],
 						[
 							"What (sort of) films do you like?",
-							"Qu'est-ce que tu [aimes] comme [films]?",
+							"Qu'est-ce que tu [aimes] comme [films] ?",
 							"sounds/fr/Qu'est-ce que tu aimes comme films.mp3"
 						],
 						[
 							"What (sort of) music do you like?",
-							"Qu'est-ce que vous [aimez] comme [musique]?",
+							"Qu'est-ce que vous [aimez] comme [musique] ?",
 							"sounds/fr/Qu'est-ce que vous aimez comme musique.mp3"
 						],
 						[
 							"What wine do you prefer?",
-							"Qu'est-ce que vous [préférez] comme [vin]?",
+							"Qu'est-ce que vous [préférez] comme [vin] ?",
 							"sounds/fr/Qu'est-ce que vous préférez comme vin.mp3"
 						],
 						[
 							"What sports do you do?",
-							"Qu'est-ce que tu [fais] comme [sports]?",
+							"Qu'est-ce que tu [fais] comme [sports] ?",
 							"sounds/fr/Qu'est-ce que tu fais comme sports.mp3"
 						],
 						[
 							"What activities do the children do?",
-							"Qu'est-ce que les enfants [font] comme [activités]?",
+							"Qu'est-ce que les enfants [font] comme [activités] ?",
 							"sounds/fr/Qu'est-ce que les enfants font comme activités.mp3"
 						],
 						[
 							"What is he studying?",
-							"Qu'est-ce qu'il [fait] comme [études]?",
+							"Qu'est-ce qu'il [fait] comme [études] ?",
 							"sounds/fr/Qu'est-ce qu'il fait comme études.mp3"
 						],
 						[
 							"What about you? What are you studying?",
-							"Et toi? Qu'est-ce que tu [fais] comme [études]?",
+							"Et toi ? Qu'est-ce que tu [fais] comme [études] ?",
 							"sounds/fr/Et toi Qu'est-ce que tu fais comme études.mp3"
 						]
 					],
@@ -531,13 +531,13 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the time that you hear.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answers",
 					"items": [
 						{
-							"text": "Je [*peux|peut|pouvons|pouvez|peuvent] ouvrir la fenêtre, s'il vous plaît?",
+							"text": "Je [*peux|peut|pouvons|pouvez|peuvent] ouvrir la fenêtre, s'il vous plaît ?",
 							"audio": "sounds/fr/Je peux ouvrir la fenêtre, s'il vous plaît.mp3"
 						},
 						{

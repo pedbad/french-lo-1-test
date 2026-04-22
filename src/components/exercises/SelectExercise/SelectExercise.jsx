@@ -1,5 +1,6 @@
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
+import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { AudioClip, IconButton } from "@/components/media";
 import {
 	Select,
@@ -330,6 +331,7 @@ export class SelectExercise extends React.PureComponent {
 			rowAudioStatus = {},
 			shuffledItems = [],
 			soundFile,
+			useSequenceAudioController = false,
 			values = {},
 		} = this.state;
 
@@ -563,11 +565,17 @@ export class SelectExercise extends React.PureComponent {
 				) : null}
 
 				{listenDescriptionText && soundFile ? (
-					<AudioClip
-						id={`listen-${id}`}
-						listenText={listenDescriptionText}
-						soundFile={soundFile}
-					/>
+					useSequenceAudioController ? (
+						<div className="space-y-1">
+							<SequenceAudioController sources={[resolveAsset(soundFile)]} />
+						</div>
+					) : (
+						<AudioClip
+							id={`listen-${id}`}
+							listenText={listenDescriptionText}
+							soundFile={soundFile}
+						/>
+					)
 				) : null}
 
 				{layoutMode === "inline-passage" ? (

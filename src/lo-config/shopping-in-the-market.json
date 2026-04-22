@@ -2,7 +2,7 @@
 	"settings": {
 		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
-		"introHTML": "<p>This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities (Donnez-moi deux kilos de pommes de terre, s’il vous plaît), checking prices (C’est combien?), and responding to questions like Avec ça? or C’est tout? It introduces key vocabulary for shops, food items, quantities, and packaging, such as le marché, la boulangerie, du fromage, une barquette de framboises, un kilo de pommes.</p><p>Grammar focuses on the verb aller (“to go”) and the use of partitive and quantity articles (du, de la, de l’, des, de, d’) to express amounts and negation (Je n’ai pas de pain). It also explains plural noun formation, including irregular endings like -eau → -eaux and -au → -aux.</p><p>Pronunciation practice contrasts the vowel sounds u and ou, helping learners distinguish between similar words like tu / tout and pur / pour. Overall, the topic builds confidence in conducting everyday shopping interactions naturally in French.</p>"
+		"introHTML": "<p>This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities (Donnez-moi deux kilos de pommes de terre, s’il vous plaît), checking prices (C’est combien ?), and responding to questions like Avec ça ? or C’est tout ? It introduces key vocabulary for shops, food items, quantities, and packaging, such as le marché, la boulangerie, du fromage, une barquette de framboises, un kilo de pommes.</p><p>Grammar focuses on the verb aller (“to go”) and the use of partitive and quantity articles (du, de la, de l’, des, de, d’) to express amounts and negation (Je n’ai pas de pain). It also explains plural noun formation, including irregular endings like -eau → -eaux and -au → -aux.</p><p>Pronunciation practice contrasts the vowel sounds u and ou, helping learners distinguish between similar words like tu / tout and pur / pour. Overall, the topic builds confidence in conducting everyday shopping interactions naturally in French.</p>"
 	},
 	"dialogues": {
 		"component": "Section",
@@ -16,7 +16,7 @@
 					"phrases": [
 						[
 							"sounds/fr/Qu'est-ce que tu fais aujourd'hui.mp3",
-							"Qu'est-ce que tu fais aujourd'hui?",
+							"Qu'est-ce que tu fais aujourd'hui ?",
 							"What are you doing today?"
 						],
 						[
@@ -26,7 +26,7 @@
 						],
 						[
 							"sounds/fr/Tu vas au supermarché.mp3",
-							"Tu vas au supermarché?",
+							"Tu vas au supermarché ?",
 							"Are you going to the supermarket?"
 						],
 						[
@@ -36,7 +36,7 @@
 						],
 						[
 							"sounds/fr/C'est bien!.mp3",
-							"C'est bien!",
+							"C'est bien !",
 							"That's good."
 						],
 						[
@@ -46,7 +46,7 @@
 						],
 						[
 							"sounds/fr/Tu as de la chance! Si nous voulons du pain, Marc va à la boulangerie au bout de la rue, mais il n'y a pas de marché près de chez nous. Le samedi matin, Marc et moi allons au supermarché.mp3",
-							"Tu as de la chance! Si nous voulons du pain, Marc va à la boulangerie au bout de la rue, mais il n'y a pas de marché près de chez nous. Le samedi matin, Marc et moi allons au supermarché.",
+							"Tu as de la chance ! Si nous voulons du pain, Marc va à la boulangerie au bout de la rue, mais il n'y a pas de marché près de chez nous. Le samedi matin, Marc et moi allons au supermarché.",
 							"You're lucky. If we want bread, Marc goes to the baker's at the end of the road, but there isn't a market near us. On Saturday mornings Marc and I go to the supermarket."
 						]
 					],
@@ -61,7 +61,7 @@
 					"phrases": [
 						[
 							"sounds/fr/Madame, bonjour! Vous désirez.mp3",
-							"Madame, bonjour! Vous désirez?",
+							"Madame, bonjour ! Vous désirez ?",
 							"Hello madam! What can I get you?"
 						],
 						[
@@ -71,7 +71,7 @@
 						],
 						[
 							"sounds/fr/Avec ça.mp3",
-							"Avec ça?",
+							"Avec ça ?",
 							"Anything else?"
 						],
 						[
@@ -81,12 +81,12 @@
 						],
 						[
 							"sounds/fr/Voilà! C'est tout.mp3",
-							"Voilà! C'est tout?",
+							"Voilà ! C'est tout ?",
 							"Here you are. Is that everything?"
 						],
 						[
 							"sounds/fr/Les melons, c'est combien.mp3",
-							"Les melons, c'est combien?",
+							"Les melons, c'est combien ?",
 							"How much are the melons?"
 						],
 						[
@@ -96,12 +96,12 @@
 						],
 						[
 							"sounds/fr/Je vais prendre un melon, et puis c'est tout!.mp3",
-							"Je vais prendre un melon, et puis c'est tout!",
+							"Je vais prendre un melon, et puis c'est tout !",
 							"I'll take one melon and then that's everything."
 						],
 						[
 							"sounds/fr/Bien! Ça fait 10 euros 50 s'il vous plaît Madame!.mp3",
-							"Bien! Ça fait 10 &euro; 50 s'il vous plaît Madame!",
+							"Bien ! Ça fait 10 &euro; 50 s'il vous plaît Madame !",
 							"Good! That comes to 10 &euro; 50 please madam."
 						]
 					],
@@ -185,22 +185,22 @@
 			],
 			[
 				"sounds/fr/Les pommes de terre, c'est combien le kilo.mp3",
-				"Les pommes de terre, c'est combien le kilo?",
+				"Les pommes de terre, c'est combien le kilo ?",
 				"How much is a kilo of potatoes?"
 			],
 			[
 				"sounds/fr/Les concombres, c'est combien la pièce.mp3",
-				"Les concombres, c'est combien la pièce?",
+				"Les concombres, c'est combien la pièce ?",
 				"How much is a cucumber?"
 			],
 			[
 				"sounds/fr/C'est tout Oui, c'est tout.mp3",
-				"C'est tout? Oui, c'est tout.",
+				"C'est tout ? Oui, c'est tout.",
 				"Is that all / everything? Yes, that's all / everything."
 			],
 			[
 				"sounds/fr/Avec ça Avec ceci.mp3",
-				"Avec ça? Avec ceci?",
+				"Avec ça ? Avec ceci ?",
 				"Anything else?"
 			],
 			[
@@ -337,7 +337,7 @@
 							"audio": "sounds/fr/Mes voisins vont au supermarché.mp3"
 						},
 						{
-							"text": "Tu [vais|*vas|va|allons|allez|vont] à la boulangerie?",
+							"text": "Tu [vais|*vas|va|allons|allez|vont] à la boulangerie ?",
 							"audio": "sounds/fr/Tu vas à la boulangerie.mp3"
 						},
 						{
@@ -353,7 +353,7 @@
 							"audio": "sounds/fr/Je vais au centre sportif.mp3"
 						},
 						{
-							"text": "Thomas et Louise, vous [vais|vas|va|allons|*allez|vont] au centre-ville?",
+							"text": "Thomas et Louise, vous [vais|vas|va|allons|*allez|vont] au centre-ville ?",
 							"audio": "sounds/fr/Thomas et Louise, vous allez au centre-ville.mp3"
 						},
 						{
@@ -464,7 +464,7 @@
 						],
 						[
 							"",
-							"[Avec ça?]",
+							"[Avec ça ?]",
 							"sounds/fr/Avec ça.mp3"
 						],
 						[
@@ -484,7 +484,7 @@
 						],
 						[
 							"",
-							"[C'est tout?]",
+							"[C'est tout ?]",
 							"sounds/fr/C'est tout.mp3"
 						],
 						[
@@ -494,12 +494,12 @@
 						],
 						[
 							"",
-							"[Voilà!]",
+							"[Voilà !]",
 							"sounds/fr/Voilà! (male).mp3"
 						],
 						[
 							"",
-							"[Les melons, c'est combien la pièce?]",
+							"[Les melons, c'est combien la pièce ?]",
 							"sounds/fr/Les melons, c'est combien la pièce.mp3"
 						],
 						[
@@ -514,12 +514,12 @@
 						],
 						[
 							"",
-							"[Avec ça?]",
+							"[Avec ça ?]",
 							"sounds/fr/Avec ça.mp3"
 						],
 						[
 							"",
-							"[C'est tout merci!]",
+							"[C'est tout merci !]",
 							"sounds/fr/C'est tout merci!.mp3"
 						]
 					],

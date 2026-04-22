@@ -20,7 +20,7 @@
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/001-o-u-habites-tuo-habites-tu.mp3",
-							"Où habites-tu?",
+							"Où habites-tu ?",
 							"Where do you live?"
 						],
 						[
@@ -30,7 +30,7 @@
 						],
 						[
 							"/audio/lo4/dialogues/phraseTable1/003-o-u-exactemento-exactement.mp3",
-							"Où exactement?",
+							"Où exactement ?",
 							"Where exactly?"
 						],
 						[
@@ -55,7 +55,7 @@
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/006-o-u-habitez-vouso-habitez-vous.mp3",
-							"Où habitez-vous?",
+							"Où habitez-vous ?",
 							"Where do you live?"
 						],
 						[
@@ -80,12 +80,12 @@
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/009-o-u-se-trouve-la-cath-edrale-de-notre-dameo-se-trouve-la-cath-drale-de-notre-dame.mp3",
-							"Où se trouve la cathédrale de Notre Dame?",
+							"Où se trouve la cathédrale de Notre Dame ?",
 							"Where is Notre Dame Cathedral?"
 						],
 						[
 							"/audio/lo4/dialogues/phraseTable1/010-la-cath-edrale-de-notre-dame-se-trouve-a-parisla-cath-drale-de-notre-dame-se-trouve-paris.mp3",
-							"La cathédrale de Notre Dame se trouve à Paris!",
+							"La cathédrale de Notre Dame se trouve à Paris !",
 							"Notre Dame Cathedral is in Paris!"
 						]
 					],
@@ -100,7 +100,7 @@
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/011-tu-habites-au-centre-ville.mp3",
-							"Tu habites au centre-ville?",
+							"Tu habites au centre-ville ?",
 							"Do you live in the city centre? "
 						],
 						[
@@ -135,22 +135,22 @@
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/003-o-u-habites-tu-tu-habites-o-uo-habites-tu-tu-habites-o.mp3",
-				"Où habites-tu? Tu habites où?",
+				"Où habites-tu ? Tu habites où ?",
 				"Where do you live?"
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/004-o-u-habitez-vous-vous-habitez-o-uo-habitez-vous-vous-habitez-o.mp3",
-				"Où habitez-vous? Vous habitez où?",
+				"Où habitez-vous ? Vous habitez où ?",
 				"Where do you live?"
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/005-o-u-se-trouve-lille-lille-se-trouve-en-franceo-se-trouve-lille-lille-se-trouve-en-france.mp3",
-				"Où se trouve Lille? Lille se trouve en France.",
+				"Où se trouve Lille ? Lille se trouve en France.",
 				"Where is Lille? Lille is in France."
 			],
 			[
 				"/audio/lo4/vocabulary/vocabulary/006-o-u-es-tu-n-e-uo-e-tes-vous-n-eeo-es-tu-n-o-tes-vous-n-e.mp3",
-				"Où es-tu né(e)? Où êtes-vous né(e)?",
+				"Où es-tu né(e) ? Où êtes-vous né(e) ?",
 				"Where were you born?"
 			],
 			[
@@ -341,7 +341,7 @@
 				"inlineChoiceGroup3": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup3",
-					"congratulationsText": "Très bien!",
+					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the correct form of 'in' to fill in the gaps.",
 					"informationTextHTML": "Choose the correct form of <strong>in</strong> for each place name: <strong>à</strong>, <strong>au</strong>, <strong>en</strong>, <strong>aux</strong>, or <strong>dans le</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
 					"shuffleItems": true,
@@ -414,7 +414,7 @@
 					"cheatText": "Show answer",
 					"items": [
 						{
-							"text": "Tu habites [*à la campagne | à la montagne | au bord de la mer]?",
+							"text": "Tu habites [*à la campagne | à la montagne | au bord de la mer] ?",
 							"audio": "/audio/lo4/exercises/dropdowns4/001-tu-habites-a-la-campagnetu-habites-la-campagne.mp3"
 						},
 						{
