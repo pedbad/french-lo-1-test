@@ -44,9 +44,10 @@
   - `dropdowns2` migrated to `InlineChoiceGroup` to match LO2 verb-practice pattern.
 - LO6:
   - pronunciation discrimination now uses a mixed `InlineChoiceGroup` instead of two separate dropdown-driven sets.
+  - the `Double ll pronunciation practice` follow-on section is now lesson-owned supporting content outside the scored exercise rows.
   - `Practise the verb avoir` uses `InlineChoiceGroup`.
   - `Practise the possessives` uses `InlineChoiceGroup` with sampled shuffled practice.
-  - `Jeanne's Family` uses `SelectExercise` with inline select rendering and shuffled row order.
+  - `Jeanne's Family` uses `SelectExercise` with inline select rendering and preserved authored row order.
 - LO7:
   - `Talking about likes and dislikes` uses `InlineChoiceGroup`.
   - `Sept Couleurs Magiques` uses `SelectExercise` in shared `inline-passage` mode rather than row-by-row dropdown cards.

@@ -449,10 +449,11 @@ Latest applied step:
   - mobile: select/dropdown fallback
   - debug sandbox structure summary has been updated to recognize `LineMatch` as an exercise component
 - LO6 exercise refactor is now substantially complete:
-  - Exercise 2 uses a mixed `InlineChoiceGroup` for `double ll` discrimination with two reference texts above the practice rows
+  - Exercise 2 uses a mixed `InlineChoiceGroup` for `double ll` discrimination
+  - the follow-on `Double ll pronunciation practice` section now sits separately with two whole-passage audio blocks
   - Exercise 3 (`Practise the verb avoir`) uses `InlineChoiceGroup`
   - Exercise 4 (`Practise the possessives`) uses `InlineChoiceGroup` with `sampleSize: 8`
-  - Exercise 5 (`Jeanne's Family`) uses `SelectExercise` with inline select rendering and row-order shuffle on load/reset
+  - Exercise 5 (`Jeanne's Family`) uses `SelectExercise` with inline select rendering and preserved authored sentence order
 - LO7 exercise refactor is now substantially complete:
   - Exercise 1 remains `MemoryMatchGame`, but now uses lesson-owned images under `public/img/lo7/exercises/vocabulary/`
   - the memory cards now use a shared Tailwind/shadcn-style card surface with:
@@ -467,10 +468,11 @@ Latest applied step:
     - coloured left accent strips as hints
     - right-aligned poet attribution metadata
     - shared right/wrong icons on answer lines
+    - a long-audio player directly below the instructions
 - LO8 exercise refactor is now substantially complete:
   - Exercise 1 remains `MemoryMatchGame` with lesson-owned images under `public/img/lo8/exercises/vocabulary/`
   - Exercise 2 (`Talking about leisure activities`) uses `InlineChoiceGroup` with shuffled practice on load/reset
-  - Exercise 3 (`Julien est très sportif`) uses `InlineChoiceGroup` with shuffled practice on load/reset
+  - Exercise 3 (`Julien est très sportif`) uses `InlineChoiceGroup` with preserved Monday-to-Sunday row order
   - Exercise 4 (`Qu’est-ce que tu fais le dimanche?`) stays on `SelectExercise`, but now uses inline row rendering with shuffled rows and no numeric item prefixes
   - Exercise 5 (`Qu'est-ce que tu fais le weekend?`) remains `DraggableFillGaps` with lesson-owned audio and the shared blue instruction panel
 - LO3 Exercise 1 (`dropdowns2`) now uses `InlineChoiceGroup` to match LO2 “Practise the verb”.

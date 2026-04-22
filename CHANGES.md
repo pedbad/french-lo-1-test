@@ -2,6 +2,35 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-22 - LO6/LO7/LO8 Teacher Feedback Follow-up + Doc Sync
+
+- Applied the latest LO6 `Family, friends & neighbours` follow-up fixes:
+  - `src/components/custom/grammar/family-friends-and-neighbours-grammar.jsx`
+  - `src/components/custom/grammar/index.js`
+  - `src/lo-config/family-friends-and-neighbours.json`
+  - added clickable `ma` audio in the possessives explanation
+  - restructured the `Double ll` section into a scored discrimination task plus a separate pronunciation-practice block
+  - converted the pronunciation-practice block into a real lesson-owned React component so the shared animated audio ring/progress behavior is preserved
+  - `Jeanne's Family` now preserves authored sentence order instead of shuffling rows
+- Applied the latest LO7 `Opinions matter` teacher-facing updates:
+  - `src/lo-config/opinions-matter.json`
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - changed copy from `borrowed English words` to `words borrowed from English`
+  - added the long-audio poem player for `Sept Couleurs Magiques` using the shared LO1-style sequence controller
+- Applied the latest LO8 `Free Time` text/config fixes:
+  - `src/lo-config/free-time.json`
+  - corrected `grand-chose`
+  - restored the missing `je` in `Je joue de l'accordéon et je joue du piano aussi.`
+  - disabled row shuffling for `Julien est très sportif` so the days stay in logical order
+  - removed the accidental draggable gap around `aviron`
+- Applied French non-breaking punctuation spacing in learner-facing French text:
+  - `src/lo-config/*.json`
+  - French `? ! : ;` now use non-breaking spacing in config strings so typography is correct without allowing punctuation to wrap onto a new line by itself
+- Synced docs to avoid drift:
+  - `README.md`
+  - `docs/audio/LO8_AUDIO_BLOCKERS.md`
+  - `docs/components/COMPONENT_NAMING_REFACTOR_TODO.md`
+
 ## 2026-04-08 - LO9 Phoning in France Refactor + Audio Migration
 
 - Modernized the LO9 `Phoning in France` config to match the newer LO1-LO8 lesson contract:
