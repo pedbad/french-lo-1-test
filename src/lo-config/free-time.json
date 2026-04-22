@@ -62,7 +62,7 @@
 						],
 						[
 							"audio/lo8/dialogues/dialogues2/005-je-ne-fais-pas-grand-chose.mp3",
-							"Je ne fais pas grand chose. Je fais la grasse matinée. Je vois mes amis. Quelquefois, je vais au cinéma ou je vais en boîte. Ça dépend !",
+							"Je ne fais pas grand-chose. Je fais la grasse matinée. Je vois mes amis. Quelquefois, je vais au cinéma ou je vais en boîte. Ça dépend !",
 							"I don't do much. I have a lie-in. I see my friends. Sometimes I go to the cinema, or I go clubbing. It depends."
 						]
 					],
@@ -87,7 +87,7 @@
 						],
 						[
 							"audio/lo8/dialogues/dialogues3/003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3",
-							"Je joue de l'accordéon et joue du piano aussi.",
+							"Je joue de l'accordéon et je joue du piano aussi.",
 							"I play the accordion, and I play the piano too."
 						]
 					],
@@ -502,7 +502,7 @@
 					"congratulationsText": "Superbe!",
 					"instructionsText": "Choose au, à la, à l', or aux as appropriate.",
 					"informationTextHTML": "Read each sentence and choose the correct contracted form after <em>jouer à</em>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-					"shuffleItems": true,
+					"shuffleItems": false,
 					"showHintsText": "Hints",
 					"cheatText": "Show answers",
 					"items": [
@@ -602,7 +602,7 @@
 							"audio": "audio/lo8/exercises/draggableFillGaps1/001-je-ne-fais-pas-grand-chose.mp3"
 						},
 						{
-							"text": "Le samedi, je fais de l'[aviron]. Je prends mon [déjeuner] au café avec mon copain. Je vais en ville pour faire du [shopping]. Le soir, je sors avec [mes] amies.",
+							"text": "Le samedi, je fais de l'aviron. Je prends mon [déjeuner] au café avec mon copain. Je vais en ville pour faire du [shopping]. Le soir, je sors avec [mes] amies.",
 							"audio": "audio/lo8/exercises/draggableFillGaps1/002-le-samedi-je-fais-de-laviron.mp3"
 						},
 						{
