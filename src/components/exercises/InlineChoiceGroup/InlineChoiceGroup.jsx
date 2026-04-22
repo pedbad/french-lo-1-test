@@ -433,8 +433,9 @@ export class InlineChoiceGroup extends React.PureComponent {
 			rows.push(
 				<TableRow key={`row-${i}`}>
 					{item.audio ? (
-						<TableCell className="audioCell w-[1%] whitespace-nowrap pr-2 pl-0">
+						<TableCell className="audioCell align-top w-[1%] whitespace-nowrap pr-2 pl-0">
 							<span
+								className="inline-flex self-start pt-0.5"
 								ref={(el) => {
 									if (el) {
 										this.rowAudioRefs[i] = el;
@@ -450,7 +451,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 							</span>
 						</TableCell>
 					) : null}
-					<TableCell className={item.audio ? "pl-0" : undefined}>
+					<TableCell className={item.audio ? "align-top pl-0" : "align-top"}>
 						<div
 							className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : ""}`}
 							onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}

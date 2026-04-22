@@ -379,6 +379,7 @@ export class SelectExercise extends React.PureComponent {
 				rowResults.every((result) => typeof result === "boolean");
 			const rowHasResult = this.state.hasChecked && rowAttempted && rowFullyChecked;
 			const rowIsCorrect = rowHasResult && rowResults.every((result) => result === true);
+			const rowHasChoices = rowBlankIndices.length > 0;
 
 			if (layoutMode === "inline-passage") {
 				const { accentColor, lineStyle } = this.getInlinePassageLineStyle(item?.passageAccent);
@@ -451,13 +452,29 @@ export class SelectExercise extends React.PureComponent {
 
 			rows.push(
 				<div
-					className="rounded-xl border border-border/70 bg-card/60 p-3 md:p-4"
+					className={`rounded-xl border border-border/70 bg-card/60 ${
+						rowHasChoices ? "p-3 md:p-4" : "px-3 py-2.5 md:px-4 md:py-3"
+					}`}
 					key={`select-row-${id}-${i}`}
 				>
-					<div className={`grid grid-cols-[auto_minmax(0,1fr)_2.75rem] ${renderInlineChoices ? "items-center gap-x-3" : "grid-rows-[auto_auto] items-start gap-x-3 gap-y-2"}`}>
+					<div
+						className={`grid grid-cols-[auto_minmax(0,1fr)_2.75rem] ${
+							renderInlineChoices
+								? "items-center gap-x-3"
+								: rowHasChoices
+									? "grid-rows-[auto_auto] items-start gap-x-3 gap-y-2"
+									: "items-start gap-x-3"
+						}`}
+					>
 						{item.audio ? (
 							<span
-								className={renderInlineChoices ? "" : "row-span-2 self-center"}
+								className={
+									renderInlineChoices
+										? "self-start pt-0.5"
+										: rowHasChoices
+											? "row-span-2 self-start pt-0.5"
+											: "self-start pt-0.5"
+								}
 								ref={(el) => {
 									if (el) this.rowAudioRefs[i] = el;
 								}}
@@ -509,53 +526,57 @@ export class SelectExercise extends React.PureComponent {
 									</p>
 								)}
 
-								<div className="col-start-2 row-start-2 min-w-0 space-y-2">
-									{rowBlankIndices.map((blankIndex, localIndex) => {
-										const selectId = `${id}-select-${blankIndex}`;
-										const meta = this.blanksMeta[blankIndex];
-										const currentValue = values[blankIndex] ?? "";
+								{rowHasChoices ? (
+									<div className="col-start-2 row-start-2 min-w-0 space-y-2">
+										{rowBlankIndices.map((blankIndex, localIndex) => {
+											const selectId = `${id}-select-${blankIndex}`;
+											const meta = this.blanksMeta[blankIndex];
+											const currentValue = values[blankIndex] ?? "";
 
-										return (
-											<div className="w-full" key={selectId}>
-												<label className="sr-only" htmlFor={selectId}>
-													{`Select answer for blank ${blankIndex + 1}`}
-												</label>
-												<Select
-													value={currentValue}
-													onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
-												>
-													<SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
-														<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
-													</SelectTrigger>
-													<SelectContent>
-														{meta.options.map((option, optionIndex) => (
-															<SelectItem
-																className="text-[var(--font-size-sm)] md:text-base"
-																key={`${selectId}-option-${optionIndex}`}
-																value={String(optionIndex)}
-															>
-																{option}
-															</SelectItem>
-														))}
-													</SelectContent>
-												</Select>
-											</div>
-										);
-									})}
-								</div>
+											return (
+												<div className="w-full" key={selectId}>
+													<label className="sr-only" htmlFor={selectId}>
+														{`Select answer for blank ${blankIndex + 1}`}
+													</label>
+													<Select
+														value={currentValue}
+														onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
+													>
+														<SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
+															<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
+														</SelectTrigger>
+														<SelectContent>
+															{meta.options.map((option, optionIndex) => (
+																<SelectItem
+																	className="text-[var(--font-size-sm)] md:text-base"
+																	key={`${selectId}-option-${optionIndex}`}
+																	value={String(optionIndex)}
+																>
+																	{option}
+																</SelectItem>
+															))}
+														</SelectContent>
+													</Select>
+												</div>
+											);
+										})}
+									</div>
+								) : null}
 							</>
 						)}
 
-						<span
-							aria-hidden="true"
-							className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
-						>
-							{rowIsCorrect ? (
-								<CircleCheck className="h-10 w-10" />
-							) : (
-								<CircleX className="h-10 w-10" />
-							)}
-						</span>
+						{rowHasChoices ? (
+							<span
+								aria-hidden="true"
+								className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+							>
+								{rowIsCorrect ? (
+									<CircleCheck className="h-10 w-10" />
+								) : (
+									<CircleX className="h-10 w-10" />
+								)}
+							</span>
+						) : null}
 					</div>
 				</div>
 			);

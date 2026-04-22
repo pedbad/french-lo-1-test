@@ -20,6 +20,15 @@ This file summarizes the work completed in this repo during the session. It incl
 - Extended shared inline-choice audio interaction:
   - `src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx`
   - clicking the sentence wrapper now triggers the mounted row `AudioClip`, so the speaker animation/state stays in sync instead of only the icon being clickable
+- Replaced LO9 exercise 3 drag/drop with a select-based dialogue activity:
+  - `src/lo-config/phoning-in-france.json`
+  - `Answer the questions` now uses `SelectExercise` instead of `DraggableFillGaps`, preserving the telephone dialogue while turning the missing replies into selectable spoken-response rows
+- Refined shared `SelectExercise` audio alignment:
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - row audio icons now top-align with the opening line of text instead of centering vertically within taller two-row cards
+- Tightened shared `SelectExercise` context-row spacing:
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - rows without any selectable blanks now collapse to a single-row layout instead of reserving empty second-line space meant for select controls
 
 ## 2026-04-22 - LO6/LO7/LO8 Teacher Feedback Follow-up + Doc Sync
 
