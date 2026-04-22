@@ -2900,10 +2900,19 @@
 	#RegionalTelephoneMap .regional-telephone-map__caption {
 		grid-area: caption;
 		margin: 0;
-		font-size: var(--font-size-xs);
+		font-size: calc(var(--font-size-xs) * 0.92);
 		line-height: var(--line-height-xs);
 		color: color-mix(in oklab, var(--foreground) 68%, transparent);
-		text-align: center;
+		text-align: right;
+		width: 100%;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__caption small {
+		display: block;
+	}
+
+	#RegionalTelephoneMap .regional-telephone-map__caption-source {
+		font-style: normal;
 	}
 
 	@media (min-width: 768px) {

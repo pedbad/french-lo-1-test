@@ -459,8 +459,13 @@ export function PhoningInFranceRegionsMap() {
 					<div ref={mapContainerRef} className="regional-telephone-map__svg-host" />
 				</div>
 				<figcaption className="regional-telephone-map__caption">
-					Telephone regions of France. Base map: Wikimedia Commons, Babsy, CC BY
-					3.0.
+					<small>
+						Telephone regions of France. Base map:{" "}
+						<cite className="regional-telephone-map__caption-source">
+							Wikimedia Commons, Babsy, CC BY 3.0
+						</cite>
+						.
+					</small>
 				</figcaption>
 			</div>
 		</figure>

@@ -300,60 +300,55 @@
 					"id": "typedTransformExercise1",
 					"congratulationsText": "Excellent!",
 					"cheatText": "Show answers",
-					"informationTextHTML": "<p>Listen to each prompt and type the phone number you hear. Keep the digits in two-digit groups. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your entries, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.</p>",
-					"header": [
-						"Question",
-						"Answer",
-						"Listen"
-					],
+					"informationTextHTML": "<p>Listen to each audio clip and type the phone number you hear. Keep the digits in two-digit groups. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your entries, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.</p>",
 					"phrases": [
 						[
-							"Quel est ton numéro de portable ?",
+							"",
 							"C&apos;est le [06 10 15 24 35]",
 							"audio/lo9/exercises/typedTransformExercise1/001-cest-le-06-10-15-24-35.mp3"
 						],
 						[
-							"Quel est ton numéro de portable ?",
+							"",
 							"C&apos;est le [07 12 18 36 47]",
 							"audio/lo9/exercises/typedTransformExercise1/002-cest-le-07-12-18-36-47.mp3"
 						],
 						[
-							"Quel est votre numéro de portable ?",
+							"",
 							"C&apos;est le [07 26 19 49 50]",
 							"audio/lo9/exercises/typedTransformExercise1/003-cest-le-07-26-19-49-50.mp3"
 						],
 						[
-							"Quel est ton numéro de portable ?",
+							"",
 							"C&apos;est le [06 28 21 53 62]",
 							"audio/lo9/exercises/typedTransformExercise1/004-cest-le-06-28-21-53-62.mp3"
 						],
 						[
-							"Quel est votre numéro de téléphone ?",
+							"",
 							"C&apos;est le [02 30 43 53 67]",
 							"audio/lo9/exercises/typedTransformExercise1/005-cest-le-02-30-43-53-67.mp3"
 						],
 						[
-							"Quel est votre numéro de téléphone ?",
+							"",
 							"C&apos;est le [05 31 46 60 68]",
 							"audio/lo9/exercises/typedTransformExercise1/006-cest-le-05-31-46-60-68.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone ?",
+							"",
 							"C&apos;est le [03 44 55 66 70]",
 							"audio/lo9/exercises/typedTransformExercise1/007-cest-le-03-44-55-66-70.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone ?",
+							"",
 							"C&apos;est le [01 59 69 62 73]",
 							"audio/lo9/exercises/typedTransformExercise1/008-cest-le-01-59-69-62-73.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone ?",
+							"",
 							"C&apos;est le [04 66 71 77 80]",
 							"audio/lo9/exercises/typedTransformExercise1/009-cest-le-04-66-71-77-80.mp3"
 						],
 						[
-							"Quel est ton numéro de téléphone ?",
+							"",
 							"C&apos;est le [01 88 11 13 90]",
 							"audio/lo9/exercises/typedTransformExercise1/010-cest-le-01-88-11-13-90.mp3"
 						]
@@ -362,14 +357,14 @@
 				}
 			},
 			{
-				"selectExercise1": {
-					"component": "SelectExercise",
-					"id": "selectExercise1",
-					"congratulationsText": "Très bien !",
-					"instructionsText": "Listen to each exchange and choose the correct word or form.",
-					"informationTextHTML": "Listen carefully and complete each telephone exchange with the correct option. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-					"showHintsText": "Hints",
-					"cheatText": "Show answers",
+					"selectExercise1": {
+						"component": "InlineChoiceGroup",
+						"id": "selectExercise1",
+						"congratulationsText": "Très bien !",
+						"instructionsText": "Listen to each exchange and choose the correct word or form.",
+						"informationTextHTML": "Listen carefully and complete each telephone exchange with the correct option. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+						"showHintsText": "Hints",
+						"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "Allô, oui ?",

@@ -25,12 +25,29 @@ export class InlineChoiceGroup extends React.PureComponent {
 			checkedResults: {},
 			hasChecked: false,
 			nCorrect: 0,
+			rowAudioStatus: {},
 			values: {},
 		};
 
 		this.blanksMeta = [];
 		this.nToSolve = 0;
+		this.rowAudioRefs = {};
 	}
+
+	decodeHtmlEntities = (value = "") => {
+		const text = `${value}`;
+		if (!text.includes("&")) {
+			return text;
+		}
+
+		if (typeof document === "undefined") {
+			return text.replaceAll("&apos;", "'");
+		}
+
+		const textarea = document.createElement("textarea");
+		textarea.innerHTML = text;
+		return textarea.value;
+	};
 
 	componentDidUpdate(prevProps) {
 		if (prevProps.config !== this.props.config) {
@@ -41,10 +58,12 @@ export class InlineChoiceGroup extends React.PureComponent {
 				checkedResults: {},
 				hasChecked: false,
 				nCorrect: 0,
+				rowAudioStatus: {},
 				values: {},
 			});
 			this.blanksMeta = [];
 			this.nToSolve = 0;
+			this.rowAudioRefs = {};
 		}
 	}
 
@@ -94,14 +113,14 @@ export class InlineChoiceGroup extends React.PureComponent {
 				segments.push({
 					key: `text-${blankIndex}-${lastIndex}`,
 					type: "text",
-					value: text.slice(lastIndex, match.index),
+					value: this.decodeHtmlEntities(text.slice(lastIndex, match.index)),
 				});
 			}
 
 			const options = match[1].split("|").map((opt) => opt.trim());
 			const winner = options.findIndex((opt) => opt.startsWith("*"));
 			const cleanOptions = options.map((opt) =>
-				opt.startsWith("*") ? opt.substring(1) : opt
+				this.decodeHtmlEntities(opt.startsWith("*") ? opt.substring(1) : opt)
 			);
 
 			this.blanksMeta[blankIndex] = {
@@ -123,7 +142,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 			segments.push({
 				key: `tail-${blankIndex}-${lastIndex}`,
 				type: "text",
-				value: text.slice(lastIndex),
+				value: this.decodeHtmlEntities(text.slice(lastIndex)),
 			});
 		}
 
@@ -251,6 +270,48 @@ export class InlineChoiceGroup extends React.PureComponent {
 		});
 	};
 
+	handleRowAudioStatusChange = (rowIndex, status) => {
+		this.setState((prevState) => {
+			const nextRowAudioStatus = {
+				...prevState.rowAudioStatus,
+			};
+			nextRowAudioStatus[rowIndex] = status;
+
+			if (status === "playing") {
+				Object.keys(nextRowAudioStatus).forEach((key) => {
+					const keyIndex = Number.parseInt(key, 10);
+					if (keyIndex !== rowIndex && nextRowAudioStatus[keyIndex] === "playing") {
+						nextRowAudioStatus[keyIndex] = "stopped";
+					}
+				});
+			}
+
+			return {
+				rowAudioStatus: nextRowAudioStatus,
+			};
+		});
+	};
+
+	triggerRowAudio = (rowIndex) => {
+		const rowAudioHost = this.rowAudioRefs[rowIndex];
+		if (!rowAudioHost) return;
+		const buttonEl = rowAudioHost.querySelector("button.audio-container");
+		if (!buttonEl) return;
+		buttonEl.click();
+	};
+
+	handleSentenceClick = (rowIndex, event) => {
+		const targetNode = event?.target;
+		if (
+			targetNode instanceof Element &&
+			targetNode.closest("button, [role='radio'], .audio-container, .audio-link")
+		) {
+			return;
+		}
+
+		this.triggerRowAudio(rowIndex);
+	};
+
 	renderChoiceGroup = (blankIndex) => {
 		const { checkedResults = {}, hasChecked = false, values = {} } = this.state;
 		const meta = this.blanksMeta[blankIndex];
@@ -325,6 +386,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 			activeItems = [],
 			listenDescriptionText,
 			nCorrect = 0,
+			rowAudioStatus = {},
 			soundFile,
 			values = {},
 		} = this.state;
@@ -372,15 +434,27 @@ export class InlineChoiceGroup extends React.PureComponent {
 				<TableRow key={`row-${i}`}>
 					{item.audio ? (
 						<TableCell className="audioCell w-[1%] whitespace-nowrap pr-2 pl-0">
-							<AudioClip
-								className="super-compact-speaker"
-								id={`inlineChoiceRowAudio-${i}`}
-								soundFile={resolveAsset(item.audio)}
-							/>
+							<span
+								ref={(el) => {
+									if (el) {
+										this.rowAudioRefs[i] = el;
+									}
+								}}
+							>
+								<AudioClip
+									className="super-compact-speaker"
+									id={`inlineChoiceRowAudio-${i}`}
+									onStatusChange={(status) => this.handleRowAudioStatusChange(i, status)}
+									soundFile={resolveAsset(item.audio)}
+								/>
+							</span>
 						</TableCell>
 					) : null}
 					<TableCell className={item.audio ? "pl-0" : undefined}>
-						<div className="m-0 flex items-start gap-2 leading-[var(--line-height-app)]">
+						<div
+							className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : ""}`}
+							onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
+						>
 							<div className="min-w-0 flex-1">{this.renderSentence(segments)}</div>
 							{rowHasResult ? (
 								<span

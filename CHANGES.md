@@ -2,6 +2,25 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-22 - Shared Text-Entry Exercise Prompt Audio Click Support
+
+- Extended the shared typed/dictation runtime so prompt text can trigger row audio, not just the speaker icon:
+  - `src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
+  - prompt text in `TypedTransformExercise` and other `TextEntryExerciseRuntime`-backed activities is now rendered as a keyboard-focusable plain-text button when the row has audio
+  - clicking the text uses the shared `playAudioLink` helper, so the global single-audio playback rule still applies
+- This improves parity for exercises such as LO9 `Giving your phone number`, where learners can now click either:
+  - the speaker icon, or
+  - the question text itself
+- Fixed HTML entity rendering in shared select-based exercises:
+  - `src/components/exercises/SelectExercise/SelectExercise.jsx`
+  - sentence text and option labels parsed from config now decode entities like `&apos;` before rendering, so learner-facing French text shows normal apostrophes
+- Refined LO9 `Talking on the phone` to match the earlier multi-blank inline-choice pattern:
+  - `src/lo-config/phoning-in-france.json`
+  - exercise 2 now uses `InlineChoiceGroup` instead of `SelectExercise`, aligning it with LO6 `Practise the possessives`
+- Extended shared inline-choice audio interaction:
+  - `src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx`
+  - clicking the sentence wrapper now triggers the mounted row `AudioClip`, so the speaker animation/state stays in sync instead of only the icon being clickable
+
 ## 2026-04-22 - LO6/LO7/LO8 Teacher Feedback Follow-up + Doc Sync
 
 - Applied the latest LO6 `Family, friends & neighbours` follow-up fixes:

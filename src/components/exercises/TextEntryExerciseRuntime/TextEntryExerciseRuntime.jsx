@@ -31,6 +31,7 @@ import { highlightTextDiff } from "@/utils/exerciseDiff";
 export class TextEntryExerciseRuntime extends React.PureComponent {
 	constructor(props) {
 		super(props);
+		this.audioTriggerRefs = {};
 		this.state = {
 			...props.config,
 			checkedResults: {},
@@ -196,6 +197,50 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 		});
 	};
 
+	setAudioTriggerRef = (rowIndex, node) => {
+		if (!node) {
+			delete this.audioTriggerRefs[rowIndex];
+			return;
+		}
+
+		this.audioTriggerRefs[rowIndex] = node;
+	};
+
+	handlePromptAudioClick = (rowIndex, soundFile, event) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		const triggerHost = this.audioTriggerRefs[rowIndex];
+		const trigger = triggerHost?.querySelector(
+			"button.audio-container, button.audio-link, .audio-container, .audio-link"
+		);
+
+		if (trigger instanceof HTMLElement) {
+			trigger.click();
+			return;
+		}
+
+		if (!soundFile) {
+			return;
+		}
+	};
+
+	renderPromptText = (promptText, soundFile, rowIndex) => {
+		if (!soundFile) {
+			return promptText;
+		}
+
+		return (
+			<button
+				type="button"
+				className="m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] text-foreground transition-colors duration-150 hover:text-[var(--chart-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base"
+				onClick={(event) => this.handlePromptAudioClick(rowIndex, soundFile, event)}
+			>
+				{promptText}
+			</button>
+		);
+	};
+
 	render = () => {
 		const {
 			audioClipClassName = "compact",
@@ -286,15 +331,18 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 				const promptCellClassName = useGlobalActions
 					? (shouldInlineAudioWithPrompt ? "align-top w-[34%]" : "align-top")
 					: undefined;
+				const promptContent = this.renderPromptText(phrase[0], soundFile, i);
 				cells.push(
 					<TableCell className={promptCellClassName} key={`row${i}cell0`}>
 						{shouldInlineAudioWithPrompt && soundFile ? (
 							<div className="inline-flex items-center gap-2">
-								<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
-								<span>{phrase[0]}</span>
+								<span ref={(node) => this.setAudioTriggerRef(i, node)}>
+									<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
+								</span>
+								{promptContent}
 							</div>
 						) : (
-							phrase[0]
+							promptContent
 						)}
 					</TableCell>
 				);
@@ -393,7 +441,9 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 						key={`row${i}cell${soundCellIndex}`}
 					>
 						<div className={useGlobalActions ? "flex min-h-10 items-center" : undefined}>
-							<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
+							<span ref={(node) => this.setAudioTriggerRef(i, node)}>
+								<AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
+							</span>
 						</div>
 					</TableCell>
 				);
