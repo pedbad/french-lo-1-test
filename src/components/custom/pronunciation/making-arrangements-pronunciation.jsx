@@ -1,32 +1,95 @@
 import { AudioClip } from "@/components/AudioClip";
 import { PureComponent } from "react";
 
-export class MakingArrangementsPronunciation extends PureComponent {
+export class MakingArrangementsPronunciationUiSound extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
 			<div
-				className={`lo9-demystify-container container`}
+				className="lo10-pronunciation1-container container"
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
-					className={`panel`}
-					id={id ? `${id}Panel` : undefined}
-					key={`${id}CustomComponent`}
+					className="panel pronunciation-panel"
+					id={id ? `${id}Panel1` : undefined}
+					key={`${id}Panel1`}
 				>
-					<p><strong>How to pronounce</strong>: <strong>ui</strong></p>
-					<p><AudioClip className={`link`} soundFile={`sounds/fr/aujourd'hui.mp3`}><strong>aujourd'hui</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/bruit.mp3`}><strong>bruit</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/ensuite.mp3`}><strong>ensuite</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/gratuit.mp3`}><strong>gratuit</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/minuit.mp3`}><strong>minuit</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/nuit.mp3`}><strong>nuit</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/puis.mp3`}><strong>puis</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`sounds/fr/suis.mp3`}><strong>suis</strong></AudioClip></p>
+					<p>
+						In words like <strong>aujourd&apos;hui</strong> and <strong>bruit</strong>,
+						the letters <strong>ui</strong> combine into one distinctive French sound.
+					</p>
+					<p>Listen and repeat these examples:</p>
+					<div className="mb-0 ml-2 space-y-1">
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo10/pronunciation/ui-sound/001-aujourdhui.mp3"
+							>
+								aujourd&apos;hui
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip className="link" soundFile="audio/lo10/pronunciation/ui-sound/002-bruit.mp3">
+								bruit
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip className="link" soundFile="audio/lo10/pronunciation/ui-sound/003-ensuite.mp3">
+								ensuite
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip className="link" soundFile="audio/lo10/pronunciation/ui-sound/004-gratuit.mp3">
+								gratuit
+							</AudioClip>
+						</div>
+					</div>
 				</div>
 			</div>
 		);
 	};
 }
 
+export class MakingArrangementsPronunciationMoreUiWords extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		return (
+			<div
+				className="lo10-pronunciation2-container container"
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div
+					className="panel pronunciation-panel"
+					id={id ? `${id}Panel2` : undefined}
+					key={`${id}Panel2`}
+				>
+					<p>Practise the same sound in a few more useful words:</p>
+					<div className="mb-0 ml-2 space-y-1">
+						<div>
+							<AudioClip className="link" soundFile="audio/lo10/pronunciation/ui-sound/005-minuit.mp3">
+								minuit
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip className="link" soundFile="audio/lo10/pronunciation/ui-sound/006-nuit.mp3">
+								nuit
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip className="link" soundFile="audio/lo10/pronunciation/ui-sound/007-puis.mp3">
+								puis
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip className="link" soundFile="audio/lo10/pronunciation/ui-sound/008-suis.mp3">
+								suis
+							</AudioClip>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	};
+}

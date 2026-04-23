@@ -43,5 +43,8 @@ export {
 	PhoningInFrancePronunciationNumbers,
 	PhoningInFrancePronunciationFinalConsonants,
 } from "./phoning-in-france-pronunciation";
-export { MakingArrangementsPronunciation } from "./making-arrangements-pronunciation";
+export {
+	MakingArrangementsPronunciationUiSound,
+	MakingArrangementsPronunciationMoreUiWords,
+} from "./making-arrangements-pronunciation";
 export { ShoppingInTheMarketPronunciation } from "./shopping-in-the-market-pronunciation";

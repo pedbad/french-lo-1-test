@@ -2,6 +2,59 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-23 - LO10 Making Arrangements Section Modernization
+
+- Modernized LO10 `Making Arrangements` to match the current LO1-LO9 section contract:
+  - `src/lo-config/making-arrangements.json`
+  - replaced legacy `settings.intro` with `introImage`, `introHTML`, and `informationHTML`
+  - wired the existing lesson illustration from `public/img/lo10/making-arrangements.svg`
+  - added section-level instructional copy for dialogues, vocabulary, pronunciation, and exercises
+  - converted grammar from a monolithic lesson component into grouped articles
+  - converted pronunciation from a monolithic lesson component into tabbed grouped items
+- Split LO10 grammar into semantic lesson-owned components:
+  - `src/components/custom/grammar/making-arrangements-grammar.jsx`
+  - `src/components/custom/grammar/index.js`
+  - grammar now uses:
+    - `MakingArrangementsGrammarVouloir`
+    - `MakingArrangementsGrammarPrepositionA`
+- Split LO10 pronunciation into semantic lesson-owned components:
+  - `src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
+  - `src/components/custom/pronunciation/index.js`
+  - pronunciation now uses:
+    - `MakingArrangementsPronunciationUiSound`
+    - `MakingArrangementsPronunciationMoreUiWords`
+- Validation:
+  - `yarn build`
+
+## 2026-04-23 - LO10 Making Arrangements Audio Migration
+
+- Migrated LO10 `Making Arrangements` audio off legacy `sounds/fr/...` refs and into lesson-owned folders:
+  - new root: `public/audio/lo10/...`
+  - updated LO10 refs in:
+    - `src/lo-config/making-arrangements.json`
+    - `src/components/custom/grammar/making-arrangements-grammar.jsx`
+    - `src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
+  - copied 114 LO10-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - pronunciation
+    - exercises
+- Resolved the pre-existing LO10 broken-ref set during migration:
+  - most fixes came from normalization-aware matches against `public/sounds/fr/...`
+  - controlled fallback copies were used where LO10 had no exact legacy source filename
+  - fallback sources included:
+    - existing LO9 migrated dialogue clips
+    - the existing LO1 migrated `aujourd'hui` clip
+    - one combined legacy `À plus tard ! / À plus !` recording for the short closing line
+- Added LO10 migration tracking docs:
+  - `docs/audio/AUDIO_LO10_MIGRATION_MAP.md`
+  - `docs/audio/LO10_AUDIO_BLOCKERS.md`
+- Validation:
+  - `rg -n 'sounds/fr|audio/lo1/|audio/lo9/' src/lo-config/making-arrangements.json src/components/custom/grammar/making-arrangements-grammar.jsx src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
+  - `find public/audio/lo10 -type f | wc -l`
+  - `yarn build`
+
 ## 2026-04-22 - Shared Text-Entry Exercise Prompt Audio Click Support
 
 - Extended the shared typed/dictation runtime so prompt text can trigger row audio, not just the speaker icon:

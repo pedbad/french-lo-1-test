@@ -46,7 +46,10 @@ export {
 	PhoningInFranceGrammarBienForConfirmation,
 } from "./phoning-in-france-grammar";
 
-export { MakingArrangementsGrammar } from "./making-arrangements-grammar";
+export {
+	MakingArrangementsGrammarVouloir,
+	MakingArrangementsGrammarPrepositionA,
+} from "./making-arrangements-grammar";
 export { GoingToACafeGrammar } from "./going-to-a-cafe-grammar";
 export { ShoppingInTheMarketGrammar } from "./shopping-in-the-market-grammar";
 export { DailyRoutineGrammar } from "./daily-routine-grammar";
