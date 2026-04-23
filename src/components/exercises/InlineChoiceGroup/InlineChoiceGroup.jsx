@@ -404,7 +404,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 			if (!phraseText) {
 				rows.push(
 					<TableRow className="spacer" key={`row-${i}`}>
-						<TableCell colSpan={3}></TableCell>
+						<TableCell colSpan={1}></TableCell>
 					</TableRow>
 				);
 				continue;
@@ -432,30 +432,28 @@ export class InlineChoiceGroup extends React.PureComponent {
 
 			rows.push(
 				<TableRow key={`row-${i}`}>
-					{item.audio ? (
-						<TableCell className="audioCell align-top w-[1%] whitespace-nowrap pr-2 pl-0">
-							<span
-								className="inline-flex self-start pt-0.5"
-								ref={(el) => {
-									if (el) {
-										this.rowAudioRefs[i] = el;
-									}
-								}}
-							>
-								<AudioClip
-									className="super-compact-speaker"
-									id={`inlineChoiceRowAudio-${i}`}
-									onStatusChange={(status) => this.handleRowAudioStatusChange(i, status)}
-									soundFile={resolveAsset(item.audio)}
-								/>
-							</span>
-						</TableCell>
-					) : null}
-					<TableCell className={item.audio ? "align-top pl-0" : "align-top"}>
+					<TableCell className="align-top px-0 py-2">
 						<div
 							className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : ""}`}
 							onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
 						>
+							{item.audio ? (
+								<span
+									className={`inline-flex shrink-0 self-start ${rowBlankIndices.length > 0 ? "pt-[15px]" : "pt-0.5"}`}
+									ref={(el) => {
+										if (el) {
+											this.rowAudioRefs[i] = el;
+										}
+									}}
+								>
+									<AudioClip
+										className="super-compact-speaker"
+										id={`inlineChoiceRowAudio-${i}`}
+										onStatusChange={(status) => this.handleRowAudioStatusChange(i, status)}
+										soundFile={resolveAsset(item.audio)}
+									/>
+								</span>
+							) : null}
 							<div className="min-w-0 flex-1">{this.renderSentence(segments)}</div>
 							{rowHasResult ? (
 								<span
