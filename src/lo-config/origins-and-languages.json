@@ -678,6 +678,7 @@
 					"component": "DictationExercise",
 					"congratulationsText": "Excellent!",
 					"id": "dictationExercise5",
+					"informationTextHTML": "<p>Listen to each audio clip and write exactly what you hear. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your entries, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.</p>",
 					"instructionsText": "Listen and write what you hear.",
 					"phrases": [
 						[

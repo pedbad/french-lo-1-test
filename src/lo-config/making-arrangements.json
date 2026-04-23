@@ -542,7 +542,7 @@
         "dictationExercise4": {
           "component": "DictationExercise",
           "id": "dictationExercise4",
-          "informationTextHTML": "Play each line of the dialogue and type exactly what you hear. Use the whole conversation to help you predict the missing words and expressions.",
+          "informationTextHTML": "<p>Listen to each line of the dialogue and type exactly what you hear. Use the whole conversation to help you predict the missing words and expressions.</p>",
           "phrases": [
             [
               "",
