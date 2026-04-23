@@ -1,104 +1,210 @@
 import { AudioClip } from "@/components/AudioClip";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { resolveAsset } from "@/utils/assets";
+import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
 
-export class MakingArrangementsGrammar extends PureComponent {
+const handleAudioRowClick = (soundFile, event) => {
+	if (!soundFile) return;
+	if (event?.defaultPrevented) return;
+
+	const targetNode = event?.target;
+	if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+		return;
+	}
+
+	const rowEl = event?.currentTarget;
+	const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+	if (audioTrigger) {
+		audioTrigger.click();
+		return;
+	}
+
+	playAudioLink(soundFile);
+};
+
+export class MakingArrangementsGrammarVouloir extends PureComponent {
 	render = () => {
 		const { id } = this.props;
+		const vouloirRows = [
+			{
+				english: "I want",
+				french: <>je veux</>,
+				soundFile: "audio/lo10/grammar/vouloir/002-je-veux.mp3",
+			},
+			{
+				english: "you want",
+				french: <>tu veux</>,
+				soundFile: "audio/lo10/grammar/vouloir/003-tu-veux.mp3",
+			},
+			{
+				english: "he / she wants",
+				french: <>il / elle veut</>,
+				soundFile: "audio/lo10/grammar/vouloir/004-il-elle-veut.mp3",
+			},
+			{
+				english: "we want",
+				french: <>nous voulons</>,
+				soundFile: "audio/lo10/grammar/vouloir/005-nous-voulons.mp3",
+			},
+			{
+				english: "you want",
+				french: <>vous voulez</>,
+				soundFile: "audio/lo10/grammar/vouloir/006-vous-voulez.mp3",
+			},
+			{
+				english: "they want",
+				french: <>ils / elles veulent</>,
+				soundFile: "audio/lo10/grammar/vouloir/007-ils-elles-veulent.mp3",
+			},
+		];
+
+		const exampleRows = [
+			{
+				english: "I want to go to Canada.",
+				french: <>Je veux aller au Canada.</>,
+				soundFile: "audio/lo10/grammar/vouloir/008-je-veux-aller-au-canada.mp3",
+			},
+			{
+				english: "My girlfriend wants to study in France.",
+				french: <>Ma copine veut étudier en France.</>,
+				soundFile: "audio/lo10/grammar/vouloir/009-ma-copine-veut-etudier-en-france.mp3",
+			},
+			{
+				english: "My friends want to spend the weekend in London.",
+				french: <>Mes amis veulent passer le week-end à Londres.</>,
+				soundFile: "audio/lo10/grammar/vouloir/010-mes-amis-veulent-passer-le-week-end-a-londres.mp3",
+			},
+		];
+
 		return (
 			<div
-				className={`lo10-grammar-container container`}
+				className="lo10-grammar1-container container"
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
 				<div
-					className={`panel`}
-					id={id ? `${id}Panel` : undefined}
-					key={`${id}CustomComponent`}
+					className="panel"
+					id={id ? `${id}Panel1` : undefined}
+					key={`${id}Panel1`}
 				>
-					<ol>
-						<li>
-							<div className={`two-columns`}>
-								<img src={resolveAsset(`images/vouloir.jpg`)} alt="A young girl points to the cake she wants"/>
-								<div className={`text`}>
-									<p>Using the verb <AudioClip className={`audio-link`} soundFile={`sounds/fr/vouloir.mp3`} >vouloir</AudioClip> meaning 'to want'</p>
-									<Table>
-										<TableBody>
-											<TableRow>
-												<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Je veux.mp3`} >je veux</AudioClip></TableCell>
-												<TableCell>I want</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Tu veux.mp3`} >tu veux</AudioClip></TableCell>
-												<TableCell>you want</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Il veut. elle veut.mp3`} >il / elle veut</AudioClip></TableCell>
-												<TableCell>he / she/ it wants</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Nous voulons.mp3`} >nous voulons</AudioClip></TableCell>
-												<TableCell>we want</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Vous voulez.mp3`} >vous voulez</AudioClip></TableCell>
-												<TableCell>you want</TableCell>
-											</TableRow>
-											<TableRow>
-												<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Ils veulent. Elles veulent.mp3`} >ils / elles veulent</AudioClip></TableCell>
-												<TableCell>they want</TableCell>
-											</TableRow>
-										</TableBody>
-									</Table>
-								</div>
-							</div>
+					<p>
+						Use{" "}
+						<AudioClip className="link" soundFile="audio/lo10/grammar/vouloir/001-vouloir.mp3">
+							<strong>vouloir</strong>
+						</AudioClip>
+						{" "}to say what someone wants to do. It is very common when inviting
+						someone somewhere or agreeing on plans.
+					</p>
+					<p>Here is the present tense:</p>
+					<Table variant="learning">
+						<TableBody>
+							{vouloirRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo10-grammar1"}-vouloir-row-${index}`}
+									onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+								>
+									<TableCell>
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.french}
+										</AudioClip>
+									</TableCell>
+									<TableCell>{row.english}</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+					<p className="mt-4">
+						After <strong>vouloir</strong>, the next verb stays in the infinitive.
+					</p>
+					<Table variant="learning">
+						<TableBody>
+							{exampleRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo10-grammar1"}-example-row-${index}`}
+									onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+								>
+									<TableCell>
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.french}
+										</AudioClip>
+									</TableCell>
+									<TableCell>{row.english}</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</div>
+			</div>
+		);
+	};
+}
 
-							<p>The verb vouloir is very frequently used together with another verb. This second verb is used in its infinitive form. e.g.</p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Je veux aller au Canada.mp3`} >Je veux aller au Canada.</AudioClip></TableCell>
-										<TableCell>I want to go to Canada.</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Ma copine veut étudier en France.mp3`} >Ma copine veut étudier en France.</AudioClip></TableCell>
-										<TableCell>My girlfriend wants to study in France.</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Mes amis veulent passer le week-end à Londres.mp3`} >Mes amis veulent passer le week-end à Londres.</AudioClip></TableCell>
-										<TableCell>My friends want to spend the weekend in London.</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
-						</li>
-						<li>
-							<p>The preposition à has a variety of meanings. It is used to mean <em>to the</em> or <em>in the</em> or <em>at the</em> before a common noun.&nbsp;
-							You will see the following forms: <strong>au</strong> before a masculine noun,&nbsp;
-							<strong>à la</strong> before a feminine noun, <strong>à l'</strong> before a noun beginning with a vowel or silent h and&nbsp;
-							<strong>aux</strong> before a plural noun. e.g.</p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Je travaille au laboratoire.mp3`} >Je travaille au laboratoire.</AudioClip></TableCell>
-										<TableCell>I work / I am working at the laboratory.</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Tu veux aller à la piscine.mp3`} >Tu veux aller à la piscine ?</AudioClip></TableCell>
-										<TableCell>Do you want to go to the swimming pool?</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Elle veut aller à l'exposition.mp3`} >Elle veut aller à l'exposition.</AudioClip></TableCell>
-										<TableCell>She wants to go to the exhibition.</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/J'aime aller aux magasins.mp3`} >J'aime aller aux magasins.</AudioClip></TableCell>
-										<TableCell>I like going to the shops.</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
-						</li>
-					</ol>
+export class MakingArrangementsGrammarPrepositionA extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		const prepositionRows = [
+			{
+				english: "I work at the laboratory.",
+				french: <>Je travaille au laboratoire.</>,
+				soundFile: "audio/lo10/grammar/preposition-a/001-je-travaille-au-laboratoire.mp3",
+			},
+			{
+				english: "Do you want to go to the swimming pool?",
+				french: <>Tu veux aller à la piscine ?</>,
+				soundFile: "audio/lo10/grammar/preposition-a/002-tu-veux-aller-a-la-piscine.mp3",
+			},
+			{
+				english: "She wants to go to the exhibition.",
+				french: <>Elle veut aller à l&apos;exposition.</>,
+				soundFile: "audio/lo10/grammar/preposition-a/003-elle-veut-aller-a-l-exposition.mp3",
+			},
+			{
+				english: "I like going to the shops.",
+				french: <>J&apos;aime aller aux magasins.</>,
+				soundFile: "audio/lo10/grammar/preposition-a/004-jaime-aller-aux-magasins.mp3",
+			},
+		];
+
+		return (
+			<div
+				className="lo10-grammar2-container container"
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div
+					className="panel"
+					id={id ? `${id}Panel2` : undefined}
+					key={`${id}Panel2`}
+				>
+					<p>
+						The preposition <strong>à</strong> often means <strong>to</strong>,
+						{" "}<strong>at</strong>, or <strong>in</strong> before a common noun.
+						French contracts it depending on the noun that follows:
+						{" "}<strong>au</strong> before a masculine noun, <strong>à la</strong>
+						{" "}before a feminine noun, <strong>à l&apos;</strong> before a vowel or
+						silent <strong>h</strong>, and <strong>aux</strong> before a plural noun.
+					</p>
+					<p>Compare these examples:</p>
+					<Table variant="learning">
+						<TableBody>
+							{prepositionRows.map((row, index) => (
+								<TableRow
+									className="cursor-pointer has-audio-row"
+									key={`${id || "lo10-grammar2"}-row-${index}`}
+									onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+								>
+									<TableCell>
+										<AudioClip className="link" soundFile={row.soundFile}>
+											{row.french}
+										</AudioClip>
+									</TableCell>
+									<TableCell>{row.english}</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
 				</div>
 			</div>
 		);

@@ -2,6 +2,7 @@ import { exerciseActionButtonVariants } from "@/components/exercises/shared/exer
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { AudioClip, IconButton } from "@/components/media";
+import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioClip";
 import {
 	Select,
 	SelectContent,
@@ -35,10 +36,13 @@ export class SelectExercise extends React.PureComponent {
 
 		this.state = {
 			...props.config,
+			activeRowIndex: -1,
 			checkedResults: {},
 			hasChecked: false,
+			masterPlayState: "stopped",
 			nCorrect: 0,
 			rowAudioStatus: {},
+			rowProgress: {},
 			shuffledItems: this.buildPreparedItems(initialItems, props?.config),
 			values: {},
 		};
@@ -46,6 +50,7 @@ export class SelectExercise extends React.PureComponent {
 		this.blanksMeta = [];
 		this.nToSolve = 0;
 		this.rowAudioRefs = {};
+		this.sequenceRef = React.createRef();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -53,10 +58,13 @@ export class SelectExercise extends React.PureComponent {
 			const nextItems = this.props?.config?.items || [];
 			this.setState({
 				...this.props.config,
+				activeRowIndex: -1,
 				checkedResults: {},
 				hasChecked: false,
+				masterPlayState: "stopped",
 				nCorrect: 0,
 				rowAudioStatus: {},
+				rowProgress: {},
 				shuffledItems: this.buildPreparedItems(nextItems, this.props?.config),
 				values: {},
 			});
@@ -277,6 +285,44 @@ export class SelectExercise extends React.PureComponent {
 		});
 	};
 
+	handleMasterStopped = (playlistIndex, playlist) => {
+		const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
+		this.setState((prev) => ({
+			activeRowIndex: -1,
+			masterPlayState: "stopped",
+			rowProgress: rowIndex >= 0 ? {
+				...prev.rowProgress,
+				[rowIndex]: {
+					currentTime: prev.rowProgress[rowIndex]?.duration || 0,
+					duration: prev.rowProgress[rowIndex]?.duration || 0,
+				},
+			} : prev.rowProgress,
+		}));
+	};
+
+	handleMasterPlayStateChange = (playState) => {
+		this.setState({ masterPlayState: playState });
+	};
+
+	handleMasterTrackChange = (playlistIndex, playlist) => {
+		const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
+		this.setState({ activeRowIndex: rowIndex });
+	};
+
+	handleMasterTime = (playlistIndex, currentTime, duration, playlist) => {
+		const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
+		if (rowIndex < 0) return;
+		this.setState((prev) => ({
+			rowProgress: {
+				...prev.rowProgress,
+				[rowIndex]: {
+					currentTime,
+					duration,
+				},
+			},
+		}));
+	};
+
 	renderSentenceWithoutChoices = (segments) => {
 		return segments
 			.filter((segment) => segment.type === "text")
@@ -302,7 +348,7 @@ export class SelectExercise extends React.PureComponent {
 					onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
 				>
 					<SelectTrigger className={triggerClassName} id={selectId}>
-						<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
+						<SelectValue placeholder="Select answer" />
 					</SelectTrigger>
 					<SelectContent>
 						{meta.options.map((option, optionIndex) => (
@@ -358,6 +404,17 @@ export class SelectExercise extends React.PureComponent {
 		let blankCursor = 0;
 
 		const renderedItems = shuffledItems.length > 0 ? shuffledItems : items;
+		const playlist = renderedItems
+			.map((item, index) => ({
+				rowIndex: index,
+				src: item?.audio ? resolveAsset(item.audio) : null,
+			}))
+			.filter((entry) => Boolean(entry.src));
+		const rowToPlaylistIndex = {};
+		playlist.forEach((entry, index) => {
+			rowToPlaylistIndex[entry.rowIndex] = index;
+		});
+
 		for (let i = 0; i < renderedItems.length; i += 1) {
 			const item = renderedItems[i];
 			const phraseText = item?.text || "";
@@ -384,6 +441,11 @@ export class SelectExercise extends React.PureComponent {
 			if (layoutMode === "inline-passage") {
 				const { accentColor, lineStyle } = this.getInlinePassageLineStyle(item?.passageAccent);
 				const isPassageMeta = Boolean(item?.passageMeta);
+				const isActive = this.state.activeRowIndex === i;
+				const status = isActive
+					? (this.state.masterPlayState === "playing" ? "playing" : "stopped")
+					: "stopped";
+				const prog = this.state.rowProgress[i] || { currentTime: 0, duration: 0 };
 
 				passageLines.push(
 					<p
@@ -406,10 +468,35 @@ export class SelectExercise extends React.PureComponent {
 							className={`relative z-10 ${
 								isPassageMeta
 									? "block"
-									: "grid grid-cols-[minmax(0,1fr)_2.75rem] items-center gap-x-3 pl-2"
+									: "grid grid-cols-[auto_minmax(0,1fr)_2.75rem] items-center gap-x-3 pl-2"
 							}`}
 						>
-							<span className="block min-w-0">
+							{!isPassageMeta && item?.audio ? (
+								<CircularAudioProgressAnimatedSpeakerDisplay
+									className="super-compact-speaker"
+									duration={prog.duration}
+									handleClick={(event) => {
+										event.preventDefault();
+										event.stopPropagation();
+
+										const playlistIndex = rowToPlaylistIndex[i];
+										if (playlistIndex === undefined) return;
+
+										if (isActive) {
+											this.sequenceRef.current?.toggle();
+											return;
+										}
+
+										this.sequenceRef.current?.playItem(playlistIndex, {
+											playSequence: false,
+										});
+									}}
+									progress={prog.currentTime}
+									status={status}
+									title={isActive ? "Click to pause" : "Click to play"}
+								/>
+							) : null}
+							<span className={`block min-w-0 ${isPassageMeta ? "" : "col-start-2"}`}>
 								{segments.map((segment, segmentIndex) => {
 									if (segment.type !== "choice") {
 										return (
@@ -433,7 +520,7 @@ export class SelectExercise extends React.PureComponent {
 							{isPassageMeta ? null : (
 								<span
 									aria-hidden="true"
-									className={`inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+									className={`col-start-3 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
 								>
 									{rowBlankIndices.length > 0 ? (
 										rowIsCorrect ? (
@@ -543,7 +630,7 @@ export class SelectExercise extends React.PureComponent {
 														onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
 													>
 														<SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
-															<SelectValue placeholder={`Select answer${rowBlankIndices.length > 1 ? ` ${localIndex + 1}` : ""}`} />
+															<SelectValue placeholder="Select answer" />
 														</SelectTrigger>
 														<SelectContent>
 															{meta.options.map((option, optionIndex) => (
@@ -600,7 +687,7 @@ export class SelectExercise extends React.PureComponent {
 					/>
 				) : null}
 
-				{listenDescriptionText && soundFile ? (
+				{listenDescriptionText && soundFile && !(layoutMode === "inline-passage" && useSequenceAudioController && playlist.length > 0) ? (
 					useSequenceAudioController ? (
 						<div className="space-y-1">
 							<SequenceAudioController sources={[resolveAsset(soundFile)]} />
@@ -612,6 +699,20 @@ export class SelectExercise extends React.PureComponent {
 							soundFile={soundFile}
 						/>
 					)
+				) : null}
+
+				{layoutMode === "inline-passage" && useSequenceAudioController && playlist.length > 0 ? (
+					<SequenceAudioController
+						ref={this.sequenceRef}
+						onPlayStateChange={this.handleMasterPlayStateChange}
+						onStopped={(playlistIndex) => this.handleMasterStopped(playlistIndex, playlist)}
+						onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
+							this.handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
+						}
+						onTrackChange={(playlistIndex) => this.handleMasterTrackChange(playlistIndex, playlist)}
+						pauseSeconds={0.5}
+						sources={playlist.map((entry) => entry.src)}
+					/>
 				) : null}
 
 				{layoutMode === "inline-passage" ? (
