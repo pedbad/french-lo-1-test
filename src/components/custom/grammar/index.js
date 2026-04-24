@@ -50,7 +50,12 @@ export {
 	MakingArrangementsGrammarVouloir,
 	MakingArrangementsGrammarPrepositionA,
 } from "./making-arrangements-grammar";
-export { GoingToACafeGrammar } from "./going-to-a-cafe-grammar";
+export {
+	GoingToACafeGrammarConditionalVouloir,
+	GoingToACafeGrammarPrendre,
+	GoingToACafeGrammarFlavoursWithA,
+	GoingToACafeGrammarDisjunctivePronouns,
+} from "./going-to-a-cafe-grammar";
 export { ShoppingInTheMarketGrammar } from "./shopping-in-the-market-grammar";
 export { DailyRoutineGrammar } from "./daily-routine-grammar";
 export { StudyingAtUniversityGrammar } from "./studying-at-university-grammar";

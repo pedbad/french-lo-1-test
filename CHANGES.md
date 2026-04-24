@@ -2,6 +2,49 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-23 - LO11 Going to a Cafe Section Modernization + Audio Migration
+
+- Modernized LO11 `Going to a cafe` to align with the current post-LO8 lesson contract where source material exists:
+  - `src/lo-config/going-to-a-cafe.json`
+  - added `informationHTML`
+  - rewrote dialogue, vocabulary, grammar, and exercise instructional copy onto the current `instructionsTextHTML` / `informationTextHTML` patterns
+  - renamed dialogue titles to semantic learner-facing labels
+  - corrected content drift such as `sandwich (m)` and normalized French spacing around punctuation
+- Replaced the monolithic LO11 grammar block with semantic lesson-owned grammar articles:
+  - `src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
+  - `src/components/custom/grammar/index.js`
+  - grammar now uses:
+    - `GoingToACafeGrammarConditionalVouloir`
+    - `GoingToACafeGrammarPrendre`
+    - `GoingToACafeGrammarFlavoursWithA`
+    - `GoingToACafeGrammarDisjunctivePronouns`
+- Refined LO11 exercise structure while modernizing the lesson:
+  - `src/lo-config/going-to-a-cafe.json`
+  - kept the existing cafe dialogue drag task
+  - kept the two verb-form select tasks
+  - changed the flavours/prepositions task from `SelectExercise` to `InlineChoiceGroup` to match the newer inline-choice pattern already used in recent lessons
+- Migrated LO11 audio off legacy `sounds/fr/...` refs and into lesson-owned folders:
+  - new root: `public/audio/lo11/...`
+  - updated LO11 refs in:
+    - `src/lo-config/going-to-a-cafe.json`
+    - `src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
+  - copied 115 LO11-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - exercises
+  - resolved the pre-existing broken-ref set during migration via normalization-aware matching against `public/sounds/fr/...`
+- Added LO11 migration tracking docs:
+  - `docs/audio/AUDIO_LO11_MIGRATION_MAP.md`
+  - `docs/audio/LO11_AUDIO_BLOCKERS.md`
+- Synced docs/checklists to avoid drift:
+  - `README.md`
+  - `docs/components/DROPDOWNS_TO_SELECTEXERCISE_CHECKLIST.md`
+- Validation:
+  - `rg -n 'sounds/fr' src/lo-config/going-to-a-cafe.json src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
+  - `find public/audio/lo11 -type f | wc -l`
+  - `yarn build`
+
 ## 2026-04-23 - LO10 Making Arrangements Section Modernization
 
 - Modernized LO10 `Making Arrangements` to match the current LO1-LO9 section contract:

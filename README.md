@@ -930,6 +930,45 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Legacy cleanup:
   - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
 
+## LO10 Audio Migration Status
+
+- LO10 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo10/...` in:
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/making-arrangements.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/making-arrangements-grammar.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
+- New LO10 root:
+  - `public/audio/lo10/...`
+- LO10 now follows the newer section contract:
+  - `introImage` + `introHTML` + `informationHTML`
+  - grouped grammar articles
+  - tabbed pronunciation items
+- Migration record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO10_MIGRATION_MAP.md`
+- Blocker record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO10_AUDIO_BLOCKERS.md`
+- Legacy cleanup:
+  - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+
+## LO11 Audio Migration Status
+
+- LO11 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo11/...` in:
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/going-to-a-cafe.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
+- New LO11 root:
+  - `public/audio/lo11/...`
+- LO11 now follows the newer section contract where source material exists:
+  - `introImage` + `introHTML` + `informationHTML`
+  - grouped grammar articles
+  - updated section-level instructional copy
+- Current source note:
+  - LO11 still has no pronunciation section because the current repo does not contain authored café pronunciation content to migrate
+- Migration record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO11_MIGRATION_MAP.md`
+- Blocker record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO11_AUDIO_BLOCKERS.md`
+- Legacy cleanup:
+  - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+
 ## Shared Table Variants
 
 - `src/components/ui/table.jsx` now supports reusable table variants.

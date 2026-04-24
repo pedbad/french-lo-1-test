@@ -6,116 +6,122 @@
       "src": "img/lo11/out-and-about-cafe.svg",
       "alt": "Going to a cafe illustration"
     },
-    "introHTML": "<p>This lesson teaches how to order food and drinks in a café and manage polite exchanges with servers. Learners practise real-life café dialogues — ordering, clarifying mistakes, and paying — using expressions like Je voudrais…, Pour moi…, and Vous désirez ? It introduces vocabulary for drinks, snacks, ice creams, and flavours (un café-crème, une glace à la vanille, un croque-monsieur).</p><p>Grammar focuses on the conditional of vouloir (Je voudrais = I would like), the verb prendre for having food or drink (Je prends un café), and the preposition à for describing flavours (au fromage, à la vanille). It also introduces disjunctive pronouns (moi, toi, lui, elle, nous, vous, eux, elles) used after prepositions like pour or avec.</p><p>Overall, it helps learners confidently handle café conversations and make polite, accurate requests in French.</p>"
+    "introHTML": "<p>This lesson teaches learners how to order food and drinks in a French café, using useful expressions such as <em>Je voudrais…</em>, <em>Pour moi…</em>, and <em>Vous désirez&nbsp;?</em>. It introduces common café vocabulary for drinks, snacks, ice creams, and flavours.</p><p>It also practises key grammar points including the conditional of <em>vouloir</em>, the verb <em>prendre</em> for food and drink, the preposition <em>à</em> in flavour phrases, and disjunctive pronouns after prepositions such as <em>pour</em> and <em>avec</em>.</p>",
+    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Order drinks, snacks, and ice creams politely in a French café.</li><li>Use <em>je voudrais</em> to make polite requests and <em>prendre</em> to talk about what someone is having.</li><li>Ask about flavours, fillings, and menu choices more naturally.</li><li>Use <em>au</em>, <em>à la</em>, <em>à l&apos;</em>, and <em>aux</em> correctly with flavours and toppings.</li><li>Recognise and use disjunctive pronouns such as <em>moi</em>, <em>toi</em>, and <em>eux</em> after prepositions.</li></ul>"
   },
   "dialogues": {
     "component": "Section",
     "expandable": false,
+    "instructionsTextHTML": "<p>This section introduces short café exchanges for ordering drinks, correcting a mistake, choosing ice-cream flavours, and paying politely.</p>",
     "content": [
       {
-        "phrasetable1": {
+        "phraseTable1": {
           "component": "PhraseTable",
           "id": "phraseTable1",
-          "instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+          "informationTextHTML": "<p>Listen for the polite request, the follow-up question about flavour, and the way the customer corrects the mistake.</p>",
           "phrases": [
             [
-              "sounds/fr/Bonjour! Vous désirez.mp3",
-              "Bonjour ! Vous désirez ?",
-              "Hello! What can I get you? "
+              "audio/lo11/dialogues/phraseTable1/001-bonjour-vous-desirez.mp3",
+              "Bonjour&nbsp;! Vous désirez&nbsp;?",
+              "Hello! What can I get you?"
             ],
             [
-              "sounds/fr/Je voudrais un thé, s'il vous plaît.mp3",
+              "audio/lo11/dialogues/phraseTable1/002-je-voudrais-un-the-s-il-vous-plait.mp3",
               "Je voudrais un thé, s'il vous plaît.",
               "I'd like a tea please."
             ],
             [
-              "sounds/fr/Qu'est-ce que vous préférez au lait, au citron, nature.mp3",
-              "Qu'est-ce que vous préférez ? au lait, au citron, nature ?",
-              "What do you prefer? With milk, with lemon, on its own? "
+              "audio/lo11/dialogues/phraseTable1/003-qu-est-ce-que-vous-preferez-au-lait-au-citron-nature.mp3",
+              "Qu'est-ce que vous préférez&nbsp;? Au lait, au citron, nature&nbsp;?",
+              "What do you prefer? With milk, with lemon, on its own?"
             ],
             [
-              "sounds/fr/Un thé au citron. Et un grand café-crème pour ma sœur.mp3",
+              "audio/lo11/dialogues/phraseTable1/004-un-the-au-citron-et-un-grand-cafe-creme-pour-ma-soeur.mp3",
               "Un thé au citron. Et un grand café-crème pour ma sœur.",
               "A tea with lemon. And a large coffee with milk for my sister."
             ],
             [
-              "sounds/fr/D'accord! Un thé au lait et un grand chocolat chaud.mp3",
-              "D'accord ! Un thé au lait et un grand chocolat chaud.",
+              "audio/lo11/dialogues/phraseTable1/005-d-accord-un-the-au-lait-et-un-grand-chocolat-chaud.mp3",
+              "D'accord&nbsp;! Un thé au lait et un grand chocolat chaud.",
               "OK! A tea with milk and a large hot chocolate."
             ],
             [
-              "sounds/fr/Non, non, il y a une erreur! Un thé au citron et un grand café-crème.mp3",
-              "Non, non, il y a une erreur ! Un thé au citron et un grand café-crème.",
+              "audio/lo11/dialogues/phraseTable1/006-non-non-il-y-a-une-erreur-un-the-au-citron-et-un-grand-cafe-creme.mp3",
+              "Non, non, il y a une erreur&nbsp;! Un thé au citron et un grand café-crème.",
               "No, no, that's wrong! A tea with lemon and a large coffee with milk."
             ]
           ],
-          "titleText": "Dialogues 1"
+          "titleText": "Ordering tea and coffee"
         }
       },
       {
-        "phrasetable2": {
+        "phraseTable2": {
           "component": "PhraseTable",
           "id": "phraseTable2",
-          "instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+          "informationTextHTML": "<p>Notice how the speakers order drinks for themselves and how one speaker refuses alcohol politely.</p>",
           "phrases": [
             [
-              "sounds/fr/Bonsoir Amélie! Qu'est-ce que vous prenez.mp3",
-              "Bonsoir Amélie ! Qu'est-ce que vous prenez ?",
+              "audio/lo11/dialogues/phraseTable2/001-bonsoir-amelie-qu-est-ce-que-vous-prenez.mp3",
+              "Bonsoir Amélie&nbsp;! Qu'est-ce que vous prenez&nbsp;?",
               "Good evening, Amélie! What are you having?"
             ],
             [
-              "sounds/fr/Une bière, s'il vous plaît.mp3",
+              "audio/lo11/dialogues/phraseTable2/002-une-biere-s-il-vous-plait.mp3",
               "Une bière, s'il vous plaît.",
               "A beer please."
             ],
             [
-              "sounds/fr/Et vous, Michel, vous voulez une bière.mp3",
-              "Et vous, Michel, vous voulez une bière ?",
+              "audio/lo11/dialogues/phraseTable2/003-et-vous-michel-vous-voulez-une-biere.mp3",
+              "Et vous, Michel, vous voulez une bière&nbsp;?",
               "And what about you Michel, do you want a beer?"
             ],
             [
-              "sounds/fr/Non merci. pas d'alcool pour moi aujourd'hui! Pour moi une eau minérale s'il vous plait!.mp3",
-              "Non merci ... pas d'alcool pour moi aujourd'hui ! Pour moi une eau minérale s'il vous plait !",
+              "audio/lo11/dialogues/phraseTable2/004-non-merci-pas-d-alcool-pour-moi-aujourd-hui-pour-moi-une-eau-minerale-s-il-vous-plait.mp3",
+              "Non merci ... pas d'alcool pour moi aujourd'hui&nbsp;! Pour moi une eau minérale s'il vous plaît&nbsp;!",
               "No thanks, no alcohol for me today! A mineral water for me please!"
             ]
           ],
-          "titleText": "Dialogues 2"
+          "titleText": "Ordering drinks with friends"
         }
       },
       {
-        "phrasetable3": {
+        "phraseTable3": {
           "component": "PhraseTable",
           "id": "phraseTable3",
-          "instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+          "informationTextHTML": "<p>Listen for the ice-cream flavours, the number of scoops, and the short exchange used when paying.</p>",
           "phrases": [
             [
-              "sounds/fr/Bonjour! Je voudrais deux glaces, s'il vous plaît.mp3",
-              "Bonjour ! Je voudrais deux glaces, s'il vous plaît.",
+              "audio/lo11/dialogues/phraseTable3/001-bonjour-je-voudrais-deux-glaces-s-il-vous-plait.mp3",
+              "Bonjour&nbsp;! Je voudrais deux glaces, s'il vous plaît.",
               "Hello, I'd like two ice-creams please."
             ],
             [
-              "sounds/fr/Quels parfums.mp3",
-              "Quels parfums ?",
-              "What flavours? "
+              "audio/lo11/dialogues/phraseTable3/002-quels-parfums.mp3",
+              "Quels parfums&nbsp;?",
+              "What flavours?"
             ],
             [
-              "sounds/fr/Une glace à la vanille pour moi, deux boules, et pour la petite une glace à la fraise, une boule s'il vous plaît.mp3",
+              "audio/lo11/dialogues/phraseTable3/003-une-glace-a-la-vanille-pour-moi-deux-boules-et-pour-la-petite-une-glace-a-la-fraise-une-boule-s-il-vous-plait.mp3",
               "Une glace à la vanille pour moi, deux boules, et pour la petite une glace à la fraise, une boule s'il vous plaît.",
               "A vanilla ice-cream for me, two scoops, and for the little girl a strawberry ice-cream, one scoop please."
             ],
             [
-              "sounds/fr/Voilà! Ça fait 5 euros.mp3",
-              "Voilà ! Ça fait 5 euros.",
+              "audio/lo11/dialogues/phraseTable3/004-voila-ca-fait-5-euros.mp3",
+              "Voilà&nbsp;! Ça fait 5 euros.",
               "Here you are. That comes to 5 euros."
             ],
-            ["sounds/fr/Voilà!.mp3", "Voilà !", "Here you are."],
             [
-              "sounds/fr/Merci beaucoup! Bonne journée!.mp3",
-              "Merci beaucoup ! Bonne journée !",
+              "audio/lo11/dialogues/phraseTable3/005-voila.mp3",
+              "Voilà&nbsp;!",
+              "Here you are."
+            ],
+            [
+              "audio/lo11/dialogues/phraseTable3/006-merci-beaucoup-bonne-journee.mp3",
+              "Merci beaucoup&nbsp;! Bonne journée&nbsp;!",
               "Thank you very much! Have a nice day!"
             ]
           ],
-          "titleText": "Dialogues 3"
+          "titleText": "Ordering ice cream"
         }
       }
     ],
@@ -126,90 +132,91 @@
     "component": "PhraseTable",
     "expandable": false,
     "id": "vocabulary",
-    "instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+    "instructionsTextHTML": "<p>This section introduces the key café expressions and menu vocabulary used throughout the lesson.</p>",
+    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Useful ordering expressions such as <em>Vous désirez&nbsp;?</em>, <em>Qu&apos;est-ce que vous prenez&nbsp;?</em>, and <em>Je voudrais</em>.</li><li>Drink vocabulary such as <em>café-crème</em>, <em>chocolat chaud</em>, <em>eau minérale</em>, and <em>bière pression</em>.</li><li>Food and snack items such as <em>crêpe</em>, <em>croque-monsieur</em>, and <em>omelette aux champignons</em>.</li><li>Words for flavours and portions such as <em>parfum</em> and <em>boule</em>.</li></ul>",
     "phrases": [
-      ["sounds/fr/Vous désirez.mp3", "Vous désirez ?", "What can I get you? "],
+      ["audio/lo11/vocabulary/001-vous-desirez.mp3", "Vous désirez&nbsp;?", "What can I get you?"],
       [
-        "sounds/fr/Qu'est-ce que vous prenez.mp3",
-        "Qu'est-ce que vous prenez ?",
-        "What are you having? "
+        "audio/lo11/vocabulary/002-qu-est-ce-que-vous-prenez.mp3",
+        "Qu'est-ce que vous prenez&nbsp;?",
+        "What are you having?"
       ],
-      ["sounds/fr/boire.mp3", "boire", "to drink"],
-      ["sounds/fr/prendre.mp3", "prendre", "to take, to have (food or drink) "],
-      ["sounds/fr/Je voudrais.mp3", "Je voudrais", "I'd like"],
-      ["sounds/fr/Pour moi.mp3", "Pour moi", "For me "],
+      ["audio/lo11/vocabulary/003-boire.mp3", "boire", "to drink"],
+      ["audio/lo11/vocabulary/004-prendre.mp3", "prendre", "to take, to have (food or drink)"],
+      ["audio/lo11/vocabulary/005-je-voudrais.mp3", "Je voudrais", "I'd like"],
+      ["audio/lo11/vocabulary/006-pour-moi.mp3", "Pour moi", "For me"],
       [
-        "sounds/fr/café, café-crème.mp3",
+        "audio/lo11/vocabulary/007-cafe-cafe-creme.mp3",
         "café (m), café-crème (m)",
         "coffee, coffee with milk"
       ],
-      ["sounds/fr/chocolat chaud.mp3", "chocolat (m) chaud", "hot chocolate"],
+      ["audio/lo11/vocabulary/008-chocolat-chaud.mp3", "chocolat (m) chaud", "hot chocolate"],
       [
-        "sounds/fr/jus de pomme, jus d'orange.mp3",
+        "audio/lo11/vocabulary/009-jus-de-pomme-jus-d-orange.mp3",
         "jus (m) de pomme, jus d'orange",
         "apple juice, orange juice"
       ],
       [
-        "sounds/fr/vin blanc, vin rouge.mp3",
+        "audio/lo11/vocabulary/010-vin-blanc-vin-rouge.mp3",
         "vin (m) blanc, vin rouge",
         "white wine, red wine"
       ],
       [
-        "sounds/fr/bière, bière pression.mp3",
+        "audio/lo11/vocabulary/011-biere-biere-pression.mp3",
         "bière (f), bière pression",
         "beer, draft beer"
       ],
-      ["sounds/fr/verre.mp3", "verre (m)", "glass"],
-      ["sounds/fr/bouteille.mp3", "bouteille (f)", "bottle"],
-      ["sounds/fr/carafe.mp3", "carafe (f)", "jug"],
+      ["audio/lo11/vocabulary/012-verre.mp3", "verre (m)", "glass"],
+      ["audio/lo11/vocabulary/013-bouteille.mp3", "bouteille (f)", "bottle"],
+      ["audio/lo11/vocabulary/014-carafe.mp3", "carafe (f)", "jug"],
       [
-        "sounds/fr/Vous voulez quelque chose à manger.mp3",
-        "Vous voulez quelque chose à manger ?",
+        "audio/lo11/vocabulary/015-vous-voulez-quelque-chose-a-manger.mp3",
+        "Vous voulez quelque chose à manger&nbsp;?",
         "Do you want something to eat?"
       ],
       [
-        "sounds/fr/Tu veux quelque chose à manger.mp3",
-        "Tu veux quelque chose à manger ?",
+        "audio/lo11/vocabulary/016-tu-veux-quelque-chose-a-manger.mp3",
+        "Tu veux quelque chose à manger&nbsp;?",
         "Do you want something to eat?"
       ],
       [
-        "sounds/fr/Qu'est-ce que vous avez comme sandwiches.mp3",
-        "Qu'est-ce que vous avez comme sandwiches ?",
+        "audio/lo11/vocabulary/017-qu-est-ce-que-vous-avez-comme-sandwiches.mp3",
+        "Qu'est-ce que vous avez comme sandwiches&nbsp;?",
         "What sort of sandwiches do you have?"
       ],
-      ["sounds/fr/crêpe.mp3", "crêpe (f)", "pancake"],
+      ["audio/lo11/vocabulary/018-crepe.mp3", "crêpe (f)", "pancake"],
       [
-        "sounds/fr/croque-monsieur.mp3",
+        "audio/lo11/vocabulary/019-croque-monsieur.mp3",
         "croque-monsieur (m)",
         "cheese and ham toasted sandwich"
       ],
       [
-        "sounds/fr/omelette aux champignons.mp3",
+        "audio/lo11/vocabulary/020-omelette-aux-champignons.mp3",
         "omelette (f) aux champignons",
         "mushroom omelette"
       ],
       [
-        "sounds/fr/pizza au fromage et à la tomate.mp3",
+        "audio/lo11/vocabulary/021-pizza-au-fromage-et-a-la-tomate.mp3",
         "pizza (f) au fromage et à la tomate",
         "cheese and tomato pizza"
       ],
       [
-        "sounds/fr/sandwich au jambon.mp3",
-        "sandwich (f) au jambon",
+        "audio/lo11/vocabulary/022-sandwich-au-jambon.mp3",
+        "sandwich (m) au jambon",
         "ham sandwich"
       ],
-      ["sounds/fr/frites.mp3", "frites (fpl)", "French fries"],
+      ["audio/lo11/vocabulary/023-frites.mp3", "frites (fpl)", "French fries"],
       [
-        "sounds/fr/glace au chocolat, glace à la vanille.mp3",
+        "audio/lo11/vocabulary/024-glace-au-chocolat-glace-a-la-vanille.mp3",
         "glace (f) au chocolat, glace à la vanille",
         "chocolate ice-cream, vanilla ice-cream"
       ],
-      ["sounds/fr/parfum.mp3", "parfum (m)", "flavour"],
-      ["sounds/fr/Quel parfum.mp3", "Quel(s) parfum(s) ?", "What flavour(s)?"],
-      ["sounds/fr/boule.mp3", "boule (f)", "scoop"],
+      ["audio/lo11/vocabulary/025-parfum.mp3", "parfum (m)", "flavour"],
+      ["audio/lo11/vocabulary/026-quel-parfum.mp3", "Quel(s) parfum(s)&nbsp;?", "What flavour(s)?"],
+      ["audio/lo11/vocabulary/027-boule.mp3", "boule (f)", "scoop"],
       [
-        "sounds/fr/Combien de boules.mp3",
-        "Combien de boules?",
+        "audio/lo11/vocabulary/028-combien-de-boules.mp3",
+        "Combien de boules&nbsp;?",
         "How many scoops?"
       ]
     ],
@@ -217,68 +224,115 @@
     "titleText": "Vocabulary"
   },
   "grammar": {
-    "component": "GoingToACafeGrammar",
+    "component": "Group",
     "expandable": false,
     "id": "grammar",
     "menuText": "Grammar",
-    "titleText": "Grammar and Usage"
+    "titleText": "Grammar and Usage",
+    "instructionsLayout": {
+      "paragraphHTML": "<p>This section explains how to make polite requests with <em class='grammar-term-em'>je voudrais</em>, how to use <em class='grammar-term-em'>prendre</em> for food and drink, how <em class='grammar-term-em'>à</em> changes before flavours and fillings, and how disjunctive pronouns work after prepositions.</p>",
+      "image": {
+        "src": "img/shared/grammar.svg",
+        "alt": "Grammar illustration"
+      }
+    },
+    "heroSection": true,
+    "content": [
+      {
+        "grammar1": {
+          "component": "GoingToACafeGrammarConditionalVouloir",
+          "id": "grammar1",
+          "menuText": "1. je voudrais",
+          "titleTextHTML": "1. Using <em class='grammar-term-em'>je voudrais</em> for polite requests",
+          "informationTextHTML": "<p>In this part, focus on how <em>je voudrais</em> softens a request and how the conditional forms of <em>vouloir</em> change with the subject.</p>"
+        }
+      },
+      {
+        "grammar2": {
+          "component": "GoingToACafeGrammarPrendre",
+          "id": "grammar2",
+          "menuText": "2. prendre",
+          "titleTextHTML": "2. Using <em class='grammar-term-em'>prendre</em> for food and drink",
+          "informationTextHTML": "<p>Here, notice how French uses <em>prendre</em> rather than <em>avoir</em> when talking about having food or drink.</p>"
+        }
+      },
+      {
+        "grammar3": {
+          "component": "GoingToACafeGrammarFlavoursWithA",
+          "id": "grammar3",
+          "menuText": "3. au / à la / à l' / aux",
+          "titleTextHTML": "3. Using <em class='grammar-term-em'>à</em> with flavours and fillings",
+          "informationTextHTML": "<p>This part shows how <em>à</em> combines with the article before masculine, feminine, vowel, and plural nouns in menu descriptions.</p>"
+        }
+      },
+      {
+        "grammar4": {
+          "component": "GoingToACafeGrammarDisjunctivePronouns",
+          "id": "grammar4",
+          "menuText": "4. moi / toi / lui ...",
+          "titleTextHTML": "4. Using disjunctive pronouns after prepositions",
+          "informationTextHTML": "<p>In this part, practise the stressed pronouns used after prepositions such as <em>pour</em>, <em>avec</em>, and <em>sans</em>.</p>"
+        }
+      }
+    ]
   },
   "exercises": {
     "component": "Group",
     "content": [
       {
-        "draggableFillGaps1": {
-          "component": "DraggableFillGaps",
-          "id": "draggableFillGaps1",
+        "selectExerciseOrderingFoodDrink": {
+          "component": "SelectExercise",
+          "id": "selectExerciseOrderingFoodDrink",
           "congratulationsText": "Excellent!",
-          "instructionsText": "Use the words below to complete the conversation in the café.",
+          "informationTextHTML": "Listen to the café dialogue and choose the correct word or phrase. Work through the conversation first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "renderInlineChoices": true,
+          "useSequenceAudioController": true,
           "showHintsText": "Hints",
-          "cheatText": "Show answer",
-          "blanksType": "phrases",
+          "cheatText": "Show answers",
           "items": [
             {
-              "text": "Bonjour ! Vous [désirez] ? ",
-              "audio": "sounds/fr/Bonjour! Vous désirez (m).mp3"
+              "text": "Bonjour&nbsp;! Vous [*désirez|voulez|prenez|préférez|avez|servez]&nbsp;?",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/001-bonjour-vous-desirez.mp3"
             },
             {
-              "text": "Je [voudrais] un café-crème, s'il vous plaît.",
-              "audio": "sounds/fr/Je voudrais un café-crème, s'il vous plaît.mp3"
+              "text": "Je [*voudrais|prends|veux|préfère|cherche|commande] un café-crème, s'il vous plaît.",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/002-je-voudrais-un-cafe-creme-s-il-vous-plait.mp3"
             },
             {
-              "text": "Et pour [moi] un chocolat chaud, s'il vous plaît.",
-              "audio": "sounds/fr/Et pour moi un chocolat chaud, s'il vous plaît.mp3"
+              "text": "Et pour [*moi|toi|vous|nous|elle|eux] un chocolat chaud, s'il vous plaît.",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/003-et-pour-moi-un-chocolat-chaud-s-il-vous-plait.mp3"
             },
             {
-              "text": "Très bien ! Vous [voulez] quelque chose à [manger] ?",
-              "audio": "sounds/fr/Très bien! Vous voulez quelque chose à manger.mp3"
+              "text": "Très bien&nbsp;! Vous [*voulez|prenez|avez|désirez|préférez|cherchez] quelque chose à [*manger|boire|payer|commander|partir|choisir]&nbsp;?",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/004-tres-bien-vous-voulez-quelque-chose-a-manger.mp3"
             },
             {
-              "text": "Oui ! Qu'est-ce que vous avez [comme] sandwiches ?",
-              "audio": "sounds/fr/Oui! Qu'est-ce que vous avez comme sandwiches.mp3"
+              "text": "Oui&nbsp;! Qu'est-ce que vous avez [*comme|pour|avec|sans|dans|de] sandwiches&nbsp;?",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/005-oui-qu-est-ce-que-vous-avez-comme-sandwiches.mp3"
             },
             {
-              "text": "Aujourd'hui, nous [avons] des sandwiches au fromage, au jambon et au saumon.",
-              "audio": "sounds/fr/Aujourd'hui, nous avons des sandwiches au fromage, au jambon et au saumon.mp3"
+              "text": "Aujourd'hui, nous [*avons|sommes|voulons|prenons|servons|proposons] des sandwiches au fromage, au jambon et au saumon.",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/006-aujourd-hui-nous-avons-des-sandwiches-au-fromage-au-jambon-et-au-saumon.mp3"
             },
             {
-              "text": "Pour moi un sandwich au [saumon], s'il vous plaît. ",
-              "audio": "sounds/fr/Pour moi un sandwich au saumon, s'il vous plaît.mp3"
+              "text": "Pour moi un sandwich au [*saumon|fromage|citron|jambon|poulet|chocolat], s'il vous plaît.",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/007-pour-moi-un-sandwich-au-saumon-s-il-vous-plait.mp3"
             },
             {
-              "text": "Et pour [vous] Madame ?",
-              "audio": "sounds/fr/Et pour vous Madame.mp3"
+              "text": "Et pour [*vous|toi|moi|nous|elle|eux] Madame&nbsp;?",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/008-et-pour-vous-madame.mp3"
             },
             {
-              "text": "Je voudrais un [croque-monsieur] avec de la salade verte s'il vous plaît.",
-              "audio": "sounds/fr/Je voudrais un croque-monsieur avec de la salade verte s'il vous plaît.mp3"
+              "text": "Je voudrais un [*croque-monsieur|café-crème|chocolat chaud|thé au citron|sandwich au jambon|omelette aux champignons] avec de la salade verte s'il vous plaît.",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/009-je-voudrais-un-croque-monsieur-avec-de-la-salade-verte-s-il-vous-plait.mp3"
             },
             {
-              "text": "Très bien ! C'est [tout] ?",
-              "audio": "sounds/fr/Très bien! C'est tout.mp3"
+              "text": "Très bien&nbsp;! C'est [*tout|bon|prêt|fini|possible|d'accord]&nbsp;?",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/010-tres-bien-c-est-tout.mp3"
             },
             {
-              "text": "Oui, [c'est] tout merci ! ",
-              "audio": "sounds/fr/Oui, c'est tout merci!.mp3"
+              "text": "Oui, [*c'est|je suis|il est|ce sont|j'ai|cela fait] tout merci&nbsp;!",
+              "audio": "audio/lo11/exercises/draggableFillGaps1/011-oui-c-est-tout-merci.mp3"
             }
           ],
           "titleText": "1. Ordering food and drink"
@@ -288,34 +342,35 @@
         "selectExercise1": {
           "component": "SelectExercise",
           "id": "selectExercise1",
-          "congratulationsText": "Félicitations !",
-          "instructionsText": "Select the correct verb form for each gap.",
-          "showHintsText": "Show hints when moving",
+          "congratulationsText": "Félicitations&nbsp;!",
+          "informationTextHTML": "Listen to each sentence and choose the correct form of <strong>voudrais</strong>, <strong>voudrait</strong>, <strong>voudrions</strong>, <strong>voudriez</strong>, or <strong>voudraient</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "renderInlineChoices": true,
+          "showHintsText": "Hints",
           "cheatText": "Show answers",
           "items": [
             {
               "text": "Je [*voudrais|voudrait|voudriez|voudrions|voudraient] un chocolat chaud.",
-              "audio": "sounds/fr/Je voudrais un chocolat chaud.mp3"
+              "audio": "audio/lo11/exercises/selectExercise1/001-je-voudrais-un-chocolat-chaud.mp3"
             },
             {
               "text": "Ma mère [voudrais|*voudrait|voudriez|voudrions|voudraient] un thé vert.",
-              "audio": "sounds/fr/Ma mère voudrait un thé vert.mp3"
+              "audio": "audio/lo11/exercises/selectExercise1/002-ma-mere-voudrait-un-the-vert.mp3"
             },
             {
               "text": "Nous [voudrais|voudrait|voudriez|*voudrions|voudraient] dîner au restaurant ce soir.",
-              "audio": "sounds/fr/Nous voudrions dîner au restaurant ce soir.mp3"
+              "audio": "audio/lo11/exercises/selectExercise1/003-nous-voudrions-diner-au-restaurant-ce-soir.mp3"
             },
             {
               "text": "Les enfants [voudrais|voudrait|voudriez|voudrions|*voudraient] quelque chose à manger.",
-              "audio": "sounds/fr/Les enfants voudraient quelque chose à manger.mp3"
+              "audio": "audio/lo11/exercises/selectExercise1/004-les-enfants-voudraient-quelque-chose-a-manger.mp3"
             },
             {
               "text": "Caroline et moi [voudrais|voudrait|voudriez|*voudrions|voudraient] quelque chose à boire.",
-              "audio": "sounds/fr/Caroline et moi voudrions quelque chose à boire.mp3"
+              "audio": "audio/lo11/exercises/selectExercise1/005-caroline-et-moi-voudrions-quelque-chose-a-boire.mp3"
             },
             {
               "text": "Amélie et Laurent [voudrais|voudrait|voudriez|voudrions|*voudraient] une pizza avec une salade verte.",
-              "audio": "sounds/fr/Amélie et Laurent voudraient une pizza avec une salade verte.mp3"
+              "audio": "audio/lo11/exercises/selectExercise1/006-amelie-et-laurent-voudraient-une-pizza-avec-une-salade-verte.mp3"
             }
           ],
           "titleText": "2. Practise the verb forms"
@@ -325,79 +380,80 @@
         "selectExercise2": {
           "component": "SelectExercise",
           "id": "selectExercise2",
-          "congratulationsText": "Félicitations !",
-          "instructionsText": "Select the correct verb form for each gap.",
-          "showHintsText": "Show hints when moving",
+          "congratulationsText": "Félicitations&nbsp;!",
+          "informationTextHTML": "Listen to each sentence and choose the correct present-tense form of <strong>prendre</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "renderInlineChoices": true,
+          "showHintsText": "Hints",
           "cheatText": "Show answers",
           "items": [
             {
-              "text": "Qu'est-ce que tu [*prends|prend|prenez|prenons|prennent] ?",
-              "audio": "sounds/fr/Qu'est-ce que tu prends.mp3"
+              "text": "Qu'est-ce que tu [*prends|prend|prenez|prenons|prennent]&nbsp;?",
+              "audio": "audio/lo11/exercises/selectExercise2/001-qu-est-ce-que-tu-prends.mp3"
             },
             {
-              "text": "Vous [prends|prend|*prenez|prenons|prennent] un café ?",
-              "audio": "sounds/fr/Vous prenez un café.mp3"
+              "text": "Vous [prends|prend|*prenez|prenons|prennent] un café&nbsp;?",
+              "audio": "audio/lo11/exercises/selectExercise2/002-vous-prenez-un-cafe.mp3"
             },
             {
               "text": "Pauline [prends|*prend|prenez|prenons|prennent] un croque-monsieur.",
-              "audio": "sounds/fr/Pauline prend un croque-monsieur.mp3"
+              "audio": "audio/lo11/exercises/selectExercise2/003-pauline-prend-un-croque-monsieur.mp3"
             },
             {
               "text": "David et moi [prends|prend|prenez|*prenons|prennent] une glace au chocolat.",
-              "audio": "sounds/fr/David et moi prenons une glace au chocolat.mp3"
+              "audio": "audio/lo11/exercises/selectExercise2/004-david-et-moi-prenons-une-glace-au-chocolat.mp3"
             },
             {
               "text": "Mon copain [prends|*prend|prenez|prenons|prennent] un sandwich au fromage.",
-              "audio": "sounds/fr/Mon copain prend un sandwich au fromage.mp3"
+              "audio": "audio/lo11/exercises/selectExercise2/005-mon-copain-prend-un-sandwich-au-fromage.mp3"
             },
             {
               "text": "Je [*prends|prend|prenez|prenons|prennent] un verre de vin blanc.",
-              "audio": "sounds/fr/Je prends un verre de vin blanc.mp3"
+              "audio": "audio/lo11/exercises/selectExercise2/006-je-prends-un-verre-de-vin-blanc.mp3"
             },
             {
               "text": "Mes enfants [prends|prend|prenez|prenons|*prennent] toujours des frites avec leur pizza.",
-              "audio": "sounds/fr/Mes enfants prennent toujours des frites avec leur pizza.mp3"
+              "audio": "audio/lo11/exercises/selectExercise2/007-mes-enfants-prennent-toujours-des-frites-avec-leur-pizza.mp3"
             }
           ],
           "titleText": "3. More verb practice"
         }
       },
       {
-        "selectExercise3": {
-          "component": "SelectExercise",
-          "id": "selectExercise3",
+        "inlineChoiceGroup3": {
+          "component": "InlineChoiceGroup",
+          "id": "inlineChoiceGroup3",
           "congratulationsText": "Excellent!",
-          "instructionsTextHTML": "Fill in the gaps with <strong>au</strong>, <strong>à la</strong>, <strong>à l'</strong> or <strong>aux</strong> as appropriate.",
-          "showHintsText": "Show hints when moving",
+          "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "showHintsText": "Hints",
           "cheatText": "Show answers",
           "items": [
             {
               "text": "Je voudrais un thé [*au|à la|à l'|aux] citron.",
-              "audio": "sounds/fr/Je voudrais un thé au citron.mp3"
+              "audio": "audio/lo11/exercises/inlineChoiceGroup3/001-je-voudrais-un-the-x-citron.mp3"
             },
             {
-              "text": "Alex voudrait un sandwich [*au|à la|à l'|aux] poulet. ",
-              "audio": "sounds/fr/Alex voudrait un sandwich au poulet.mp3"
+              "text": "Alex voudrait un sandwich [*au|à la|à l'|aux] poulet.",
+              "audio": "audio/lo11/exercises/inlineChoiceGroup3/002-alex-voudrait-un-sandwich-x-poulet.mp3"
             },
             {
               "text": "Pour moi un sandwich [*au|à la|à l'|aux] jambon et [au|*à la|à l'|aux] tomate.",
-              "audio": "sounds/fr/Pour moi un sandwich au jambon et à la tomate.mp3"
+              "audio": "audio/lo11/exercises/inlineChoiceGroup3/003-pour-moi-un-sandwich-x-jambon-et-x-tomate.mp3"
             },
             {
               "text": "Je voudrais une pizza [*au|à la|à l'|aux] fromage et [au|à la|à l'|*aux] champignons.",
-              "audio": "sounds/fr/Je voudrais une pizza au fromage et aux champignons.mp3"
+              "audio": "audio/lo11/exercises/inlineChoiceGroup3/004-je-voudrais-une-pizza-x-fromage-et-x-champignons.mp3"
             },
             {
               "text": "J'aime la sauce [au|à la|*à l'|aux] orange.",
-              "audio": "sounds/fr/J'aime la sauce à l'orange.mp3"
+              "audio": "audio/lo11/exercises/inlineChoiceGroup3/005-j-aime-la-sauce-x-orange.mp3"
             },
             {
-              "text": "Tu prends une glace [au|*à la|à l'|aux] vanille, ou [au|*à la|à l'|aux] fraise ?",
-              "audio": "sounds/fr/Tu prends une glace à la vanille, ou à la fraise.mp3"
+              "text": "Tu prends une glace [au|*à la|à l'|aux] vanille, ou [au|*à la|à l'|aux] fraise&nbsp;?",
+              "audio": "audio/lo11/exercises/inlineChoiceGroup3/006-tu-prends-une-glace-x-vanille-ou-x-fraise.mp3"
             },
             {
               "text": "Je prends une glace [*au|à la|à l'|aux] chocolat.",
-              "audio": "sounds/fr/Je prends une glace au chocolat.mp3"
+              "audio": "audio/lo11/exercises/inlineChoiceGroup3/007-je-prends-une-glace-x-chocolat.mp3"
             }
           ],
           "titleText": "4. Flavours, toppings and fillings"
