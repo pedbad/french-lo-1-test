@@ -173,7 +173,7 @@
 			[
 				"audio/lo1/vocabulary/012-mon-petit-ma-petite.mp3",
 				"Mon petit (m) / Ma petite (f)",
-				"Poppet  (literally: my little one)"
+				"Poppet<br /><small>(literally: my little one)</small>"
 			],
 			[
 				"audio/lo1/vocabulary/013-mon-amour.mp3",
@@ -193,7 +193,7 @@
 			[
 				"audio/lo1/vocabulary/016-tout-le-monde.mp3",
 				"Tout le monde",
-				"Everyone (literally : all the world)"
+				"Everyone<br /><small>(literally: all the world)</small>"
 			],
 			[
 				"audio/lo1/vocabulary/017-ca-va-question.mp3",
@@ -203,7 +203,7 @@
 			[
 				"audio/lo1/vocabulary/018-comment-ca-va.mp3",
 				"Comment ça va ?",
-				"How are you? (literally: how's it going?)"
+				"How are you?<br /><small>(literally: how's it going?)</small>"
 			],
 			[
 				"audio/lo1/vocabulary/019-tres-bien.mp3",
@@ -283,7 +283,7 @@
 			[
 				"audio/lo1/vocabulary/032-enchante.mp3",
 				"Enchanté(e)",
-				"Pleased to meet you (literally: delighted)"
+				"Pleased to meet you<br /><small>(literally: delighted)</small>"
 			]
 		],
 		"sortable": true,

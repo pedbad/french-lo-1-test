@@ -142,12 +142,12 @@
 			[
 				"audio/lo2/vocabulary/022-que-faites-vous-dans-la-vie.mp3",
 				"Que faites-vous (dans la vie) ?",
-				"What do you do (for a living)?"
+				"What do you do?<br /><small>(for a living)</small>"
 			],
 			[
 				"audio/lo2/vocabulary/021-que-fais-tu-dans-la-vie.mp3",
 				"Que fais-tu (dans la vie) ?",
-				"What do you do (for a living)?"
+				"What do you do?<br /><small>(for a living)</small>"
 			],
 			[
 				"audio/lo2/vocabulary/024-quelle-est-ta-profession-quelle-est-votre-profession.mp3",
@@ -162,7 +162,7 @@
 			[
 				"audio/lo2/vocabulary/007-depuis.mp3",
 				"depuis",
-				"for (a period of time), since"
+				"for, since<br /><small>(used for a period of time)</small>"
 			],
 			[
 				"audio/lo2/vocabulary/016-malade.mp3",

@@ -80,3 +80,47 @@ Status labels:
 
 - `public/audio/lo12/exercises/044-jus.mp3`
   - New single-word pronunciation clip for `jus` in the `u / ou` discrimination exercises.
+
+## LO13 - Daily routine
+
+### Needs new audio
+
+- `public/audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3`
+  - Full playlist audio for LO13 exercise 1 `Practise the reflexive verbs`.
+  - Record the 12 completed sentences in the same order as files `017` to `028` below.
+
+- `public/audio/lo13/exercises/017-je-me-reveille-a-huit-heures.mp3`
+  - Row audio for `Je me réveille à huit heures.`
+
+- `public/audio/lo13/exercises/018-je-mhabille-avant-de-prendre-mon-petit-dejeuner.mp3`
+  - Row audio for `Je m'habille avant de prendre mon petit déjeuner.`
+
+- `public/audio/lo13/exercises/019-adele-se-leve-vers-dix-heures.mp3`
+  - Row audio for `Adèle se lève vers dix heures.`
+
+- `public/audio/lo13/exercises/020-vous-vous-levez-a-quelle-heure.mp3`
+  - Row audio for `Vous vous levez à quelle heure ?`
+
+- `public/audio/lo13/exercises/021-nous-nous-reposons-pendant-le-week-end.mp3`
+  - Row audio for `Nous nous reposons pendant le week-end.`
+
+- `public/audio/lo13/exercises/022-je-me-detends-pendant-les-vacances.mp3`
+  - Row audio for `Je me détends pendant les vacances.`
+
+- `public/audio/lo13/exercises/023-les-enfants-se-couchent-vers-neuf-heures.mp3`
+  - Row audio for `Les enfants se couchent vers neuf heures.`
+
+- `public/audio/lo13/exercises/024-patrick-se-couche-a-minuit.mp3`
+  - Row audio for `Patrick se couche à minuit.`
+
+- `public/audio/lo13/exercises/025-tu-te-maquilles-aujourdhui.mp3`
+  - Row audio for `Tu te maquilles aujourd'hui ?`
+
+- `public/audio/lo13/exercises/026-tu-tappelles-comment.mp3`
+  - Row audio for `Tu t'appelles comment ?`
+
+- `public/audio/lo13/exercises/027-et-ta-soeur-elle-sappelle-comment.mp3`
+  - Row audio for `Et ta sœur, elle s'appelle comment ?`
+
+- `public/audio/lo13/exercises/028-la-tour-eiffel-se-trouve-a-paris.mp3`
+  - Row audio for `La Tour Eiffel se trouve à Paris.`

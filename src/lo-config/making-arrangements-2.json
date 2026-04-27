@@ -121,7 +121,7 @@
 			[
 				"sounds/fr/visiter.mp3",
 				"visiter",
-				"to visit (a place)"
+				"to visit<br /><small>(a place)</small>"
 			],
 			[
 				"sounds/fr/voyager.mp3",

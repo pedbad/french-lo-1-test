@@ -2,6 +2,73 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-27 - LO13 Daily Routine Audio Migration
+
+- Migrated LO13 `Daily routine` audio off legacy `sounds/fr/...` refs and into lesson-owned folders:
+  - new root: `public/audio/lo13/...`
+  - updated LO13 refs in:
+    - `src/lo-config/daily-routine.json`
+    - `src/components/custom/grammar/daily-routine-grammar.jsx`
+    - `src/components/custom/misc/daily-routine-poem.jsx`
+  - copied 85 LO13-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - exercises
+- Resolved the pre-existing LO13 broken-ref set during migration:
+  - six legacy dialogue refs were recovered via normalization-aware matching against authored files in `public/sounds/fr/...`
+  - the grammar example clip for `je m'appelle` was copied from the existing LO1 migrated audio tree into `public/audio/lo13/grammar/...` so LO13 is self-contained
+- Added LO13 migration tracking docs:
+  - `docs/audio/AUDIO_LO13_MIGRATION_MAP.md`
+  - `docs/audio/LO13_AUDIO_BLOCKERS.md`
+- Validation:
+  - `rg -n 'sounds/fr|audio/lo1/' src/lo-config/daily-routine.json src/components/custom/grammar/daily-routine-grammar.jsx src/components/custom/misc/daily-routine-poem.jsx`
+  - `find public/audio/lo13 -type f | wc -l`
+  - `yarn build`
+
+## 2026-04-27 - Vocabulary Note Drift Normalization + LO13 Vocabulary Alignment
+
+- Normalized explanatory English-side note formatting so note text now renders on a smaller new line where needed:
+  - `src/lo-config/about-me.json`
+  - `src/lo-config/daily-routine.json`
+  - `src/lo-config/first-contact.json`
+  - `src/lo-config/free-time.json`
+  - `src/lo-config/going-to-a-cafe.json`
+  - `src/lo-config/making-arrangements-2.json`
+  - `src/lo-config/phoning-in-france.json`
+- Brought LO13 `Daily routine` vocabulary onto the newer section contract:
+  - replaced the legacy flat `instructionsText` with `instructionsTextHTML`
+  - added `informationTextHTML`
+  - kept the existing vocabulary list and footnote intact
+- Also normalized one dialogue-side literal note in LO13 so the explanatory aside no longer sits inline in the translation:
+  - `src/lo-config/daily-routine.json`
+- Validation:
+  - targeted config sweep for remaining inline parenthetical note drift
+  - `yarn build`
+
+## 2026-04-27 - LO13 Daily Routine Grammar Modernization
+
+- Modernized LO13 `Daily routine` grammar to match the newer grouped-article lesson contract:
+  - `src/lo-config/daily-routine.json`
+  - replaced the monolithic `DailyRoutineGrammar` section entry with:
+    - `instructionsLayout`
+    - `heroSection`
+    - three grouped grammar articles with learner-facing menu labels and info copy
+- Split LO13 grammar into semantic lesson-owned components:
+  - `src/components/custom/grammar/daily-routine-grammar.jsx`
+  - `src/components/custom/grammar/index.js`
+  - grammar now uses:
+    - `DailyRoutineGrammarOn`
+    - `DailyRoutineGrammarReflexiveVerbs`
+    - `DailyRoutineGrammarReflexiveBeforeVowel`
+- Preserved and modernized the existing teaching content:
+  - kept the `on` explanation
+  - kept the reflexive-verb explanation and tense table
+  - kept the `s'appeler` model for reflexive forms before vowels
+  - moved table rows onto the shared clickable audio-table pattern used in newer grammar sections
+- Validation:
+  - `yarn build`
+
 ## 2026-04-24 - LO12 Shopping in the Market Section Modernization + Audio Migration
 
 - Modernized LO12 `Shopping in the market` to align with the current post-LO8 lesson contract:

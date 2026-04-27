@@ -969,6 +969,23 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Legacy cleanup:
   - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
 
+## LO13 Audio Migration Status
+
+- LO13 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo13/...` in:
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/daily-routine.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/daily-routine-grammar.jsx`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/misc/daily-routine-poem.jsx`
+- New LO13 root:
+  - `public/audio/lo13/...`
+- Current source note:
+  - LO13 currently has no lesson-owned pronunciation section in the repo, so this migration covers dialogues, vocabulary, grammar, and exercises only.
+- Migration record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO13_MIGRATION_MAP.md`
+- Blocker record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO13_AUDIO_BLOCKERS.md`
+- Legacy cleanup:
+  - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+
 ## Shared Table Variants
 
 - `src/components/ui/table.jsx` now supports reusable table variants.

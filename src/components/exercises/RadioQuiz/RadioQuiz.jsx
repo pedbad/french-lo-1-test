@@ -1,209 +1,291 @@
-import {
-	AudioClip,
-	IconButton,
-	// Button,
-	// Label,
-	// Monologue,
-	// Radio,
-	// RadioField,
-	// RadioGroup,
-} from "@/components/media";
-import {
-	Table,
-	TableBody,
-	TableCell,
-	// TableHead,
-	// TableHeader,
-	TableRow,
-} from "@/components/ui/table";
+import { ProgressDots } from "@/components/exercises/ProgressDots";
+import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
+import { AudioClip, IconButton } from "@/components/media";
 import DOMPurify from "dompurify";
-import React from 'react';
-import {
-	resolveAsset,
-} from '@/utils/assets';
-
-const RADIO_QUIZ_TABLE_TEXT_CLASS = "radio-quiz-table text-[var(--font-size-sm)] md:text-base";
+import { CircleCheck, CircleX } from "lucide-react";
+import React from "react";
 
 export class RadioQuiz extends React.Component {
-
-	// Table of phrases with translatiopns column and sound files column.
-	// config is passed from the parent so that multiple exercises are possible.
-
 	constructor(props) {
 		super(props);
-		// const answers = [];
-		const { phrases } = props.config;
-		const answers = Array.from({ length: phrases.length }, () => Array(2).fill(false));
-		this.state = ({
+		const { phrases = [] } = props.config || {};
+
+		this.state = {
 			...props.config,
-			answers: answers,
-			disabled: [],
+			checkedResults: {},
+			hasChecked: false,
 			nCorrect: 0,
-			showExplanation: [],
-		});
-		// this.handleChange = this.handleChange.bind(this);
-		// this.handleReset = this.handleReset.bind(this);
+			selectedOptions: Array.from({ length: phrases.length }, () => null),
+			showExplanation: {},
+		};
 	}
 
-	handleChange = (e, rowNum, colNum) => {
-		const {
-			// id,
-			onComplete = () => { },
-			// showDialog,
-		} = this.props;
-		const {
-			answers,
-			// congratulationsText,
-			disabled,
-			phrases,
-		} = this.state;
-		if (disabled[rowNum]) return;
-		let {
-			nCorrect,
-			showExplanation
-		} = this.state;
-
-		// console.log("handleChange", rowNum, colNum); // e.target.id);
-		e.stopPropagation();
-		const clickAudio = new Audio(resolveAsset('/sounds/click.mp3'));
-		// const tadaAudio = new Audio(resolveAsset('/sounds/tada.mp3'));
-		// const errorAudio = new Audio(resolveAsset('/sounds/error.mp3'));
-
-		// console.log(colNum === phrases[rowNum][2], colNum);
-		if (colNum === phrases[rowNum][1]) {
-			clickAudio.play();
-			if (!answers[rowNum]) answers[rowNum] = [];
-			answers[rowNum][colNum] = true;
-			nCorrect++;
-			if (nCorrect === phrases.length) {
-				// tadaAudio.play();
-				// showDialog(congratulationsText);
-				onComplete();
-			}
-			disabled[rowNum] = true;
-		// } else {
-		// 	errorAudio.play();
+	componentDidUpdate(prevProps) {
+		if (prevProps.config !== this.props.config) {
+			const { phrases = [] } = this.props.config || {};
+			this.setState({
+				...this.props.config,
+				checkedResults: {},
+				hasChecked: false,
+				nCorrect: 0,
+				selectedOptions: Array.from({ length: phrases.length }, () => null),
+				showExplanation: {},
+			});
 		}
-		// console.log("showExplanation", showExplanation, rowNum);
-		showExplanation[rowNum] = true;
-		// console.log("showExplanation", showExplanation);
-		this.setState({
-			answers: answers,
-			disabled: disabled,
-			nCorrect: nCorrect,
-			showExplanation: showExplanation,
+	}
+
+	handleChoiceChange = (rowNum, optionIndex) => {
+		this.setState((prevState) => {
+			const selectedOptions = [...(prevState.selectedOptions || [])];
+			selectedOptions[rowNum] = optionIndex;
+
+			if (!prevState.hasChecked) {
+				return { selectedOptions };
+			}
+
+			const checkedResults = {
+				...prevState.checkedResults,
+			};
+			delete checkedResults[rowNum];
+
+			const showExplanation = {
+				...prevState.showExplanation,
+			};
+			delete showExplanation[rowNum];
+
+			return {
+				checkedResults,
+				hasChecked: true,
+				nCorrect: Object.values(checkedResults).filter(Boolean).length,
+				selectedOptions,
+				showExplanation,
+			};
 		});
 	};
 
+	handleCheckAnswers = () => {
+		const { onComplete = () => {} } = this.props;
+		const { phrases = [], selectedOptions = [] } = this.state;
+		const checkedResults = {};
+		const showExplanation = {};
+
+		for (let i = 0; i < phrases.length; i += 1) {
+			const answerIndex = phrases[i][1];
+			const selectedOption = selectedOptions[i];
+			if (selectedOption === null || selectedOption === undefined) {
+				continue;
+			}
+
+			const isCorrect = selectedOption === answerIndex;
+			checkedResults[i] = isCorrect;
+			if (!isCorrect && phrases[i][2]) {
+				showExplanation[i] = true;
+			}
+		}
+
+		const nCorrect = Object.values(checkedResults).filter(Boolean).length;
+		const allCorrect = phrases.length > 0 && nCorrect === phrases.length;
+
+		this.setState(
+			{
+				checkedResults,
+				hasChecked: true,
+				nCorrect,
+				showExplanation,
+			},
+			() => {
+				if (allCorrect) {
+					onComplete();
+				}
+			}
+		);
+	};
+
 	handleReset = () => {
-		// console.log("RESET!");
-		const {
-			id = [],
-		} = this.state;
+		const { onReset = () => {} } = this.props;
+		const { phrases = [] } = this.state;
+		this.setState(
+			{
+				checkedResults: {},
+				hasChecked: false,
+				nCorrect: 0,
+				selectedOptions: Array.from({ length: phrases.length }, () => null),
+				showExplanation: {},
+			},
+			() => {
+				onReset();
+			}
+		);
+	};
 
-		const radios = document.querySelectorAll(`[id^="${id}"]`);
-		for(let i = 0;i < radios.length;i++)
-			radios[i].checked = false;
+	handleShowAnswers = () => {
+		const { onComplete = () => {} } = this.props;
+		const { phrases = [] } = this.state;
+		const selectedOptions = phrases.map((phrase) => phrase[1]);
+		const checkedResults = {};
 
-		this.setState({
-			answers: [],
-			disabled: [],
-			nCorrect: 0,
-			showExplanation: [],
-		// 	matched: [],
-		// 	startTime: undefined,
-		// 	timeReport: '',
-		});
+		for (let i = 0; i < phrases.length; i += 1) {
+			checkedResults[i] = true;
+		}
+
+		this.setState(
+			{
+				checkedResults,
+				hasChecked: true,
+				nCorrect: phrases.length,
+				selectedOptions,
+				showExplanation: {},
+			},
+			() => {
+				onComplete();
+			}
+		);
 	};
 
 	render = () => {
 		const {
-			answers,
-			disabled,
-			header,
+			cheatText = "Show answer",
 			htmlContent,
-			id = [],
-			// instructionsText,
-			// instructionsTextHTML,
+			id = "",
 			nCorrect = 0,
-			options,
-			phrases,
-			showExplanation = [],
+			options = [],
+			phrases = [],
+			selectedOptions = [],
+			checkedResults = {},
+			hasChecked = false,
+			showExplanation = {},
 		} = this.state;
-		// const { id = '' } = config;
-		const nPhrases = phrases.length;
-		let longestRow = 0;
-		for (let i = 0; i < phrases.length; i++) {
-			if (phrases[i].length > longestRow)longestRow = phrases[i].length;
-		}
-		// console.log("longestRow", longestRow);
-		const headerCells = [];
-		if (header) {
-			for(let i = 0; i < header.length; i++) {
-				headerCells.push(<th key={`${id}header${i}`}>{header[i]}</th>);
-			}
-		}
-		const rows = [];
-		for (let i = 0; i < phrases.length; i++){
-			const phrase = phrases[i][0];
-			// const answerIndex = phrases[i][1];
-			const explanation = phrases[i][2];
-			const radios = [];
-			for (let j = 0; j < options.length; j++) {
-				radios.push(
-					<TableCell key={`radio-${id}-${i}-2-${j}`}>
-						<label
-							className={disabled[i] ? 'radio-quiz-option disabled' : 'radio-quiz-option'}
-							key={`label-${id}-${i}-${j}`}
-							onClick={(e) => this.handleChange(e, i, j)}
-							htmlFor={`${id}-${i}-${j}`}>{options[j]}:&nbsp;
-							<input
-								className={`radio-quiz-checkbox`}
-								checked={answers && answers[i] && answers[i][j] ? true : ''}
-								disabled={disabled[i] === true}
-								id={`${id}-${i}-${j}`}
-								key={`input-${id}-${i}-${j}`}
-								name={`${id}-${i}`}
-								type={`checkbox`}
-								onChange={(e) => this.handleChange(e, i, j)}
-							/>
-						</label>
-					</TableCell>
-				);
-			};
-			const sound = [];
-			if (phrases[i][3] !== '') {
-				// console.log("Got a sound file");
-				sound.push(
-					<AudioClip key={`radio-audio-${id}-${i}`} className={`super-compact`} soundFile={phrases[i][3]}/>
-				);
-			}
-			rows.push(
-				<TableRow key={`radio-${id}-${i}`}>
-					<TableCell key={`radio-${id}-${i}-1`}><span className={`radio-quiz-phrase`}>{phrase}</span></TableCell>
-					{radios}
-					<TableCell key={`radio-${id}-${i}-3`}>{sound}</TableCell>
-					<TableCell key={`radio-${id}-${i}-4`}><span className={`radio-quiz-explanation ${showExplanation[i] ? 'show' : ''}`}>{explanation}</span></TableCell>
-				</TableRow>
-			);
-		}
-		// const value = 1;
-		return (
-			<div
-				className={`radio-quiz-container container`}
-				id={id || undefined}
-				key={`${id}PhraseTable`}
-			>
-				{htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-				<Table className={RADIO_QUIZ_TABLE_TEXT_CLASS}>
-					<TableBody>
-						{rows}
-					</TableBody>
-				</Table>
-				<p>{nCorrect} correct out of {nPhrases}.</p>
-				<div className={`help`}>
-					<IconButton className={`hidden-help`} onClick={this.handleReset} theme={`reset`} >Reset</IconButton>
+		const rows = phrases.map((phraseRow, rowIndex) => {
+			const phrase = phraseRow[0];
+			const answerIndex = phraseRow[1];
+			const explanation = phraseRow[2];
+			const soundFile = phraseRow[3];
+			const selectedOption = selectedOptions[rowIndex];
+			const rowResult = checkedResults[rowIndex];
+			const rowHasResult = typeof rowResult === "boolean";
+			const rowIsCorrect = rowHasResult && rowResult === true;
+
+			return (
+				<div className="rounded-xl border border-border/70 bg-card/60 p-4 shadow-sm" key={`radio-${id}-${rowIndex}`}>
+					<div className="flex flex-col gap-3 xl:flex-row xl:items-start xl:justify-between">
+						<div className="min-w-0 flex-1 text-left">
+							<p className="m-0 text-[var(--font-size-base)] leading-[var(--line-height-body)] text-foreground">{phrase}</p>
+							{showExplanation[rowIndex] && explanation ? (
+								<p className="mt-2 text-sm leading-[var(--line-height-body)] text-muted-foreground">{explanation}</p>
+							) : null}
+						</div>
+
+						<div className="flex flex-wrap items-center gap-2 xl:max-w-[42%] xl:justify-end">
+							<div
+								aria-label={`Choose whether statement ${rowIndex + 1} is true or false`}
+								className="inline-flex flex-wrap items-center gap-1.5 rounded-xl border border-border/70 bg-card/70 p-1.5 shadow-sm"
+								role="radiogroup"
+							>
+								{options.map((option, optionIndex) => {
+									const isSelected = selectedOption === optionIndex;
+									const isCorrectSelection = rowHasResult && isSelected && optionIndex === answerIndex;
+									const isIncorrectSelection = rowHasResult && isSelected && optionIndex !== answerIndex;
+									const baseClasses = "inline-flex min-h-8 items-center rounded-lg border px-2.5 py-1 text-[var(--font-size-sm)] leading-[var(--line-height-app)] font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out select-none";
+									let stateClasses = "border-border/70 bg-background text-foreground hover:-translate-y-[1px] hover:border-[var(--chart-3)] hover:bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)] hover:shadow-[0_2px_8px_color-mix(in_oklab,var(--chart-3)_14%,transparent)]";
+
+									if (isCorrectSelection) {
+										stateClasses = "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_20%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--chart-2)_35%,transparent)]";
+									} else if (isIncorrectSelection) {
+										stateClasses = "border-[var(--destructive)] bg-[color-mix(in_oklab,var(--destructive)_18%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--destructive)_30%,transparent)]";
+									} else if (isSelected) {
+										stateClasses = "border-[color-mix(in_oklab,var(--chart-4)_58%,var(--border))] bg-[color-mix(in_oklab,var(--chart-4)_26%,transparent)] text-foreground font-semibold shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--chart-4)_34%,transparent)]";
+									}
+
+									return (
+										<button
+											aria-checked={isSelected}
+											className={`${baseClasses} ${stateClasses} cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2`}
+											key={`radio-choice-${id}-${rowIndex}-${optionIndex}`}
+											onClick={() => this.handleChoiceChange(rowIndex, optionIndex)}
+											role="radio"
+											tabIndex={isSelected || (selectedOption === null && optionIndex === 0) ? 0 : -1}
+											type="button"
+										>
+											{option}
+										</button>
+									);
+								})}
+							</div>
+							{soundFile ? (
+								<div className="shrink-0">
+									<AudioClip className="super-compact" soundFile={soundFile} />
+								</div>
+							) : null}
+							{rowHasResult ? (
+								<span
+									aria-hidden="true"
+									className={`inline-flex shrink-0 items-center justify-center ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+								>
+									{rowIsCorrect ? <CircleCheck className="h-10 w-10" /> : <CircleX className="h-10 w-10" />}
+								</span>
+							) : null}
+						</div>
+					</div>
+				</div>
+			);
+		});
+
+		const hasSelections = selectedOptions.some((value) => value !== null && value !== undefined);
+		const hasAnyIncorrect = hasChecked && nCorrect < phrases.length;
+
+		return (
+			<div className="radio-quiz-container container w-full max-w-none px-0" id={id || undefined} key={`${id}PhraseTable`}>
+				{htmlContent ? <div className="html-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
+
+				<div className="space-y-3">{rows}</div>
+
+				<div className="exercise-divider" data-orientation="horizontal" role="none" />
+				<ProgressDots correct={nCorrect} total={phrases.length} />
+				<div className="exercise-divider" data-orientation="horizontal" role="none" />
+
+				<div className="exercise-help exercise-help-wrap">
+					<div className="exercise-help-actions">
+						<IconButton
+							ariaLabel={cheatText}
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								tone: "warn",
+								visible: hasAnyIncorrect,
+							})}
+							onClick={this.handleShowAnswers}
+							theme="eye"
+						>
+							<span className="exercise-icon-button-label">{cheatText}</span>
+						</IconButton>
+
+						<IconButton
+							ariaLabel="Reset"
+							className={exerciseActionButtonVariants({
+								progressive: true,
+								tone: "neutral",
+								visible: hasSelections || hasChecked,
+							})}
+							onClick={this.handleReset}
+							theme="reset"
+						>
+							<span className="exercise-icon-button-label">Reset</span>
+						</IconButton>
+
+						<IconButton
+							ariaLabel="Check answers"
+							className={exerciseActionButtonVariants({
+								align: "right",
+								progressive: false,
+								tone: "primary",
+								visible: true,
+							})}
+							onClick={this.handleCheckAnswers}
+							theme="check"
+						>
+							<span className="exercise-icon-button-label">Check answers</span>
+						</IconButton>
+					</div>
 				</div>
 			</div>
 		);

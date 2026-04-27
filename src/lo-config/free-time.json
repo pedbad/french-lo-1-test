@@ -148,12 +148,12 @@
 			[
 				"audio/lo8/vocabulary/005-jouer-a.mp3",
 				"jouer à",
-				"to play (ball sports, games)"
+				"to play<br /><small>(ball sports, games)</small>"
 			],
 			[
 				"audio/lo8/vocabulary/006-jouer-de.mp3",
 				"jouer de",
-				"to play (musical instruments)"
+				"to play<br /><small>(musical instruments)</small>"
 			],
 			[
 				"audio/lo8/vocabulary/007-aviron.mp3",
@@ -228,7 +228,7 @@
 			[
 				"audio/lo8/vocabulary/021-petanque.mp3",
 				"pétanque (f)",
-				"pétanque (French bowls)"
+				"pétanque<br /><small>(French bowls)</small>"
 			],
 			[
 				"audio/lo8/vocabulary/022-randonnee.mp3",

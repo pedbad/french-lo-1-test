@@ -174,7 +174,7 @@
 			[
 				"audio/lo9/vocabulary/005-allo.mp3",
 				"allô",
-				"hello (on the telephone only)"
+				"hello<br /><small>(on the telephone only)</small>"
 			],
 			[
 				"audio/lo9/vocabulary/006-cest-moi.mp3",
