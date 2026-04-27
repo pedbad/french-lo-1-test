@@ -345,6 +345,7 @@
           "congratulationsText": "Félicitations&nbsp;!",
           "informationTextHTML": "Listen to each sentence and choose the correct form of <strong>voudrais</strong>, <strong>voudrait</strong>, <strong>voudrions</strong>, <strong>voudriez</strong>, or <strong>voudraient</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
           "renderInlineChoices": true,
+          "shuffleItems": true,
           "showHintsText": "Hints",
           "cheatText": "Show answers",
           "items": [
@@ -383,6 +384,7 @@
           "congratulationsText": "Félicitations&nbsp;!",
           "informationTextHTML": "Listen to each sentence and choose the correct present-tense form of <strong>prendre</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
           "renderInlineChoices": true,
+          "shuffleItems": true,
           "showHintsText": "Hints",
           "cheatText": "Show answers",
           "items": [
@@ -424,6 +426,7 @@
           "id": "inlineChoiceGroup3",
           "congratulationsText": "Excellent!",
           "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "shuffleItems": true,
           "showHintsText": "Hints",
           "cheatText": "Show answers",
           "items": [

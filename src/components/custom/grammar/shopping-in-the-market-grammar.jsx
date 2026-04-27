@@ -1,169 +1,388 @@
 import { AudioClip } from "@/components/AudioClip";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/components/ui/table";
+import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
 
-export class ShoppingInTheMarketGrammar extends PureComponent {
+const handleAudioRowClick = (soundFile, event) => {
+	if (!soundFile) return;
+	if (event?.defaultPrevented) return;
+
+	const targetNode = event?.target;
+	if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+		return;
+	}
+
+	const rowEl = event?.currentTarget;
+	const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+	if (audioTrigger) {
+		audioTrigger.click();
+		return;
+	}
+
+	playAudioLink(soundFile);
+};
+
+const AudioTable = ({ headers, rows, tableId }) => (
+	<Table variant="learning">
+		{headers ? (
+			<TableHeader>
+				<TableRow>
+					{headers.map((header) => (
+						<TableHead key={`${tableId}-${header}`} scope="col">
+							{header}
+						</TableHead>
+					))}
+				</TableRow>
+			</TableHeader>
+		) : null}
+		<TableBody>
+			{rows.map((row, index) => (
+				<TableRow
+					className="cursor-pointer has-audio-row"
+					key={`${tableId}-row-${index}`}
+					onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+				>
+					<TableCell>
+						<AudioClip className="link" soundFile={row.soundFile}>
+							{row.french}
+						</AudioClip>
+					</TableCell>
+					<TableCell>{row.english}</TableCell>
+				</TableRow>
+			))}
+		</TableBody>
+	</Table>
+);
+
+export class ShoppingInTheMarketGrammarAller extends PureComponent {
 	render = () => {
 		const { id } = this.props;
+		const allerRows = [
+			{
+				english: "I go / am going",
+				french: <>je vais</>,
+				soundFile: "audio/lo12/grammar/001-je-vais.mp3",
+			},
+			{
+				english: "you go / are going",
+				french: <>tu vas</>,
+				soundFile: "audio/lo12/grammar/002-tu-vas.mp3",
+			},
+			{
+				english: "he / she goes / is going",
+				french: <>il / elle va</>,
+				soundFile: "audio/lo12/grammar/003-il-va-elle-va.mp3",
+			},
+			{
+				english: "we go / are going",
+				french: <>nous allons</>,
+				soundFile: "audio/lo12/grammar/004-nous-allons.mp3",
+			},
+			{
+				english: "you go / are going",
+				french: <>vous allez</>,
+				soundFile: "audio/lo12/grammar/005-vous-allez.mp3",
+			},
+			{
+				english: "they go / are going",
+				french: <>ils / elles vont</>,
+				soundFile: "audio/lo12/grammar/006-ils-vont-elles-vont.mp3",
+			},
+		];
 
 		return (
 			<div
-				className={`lo12-grammar-container container`}
+				className="lo12-grammar1-container container"
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel` : undefined}
-					key={`${id}CustomComponent`}
-				>
-					<ol>
-						<li>
-							<p>The verb <AudioClip className={`link`} soundFile={`sounds/fr/aller.mp3`}><strong>aller</strong></AudioClip> is a
-								frequently occurring irregular verb meaning 'to go'.</p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/je vais.mp3`}>je vais</AudioClip></TableCell><TableCell>I go / am going</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/tu vas.mp3`}>tu vas</AudioClip></TableCell><TableCell>you go / are going</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/il va, elle va.mp3`}>il / elle va</AudioClip></TableCell><TableCell>he /she/ it goes / is going</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/nous allons.mp3`}>nous allons</AudioClip></TableCell><TableCell>we go / are going</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/vous allez.mp3`}>vous allez</AudioClip></TableCell><TableCell>you go / are going</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/ils vont, elles vont.mp3`}>ils / elles vont</AudioClip></TableCell><TableCell>they go / are going</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
-							<p>e.g.</p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Je vais en ville.mp3`}>Je vais en ville</AudioClip>.</TableCell><TableCell>I'm going into town.</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Mélanie va au marché le mardi.mp3`}>Mélanie va au marché le mardi</AudioClip>.</TableCell><TableCell>Mélanie goes to the market on Tuesdays.</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
-							<p><strong>NB</strong>: The verb <AudioClip className={`link`} soundFile={`sounds/fr/aller.mp3`}><strong>aller</strong></AudioClip> is also the verb used when
-								asking how someone is. English uses the verb 'to be' to ask after someone. In French, it is incorrect to use <strong>être</strong> in
-								this context. You use <AudioClip className={`link`} soundFile={`sounds/fr/aller.mp3`}><strong>aller</strong></AudioClip> instead. e.g.</p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Comment ça va.mp3`}>Comment ça va ?</AudioClip></TableCell>
-										<TableCell>How are you? / How's it going?</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Vous allez bien.mp3`}>Vous allez bien ?</AudioClip></TableCell>
-										<TableCell>Are you well?</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
-						</li>
-						<li>
-							<p>The little words <strong>de</strong>, <strong>d'</strong>, <strong>du</strong>, <strong>de la</strong>, <strong>de l'</strong> and <strong>des</strong> occur often in French and can sometimes
-								cause confusion.
-								You may find it useful to study the following explanations to gain some clarity.</p>
-							<ul>
-								<li>You will probably already have encountered examples of some of these meaning 'from'
-								e.g. <AudioClip className={`link`} soundFile={`sounds/fr/Je viens de France.mp3`}><strong>Je
-									viens <strong>de</strong> France</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/elle vient du Canada.mp3`}><strong>elle
-										vient <strong>du</strong> Canada</strong></AudioClip> etc.</li>
-								<li>These words have other meanings too, so it is important to bear the context in mind. e.g.</li>
-							</ul>
-							<p>To express <strong>non-specific quantities</strong> you use partitive articles: <AudioClip className={`link`} soundFile={`sounds/fr/de.mp3`}><strong>de</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/d'.mp3`}><strong>d'</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/du.mp3`}><strong>du</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/de la.mp3`}><strong>de la</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/de l'.mp3`}><strong>de l'</strong></AudioClip> and <AudioClip className={`link`} soundFile={`sounds/fr/des.mp3`}><strong>des</strong></AudioClip> (often translated as 'some').
-								<br/><br/>For masculine nouns you use <strong>du</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/du fromage.mp3`}><strong>du</strong> fromage</AudioClip> - some cheese
-								<br/>For feminine nouns you use <strong>de la</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/de la bière.mp3`}><strong>de la</strong> bière</AudioClip> - some beer
-								<br/>For nouns beginning with a vowel you use <strong>de l'</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/de l'eau.mp3`}><strong>de l'</strong>eau</AudioClip> - some water
-								<br/>For plurals you use <strong>des</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/des cerises.mp3`}><strong>des</strong> cerises</AudioClip> - some cherries</p>
-
-							<ul>
-								<li> When describing <strong>specific quantities</strong> of
-							something <AudioClip className={`link`} soundFile={`sounds/fr/de.mp3`}><strong>de</strong></AudioClip> is used meaning <strong>'of'</strong>.
-							Before a vowel <AudioClip className={`link`} soundFile={`sounds/fr/d'.mp3`}><strong>d'</strong></AudioClip> is used. e.g.
-
-								<Table>
-									<TableBody>
-										<TableRow>
-											<TableCell>
-												<AudioClip className={`link`} soundFile={`sounds/fr/un kilo de pommes.mp3`}>un kilo de pommes</AudioClip>
-											</TableCell>
-											<TableCell>
-											a kilo of apples
-											</TableCell>
-										</TableRow>
-										<TableRow>
-											<TableCell>
-												<AudioClip className={`link`} soundFile={`sounds/fr/une barquette de fraises.mp3`}>une barquette de fraises</AudioClip>
-											</TableCell>
-											<TableCell>
-											a punnet of strawberries
-											</TableCell>
-										</TableRow>
-										<TableRow>
-											<TableCell>
-												<AudioClip className={`link`} soundFile={`sounds/fr/une tasse de thé.mp3`}>une tasse de thé</AudioClip>
-											</TableCell>
-											<TableCell>
-											a cup of tea
-											</TableCell>
-										</TableRow>
-										<TableRow>
-											<TableCell>
-												<AudioClip className={`link`} soundFile={`sounds/fr/200 grammes d'amandes.mp3`}>200 grammes d'amandes</AudioClip>
-											</TableCell>
-											<TableCell>
-											200 grams of almonds
-											</TableCell>
-										</TableRow>
-										<TableRow>
-											<TableCell>
-												<AudioClip className={`link`} soundFile={`sounds/fr/une bouteille d'eau minérale.mp3`}>une bouteille d'eau minérale</AudioClip>
-											</TableCell>
-											<TableCell>
-											a bottle of mineral water
-											</TableCell>
-										</TableRow>
-									</TableBody>
-								</Table><br/>
-								</li>
-								<li>The forms <AudioClip className={`link`} soundFile={`sounds/fr/d'.mp3`}><strong>d'</strong></AudioClip> or <AudioClip className={`link`} soundFile={`sounds/fr/d'.mp3`}><strong>d'</strong></AudioClip> are also used after a <strong>negation</strong>:<br/><br/>
-									e.g. <AudioClip className={`link`} soundFile={`sounds/fr/J'ai du pain.mp3`}><strong>J'ai du pain</strong></AudioClip>. I have (some) bread
-									BUT after the negation <AudioClip className={`link`} soundFile={`sounds/fr/Je n'ai pas de pain.mp3`}><strong>Je n'ai pas de pain</strong></AudioClip>. I don't have
-									any bread. <AudioClip className={`link`} soundFile={`sounds/fr/Il veut de l'eau.mp3`}><strong>Il veut de l'eau</strong></AudioClip>. He
-									wants (some) mineral water. BUT after the negation <AudioClip className={`link`} soundFile={`sounds/fr/Il ne veut pas d'eau minérale.mp3`}><strong>Il ne veut pas d'eau minérale</strong></AudioClip>. He doesn't want any water.</li>
-
-								{/* <li>
-									<p>To express <strong>non-specific quantities</strong> you use the following: <AudioClip className={`link`} soundFile={`sounds/fr/de.mp3`}><strong>de</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/d'.mp3`}><strong>d'</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/du.mp3`}><strong>du</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/de la.mp3`}><strong>de la</strong></AudioClip>, <AudioClip className={`link`} soundFile={`sounds/fr/de l'.mp3`}><strong>de l'</strong></AudioClip> and <AudioClip className={`link`} soundFile={`sounds/fr/des.mp3`}><strong>des</strong></AudioClip> all of which mean 'some'.
-										<br/>For masculine nouns you use <strong>du</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/du fromage.mp3`}><strong>du</strong> fromage</AudioClip> - some cheese
-										<br/>For feminine nouns you use <strong>de la</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/de la bière.mp3`}><strong>de la</strong> bière</AudioClip> - some beer
-										<br/>For nouns beginning with a vowel you use <strong>de l'</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/de l'eau.mp3`}><strong>de l'</strong>eau</AudioClip> - some water
-										<br/>For plurals you use <strong>des</strong> e.g. <AudioClip className={`link`} soundFile={`sounds/fr/des cerises.mp3`}><strong>des</strong> cerises</AudioClip> - some cherries</p>
-								</li> */}
-							</ul>
-						</li>
-						<li>
-							<p>The plural of French nouns is generally formed by adding an <strong>s</strong>. There are some exceptions to this rule, and these include
-								adding an <strong>x</strong> instead of an <strong>s</strong> to nouns ending in <strong>-eau</strong>. e.g.
-							<br/><AudioClip className={`link`} soundFile={`sounds/fr/un couteau.mp3`}><strong>un couteau</strong></AudioClip> a knife- <AudioClip className={`link`} soundFile={`sounds/fr/des couteaux.mp3`}><strong>des couteaux</strong></AudioClip> some knives,
-							<br/><AudioClip className={`link`} soundFile={`sounds/fr/un gâteau.mp3`}><strong>un gâteau</strong></AudioClip> a cake- <AudioClip className={`link`} soundFile={`sounds/fr/des gâteaux.mp3`}><strong>des gâteaux</strong></AudioClip> some cakes,
-							<br/><AudioClip className={`link`} soundFile={`sounds/fr/un poireau.mp3`}><strong>un poireau</strong></AudioClip> a leek- <AudioClip className={`link`} soundFile={`sounds/fr/des poireaux.mp3`}><strong>des poireaux</strong></AudioClip> some leeks</p>
-
-						</li>
-					</ol>
+				<div className="panel" id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
+					<p>
+						The verb{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/007-aller.mp3">
+							<strong>aller</strong>
+						</AudioClip>{" "}
+						means <strong>to go</strong> and is used all the time when talking about
+						where you shop or where you are going next.
+					</p>
+					<p>Here are the present-tense forms:</p>
+					<AudioTable rows={allerRows} tableId={id || "lo12-grammar1"} />
+					<p>
+						In context, you might hear{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/008-je-vais-en-ville.mp3">
+							<strong>Je vais en ville</strong>
+						</AudioClip>{" "}
+						or{" "}
+						<AudioClip
+							className="link"
+							soundFile="audio/lo12/grammar/009-melanie-va-au-marche-le-mardi.mp3"
+						>
+							<strong>Mélanie va au marché le mardi</strong>
+						</AudioClip>
+						.
+					</p>
+					<p>
+						French also uses{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/007-aller.mp3">
+							<strong>aller</strong>
+						</AudioClip>{" "}
+						when asking how someone is. For example:{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/010-comment-ca-va.mp3">
+							<strong>Comment ça va&nbsp;?</strong>
+						</AudioClip>{" "}
+						and{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/011-vous-allez-bien.mp3">
+							<strong>Vous allez bien&nbsp;?</strong>
+						</AudioClip>
+						.
+					</p>
 				</div>
 			</div>
 		);
 	};
 }
 
+export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		const partitiveRows = [
+			{
+				english: "some cheese",
+				french: <>du fromage</>,
+				soundFile: "audio/lo12/grammar/012-du-fromage.mp3",
+			},
+			{
+				english: "some beer",
+				french: <>de la bière</>,
+				soundFile: "audio/lo12/grammar/013-de-la-biere.mp3",
+			},
+			{
+				english: "some water",
+				french: <>de l&apos;eau</>,
+				soundFile: "audio/lo12/grammar/027-de-leau.mp3",
+			},
+			{
+				english: "some cherries",
+				french: <>des cerises</>,
+				soundFile: "audio/lo12/grammar/014-des-cerises.mp3",
+			},
+		];
+		const quantityRows = [
+			{
+				english: "a kilo of apples",
+				french: <>un kilo de pommes</>,
+				soundFile: "audio/lo12/grammar/015-un-kilo-de-pommes.mp3",
+			},
+			{
+				english: "a punnet of strawberries",
+				french: <>une barquette de fraises</>,
+				soundFile: "audio/lo12/grammar/016-une-barquette-de-fraises.mp3",
+			},
+			{
+				english: "a cup of tea",
+				french: <>une tasse de thé</>,
+				soundFile: "audio/lo12/grammar/017-une-tasse-de-the.mp3",
+			},
+			{
+				english: "200 grams of almonds",
+				french: <>200 grammes d&apos;amandes</>,
+				soundFile: "audio/lo12/grammar/028-200-grammes-damandes.mp3",
+			},
+		];
+
+		return (
+			<div
+				className="lo12-grammar2-container container"
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div className="panel" id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
+					<p>
+						When you talk about food in general, French often uses partitive articles:
+						{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/018-du.mp3">
+							<strong>du</strong>
+						</AudioClip>
+						,{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/019-de-la.mp3">
+							<strong>de la</strong>
+						</AudioClip>
+						,{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/029-de-l.mp3">
+							<strong>de l&apos;</strong>
+						</AudioClip>
+						, and{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/020-des.mp3">
+							<strong>des</strong>
+						</AudioClip>
+						.
+					</p>
+					<AudioTable rows={partitiveRows} tableId={id || "lo12-grammar2-partitives"} />
+					<p>
+						After a specific quantity, use{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/021-de.mp3">
+							<strong>de</strong>
+						</AudioClip>{" "}
+						or{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/030-d.mp3">
+							<strong>d&apos;</strong>
+						</AudioClip>
+						:
+					</p>
+					<AudioTable rows={quantityRows} tableId={id || "lo12-grammar2-quantities"} />
+					<p>
+						The same{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/021-de.mp3">
+							<strong>de</strong>
+						</AudioClip>{" "}
+						or{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/030-d.mp3">
+							<strong>d&apos;</strong>
+						</AudioClip>{" "}
+						appears after a negation:
+					</p>
+					<Table variant="learning">
+						<TableHeader>
+							<TableRow>
+								<TableHead scope="col">French</TableHead>
+								<TableHead scope="col">Meaning</TableHead>
+							</TableRow>
+						</TableHeader>
+						<TableBody>
+							<TableRow
+								className="cursor-pointer has-audio-row"
+								onClick={(event) => handleAudioRowClick("audio/lo12/grammar/012-du-fromage.mp3", event)}
+							>
+								<TableCell>
+									<AudioClip className="link" soundFile="audio/lo12/grammar/012-du-fromage.mp3">
+										du fromage
+									</AudioClip>
+								</TableCell>
+								<TableCell>some cheese</TableCell>
+							</TableRow>
+							<TableRow
+								className="cursor-pointer has-audio-row"
+								onClick={(event) =>
+									handleAudioRowClick("audio/lo12/grammar/031-je-nai-pas-de-pain.mp3", event)
+								}
+							>
+								<TableCell>
+									<AudioClip
+										className="link"
+										soundFile="audio/lo12/grammar/031-je-nai-pas-de-pain.mp3"
+									>
+										Je n&apos;ai pas de pain.
+									</AudioClip>
+								</TableCell>
+								<TableCell>I don&apos;t have any bread.</TableCell>
+							</TableRow>
+							<TableRow
+								className="cursor-pointer has-audio-row"
+								onClick={(event) =>
+									handleAudioRowClick(
+										"audio/lo12/grammar/032-il-ne-veut-pas-deau-minerale.mp3",
+										event,
+									)
+								}
+							>
+								<TableCell>
+									<AudioClip
+										className="link"
+										soundFile="audio/lo12/grammar/032-il-ne-veut-pas-deau-minerale.mp3"
+									>
+										Il ne veut pas d&apos;eau minérale.
+									</AudioClip>
+								</TableCell>
+								<TableCell>He doesn&apos;t want any mineral water.</TableCell>
+							</TableRow>
+						</TableBody>
+					</Table>
+				</div>
+			</div>
+		);
+	};
+}
+
+export class ShoppingInTheMarketGrammarPluralForms extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		const pluralRows = [
+			{
+				english: "a knife / some knives",
+				french: (
+					<>
+						un couteau / des couteaux
+					</>
+				),
+				soundFile: "audio/lo12/grammar/022-des-couteaux.mp3",
+			},
+			{
+				english: "a cake / some cakes",
+				french: (
+					<>
+						un gâteau / des gâteaux
+					</>
+				),
+				soundFile: "audio/lo12/grammar/023-des-gateaux.mp3",
+			},
+			{
+				english: "a leek / some leeks",
+				french: (
+					<>
+						un poireau / des poireaux
+					</>
+				),
+				soundFile: "audio/lo12/grammar/024-des-poireaux.mp3",
+			},
+			{
+				english: "a cabbage / some cabbages",
+				french: (
+					<>
+						un chou / des choux
+					</>
+				),
+				soundFile: "audio/lo12/grammar/025-chou-choux.mp3",
+			},
+		];
+
+		return (
+			<div
+				className="lo12-grammar3-container container"
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div className="panel" id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
+					<p>
+						Most French nouns form the plural by adding <strong>s</strong>. In market
+						vocabulary, one useful exception is that many nouns ending in{" "}
+						<strong>-eau</strong> or <strong>-au</strong> take <strong>x</strong>
+						instead.
+					</p>
+					<AudioTable
+						headers={["French", "Meaning"]}
+						rows={pluralRows}
+						tableId={id || "lo12-grammar3"}
+					/>
+					<p>
+						This is why you say{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/026-poireau-poireaux.mp3">
+							<strong>un poireau / des poireaux</strong>
+						</AudioClip>{" "}
+						and{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/025-chou-choux.mp3">
+							<strong>un chou / des choux</strong>
+						</AudioClip>
+						.
+					</p>
+				</div>
+			</div>
+		);
+	};
+}

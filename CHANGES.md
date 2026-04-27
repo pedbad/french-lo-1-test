@@ -2,6 +2,48 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-24 - LO12 Shopping in the Market Section Modernization + Audio Migration
+
+- Modernized LO12 `Shopping in the market` to align with the current post-LO8 lesson contract:
+  - `src/lo-config/shopping-in-the-market.json`
+  - added `introImage` and `informationHTML`
+  - rewrote dialogues, vocabulary, grammar, pronunciation, and exercise guidance onto the current section-level instructional patterns
+  - replaced the monolithic grammar/pronunciation config with grouped grammar articles and tabbed pronunciation items
+  - fixed the broken legacy exercise config path by replacing `HIDEBlanks` with the supported `DraggableFillGaps` component
+- Replaced LO12 monolithic lesson-owned blocks with semantic components:
+  - `src/components/custom/grammar/shopping-in-the-market-grammar.jsx`
+  - `src/components/custom/pronunciation/shopping-in-the-market-pronunciation.jsx`
+  - `src/components/custom/grammar/index.js`
+  - `src/components/custom/pronunciation/index.js`
+  - grammar now uses:
+    - `ShoppingInTheMarketGrammarAller`
+    - `ShoppingInTheMarketGrammarPartitivesAndQuantities`
+    - `ShoppingInTheMarketGrammarPluralForms`
+  - pronunciation now uses:
+    - `ShoppingInTheMarketPronunciationUSound`
+    - `ShoppingInTheMarketPronunciationUOuContrast`
+- Migrated LO12 audio off legacy `sounds/fr/...` refs and into lesson-owned folders:
+  - new root: `public/audio/lo12/...`
+  - updated LO12 refs in:
+    - `src/lo-config/shopping-in-the-market.json`
+    - `src/components/custom/grammar/shopping-in-the-market-grammar.jsx`
+    - `src/components/custom/pronunciation/shopping-in-the-market-pronunciation.jsx`
+  - copied 128 LO12-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - pronunciation
+    - exercises
+  - resolved legacy filename drift through normalization-aware source matching
+  - replaced missing pronunciation-sort source clips with existing authored words that preserve the `u` / `ou` contrast
+- Added LO12 migration tracking docs:
+  - `docs/audio/AUDIO_LO12_MIGRATION_MAP.md`
+  - `docs/audio/LO12_AUDIO_BLOCKERS.md`
+- Validation:
+  - `rg -n 'sounds/fr' src/lo-config/shopping-in-the-market.json src/components/custom/grammar/shopping-in-the-market-grammar.jsx src/components/custom/pronunciation/shopping-in-the-market-pronunciation.jsx`
+  - `find public/audio/lo12 -type f | wc -l`
+  - `yarn build`
+
 ## 2026-04-23 - LO11 Going to a Cafe Section Modernization + Audio Migration
 
 - Modernized LO11 `Going to a cafe` to align with the current post-LO8 lesson contract where source material exists:

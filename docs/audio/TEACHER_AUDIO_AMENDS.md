@@ -64,3 +64,19 @@ Status labels:
 
 - `public/audio/lo8/grammar/jouer-patterns/007-jouer-a-l.mp3`
   - `jouer a l'` sounds closer to `jouer a la`.
+
+## LO12 - Shopping in the Market
+
+### Needs new audio
+
+- `public/audio/lo12/exercises/041-bout.mp3`
+  - New single-word pronunciation clip for `bout` in the `u / ou` discrimination exercises.
+
+- `public/audio/lo12/exercises/042-couteau.mp3`
+  - New single-word pronunciation clip for `couteau` in the `u / ou` discrimination exercises.
+
+- `public/audio/lo12/exercises/043-roue.mp3`
+  - New single-word pronunciation clip for `roue` in the `u / ou` discrimination exercises.
+
+- `public/audio/lo12/exercises/044-jus.mp3`
+  - New single-word pronunciation clip for `jus` in the `u / ou` discrimination exercises.

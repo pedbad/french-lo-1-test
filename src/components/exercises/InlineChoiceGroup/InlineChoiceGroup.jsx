@@ -1,6 +1,8 @@
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
+import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { AudioClip, IconButton } from "@/components/media";
+import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioClip";
 import {
 	Table,
 	TableBody,
@@ -21,17 +23,21 @@ export class InlineChoiceGroup extends React.PureComponent {
 
 		this.state = {
 			...props.config,
+			activeRowIndex: -1,
 			activeItems: this.prepareExerciseItems(sourceItems, props?.config || {}),
 			checkedResults: {},
 			hasChecked: false,
+			masterPlayState: "stopped",
 			nCorrect: 0,
 			rowAudioStatus: {},
+			rowProgress: {},
 			values: {},
 		};
 
 		this.blanksMeta = [];
 		this.nToSolve = 0;
 		this.rowAudioRefs = {};
+		this.sequenceRef = React.createRef();
 	}
 
 	decodeHtmlEntities = (value = "") => {
@@ -54,11 +60,14 @@ export class InlineChoiceGroup extends React.PureComponent {
 			const sourceItems = this.props?.config?.items || [];
 			this.setState({
 				...this.props.config,
+				activeRowIndex: -1,
 				activeItems: this.prepareExerciseItems(sourceItems, this.props?.config || {}),
 				checkedResults: {},
 				hasChecked: false,
+				masterPlayState: "stopped",
 				nCorrect: 0,
 				rowAudioStatus: {},
+				rowProgress: {},
 				values: {},
 			});
 			this.blanksMeta = [];
@@ -242,12 +251,16 @@ export class InlineChoiceGroup extends React.PureComponent {
 			const shouldRefreshItemSet = Boolean(prevState.shuffleItems) || (hasSampleSize && sampleOnReset);
 
 			return {
+				activeRowIndex: -1,
 				activeItems: shouldRefreshItemSet
 					? this.prepareExerciseItems(sourceItems, prevState)
 					: (prevState.activeItems || []),
 				checkedResults: {},
 				hasChecked: false,
+				masterPlayState: "stopped",
 				nCorrect: 0,
+				rowAudioStatus: {},
+				rowProgress: {},
 				values: {},
 			};
 		});
@@ -310,6 +323,45 @@ export class InlineChoiceGroup extends React.PureComponent {
 		}
 
 		this.triggerRowAudio(rowIndex);
+	};
+
+	handleMasterStopped = (playlistIndex, playlist) => {
+		const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
+		this.setState((prevState) => ({
+			activeRowIndex: -1,
+			masterPlayState: "stopped",
+			rowProgress: rowIndex >= 0 ? {
+				...prevState.rowProgress,
+				[rowIndex]: {
+					currentTime: prevState.rowProgress[rowIndex]?.duration || 0,
+					duration: prevState.rowProgress[rowIndex]?.duration || 0,
+				},
+			} : prevState.rowProgress,
+		}));
+	};
+
+	handleMasterPlayStateChange = (playState) => {
+		this.setState({ masterPlayState: playState });
+	};
+
+	handleMasterTrackChange = (playlistIndex, playlist) => {
+		const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
+		this.setState({ activeRowIndex: rowIndex });
+	};
+
+	handleMasterTime = (playlistIndex, currentTime, duration, playlist) => {
+		const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
+		if (rowIndex < 0) return;
+
+		this.setState((prevState) => ({
+			rowProgress: {
+				...prevState.rowProgress,
+				[rowIndex]: {
+					currentTime,
+					duration,
+				},
+			},
+		}));
 	};
 
 	renderChoiceGroup = (blankIndex) => {
@@ -388,6 +440,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 			nCorrect = 0,
 			rowAudioStatus = {},
 			soundFile,
+			useSequenceAudioController = false,
 			values = {},
 		} = this.state;
 
@@ -396,10 +449,28 @@ export class InlineChoiceGroup extends React.PureComponent {
 
 		const rows = [];
 		let blankCursor = 0;
+		const playlist = activeItems
+			.map((item, index) => ({
+				rowIndex: index,
+				src: item?.audio ? resolveAsset(item.audio) : null,
+			}))
+			.filter((entry) => Boolean(entry.src));
+		const rowToPlaylistIndex = {};
+		playlist.forEach((entry, index) => {
+			rowToPlaylistIndex[entry.rowIndex] = index;
+		});
 
 		for (let i = 0; i < activeItems.length; i += 1) {
 			const item = activeItems[i];
 			const phraseText = item?.text || "";
+			const playlistIndex = rowToPlaylistIndex[i];
+			const useMasterRowAudio = useSequenceAudioController && playlistIndex !== undefined;
+			const isActive = this.state.activeRowIndex === i;
+			const status = isActive
+				? (this.state.masterPlayState === "playing" ? "playing" : "stopped")
+				: "stopped";
+			const rowVisualStatus = useMasterRowAudio ? status : rowAudioStatus[i];
+			const prog = this.state.rowProgress[i] || { currentTime: 0, duration: 0 };
 
 			if (!phraseText) {
 				rows.push(
@@ -434,7 +505,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 				<TableRow key={`row-${i}`}>
 					<TableCell className="align-top px-0 py-2">
 						<div
-							className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : ""}`}
+							className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowVisualStatus === "playing" ? "text-[var(--chart-2)]" : ""}`}
 							onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
 						>
 							{item.audio ? (
@@ -446,12 +517,35 @@ export class InlineChoiceGroup extends React.PureComponent {
 										}
 									}}
 								>
-									<AudioClip
-										className="super-compact-speaker"
-										id={`inlineChoiceRowAudio-${i}`}
-										onStatusChange={(status) => this.handleRowAudioStatusChange(i, status)}
-										soundFile={resolveAsset(item.audio)}
-									/>
+									{useMasterRowAudio ? (
+										<CircularAudioProgressAnimatedSpeakerDisplay
+											className="super-compact-speaker shrink-0"
+											duration={prog.duration}
+											handleClick={(event) => {
+												event.preventDefault();
+												event.stopPropagation();
+
+												if (isActive) {
+													this.sequenceRef.current?.toggle();
+													return;
+												}
+
+												this.sequenceRef.current?.playItem(playlistIndex, {
+													playSequence: false,
+												});
+											}}
+											progress={prog.currentTime}
+											status={status}
+											title={isActive ? "Click to pause" : "Click to play"}
+										/>
+									) : (
+										<AudioClip
+											className="super-compact-speaker"
+											id={`inlineChoiceRowAudio-${i}`}
+											onStatusChange={(nextStatus) => this.handleRowAudioStatusChange(i, nextStatus)}
+											soundFile={resolveAsset(item.audio)}
+										/>
+									)}
 								</span>
 							) : null}
 							<div className="min-w-0 flex-1">{this.renderSentence(segments)}</div>
@@ -490,12 +584,32 @@ export class InlineChoiceGroup extends React.PureComponent {
 					/>
 				) : null}
 
-				{listenDescriptionText && soundFile ? (
-					<AudioClip
-						id={`listen-${id}`}
-						listenText={listenDescriptionText}
-						soundFile={soundFile}
+				{useSequenceAudioController && playlist.length > 0 ? (
+					<SequenceAudioController
+						ref={this.sequenceRef}
+						onPlayStateChange={this.handleMasterPlayStateChange}
+						onStopped={(playlistIndex) => this.handleMasterStopped(playlistIndex, playlist)}
+						onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
+							this.handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
+						}
+						onTrackChange={(playlistIndex) => this.handleMasterTrackChange(playlistIndex, playlist)}
+						pauseSeconds={0.5}
+						sources={playlist.map((entry) => entry.src)}
 					/>
+				) : null}
+
+				{listenDescriptionText && soundFile && !(useSequenceAudioController && playlist.length > 0) ? (
+					useSequenceAudioController ? (
+						<div className="space-y-1">
+							<SequenceAudioController sources={[resolveAsset(soundFile)]} />
+						</div>
+					) : (
+						<AudioClip
+							id={`listen-${id}`}
+							listenText={listenDescriptionText}
+							soundFile={soundFile}
+						/>
+					)
 				) : null}
 
 				<Table className={INLINE_CHOICE_TABLE_TEXT_CLASS}>

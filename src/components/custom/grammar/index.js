@@ -56,7 +56,11 @@ export {
 	GoingToACafeGrammarFlavoursWithA,
 	GoingToACafeGrammarDisjunctivePronouns,
 } from "./going-to-a-cafe-grammar";
-export { ShoppingInTheMarketGrammar } from "./shopping-in-the-market-grammar";
+export {
+	ShoppingInTheMarketGrammarAller,
+	ShoppingInTheMarketGrammarPartitivesAndQuantities,
+	ShoppingInTheMarketGrammarPluralForms,
+} from "./shopping-in-the-market-grammar";
 export { DailyRoutineGrammar } from "./daily-routine-grammar";
 export { StudyingAtUniversityGrammar } from "./studying-at-university-grammar";
 export { MakingArrangements2Grammar } from "./making-arrangements-2-grammar";

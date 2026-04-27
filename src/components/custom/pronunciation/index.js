@@ -47,4 +47,6 @@ export {
 	MakingArrangementsPronunciationUiSound,
 	MakingArrangementsPronunciationMoreUiWords,
 } from "./making-arrangements-pronunciation";
-export { ShoppingInTheMarketPronunciation } from "./shopping-in-the-market-pronunciation";
+export {
+	ShoppingInTheMarketPronunciation,
+} from "./shopping-in-the-market-pronunciation";
