@@ -266,7 +266,7 @@
 				"grammar1": {
 					"component": "FreeTimeGrammarAdjectiveAgreement",
 					"id": "grammar1",
-					"infoTextHTML": "<p>This section explains how adjectives such as <em class='grammar-term-em'>sportif</em> change in the feminine form.</p>",
+					"informationTextHTML": "<p>This section explains how adjectives such as <em class='grammar-term-em'>sportif</em> change in the feminine form.</p>",
 					"titleTextHTML": "1. Adjective agreement: <em class='grammar-term-em'>-if / -ive</em>"
 				}
 			},
@@ -274,7 +274,7 @@
 				"grammar2": {
 					"component": "FreeTimeGrammarFaireAndPartitives",
 					"id": "grammar2",
-					"infoTextHTML": "<p>This section introduces the verb <em class='grammar-term-em'>faire</em> and the partitive articles used with many leisure activities.</p>",
+					"informationTextHTML": "<p>This section introduces the verb <em class='grammar-term-em'>faire</em> and the partitive articles used with many leisure activities.</p>",
 					"titleTextHTML": "2. <em class='grammar-term-em'>Faire</em> and partitive articles"
 				}
 			},
@@ -282,7 +282,7 @@
 				"grammar3": {
 					"component": "FreeTimeGrammarJouerPatterns",
 					"id": "grammar3",
-					"infoTextHTML": "<p>This section explains the difference between <em class='grammar-term-em'>jouer de</em> for instruments and <em class='grammar-term-em'>jouer à</em> for sports and games.</p>",
+					"informationTextHTML": "<p>This section explains the difference between <em class='grammar-term-em'>jouer de</em> for instruments and <em class='grammar-term-em'>jouer à</em> for sports and games.</p>",
 					"titleTextHTML": "3. <em class='grammar-term-em'>Jouer de</em> and <em class='grammar-term-em'>jouer à</em>"
 				}
 			},
@@ -290,7 +290,7 @@
 				"grammar4": {
 					"component": "FreeTimeGrammarNounEndings",
 					"id": "grammar4",
-					"infoTextHTML": "<p>This section highlights some useful noun-ending patterns that can help you predict grammatical gender.</p>",
+					"informationTextHTML": "<p>This section highlights some useful noun-ending patterns that can help you predict grammatical gender.</p>",
 					"titleTextHTML": "4. Gender clues from word endings"
 				}
 			}

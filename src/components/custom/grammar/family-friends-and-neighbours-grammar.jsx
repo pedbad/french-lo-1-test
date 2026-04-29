@@ -63,7 +63,7 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 						.
 					</p>
 					<p>Here is a complete list of the possessive adjectives:</p>
-					<Table>
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							<TableRow>
 								<TableCell>
@@ -259,7 +259,7 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 						{" "}meaning I have a sister.
 					</p>
 					<p>It occurs very frequently and so is worth memorising if possible.</p>
-					<Table>
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{avoirRows.map((row, index) => (
 								<TableRow

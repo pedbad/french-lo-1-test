@@ -66,5 +66,10 @@ export {
 	DailyRoutineGrammarReflexiveVerbs,
 	DailyRoutineGrammarReflexiveBeforeVowel,
 } from "./daily-routine-grammar";
-export { StudyingAtUniversityGrammar } from "./studying-at-university-grammar";
+export {
+	StudyingAtUniversityGrammarComme,
+	StudyingAtUniversityGrammarDevoir,
+	StudyingAtUniversityGrammarPouvoir,
+	StudyingAtUniversityGrammarParticiples,
+} from "./studying-at-university-grammar";
 export { MakingArrangements2Grammar } from "./making-arrangements-2-grammar";

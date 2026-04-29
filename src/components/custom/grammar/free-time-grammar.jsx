@@ -154,7 +154,7 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						common and irregular, so it is worth learning well.
 					</p>
 					<p>Here it is in the present tense:</p>
-					<Table>
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{faireRows.map((row, index) => (
 								<TableRow
@@ -206,7 +206,7 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						{" "}for plurals.
 					</p>
 					<p>Here are some examples:</p>
-					<Table>
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{exampleRows.map((row, index) => (
 								<TableRow
@@ -309,7 +309,7 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						, you use <strong>jouer de</strong> plus the partitive article for musical
 						instruments:
 					</p>
-					<Table>
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{instrumentRows.map((row, index) => (
 								<TableRow
@@ -373,7 +373,7 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						{" "}for plurals.
 					</p>
 					<p>For example:</p>
-					<Table>
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{gameRows.map((row, index) => (
 								<TableRow

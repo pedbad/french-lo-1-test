@@ -216,7 +216,7 @@
 				"grammar1": {
 					"component": "HouseAndHomeGrammarThirdPersonForms",
 					"id": "grammar1",
-					"infoTextHTML": "In this section, you will learn how French uses <em class='grammar-term-em'>il</em> in fixed expressions and impersonal verbs.<p>You will learn:</p><ul><li>How <em class='grammar-term-em'>il y a</em> is used to say what there is or what a place contains.</li><li>How verbs such as <em class='grammar-term-em'>pleuvoir</em>, <em class='grammar-term-em'>neiger</em>, and <em class='grammar-term-em'>falloir</em> are used in the third person singular.</li><li>How these forms help you describe homes and everyday situations more naturally.</li></ul>",
+					"informationTextHTML": "In this section, you will learn how French uses <em class='grammar-term-em'>il</em> in fixed expressions and impersonal verbs.<p>You will learn:</p><ul><li>How <em class='grammar-term-em'>il y a</em> is used to say what there is or what a place contains.</li><li>How verbs such as <em class='grammar-term-em'>pleuvoir</em>, <em class='grammar-term-em'>neiger</em>, and <em class='grammar-term-em'>falloir</em> are used in the third person singular.</li><li>How these forms help you describe homes and everyday situations more naturally.</li></ul>",
 					"titleTextHTML": "1. <em class='grammar-term-em'>Il y a</em> and other third-person forms"
 				}
 			},
@@ -224,7 +224,7 @@
 				"grammar2": {
 					"component": "HouseAndHomeGrammarAdjectivalAgreement",
 					"id": "grammar2",
-					"infoTextHTML": "This section introduces some new adjectives.<p>You will learn:</p><ul><li>How adjectives ending in <em class='grammar-term-em'>-eux</em> behave in masculine and feminine forms.</li><li>How to recognise the feminine singular ending <em class='grammar-term-em'>-euse</em>.</li><li>How agreement changes in singular and plural examples used to describe rooms and homes.</li></ul>",
+					"informationTextHTML": "This section introduces some new adjectives.<p>You will learn:</p><ul><li>How adjectives ending in <em class='grammar-term-em'>-eux</em> behave in masculine and feminine forms.</li><li>How to recognise the feminine singular ending <em class='grammar-term-em'>-euse</em>.</li><li>How agreement changes in singular and plural examples used to describe rooms and homes.</li></ul>",
 					"titleTextHTML": "2. Adjectival agreement: <em class='grammar-term-em'>-eux / -euse</em>"
 				}
 			}

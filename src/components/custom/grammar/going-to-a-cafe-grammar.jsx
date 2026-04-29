@@ -30,7 +30,7 @@ const handleAudioRowClick = (soundFile, event) => {
 };
 
 const AudioTable = ({ rows, tableId, headers }) => (
-	<Table variant="learning">
+	<Table className="grammar-audio-table" variant="learning">
 		{headers ? (
 			<TableHeader>
 				<TableRow>

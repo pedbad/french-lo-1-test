@@ -1145,6 +1145,11 @@
 		margin-bottom: 0;
 	}
 
+	#content .accordion-card-content > .information {
+		margin-inline: 0.35rem;
+		width: auto;
+	}
+
 	#content .accordion-card-content .information + .panel h3 {
 		margin-top: 0;
 	}
@@ -1494,7 +1499,27 @@
 		word-break: normal;
 	}
 
+	.inline-typed-gap-exercise-container .comparison-result {
+		border-radius: 8px;
+		padding: 2px 4px;
+		border: 1px solid var(--border);
+		background-color: var(--card);
+		box-shadow: 0 1px 2px color-mix(in oklab, var(--foreground) 20%, transparent);
+		white-space: break-spaces;
+		overflow-wrap: anywhere;
+		word-break: normal;
+	}
+
 	.answer-table-container .comparison-result span {
+		display: inline;
+		vertical-align: bottom;
+		padding: 4px;
+		min-width: 12px;
+		min-height: 24px;
+		border: 1px solid transparent;
+	}
+
+	.inline-typed-gap-exercise-container .comparison-result span {
 		display: inline;
 		vertical-align: bottom;
 		padding: 4px;
@@ -1509,7 +1534,18 @@
 		text-decoration: line-through;
 	}
 
+	.inline-typed-gap-exercise-container .comparison-result .deleted {
+		border: 1px solid var(--destructive);
+		background: color-mix(in oklab, var(--destructive) 20%, transparent);
+		text-decoration: line-through;
+	}
+
 	.answer-table-container .comparison-result .inserted {
+		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		border: 1px solid var(--chart-2);
+	}
+
+	.inline-typed-gap-exercise-container .comparison-result .inserted {
 		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
 		border: 1px solid var(--chart-2);
 	}
@@ -1545,6 +1581,40 @@
 	.lo3-grammar1-container .grammar-audio-table tbody tr:hover {
 		background-color: color-mix(in oklab, var(--muted) 70%, transparent);
 		color: var(--chart-2);
+	}
+
+	@media (max-width: 639px) {
+		.grammar-audio-table thead {
+			display: none;
+		}
+
+		.grammar-audio-table,
+		.grammar-audio-table tbody,
+		.grammar-audio-table tbody tr,
+		.grammar-audio-table tbody td {
+			display: block;
+			width: 100%;
+		}
+
+		.grammar-audio-table tbody tr {
+			margin-bottom: 0.85rem;
+			border: 1px solid var(--border);
+			border-radius: 0.9rem;
+			background-color: var(--card);
+			box-shadow: 0 1px 2px color-mix(in oklab, var(--foreground) 12%, transparent);
+			overflow: hidden;
+		}
+
+		.grammar-audio-table tbody td {
+			padding: 0.8rem 0.95rem;
+			border: 0;
+			white-space: normal;
+		}
+
+		.grammar-audio-table tbody td + td {
+			padding-top: 0.55rem;
+			border-top: 1px solid color-mix(in oklab, var(--border) 78%, transparent);
+		}
 	}
 
 	.phrases-table-container .sort-container {

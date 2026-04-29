@@ -248,7 +248,7 @@
 				"grammar1": {
 					"component": "PhoningInFranceGrammarTelephoneNumbers",
 					"id": "grammar1",
-					"infoTextHTML": "<p>This section introduces the main French landline regions, the mobile prefixes <em class='grammar-term-em'>06</em> and <em class='grammar-term-em'>07</em>, and the habit of saying numbers in pairs. Hover over a region on the map or in the key to see where that area code is used, then click <span class='inline-icon inline-icon-audio' aria-hidden='true'></span> to hear the code.</p>",
+					"informationTextHTML": "<p>This section introduces the main French landline regions, the mobile prefixes <em class='grammar-term-em'>06</em> and <em class='grammar-term-em'>07</em>, and the habit of saying numbers in pairs. Hover over a region on the map or in the key to see where that area code is used, then click <span class='inline-icon inline-icon-audio' aria-hidden='true'></span> to hear the code.</p>",
 					"titleTextHTML": "1. Telephone numbers in France"
 				}
 			},
@@ -256,7 +256,7 @@
 				"grammar2": {
 					"component": "PhoningInFranceGrammarBienForConfirmation",
 					"id": "grammar2",
-					"infoTextHTML": "<p>This section shows how <em class='grammar-term-em'>bien</em> can help speakers check or confirm information on the telephone.</p>",
+					"informationTextHTML": "<p>This section shows how <em class='grammar-term-em'>bien</em> can help speakers check or confirm information on the telephone.</p>",
 					"titleTextHTML": "2. Using <em class='grammar-term-em'>bien</em> for confirmation"
 				}
 			}

@@ -96,7 +96,7 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 						someone somewhere or agreeing on plans.
 					</p>
 					<p>Here is the present tense:</p>
-					<Table variant="learning">
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{vouloirRows.map((row, index) => (
 								<TableRow
@@ -117,7 +117,7 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 					<p className="mt-4">
 						After <strong>vouloir</strong>, the next verb stays in the infinitive.
 					</p>
-					<Table variant="learning">
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{exampleRows.map((row, index) => (
 								<TableRow
@@ -187,7 +187,7 @@ export class MakingArrangementsGrammarPrepositionA extends PureComponent {
 						silent <strong>h</strong>, and <strong>aux</strong> before a plural noun.
 					</p>
 					<p>Compare these examples:</p>
-					<Table variant="learning">
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{prepositionRows.map((row, index) => (
 								<TableRow

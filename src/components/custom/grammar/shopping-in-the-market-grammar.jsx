@@ -30,7 +30,7 @@ const handleAudioRowClick = (soundFile, event) => {
 };
 
 const AudioTable = ({ headers, rows, tableId }) => (
-	<Table variant="learning">
+	<Table className="grammar-audio-table" variant="learning">
 		{headers ? (
 			<TableHeader>
 				<TableRow>
@@ -248,7 +248,7 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 						</AudioClip>{" "}
 						appears after a negation:
 					</p>
-					<Table variant="learning">
+					<Table className="grammar-audio-table" variant="learning">
 						<TableHeader>
 							<TableRow>
 								<TableHead scope="col">French</TableHead>

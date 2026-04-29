@@ -1,149 +1,335 @@
 import { AudioClip } from "@/components/AudioClip";
-import { Figure } from "@/components/Figure";
+import { Info } from "@/components/Info";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
 
-export class StudyingAtUniversityGrammar extends PureComponent {
+const handleAudioRowClick = (soundFile, event) => {
+	if (!soundFile) return;
+	if (event?.defaultPrevented) return;
+
+	const targetNode = event?.target;
+	if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+		return;
+	}
+
+	const rowEl = event?.currentTarget;
+	const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+	if (audioTrigger) {
+		audioTrigger.click();
+		return;
+	}
+
+	playAudioLink(soundFile);
+};
+
+const AudioTable = ({ rows, tableId }) => (
+	<Table className="grammar-audio-table" variant="learning">
+		<TableBody>
+			{rows.map((row, index) => (
+				<TableRow
+					className="cursor-pointer has-audio-row"
+					key={`${tableId}-row-${index}`}
+					onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+				>
+					<TableCell>
+						<AudioClip className="link" soundFile={row.soundFile}>
+							{row.french}
+						</AudioClip>
+					</TableCell>
+					<TableCell>{row.english}</TableCell>
+				</TableRow>
+			))}
+		</TableBody>
+	</Table>
+);
+
+export class StudyingAtUniversityGrammarComme extends PureComponent {
 	render = () => {
 		const { id } = this.props;
+		const commeRows = [
+				{
+					english: "What sports do you do?",
+					french: (
+						<>
+							Qu&apos;est-ce que vous faites <strong>comme</strong>{" "}sports&nbsp;?
+						</>
+					),
+					soundFile: "audio/lo14/grammar/using-comme/002-quest-ce-que-vous-faites-comme-sports.mp3",
+				},
+				{
+					english: "What sort of music do you like?",
+					french: (
+						<>
+							Qu&apos;est-ce que tu aimes <strong>comme</strong>{" "}musique&nbsp;?
+						</>
+					),
+					soundFile: "audio/lo14/grammar/using-comme/003-quest-ce-que-tu-aimes-comme-musique.mp3",
+				},
+		];
+
 		return (
 			<div
-				className={`lo14-grammar-container container`}
+				className="lo14-grammar1-container container"
 				id={id || undefined}
 				key={`${id}CustomComponent`}
 			>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel` : undefined}
-					key={`${id}CustomComponent`}
-				>
-					<ol>
-						<li>
-							<p>Sometimes literal translation works very well, but there are times when the rendering might not sound idiomatic.
-								An example of this is when asking what people like, prefer, do etc. Using a construction
-								with <AudioClip className={`link`} soundFile={`sounds/fr/comme.mp3`}><strong>comme</strong></AudioClip> is an idiomatic way of
-								asking the question:</p>
-							<Table>
-								<TableBody>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Qu'est-ce que vous faites comme sports.mp3`}>Qu'est-ce que vous faites <strong>comme</strong> sports ?</AudioClip></TableCell><TableCell>What sports do you do?</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Qu'est-ce que tu aimes comme musique.mp3`}>Qu'est-ce que tu aimes <strong>comme</strong> musique ?</AudioClip></TableCell><TableCell>What sort of music do you like?</TableCell></TableRow>
-								</TableBody>
-							</Table>
-						</li>
+				<div className="panel" id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
+					<p>
+						Some English questions translate literally into French, but others sound more
+						natural with an idiomatic pattern. One useful example is the construction with{" "}
+						<AudioClip
+							className="link"
+							soundFile="audio/lo14/grammar/using-comme/001-comme.mp3"
+						>
+							<strong>comme</strong>
+						</AudioClip>
+						.
+					</p>
+					<p>
+						French often uses this pattern to ask what kind of studies, music, sport, or
+						food someone is talking about. It is especially useful in questions such as{" "}
+						<strong>Qu&apos;est-ce que tu fais comme études&nbsp;?</strong>
+					</p>
+					<AudioTable rows={commeRows} tableId={id || "lo14-grammar1"} />
+				</div>
+			</div>
+		);
+	};
+}
 
-						<li>
-							<p>The irregular verb <AudioClip className={`link`} soundFile={`sounds/fr/devoir.mp3`}><strong>devoir</strong></AudioClip> means "to have to." It is used together with another verb in its infinitive form.</p>
-							<Table>
-								<TableBody>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Je dois partir à trois heures.mp3`}><strong>Je dois partir</strong> à trois heures.</AudioClip></TableCell><TableCell>I have to leave at 3 o'clock.</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Ils doivent travailler très dur.mp3`}><strong>Ils doivent travailler</strong> très dur.</AudioClip></TableCell><TableCell>They have to work hard.</TableCell></TableRow>
-								</TableBody>
-							</Table>
-							<p><AudioClip className={`link`} soundFile={`sounds/fr/devoir.mp3`}><strong>devoir</strong></AudioClip></p>
-							<Table>
-								<TableBody>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/je dois.mp3`}>je dois</AudioClip></TableCell><TableCell>I have to / I must</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/tu dois.mp3`}>tu dois</AudioClip></TableCell><TableCell>you have to / you must</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/il doit, elle doit.mp3`}>il / elle doit</AudioClip></TableCell><TableCell>he / she has to — he / she must</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/on doit.mp3`}>on doit</AudioClip></TableCell><TableCell>people / we have to — people / we must</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/nous devons.mp3`}>nous devons</AudioClip></TableCell><TableCell>we have to — we must</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/vous devez.mp3`}>vous devez</AudioClip></TableCell><TableCell>you have to / you must</TableCell></TableRow>
-									<TableRow><TableCell><AudioClip className={`link`} soundFile={`sounds/fr/ils doivent, elles doivent.mp3`}>ils / elles doivent</AudioClip></TableCell><TableCell>they have to / they must</TableCell></TableRow>
-								</TableBody>
-							</Table>
-						</li>
+export class StudyingAtUniversityGrammarDevoir extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		const exampleRows = [
+			{
+				english: "I have to leave at 3 o'clock.",
+				french: (
+					<>
+						<strong>Je dois partir</strong> à trois heures.
+					</>
+				),
+				soundFile: "audio/lo14/grammar/devoir/002-je-dois-partir-a-trois-heures.mp3",
+			},
+			{
+				english: "They have to work hard.",
+				french: (
+					<>
+						<strong>Ils doivent travailler</strong> très dur.
+					</>
+				),
+				soundFile: "audio/lo14/grammar/devoir/003-ils-doivent-travailler-tres-dur.mp3",
+			},
+		];
+		const devoirRows = [
+			{
+				english: "I have to / I must",
+				french: <strong>je dois</strong>,
+				soundFile: "audio/lo14/grammar/devoir/004-je-dois.mp3",
+			},
+			{
+				english: "you have to / you must",
+				french: <strong>tu dois</strong>,
+				soundFile: "audio/lo14/grammar/devoir/005-tu-dois.mp3",
+			},
+			{
+				english: "he / she has to; he / she must",
+				french: <strong>il / elle doit</strong>,
+				soundFile: "audio/lo14/grammar/devoir/006-il-doit-elle-doit.mp3",
+			},
+			{
+				english: "people / we have to; people / we must",
+				french: <strong>on doit</strong>,
+				soundFile: "audio/lo14/grammar/devoir/007-on-doit.mp3",
+			},
+			{
+				english: "we have to / we must",
+				french: <strong>nous devons</strong>,
+				soundFile: "audio/lo14/grammar/devoir/008-nous-devons.mp3",
+			},
+			{
+				english: "you have to / you must",
+				french: <strong>vous devez</strong>,
+				soundFile: "audio/lo14/grammar/devoir/009-vous-devez.mp3",
+			},
+			{
+				english: "they have to / they must",
+				french: <strong>ils / elles doivent</strong>,
+				soundFile: "audio/lo14/grammar/devoir/010-ils-doivent-elles-doivent.mp3",
+			},
+		];
 
-						<li>
-							<p>The irregular verb <AudioClip className={`link`} soundFile={`sounds/fr/pouvoir.mp3`}><strong>pouvoir</strong></AudioClip> means
-								"to be able to." It is used together with another verb in its infinitive form.</p>
-							<p>Je peux répondre à votre question tout de suite. — I can answer your question right away.
-								Vous pouvez ouvrir la fenêtre, s'il vous plaît ? — Can you open the window, please?</p>
-							<p><AudioClip className={`link`} soundFile={`sounds/fr/pouvoir.mp3`}><strong>pouvoir</strong></AudioClip></p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/je peux.mp3`}>je peux</AudioClip></TableCell>
-										<TableCell>I am able to / I can / I may</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/tu peux.mp3`}>tu peux</AudioClip></TableCell>
-										<TableCell>you are able to / you can / you may</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/il peut.mp3`}>il peut</AudioClip></TableCell>
-										<TableCell>he is able to / he can / he may</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/elle peut.mp3`}>elle peut</AudioClip></TableCell>
-										<TableCell>she is able to / she can / she may</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/on peut.mp3`}>on peut</AudioClip></TableCell>
-										<TableCell>people / we are able to / can / may</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/nous pouvons.mp3`}>nous pouvons</AudioClip></TableCell>
-										<TableCell>we are able to / we can / we may</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/vous pouvez.mp3`}>vous pouvez</AudioClip></TableCell>
-										<TableCell>you are able to / you can / you may</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/ils peuvent, elles peuvent.mp3`}>ils / elles peuvent</AudioClip></TableCell>
-										<TableCell>they are able to / they can / they may</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
-						</li>
+		return (
+			<div
+				className="lo14-grammar2-container container"
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div className="panel" id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
+					<p>
+						The irregular verb{" "}
+						<AudioClip className="link" soundFile="audio/lo14/grammar/devoir/001-devoir.mp3">
+							<strong>devoir</strong>
+						</AudioClip>{" "}
+						means <strong>to have to</strong> or <strong>must</strong>. It is followed by
+						another verb in the infinitive form.
+					</p>
+					<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
+					<AudioTable rows={exampleRows} tableId={`${id || "lo14-grammar2"}-examples`} />
+					<h4 className="mb-3 mt-5 text-base font-semibold">
+						Present tense of <strong>devoir</strong>:
+					</h4>
+					<AudioTable rows={devoirRows} tableId={id || "lo14-grammar2"} />
+				</div>
+			</div>
+		);
+	};
+}
 
-						<li>
-							<p>In French there are present and past participles:</p>
+export class StudyingAtUniversityGrammarPouvoir extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		const pouvoirRows = [
+			{
+				english: "I am able to / I can / I may",
+				french: <strong>je peux</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/002-je-peux.mp3",
+			},
+			{
+				english: "you are able to / you can / you may",
+				french: <strong>tu peux</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/003-tu-peux.mp3",
+			},
+			{
+				english: "he is able to / he can / he may",
+				french: <strong>il peut</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/004-il-peut.mp3",
+			},
+			{
+				english: "she is able to / she can / she may",
+				french: <strong>elle peut</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/005-elle-peut.mp3",
+			},
+			{
+				english: "people / we are able to; can; may",
+				french: <strong>on peut</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/006-on-peut.mp3",
+			},
+			{
+				english: "we are able to / we can / we may",
+				french: <strong>nous pouvons</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/007-nous-pouvons.mp3",
+			},
+			{
+				english: "you are able to / you can / you may",
+				french: <strong>vous pouvez</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/008-vous-pouvez.mp3",
+			},
+			{
+				english: "they are able to / they can / they may",
+				french: <strong>ils / elles peuvent</strong>,
+				soundFile: "audio/lo14/grammar/pouvoir/009-ils-peuvent-elles-peuvent.mp3",
+			},
+		];
 
-							<p><strong>i. Present Participles</strong></p>
+		return (
+			<div
+				className="lo14-grammar3-container container"
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div className="panel" id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
+					<p>
+						The irregular verb{" "}
+						<AudioClip
+							className="link"
+							soundFile="audio/lo14/grammar/pouvoir/001-pouvoir.mp3"
+						>
+							<strong>pouvoir</strong>
+						</AudioClip>{" "}
+						means <strong>to be able to</strong>. Like <strong>devoir</strong>, it is
+						usually followed by an infinitive.
+					</p>
+					<p>
+						For example, <strong>Je peux répondre à votre question tout de suite.</strong>{" "}
+						means &ldquo;I can answer your question right away&rdquo;, and{" "}
+						<strong>Vous pouvez ouvrir la fenêtre, s&apos;il vous plaît&nbsp;?</strong>{" "}
+						means &ldquo;Can you open the window, please?&rdquo;
+					</p>
+					<h4 className="mb-3 mt-5 text-base font-semibold">
+						Present tense of <strong>pouvoir</strong>:
+					</h4>
+					<AudioTable rows={pouvoirRows} tableId={id || "lo14-grammar3"} />
+				</div>
+			</div>
+		);
+	};
+}
 
-							<p>In English the present participle ends in <em>-ing</em> (e.g. interesting, encouraging).
-								In French the present participle is the verb form that ends in <em>-ant</em>. Present participles can often be used as adjectives:</p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/C'est fatigant.mp3`}>C'est fatigant</AudioClip></TableCell>
-										<TableCell>It's tiring</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/C'est motivant.mp3`}>C'est motivant</AudioClip></TableCell>
-										<TableCell>It's motivating</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/C'est intéressant.mp3`}>C'est intéressant</AudioClip></TableCell>
-										<TableCell>It's interesting</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
+export class StudyingAtUniversityGrammarParticiples extends PureComponent {
+	render = () => {
+		const { id } = this.props;
+		const presentRows = [
+			{
+				english: "It's tiring",
+				french: <strong>C&apos;est fatigant</strong>,
+				soundFile: "audio/lo14/grammar/participles/001-cest-fatigant.mp3",
+			},
+			{
+				english: "It's motivating",
+				french: <strong>C&apos;est motivant</strong>,
+				soundFile: "audio/lo14/grammar/participles/002-cest-motivant.mp3",
+			},
+			{
+				english: "It's interesting",
+				french: <strong>C&apos;est intéressant</strong>,
+				soundFile: "audio/lo14/grammar/participles/003-cest-interessant.mp3",
+			},
+		];
+		const pastRows = [
+			{
+				english: "I am tired",
+				french: <strong>Je suis fatigué / fatiguée</strong>,
+				soundFile: "audio/lo14/grammar/participles/004-je-suis-fatigue.mp3",
+			},
+			{
+				english: "The students are very motivated",
+				french: <strong>Les étudiants sont très motivés</strong>,
+				soundFile: "audio/lo14/grammar/participles/005-les-etudiants-sont-tres-motives.mp3",
+			},
+			{
+				english: "He is fascinated",
+				french: <strong>Il est fasciné</strong>,
+				soundFile: "audio/lo14/grammar/participles/006-il-est-fascine.mp3",
+			},
+		];
 
-							<p><strong>ii. Past Participles</strong><br/>
-								Examples of past participles in English are: tired, motivated, fascinated.
-								In French many past participles end in <strong>-é</strong>. These are the past participles of <strong>-er</strong> verbs. Past participles can often be used as adjectives:</p>
-							<Table>
-								<TableBody>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Je suis fatigué.mp3`}>Je suis fatigué.e</AudioClip></TableCell>
-										<TableCell>I am tired</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Les étudiants sont très motivés.mp3`}>Les étudiants sont très motivés</AudioClip></TableCell>
-										<TableCell>The students are very motivated</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell><AudioClip className={`link`} soundFile={`sounds/fr/Il est fasciné.mp3`}>Il est fasciné</AudioClip></TableCell>
-										<TableCell>He is fascinated</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
-
-							<p><strong>NB:</strong> Present and past participles used as adjectives must agree in gender and number with the noun they are describing.</p>
-						</li>
-					</ol>
+		return (
+			<div
+				className="lo14-grammar4-container container"
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
+				<div className="panel" id={id ? `${id}Panel4` : undefined} key={`${id}Panel4`}>
+					<p>French has both present and past participles, and both can be used as adjectives.</p>
+					<p>
+						<strong>Present participles</strong> often end in <em>-ant</em>. In English,
+						they often correspond to adjectives ending in <em>-ing</em>, such as
+						&ldquo;interesting&rdquo; or &ldquo;tiring&rdquo;.
+					</p>
+					<AudioTable rows={presentRows} tableId={`${id || "lo14-grammar4"}-present`} />
+					<p>
+						<strong>Past participles</strong> of many <em>-er</em> verbs end in{" "}
+						<strong>-é</strong>. They can also be used as adjectives, like
+						&ldquo;tired&rdquo;, &ldquo;motivated&rdquo;, or &ldquo;fascinated&rdquo;.
+					</p>
+					<AudioTable rows={pastRows} tableId={`${id || "lo14-grammar4"}-past`} />
+					<Info variant="warning">
+						<p>
+							<strong>NB</strong> When present or past participles are used as adjectives,
+							they must agree in gender and number with the noun they describe.
+						</p>
+					</Info>
 				</div>
 			</div>
 		);

@@ -276,7 +276,7 @@
 				"grammar1": {
 					"component": "FamilyFriendsAndNeighboursGrammarPossessives",
 					"id": "grammar1",
-					"infoTextHTML": "<p>This section explains how possessive adjectives change according to noun gender and number in French.</p>",
+					"informationTextHTML": "<p>This section explains how possessive adjectives change according to noun gender and number in French.</p>",
 					"titleText": "1. Possessive adjectives"
 				}
 			},
@@ -284,7 +284,7 @@
 				"grammar2": {
 					"component": "FamilyFriendsAndNeighboursGrammarAvoir",
 					"id": "grammar2",
-					"infoTextHTML": "<p>This section introduces the irregular verb <em class='grammar-term-em'>avoir</em> and some common expressions that use it.</p>",
+					"informationTextHTML": "<p>This section introduces the irregular verb <em class='grammar-term-em'>avoir</em> and some common expressions that use it.</p>",
 					"titleTextHTML": "2. The verb <em class='grammar-term-em'>avoir</em>"
 				}
 			}

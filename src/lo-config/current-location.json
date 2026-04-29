@@ -16,7 +16,7 @@
 				"phraseTable1": {
 					"component": "PhraseTable",
 					"id": "phraseTable1",
-					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/001-o-u-habites-tuo-habites-tu.mp3",
@@ -51,7 +51,7 @@
 				"phraseTable2": {
 					"component": "PhraseTable",
 					"id": "phraseTable2",
-					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/006-o-u-habitez-vouso-habitez-vous.mp3",
@@ -76,7 +76,7 @@
 				"phraseTable3": {
 					"component": "PhraseTable",
 					"id": "phraseTable3",
-					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/009-o-u-se-trouve-la-cath-edrale-de-notre-dameo-se-trouve-la-cath-drale-de-notre-dame.mp3",
@@ -96,7 +96,7 @@
 				"phraseTable4": {
 					"component": "PhraseTable",
 					"id": "phraseTable4",
-					"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"/audio/lo4/dialogues/phraseTable1/011-tu-habites-au-centre-ville.mp3",
@@ -120,7 +120,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+		"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core location vocabulary for where people live and where places are found.</li><li>How to ask and answer location questions with <em>habiter</em> and <em>se trouver</em>.</li><li>How to describe surroundings and accommodation (for example <em>à la campagne</em>, <em>en banlieue</em>, <em>dans un appartement</em>).</li><li>How to use these forms more confidently in spoken and listening activities.</li></ul>",
 		"phrases": [
 			[
@@ -264,7 +264,7 @@
 				"grammar1": {
 					"component": "CurrentLocationGrammarPrepositionsInPlaces",
 					"id": "grammar1",
-					"infoTextHTML": "In this section, you will learn how French expresses location with different forms of <em class='grammar-term-em'>in</em> before place names.<p>You will learn:</p><ul><li>How to choose between <em class='grammar-term-em'>à</em>, <em class='grammar-term-em'>en</em>, <em class='grammar-term-em'>au</em>, <em class='grammar-term-em'>aux</em>, and <em class='grammar-term-em'>dans le</em>.</li><li>How gender, number, and initial sound affect the form used.</li><li>How to apply these forms in real location sentences.</li></ul>",
+					"informationTextHTML": "In this section, you will learn how French expresses location with different forms of <em class='grammar-term-em'>in</em> before place names.<p>You will learn:</p><ul><li>How to choose between <em class='grammar-term-em'>à</em>, <em class='grammar-term-em'>en</em>, <em class='grammar-term-em'>au</em>, <em class='grammar-term-em'>aux</em>, and <em class='grammar-term-em'>dans le</em>.</li><li>How gender, number, and initial sound affect the form used.</li><li>How to apply these forms in real location sentences.</li></ul>",
 					"titleTextHTML": "1. Expressing <em class='grammar-term-em'>in</em> with place names"
 				}
 			}

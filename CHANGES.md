@@ -2,6 +2,69 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-27 - LO14 Studying at University Modernization + Audio Migration
+
+- Modernized LO14 `Studying at university` to align with the current post-LO10
+  lesson contract:
+  - `src/lo-config/studying-at-university.json`
+  - added `introImage` and `informationHTML`
+  - rewrote dialogue, vocabulary, grammar, and exercise guidance onto the
+    current section-level instructional patterns
+  - renamed dialogue titles to semantic learner-facing labels
+  - corrected a few learner-facing English drift issues in vocabulary and
+    dialogue copy
+- Replaced the monolithic LO14 grammar block with focused lesson-owned grammar
+  articles:
+  - `src/components/custom/grammar/studying-at-university-grammar.jsx`
+  - `src/components/custom/grammar/index.js`
+  - grammar now uses:
+    - `StudyingAtUniversityGrammarComme`
+    - `StudyingAtUniversityGrammarDevoir`
+    - `StudyingAtUniversityGrammarPouvoir`
+    - `StudyingAtUniversityGrammarParticiples`
+  - preserved the existing teaching points while moving them onto the shared
+    clickable audio-table pattern used by newer lessons
+- Migrated LO14 audio off legacy `sounds/fr/...` refs and into lesson-owned
+  folders:
+  - new root: `public/audio/lo14/...`
+  - updated LO14 refs in:
+    - `src/lo-config/studying-at-university.json`
+    - `src/components/custom/grammar/studying-at-university-grammar.jsx`
+  - copied 128 LO14-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - exercises
+  - resolved LO14 refs through normalization-aware matching against
+    `public/sounds/fr/...`
+- Added LO14 migration tracking docs:
+  - `docs/audio/AUDIO_LO14_MIGRATION_MAP.md`
+  - `docs/audio/LO14_AUDIO_BLOCKERS.md`
+- Validation:
+  - `rg -n 'sounds/fr' src/lo-config/studying-at-university.json src/components/custom/grammar/studying-at-university-grammar.jsx`
+  - `find public/audio/lo14 -type f | wc -l`
+  - `yarn build`
+
+## 2026-04-28 - Cross-LO Config Consistency Sweep
+
+- Normalized remaining older grammar info keys from `infoTextHTML` to
+  `informationTextHTML` in earlier refactored lessons:
+  - `src/lo-config/about-me.json`
+  - `src/lo-config/origins-and-languages.json`
+  - `src/lo-config/current-location.json`
+  - `src/lo-config/house-and-home.json`
+  - `src/lo-config/family-friends-and-neighbours.json`
+  - `src/lo-config/free-time.json`
+  - `src/lo-config/phoning-in-france.json`
+- Normalized remaining legacy phrase-table/vocabulary instruction fields from
+  plain `instructionsText` to `instructionsTextHTML` where those sections now
+  follow the newer HTML-backed contract:
+  - `src/lo-config/current-location.json`
+  - `src/lo-config/shopping-in-the-market.json`
+- Validation:
+  - targeted `rg` sweep for removed legacy keys in the updated LO configs
+  - `yarn build`
+
 ## 2026-04-27 - LO13 Daily Routine Audio Migration
 
 - Migrated LO13 `Daily routine` audio off legacy `sounds/fr/...` refs and into lesson-owned folders:

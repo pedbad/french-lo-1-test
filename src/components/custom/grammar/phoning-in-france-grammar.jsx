@@ -118,7 +118,7 @@ export class PhoningInFranceGrammarBienForConfirmation extends PureComponent {
 						information is correct, a bit like <strong>isn&apos;t it?</strong> or
 						<strong> that&apos;s right</strong>.
 					</p>
-					<Table variant="learning">
+					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{confirmationRows.map((row, index) => (
 								<TableRow

@@ -18,7 +18,7 @@
         "phraseTable1": {
           "component": "PhraseTable",
           "id": "phraseTable1",
-          "instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+          "instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo12/dialogues/001-quest-ce-que-tu-fais-aujourdhui.mp3",
@@ -64,7 +64,7 @@
         "phraseTable2": {
           "component": "PhraseTable",
           "id": "phraseTable2",
-          "instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+          "instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo12/dialogues/008-madame-bonjour-vous-desirez.mp3",
@@ -124,7 +124,7 @@
     "component": "PhraseTable",
     "expandable": false,
     "id": "vocabulary",
-    "instructionsText": "Read each phrase, then play its audio clip to check pronunciation and meaning.",
+    "instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
     "phrases": [
       [
         "audio/lo12/vocabulary/001-faire-les-courses.mp3",

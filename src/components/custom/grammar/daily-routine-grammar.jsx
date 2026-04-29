@@ -23,7 +23,7 @@ const handleAudioRowClick = (soundFile, event) => {
 };
 
 const AudioTable = ({ rows, tableId }) => (
-	<Table variant="learning">
+	<Table className="grammar-audio-table" variant="learning">
 		<TableBody>
 			{rows.map((row, index) => (
 				<TableRow

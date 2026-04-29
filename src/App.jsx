@@ -12,6 +12,7 @@ import {
 	DictationExercise,
 	DraggableFillGaps,
 	InlineChoiceGroup,
+	InlineTypedGapExercise,
 	LineMatch,
 	MemoryMatchGame,
 	RadioQuiz,
@@ -986,6 +987,14 @@ export default class App extends React.Component {
 						showDialog={this.showDialog}
 					/>
 				);
+			case "InlineTypedGapExercise":
+				return (
+					<InlineTypedGapExercise
+						config={value}
+						logError={this.logError}
+						showDialog={this.showDialog}
+					/>
+				);
 			case "LineMatch":
 				return (
 					<LineMatch
@@ -1449,6 +1458,26 @@ export default class App extends React.Component {
 							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
+					);
+					break;
+				}
+				case "InlineTypedGapExercise": {
+					articles.push(
+						<AccordionArticle
+							expandedByDefault={autoExpandSingleAccordion}
+							config={value}
+							id={`${compoundID}-Accordion`}
+							key={`${compoundID}-Accordion`}
+							target={targetId}
+							title={titleText}
+							titleHTML={titleTextHTML}
+						>
+							<InlineTypedGapExercise
+								config={value}
+								logError={this.logError}
+								showDialog={this.showDialog}
+							/>
+						</AccordionArticle>,
 					);
 					break;
 				}

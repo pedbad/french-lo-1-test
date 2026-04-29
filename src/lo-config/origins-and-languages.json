@@ -376,7 +376,7 @@
 				"grammar1": {
 					"component": "OriginsAndLanguagesGrammarVerbGroups",
 					"id": "grammar1",
-					"infoTextHTML": "In this section, you will practise essential verb patterns for introducing yourself and describing where people come from.<p>You will learn:</p><ul><li>How common <em class='grammar-term-em'>-er</em> verbs work in the present tense.</li><li>How to use <em class='grammar-term-em'>parler</em> and <em class='grammar-term-em'>venir</em> in practical context.</li><li>How French present-tense meaning maps to English forms.</li></ul>",
+					"informationTextHTML": "In this section, you will practise essential verb patterns for introducing yourself and describing where people come from.<p>You will learn:</p><ul><li>How common <em class='grammar-term-em'>-er</em> verbs work in the present tense.</li><li>How to use <em class='grammar-term-em'>parler</em> and <em class='grammar-term-em'>venir</em> in practical context.</li><li>How French present-tense meaning maps to English forms.</li></ul>",
 					"titleText": "1. A bit about verbs in French"
 				}
 			},
@@ -384,7 +384,7 @@
 				"grammar2": {
 					"component": "OriginsAndLanguagesGrammarDeForms",
 					"id": "grammar2",
-					"infoTextHTML": "This section helps you choose the correct form after <em class='grammar-term-em'>venir</em> when expressing origin.<p>You will learn:</p><ul><li>When to use <em class='grammar-term-em'>de</em>, <em class='grammar-term-em'>d&apos;</em>, <em class='grammar-term-em'>du</em>, and <em class='grammar-term-em'>des</em>.</li><li>How the form changes with gender, number, and initial sound.</li></ul>",
+					"informationTextHTML": "This section helps you choose the correct form after <em class='grammar-term-em'>venir</em> when expressing origin.<p>You will learn:</p><ul><li>When to use <em class='grammar-term-em'>de</em>, <em class='grammar-term-em'>d&apos;</em>, <em class='grammar-term-em'>du</em>, and <em class='grammar-term-em'>des</em>.</li><li>How the form changes with gender, number, and initial sound.</li></ul>",
 					"titleTextHTML": "2. Saying where you come from: <em class='grammar-term-em'>de</em> / <em class='grammar-term-em'>d&apos;</em> / <em class='grammar-term-em'>du</em> / <em class='grammar-term-em'>des</em>"
 				}
 			},
@@ -392,7 +392,7 @@
 				"grammar3": {
 					"component": "OriginsAndLanguagesGrammarFeminineForms",
 					"id": "grammar3",
-					"infoTextHTML": "In this section, you will focus on how adjective and profession forms change in feminine contexts.<p>You will learn:</p><ul><li>Common feminine formation patterns from masculine forms.</li><li>Typical spelling changes and key exceptions.</li><li>How agreement affects nationality adjectives and professions.</li></ul>",
+					"informationTextHTML": "In this section, you will focus on how adjective and profession forms change in feminine contexts.<p>You will learn:</p><ul><li>Common feminine formation patterns from masculine forms.</li><li>Typical spelling changes and key exceptions.</li><li>How agreement affects nationality adjectives and professions.</li></ul>",
 					"titleText": "3. Feminine forms of professions and adjectives"
 				}
 			}
