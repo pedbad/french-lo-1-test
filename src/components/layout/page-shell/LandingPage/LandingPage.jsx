@@ -2,22 +2,9 @@ import React from 'react';
 
 export class LandingPage extends React.Component{
 
-	buildLearningObjectURL = (learningObject, learningObjects = []) => {
-		const pathSegments = window.location.pathname.split('/').filter(Boolean);
-		const knownSlugs = new Set(
-			learningObjects
-				.map((entry) => `${entry?.slug || ''}`.trim().toLowerCase())
-				.filter(Boolean),
-		);
-		if (pathSegments.length > 0) {
-			const lastSegment = decodeURIComponent(pathSegments[pathSegments.length - 1]).trim().toLowerCase();
-			if (knownSlugs.has(lastSegment)) {
-				pathSegments.pop();
-			}
-		}
-
+	buildLearningObjectURL = (learningObject) => {
 		const slug = `${learningObject?.slug || learningObject?.file || ''}`.trim();
-		const basePath = `/${pathSegments.join('/')}${pathSegments.length ? '/' : '/'}`;
+		const basePath = new URL(import.meta.env.BASE_URL, window.location.origin).pathname;
 		return `${window.location.origin}${basePath}${encodeURIComponent(slug)}/`;
 	};
 
@@ -35,7 +22,7 @@ export class LandingPage extends React.Component{
 						key={`card-${index}`}>
 						<a
 							className="flex h-full w-full flex-col items-center justify-between p-5 text-center !no-underline"
-							href={this.buildLearningObjectURL(learningObject, learningObjects)}
+							href={this.buildLearningObjectURL(learningObject)}
 							target={`_blank`}
 						>
 							<h1 className="font-bold text-[var(--primary-foreground)]">{learningObject.title}</h1>

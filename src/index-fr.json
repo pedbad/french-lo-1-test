@@ -23,9 +23,9 @@
 			"slug": "house-and-home"
 		},
 		{
-			"title": "Family, friends and neighbours",
-			"titleShort": "Family, friends & neighbours",
-			"slug": "family-friends-and-neighbours"
+			"title": "Family & friends",
+			"titleShort": "Family & friends",
+			"slug": "family-friends"
 		},
 		{
 			"title": "Opinions matter: Likes and dislikes",
@@ -63,12 +63,8 @@
 			"slug": "studying-at-university"
 		},
 		{
-			"title": "Making Arrangements",
-			"slug": "making-arrangements-2"
-		},
-		{
-			"title": "Answer Table Test",
-			"slug": "answer-table-test"
+			"title": "Planning a holiday",
+			"slug": "planning-a-holiday"
 		}
 	],
 	"title": "French Basic"

@@ -27,7 +27,7 @@ const DEBUG_LEARNING_OBJECTS = [
 	{ slug: 'origins-and-languages', titleShort: 'Origins and Languages' },
 	{ slug: 'current-location', titleShort: 'Current location' },
 	{ slug: 'house-and-home', titleShort: 'House and Home' },
-	{ slug: 'family-friends-and-neighbours', titleShort: 'Family, friends and neighbours' },
+	{ slug: 'family-friends', titleShort: 'Family & friends' },
 	{ slug: 'opinions-matter', titleShort: 'Opinions matter' },
 	{ slug: 'free-time', titleShort: 'Free Time' },
 	{ slug: 'phoning-in-france', titleShort: 'Phoning in France' },
@@ -36,8 +36,7 @@ const DEBUG_LEARNING_OBJECTS = [
 	{ slug: 'shopping-in-the-market', titleShort: 'Shopping in the market' },
 	{ slug: 'daily-routine', titleShort: 'Daily routine' },
 	{ slug: 'studying-at-university', titleShort: 'Studying at university' },
-	{ slug: 'making-arrangements-2', titleShort: 'Making Arrangements' },
-	{ slug: 'answer-table-test', titleShort: 'Answer table test' },
+	{ slug: 'planning-a-holiday', titleShort: 'Planning a holiday' },
 ];
 
 const DEBUG_MENU_ITEMS = [
