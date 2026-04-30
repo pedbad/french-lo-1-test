@@ -103,7 +103,8 @@ This checklist tracks migration progress toward one source of truth (tokens + Ta
   - fixed `Alphabetical`/reverse sorting in `src/components/PhraseTable/PhraseTable.jsx`
   - root cause: rows often start with `.mp3` path in column `0`
   - rule: sort by first non-audio text cell (learner-visible French term), not media filename
-- [ ] Complete migration of remaining legacy `public/sounds/fr/...` references to `public/audio/lo1/...`
+- [x] Complete migration of remaining legacy `public/sounds/fr/...` runtime references to lesson-owned `public/audio/loX/...`
+  - repo-wide `public/sounds/fr` folder removed after zero runtime refs were confirmed
 - [ ] Add explicit LO1 exercise/audio mapping contract to reduce ordering confusion
   - document that render order comes from JSON `exercises.content`, while folder listings are alphabetical
   - add optional `audioFolder` + `order` metadata in LO JSON for clarity

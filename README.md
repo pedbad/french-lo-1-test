@@ -337,7 +337,7 @@ To avoid Unicode normalization drift in audio filenames/refs while migrating leg
 - `yarn check:audio-unicode:branch` checks branch diff vs `origin/main`.
 - `yarn fix:audio-unicode` applies NFC normalization renames (use with care).
 
-`yarn prepush:local` now uses `check:audio-unicode:branch`, so legacy untouched files in `public/sounds/fr` do not block refactor PRs.
+`yarn prepush:local` now uses `check:audio-unicode:branch`, so historical deleted legacy paths and future migrated audio changes are checked without requiring the old `public/sounds/fr` tree.
 
 Image migration docs:
 - `/Users/ped/Sites/french/french-lo-1/docs/styling/IMAGE_MIGRATION_PLAN.md`
@@ -892,7 +892,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO4_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - removed 59 LO4 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
-  - retained `sounds/fr/aimer.mp3`, `sounds/fr/jardin.mp3`, and `sounds/fr/peinture.mp3` because they are still referenced by non-LO4 content.
+  - the later repo-wide cleanup removed the remaining `public/sounds/fr` tree after confirming no runtime references remained.
 
 ## LO8 Audio Migration Status
 
@@ -909,7 +909,8 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Blocker record:
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO8_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
-  - old `public/sounds/fr/...` and `public/images/memory/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+  - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
+  - old `public/images/memory/...` sources remain until image references are fully audited.
 
 ## LO9 Audio Migration Status
 
@@ -928,7 +929,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Blocker record:
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO9_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
-  - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+  - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
 ## LO10 Audio Migration Status
 
@@ -947,7 +948,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Blocker record:
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO10_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
-  - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+  - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
 ## LO11 Audio Migration Status
 
@@ -967,7 +968,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Blocker record:
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO11_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
-  - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+  - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
 ## LO13 Audio Migration Status
 
@@ -984,7 +985,29 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Blocker record:
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO13_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
-  - old `public/sounds/fr/...` sources have been left in place for now; cleanup should happen only after confirming no other lesson still references the shared legacy assets.
+  - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
+
+## LO15 Audio Migration Status
+
+- LO15 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo15/...` in:
+  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/planning-a-holiday.json`
+  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/planning-a-holiday-grammar.jsx`
+- New LO15 roots:
+  - `public/audio/lo15/...`
+  - `public/img/lo15/...`
+- LO15 now follows the newer section contract:
+  - `introImage` + `introHTML` + `informationHTML`
+  - grouped grammar articles
+  - lesson-owned transport exercise images
+- Current source note:
+  - two missing legacy weather clips were copied from migrated LO5 grammar audio, and shared `aller` grammar material was copied from migrated LO12 audio so LO15 remains self-contained.
+- Migration record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO15_MIGRATION_MAP.md`
+- Blocker record:
+  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO15_AUDIO_BLOCKERS.md`
+- Legacy cleanup:
+  - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
+  - old `public/images/...` sources remain until image references are fully audited.
 
 ## Shared Table Variants
 

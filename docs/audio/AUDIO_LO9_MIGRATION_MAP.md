@@ -41,8 +41,9 @@ This pass also moved LO9 onto the newer lesson section contract:
 - New target filenames are ASCII-safe and sequence-based.
 - Legacy filename drift in `public/sounds/fr` included punctuation/spacing variants.
   - migration was resolved copy-first rather than renaming legacy shared files in place
-- This pass did not delete legacy shared assets from `public/sounds/fr`.
-  - cleanup should happen only after confirming no remaining `src` references from other lessons
+- Follow-up cleanup is complete: the later repo-wide cleanup removed `public/sounds/fr`
+  after confirming no runtime references remained. Historical source refs stay in
+  this map for traceability.
 
 ## Validation
 

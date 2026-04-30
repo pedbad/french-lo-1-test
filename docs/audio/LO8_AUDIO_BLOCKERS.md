@@ -15,6 +15,7 @@ Migration-path blockers are resolved, but follow-up audio review items remain.
     - should match the corrected displayed text with the second `je`
   - `public/audio/lo8/grammar/jouer-patterns/007-jouer-a-l.mp3`
     - `jouer à l'` sounds closer to `jouer à la`
-- Legacy cleanup is intentionally deferred:
-  - shared `public/sounds/fr/...` assets may still be used by other lessons
-  - shared `public/images/memory/...` assets should only be removed after a full cross-repo reference check
+- Follow-up audio cleanup is complete: `public/sounds/fr` has been removed after
+  confirming no runtime refs remain.
+- Shared `public/images/memory/...` assets should only be removed after a full
+  cross-repo reference check.

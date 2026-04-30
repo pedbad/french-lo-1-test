@@ -68,10 +68,13 @@ This caused overlap bugs where users could trigger several audio clips concurren
   - `LO4_AUDIO_BLOCKERS.md`
 - Legacy cleanup performed:
   - removed 59 LO4 legacy source files from `public/sounds/fr` that had no remaining references in `src`.
-  - retained 3 shared legacy files still referenced outside LO4:
+  - retained 3 shared legacy files during the original LO4 pass because they were
+    still referenced outside LO4 at that time:
     - `sounds/fr/aimer.mp3`
     - `sounds/fr/jardin.mp3`
     - `sounds/fr/peinture.mp3`
+  - follow-up repo-wide cleanup later removed the remaining `public/sounds/fr`
+    tree after runtime refs reached zero.
 
 ## Temporary Fix Implemented
 

@@ -29,7 +29,7 @@ LO audio uses many accented filenames (for example `Salut, ça va.mp3`, `Très b
 
 - JSON references in `src/lo-config/*.json`
 - runtime URL construction (`resolveAsset()`)
-- actual files in `public/sounds/fr`
+- actual files in lesson-owned `public/audio/loX/...` folders
 
 ### Fix strategy
 
@@ -40,6 +40,8 @@ LO audio uses many accented filenames (for example `Salut, ça va.mp3`, `Très b
 ### Recommendation
 
 Use **one encoding standard everywhere**, and normalize filenames on disk so future imports/renames do not reintroduce mixed Unicode forms.
+
+The legacy `public/sounds/fr` tree has been removed; new and migrated lesson audio should stay under lesson-owned `public/audio/loX/...` paths.
 
 If you intentionally normalize in code, use the same form as disk filenames (for example NFC):
 
@@ -52,4 +54,3 @@ path.normalize("NFC")
 - Canonical on disk: **NFC**
 - JSON filenames: exact match to on-disk names
 - Runtime path builder: safe URL join + URI encoding, without changing logical filename spelling
-

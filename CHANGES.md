@@ -2,6 +2,61 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-04-30 - Legacy French Sounds Cleanup
+
+- Removed the obsolete legacy French audio folder after confirming there are no
+  remaining runtime references to `sounds/fr`:
+  - deleted `public/sounds/fr/...` (1,563 files)
+  - retained the non-French app UI sounds directly under `public/sounds/`
+    such as `click.mp3`, `error.mp3`, and `tada.mp3`
+- Validation:
+  - `rg -n '(?:/)?sounds/fr' src index.html package.json vite.config.* --glob '!dist/**'`
+  - `yarn build`
+
+## 2026-04-29 - LO15 Planning a Holiday Modernization + Audio Migration
+
+- Modernized LO15 `Planning a holiday` to follow the current lesson contract:
+  - `src/lo-config/planning-a-holiday.json`
+  - added `introImage` and `informationHTML`
+  - rewrote dialogue, vocabulary, grammar, and exercise guidance onto the
+    current section-level instructional patterns
+  - migrated exercise ids to the semantic sequence used by newer lessons:
+    - `memoryMatchGame1`
+    - `selectExercise1`
+    - `dictationExercise1`
+- Replaced the old monolithic `MakingArrangements2Grammar` block with focused
+  LO15 grammar articles:
+  - `src/components/custom/grammar/planning-a-holiday-grammar.jsx`
+  - `src/components/custom/grammar/index.js`
+  - removed `src/components/custom/grammar/making-arrangements-2-grammar.jsx`
+  - grammar now uses the shared clickable audio-table pattern via:
+    - `PlanningAHolidayGrammarWeather`
+    - `PlanningAHolidayGrammarAllerNearFuture`
+- Migrated LO15 audio and exercise images off legacy shared paths:
+  - new audio root: `public/audio/lo15/...`
+  - new image root: `public/img/lo15/...`
+  - updated LO15 refs in:
+    - `src/lo-config/planning-a-holiday.json`
+    - `src/components/custom/grammar/planning-a-holiday-grammar.jsx`
+  - copied 100 LO15-owned audio files into semantic section folders covering:
+    - dialogues
+    - vocabulary
+    - grammar
+    - exercises
+  - copied 12 transport exercise images into
+    `public/img/lo15/exercises/transport/...`
+  - resolved filename drift with normalization-aware matching against
+    `public/sounds/fr/...`
+  - copied shared `aller` conjugation and missing weather/greeting clips from
+    already migrated LO12/LO5 sources so LO15 is self-contained
+- Added LO15 migration tracking docs:
+  - `docs/audio/AUDIO_LO15_MIGRATION_MAP.md`
+  - `docs/audio/LO15_AUDIO_BLOCKERS.md`
+- Validation:
+  - targeted legacy-path sweeps for LO15 config and grammar
+  - targeted asset existence checks for LO15 audio and image refs
+  - `yarn build`
+
 ## 2026-04-27 - LO14 Studying at University Modernization + Audio Migration
 
 - Modernized LO14 `Studying at university` to align with the current post-LO10
@@ -1370,10 +1425,12 @@ This file summarizes the work completed in this repo during the session. It incl
   - 0 missing source files for LO4 migration scope
 - Legacy cleanup:
   - deleted 59 LO4 legacy source files from `public/sounds/fr` that had no remaining references anywhere in `src`.
-  - retained 3 shared files still referenced outside LO4:
+  - retained 3 shared files that were still referenced outside LO4 at that time:
     - `sounds/fr/aimer.mp3`
     - `sounds/fr/jardin.mp3`
     - `sounds/fr/peinture.mp3`
+  - follow-up repo-wide cleanup later removed the remaining `public/sounds/fr`
+    tree after runtime refs reached zero.
 
 ## 2026-02-26 - Typed Exercise Runtime Decoupling (Baby Step)
 

@@ -10,6 +10,5 @@ No open blockers.
   `public/audio/lo14/...`.
 - Dialogues, vocabulary, grammar, and exercise refs currently resolve without
   requiring fallback cross-LO audio reuse.
-- Legacy shared assets under `public/sounds/fr/...` remain in place for now;
-  cleanup is intentionally deferred until repo-wide references are fully
-  audited.
+- Follow-up cleanup is complete: `public/sounds/fr` has been removed after
+  confirming no runtime refs remain.

@@ -14,10 +14,12 @@
 ## Legacy Cleanup Result
 - Deleted LO4 legacy source files from `public/sounds/fr` only when no remaining `src` reference existed.
 - Deleted files: **59**
-- Retained legacy files (still referenced outside LO4):
+- Retained during the original LO4 pass because they were still referenced outside LO4 at that time:
   - `sounds/fr/aimer.mp3`
   - `sounds/fr/jardin.mp3`
   - `sounds/fr/peinture.mp3`
+- Follow-up cleanup is complete: the later repo-wide cleanup removed the remaining
+  `public/sounds/fr` tree after confirming no runtime references remained.
 
 ## Detailed mapping (old -> new)
 

@@ -20,4 +20,5 @@ exercise 5:
 - LO12 audio refs in config, grammar, and pronunciation otherwise resolve under `public/audio/lo12/...`.
 - The original teacher-authored pronunciation examples were restored; temporary substitute words are no longer used.
 - `u.mp3` and `ou.mp3` were copied into `public/audio/lo12/pronunciation/` so the restored pronunciation introduction remains functional.
-- Legacy cleanup is intentionally deferred until cross-repo `src` references to `public/sounds/fr/...` are audited.
+- Follow-up cleanup is complete: `public/sounds/fr` has been removed after
+  confirming no runtime refs remain.

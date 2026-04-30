@@ -8,7 +8,7 @@ Use this checklist for each new LO (LO4 onward) to avoid architecture and stylin
 - [ ] Migrate refs from `sounds/fr/...` to `audio/loX/...` section folders.
 - [ ] Use ASCII-safe, sequence-based filenames (`001-...`, `002-...`).
 - [ ] Verify all migrated refs resolve to existing files.
-- [ ] Delete only legacy `public/sounds/fr` files with no remaining `src` references.
+- [ ] If a legacy source folder exists, delete only files with no remaining runtime references; this project-wide `public/sounds/fr` tree has already been removed.
 - [ ] Record migration map + blockers (`AUDIO_LOX_MIGRATION_MAP.md`, `LOX_AUDIO_BLOCKERS.md`).
 
 ## 2) Section Architecture Parity

@@ -41,7 +41,9 @@ This pass modernizes LO12 to match the current post-LO8 lesson contract:
   - `couteau`
   - `roue`
   - `jus`
-- This pass did not delete legacy shared assets from `public/sounds/fr`.
+- Follow-up cleanup is complete: the later repo-wide cleanup removed `public/sounds/fr`
+  after confirming no runtime references remained. Historical source refs stay in
+  this map for traceability.
 
 ## Validation
 

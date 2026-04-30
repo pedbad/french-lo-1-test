@@ -14,6 +14,6 @@ No blockers in the current LO11 migration pass.
   - mixed apostrophe and quote variants
 - No LO11 pronunciation audio was migrated in this pass because the current repo does not
   contain authored pronunciation content for this lesson.
-- Legacy cleanup is intentionally deferred:
-  - shared `public/sounds/fr/...` assets may still be used by other lessons
-  - old shared files should only be removed after a full cross-repo reference check
+- Follow-up cleanup is complete: `public/sounds/fr` has been removed after
+  confirming no runtime refs remain. Historical legacy filenames above are kept
+  only as migration notes.

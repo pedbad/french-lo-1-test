@@ -9,22 +9,29 @@ import { Badge } from '@/components/ui/badge';
 import {
 	ArrowLeftRight,
 	ArrowUpDown,
+	BadgeQuestionMark,
+	BookOpenText,
 	Check,
 	ChevronDown,
 	ChevronUp,
 	CircleAlert,
 	CircleCheck,
 	CircleX,
+	Eye,
+	EyeOff,
 	Facebook,
 	Info as InfoIcon,
 	Instagram,
 	Linkedin,
+	Mars,
 	MessageCircleMore,
 	SquareDashedMousePointer,
+	Venus,
 	Volume1,
 	X,
 	Youtube,
 } from 'lucide-react';
+import franceTelephoneMapUrl from '@/assets/lo9/france-telephone-area-codes.svg';
 import copyIconUrl from '@/components/ErrorLog/copy.svg';
 import upArrowIconUrl from '@/components/ErrorLog/upArrow.svg';
 import whiteCrossIconUrl from '@/components/ErrorLog/whiteCross.svg';
@@ -33,6 +40,7 @@ import React from 'react';
 const USED_BADGE_CLASS = 'border-emerald-500/70 bg-transparent text-emerald-700 dark:text-emerald-300';
 const MISSING_BADGE_CLASS = 'border-amber-500/70 bg-transparent text-amber-700 dark:text-amber-300';
 const SRC_PREVIEW_URL_BY_PATH = {
+	'/src/assets/lo9/france-telephone-area-codes.svg': franceTelephoneMapUrl,
 	'/src/components/ErrorLog/copy.svg': copyIconUrl,
 	'/src/components/ErrorLog/upArrow.svg': upArrowIconUrl,
 	'/src/components/ErrorLog/whiteCross.svg': whiteCrossIconUrl,
@@ -54,23 +62,18 @@ const SVG_USAGE_MANIFEST = [
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/lo1/first-contact.svg',
+		path: '/images/icons/book-open-text-outline.svg',
 		referenceCount: 2,
-		sources: ['/src/App.jsx', '/src/lo-config/first-contact.json'],
+		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/common/branding/fr-banner.svg',
-		referenceCount: 1,
-		sources: ['/src/App.jsx'],
-	},
-	{
-		path: '/img/shared/grammar.svg',
-		referenceCount: 1,
-		sources: ['/src/lo-config/first-contact.json'],
+		path: '/images/icons/book-open-text.svg',
+		referenceCount: 2,
+		sources: ['/src/index.css'],
 	},
 	{
 		path: '/images/icons/circle-check.svg',
-		referenceCount: 2,
+		referenceCount: 4,
 		sources: ['/src/index.css'],
 	},
 	{
@@ -87,6 +90,121 @@ const SVG_USAGE_MANIFEST = [
 		path: '/images/icons/reset.svg',
 		referenceCount: 2,
 		sources: ['/src/index.css'],
+	},
+	{
+		path: '/images/icons/tortoise.svg',
+		referenceCount: 1,
+		sources: ['/src/components/exercises/ProgressDots/ProgressDots.jsx'],
+	},
+	{
+		path: '/images/icons/volume-1.svg',
+		referenceCount: 2,
+		sources: ['/src/index.css'],
+	},
+	{
+		path: '/img/common/branding/fr-banner.svg',
+		referenceCount: 1,
+		sources: ['/src/App.jsx'],
+	},
+	{
+		path: '/img/lo1/first-contact.svg',
+		referenceCount: 2,
+		sources: ['/src/App.jsx', '/src/lo-config/first-contact.json'],
+	},
+	{
+		path: '/img/lo2/about-me.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/about-me.json'],
+	},
+	{
+		path: '/img/lo3/origins-and-languages.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/origins-and-languages.json'],
+	},
+	{
+		path: '/img/lo4/current-location.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/current-location.json'],
+	},
+	{
+		path: '/img/lo5/house-and-home.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/house-and-home.json'],
+	},
+	{
+		path: '/img/lo6/family-friends-neighbours.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/family-friends.json'],
+	},
+	{
+		path: '/img/lo7/opinions-matter.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo8/free-time.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo9/phoning-in-france.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/phoning-in-france.json'],
+	},
+	{
+		path: '/img/lo10/making-arrangements.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/making-arrangements.json'],
+	},
+	{
+		path: '/img/lo11/out-and-about-cafe.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/going-to-a-cafe.json'],
+	},
+	{
+		path: '/img/lo12/out-and-about-shopping.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/shopping-in-the-market.json'],
+	},
+	{
+		path: '/img/lo13/daily-routine.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/daily-routine.json'],
+	},
+	{
+		path: '/img/lo14/studying-at-university.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/studying-at-university.json'],
+	},
+	{
+		path: '/img/lo15/planning-a-holiday.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/planning-a-holiday.json'],
+	},
+	{
+		path: '/img/shared/grammar.svg',
+		referenceCount: 14,
+		sources: [
+			'/src/lo-config/about-me.json',
+			'/src/lo-config/current-location.json',
+			'/src/lo-config/daily-routine.json',
+			'/src/lo-config/family-friends.json',
+			'/src/lo-config/first-contact.json',
+			'/src/lo-config/free-time.json',
+			'/src/lo-config/going-to-a-cafe.json',
+			'/src/lo-config/house-and-home.json',
+			'/src/lo-config/making-arrangements.json',
+			'/src/lo-config/origins-and-languages.json',
+			'/src/lo-config/phoning-in-france.json',
+			'/src/lo-config/planning-a-holiday.json',
+			'/src/lo-config/shopping-in-the-market.json',
+			'/src/lo-config/studying-at-university.json',
+		],
+	},
+	{
+		path: '/src/assets/lo9/france-telephone-area-codes.svg',
+		referenceCount: 1,
+		sources: ['/src/components/custom/grammar/phoning-in-france-regions-map.jsx'],
 	},
 	{
 		path: '/src/components/ErrorLog/copy.svg',
@@ -107,23 +225,33 @@ const SVG_USAGE_MANIFEST = [
 
 const LUCIDE_USAGE_MANIFEST = [
 	{
-		name: 'ArrowLeftRight',
 		component: ArrowLeftRight,
+		name: 'ArrowLeftRight',
 		sources: ['/src/components/exercises/SortableWordCard/SortableWordCard.jsx'],
 	},
 	{
-		name: 'ArrowUpDown',
 		component: ArrowUpDown,
+		name: 'ArrowUpDown',
 		sources: ['/src/components/exercises/SortableWordCard/SortableWordCard.jsx'],
 	},
 	{
-		name: 'Check',
+		component: BadgeQuestionMark,
+		name: 'BadgeQuestionMark',
+		sources: ['/src/components/exercises/MemoryMatchGame/Card/Card.jsx'],
+	},
+	{
+		component: BookOpenText,
+		name: 'BookOpenText',
+		sources: ['/src/components/exercises/current-location/nasal-rhyme-exercise.jsx'],
+	},
+	{
 		component: Check,
+		name: 'Check',
 		sources: ['/src/components/ui/select.jsx'],
 	},
 	{
-		name: 'ChevronDown',
 		component: ChevronDown,
+		name: 'ChevronDown',
 		sources: [
 			'/src/components/ui/accordion.jsx',
 			'/src/components/ui/navigation-menu.jsx',
@@ -131,68 +259,104 @@ const LUCIDE_USAGE_MANIFEST = [
 		],
 	},
 	{
-		name: 'ChevronUp',
 		component: ChevronUp,
+		name: 'ChevronUp',
 		sources: ['/src/components/ui/select.jsx'],
 	},
 	{
-		name: 'CircleAlert',
 		component: CircleAlert,
+		name: 'CircleAlert',
 		sources: ['/src/components/exercises/DraggableFillGaps/DraggableFillGapsRuntime.jsx', '/src/components/Info/Info.jsx'],
 	},
 	{
-		name: 'CircleCheck',
 		component: CircleCheck,
-		sources: ['/src/components/Info/Info.jsx', '/src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx'],
+		name: 'CircleCheck',
+		sources: [
+			'/src/components/Info/Info.jsx',
+			'/src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx',
+			'/src/components/exercises/InlineTypedGapExercise/InlineTypedGapExercise.jsx',
+			'/src/components/exercises/LineMatch/LineMatch.jsx',
+			'/src/components/exercises/RadioQuiz/RadioQuiz.jsx',
+			'/src/components/exercises/SelectExercise/SelectExercise.jsx',
+			'/src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx',
+		],
 	},
 	{
-		name: 'CircleX',
 		component: CircleX,
-		sources: ['/src/components/Info/Info.jsx', '/src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx'],
+		name: 'CircleX',
+		sources: [
+			'/src/components/Info/Info.jsx',
+			'/src/components/exercises/InlineChoiceGroup/InlineChoiceGroup.jsx',
+			'/src/components/exercises/InlineTypedGapExercise/InlineTypedGapExercise.jsx',
+			'/src/components/exercises/LineMatch/LineMatch.jsx',
+			'/src/components/exercises/RadioQuiz/RadioQuiz.jsx',
+			'/src/components/exercises/SelectExercise/SelectExercise.jsx',
+			'/src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx',
+		],
 	},
 	{
-		name: 'Facebook',
+		component: Eye,
+		name: 'Eye',
+		sources: ['/src/components/exercises/current-location/nasal-rhyme-exercise.jsx'],
+	},
+	{
+		component: EyeOff,
+		name: 'EyeOff',
+		sources: ['/src/components/exercises/current-location/nasal-rhyme-exercise.jsx'],
+	},
+	{
 		component: Facebook,
+		name: 'Facebook',
 		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 	{
-		name: 'Info',
 		component: InfoIcon,
+		name: 'Info',
 		sources: ['/src/components/Info/Info.jsx'],
 	},
 	{
-		name: 'Instagram',
 		component: Instagram,
+		name: 'Instagram',
 		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 	{
-		name: 'Linkedin',
 		component: Linkedin,
+		name: 'Linkedin',
 		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 	{
-		name: 'MessageCircleMore',
+		component: Mars,
+		name: 'Mars',
+		sources: ['/src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx'],
+	},
+	{
 		component: MessageCircleMore,
+		name: 'MessageCircleMore',
 		sources: ['/src/components/layout/page-shell/MainMenu/MainMenu.jsx'],
 	},
 	{
-		name: 'SquareDashedMousePointer',
 		component: SquareDashedMousePointer,
+		name: 'SquareDashedMousePointer',
 		sources: ['/src/components/exercises/DraggableFillGaps/DraggableWordTile/DraggableWordTile.jsx'],
 	},
 	{
-		name: 'Volume1',
+		component: Venus,
+		name: 'Venus',
+		sources: ['/src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx'],
+	},
+	{
 		component: Volume1,
+		name: 'Volume1',
 		sources: ['/src/components/AudioCueIcon.jsx'],
 	},
 	{
-		name: 'X',
 		component: X,
+		name: 'X',
 		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx', '/src/components/ui/dialog.jsx'],
 	},
 	{
-		name: 'Youtube',
 		component: Youtube,
+		name: 'Youtube',
 		sources: ['/src/components/layout/page-shell/Footer/FooterSocialLinks.jsx'],
 	},
 ].sort((left, right) => left.name.localeCompare(right.name));

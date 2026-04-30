@@ -8,7 +8,9 @@
   - `src/components/exercises/current-location/nasal-rhyme-exercise.jsx`
 
 ## Notes
-- During legacy cleanup, three files in `public/sounds/fr` were intentionally retained because they are still referenced outside LO4:
+- During the original LO4 cleanup, three files in `public/sounds/fr` were intentionally retained because they were still referenced outside LO4 at that time:
   - `sounds/fr/aimer.mp3`
   - `sounds/fr/jardin.mp3`
   - `sounds/fr/peinture.mp3`
+- Follow-up cleanup is complete: those remaining legacy files were removed in the
+  repo-wide `public/sounds/fr` cleanup after runtime refs reached zero.

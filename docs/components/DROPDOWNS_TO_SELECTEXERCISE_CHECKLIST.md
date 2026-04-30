@@ -54,7 +54,7 @@
 - [ ] Migrate LO12 dropdown exercises one-by-one and validate each before continuing.
 - [ ] Migrate LO13 dropdown exercises one-by-one and validate each before continuing.
 - [ ] Migrate LO14 dropdown exercises one-by-one and validate each before continuing.
-- [ ] Migrate LO15 dropdown exercises one-by-one and validate each before continuing.
+- [x] Migrate LO15 dropdown exercises one-by-one and validate each before continuing.
 
 ## Accessibility
 - [ ] Ensure semantic structure is form/list oriented (not data table).

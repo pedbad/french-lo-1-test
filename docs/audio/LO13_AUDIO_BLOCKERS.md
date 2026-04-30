@@ -43,4 +43,6 @@ Unicode normalization and punctuation differences:
 - LO13 audio refs in config, grammar, and the `DailyRoutineASummersDay` custom component otherwise resolve under `public/audio/lo13/...`.
 - LO13 exercise 1 now includes placeholder refs for one full playlist audio file plus 12 row-level clips so it can match the LO12 exercise pattern once recordings are delivered.
 - The grammar example clip for `je m'appelle` was copied from `public/audio/lo1/vocabulary/022-je-mappelle.mp3` into `public/audio/lo13/grammar/020-je-mappelle.mp3` so LO13 is self-contained.
-- Legacy cleanup is intentionally deferred until cross-repo `src` references to `public/sounds/fr/...` are audited.
+- Follow-up cleanup is complete: `public/sounds/fr` has been removed after
+  confirming no runtime refs remain. Historical legacy filenames above are kept
+  only as migration notes.

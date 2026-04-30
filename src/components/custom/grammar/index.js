@@ -72,4 +72,7 @@ export {
 	StudyingAtUniversityGrammarPouvoir,
 	StudyingAtUniversityGrammarParticiples,
 } from "./studying-at-university-grammar";
-export { MakingArrangements2Grammar } from "./making-arrangements-2-grammar";
+export {
+	PlanningAHolidayGrammarWeather,
+	PlanningAHolidayGrammarAllerNearFuture,
+} from "./planning-a-holiday-grammar";

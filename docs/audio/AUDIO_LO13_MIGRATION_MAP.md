@@ -30,7 +30,9 @@ This pass updates the current LO13 implementation so its existing dialogues, voc
 - The migration covered learner-facing config audio plus lesson-owned grammar and exercise-component audio.
 - Six pre-existing broken legacy filename refs were resolved during migration via normalization-aware source matching against `public/sounds/fr/...`.
 - One grammar illustration clip (`je m'appelle`) was copied from the already migrated LO1 audio tree so LO13 no longer depends on `audio/lo1/...`.
-- This pass did not delete legacy shared assets from `public/sounds/fr`.
+- Follow-up cleanup is complete: the later repo-wide cleanup removed `public/sounds/fr`
+  after confirming no runtime references remained. Historical source refs stay in
+  this map for traceability.
 
 ## Validation
 
