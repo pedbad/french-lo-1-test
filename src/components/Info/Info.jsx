@@ -5,8 +5,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { injectAudioCueIntoHTML, splitTextByAudioCueKeyword } from "../instructionCues";
 import { AudioCueIcon } from "../AudioCueIcon";
 
-const INFO_CONTAINER_CLASS = "information mt-1 flex items-start gap-[0.45rem]";
-const INFO_CONTENT_TEXT_CLASS = "info-content text-[var(--font-size-base)] leading-[var(--line-height-body)] [&_div]:!text-[var(--font-size-base)] [&_div]:!leading-[var(--line-height-body)] [&_p]:!m-0 [&_p]:!text-[var(--font-size-base)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-base)] [&_li]:!leading-[var(--line-height-body)] [&_h3]:!m-0 [&_h3]:!mb-[0.35rem] [&_h3]:!text-[var(--font-size-base)] [&_h3]:!leading-[var(--line-height-app)] [&_h3]:!font-semibold [&_h4]:!m-0 [&_h4]:!mb-[0.3rem] [&_h4]:!text-[var(--font-size-base)] [&_h4]:!leading-[var(--line-height-app)]";
+const INFO_CONTAINER_CLASS = "information mt-1 flex max-w-full min-w-0 items-start gap-[0.45rem]";
+const INFO_CONTENT_TEXT_CLASS = "info-content min-w-0 flex-1 text-[var(--font-size-base)] leading-[var(--line-height-body)] [overflow-wrap:anywhere] [&_div]:!text-[var(--font-size-base)] [&_div]:!leading-[var(--line-height-body)] [&_p]:!m-0 [&_p]:!text-[var(--font-size-base)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-base)] [&_li]:!leading-[var(--line-height-body)] [&_h3]:!m-0 [&_h3]:!mb-[0.35rem] [&_h3]:!text-[var(--font-size-base)] [&_h3]:!leading-[var(--line-height-app)] [&_h3]:!font-semibold [&_h4]:!m-0 [&_h4]:!mb-[0.3rem] [&_h4]:!text-[var(--font-size-base)] [&_h4]:!leading-[var(--line-height-app)]";
 const INFO_CONTENT_SPACING_CLASS = "[&_li]:mt-[0.3rem]";
 const INFO_TITLE_CLASS = "mb-1 text-[var(--font-size-base)] leading-[var(--line-height-app)] font-semibold";
 const INFO_ICON_CLASS = "info-icon self-start mt-[0.16em] inline-flex h-[1.55em] w-[1.55em] shrink-0 items-center justify-center rounded-full bg-[var(--foreground)] text-[var(--font-size-base)] leading-none";

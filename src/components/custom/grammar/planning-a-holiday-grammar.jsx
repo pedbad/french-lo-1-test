@@ -216,7 +216,6 @@ export class PlanningAHolidayGrammarAllerNearFuture extends PureComponent {
 						about holiday plans.
 					</p>
 					<AudioTable
-						headers={["French", "English"]}
 						rows={allerRows}
 						tableId={`${id || "lo15-grammar2"}-forms`}
 					/>

@@ -128,7 +128,7 @@
       [
         "audio/lo15/vocabulary/006-visiter.mp3",
         "visiter",
-        "to visit<br /><small>(a place)</small>"
+        "to visit <small>(a place)</small>"
       ],
       [
         "audio/lo15/vocabulary/007-voyager.mp3",
@@ -196,9 +196,6 @@
         "French-speaking"
       ],
       [
-        ""
-      ],
-      [
         "audio/lo15/vocabulary/020-quel-temps-fait-il.mp3",
         "Quel temps fait-il ?",
         "What's the weather like?"
@@ -241,8 +238,8 @@
     ],
     "sortable": true,
     "titleText": "Vocabulary",
-    "instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Holiday actions such as <em>passer</em>, <em>voyager</em>, <em>bronzer</em>, and <em>se détendre</em>.</li><li>Transport phrases such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, and <em>à pied</em>.</li><li>Weather and season expressions used when planning a trip.</li></ul>"
+    "instructionsTextHTML": "<p>This section introduces the key holiday, transport, beach, weather, and season vocabulary used throughout the lesson.</p>",
+    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Holiday actions such as <em>passer</em>, <em>loger</em>, <em>voyager</em>, and <em>partir</em>.</li><li>Activity and place vocabulary such as <em>bronzer</em>, <em>nager</em>, <em>faire du ski</em>, <em>faire du tourisme</em>, and <em>sur la plage</em>.</li><li>Transport phrases such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, <em>à cheval</em>, and <em>à pied</em>.</li><li>Weather and season expressions such as <em>Quel temps fait-il&nbsp;?</em>, <em>Il fait beau</em>, <em>Il y a du soleil</em>, and <em>en été</em>.</li></ul>"
   },
   "grammar": {
     "component": "Group",

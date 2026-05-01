@@ -124,9 +124,9 @@ export const HeroSection = ({
 					</header>
 				</CardHeader>
 				<CardContent
-					className={`grid gap-6 ${sideBySide ? "lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:items-start lg:gap-8" : ""}`}
+					className={`grid min-w-0 gap-6 ${sideBySide ? "lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:items-start lg:gap-8" : ""}`}
 				>
-					<div className="flex flex-col gap-6">
+					<div className="flex w-full min-w-0 flex-col gap-6">
 						{hasInfo && stackInfo && !splitInfoImage ? (
 							<Info
 								id={`info-${id}`}
@@ -135,8 +135,8 @@ export const HeroSection = ({
 							/>
 						) : null}
 						{splitInfoImage ? (
-							<div className="intro-split grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
-								<div className="self-start">
+							<div className="intro-split grid min-w-0 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+								<div className="min-w-0 self-start">
 									<Info
 										id={`info-${id}`}
 										informationText={informationText}
@@ -162,7 +162,7 @@ export const HeroSection = ({
 						<BackToTopButton />
 					</div>
 					{sideBySide ? (
-						<div className="w-full">
+						<div className="w-full min-w-0">
 							<Info
 								id={`info-${id}`}
 								informationText={informationText}

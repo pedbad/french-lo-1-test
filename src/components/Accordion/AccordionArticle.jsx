@@ -120,13 +120,13 @@ export function AccordionArticle({
 	return (
 		<RootTag
 			aria-labelledby={headingId}
-			className={`accordion-article ${expanded ? "expanded" : ""} ${className || ""}`}
+			className={`accordion-article w-full min-w-0 ${expanded ? "expanded" : ""} ${className || ""}`}
 			data-state={expanded ? "open" : "closed"}
 			id={id}
 			key={`article${id}`}
 		>
 			<AccordionPrimitive.Root
-				className="accordion-radix-root"
+				className="accordion-radix-root w-full min-w-0"
 				onValueChange={handleValueChange}
 				type="multiple"
 				value={expanded ? [id] : []}
