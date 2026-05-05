@@ -423,91 +423,91 @@
 							"audio": "audio/lo7/exercises/memory/la-fleur.mp3",
 							"foreignLanguage": "la fleur",
 							"localLanguage": "flower",
-							"image": "/img/lo7/exercises/vocabulary/flower.png"
+							"image": "/img/lo7/exercises/vocabulary/flower.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/la-foret.mp3",
 							"foreignLanguage": "la forêt",
 							"localLanguage": "forest",
-							"image": "/img/lo7/exercises/vocabulary/forest.png"
+							"image": "/img/lo7/exercises/vocabulary/forest.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/le-babyfoot.mp3",
 							"foreignLanguage": "le babyfoot",
 							"localLanguage": "table football",
-							"image": "/img/lo7/exercises/vocabulary/table-football.png"
+							"image": "/img/lo7/exercises/vocabulary/table-football.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/l-arbre.mp3",
 							"foreignLanguage": "l'arbre",
 							"localLanguage": "tree",
-							"image": "/img/lo7/exercises/vocabulary/tree.png"
+							"image": "/img/lo7/exercises/vocabulary/tree.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/la-neige.mp3",
 							"foreignLanguage": "la neige",
 							"localLanguage": "snow",
-							"image": "/img/lo7/exercises/vocabulary/snow.png"
+							"image": "/img/lo7/exercises/vocabulary/snow.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/danser.mp3",
 							"foreignLanguage": "danser",
 							"localLanguage": "dancing",
-							"image": "/img/lo7/exercises/vocabulary/dancing.png"
+							"image": "/img/lo7/exercises/vocabulary/dancing.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/la-pluie.mp3",
 							"foreignLanguage": "la pluie",
 							"localLanguage": "rain",
-							"image": "/img/lo7/exercises/vocabulary/rain.png"
+							"image": "/img/lo7/exercises/vocabulary/rain.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/le-foot.mp3",
 							"foreignLanguage": "le foot",
 							"localLanguage": "football",
-							"image": "/img/lo7/exercises/vocabulary/football.png"
+							"image": "/img/lo7/exercises/vocabulary/football.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/dormir.mp3",
 							"foreignLanguage": "dormir",
 							"localLanguage": "sleeping",
-							"image": "/img/lo7/exercises/vocabulary/sleeping.png"
+							"image": "/img/lo7/exercises/vocabulary/sleeping.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/l-athletisme.mp3",
 							"foreignLanguage": "l'athlétisme",
 							"localLanguage": "athletics",
-							"image": "/img/lo7/exercises/vocabulary/athletics.png"
+							"image": "/img/lo7/exercises/vocabulary/athletics.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/le-soleil.mp3",
 							"foreignLanguage": "le soleil",
 							"localLanguage": "sun",
-							"image": "/img/lo7/exercises/vocabulary/sun.png"
+							"image": "/img/lo7/exercises/vocabulary/sun.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/le-basket.mp3",
 							"foreignLanguage": "le basket",
 							"localLanguage": "basketball",
-							"image": "/img/lo7/exercises/vocabulary/basketball.png"
+							"image": "/img/lo7/exercises/vocabulary/basketball.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/tricoter.mp3",
 							"foreignLanguage": "tricoter",
 							"localLanguage": "knitting",
-							"image": "/img/lo7/exercises/vocabulary/knitting.png"
+							"image": "/img/lo7/exercises/vocabulary/knitting.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/chanter.mp3",
 							"foreignLanguage": "chanter",
 							"localLanguage": "singing",
-							"image": "/img/lo7/exercises/vocabulary/singing.png"
+							"image": "/img/lo7/exercises/vocabulary/singing.svg"
 						},
 						{
 							"audio": "audio/lo7/exercises/memory/le-shopping.mp3",
 							"foreignLanguage": "le shopping",
 							"localLanguage": "shopping",
-							"image": "/img/lo7/exercises/vocabulary/shopping.png"
+							"image": "/img/lo7/exercises/vocabulary/shopping.svg"
 						}
 					],
 					"showHintsText": "Show hints",
