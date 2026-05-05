@@ -342,9 +342,15 @@
 	"grammar": {
 		"component": "Group",
 		"expandable": false,
-		"heroSection": false,
+		"heroSection": true,
 		"id": "grammar",
-		"instructionsLayout": "stacked",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section explains how French handles borrowed nouns, articles and infinitives with likes and dislikes, and the adjective forms <em class='grammar-term-em'>quel</em>, <em class='grammar-term-em'>quelle</em>, <em class='grammar-term-em'>quels</em>, and <em class='grammar-term-em'>quelles</em>.</p>",
+			"image": {
+				"src": "img/shared/grammar.svg",
+				"alt": "Grammar illustration"
+			}
+		},
 		"menuText": "Grammar",
 		"content": [
 			{
