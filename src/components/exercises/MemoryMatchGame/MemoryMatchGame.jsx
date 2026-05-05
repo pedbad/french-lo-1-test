@@ -124,8 +124,6 @@ export class MemoryMatchGame extends React.PureComponent {
 
 		if (flipped.length === 2 || flipped.includes(card.id) || matched.includes(card.id)) return;
 
-		// const tadaAudio = new Audio(resolveAsset('/sounds/tada.mp3'));
-
 		const newFlipped = [...flipped, card.id];
 		beenFlipped.push(card.id);
 		const memoryCardTransitionTime = MEMORY_CARD_TRANSITION_TIME_MS;

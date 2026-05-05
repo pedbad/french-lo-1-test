@@ -552,7 +552,7 @@ export class DraggableFillGapsRuntime extends React.Component {
 
 		e.stopPropagation();
 
-		const clickAudio = new Audio(resolveAsset('/sounds/click.mp3'));
+		const clickAudio = new Audio(resolveAsset('/audio/ui/click.mp3'));
 		let { failCount = 0, showHints = false } = this.state;
 
 		if (this.movingPiece !== undefined) {

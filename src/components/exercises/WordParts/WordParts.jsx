@@ -36,10 +36,6 @@ export class WordParts extends React.PureComponent {
 
 		if (nPlaced < this.nToSolve) {
 			const targets = document.querySelectorAll(`#${id} span.target`);
-			// const wofAudio = new Audio(resolveAsset('/sounds/wheel-of-fortune.mp3'));
-
-			// wofAudio.play();
-
 			for (let i = 0; i < targets.length; i++) {
 				targets[i].classList.add('animate');
 			}
@@ -52,11 +48,7 @@ export class WordParts extends React.PureComponent {
 	};
 
 	handlePartWordClick = (e) => {
-		// const tadaAudio = new Audio(resolveAsset('/sounds/tada.mp3'));
-
-		// const wofAudio = new Audio(resolveAsset('/sounds/wheel-of-fortune.mp3'));
 		// console.log("handlePartWordClick");
-		// wofAudio.play();
 		// const {
 		// 	congratulationsText,
 		// } = this.state;
@@ -71,7 +63,6 @@ export class WordParts extends React.PureComponent {
 			// Last draggable tile placed
 			// const { showDialog } = this.props;
 			// showDialog(congratulationsText);
-			// tadaAudio.play();
 			this.setState({
 				complete: true,
 			});
@@ -83,9 +74,7 @@ export class WordParts extends React.PureComponent {
 
 	handlePartWordError = (e) => {
 		// console.log("handlePartWordError");
-		// const errorAudio = new Audio(resolveAsset('/sounds/error.mp3')); // error);
 		let { failCount } = this.state;
-		// errorAudio.play();
 		e.target.classList.add("error");
 
 		failCount++;

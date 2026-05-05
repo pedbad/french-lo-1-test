@@ -81,11 +81,8 @@ export class Monologue extends React.PureComponent {
 		} = this.state;
 		// let newNCorrect = nCorrect;
 		// const { showDialog } = this.props;
-		// const tadaAudio = new Audio(resolveAsset('/sounds/tada.mp3'));
-
 		nCorrect++;
 		// if (nCorrect === phrases.length) {
-		// 	// tadaAudio.play();
 		// 	showDialog(congratulationsText);
 		// }
 		this.setState({

@@ -2,6 +2,16 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-05 - Remove Legacy Sounds Folder
+
+- Migrated remaining active UI feedback sounds out of `public/sounds/`:
+  - `click.mp3`, `error.mp3`, and `ting.mp3` now live under `public/audio/ui/`
+  - runtime references now use `/audio/ui/...`
+- Removed the now-unused `public/sounds/` folder, including stale unused effects.
+- Validation:
+  - `rg -n "sounds/|/sounds|public/sounds" src public debug-sandbox.html index.html package.json vite.config.js`
+  - `yarn build`
+
 ## 2026-04-30 - Legacy French Sounds Cleanup
 
 - Removed the obsolete legacy French audio folder after confirming there are no

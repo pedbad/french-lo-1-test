@@ -20,8 +20,8 @@ export const highlightTextDiff = (a, b, countCorrect, sounds = false, options = 
 	const m = a.length;
 	const n = b.length;
 	const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
-	const correctAudio = new Audio(resolveAsset('/sounds/ting.mp3'));
-	const errorAudio = new Audio(resolveAsset('/sounds/error.mp3'));
+	const correctAudio = new Audio(resolveAsset('/audio/ui/ting.mp3'));
+	const errorAudio = new Audio(resolveAsset('/audio/ui/error.mp3'));
 	const { comparisonMode = 'strict' } = options;
 
 	// Dictation mode: accept answers that only differ by punctuation/apostrophe/spacing.
