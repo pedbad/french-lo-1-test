@@ -726,6 +726,13 @@
 				}
 			}
 		],
-		"titleText": "Exercises"
+		"titleText": "Exercises",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your use of nationality adjectives and profession terms in the correct masculine and feminine forms, apply structures such as <em class='grammar-term-em'>venir de</em> for saying where you are from, and sharpen your listening through guided dictation.</p>",
+			"image": {
+				"src": "img/shared/reflective.svg",
+				"alt": "Interactive exercises"
+			}
+		}
 	}
 }

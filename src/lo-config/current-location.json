@@ -440,6 +440,13 @@
 		],
 		"expandable": false,
 		"id": "exercises",
-		"titleText": "Exercises"
+		"titleText": "Exercises",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your use of the prepositions for <em class='grammar-term-em'>in</em> with different place names, sharpen the nasal vowel sound through a guided rhyme, and respond to short questions about where people live.</p>",
+			"image": {
+				"src": "img/shared/reflective.svg",
+				"alt": "Interactive exercises"
+			}
+		}
 	}
 }
