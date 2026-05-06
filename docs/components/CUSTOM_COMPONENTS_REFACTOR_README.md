@@ -7,7 +7,7 @@ This document defines a safe, staged refactor plan for custom French learning-ob
 
 Goal: reduce monolithic structure, improve maintainability, and enforce DRY reuse without breaking existing LO behavior.
 
-## Current Status (2026-03-05)
+## Current Status (2026-05-06)
 
 - Phase 1 extraction is complete for active LO config-mapped components (LO1-LO15 in current index/config usage).
 - Runtime source of truth is now `src/components/custom/registry.js`.
@@ -19,30 +19,32 @@ Goal: reduce monolithic structure, improve maintainability, and enforce DRY reus
   - `src/components/exercises/current-location/*.jsx`
 - Legacy monolith has been retired; custom runtime keys are owned by `src/components/custom/*`.
 
-## Current Issues
+## Resolved Issues
 
 1. Monolithic file growth
-- `CustomComponents_FR.jsx` mixes many learning objects (LO1, LO2, LO3, LO4, etc.) in one file.
-- This increases merge conflicts, review complexity, and regression risk.
+- Resolved: the former `CustomComponents_FR.jsx` monolith has been removed.
+- Active custom content is split across focused `grammar/`, `pronunciation/`, and `misc/` modules.
 
-2. Repeated UI/content patterns
+## Remaining Issues
+
+1. Repeated UI/content patterns
 - Similar structures are re-implemented repeatedly:
   - Info/instruction callouts
   - Grammar/pronunciation section layouts
   - Table/list patterns
   - Exercise control patterns (check/reset/show answer)
 
-3. Content and layout tightly coupled
+2. Content and layout tightly coupled
 - Long inline JSX mixes static content/data and layout logic.
 - Harder to test, harder to update text safely, and harder to trace differences between LOs.
 
-4. Naming/style drift risk
+3. Naming/style drift risk
 - Button labels and minor UI conventions can drift (`Show answer` vs custom variants).
 - Similar sections sometimes diverge in spacing/structure if built ad hoc.
 
-5. Harder onboarding and debugging
-- New contributors must scan a very large file to find one specific LO block.
-- Small fixes require navigating unrelated components.
+4. Harder onboarding and debugging
+- New contributors must still understand the explicit custom registry and domain folders.
+- Small fixes should stay in the relevant focused module to avoid reintroducing cross-LO coupling.
 
 ## Refactor Goals
 

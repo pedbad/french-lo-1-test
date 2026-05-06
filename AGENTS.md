@@ -32,7 +32,7 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Styling single source of truth lives in `src/index.css` via shadcn tokens + custom theme tokens (`--page-background`, `--hero-title-color`, `--footer-background`).
 - Tailwind utilities consume these tokens via `tailwind.config.js`; shadcn components live in `src/components/ui/`.
 - SCSS has been fully removed from app source. Global/component styling now lives in `src/index.css` + Tailwind utilities.
-- Vite already copies `public/` assets during build. Do not add `viteStaticCopy` targets for `public/fonts`, `public/images`, or `public/sounds` (it causes duplicated `dist` trees).
+- Vite already copies `public/` assets during build. Do not add `viteStaticCopy` targets for `public/audio`, `public/fonts`, `public/img`, legacy `public/images`, or legacy `public/sounds` (it causes duplicated `dist` trees).
 - Typography guard policy (`scripts/check-typography-guard.sh`):
   - blocks new literal `font-size` values with `px/rem/em`
   - blocks new literal `line-height` values with `px/rem/em`
@@ -63,7 +63,7 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
   - future-project baseline and copy/paste template live in `docs/process/FUTURE_PROJECTS.md` under "Out-of-the-Box GitHub Actions CI (Default)"
 - Theme toggling briefly disables CSS transitions (`html.no-theme-transition`) to avoid flicker during light/dark switches.
 - WordParts includes a circle-based progress indicator and inline icon guidance (Show answer/Reset) powered by CSS-masked SVGs.
-- Modal links open shadcn/Radix dialogs. The dialog accepts React content (not just HTML strings) so `AudioClip` components can render; for key grammar links the modal renders React content from `src/components/CustomComponents_FR/CustomComponents_FR.jsx` so audio clips work and text stays in sync with the on-page content.
+- Modal links open shadcn/Radix dialogs. The dialog accepts React content (not just HTML strings) so `AudioClip` components can render; for key grammar links the modal renders React content from the focused custom component exports in `src/components/custom/` via `src/components/custom/registry.js`, so audio clips work and text stays in sync with the on-page content.
 - In rendered JSX content, use semantic emphasis tags (`<strong>`, `<em>`) instead of presentational (`<b>`, `<i>`).
 - For sentence text containing inline components (for example `AudioClip`), use explicit React spaces (`{' '}`) where needed rather than relying on incidental whitespace collapse behavior.
 - Audio playback is globally single-active: when a new clip starts, all other currently playing clips are paused (`stopAllAudioPlayback` + `trackFloatingAudio` in `src/utils/audioPlayback.js`, used by `AudioClip`, `SequenceAudioController`, and `playAudioLink`).
@@ -72,7 +72,7 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
   - `listeningOrder1`
   - `listeningOrder2`
   - `listeningOrder3`
-- LO1 audio files are being consolidated under `public/audio/lo1/<section>/...` (for exercises: `public/audio/lo1/exercises/...`) instead of legacy `public/sounds/fr/...`.
+- LO audio lives under lesson-owned `public/audio/loX/<section>/...` folders (for example `public/audio/lo1/exercises/...`) instead of legacy `public/sounds/fr/...`.
 - For new/migrated audio assets, use ASCII-safe filenames (no accented characters) to avoid cross-platform Unicode normalization issues.
 - Listening order UI conventions:
   - `SequenceOrder` is used for continuous single-track order tasks.

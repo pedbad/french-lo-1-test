@@ -673,7 +673,7 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 - Remaining design-system work is now focused on color consolidation and accessibility/HTML validity phases.
 - Introduction + Grammar now use a dedicated hero-style Section so instruction text and imagery share the same baseline and card framing as the rest of the UI.
 - Special anchors currently add a short delay before scrolling so accordion panels have time to expand; TODO: smooth that interaction so the highlight feels more immediate once we refactor the anchor logic.
-- Modal links open a shadcn/Radix modal (no scrolling). The modal now accepts **React content** (not just HTML strings) so inline `AudioClip` components can render and function. For core grammar modals (e.g. `tuvous`, `madame`), it renders the same React content used in `CustomComponents_FR.jsx` so audio clips work and there’s no duplicated copy. JSON `infoTextHTML` is still used for simpler modal text. Optional highlight styles are applied via CSS animation and fade out after flashing.
+- Modal links open a shadcn/Radix modal (no scrolling). The modal accepts **React content** (not just HTML strings) so inline `AudioClip` components can render and function. For core grammar modals (e.g. `tuvous`, `madame`), it renders the same React content exported from the focused custom components under `src/components/custom/`, so audio clips work and there’s no duplicated copy. JSON `infoTextHTML` is still used for simpler modal text. Optional highlight styles are applied via CSS animation and fade out after flashing.
 - Link interaction contract (explicit, to avoid legacy overload):
   - top navigation uses `nav-scroll-link` and is scroll-only
   - top navigation hashes are semantic section IDs (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`)
@@ -816,7 +816,7 @@ Semantic baseline updates are in place:
 - Inline emphasis in rendered JSX uses semantic tags:
   - `<strong>` instead of `<b>`
   - `<em>` instead of `<i>`
-- Abbreviations content in `CustomComponents_FR` now uses semantic definition-list markup (`<dl>`, `<dt>`, `<dd>`) instead of table-like structure.
+- Abbreviations content in the focused custom grammar components now uses semantic definition-list markup (`<dl>`, `<dt>`, `<dd>`) instead of table-like structure.
 
 Semantic emphasis policy (required):
 - Do not author new `<b>` or `<i>` in config-authored HTML or JSX.

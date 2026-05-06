@@ -508,8 +508,8 @@
             ]
           ],
           "titleText": "4. Type what you hear",
-          "instructionsTextHTML": "<p>Type each French sentence exactly as you hear it.</p>",
-          "informationTextHTML": "<p>Replay the audio as often as needed before checking your answer.</p>"
+          "instructionsText": "Listen and write what you hear.",
+          "informationTextHTML": "<p>Listen to each audio clip and write exactly what you hear. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your entries, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.</p>"
         }
       },
       {
@@ -539,8 +539,8 @@
             }
           ],
           "titleText": "5. Fill in the gaps in Jo's plans for his forthcoming holiday",
-          "instructionsTextHTML": "<p>Drag each verb into the correct gap to complete Jo's holiday plans.</p>",
-          "informationTextHTML": "<p>Listen first for the full meaning, then use the near future pattern to place each verb.</p>"
+          "instructionsText": "Complete Jo's holiday plans by dragging each verb into the correct gap.",
+          "informationTextHTML": "Listen to Jo's holiday plans, then use the near future pattern to drag each verb into the correct gap. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again."
         }
       }
     ],

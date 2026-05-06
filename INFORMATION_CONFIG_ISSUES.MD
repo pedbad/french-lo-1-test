@@ -105,7 +105,7 @@ Add a config guard script and enforce it in pre-commit:
 
 ## Step-by-Step TODO
 
-1. Audit all `src/learningObjectConfigurations/fr/*.json` for key usage and duplicates.
+1. Audit all `src/lo-config/*.json` for key usage and duplicates.
 2. Implement normalization adapter in `src/App.jsx` before render dispatch.
 3. Verify `Info` remains the single alert-style renderer for instructional guidance.
 4. Batch-migrate LO JSON:

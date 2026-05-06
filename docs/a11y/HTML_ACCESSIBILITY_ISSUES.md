@@ -34,7 +34,7 @@ Update (2026-02-15):
 - Why this matters:
   - semantic emphasis is announced more consistently by assistive technologies than presentational tags;
   - keeps markup meaning-driven (not style-driven), which reduces future drift and validator churn.
-- Replaced abbreviation table-like content with better semantics using abbreviation definitions (`<dl>`, `<dt>`, `<dd>`) in `CustomComponents_FR` (Abbreviations block).
+- Replaced abbreviation table-like content with better semantics using abbreviation definitions (`<dl>`, `<dt>`, `<dd>`) in the focused custom grammar components.
 
 ## What Is Noise (Do Not Triage First)
 
@@ -179,7 +179,7 @@ These are mostly tooling/validator-compatibility issues, not app defects:
   - `Section`
   - `HeroSection`
   - `AccordionArticle`
-  - key modal-link targets in `CustomComponents_FR`
+  - key modal-link targets in focused custom components under `src/components/custom/`
 - Rationale: validator-compliant HTML (non-form elements should use `id` for fragment targets).
 
 4. Empty `id=""` emission reduced at source
@@ -326,7 +326,7 @@ How to use:
 ## Suggested Execution Order In Repo
 
 1. Fix shared components first (`Accordion`, `Info`, button wrappers).
-2. Then fix repeated content renderers in `CustomComponents_FR`.
+2. Then fix repeated content renderers in focused custom components under `src/components/custom/`.
 3. Then fix config-driven ID generation in LO JSON render path.
 4. Run full retest and update `CHANGES.md` with accessibility section.
 

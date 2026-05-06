@@ -142,7 +142,157 @@ const SVG_USAGE_MANIFEST = [
 		sources: ['/src/lo-config/opinions-matter.json'],
 	},
 	{
+		path: '/img/lo7/exercises/vocabulary/athletics.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/basketball.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/dancing.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/flower.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/football.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/forest.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/knitting.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/rain.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/shopping.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/singing.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/sleeping.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/snow.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/sun.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/table-football.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
+		path: '/img/lo7/exercises/vocabulary/tree.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/opinions-matter.json'],
+	},
+	{
 		path: '/img/lo8/free-time.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/athletics.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/basketball.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/dancing.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/flower.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/football.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/forest.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/knitting.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/rain.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/shopping.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/singing.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/sleeping.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/snow.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/sun.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/table-football.svg',
+		referenceCount: 1,
+		sources: ['/src/lo-config/free-time.json'],
+	},
+	{
+		path: '/img/lo8/exercises/vocabulary/tree.svg',
 		referenceCount: 1,
 		sources: ['/src/lo-config/free-time.json'],
 	},
@@ -183,7 +333,7 @@ const SVG_USAGE_MANIFEST = [
 	},
 	{
 		path: '/img/shared/grammar.svg',
-		referenceCount: 14,
+		referenceCount: 15,
 		sources: [
 			'/src/lo-config/about-me.json',
 			'/src/lo-config/current-location.json',
@@ -194,11 +344,24 @@ const SVG_USAGE_MANIFEST = [
 			'/src/lo-config/going-to-a-cafe.json',
 			'/src/lo-config/house-and-home.json',
 			'/src/lo-config/making-arrangements.json',
+			'/src/lo-config/opinions-matter.json',
 			'/src/lo-config/origins-and-languages.json',
 			'/src/lo-config/phoning-in-france.json',
 			'/src/lo-config/planning-a-holiday.json',
 			'/src/lo-config/shopping-in-the-market.json',
 			'/src/lo-config/studying-at-university.json',
+		],
+	},
+	{
+		path: '/img/shared/reflective.svg',
+		referenceCount: 6,
+		sources: [
+			'/src/lo-config/about-me.json',
+			'/src/lo-config/current-location.json',
+			'/src/lo-config/family-friends.json',
+			'/src/lo-config/first-contact.json',
+			'/src/lo-config/house-and-home.json',
+			'/src/lo-config/origins-and-languages.json',
 		],
 	},
 	{
@@ -312,7 +475,10 @@ const LUCIDE_USAGE_MANIFEST = [
 	{
 		component: InfoIcon,
 		name: 'Info',
-		sources: ['/src/components/Info/Info.jsx'],
+		sources: [
+			'/src/components/Info/Info.jsx',
+			'/src/components/custom/grammar/planning-a-holiday-grammar.jsx',
+		],
 	},
 	{
 		component: Instagram,

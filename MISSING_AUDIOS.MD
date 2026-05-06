@@ -1,17 +1,14 @@
 # Missing Audio Placeholders
 
-## LO2 Grammar and Usage - Subject pronouns (Accordion 3)
+## Status
 
-- Placeholder wired in app: `audio/lo2/grammar/grammar-and-usage/025-iel.mp3`
-- Current usage location:
-  - `/Users/ped/Sites/french/french-lo-1/src/components/CustomComponents_FR/CustomComponents_FR.jsx` (`LO2SubjectPronounsBody`)
-- Affects:
-  - Grammar section, Accordion 3 (`3. Subject pronouns.`)
-  - Subject-pronoun modal content (same shared component)
+No known missing audio placeholders are currently tracked here.
 
-## Action Required
+## Recently Resolved
 
-- Record and add the real file at:
-  - `public/audio/lo2/grammar/grammar-and-usage/025-iel.mp3`
+- LO2 Grammar and Usage - Subject pronouns (Accordion 3)
+  - Runtime path: `audio/lo2/grammar/grammar-and-usage/025-iel.mp3`
+  - Current source location: `src/components/custom/grammar/about-me-grammar.jsx` (`AboutMeSubjectPronounsBody`)
+  - File exists at: `public/audio/lo2/grammar/grammar-and-usage/025-iel.mp3`
 
-No code change will be needed after recording if this exact filename/path is used.
+Add new entries here only when a runtime audio reference is intentionally wired before the corresponding file exists.
