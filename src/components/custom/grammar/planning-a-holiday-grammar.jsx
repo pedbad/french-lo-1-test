@@ -1,13 +1,13 @@
 import { AudioClip } from "@/components/AudioClip";
+import { Info } from "@/components/Info";
 import {
 	Table,
 	TableBody,
 	TableCell,
-	TableHead,
-	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
 import { playAudioLink } from "@/utils/audioPlayback";
+import { Info as InfoIcon } from "lucide-react";
 import { PureComponent } from "react";
 
 const handleAudioRowClick = (soundFile, event) => {
@@ -29,19 +29,8 @@ const handleAudioRowClick = (soundFile, event) => {
 	playAudioLink(soundFile);
 };
 
-const AudioTable = ({ headers, rows, tableId }) => (
+const AudioTable = ({ rows, tableId }) => (
 	<Table className="grammar-audio-table" variant="learning">
-		{headers ? (
-			<TableHeader>
-				<TableRow>
-					{headers.map((header) => (
-						<TableHead key={`${tableId}-${header}`} scope="col">
-							{header}
-						</TableHead>
-					))}
-				</TableRow>
-			</TableHeader>
-		) : null}
 		<TableBody>
 			{rows.map((row, index) => (
 				<TableRow
@@ -219,30 +208,37 @@ export class PlanningAHolidayGrammarAllerNearFuture extends PureComponent {
 						rows={allerRows}
 						tableId={`${id || "lo15-grammar2"}-forms`}
 					/>
-					<p>
-						In its literal meaning, you might hear{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo15/grammar/aller-near-future/008-je-vais-en-ville.mp3"
-						>
-							<strong>Je vais en ville</strong>
-						</AudioClip>
-						. The same verb also appears in everyday greetings such as{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo15/grammar/aller-near-future/009-comment-ca-va.mp3"
-						>
-							<strong>Comment ça va&nbsp;?</strong>
-						</AudioClip>
-					</p>
-					<p>
-						To form the near future, use a present-tense form of{" "}
-						<strong>aller</strong> followed by an infinitive:{" "}
-						<strong>je vais + passer</strong>, <strong>elle va + visiter</strong>,{" "}
-						<strong>nous allons + voyager</strong>.
-					</p>
+					<Info variant="warning">
+						<p>
+							<strong>NB</strong> In its literal meaning, you might hear{" "}
+							<AudioClip
+								className="link"
+								soundFile="audio/lo15/grammar/aller-near-future/008-je-vais-en-ville.mp3"
+							>
+								<strong>Je vais en ville</strong>
+							</AudioClip>
+							. The same verb also appears in everyday greetings such as{" "}
+							<AudioClip
+								className="link"
+								soundFile="audio/lo15/grammar/aller-near-future/009-comment-ca-va.mp3"
+							>
+								<strong>Comment ça va&nbsp;?</strong>
+							</AudioClip>
+							.
+						</p>
+						<p>
+							<InfoIcon
+								aria-hidden="true"
+								className="mr-1 inline h-[1em] w-[1em] align-[-0.125em]"
+							/>
+							<strong>Rule</strong> To form the near future, use a present-tense form
+							of <strong>aller</strong> followed by an infinitive:{" "}
+							<strong>je vais + passer</strong>, <strong>elle va + visiter</strong>,{" "}
+							<strong>nous allons + voyager</strong>.
+						</p>
+					</Info>
+					<h4 className="mb-3 mt-5 text-base font-semibold">Near future</h4>
 					<AudioTable
-						headers={["Near future", "Meaning"]}
 						rows={futureRows}
 						tableId={`${id || "lo15-grammar2"}-future`}
 					/>

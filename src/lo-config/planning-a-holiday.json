@@ -366,46 +366,50 @@
         }
       },
       {
-        "draggableFillGaps1": {
-          "component": "DraggableFillGaps",
+        "selectExerciseWeather": {
+          "component": "SelectExercise",
           "congratulationsText": "Superbe!",
-          "id": "draggableFillGaps1",
+          "id": "selectExerciseWeather",
           "showHintsText": "Hints",
-          "cheatText": "Show answer",
-          "blanksType": "questions-answers",
-          "questions": [
-            "Il fait mauvais.",
-            "Il y a du soleil.",
-            "Il fait froid.",
-            "Il pleut.",
-            "Il fait chaud.",
-            "Il neige.",
-            "Il fait beau.",
-            "Il y a du vent."
-          ],
-          "answers": [
-            "The weather's bad.",
-            "It's sunny.",
-            "It's cold.",
-            "It's raining.",
-            "It's hot.",
-            "It's snowing.",
-            "The weather's good.",
-            "It's windy."
-          ],
-          "soundFiles": [
-            "audio/lo15/exercises/draggableFillGaps1/001-il-fait-mauvais.mp3",
-            "audio/lo15/exercises/draggableFillGaps1/002-il-y-a-du-soleil.mp3",
-            "audio/lo15/exercises/draggableFillGaps1/003-il-fait-froid.mp3",
-            "audio/lo15/exercises/draggableFillGaps1/004-il-pleut.mp3",
-            "audio/lo15/exercises/draggableFillGaps1/005-il-fait-chaud.mp3",
-            "audio/lo15/exercises/draggableFillGaps1/006-il-neige.mp3",
-            "audio/lo15/exercises/draggableFillGaps1/007-il-fait-beau.mp3",
-            "audio/lo15/exercises/draggableFillGaps1/008-il-y-a-du-vent.mp3"
+          "cheatText": "Show answers",
+          "shuffleItems": true,
+          "items": [
+            {
+              "text": "Il fait mauvais. [*The weather's bad.|It's sunny.|It's windy.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/001-il-fait-mauvais.mp3"
+            },
+            {
+              "text": "Il y a du soleil. [*It's sunny.|It's raining.|It's cold.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/002-il-y-a-du-soleil.mp3"
+            },
+            {
+              "text": "Il fait froid. [*It's cold.|It's hot.|It's snowing.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/003-il-fait-froid.mp3"
+            },
+            {
+              "text": "Il pleut. [*It's raining.|It's windy.|The weather's good.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/004-il-pleut.mp3"
+            },
+            {
+              "text": "Il fait chaud. [*It's hot.|It's cold.|The weather's bad.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/005-il-fait-chaud.mp3"
+            },
+            {
+              "text": "Il neige. [*It's snowing.|It's sunny.|It's raining.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/006-il-neige.mp3"
+            },
+            {
+              "text": "Il fait beau. [*The weather's good.|It's windy.|It's cold.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/007-il-fait-beau.mp3"
+            },
+            {
+              "text": "Il y a du vent. [*It's windy.|It's hot.|It's snowing.]",
+              "audio": "audio/lo15/exercises/draggableFillGaps1/008-il-y-a-du-vent.mp3"
+            }
           ],
           "titleText": "2. Build up your vocabulary: weather",
-          "instructionsTextHTML": "<p>Listen to each weather expression, then match it with the correct English meaning.</p>",
-          "informationTextHTML": "<p>Use <strong>Hints</strong> if you want to narrow the choices, or <strong>Show answer</strong> to check the full set.</p>"
+          "instructionsTextHTML": "<p>Listen to each weather expression, then choose the correct English meaning.</p>",
+          "informationTextHTML": "<p>Play each audio clip and choose the English meaning that matches the French weather expression. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>"
         }
       },
       {
