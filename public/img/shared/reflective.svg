@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="french-self-test-exercises" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">French self-test exercises</title>
+  <desc id="desc">A hand-drawn French practice image showing an open workbook, headphones, speech bubbles, pronunciation cards, sound waves, gap-fill blanks and check marks in cream, blue, tan and black.</desc>
+  <defs>
+    <style>
+      .ink{fill:none;stroke:#010202;stroke-width:11;stroke-linecap:round;stroke-linejoin:round;}
+      .ink2{fill:none;stroke:#010202;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;}
+      .ink3{fill:none;stroke:#010202;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;}
+      .navy{stroke:#1f3674;}
+      .blueStroke{stroke:#618db2;}
+      .skyStroke{stroke:#94cce6;}
+      .tanStroke{stroke:#e7b97d;}
+      .cream{fill:#fcecc4;}
+      .pale{fill:#fef5d7;}
+      .paper{fill:#fefdf7;}
+      .sky{fill:#94cce6;}
+      .blue{fill:#7ba9c7;}
+      .deep{fill:#1f3674;}
+      .tan{fill:#e7b97d;}
+      .peach{fill:#fac6a5;}
+      .softBlue{fill:#c9e5f1;}
+      .shadowBlue{fill:#618db2;opacity:.32;}
+      .ghost{fill:#dce7ee;opacity:.62;}
+      .softTan{fill:#f8dda8;}
+      .white{fill:#fffffe;}
+      .black{fill:#010202;}
+      .dot{fill:#010202;}
+      .tiny{font-family:"Comic Sans MS","Chalkboard SE","Trebuchet MS",cursive;font-size:24px;font-weight:700;letter-spacing:.4px;fill:#010202;}
+      .label{font-family:"Comic Sans MS","Chalkboard SE","Trebuchet MS",cursive;font-size:31px;font-weight:700;fill:#010202;}
+      .smallLabel{font-family:"Comic Sans MS","Chalkboard SE","Trebuchet MS",cursive;font-size:22px;font-weight:700;fill:#010202;}
+      .accentText{font-family:Georgia,"Times New Roman",serif;font-size:104px;font-weight:700;fill:#010202;}
+      .accentTextBlue{font-family:Georgia,"Times New Roman",serif;font-size:112px;font-weight:700;fill:#1f3674;}
+      .exerciseText{font-family:"Comic Sans MS","Chalkboard SE","Trebuchet MS",cursive;font-size:29px;font-weight:700;fill:#010202;}
+      .faintWord{font-family:"Comic Sans MS","Chalkboard SE","Trebuchet MS",cursive;font-size:20px;font-weight:700;fill:#010202;opacity:.25;}
+    </style>
+    <filter id="roughen" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="8" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.55" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="paperShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="5" dy="7" result="offsetBlur"/>
+      <feFlood flood-color="#010202" flood-opacity="0.22" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#010202"/>
+    </marker>
+    <linearGradient id="pageCream" x1="175" y1="552" x2="517" y2="875" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset=".48" stop-color="#fef5d7"/>
+      <stop offset="1" stop-color="#f8dda8"/>
+    </linearGradient>
+    <linearGradient id="pageBlue" x1="848" y1="552" x2="502" y2="874" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset=".55" stop-color="#fef5d7"/>
+      <stop offset="1" stop-color="#c9e5f1"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#roughen)">
+    <!-- scattered brush marks behind the subject -->
+    <path class="ink2" opacity=".12" d="M116 815c78-23 221-15 338 18"/>
+    <path class="ink2" opacity=".13" d="M591 815c98-36 206-45 307-29"/>
+    <path class="ink3" opacity=".12" d="M167 418c-31 8-51 24-62 48"/>
+    <path class="ink3" opacity=".15" d="M832 173c39 19 62 45 71 79"/>
+    <path class="ink3" opacity=".12" d="M415 132c-46-12-88-6-126 17"/>
+
+    <!-- bottom page stack -->
+    <path class="paper" d="M82 865c123-42 304-25 430 58 120-82 311-105 430-50-34 46-96 64-173 62-95-1-186 15-257 44-93-43-197-54-306-41-52 6-101-17-124-73z"/>
+    <path class="ink" d="M82 865c123-42 304-25 430 58 120-82 311-105 430-50"/>
+    <path class="ink2" d="M134 889c113-19 230-7 348 38"/>
+    <path class="ink2" d="M116 924c118-15 243-10 370 23"/>
+    <path class="ink2" d="M892 899c-132-19-244-7-345 35"/>
+    <path class="ink2" d="M912 928c-124-16-242-6-360 32"/>
+    <path class="shadowBlue" d="M159 803c109-34 245-9 353 93 107-90 230-116 361-74-112 35-239 70-360 129-130-70-249-107-354-148z"/>
+
+    <!-- open workbook -->
+    <path class="paper" filter="url(#paperShadow)" d="M108 752c86-129 141-199 239-214 83-13 142 41 166 92 0 95-1 190-1 285-91-102-224-144-404-163z"/>
+    <path class="paper" filter="url(#paperShadow)" d="M916 752c-85-129-141-199-239-214-83-13-142 41-166 92 0 95 1 190 1 285 91-102 224-144 404-163z"/>
+    <path fill="url(#pageCream)" d="M154 720c66-88 118-139 190-147 74-8 128 34 166 91l2 230c-82-84-200-138-358-174z"/>
+    <path fill="url(#pageBlue)" d="M870 720c-66-88-118-139-190-147-74-8-128 34-166 91l-2 230c82-84 200-138 358-174z"/>
+    <path class="ink" d="M108 752c86-129 141-199 239-214 83-13 142 41 166 92 0 95-1 190-1 285-91-102-224-144-404-163z"/>
+    <path class="ink" d="M916 752c-85-129-141-199-239-214-83-13-142 41-166 92 0 95 1 190 1 285 91-102 224-144 404-163z"/>
+    <path class="ink2" d="M512 631c-16 65-15 189 0 284"/>
+    <path class="tanStroke ink2" d="M493 651c-25 42-33 144-13 211"/>
+    <path class="skyStroke ink2" d="M532 652c25 42 32 143 13 211"/>
+
+    <!-- left page exercises: gap fill -->
+    <g transform="translate(188 614) rotate(9)">
+      <rect x="0" y="0" width="280" height="152" rx="20" class="white"/>
+      <rect x="0" y="0" width="280" height="36" rx="18" class="sky" opacity=".9"/>
+      <path class="ink2" d="M18 35h246M21 74h233M21 113h233M142 35v117"/>
+      <text x="18" y="25" class="smallLabel">gap-fill</text>
+      <text x="19" y="67" class="tiny">Bon     r</text>
+      <path class="ink3" d="M153 66h75"/>
+      <text x="19" y="106" class="tiny">Ça v     ?</text>
+      <path class="ink3" d="M153 105h72"/>
+      <text x="19" y="145" class="tiny">Je suis ___</text>
+      <path class="ink3" d="M153 144h73"/>
+      <path class="ink2 blueStroke" d="M232 57l12 12 25-30"/>
+      <path class="ink2 tanStroke" d="M234 96l13 12 24-31"/>
+    </g>
+
+    <!-- right page exercises: sound recognition grid -->
+    <g transform="translate(552 612) rotate(-10)">
+      <rect x="0" y="0" width="278" height="157" rx="20" class="white"/>
+      <rect x="0" y="0" width="278" height="37" rx="18" class="softTan" opacity=".94"/>
+      <path class="ink2" d="M18 37h242M18 77h242M18 117h242M126 37v120M194 37v120"/>
+      <text x="18" y="26" class="smallLabel">listen &amp; choose</text>
+      <text x="34" y="67" class="tiny">ou</text>
+      <text x="147" y="67" class="tiny">u</text>
+      <path class="ink2 skyStroke" d="M213 54l12 13 27-31"/>
+      <text x="34" y="107" class="tiny">on</text>
+      <text x="146" y="107" class="tiny">an</text>
+      <circle cx="226" cy="97" r="15" class="softBlue"/>
+      <path class="ink3" d="M215 97h22"/>
+      <text x="34" y="147" class="tiny">é</text>
+      <text x="147" y="147" class="tiny">è</text>
+      <path class="ink2 tanStroke" d="M213 134l12 13 27-31"/>
+    </g>
+
+    <!-- notebook details and pencil -->
+    <path class="ink2" d="M214 785c64 6 138 30 221 73"/>
+    <path class="ink2" d="M205 820c75 7 159 31 249 74"/>
+    <path class="ink2" d="M812 785c-64 6-138 30-221 73"/>
+    <path class="ink2" d="M821 820c-75 7-159 31-249 74"/>
+    <path class="softTan" d="M274 524l27-14 148 183-27 15z"/>
+    <path class="ink2" d="M274 524l27-14 148 183-27 15z"/>
+    <path class="black" d="M259 506l15 18 27-14-22-10z"/>
+    <path class="peach" d="M446 694l31 36-55-22z"/>
+    <path class="ink2" d="M446 694l31 36-55-22"/>
+
+    <!-- central listening badge with headphones -->
+    <path class="ghost" d="M360 350c10-151 299-178 317-10 7 67-44 126-149 143-93 14-160-37-168-133z"/>
+    <path class="ink" d="M337 353c8-164 339-184 355-7"/>
+    <path class="ink2 skyStroke" d="M372 356c17-119 260-135 285-8"/>
+    <path class="softBlue" d="M390 351c7-90 237-103 252-5 14 95-46 146-129 145-85-1-131-50-123-140z"/>
+    <path class="ink" d="M390 351c7-90 237-103 252-5 14 95-46 146-129 145-85-1-131-50-123-140z"/>
+    <path class="pale" d="M430 358c3-50 154-57 164-1 8 48-30 89-80 90-55 1-87-38-84-89z"/>
+    <path class="ink2" d="M430 358c3-50 154-57 164-1 8 48-30 89-80 90-55 1-87-38-84-89z"/>
+    <path class="black" d="M376 367c-22 2-37 23-35 50 2 27 21 46 43 44l3-1c-11-26-12-54-3-86l-8-7z"/>
+    <path class="sky" d="M384 371c-15 5-24 20-22 43s13 36 29 42c-9-25-11-53-7-85z"/>
+    <path class="black" d="M648 366c22 2 37 23 35 50-2 27-21 46-43 44l-3-1c11-26 12-54 3-86l8-7z"/>
+    <path class="sky" d="M640 371c15 5 24 20 22 43s-13 36-29 42c9-25 11-53 7-85z"/>
+    <path class="ink2" d="M485 383c24-30 43-39 57-25 16 17-4 45-41 70"/>
+    <path class="ink2" d="M487 383c-8 25-9 44 2 58"/>
+    <path class="ink3 skyStroke" d="M548 329c22 1 38 12 49 32"/>
+    <path class="ink3 skyStroke" d="M553 307c36 4 62 22 79 53"/>
+    <path class="ink3 tanStroke" d="M457 332c-15 11-23 28-25 50"/>
+    <path class="ink2 navy" d="M487 451l28 24 48-58"/>
+    <text x="473" y="356" class="label">écoute</text>
+
+    <!-- rising fountain / paths from workbook to badge -->
+    <path class="ink2 tanStroke" d="M511 642C443 579 409 526 410 482" marker-end="url(#arrowHead)"/>
+    <path class="ink2 skyStroke" d="M516 642c70-64 104-116 100-160" marker-end="url(#arrowHead)"/>
+    <path class="ink2" stroke-dasharray="2 16" d="M512 626c-3-51-4-94 0-129"/>
+    <path class="sky" opacity=".55" d="M470 615c-35-39-60-76-74-111 40 27 73 68 99 123z"/>
+    <path class="softTan" opacity=".65" d="M554 617c36-42 62-80 79-115-43 28-77 70-103 126z"/>
+
+    <!-- speech bubble: greetings -->
+    <g transform="translate(158 238) rotate(-13)">
+      <path class="softBlue" d="M32 22c43-35 140-31 173 16 29 42 8 95-45 110-35 10-79 4-110-15l-40 28 12-49c-25-25-21-64 10-90z"/>
+      <path class="ink" d="M32 22c43-35 140-31 173 16 29 42 8 95-45 110-35 10-79 4-110-15l-40 28 12-49c-25-25-21-64 10-90z"/>
+      <text x="43" y="74" class="exerciseText">Bonjour!</text>
+      <text x="66" y="114" class="smallLabel">Salut!</text>
+      <circle cx="181" cy="103" r="8" class="peach"/>
+      <circle cx="42" cy="92" r="7" class="tan"/>
+    </g>
+
+    <!-- card: introductions / gap filling -->
+    <g transform="translate(631 222) rotate(10)">
+      <path class="pale" d="M23 0h206c16 0 28 13 28 28v121c0 16-12 28-28 28H23c-16 0-28-12-28-28V28C-5 13 7 0 23 0z"/>
+      <path class="ink" d="M23 0h206c16 0 28 13 28 28v121c0 16-12 28-28 28H23c-16 0-28-12-28-28V28C-5 13 7 0 23 0z"/>
+      <path class="sky" d="M18 18h221v44H18z" opacity=".78"/>
+      <path class="ink2" d="M16 64h223M26 104h185M27 139h148"/>
+      <text x="28" y="49" class="smallLabel">introductions</text>
+      <text x="27" y="96" class="tiny">Je m'appelle</text>
+      <path class="ink2" d="M31 128h128"/>
+      <path class="ink2 navy" d="M192 124l13 13 31-37"/>
+      <path class="black" d="M202 17l13-27 17 8-11 28z"/>
+    </g>
+
+    <!-- card: pronunciation microphone -->
+    <g transform="translate(169 461) rotate(-17)">
+      <path class="cream" d="M19 3h156c17 0 30 14 30 30v98c0 16-13 30-30 30H19c-16 0-30-14-30-30V33C-11 17 3 3 19 3z"/>
+      <path class="ink" d="M19 3h156c17 0 30 14 30 30v98c0 16-13 30-30 30H19c-16 0-30-14-30-30V33C-11 17 3 3 19 3z"/>
+      <path class="softBlue" d="M24 22h72c8 0 15 7 15 15v53c0 8-7 15-15 15H24c-8 0-15-7-15-15V37c0-8 7-15 15-15z"/>
+      <path class="ink2" d="M60 41c15 0 23 12 23 31 0 19-8 31-23 31s-23-12-23-31c0-19 8-31 23-31z"/>
+      <path class="ink2" d="M31 82c0 25 15 40 29 40s30-15 30-40M60 122v27M39 149h42"/>
+      <text x="122" y="57" class="smallLabel">répète</text>
+      <path class="ink3 blueStroke" d="M121 91c9-18 17-18 26 0s18 18 27 0"/>
+      <path class="ink3 blueStroke" d="M121 116c6-13 12-13 18 0s12 13 18 0 12-13 18 0"/>
+    </g>
+
+    <!-- small sound choice card -->
+    <g transform="translate(733 415) rotate(15)">
+      <path class="softBlue" d="M22 0h159c13 0 23 10 23 23v96c0 13-10 23-23 23H22C9 142-1 132-1 119V23C-1 10 9 0 22 0z"/>
+      <path class="ink" d="M22 0h159c13 0 23 10 23 23v96c0 13-10 23-23 23H22C9 142-1 132-1 119V23C-1 10 9 0 22 0z"/>
+      <path class="black" d="M30 49h25l35-28v100L55 92H30z"/>
+      <path class="ink2 tanStroke" d="M105 42c22 18 22 48 0 66"/>
+      <path class="ink3 tanStroke" d="M119 25c36 33 36 84 0 116"/>
+      <text x="30" y="129" class="tiny">u / ou</text>
+      <path class="ink2 navy" d="M141 77l14 14 35-42"/>
+    </g>
+
+    <!-- accent letters and floating French particles -->
+    <g transform="translate(463 151) rotate(8)">
+      <circle cx="0" cy="0" r="58" class="pale"/>
+      <circle cx="0" cy="0" r="48" class="cream" opacity=".75"/>
+      <path class="ink2" d="M-44-31c35-36 85-19 99 21"/>
+      <text x="-24" y="38" class="accentText">é</text>
+      <path class="ink2" d="M8-52l34-22"/>
+    </g>
+    <g transform="translate(703 143) rotate(-7)">
+      <circle cx="0" cy="0" r="64" class="softBlue"/>
+      <circle cx="0" cy="0" r="48" class="white" opacity=".45"/>
+      <path class="ink2" d="M-44 40c26 20 67 20 92-4"/>
+      <text x="-34" y="41" class="accentTextBlue">à</text>
+    </g>
+    <g transform="translate(276 176) rotate(-20)">
+      <circle cx="0" cy="0" r="53" class="softBlue" opacity=".92"/>
+      <path class="ink2" d="M-36-37c24-23 62-22 86 2"/>
+      <text x="-32" y="38" class="accentText">ç</text>
+      <circle cx="15" cy="48" r="7" class="black"/>
+    </g>
+    <g transform="translate(810 157) rotate(16)">
+      <path class="pale" d="M-51-44c40-31 97-21 116 17 20 41-8 89-62 96-55 7-91-30-76-75 4-13 12-25 22-38z"/>
+      <path class="ink2" d="M-51-44c40-31 97-21 116 17 20 41-8 89-62 96-55 7-91-30-76-75"/>
+      <text x="-47" y="27" class="accentText" style="font-size:79px;">œ</text>
+    </g>
+    <g transform="translate(556 164) rotate(-11)">
+      <path class="softTan" d="M-49-39c41-31 96-17 113 23 17 41-18 83-68 83-50-1-81-41-62-81 4-8 10-17 17-25z"/>
+      <path class="ink2" d="M-49-39c41-31 96-17 113 23 17 41-18 83-68 83-50-1-81-41-62-81"/>
+      <text x="-42" y="23" class="label">on</text>
+      <path class="ink3" d="M-38 38c27 14 62 15 88 3"/>
+    </g>
+
+    <!-- small floating marks, arrows, and checks -->
+    <path class="ink2 skyStroke" opacity=".72" d="M96 360c28-30 61-48 99-54"/>
+    <path class="ink2 tanStroke" d="M785 334c61 8 101 35 119 81" marker-end="url(#arrowHead)"/>
+    <path class="ink3" d="M686 532c-20 21-43 34-69 39"/>
+    <path class="ink3" d="M359 530c19 19 43 32 72 38"/>
+    <circle class="peach" cx="144" cy="393" r="9"/>
+    <circle class="tan" cx="279" cy="310" r="8"/>
+    <circle class="sky" cx="768" cy="319" r="9"/>
+    <circle class="deep" cx="870" cy="492" r="8"/>
+    <circle class="cream" cx="901" cy="316" r="7"/>
+    <circle class="tan" cx="456" cy="94" r="7"/>
+    <circle class="sky" cx="608" cy="91" r="8"/>
+    <circle class="peach" cx="320" cy="483" r="7"/>
+    <path class="ink2" d="M335 261c14-12 29-17 45-15"/>
+    <path class="ink2" d="M617 248c21-13 45-18 70-14"/>
+    <path class="ink3" stroke-dasharray="1 13" d="M212 337c72 14 128 45 168 92"/>
+    <path class="ink3" stroke-dasharray="1 13" d="M818 351c-63 20-115 54-156 103"/>
+    <text x="285" y="410" class="faintWord" transform="rotate(-16 285 410)">prononciation</text>
+    <text x="681" y="545" class="faintWord" transform="rotate(-11 681 545)">compréhension</text>
+    <text x="404" y="555" class="faintWord" transform="rotate(21 404 555)">écoute</text>
+
+    <!-- confetti strokes in same palette -->
+    <path class="ink3 skyStroke" d="M120 532l33-20"/>
+    <path class="ink3 tanStroke" d="M900 540l-39-11"/>
+    <path class="ink3 navy" d="M249 111l31 19"/>
+    <path class="ink3 tanStroke" d="M772 78l-12 36"/>
+    <path class="ink3 skyStroke" d="M664 80c14 14 29 17 45 11"/>
+    <path class="ink3" d="M402 80c-28-4-55 3-80 19"/>
+    <path class="ink3" d="M908 196c19 21 28 48 28 80"/>
+    <path class="ink3" d="M81 508c21-16 45-24 72-22"/>
+  </g>
+</svg>
