@@ -362,7 +362,7 @@
           ],
           "showHintsText": "Show hints",
           "titleText": "1. Transport",
-          "instructionsTextHTML": "<p>Match each transport picture to the correct French word. Use <strong>Show hints</strong> if you need image labels, or <strong>Show answer</strong> to reveal the full set.</p>"
+          "informationTextHTML": "Match each picture to the correct French transport word. You can also listen to the French word cards for help. Use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the matched pairs, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to start a new round."
         }
       },
       {
@@ -375,35 +375,35 @@
           "shuffleItems": true,
           "items": [
             {
-              "text": "Il fait mauvais. [*The weather's bad.|It's sunny.|It's windy.]",
+              "text": "Il fait mauvais. [*The weather's bad.|It's sunny.|It's windy.|It's cold.|It's raining.|The weather's good.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/001-il-fait-mauvais.mp3"
             },
             {
-              "text": "Il y a du soleil. [*It's sunny.|It's raining.|It's cold.]",
+              "text": "Il y a du soleil. [*It's sunny.|It's raining.|It's cold.|It's hot.|It's snowing.|The weather's bad.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/002-il-y-a-du-soleil.mp3"
             },
             {
-              "text": "Il fait froid. [*It's cold.|It's hot.|It's snowing.]",
+              "text": "Il fait froid. [*It's cold.|It's hot.|It's snowing.|It's windy.|It's sunny.|The weather's good.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/003-il-fait-froid.mp3"
             },
             {
-              "text": "Il pleut. [*It's raining.|It's windy.|The weather's good.]",
+              "text": "Il pleut. [*It's raining.|It's windy.|The weather's good.|It's sunny.|It's snowing.|It's hot.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/004-il-pleut.mp3"
             },
             {
-              "text": "Il fait chaud. [*It's hot.|It's cold.|The weather's bad.]",
+              "text": "Il fait chaud. [*It's hot.|It's cold.|The weather's bad.|It's raining.|It's windy.|It's snowing.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/005-il-fait-chaud.mp3"
             },
             {
-              "text": "Il neige. [*It's snowing.|It's sunny.|It's raining.]",
+              "text": "Il neige. [*It's snowing.|It's sunny.|It's raining.|It's hot.|The weather's bad.|It's windy.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/006-il-neige.mp3"
             },
             {
-              "text": "Il fait beau. [*The weather's good.|It's windy.|It's cold.]",
+              "text": "Il fait beau. [*The weather's good.|It's windy.|It's cold.|It's raining.|It's snowing.|The weather's bad.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/007-il-fait-beau.mp3"
             },
             {
-              "text": "Il y a du vent. [*It's windy.|It's hot.|It's snowing.]",
+              "text": "Il y a du vent. [*It's windy.|It's hot.|It's snowing.|It's sunny.|It's cold.|The weather's good.]",
               "audio": "audio/lo15/exercises/draggableFillGaps1/008-il-y-a-du-vent.mp3"
             }
           ],
@@ -414,12 +414,12 @@
       },
       {
         "selectExercise1": {
-          "component": "SelectExercise",
+          "component": "InlineChoiceGroup",
           "id": "selectExercise1",
           "congratulationsText": "Excellent!",
           "showHintsText": "Hints",
           "cheatText": "Show answers",
-          "instructionsText": "Select the correct verb form to complete Adèle's holiday description.",
+          "informationTextHTML": "Listen to each sentence and choose the correct verb form to complete Adèle's holiday description. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "items": [
             {
               "text": "je ne [travaillez|travailles|*travaille] pas.",
@@ -466,8 +466,8 @@
               "audio": "audio/lo15/exercises/selectExercise1/011-quand-je-suis-en-vacances-nous-au-restaurant.mp3"
             }
           ],
-          "titleText": "3. Select the correct form of the verb each time in Adèle's description of her holiday activities",
-          "renderInlineChoices": true,
+          "titleText": "3. Adèle's holiday activities",
+          "sampleSize": 8,
           "shuffleItems": true
         }
       },
