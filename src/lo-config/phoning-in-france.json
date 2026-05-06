@@ -293,6 +293,13 @@
 		"expandable": false,
 		"id": "exercises",
 		"titleText": "Exercises",
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your ability to give and confirm phone numbers using <em class='grammar-term-em'>bien</em>, choose the correct typical phone phrases for everyday calls, and respond to short listening tasks set in a French phone conversation.</p>",
+			"image": {
+				"src": "img/shared/reflective.svg",
+				"alt": "Interactive exercises"
+			}
+		},
 		"content": [
 			{
 				"typedTransformExercise1": {
