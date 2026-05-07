@@ -1,6 +1,8 @@
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { AudioClip, IconButton } from "@/components/media";
+import { SequenceAudioController } from "@/components/SequenceAudioController";
+import { resolveAsset } from "@/utils/assets";
 import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
@@ -147,6 +149,7 @@ export class RadioQuiz extends React.Component {
 			cheatText = "Show answer",
 			htmlContent,
 			id = "",
+			listenDescriptionText,
 			nCorrect = 0,
 			options = [],
 			phrases = [],
@@ -154,6 +157,8 @@ export class RadioQuiz extends React.Component {
 			checkedResults = {},
 			hasChecked = false,
 			showExplanation = {},
+			soundFile,
+			useSequenceAudioController = false,
 		} = this.state;
 
 		const rows = phrases.map((phraseRow, rowIndex) => {
@@ -237,6 +242,20 @@ export class RadioQuiz extends React.Component {
 		return (
 			<div className="radio-quiz-container container w-full max-w-none px-0" id={id || undefined} key={`${id}PhraseTable`}>
 				{htmlContent ? <div className="html-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
+
+				{listenDescriptionText && soundFile ? (
+					useSequenceAudioController ? (
+						<div className="space-y-1">
+							<SequenceAudioController sources={[resolveAsset(soundFile)]} />
+						</div>
+					) : (
+						<AudioClip
+							id={`listen-${id}`}
+							listenText={listenDescriptionText}
+							soundFile={soundFile}
+						/>
+					)
+				) : null}
 
 				<div className="space-y-3">{rows}</div>
 

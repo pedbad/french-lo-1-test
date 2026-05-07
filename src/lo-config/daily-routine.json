@@ -509,9 +509,93 @@
 				}
 			},
 			{
-				"dailyRoutineASummersDayExercise": {
-					"component": "DailyRoutineASummersDay",
+				"radioQuiz1": {
+					"cheatText": "Show answers",
+					"component": "RadioQuiz",
 					"id": "dailyRoutineASummersDay",
+					"informationTextHTML": "Listen to Véronique describing a typical summer&apos;s day, then decide whether each statement is true (<em>vrai</em>) or false (<em>faux</em>). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"instructionsText": "Listen to the full audio, then decide whether each statement is true or false.",
+					"listenDescriptionText": "Full audio",
+					"options": [
+						"Vrai",
+						"Faux"
+					],
+					"phrases": [
+						[
+							"Véronique se lève vers 7 heures le week-end.",
+							1,
+							"Véronique se lève vers 6 heures le week-end.",
+							""
+						],
+						[
+							"Elle se promène en ville.",
+							1,
+							"Elle se promène dans le village.",
+							""
+						],
+						[
+							"Elle aime être dehors quand il fait beau.",
+							0,
+							"",
+							""
+						],
+						[
+							"Après sa promenade, Véronique prend un bain.",
+							1,
+							"Elle prend une douche rapide.",
+							""
+						],
+						[
+							"Elle prend un bol de yaourt.",
+							1,
+							"Elle prend un bol de céréales.",
+							""
+						],
+						[
+							"Elle boit du café-crème.",
+							0,
+							"",
+							""
+						],
+						[
+							"Dans le jardin il y a deux arbres.",
+							1,
+							"Dans le jardin il y a trois arbres.",
+							""
+						],
+						[
+							"Véronique passe une heure dans le jardin.",
+							1,
+							"Véronique passe la matinée entière dans le jardin.",
+							""
+						],
+						[
+							"Elle passe l'après-midi avec ses parents.",
+							1,
+							"Elle passe l'après-midi avec ses amis.",
+							""
+						],
+						[
+							"Parfois, ils vont en ville.",
+							0,
+							"",
+							""
+						],
+						[
+							"Elle dîne dans la salle à manger.",
+							1,
+							"Elle dîne dans le jardin ou sur le balcon.",
+							""
+						],
+						[
+							"Le soir, elle se détend.",
+							0,
+							"",
+							""
+						]
+					],
+					"soundFile": "audio/lo13/exercises/015-a-summers-day.mp3",
+					"useSequenceAudioController": true,
 					"titleText": "4. A summer's day"
 				}
 			}
