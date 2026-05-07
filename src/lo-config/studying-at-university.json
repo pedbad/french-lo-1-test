@@ -704,6 +704,12 @@
 		"expandable": false,
 		"id": "exercises",
 		"titleText": "Exercises",
-		"instructionsTextHTML": "<p>These activities help you practise talking about studies, using <em>devoir</em> and <em>pouvoir</em>, and distinguishing participles used as adjectives.</p>"
+		"instructionsLayout": {
+			"paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your use of <em class='grammar-term-em'>devoir</em> and <em class='grammar-term-em'>pouvoir</em> with infinitives, ask everyday questions with <em class='grammar-term-em'>comme</em>, and recognise present and past participles used as adjectives — all in the context of talking about studies.</p>",
+			"image": {
+				"src": "img/shared/reflective.svg",
+				"alt": "Interactive exercises"
+			}
+		}
 	}
 }
