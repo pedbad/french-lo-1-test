@@ -393,9 +393,9 @@
         }
       },
       {
-        "selectExercise1": {
+        "inlineChoiceGroup1": {
           "component": "InlineChoiceGroup",
-          "id": "selectExercise1",
+          "id": "inlineChoiceGroup1",
           "congratulationsText": "Très bien !",
           "instructionsText": "Choose the correct partitive article or instrument form.",
           "informationTextHTML": "Read each sentence and choose the correct form to complete it. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
@@ -448,9 +448,9 @@
         }
       },
       {
-        "selectExercise2": {
+        "inlineChoiceGroup2": {
           "component": "InlineChoiceGroup",
-          "id": "selectExercise2",
+          "id": "inlineChoiceGroup2",
           "congratulationsText": "Superbe!",
           "instructionsText": "Choose au, à la, à l', or aux as appropriate.",
           "informationTextHTML": "Read each sentence and choose the correct contracted form after <em>jouer à</em>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",

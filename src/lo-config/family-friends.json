@@ -469,9 +469,9 @@
 				}
 			},
 			{
-				"selectExercise4": {
+				"inlineChoiceGroup4": {
 					"component": "InlineChoiceGroup",
-					"id": "selectExercise4",
+					"id": "inlineChoiceGroup4",
 					"congratulationsText": "Superbe!",
 					"informationTextHTML": "Read each sentence and choose the correct form of <strong>avoir</strong>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"shuffleItems": false,
@@ -523,9 +523,9 @@
 				}
 			},
 			{
-				"selectExercise5": {
+				"inlineChoiceGroup5": {
 					"component": "InlineChoiceGroup",
-					"id": "selectExercise5",
+					"id": "inlineChoiceGroup5",
 					"congratulationsText": "Excellent!",
 					"informationTextHTML": "Read each sentence and choose the correct possessive adjective. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"sampleSize": 8,

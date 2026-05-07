@@ -413,9 +413,9 @@
         }
       },
       {
-        "selectExercise1": {
+        "inlineChoiceGroup1": {
           "component": "InlineChoiceGroup",
-          "id": "selectExercise1",
+          "id": "inlineChoiceGroup1",
           "congratulationsText": "Excellent!",
           "showHintsText": "Hints",
           "cheatText": "Show answers",

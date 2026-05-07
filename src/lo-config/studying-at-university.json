@@ -541,10 +541,10 @@
 				}
 			},
 			{
-				"selectExercise1": {
+				"selectExercise3": {
 					"component": "SelectExercise",
 					"congratulationsText": "Excellent!",
-					"id": "selectExercise1",
+					"id": "selectExercise3",
 					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
 					"renderInlineChoices": true,
 					"shuffleItems": true,
@@ -645,11 +645,11 @@
 				}
 			},
 			{
-				"typedTransformExercise2": {
+				"inlineTypedGapExercise2": {
 					"component": "InlineTypedGapExercise",
 					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
-					"id": "typedTransformExercise2",
+					"id": "inlineTypedGapExercise2",
 					"instructionsText": "Type the present participle used as an adjective in each gap.",
 					"items": [
 						{
@@ -673,11 +673,11 @@
 				}
 			},
 			{
-				"typedTransformExercise3": {
+				"inlineTypedGapExercise3": {
 					"component": "InlineTypedGapExercise",
 					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
-					"id": "typedTransformExercise3",
+					"id": "inlineTypedGapExercise3",
 					"instructionsText": "Type the past participle used as an adjective in each gap.",
 					"items": [
 						{
