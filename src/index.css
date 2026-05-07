@@ -1378,7 +1378,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		mask-image: url(/images/cross.svg);
+		mask-image: url(/img/shared/icons/cross.svg);
 		mask-position: center center;
 		mask-repeat: no-repeat;
 		background-color: var(--primary);
@@ -4124,11 +4124,11 @@ html.can-speak #content .modal-link::before {
   height: 20px;
   transform: translateY(-50%);
   background-color: currentColor;
-  -webkit-mask-image: url("/images/icons/message-square-warning.svg");
+  -webkit-mask-image: url("/img/shared/icons/message-square-warning.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
-  mask-image: url("/images/icons/message-square-warning.svg");
+  mask-image: url("/img/shared/icons/message-square-warning.svg");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
@@ -4501,8 +4501,8 @@ hr {
   height: 0.95em;
   transform: translateY(-50%);
   background-color: var(--chart-3);
-  -webkit-mask-image: url("/images/icons/circle-check.svg");
-  mask-image: url("/images/icons/circle-check.svg");
+  -webkit-mask-image: url("/img/shared/icons/circle-check.svg");
+  mask-image: url("/img/shared/icons/circle-check.svg");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -4551,33 +4551,33 @@ hr {
 }
 #content .inline-icon-eye {
   background-color: var(--ped-warn);
-  -webkit-mask-image: url("/images/icons/eye.svg");
-  mask-image: url("/images/icons/eye.svg");
+  -webkit-mask-image: url("/img/shared/icons/eye.svg");
+  mask-image: url("/img/shared/icons/eye.svg");
 }
 #content .inline-icon-reset {
   background-color: var(--chart-2);
-  -webkit-mask-image: url("/images/icons/reset.svg");
-  mask-image: url("/images/icons/reset.svg");
+  -webkit-mask-image: url("/img/shared/icons/reset.svg");
+  mask-image: url("/img/shared/icons/reset.svg");
 }
 #content .inline-icon-check {
   background-color: var(--chart-3);
-  -webkit-mask-image: url("/images/icons/circle-check.svg");
-  mask-image: url("/images/icons/circle-check.svg");
+  -webkit-mask-image: url("/img/shared/icons/circle-check.svg");
+  mask-image: url("/img/shared/icons/circle-check.svg");
 }
 #content .inline-icon-audio {
   background-color: var(--chart-3);
-  -webkit-mask-image: url("/images/icons/volume-1.svg");
-  mask-image: url("/images/icons/volume-1.svg");
+  -webkit-mask-image: url("/img/shared/icons/volume-1.svg");
+  mask-image: url("/img/shared/icons/volume-1.svg");
 }
 #content .inline-icon-book-outline {
   background-color: var(--chart-3);
-  -webkit-mask-image: url("/images/icons/book-open-text-outline.svg");
-  mask-image: url("/images/icons/book-open-text-outline.svg");
+  -webkit-mask-image: url("/img/shared/icons/book-open-text-outline.svg");
+  mask-image: url("/img/shared/icons/book-open-text-outline.svg");
 }
 #content .inline-icon-book {
   background-color: var(--chart-3);
-  -webkit-mask-image: url("/images/icons/book-open-text.svg");
-  mask-image: url("/images/icons/book-open-text.svg");
+  -webkit-mask-image: url("/img/shared/icons/book-open-text.svg");
+  mask-image: url("/img/shared/icons/book-open-text.svg");
 }
 #content .word-parts-container :is(table td, table span, .word-parts-text-cell, .word-parts-text-cell span) {
   font-size: calc(var(--font-size-base) * 1.5);

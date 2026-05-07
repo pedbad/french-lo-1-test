@@ -58,7 +58,7 @@ export const ProgressDots = ({ correct = 0, total = 0 }) => {
 	const safeTotal = Math.max(0, Number(total) || 0);
 	const safeCorrect = Math.min(safeTotal, Math.max(0, Number(correct) || 0));
 	const shouldDance = safeTotal > 0 && safeCorrect === safeTotal;
-	const tortoiseIcon = resolveAsset("images/icons/tortoise.svg");
+	const tortoiseIcon = resolveAsset("img/shared/icons/tortoise.svg");
 	const instanceId = React.useId().replace(/:/g, "");
 
 	return (
