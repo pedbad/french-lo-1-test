@@ -407,7 +407,7 @@
               "audio": "audio/lo15/exercises/draggableFillGaps1/008-il-y-a-du-vent.mp3"
             }
           ],
-          "titleText": "2. Build up your vocabulary: weather",
+          "titleText": "2. Practise your weather vocabulary",
           "instructionsTextHTML": "<p>Listen to each weather expression, then choose the correct English meaning.</p>",
           "informationTextHTML": "<p>Play each audio clip and choose the English meaning that matches the French weather expression. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>"
         }
