@@ -596,6 +596,13 @@
     ],
     "expandable": false,
     "id": "exercises",
-    "titleText": "Exercises"
+    "titleText": "Exercises",
+    "instructionsLayout": {
+      "paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your forms of <em class='grammar-term-em'>vouloir</em> for what people want to do, choose the correct contraction of <em class='grammar-term-em'>à</em> when naming places, and complete short listening and dictation tasks set in everyday plans.</p>",
+      "image": {
+        "src": "img/shared/reflective.svg",
+        "alt": "Interactive exercises"
+      }
+    }
   }
 }

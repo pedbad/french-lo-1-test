@@ -684,6 +684,13 @@
     ],
     "expandable": false,
     "id": "exercises",
-    "titleText": "Exercises"
+    "titleText": "Exercises",
+    "instructionsLayout": {
+      "paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your use of <em class='grammar-term-em'>aller</em> when talking about going shopping, choose the correct partitive and quantity forms for everyday market lists, and sharpen the contrast between the <em class='grammar-term-em'>u</em> and <em class='grammar-term-em'>ou</em> sounds through listening and dictation.</p>",
+      "image": {
+        "src": "img/shared/reflective.svg",
+        "alt": "Interactive exercises"
+      }
+    }
   }
 }
