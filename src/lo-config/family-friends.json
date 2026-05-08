@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo6/family-friends-neighbours.svg",
@@ -343,7 +342,6 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Excellent!",
 					"instructionsText": "Listen to the speakers and select what you hear.",
 					"informationTextHTML": "Play each audio clip and choose the French sentence that matches what you hear. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions.",
 					"showHintsText": "Show hints when moving",
@@ -377,7 +375,6 @@
 				"inlineChoiceGroup2": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup2",
-					"congratulationsText": "Très bien !",
 					"informationTextHTML": "The following words all contain double <strong>ll</strong>. Listen to them carefully, and decide whether the double <strong>ll</strong> is pronounced <strong>y</strong> or <strong>l</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solutions and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
@@ -472,7 +469,6 @@
 				"inlineChoiceGroup4": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup4",
-					"congratulationsText": "Superbe!",
 					"informationTextHTML": "Read each sentence and choose the correct form of <strong>avoir</strong>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"shuffleItems": false,
 					"showHintsText": "Show hints when moving",
@@ -526,7 +522,6 @@
 				"inlineChoiceGroup5": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup5",
-					"congratulationsText": "Excellent!",
 					"informationTextHTML": "Read each sentence and choose the correct possessive adjective. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"sampleSize": 8,
 					"shuffleItems": true,
@@ -596,7 +591,6 @@
 			{
 				"selectExercise6": {
 					"component": "SelectExercise",
-					"congratulationsText": "Très bien !",
 					"id": "selectExercise6",
 					"informationTextHTML": "Listen to each sentence and choose the correct ending to complete it. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct ending, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"renderInlineChoices": true,

@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This lesson teaches learners how to talk about university studies in French, including degree programmes, years of study, lectures, seminars, tutorials, and academic workload. It introduces useful expressions such as <em>faire des études</em>, <em>faire une licence</em>, <em>faire un master</em>, and <em>avoir un emploi du temps chargé</em>.</p><p>It also practises how to describe subjects, student life, essays, research, and the feelings that often go with study, such as being <em>fatigué(e)</em>, <em>occupé(e)</em>, or <em>stressé(e)</em>.</p>",
 		"introImage": {
@@ -436,7 +435,6 @@
 				"selectExercise1": {
 					"cheatText": "Show answers",
 					"component": "SelectExercise",
-					"congratulationsText": "Très bien !",
 					"id": "selectExercise1",
 					"instructionsText": "Listen to the full audio or each sentence, then choose the correct word or phrase to complete the conversation.",
 					"listenDescriptionText": "Full audio",
@@ -488,7 +486,6 @@
 			{
 				"inlineTypedGapExercise1": {
 					"component": "InlineTypedGapExercise",
-					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
 					"id": "inlineTypedGapExercise1",
 					"instructionsText": "Listen to the audio and type the missing French words into each comme question pattern.",
@@ -543,7 +540,6 @@
 			{
 				"selectExercise3": {
 					"component": "SelectExercise",
-					"congratulationsText": "Excellent!",
 					"id": "selectExercise3",
 					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
 					"renderInlineChoices": true,
@@ -596,7 +592,6 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
 					"renderInlineChoices": true,
 					"shuffleItems": true,
@@ -647,7 +642,6 @@
 			{
 				"inlineTypedGapExercise2": {
 					"component": "InlineTypedGapExercise",
-					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
 					"id": "inlineTypedGapExercise2",
 					"instructionsText": "Type the present participle used as an adjective in each gap.",
@@ -675,7 +669,6 @@
 			{
 				"inlineTypedGapExercise3": {
 					"component": "InlineTypedGapExercise",
-					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
 					"id": "inlineTypedGapExercise3",
 					"instructionsText": "Type the past participle used as an adjective in each gap.",

@@ -1,6 +1,5 @@
 {
   "settings": {
-    "showCongratulations": true,
     "targetLanguageCode": "fr-FR",
     "introImage": {
       "src": "img/lo11/out-and-about-cafe.svg",
@@ -283,7 +282,6 @@
         "selectExerciseOrderingFoodDrink": {
           "component": "SelectExercise",
           "id": "selectExerciseOrderingFoodDrink",
-          "congratulationsText": "Excellent!",
           "informationTextHTML": "Listen to the café dialogue and choose the correct word or phrase. Work through the conversation first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "renderInlineChoices": true,
           "useSequenceAudioController": true,
@@ -342,7 +340,6 @@
         "selectExercise1": {
           "component": "SelectExercise",
           "id": "selectExercise1",
-          "congratulationsText": "Félicitations&nbsp;!",
           "informationTextHTML": "Listen to each sentence and choose the correct form of <strong>voudrais</strong>, <strong>voudrait</strong>, <strong>voudrions</strong>, <strong>voudriez</strong>, or <strong>voudraient</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
           "renderInlineChoices": true,
           "shuffleItems": true,
@@ -381,7 +378,6 @@
         "selectExercise2": {
           "component": "SelectExercise",
           "id": "selectExercise2",
-          "congratulationsText": "Félicitations&nbsp;!",
           "informationTextHTML": "Listen to each sentence and choose the correct present-tense form of <strong>prendre</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
           "renderInlineChoices": true,
           "shuffleItems": true,
@@ -424,7 +420,6 @@
         "inlineChoiceGroup3": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup3",
-          "congratulationsText": "Excellent!",
           "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
           "shuffleItems": true,
           "showHintsText": "Hints",

@@ -453,7 +453,6 @@
 				"inlineChoiceGroup1": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup1",
-					"congratulationsText": "Excellent!",
 					"informationTextHTML": "Listen to each audio clip and select the correct nationality adjective. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
@@ -492,7 +491,6 @@
 				"inlineChoiceGroup2": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup2",
-					"congratulationsText": "Très bien !",
 					"informationTextHTML": "Listen to each audio clip and choose the correct form: <strong>de</strong>, <strong>du</strong>, <strong>d'</strong>, or <strong>des</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
@@ -537,7 +535,6 @@
 			{
 				"typedTransformExercise3": {
 					"component": "TypedTransformExercise",
-					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
 					"id": "typedTransformExercise3",
 					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
@@ -619,7 +616,6 @@
 			{
 				"typedTransformExercise4": {
 					"component": "TypedTransformExercise",
-					"congratulationsText": "Superbe!",
 					"cheatText": "Show answers",
 					"id": "typedTransformExercise4",
 					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
@@ -676,7 +672,6 @@
 			{
 				"dictationExercise5": {
 					"component": "DictationExercise",
-					"congratulationsText": "Excellent!",
 					"id": "dictationExercise5",
 					"informationTextHTML": "<p>Listen to each audio clip and write exactly what you hear. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your entries, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.</p>",
 					"instructionsText": "Listen and write what you hear.",

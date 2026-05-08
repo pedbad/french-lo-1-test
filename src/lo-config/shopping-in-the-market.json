@@ -1,6 +1,5 @@
 {
   "settings": {
-    "showCongratulations": true,
     "targetLanguageCode": "fr-FR",
     "introImage": {
       "src": "img/lo12/out-and-about-shopping.svg",
@@ -370,7 +369,6 @@
         "selectExercise1": {
           "component": "SelectExercise",
           "id": "selectExercise1",
-          "congratulationsText": "Incroyable!",
           "instructionsText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
@@ -434,7 +432,6 @@
         "selectExercise2": {
           "component": "SelectExercise",
           "id": "selectExercise2",
-          "congratulationsText": "Excellent!",
           "instructionsText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
@@ -474,7 +471,6 @@
         "selectExercise3": {
           "component": "SelectExercise",
           "id": "selectExercise3",
-          "congratulationsText": "Excellent!",
           "instructionsText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
@@ -509,7 +505,6 @@
       {
         "dictationExercise4": {
           "component": "DictationExercise",
-          "congratulationsText": "Excellent!",
           "id": "dictationExercise4",
           "instructionsText": "Listen and write what you hear.",
           "phrases": [
@@ -587,7 +582,6 @@
         "inlineChoiceGroup1": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup1",
-          "congratulationsText": "Well done!",
           "listenDescriptionText": "Full audio",
           "showHintsText": "Hints",
           "cheatText": "Show answers",

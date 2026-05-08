@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo9/phoning-in-france.svg",
@@ -305,7 +304,6 @@
 				"typedTransformExercise1": {
 					"component": "TypedTransformExercise",
 					"id": "typedTransformExercise1",
-					"congratulationsText": "Excellent!",
 					"cheatText": "Show answers",
 					"informationTextHTML": "<p>Listen to each audio clip and type the phone number you hear. Keep the digits in two-digit groups. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your entries, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.</p>",
 					"phrases": [
@@ -367,7 +365,6 @@
 					"inlineChoiceGroup1": {
 						"component": "InlineChoiceGroup",
 						"id": "inlineChoiceGroup1",
-						"congratulationsText": "Très bien !",
 						"instructionsText": "Listen to each exchange and choose the correct word or form.",
 						"informationTextHTML": "Listen carefully and complete each telephone exchange with the correct option. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 						"showHintsText": "Hints",
@@ -421,7 +418,6 @@
 					"selectExercise2": {
 						"component": "SelectExercise",
 						"id": "selectExercise2",
-						"congratulationsText": "Excellent!",
 						"instructionsText": "Listen to the dialogue and choose the correct reply each time.",
 						"informationTextHTML": "Complete the telephone conversation by choosing the correct spoken reply at each step. Work through the dialogue, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review it, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 						"showHintsText": "Hints",

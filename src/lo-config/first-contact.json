@@ -373,7 +373,6 @@
 				"wordparts1": {
 					"cheatText": "Show answer",
 					"component": "WordParts",
-					"congratulationsText": "Superbe!",
 					"id": "wordparts1",
 					"informationTextHTML": "Select the part of each word that contains the nasal, <em>r</em>, <em>oi</em>, or silent <em>h</em> sound. You can reveal answers with the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button or start a new attempt with the <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset button.",
 					"showHintsText": "Hints",
@@ -402,7 +401,6 @@
 				"draggableFillGaps2": {
 					"component": "DraggableFillGaps",
 					"id": "draggableFillGaps2",
-					"congratulationsText": "Excellent!",
 					"informationTextHTML": "Rebuild each short dialogue by choosing the correct words, then <span class='inline-icon inline-icon-check' aria-hidden='true'></span> check your answers. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
 					"cheatText": "Show answer",
@@ -429,7 +427,6 @@
 					"component": "DraggableFillGaps",
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
-					"congratulationsText": "Superbe!",
 					"id": "draggableFillGaps3",
 					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
@@ -455,7 +452,6 @@
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien !",
 					"id": "draggableFillGaps4",
 					"informationTextHTML": "Fill the gaps to complete each phrase, choosing the correct words. Use the <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer button to reveal the solution or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",
@@ -492,7 +488,6 @@
 				"listeningOrder1": {
 					"component": "SequenceOrder",
 					"id": "listeningOrder1",
-					"congratulationsText": "Très bien !",
 					"informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"listenDescriptionText": "Full audio",
 					"showHintsText": "Hints",
@@ -516,7 +511,6 @@
 				"listeningOrder2": {
 					"component": "SequenceOrder",
 					"id": "listeningOrder2",
-					"congratulationsText": "Très bien !",
 					"informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to confirm, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct order, or <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"listenDescriptionText": "Full audio",
 					"showHintsText": "Hints",

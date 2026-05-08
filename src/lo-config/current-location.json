@@ -331,7 +331,6 @@
 				"inlineChoiceGroup3": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup3",
-					"congratulationsText": "Très bien !",
 					"instructionsText": "Select the correct form of 'in' to fill in the gaps.",
 					"informationTextHTML": "Choose the correct form of <strong>in</strong> for each place name: <strong>à</strong>, <strong>au</strong>, <strong>en</strong>, <strong>aux</strong>, or <strong>dans le</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
 					"shuffleItems": true,
@@ -395,7 +394,6 @@
 				"selectExercise3": {
 					"component": "SelectExercise",
 					"id": "selectExercise3",
-					"congratulationsText": "Superbe!",
 					"instructionsText": "Listen and choose the correct option to fill in the gaps.",
 					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"renderInlineChoices": true,

@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo13/daily-routine.svg",
@@ -336,7 +335,6 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"congratulationsText": "Incroyable!",
 					"instructionsText": "Listen to the full audio or each sentence, then choose the correct reflexive pronoun.",
 					"informationTextHTML": "Play the full audio first, then fill each gap with the correct reflexive pronoun. You can replay each sentence individually as needed. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"listenDescriptionText": "Full audio",
@@ -405,7 +403,6 @@
 					"blanksType": "phrases",
 					"cheatText": "Show answer",
 					"component": "DraggableFillGaps",
-					"congratulationsText": "Très bien !",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Complete the description by dragging each word into the correct gap.",
 					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
@@ -440,7 +437,6 @@
 				"inlineChoiceGroup2": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup2",
-					"congratulationsText": "Excellent!",
 					"instructionsText": "Listen to each audio clip and choose the time you hear.",
 					"informationTextHTML": "Listen to each audio clip and choose the matching time. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"shuffleItems": true,

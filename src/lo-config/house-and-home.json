@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"showCongratulations": true,
 		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo5/house-and-home.svg",
@@ -274,7 +273,6 @@
 			{
 				"lineMatch1": {
 					"component": "LineMatch",
-					"congratulationsText": "Très bien !",
 					"id": "lineMatch1",
 					"informationTextHTML": "Match each picture with the correct French word. For help, you can listen to the French words. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct matches, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"cheatText": "Show answer",
@@ -361,7 +359,6 @@
 				"inlineChoiceGroup1": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup1",
-					"congratulationsText": "Excellent!",
 					"instructionsText": "Select the correct definite article to fill in the gaps.",
 					"informationTextHTML": "Read each sentence and choose the correct definite article for the noun. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"sampleSize": 6,
@@ -425,7 +422,6 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"congratulationsText": "Très bien !",
 					"instructionsText": "Listen to the speakers and select the correct form of the adjective to fill in the gaps.",
 					"informationTextHTML": "Listen to each sentence and choose the correct adjective form to fill in the gap. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the correct form, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Show hints when moving",
@@ -464,7 +460,6 @@
 				"draggableFillGaps1": {
 					"component": "DraggableFillGaps",
 					"id": "draggableFillGaps1",
-					"congratulationsText": "Superbe!",
 					"instructionsText": "Drag each word into the correct gap.",
 					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"showHintsText": "Hints",

@@ -1,6 +1,5 @@
 {
   "settings": {
-    "showCongratulations": true,
     "targetLanguageCode": "fr-FR",
     "introImage": {
       "src": "img/lo10/making-arrangements.svg",
@@ -367,7 +366,6 @@
         "selectExercise1": {
           "component": "SelectExercise",
           "id": "selectExercise1",
-          "congratulationsText": "Félicitations !",
           "informationTextHTML": "Listen to the poem <strong>Chacun à son goût&nbsp;!</strong> and choose the correct form of <strong>vouloir</strong> for each line. Work through the whole poem first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "listenDescriptionText": "Full audio",
           "layoutMode": "inline-passage",
@@ -434,7 +432,6 @@
       {
         "selectExercise2": {
           "component": "SelectExercise",
-          "congratulationsText": "Superbe!",
           "id": "selectExercise2",
           "informationTextHTML": "Play each French sentence and choose the matching English meaning. Work through all the items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "shuffleItems": true,
@@ -489,7 +486,6 @@
         "inlineChoiceGroup3": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup3",
-          "congratulationsText": "Excellent!",
           "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
           "showHintsText": "Hints",
           "cheatText": "Show answers",
