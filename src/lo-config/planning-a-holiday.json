@@ -38,7 +38,7 @@
             ]
           ],
           "titleText": "Planning a holiday in Bordeaux",
-          "instructionsTextHTML": "<p>Read each line, then play the audio to hear how speakers ask where someone is going on holiday and name a destination in France.</p>",
+          "informationTextHTML": "<p>Read each line, then play the audio to hear how speakers ask where someone is going on holiday and name a destination in France.</p>",
           "informationTextHTML": "<p>Listen for the way the speakers ask about holiday plans, give a country, and then specify a French city.</p>"
         }
       },
@@ -84,7 +84,7 @@
             ]
           ],
           "titleText": "Planning a holiday in Guadeloupe",
-          "instructionsTextHTML": "<p>Read each line, then play the audio to hear how speakers describe holiday plans, activities, weather, and staying at home to work.</p>",
+          "informationTextHTML": "<p>Read each line, then play the audio to hear how speakers describe holiday plans, activities, weather, and staying at home to work.</p>",
           "informationTextHTML": "<p>Notice how the speakers use the near future to describe travel plans, things to do in Guadeloupe, the weather, and staying at home to write.</p>"
         }
       }
@@ -92,7 +92,7 @@
     "expandable": false,
     "id": "dialogues",
     "titleText": "Dialogues",
-    "instructionsTextHTML": "<p>This section introduces short conversations about holiday destinations, travel plans, activities, weather, and staying at home to work.</p>"
+    "informationTextHTML": "<p>This section introduces short conversations about holiday destinations, travel plans, activities, weather, and staying at home to work.</p>"
   },
   "vocabulary": {
     "component": "PhraseTable",
@@ -237,7 +237,7 @@
     ],
     "sortable": true,
     "titleText": "Vocabulary",
-    "instructionsTextHTML": "<p>This section introduces the key holiday, transport, beach, weather, and season vocabulary used throughout the lesson.</p>",
+    "informationTextHTML": "<p>This section introduces the key holiday, transport, beach, weather, and season vocabulary used throughout the lesson.</p>",
     "informationTextHTML": "<h3>You will learn:</h3><ul><li>Holiday actions such as <em>passer</em>, <em>loger</em>, <em>voyager</em>, and <em>partir</em>.</li><li>Activity and place vocabulary such as <em>bronzer</em>, <em>nager</em>, <em>faire du ski</em>, <em>faire du tourisme</em>, and <em>sur la plage</em>.</li><li>Transport phrases such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, <em>à cheval</em>, and <em>à pied</em>.</li><li>Weather and season expressions such as <em>Quel temps fait-il&nbsp;?</em>, <em>Il fait beau</em>, <em>Il y a du soleil</em>, and <em>en été</em>.</li></ul>"
   },
   "grammar": {
@@ -405,7 +405,7 @@
             }
           ],
           "titleText": "2. Practise your weather vocabulary",
-          "instructionsTextHTML": "<p>Listen to each weather expression, then choose the correct English meaning.</p>",
+          "informationTextHTML": "<p>Listen to each weather expression, then choose the correct English meaning.</p>",
           "informationTextHTML": "<p>Play each audio clip and choose the English meaning that matches the French weather expression. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>"
         }
       },

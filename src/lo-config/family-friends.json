@@ -11,7 +11,7 @@
 	"dialogues": {
 		"component": "Section",
 		"expandable": false,
-		"instructionsTextHTML": "<p>This section introduces short dialogues that show how to ask and answer questions about family, relatives, and relationships in French.</p>",
+		"informationTextHTML": "<p>This section introduces short dialogues that show how to ask and answer questions about family, relatives, and relationships in French.</p>",
 		"content": [
 			{
 				"dialogues1": {
@@ -106,7 +106,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsTextHTML": "<p>This section introduces key family, relationship, and neighbour vocabulary used throughout the unit.</p>",
+		"informationTextHTML": "<p>This section introduces key family, relationship, and neighbour vocabulary used throughout the unit.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core family vocabulary (for example <em>frère</em>, <em>sœur</em>, <em>grands-parents</em>).</li><li>Words for relationships and households (for example <em>mari</em>, <em>femme</em>, <em>compagnon</em>, <em>voisin</em>).</li><li>Useful ways to ask about age and family structure.</li><li>Vocabulary that supports the grammar, pronunciation, and exercise work in this unit.</li></ul>",
 		"phrases": [
 			[

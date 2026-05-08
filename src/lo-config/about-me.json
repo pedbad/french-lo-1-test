@@ -11,7 +11,7 @@
 	"monologues": {
 		"component": "Section",
 		"expandable": false,
-		"instructionsTextHTML": "<p>This section introduces a series of short monologues to show how to introduce oneself and describe personal situations and professions in French.</p>",
+		"informationTextHTML": "<p>This section introduces a series of short monologues to show how to introduce oneself and describe personal situations and professions in French.</p>",
 		"content": [
 			{
 				"monologues1": {
@@ -46,7 +46,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
+		"informationTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (for example <em>célibataire</em>, <em>marié(e)</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>Masculine and feminine forms of adjectives and professions (for example <em>divorcé(e)</em>, <em>avocat(e)</em>).</li></ul>",
 		"phrases": [
 			[

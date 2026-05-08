@@ -7,7 +7,7 @@
 	"dialogues": {
 		"component": "Group",
 		"expandable": false,
-		"instructionsTextHTML": "<p>This section introduces a series of short dialogues to show how to greet and introduce oneself in both formal and informal situations in French.</p>",
+		"informationTextHTML": "<p>This section introduces a series of short dialogues to show how to greet and introduce oneself in both formal and informal situations in French.</p>",
 		"content": [
 			{
 				"phraseTable1": {
@@ -112,7 +112,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
+		"informationTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Key greeting and farewell expressions (<em>Bonjour, Salut, Au revoir, À bientôt</em>).</li><li>Terms of address (<em>Monsieur, Madame, Mademoiselle, Jeune homme, Les enfants</em>).</li><li>Friendly and affectionate expressions (<em>Mon chéri, Ma chérie, Mon amour</em>).</li></ul>",
 		"phrases": [
 			[

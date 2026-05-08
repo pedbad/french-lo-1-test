@@ -10,7 +10,7 @@
 	},
 	"dialogues": {
 		"component": "Section",
-		"instructionsTextHTML": "<p>This section introduces short conversations about getting up, coping with tiredness, and arranging lunch during the day.</p>",
+		"informationTextHTML": "<p>This section introduces short conversations about getting up, coping with tiredness, and arranging lunch during the day.</p>",
 		"content": [
 			{
 				"phraseTable1": {
@@ -121,7 +121,7 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"instructionsTextHTML": "<p>This section introduces the key daily-routine verbs, meal words, and time expressions used throughout the unit.</p>",
+		"informationTextHTML": "<p>This section introduces the key daily-routine verbs, meal words, and time expressions used throughout the unit.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core routine vocabulary such as <em>routine quotidienne</em>, <em>petit déjeuner</em>, and <em>dîner</em>.</li><li>Common reflexive verbs such as <em>se lever</em>, <em>se coucher</em>, and <em>se réveiller</em>.</li><li>Useful time questions and clock expressions such as <em>À quelle heure&nbsp;?</em>, <em>à midi</em>, and <em>vers trois heures et demie</em>.</li><li>Useful descriptive expressions such as <em>Je suis matinal(e)</em> and <em>Je suis un / une couche-tard</em>.</li></ul>",
 		"phrases": [
 			[

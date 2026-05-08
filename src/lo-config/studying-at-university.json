@@ -63,7 +63,7 @@
 						]
 					],
 					"titleText": "Talking about your studies",
-					"instructionsTextHTML": "<p>Read each line, then play the audio to hear how speakers ask about degree subjects and levels of study.</p>",
+					"informationTextHTML": "<p>Read each line, then play the audio to hear how speakers ask about degree subjects and levels of study.</p>",
 					"informationTextHTML": "<p>Listen for the way the speakers ask what someone is studying, describe degree level, and talk about doctoral work.</p>"
 				}
 			},
@@ -109,7 +109,7 @@
 						]
 					],
 					"titleText": "A busy week at university",
-					"instructionsTextHTML": "<p>Read each line, then play the audio to hear how speakers describe workload, pressure, and reassurance.</p>",
+					"informationTextHTML": "<p>Read each line, then play the audio to hear how speakers describe workload, pressure, and reassurance.</p>",
 					"informationTextHTML": "<p>Notice how the speakers describe a heavy timetable, essays, and feeling tired or stressed.</p>"
 				}
 			}
@@ -117,7 +117,7 @@
 		"expandable": false,
 		"id": "dialogues",
 		"titleText": "Dialogues",
-		"instructionsTextHTML": "<p>This section introduces short conversations about degree subjects, years of study, doctoral work, and the pressure of a busy academic week.</p>"
+		"informationTextHTML": "<p>This section introduces short conversations about degree subjects, years of study, doctoral work, and the pressure of a busy academic week.</p>"
 	},
 	"vocabulary": {
 		"component": "PhraseTable",
@@ -372,7 +372,7 @@
 		],
 		"sortable": true,
 		"titleText": "Vocabulary",
-		"instructionsTextHTML": "<p>This section introduces the core university words and useful expressions used throughout the lesson.</p>",
+		"informationTextHTML": "<p>This section introduces the core university words and useful expressions used throughout the lesson.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Words for people and roles such as <em>étudiant(e)</em>, <em>doctorant(e)</em>, <em>chercheur / chercheuse</em>, and <em>professeur</em>.</li><li>Useful expressions for studies and degrees such as <em>faire des études</em>, <em>licence</em>, <em>master</em>, and <em>doctorat</em>.</li><li>Names of academic subjects, years of study, and teaching formats such as <em>cours magistral</em>, <em>séminaire</em>, and <em>tutorat</em>.</li><li>Adjectives and phrases used to describe workload and feelings, such as <em>fatigant</em>, <em>stressant</em>, and <em>avoir un emploi du temps chargé</em>.</li></ul>"
 	},
 	"grammar": {

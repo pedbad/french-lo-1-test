@@ -11,7 +11,7 @@
   "dialogues": {
     "component": "Section",
     "expandable": false,
-    "instructionsTextHTML": "<p>This section introduces short conversations for exchanging phone numbers, checking information, and arranging to meet up.</p>",
+    "informationTextHTML": "<p>This section introduces short conversations for exchanging phone numbers, checking information, and arranging to meet up.</p>",
     "content": [
       {
         "phraseTable1": {
@@ -186,7 +186,7 @@
     "component": "PhraseTable",
     "expandable": false,
     "id": "vocabulary",
-    "instructionsTextHTML": "<p>This section introduces the key verbs, time expressions, places, and social phrases used when making arrangements.</p>",
+    "informationTextHTML": "<p>This section introduces the key verbs, time expressions, places, and social phrases used when making arrangements.</p>",
     "informationTextHTML": "<h3>You will learn:</h3><ul><li>Useful invitation and response phrases such as <em>Je veux bien</em>, <em>Pas de problème</em>, and <em>C&apos;est dommage</em>.</li><li>Days of the week and common time expressions for arranging to meet.</li><li>Place vocabulary such as <em>cinéma</em>, <em>piscine</em>, <em>restaurant</em>, and <em>centre commercial</em>.</li><li>A wider bank of activity verbs that can be used after <em>vouloir</em>.</li></ul>",
     "phrases": [
       ["audio/lo10/vocabulary/001-vouloir.mp3", "vouloir", "to want "],

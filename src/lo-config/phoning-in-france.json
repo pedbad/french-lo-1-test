@@ -13,7 +13,7 @@
 		"expandable": false,
 		"id": "dialogues",
 		"titleText": "Dialogues",
-		"instructionsTextHTML": "<p>This section introduces short telephone exchanges for asking for a number, checking a number, correcting mistakes, and arranging to meet.</p>",
+		"informationTextHTML": "<p>This section introduces short telephone exchanges for asking for a number, checking a number, correcting mistakes, and arranging to meet.</p>",
 		"content": [
 			{
 				"phraseTable1": {
@@ -147,7 +147,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"titleText": "Vocabulary",
-		"instructionsTextHTML": "<p>This section introduces the core vocabulary used for telephone calls, checking numbers, apologising, and ending a call politely.</p>",
+		"informationTextHTML": "<p>This section introduces the core vocabulary used for telephone calls, checking numbers, apologising, and ending a call politely.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Key telephone nouns such as <em>numéro</em>, <em>portable</em>, and <em>téléphone fixe</em>.</li><li>Useful telephone expressions such as <em>allô</em>, <em>C&apos;est moi</em>, and <em>À plus tard</em>.</li><li>Apology and correction language such as <em>désolé(e)</em>, <em>erreur</em>, and <em>se tromper de</em>.</li></ul>",
 		"phrases": [
 			[

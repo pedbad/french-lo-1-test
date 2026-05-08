@@ -11,13 +11,13 @@
   "dialogues": {
     "component": "Section",
     "expandable": false,
-    "instructionsTextHTML": "<p>This section introduces two short market conversations: one about where people shop, and one about buying fruit and vegetables politely from a market stall.</p>",
+    "informationTextHTML": "<p>This section introduces two short market conversations: one about where people shop, and one about buying fruit and vegetables politely from a market stall.</p>",
     "content": [
       {
         "phraseTable1": {
           "component": "PhraseTable",
           "id": "phraseTable1",
-          "instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+          "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo12/dialogues/001-quest-ce-que-tu-fais-aujourdhui.mp3",
@@ -63,7 +63,7 @@
         "phraseTable2": {
           "component": "PhraseTable",
           "id": "phraseTable2",
-          "instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+          "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
               "audio/lo12/dialogues/008-madame-bonjour-vous-desirez.mp3",
@@ -123,7 +123,7 @@
     "component": "PhraseTable",
     "expandable": false,
     "id": "vocabulary",
-    "instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+    "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
     "phrases": [
       [
         "audio/lo12/vocabulary/001-faire-les-courses.mp3",
@@ -308,7 +308,7 @@
     ],
     "sortable": true,
     "titleText": "Vocabulary",
-    "instructionsTextHTML": "<p>This section introduces the key shop names, food words, quantity expressions, and useful market phrases used throughout the lesson.</p>",
+    "informationTextHTML": "<p>This section introduces the key shop names, food words, quantity expressions, and useful market phrases used throughout the lesson.</p>",
     "informationTextHTML": "<h3>You will learn:</h3><ul><li>Place vocabulary such as <em>le marché</em>, <em>la boulangerie</em>, and <em>la poissonnerie</em>.</li><li>Useful shopping expressions such as <em>Donnez-moi...</em>, <em>Avec ça&nbsp;?</em>, and <em>Ça fait...</em>.</li><li>Quantity language such as <em>un kilo</em>, <em>un demi-kilo</em>, <em>une barquette</em>, and <em>la pièce</em>.</li><li>Common fruit and vegetable words needed for simple market transactions.</li></ul>"
   },
   "grammar": {

@@ -11,13 +11,13 @@
 	"dialogues": {
 		"component": "Section",
 		"expandable": false,
-		"instructionsTextHTML": "<p>This section introduces a series of short dialogues to show how to ask and answer questions about nationality, origin, and languages in French.</p>",
+		"informationTextHTML": "<p>This section introduces a series of short dialogues to show how to ask and answer questions about nationality, origin, and languages in French.</p>",
 		"content": [
 			{
 				"phraseTable1": {
 					"component": "PhraseTable",
 					"id": "phraseTable1",
-					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/001-tu-es-francaise.mp3",
@@ -52,7 +52,7 @@
 				"phraseTable2": {
 					"component": "PhraseTable",
 					"id": "phraseTable2",
-					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/006-d-ou-venez-vous-monsieur.mp3",
@@ -77,7 +77,7 @@
 				"phraseTable3": {
 					"component": "PhraseTable",
 					"id": "phraseTable3",
-					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/009-tu-parles-allemand.mp3",
@@ -107,7 +107,7 @@
 				"phraseTable4": {
 					"component": "PhraseTable",
 					"id": "phraseTable4",
-					"instructionsTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
+					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
 							"audio/lo3/dialogues/phraseTable1/013-quelles-langues-parlez-vous.mp3",
@@ -142,14 +142,14 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"titleText": "Vocabulary",
-		"instructionsTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p>",
+		"informationTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p>",
 		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core nationality and country vocabulary, including masculine and feminine forms.</li><li>How to identify country gender and number cues used with place names.</li><li>Useful question-and-answer patterns for origin and language use (for example <em>D&apos;où viens-tu ?</em>, <em>Quelles langues parles-tu ?</em>).</li><li>How vocabulary choices support accurate speaking and listening in real interaction.</li></ul>",
 		"content": [
 			{
 				"vocabulary1": {
 					"component": "PhraseTable",
 					"id": "vocabulary1",
-					"instructionsTextHTML": "<p>Read each term and play the audio to practise nationality and country vocabulary.</p>",
+					"informationTextHTML": "<p>Read each term and play the audio to practise nationality and country vocabulary.</p>",
 					"header": [
 						"",
 						"Nationalité",
@@ -321,7 +321,7 @@
 				"vocabulary2": {
 					"component": "PhraseTable",
 					"id": "vocabulary2",
-					"instructionsTextHTML": "<p>Use these model phrases to ask and answer where someone comes from and what languages they speak.</p>",
+					"informationTextHTML": "<p>Use these model phrases to ask and answer where someone comes from and what languages they speak.</p>",
 					"phrases": [
 						[
 							"audio/lo3/vocabulary/phraseTable5/125-parler.mp3",
