@@ -48,10 +48,6 @@ export class WordParts extends React.PureComponent {
 	};
 
 	handlePartWordClick = (e) => {
-		// console.log("handlePartWordClick");
-		// const {
-		// 	congratulationsText,
-		// } = this.state;
 		let {
 			nPlaced = 0,
 		} = this.state;
@@ -59,10 +55,6 @@ export class WordParts extends React.PureComponent {
 		e.target.classList.add("animate");
 		nPlaced++;
 		if (nPlaced === this.nToSolve){
-
-			// Last draggable tile placed
-			// const { showDialog } = this.props;
-			// showDialog(congratulationsText);
 			this.setState({
 				complete: true,
 			});

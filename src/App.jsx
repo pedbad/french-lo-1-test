@@ -7,7 +7,7 @@ import {
 	PhraseTable,
 	Section,
 } from "@/components/content";
-import { Congratulate, ErrorLog } from "@/components/feedback";
+import { ErrorLog } from "@/components/feedback";
 import {
 	DictationExercise,
 	DraggableFillGaps,
@@ -78,10 +78,8 @@ export default class App extends React.Component {
 
 		this.state = {
 			dark: false,
-			dialogContent: "",
 			errors: [],
 			languageCode: "fr",
-			showDialog: false,
 			showModalLinkDialog: false,
 			modalLinkDialogTitle: "",
 			modalLinkDialogContentHTML: "",
@@ -205,13 +203,6 @@ export default class App extends React.Component {
 			);
 			this.modalLinkDelegationSetup = false;
 		}
-	};
-
-	hideDialog = () => {
-		this.setState({
-			dialogContent: "",
-			showDialog: false,
-		});
 	};
 
 	showModalLinkDialog = (title, contentHTML, content) => {
@@ -863,7 +854,6 @@ export default class App extends React.Component {
 					<TypedTransformExercise
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "DictationExercise":
@@ -871,7 +861,6 @@ export default class App extends React.Component {
 					<DictationExercise
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "DraggableFillGaps":
@@ -879,7 +868,6 @@ export default class App extends React.Component {
 					<DraggableFillGaps
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "SelectExercise":
@@ -887,7 +875,6 @@ export default class App extends React.Component {
 					<SelectExercise
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "InlineChoiceGroup":
@@ -895,7 +882,6 @@ export default class App extends React.Component {
 					<InlineChoiceGroup
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "InlineTypedGapExercise":
@@ -903,7 +889,6 @@ export default class App extends React.Component {
 					<InlineTypedGapExercise
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "LineMatch":
@@ -911,7 +896,6 @@ export default class App extends React.Component {
 					<LineMatch
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "Explanation":
@@ -924,7 +908,6 @@ export default class App extends React.Component {
 						<Explanation
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</>
 				);
@@ -933,7 +916,6 @@ export default class App extends React.Component {
 					<MemoryMatchGame
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "Monologue":
@@ -941,7 +923,6 @@ export default class App extends React.Component {
 					<Monologue
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "PhraseTable":
@@ -949,7 +930,6 @@ export default class App extends React.Component {
 					<PhraseTable
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 						languageCode={languageCode}
 					/>
 				);
@@ -958,7 +938,6 @@ export default class App extends React.Component {
 					<RadioQuiz
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "SequenceOrder":
@@ -966,7 +945,6 @@ export default class App extends React.Component {
 					<SequenceOrder
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "Sortable":
@@ -974,7 +952,6 @@ export default class App extends React.Component {
 					<Sortable
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			case "WordParts":
@@ -982,7 +959,6 @@ export default class App extends React.Component {
 					<WordParts
 						config={value}
 						logError={this.logError}
-						showDialog={this.showDialog}
 					/>
 				);
 			default: {
@@ -1002,7 +978,6 @@ export default class App extends React.Component {
 								informationText={tabInformationText}
 								informationTextHTML={tabInformationTextHTML}
 							/>
-							<CustomComponent id={id} showDialog={this.showDialog} />
 						</>
 					);
 				}
@@ -1015,12 +990,10 @@ export default class App extends React.Component {
 		const {
 			config,
 			currentLearningObject,
-			dialogContent,
 			errors,
 			languageCode,
 			learningObjects = [],
 			refreshErrorLog,
-			showDialog = false,
 			showModalLinkDialog = false,
 			modalLinkDialogTitle = "",
 			modalLinkDialogContentHTML = "",
@@ -1110,13 +1083,6 @@ export default class App extends React.Component {
 							toggleDark={this.toggleDark}
 						/>
 
-						<Congratulate
-							className={`${showDialog ? "show" : ""}`}
-							enabled={settings ? settings.showCongratulations : null}
-							hideDialog={this.hideDialog}
-							id="congratulate-success"
-							content={dialogContent}
-						/>
 						{languageCode !== undefined ? (
 							<>
 								<div id="hero" aria-hidden="true">
@@ -1277,7 +1243,6 @@ export default class App extends React.Component {
 						<TypedTransformExercise
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1297,7 +1262,6 @@ export default class App extends React.Component {
 						<DictationExercise
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1317,7 +1281,6 @@ export default class App extends React.Component {
 						<DraggableFillGaps
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1337,7 +1300,6 @@ export default class App extends React.Component {
 						<SelectExercise
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1357,7 +1319,6 @@ export default class App extends React.Component {
 						<InlineChoiceGroup
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 					);
@@ -1377,7 +1338,6 @@ export default class App extends React.Component {
 							<InlineTypedGapExercise
 								config={value}
 								logError={this.logError}
-								showDialog={this.showDialog}
 							/>
 						</AccordionArticle>,
 					);
@@ -1397,7 +1357,6 @@ export default class App extends React.Component {
 							<LineMatch
 								config={value}
 								logError={this.logError}
-								showDialog={this.showDialog}
 							/>
 						</AccordionArticle>,
 					);
@@ -1418,7 +1377,6 @@ export default class App extends React.Component {
 							<Explanation
 								config={value}
 								logError={this.logError}
-								showDialog={this.showDialog}
 							/>
 						</AccordionArticle>,
 					);
@@ -1436,7 +1394,6 @@ export default class App extends React.Component {
 							<Explanation
 								config={value}
 								logError={this.logError}
-								showDialog={this.showDialog}
 							/>
 						</Section>,
 					);
@@ -1603,7 +1560,6 @@ export default class App extends React.Component {
 						<MemoryMatchGame
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1623,7 +1579,6 @@ export default class App extends React.Component {
 						<Monologue
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1644,7 +1599,6 @@ export default class App extends React.Component {
 							<PhraseTable
 								config={value}
 								logError={this.logError}
-								showDialog={this.showDialog}
 								languageCode={languageCode}
 							/>
 						</AccordionArticle>,
@@ -1663,7 +1617,6 @@ export default class App extends React.Component {
 							<PhraseTable
 								config={value}
 								logError={this.logError}
-								showDialog={this.showDialog}
 								languageCode={languageCode}
 							/>
 						</Section>,
@@ -1685,7 +1638,6 @@ export default class App extends React.Component {
 						<RadioQuiz
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1705,7 +1657,6 @@ export default class App extends React.Component {
 						<SequenceOrder
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1749,7 +1700,6 @@ export default class App extends React.Component {
 						<Sortable
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1769,7 +1719,6 @@ export default class App extends React.Component {
 						<WordParts
 							config={value}
 							logError={this.logError}
-							showDialog={this.showDialog}
 						/>
 					</AccordionArticle>,
 				);
@@ -1797,7 +1746,6 @@ export default class App extends React.Component {
 								title={titleText}
 								titleHTML={titleTextHTML}
 							>
-								<CustomComponent id={id} showDialog={this.showDialog} />
 							</AccordionArticle>,
 						);
 					} else {
@@ -1811,7 +1759,6 @@ export default class App extends React.Component {
 								title={titleText}
 								titleHTML={titleTextHTML}
 							>
-								<CustomComponent id={id} showDialog={this.showDialog} />
 							</Section>,
 						);
 					}
@@ -1835,10 +1782,4 @@ export default class App extends React.Component {
 		sessionStorage.setItem("currentLearningObject", index);
 	};
 
-	showDialog = (content) => {
-		this.setState({
-			dialogContent: content,
-			showDialog: true,
-		});
-	};
 }

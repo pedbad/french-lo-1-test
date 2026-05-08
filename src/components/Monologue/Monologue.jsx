@@ -71,20 +71,10 @@ export class Monologue extends React.PureComponent {
 	};
 
 	countCorrect = () => {
-		// console.log("countCorrect");
-		// const {
-		// 	congratulationsText,
-		// 	phrases,
-		// } = this.state;
 		let {
 			nCorrect,
 		} = this.state;
-		// let newNCorrect = nCorrect;
-		// const { showDialog } = this.props;
 		nCorrect++;
-		// if (nCorrect === phrases.length) {
-		// 	showDialog(congratulationsText);
-		// }
 		this.setState({
 			nCorrect: nCorrect,
 		});
