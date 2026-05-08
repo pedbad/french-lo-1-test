@@ -261,7 +261,6 @@
     "expandable": false,
     "heroSection": false,
     "id": "pronunciation",
-    "instructionsLayout": "stacked",
     "menuText": "Pronunciation",
     "content": [
       {
