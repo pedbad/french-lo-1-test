@@ -225,6 +225,27 @@ Pragmatic recommendation for future multilingual projects:
 - generate per-language/per-LO route files at build time
 - host as plain static files with no rewrite dependency
 
+## Pre-commit Quality Guards
+
+This repo includes a set of guard scripts that run automatically on every `git commit` via `.githooks/pre-commit`. One-time setup per developer clone:
+
+```bash
+bash scripts/setup-githooks.sh
+```
+
+| Script | What it blocks | Why |
+|--------|---------------|-----|
+| `check-typography-guard.sh` | Literal `font-size`/`line-height` in `px/rem/em`; literal `font-family` outside `src/styles/fonts.css` | Forces all typography through CSS tokens (`var(--font-size-base)` etc.) |
+| `check-color-guard.sh` | Hex colors (`#fff`), named colors (`black`, `white`), raw color functions (`rgb(...)`) outside allowlist | Forces all color through design tokens |
+| `check-a11y-guard.sh` | `role="button"` on `<header>`, `aria-label` on `<span>`/`<div>`, `title` on `<svg>`, spaces in `<img src>`, duplicate `id=""` values | Prevents W3C/accessibility regressions on every commit |
+| `check-scss-guard.sh` | `.scss`/`.sass` files in `src/`, SCSS imports in JS/JSX | Enforces zero-SCSS baseline — prevents drift back to SCSS |
+| `check-image-path-guard.sh` | New files under `public/images/` (legacy), non-ASCII/uppercase/spaced filenames in `public/img/`, source references to `/images/` paths | Enforces the completed image migration — `public/images/` is deleted |
+| `audio-unicode-guard.mjs` | Audio filenames/references with decomposed Unicode (NFD) | Prevents accent-normalization mismatches that cause 404s |
+
+Each guard can also be run manually on staged changes (`yarn check:<name>`) or against the branch diff vs `origin/main` (`yarn check:<name>:branch`). See individual sections below for details.
+
+---
+
 ## Typography Guardrails
 
 To prevent new hardcoded typography drifting back into SCSS/JSX, this repo includes a typography guard script.
@@ -235,22 +256,6 @@ Current policy:
 - Allows `font-family` only when tokenized, e.g. `font-family: var(--font-sans);`.
 - Blocks literal `font-family` declarations in new lines.
 - Exception: allows literal `font-family` only in `src/styles/fonts.css` for `@font-face` registration.
-
-### One-time setup (local pre-commit hook)
-
-```bash
-bash scripts/setup-githooks.sh
-```
-
-This configures git to use `.githooks/` in this repo, where pre-commit runs:
-
-```bash
-yarn -s check:typography
-yarn -s check:color
-yarn -s check:a11y
-yarn -s check:scss
-yarn -s check:image-path
-```
 
 ### Manual checks
 
