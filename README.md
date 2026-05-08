@@ -227,11 +227,17 @@ Pragmatic recommendation for future multilingual projects:
 
 ## Pre-commit Quality Guards
 
-This repo includes a set of guard scripts that run automatically on every `git commit` via `.githooks/pre-commit`. One-time setup per developer clone:
+This repo includes a set of guard scripts that run automatically on every `git commit` via `.githooks/pre-commit`.
+
+### New developer setup (one-time per clone)
 
 ```bash
 bash scripts/setup-githooks.sh
 ```
+
+This runs `git config core.hooksPath .githooks`, activating the pre-commit hook. Without this step, commits are not guarded locally.
+
+### Guards overview
 
 | Script | What it blocks | Why |
 |--------|---------------|-----|
@@ -243,6 +249,22 @@ bash scripts/setup-githooks.sh
 | `audio-unicode-guard.mjs` | Audio filenames/references with decomposed Unicode (NFD) | Prevents accent-normalization mismatches that cause 404s |
 
 Each guard can also be run manually on staged changes (`yarn check:<name>`) or against the branch diff vs `origin/main` (`yarn check:<name>:branch`). See individual sections below for details.
+
+### Linting changed files only
+
+`scripts/lint-changed.sh` is not a guard — it's a targeted ESLint runner that only lints files changed on the current branch vs `origin/main`. Use this instead of `yarn lint` to avoid having to fix the entire repo's historical lint baseline before committing.
+
+```bash
+# lint files changed vs origin/main
+yarn lint:changed
+
+# lint only staged files
+yarn lint:changed:staged
+```
+
+### Color guard allowlist
+
+If you legitimately need to add raw color values to a new file (for example a new token definition file), add the file path to `scripts/color-allowlist.txt`. Currently only `src/index.css` is listed, because that is where the token values themselves must be defined.
 
 ---
 
