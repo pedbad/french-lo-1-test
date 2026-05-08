@@ -1,6 +1,5 @@
 export * from '../Accordion';
 export * from '../Explanation';
-export * from '../Figure';
 export * from '../Info';
 export * from '../InstructionCallout';
 export * from '../ModalLinkDialog/ModalLinkDialog';
