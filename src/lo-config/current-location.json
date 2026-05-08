@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo4/current-location.svg",
 			"alt": "Current location illustration"
@@ -337,7 +336,6 @@
 					"sampleSize": 8,
 					"showHintsText": "Show hints when moving",
 					"titleText": "2. Practise saying where people live",
-					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "Ma famille habite [à|*au|en|aux|dans le] Canada."

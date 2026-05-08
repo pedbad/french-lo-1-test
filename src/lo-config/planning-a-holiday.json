@@ -1,6 +1,5 @@
 {
   "settings": {
-    "targetLanguageCode": "fr-FR",
     "introHTML": "<p>This lesson teaches you how to talk about holiday plans in French. You will practise saying where you are going, what you are going to do, how you will travel, and what the weather is like.</p>",
     "introImage": {
       "src": "img/lo15/planning-a-holiday.svg",
@@ -367,8 +366,6 @@
         "selectExerciseWeather": {
           "component": "SelectExercise",
           "id": "selectExerciseWeather",
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "shuffleItems": true,
           "items": [
             {
@@ -413,8 +410,6 @@
         "inlineChoiceGroup1": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup1",
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "informationTextHTML": "Listen to each sentence and choose the correct verb form to complete Adèle's holiday description. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "items": [
             {
@@ -512,7 +507,6 @@
         "draggableFillGaps2": {
           "component": "DraggableFillGaps",
           "id": "draggableFillGaps2",
-          "showHintsText": "Hints",
           "cheatText": "Show answer",
           "blanksType": "phrases",
           "items": [

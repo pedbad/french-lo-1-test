@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"targetLanguageCode": "fr-FR",
 		"introHTML": "<p>This lesson teaches learners how to talk about university studies in French, including degree programmes, years of study, lectures, seminars, tutorials, and academic workload. It introduces useful expressions such as <em>faire des études</em>, <em>faire une licence</em>, <em>faire un master</em>, and <em>avoir un emploi du temps chargé</em>.</p><p>It also practises how to describe subjects, student life, essays, research, and the feelings that often go with study, such as being <em>fatigué(e)</em>, <em>occupé(e)</em>, or <em>stressé(e)</em>.</p>",
 		"introImage": {
 			"src": "img/lo14/studying-at-university.svg",
@@ -433,14 +432,11 @@
 		"content": [
 			{
 				"selectExercise1": {
-					"cheatText": "Show answers",
 					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"instructionsText": "Listen to the full audio or each sentence, then choose the correct word or phrase to complete the conversation.",
-					"listenDescriptionText": "Full audio",
 					"renderInlineChoices": true,
 					"useSequenceAudioController": true,
-					"showHintsText": "Hints",
 					"items": [
 						{
 							"text": "Qu'est-ce que tu fais [*comme|en|de|pour|avec|sur] études ?",
@@ -486,11 +482,9 @@
 			{
 				"inlineTypedGapExercise1": {
 					"component": "InlineTypedGapExercise",
-					"cheatText": "Show answers",
 					"id": "inlineTypedGapExercise1",
 					"instructionsText": "Listen to the audio and type the missing French words into each comme question pattern.",
 					"informationTextHTML": "<p>Use the English and the audio to complete each French question. Type the missing words directly into the fixed <em>Qu'est-ce que ... comme ... ?</em> pattern so it becomes automatic. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
-					"listenDescriptionText": "Full audio",
 					"useSequenceAudioController": true,
 					"items": [
 						{
@@ -545,7 +539,6 @@
 					"renderInlineChoices": true,
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "Je [*dois|doit|devons|devez|doivent] écrire une dissertation ce week-end.",
@@ -596,7 +589,6 @@
 					"renderInlineChoices": true,
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "Je [*peux|peut|pouvons|pouvez|peuvent] ouvrir la fenêtre, s'il vous plaît ?",
@@ -642,7 +634,6 @@
 			{
 				"inlineTypedGapExercise2": {
 					"component": "InlineTypedGapExercise",
-					"cheatText": "Show answers",
 					"id": "inlineTypedGapExercise2",
 					"instructionsText": "Type the present participle used as an adjective in each gap.",
 					"items": [
@@ -669,7 +660,6 @@
 			{
 				"inlineTypedGapExercise3": {
 					"component": "InlineTypedGapExercise",
-					"cheatText": "Show answers",
 					"id": "inlineTypedGapExercise3",
 					"instructionsText": "Type the past participle used as an adjective in each gap.",
 					"items": [

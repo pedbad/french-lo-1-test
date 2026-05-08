@@ -1,6 +1,5 @@
 {
   "settings": {
-    "targetLanguageCode": "fr-FR",
     "introImage": {
       "src": "img/lo12/out-and-about-shopping.svg",
       "alt": "Shopping in the market illustration"
@@ -372,8 +371,6 @@
           "instructionsText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "Amel [vais|vas|*va|allons|allez|vont] à la piscine.",
@@ -435,8 +432,6 @@
           "instructionsText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "trois bouteilles [*de|d'|du|de la|de l'|des] vin rouge",
@@ -474,8 +469,6 @@
           "instructionsText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "[de|d'|du|*de la|de l'|des] salade",
@@ -582,9 +575,6 @@
         "inlineChoiceGroup1": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup1",
-          "listenDescriptionText": "Full audio",
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "sampleSize": 10,
           "shuffleItems": true,
           "soundFile": "audio/lo12/exercises/035-lo12ex4.mp3",

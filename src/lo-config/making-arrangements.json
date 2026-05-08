@@ -1,6 +1,5 @@
 {
   "settings": {
-    "targetLanguageCode": "fr-FR",
     "introImage": {
       "src": "img/lo10/making-arrangements.svg",
       "alt": "Making arrangements illustration"
@@ -367,10 +366,7 @@
           "component": "SelectExercise",
           "id": "selectExercise1",
           "informationTextHTML": "Listen to the poem <strong>Chacun à son goût&nbsp;!</strong> and choose the correct form of <strong>vouloir</strong> for each line. Work through the whole poem first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-          "listenDescriptionText": "Full audio",
           "layoutMode": "inline-passage",
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "useSequenceAudioController": true,
           "items": [
             {
@@ -435,8 +431,6 @@
           "id": "selectExercise2",
           "informationTextHTML": "Play each French sentence and choose the matching English meaning. Work through all the items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "shuffleItems": true,
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "Martin veut acheter un vélo. [*Martin wants to buy a bike.|My friends want to visit the old town.|We want to play badminton tomorrow evening.|I want to go to the cinema on Friday.|Angèle wants to have a drink with her friends.|I don't want to sing in the choir.]",
@@ -487,8 +481,6 @@
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup3",
           "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "Je vais [au|*à la|à l'|aux] bibliothèque.",

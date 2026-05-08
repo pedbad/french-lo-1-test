@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo2/about-me.svg",
 			"alt": "About me themed illustration"
@@ -296,7 +295,6 @@
 					"instructionsText": "Match each question with the correct answer.",
 					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. When you finish, use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions.",
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "Salut les enfants ! Tout va bien ? [*Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",

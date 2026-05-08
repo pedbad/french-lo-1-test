@@ -98,6 +98,7 @@ export default class App extends React.Component {
 		this.modalLinkDelegationSetup = false;
 		this.handleDelegatedModalLinkClick = null;
 		this.handleDelegatedModalTargetClick = null;
+		this.sharedSettings = {};
 	}
 
 	componentDidMount = () => {
@@ -130,7 +131,12 @@ export default class App extends React.Component {
 
 		// Always load the index so the menu/landing page can render.
 		// Then resolve ?lo by numeric id OR slug, while keeping backward compatibility.
-		this.loadIndex(-1).then(({ learningObjects = [] }) => {
+		const sharedPromise = fetch("/shared-settings.json")
+			.then((r) => r.json())
+			.catch(() => ({}));
+
+		Promise.all([this.loadIndex(-1), sharedPromise]).then(([{ learningObjects = [] }, shared]) => {
+			this.sharedSettings = shared;
 			const loPathRaw = this.getLearningObjectPathParam(learningObjects);
 			const loSelectorRaw = loPathRaw || loParamRaw;
 			const resolvedLo = this.resolveLearningObjectParam(
@@ -160,7 +166,6 @@ export default class App extends React.Component {
 				loId,
 			);
 			this.initialiseModalLinks();
-	
 		});
 
 		if (sessionStorage.getItem(`dark`)) {
@@ -404,6 +409,32 @@ export default class App extends React.Component {
 		this.modalLinkDelegationSetup = true;
 	};
 
+	injectSharedExerciseDefaults = (node) => {
+		if (Array.isArray(node)) {
+			return node.map((item) => this.injectSharedExerciseDefaults(item));
+		}
+		if (!node || typeof node !== "object") return node;
+
+		const result = { ...node };
+
+		if (result.component) {
+			const EXERCISE_KEYS = ["cheatText", "showHintsText", "listenDescriptionText"];
+			for (const key of EXERCISE_KEYS) {
+				if (!(key in result) && key in this.sharedSettings) {
+					result[key] = this.sharedSettings[key];
+				}
+			}
+		}
+
+		Object.keys(result).forEach((key) => {
+			if (result[key] && typeof result[key] === "object") {
+				result[key] = this.injectSharedExerciseDefaults(result[key]);
+			}
+		});
+
+		return result;
+	};
+
 	loadConfig = (configFile, learningObjectConfigFile) => {
 		const headers = new Headers();
 		headers.append("Content-Type", "application/json");
@@ -420,12 +451,16 @@ export default class App extends React.Component {
 				.then((res) => {
 					const { settings } = res;
 					delete res["settings"];
-					const normalizedConfig = this.normalizeInstructionSchemaNode(res);
+					const normalizedConfig = this.injectSharedExerciseDefaults(
+						this.normalizeInstructionSchemaNode(res),
+					);
 					const normalizedSettings =
             this.normalizeInstructionSchemaNode(settings);
-					const { class: configClass, targetLanguageCode } = normalizedSettings;
+					const mergedSettings = { ...this.sharedSettings, ...normalizedSettings };
+					const { class: configClass, targetLanguageCode, textDirection = "ltr" } = mergedSettings;
 					if (configClass)
 						document.getElementsByTagName("html")[0].classList.add(configClass);
+					document.documentElement.setAttribute("dir", textDirection);
 
 					const currentLearningObject = learningObjectConfigFile;
 
@@ -433,7 +468,7 @@ export default class App extends React.Component {
 						{
 							config: { ...normalizedConfig },
 							currentLearningObject: currentLearningObject,
-							settings: { ...normalizedSettings },
+							settings: { ...mergedSettings },
 							targetLanguageCode,
 						},
 						() => resolve({ targetLanguageCode }),

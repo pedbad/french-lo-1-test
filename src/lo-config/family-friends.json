@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo6/family-friends-neighbours.svg",
 			"alt": "Family and friends illustration"
@@ -345,7 +344,6 @@
 					"instructionsText": "Listen to the speakers and select what you hear.",
 					"informationTextHTML": "Play each audio clip and choose the French sentence that matches what you hear. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions.",
 					"showHintsText": "Show hints when moving",
-					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "[J'ai des sœurs.|*J'ai deux sœurs.|Je n'ai pas de sœurs.]",

@@ -1,6 +1,5 @@
 {
   "settings": {
-    "targetLanguageCode": "fr-FR",
     "introImage": {
       "src": "img/lo8/free-time.svg",
       "alt": "Free time illustration"
@@ -387,7 +386,6 @@
               "image": "img/lo8/exercises/vocabulary/shopping.svg"
             }
           ],
-          "showHintsText": "Hints",
           "titleText": "1. Practise your free-time vocabulary"
         }
       },
@@ -398,8 +396,6 @@
           "instructionsText": "Choose the correct partitive article or instrument form.",
           "informationTextHTML": "Read each sentence and choose the correct form to complete it. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "shuffleItems": true,
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "Je fais [*du|de la|de l'|des] shopping.",
@@ -452,8 +448,6 @@
           "instructionsText": "Choose au, à la, à l', or aux as appropriate.",
           "informationTextHTML": "Read each sentence and choose the correct contracted form after <em>jouer à</em>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "shuffleItems": false,
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "Le lundi, il joue [*au|à la|à l'|aux] foot.",
@@ -495,8 +489,6 @@
           "informationTextHTML": "Play each audio clip and choose the activity that matches what you hear. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
           "renderInlineChoices": true,
           "shuffleItems": true,
-          "showHintsText": "Hints",
-          "cheatText": "Show answers",
           "items": [
             {
               "text": "Je fais [de l'équitation|de la course d'orientation|*de la natation].",
@@ -542,7 +534,6 @@
           "id": "draggableFillGaps1",
           "instructionsText": "Drag each word into the correct gap.",
           "informationTextHTML": "Complete each short description by dragging the missing words into the correct gaps. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-          "showHintsText": "Hints",
           "items": [
             {
               "text": "Je ne fais pas [grand-chose]. Je fais la [grasse matinée]. Je vois mes [amis]. Quelquefois, je vais au [cinéma] ou je vais en [boîte]. Ça dépend !",

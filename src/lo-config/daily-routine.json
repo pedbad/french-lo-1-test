@@ -1,6 +1,5 @@
 {
 	"settings": {
-		"targetLanguageCode": "fr-FR",
 		"introImage": {
 			"src": "img/lo13/daily-routine.svg",
 			"alt": "Daily routine illustration"
@@ -337,14 +336,11 @@
 					"id": "selectExercise1",
 					"instructionsText": "Listen to the full audio or each sentence, then choose the correct reflexive pronoun.",
 					"informationTextHTML": "Play the full audio first, then fill each gap with the correct reflexive pronoun. You can replay each sentence individually as needed. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-					"listenDescriptionText": "Full audio",
 					"renderInlineChoices": true,
 					"shuffleItems": true,
 					"sampleSize": 8,
 					"soundFile": "audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3",
 					"useSequenceAudioController": true,
-					"showHintsText": "Hints",
-					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "Je [m'|*me|t'|te|s'|se|nous|vous] réveille à huit heures. (se réveiller)",
@@ -406,7 +402,6 @@
 					"id": "draggableFillGaps1",
 					"instructionsText": "Complete the description by dragging each word into the correct gap.",
 					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
-					"showHintsText": "Hints",
 					"items": [
 						{
 							"text": "Je me réveille tous les matins à six heures et demie et je [me lève] tout de suite."
@@ -441,8 +436,6 @@
 					"informationTextHTML": "Listen to each audio clip and choose the matching time. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"shuffleItems": true,
 					"sampleSize": 8,
-					"showHintsText": "Hints",
-					"cheatText": "Show answers",
 					"items": [
 						{
 							"text": "[*6h00|7h00|8h00]",
@@ -506,12 +499,10 @@
 			},
 			{
 				"radioQuiz1": {
-					"cheatText": "Show answers",
 					"component": "RadioQuiz",
 					"id": "dailyRoutineASummersDay",
 					"informationTextHTML": "Listen to Véronique describing a typical summer&apos;s day, then decide whether each statement is true (<em>vrai</em>) or false (<em>faux</em>). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
 					"instructionsText": "Listen to the full audio, then decide whether each statement is true or false.",
-					"listenDescriptionText": "Full audio",
 					"options": [
 						"Vrai",
 						"Faux"
