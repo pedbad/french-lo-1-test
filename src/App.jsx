@@ -3,7 +3,6 @@ import {
 	Explanation,
 	Info,
 	ModalLinkDialog,
-	Monologue,
 	PhraseTable,
 	Section,
 } from "@/components/content";
@@ -918,13 +917,6 @@ export default class App extends React.Component {
 						logError={this.logError}
 					/>
 				);
-			case "Monologue":
-				return (
-					<Monologue
-						config={value}
-						logError={this.logError}
-					/>
-				);
 			case "PhraseTable":
 				return (
 					<PhraseTable
@@ -1558,25 +1550,6 @@ export default class App extends React.Component {
 						titleHTML={titleTextHTML}
 					>
 						<MemoryMatchGame
-							config={value}
-							logError={this.logError}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "Monologue": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<Monologue
 							config={value}
 							logError={this.logError}
 						/>
