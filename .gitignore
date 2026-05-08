@@ -24,6 +24,7 @@ dist-ssr
 .DS_Store
 __MACOSX/
 scratch/
+.claude/
 Screenshot *.png
 *.suo
 *.ntvs*
