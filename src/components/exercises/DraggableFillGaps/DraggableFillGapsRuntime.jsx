@@ -850,7 +850,7 @@ export class DraggableFillGapsRuntime extends React.Component {
 		} = this.state;
 
 		const { wordTiles } = this.state;
-		const { config, logError } = this.props;
+		const { config } = this.props;
 		const { informationText, informationTextHTML } = config;
 
 		const phraseList = [];
@@ -1042,8 +1042,7 @@ export class DraggableFillGapsRuntime extends React.Component {
 			}
 
 			default: {
-				const action = "Not a valid type of Blanks";
-				logError(action, { message: "Not a valid type of Blanks" });
+				console.error("Not a valid type of Blanks");
 			}
 		}
 

@@ -6,7 +6,7 @@ import {
 	PhraseTable,
 	Section,
 } from "@/components/content";
-import { ErrorLog } from "@/components/feedback";
+
 import {
 	DictationExercise,
 	DraggableFillGaps,
@@ -77,7 +77,6 @@ export default class App extends React.Component {
 
 		this.state = {
 			dark: false,
-			errors: [],
 			languageCode: "fr",
 			showModalLinkDialog: false,
 			modalLinkDialogTitle: "",
@@ -100,20 +99,6 @@ export default class App extends React.Component {
 		this.handleDelegatedModalLinkClick = null;
 		this.handleDelegatedModalTargetClick = null;
 	}
-
-	clearError = (index) => {
-		const { errors } = this.state;
-		errors.splice(index, 1);
-		this.setState({
-			errors: errors,
-		});
-	};
-
-	clearLog = () => {
-		this.setState({
-			errors: [],
-		});
-	};
 
 	componentDidMount = () => {
 		if (typeof window !== "undefined") {
@@ -455,8 +440,7 @@ export default class App extends React.Component {
 					);
 				})
 				.catch((error) => {
-					const action = `Loading configuration`;
-					this.logError(action, error);
+					console.error("Loading configuration", error);
 					reject();
 				});
 		});
@@ -670,56 +654,9 @@ export default class App extends React.Component {
 				return { learningObjects, siteTitle };
 			})
 			.catch((error) => {
-				const action = `Loading index`;
-				this.logError(action, error);
+				console.error("Loading index", error);
 				return { learningObjects: [], siteTitle: "" };
 			});
-	};
-
-	logError = (action, ...params) => {
-		const { errors, refreshErrorLog } = this.state;
-		if (params.length === 1) {
-			const [error] = params;
-			const {
-				detail,
-				error_code: errorCode,
-				error_message: errorMessage,
-				message,
-				status,
-				statusText = "",
-			} = error;
-			let Message = "";
-			let Status = "";
-			if (errorCode && errorMessage) {
-				Message += errorMessage;
-				Status += errorCode;
-			}
-			if (status) Status = status;
-			if (message) Message += message;
-			if (detail) Message += detail;
-
-			errors.push({
-				action: action,
-				message: Message,
-				statusCode: Status,
-				statusText: statusText,
-			});
-		} else {
-			const [statusCode = "", statusText = "", message = ""] = params;
-
-			errors.push({
-				action: action,
-				message: message,
-				statusCode: statusCode,
-				statusText: statusText,
-			});
-		}
-
-		this.setState({
-			errors: errors,
-			refreshErrorLog: !refreshErrorLog,
-			showSpinner: false,
-		});
 	};
 
 	setDark = (dark) => {
@@ -852,49 +789,42 @@ export default class App extends React.Component {
 				return (
 					<TypedTransformExercise
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "DictationExercise":
 				return (
 					<DictationExercise
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "DraggableFillGaps":
 				return (
 					<DraggableFillGaps
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "SelectExercise":
 				return (
 					<SelectExercise
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "InlineChoiceGroup":
 				return (
 					<InlineChoiceGroup
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "InlineTypedGapExercise":
 				return (
 					<InlineTypedGapExercise
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "LineMatch":
 				return (
 					<LineMatch
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "Explanation":
@@ -906,7 +836,6 @@ export default class App extends React.Component {
 						/>
 						<Explanation
 							config={value}
-							logError={this.logError}
 						/>
 					</>
 				);
@@ -914,14 +843,12 @@ export default class App extends React.Component {
 				return (
 					<MemoryMatchGame
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "PhraseTable":
 				return (
 					<PhraseTable
 						config={value}
-						logError={this.logError}
 						languageCode={languageCode}
 					/>
 				);
@@ -929,28 +856,24 @@ export default class App extends React.Component {
 				return (
 					<RadioQuiz
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "SequenceOrder":
 				return (
 					<SequenceOrder
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "Sortable":
 				return (
 					<Sortable
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			case "WordParts":
 				return (
 					<WordParts
 						config={value}
-						logError={this.logError}
 					/>
 				);
 			default: {
@@ -982,10 +905,8 @@ export default class App extends React.Component {
 		const {
 			config,
 			currentLearningObject,
-			errors,
 			languageCode,
 			learningObjects = [],
-			refreshErrorLog,
 			showModalLinkDialog = false,
 			modalLinkDialogTitle = "",
 			modalLinkDialogContentHTML = "",
@@ -1054,13 +975,6 @@ export default class App extends React.Component {
               Skip to main content
 						</a>
 
-						<ErrorLog
-							dialog={this.dialog}
-							errors={errors}
-							clearLog={this.clearLog}
-							clearError={this.clearError}
-							refreshErrorLog={refreshErrorLog}
-						/>
 						<ModalLinkDialog
 							open={showModalLinkDialog}
 							title={modalLinkDialogTitle}
@@ -1234,7 +1148,6 @@ export default class App extends React.Component {
 					>
 						<TypedTransformExercise
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1253,7 +1166,6 @@ export default class App extends React.Component {
 					>
 						<DictationExercise
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1272,7 +1184,6 @@ export default class App extends React.Component {
 					>
 						<DraggableFillGaps
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1291,7 +1202,6 @@ export default class App extends React.Component {
 					>
 						<SelectExercise
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1310,7 +1220,6 @@ export default class App extends React.Component {
 					>
 						<InlineChoiceGroup
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 					);
@@ -1329,7 +1238,6 @@ export default class App extends React.Component {
 						>
 							<InlineTypedGapExercise
 								config={value}
-								logError={this.logError}
 							/>
 						</AccordionArticle>,
 					);
@@ -1348,7 +1256,6 @@ export default class App extends React.Component {
 						>
 							<LineMatch
 								config={value}
-								logError={this.logError}
 							/>
 						</AccordionArticle>,
 					);
@@ -1368,7 +1275,6 @@ export default class App extends React.Component {
 						>
 							<Explanation
 								config={value}
-								logError={this.logError}
 							/>
 						</AccordionArticle>,
 					);
@@ -1385,7 +1291,6 @@ export default class App extends React.Component {
 						>
 							<Explanation
 								config={value}
-								logError={this.logError}
 							/>
 						</Section>,
 					);
@@ -1551,7 +1456,6 @@ export default class App extends React.Component {
 					>
 						<MemoryMatchGame
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1571,7 +1475,6 @@ export default class App extends React.Component {
 						>
 							<PhraseTable
 								config={value}
-								logError={this.logError}
 								languageCode={languageCode}
 							/>
 						</AccordionArticle>,
@@ -1589,7 +1492,6 @@ export default class App extends React.Component {
 						>
 							<PhraseTable
 								config={value}
-								logError={this.logError}
 								languageCode={languageCode}
 							/>
 						</Section>,
@@ -1610,7 +1512,6 @@ export default class App extends React.Component {
 					>
 						<RadioQuiz
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1629,7 +1530,6 @@ export default class App extends React.Component {
 					>
 						<SequenceOrder
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1672,7 +1572,6 @@ export default class App extends React.Component {
 					>
 						<Sortable
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
@@ -1691,7 +1590,6 @@ export default class App extends React.Component {
 					>
 						<WordParts
 							config={value}
-							logError={this.logError}
 						/>
 					</AccordionArticle>,
 				);
