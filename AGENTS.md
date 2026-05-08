@@ -32,7 +32,7 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - Styling single source of truth lives in `src/index.css` via shadcn tokens + custom theme tokens (`--page-background`, `--hero-title-color`, `--footer-background`).
 - Tailwind utilities consume these tokens via `tailwind.config.js`; shadcn components live in `src/components/ui/`.
 - SCSS has been fully removed from app source. Global/component styling now lives in `src/index.css` + Tailwind utilities.
-- Vite already copies `public/` assets during build. Do not add `viteStaticCopy` targets for `public/audio`, `public/fonts`, `public/img`, legacy `public/images`, or legacy `public/sounds` (it causes duplicated `dist` trees).
+- Vite already copies `public/` assets during build. Do not add `viteStaticCopy` targets for `public/audio`, `public/fonts`, `public/img`, or legacy `public/sounds` (it causes duplicated `dist` trees). Note: `public/images/` has been fully removed — all assets now live under `public/img/`.
 - Typography guard policy (`scripts/check-typography-guard.sh`):
   - blocks new literal `font-size` values with `px/rem/em`
   - blocks new literal `line-height` values with `px/rem/em`

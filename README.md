@@ -910,7 +910,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO8_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
-  - old `public/images/memory/...` sources remain until image references are fully audited.
+  - `public/images/memory/...` copies have been removed; active images now live under `public/img/`.
 
 ## LO9 Audio Migration Status
 
@@ -1007,7 +1007,7 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO15_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
-  - old `public/images/...` sources remain until image references are fully audited.
+  - `public/images/` has been fully removed; all assets now live under `public/img/`.
 
 ## Shared Table Variants
 

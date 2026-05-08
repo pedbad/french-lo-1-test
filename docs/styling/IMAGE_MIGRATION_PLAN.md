@@ -1,5 +1,9 @@
 # Image Migration Plan (`public/images` -> `public/img`)
 
+## Status: COMPLETE
+
+`public/images/` has been fully deleted. All active assets now live under `public/img/`.
+
 ## Goal
 
 Create a clean, scalable image layout like audio migration:
@@ -9,32 +13,6 @@ Create a clean, scalable image layout like audio migration:
 - strict naming policy (ASCII-safe, no spaces, lowercase)
 
 This lets us add new designer assets safely without reintroducing path bugs.
-
-## Current Audit Snapshot
-
-Audit scope: source references in `src/`, LO JSON config, CSS, and debug inventory.
-
-- Remaining files in `public/images`: `161`
-- Largest groups:
-  - `memory-food`: `37`
-  - `memory-transport`: `31`
-  - `memory`: `30`
-  - `memory-animals`: `20`
-  - `memory-rooms`: `12`
-  - `icons`: `7`
-  - plus singleton/shared branding + utility files
-
-LO JSON files with image references:
-
-- `1.json`: `3`
-- `2.json`: `2`
-- `5.json`: `13`
-- `7.json`: `15`
-- `8.json`: `15`
-- `15.json`: `12`
-- `demo.json`: `116`
-
-Cross-LO repeated assets already exist (for example `memory-*`, `handshake.png`, `shh.jpg`), so a shared folder is required to avoid duplication.
 
 ## Target Structure
 
@@ -119,22 +97,8 @@ Example conversions:
     - `check:image-path:branch`
   - `prepush:local` now includes `yarn check:image-path:branch`
 
-## Next Recommended Migration Batch
+## Migration Complete
 
-1. Migrate app shell assets:
-   - `images/fr_banner.svg`
-   - `images/first-contact.svg`
-   - `images/grammar.svg`
-   - footer logo PNGs
-   - icon mask assets currently read from `/images/icons/*`
-2. Update:
-   - `src/App.jsx`
-   - `src/components/Footer/Footer.jsx`
-   - `src/index.css`
-   - `src/debug/components/DebugSvgAssets.jsx`
-   - LO JSON refs that use those assets
-3. Run:
-   - `yarn build`
-   - `yarn preview`
-   - focused LO smoke test (`?lang=fr&lo=1`)
+All batches done. `public/images/` deleted. Active icons migrated to `public/img/shared/icons/`.
+CSS paths in `src/index.css` and JS refs in `DebugSvgAssets.jsx` and `ProgressDots.jsx` updated accordingly.
 
