@@ -4020,66 +4020,6 @@ html {
 html.debug .blanks-container .target-board .word.blank span {
   opacity: 0.2;
 }
-html.can-speak #content .modal-link,
-html.can-speak #content .modal-link:visited {
-  color: var(--modal-link-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-  transition: color 220ms ease, text-decoration-color 220ms ease;
-}
-html.can-speak #content .modal-link {
-  text-decoration-color: var(--modal-link-underline);
-}
-html.can-speak #content .modal-link:visited {
-  color: var(--modal-link-visited);
-  text-decoration-color: color-mix(in oklab, var(--modal-link-visited) 60%, transparent);
-}
-html.can-speak #content .modal-link:hover,
-html.can-speak #content .modal-link:focus-visible {
-  color: var(--modal-link-hover);
-  text-decoration-color: var(--modal-link-underline-hover);
-  font-weight: 700;
-}
-html.can-speak #content .speak {
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
-html.can-speak #content .modal-link {
-  position: relative;
-  padding-right: 22px;
-}
-html.can-speak #content .modal-link::before, html.can-speak #content .modal-link::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  pointer-events: none;
-}
-html.can-speak #content .modal-link::before {
-  width: 20px;
-  height: 20px;
-  transform: translateY(-50%);
-  background-color: currentColor;
-  -webkit-mask-image: url("/img/shared/icons/message-square-warning.svg");
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: contain;
-  mask-image: url("/img/shared/icons/message-square-warning.svg");
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-}
-html.can-speak #content .modal-link::after {
-  display: none;
-}
-html.can-speak #SpeechSynthesisError {
-  display: none;
-  animation-name: none;
-}
-
 .flash {
   animation-name: flash-animation;
   animation-duration: 1000ms;

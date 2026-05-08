@@ -27,8 +27,6 @@ import { resolveAsset } from "./utils/assets";
 import { handleResponse } from "./utils/network";
 import { handleModalLinkClick } from "./utils/dom";
 import { playAudioLink } from "./utils/audioPlayback";
-import { isTouchChrome } from "./utils/device";
-import { speak } from "./utils/speech";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import {
@@ -180,7 +178,7 @@ export default class App extends React.Component {
 				loId,
 			);
 			this.initialiseModalLinks();
-			configPromise.then(this.initialiseSynth);
+	
 		});
 
 		if (sessionStorage.getItem(`dark`)) {
@@ -213,13 +211,6 @@ export default class App extends React.Component {
 		this.setState({
 			dialogContent: "",
 			showDialog: false,
-		});
-	};
-
-	hideSpeechError = () => {
-		this.setState({
-			dialogContent: "",
-			showSpeechError: false,
 		});
 	};
 
@@ -436,86 +427,6 @@ export default class App extends React.Component {
 			true,
 		);
 		this.modalLinkDelegationSetup = true;
-	};
-
-	initialiseSpeeches = (synth, targetLanguageCode, voices) => {
-		const speeches = document.querySelectorAll(".speak");
-		speeches.forEach((speech) => {
-			if (targetLanguageCode && synth && voices && voices.length >= 1) {
-        console.error("There's a '.speak' that I missed"); // eslint-disable-line
-				if (speech.setup !== true && speech.getAttribute("setup") !== true) {
-					speech.setAttribute("aria-label", "Non-selectable text");
-					speech.setAttribute("setup", "true");
-					speech.addEventListener("click", (e) =>
-						speak(e, synth, targetLanguageCode, voices),
-					);
-					speech.setup = true;
-				}
-			}
-		});
-
-		const audioLinks = document.querySelectorAll(".audio-link");
-		audioLinks.forEach((audioLink) => {
-			if (
-				audioLink.setup !== true &&
-        audioLink.getAttribute("setup") !== true
-			) {
-				const soundFile = audioLink.getAttribute("sound-file");
-				if (soundFile !== null) {
-					audioLink.setAttribute("setup", "true");
-					audioLink.addEventListener("click", () => playAudioLink(soundFile));
-					audioLink.setup = true;
-				}
-			}
-		});
-	};
-
-	initialiseSynth = () => {
-		const { targetLanguageCode } = this.state;
-		const synth = window.speechSynthesis;
-
-		const mediaContent = window
-			.getComputedStyle(document.body, "::before")
-			.getPropertyValue("content");
-
-		const isFirefox = /firefox/i.test(navigator.userAgent);
-
-		const sortVoices = (voices) =>
-			voices.sort((a, b) =>
-				a.lang.localeCompare(b.lang, undefined, { sensitivity: "base" }),
-			);
-
-		const filterVoicesByLang = (voices, lang) =>
-			voices.filter((voice) => voice.lang === lang);
-
-		const enableSpeech = (voices) => {
-			const filteredVoices = filterVoicesByLang(
-				sortVoices(voices),
-				targetLanguageCode,
-			);
-			this.initialiseSpeeches(synth, targetLanguageCode, filteredVoices);
-			document.documentElement.classList.add("can-speak");
-			this.setState({ showSpeechError: false });
-		};
-
-		if (isFirefox) {
-			setTimeout(() => {
-				const voices = synth.getVoices();
-				enableSpeech(voices);
-			}, 1000);
-		}
-
-		synth.onvoiceschanged = () => {
-			if (
-				(mediaContent[1] === "S" || mediaContent[1] === "M") &&
-        isTouchChrome()
-			) {
-				// Chrome touch workaround, do nothing
-			} else {
-				const voices = synth.getVoices();
-				enableSpeech(voices);
-			}
-		};
 	};
 
 	loadConfig = (configFile, learningObjectConfigFile) => {
@@ -1114,7 +1025,6 @@ export default class App extends React.Component {
 			modalLinkDialogTitle = "",
 			modalLinkDialogContentHTML = "",
 			settings,
-			showSpeechError = false,
 			siteTitle,
 		} = this.state;
 		const topLevelSections = [];
@@ -1207,14 +1117,6 @@ export default class App extends React.Component {
 							id="congratulate-success"
 							content={dialogContent}
 						/>
-						<Congratulate
-							className={`${showSpeechError ? "show" : ""}`}
-							enabled={true}
-							hideDialog={this.hideSpeechError}
-							id="SpeechSynthesisError"
-							content={`This browser cannot perform speech synthesis. Please use a larger device and a browser such as Chrome`}
-						/>
-
 						{languageCode !== undefined ? (
 							<>
 								<div id="hero" aria-hidden="true">
