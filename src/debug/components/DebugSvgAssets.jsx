@@ -32,18 +32,12 @@ import {
 	Youtube,
 } from 'lucide-react';
 import franceTelephoneMapUrl from '@/assets/lo9/france-telephone-area-codes.svg';
-import copyIconUrl from '@/components/ErrorLog/copy.svg';
-import upArrowIconUrl from '@/components/ErrorLog/upArrow.svg';
-import whiteCrossIconUrl from '@/components/ErrorLog/whiteCross.svg';
 import React from 'react';
 
 const USED_BADGE_CLASS = 'border-emerald-500/70 bg-transparent text-emerald-700 dark:text-emerald-300';
 const MISSING_BADGE_CLASS = 'border-amber-500/70 bg-transparent text-amber-700 dark:text-amber-300';
 const SRC_PREVIEW_URL_BY_PATH = {
 	'/src/assets/lo9/france-telephone-area-codes.svg': franceTelephoneMapUrl,
-	'/src/components/ErrorLog/copy.svg': copyIconUrl,
-	'/src/components/ErrorLog/upArrow.svg': upArrowIconUrl,
-	'/src/components/ErrorLog/whiteCross.svg': whiteCrossIconUrl,
 };
 
 /*
