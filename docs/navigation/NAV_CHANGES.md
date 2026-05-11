@@ -2,6 +2,28 @@
 
 This file tracks navigation-specific architecture decisions and refactor progress.
 
+## 2026-05-08 - MainMenu Parity Split Started
+
+Completed the first parity refactor pass for `MainMenu`:
+
+- extracted config-to-nav mapping into `navEntries.js`
+- extracted scroll highlight resolution into `useMainMenuHighlight.js`
+- split desktop nav rendering into `MainMenuDesktopNav.jsx`
+- split mobile panel rendering into `MainMenuMobilePanel.jsx`
+- split theme/menu actions into `MainMenuActions.jsx`
+- kept the existing mobile panel container rather than introducing shadcn `Sheet`
+
+Validation:
+
+- `yarn build` passes
+- scoped lint for `src/components/layout/page-shell/MainMenu` passes
+- full `yarn lint` still fails on existing unrelated lint errors outside the nav split, including ignored `.claude/worktrees` files and older exercise/debug files
+
+Next:
+
+- browser-check desktop and mobile menu parity
+- keep shadcn `Sheet` as a later optional container hardening step
+
 ## 2026-04-01 - Navigation Docs Baseline Created
 
 Added a dedicated navigation docs set to avoid plan drift:

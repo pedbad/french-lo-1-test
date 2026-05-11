@@ -11,16 +11,16 @@ Use this checklist when executing the nav split.
 
 ## Phase 1: Data/Logic Split
 
-- [ ] Extract nav entry mapping to `navEntries.js` (pure helper).
-- [ ] Extract highlight logic to `useMainMenuHighlight.js` (or helper module).
-- [ ] Keep behavior parity (no feature changes).
+- [x] Extract nav entry mapping to `navEntries.js` (pure helper).
+- [x] Extract highlight logic to `useMainMenuHighlight.js` (or helper module).
+- [x] Keep behavior parity (no feature changes).
 
 ## Phase 2: Render Split
 
-- [ ] Create `MainMenuDesktopNav.jsx`.
-- [ ] Create `MainMenuMobilePanel.jsx`.
-- [ ] Create `MainMenuActions.jsx`.
-- [ ] Keep `MainMenu.jsx` as orchestrator only.
+- [x] Create `MainMenuDesktopNav.jsx`.
+- [x] Create `MainMenuMobilePanel.jsx`.
+- [x] Create `MainMenuActions.jsx`.
+- [x] Keep `MainMenu.jsx` as orchestrator only.
 
 ## Accessibility
 
@@ -38,12 +38,12 @@ Use this checklist when executing the nav split.
 
 ## Build/Quality
 
-- [ ] `yarn build` passes.
+- [x] `yarn build` passes.
 - [ ] `yarn prepush:local` passes.
-- [ ] No new lint errors introduced.
+- [x] No new lint errors introduced in the `MainMenu` split.
 
 ## Documentation
 
-- [ ] Update `docs/navigation/NAV_CHANGES.md`.
-- [ ] Update `CHANGES.md`.
+- [x] Update `docs/navigation/NAV_CHANGES.md`.
+- [x] Update `CHANGES.md`.
 - [ ] If architecture rules changed, sync `docs/process/FUTURE_PROJECTS.md`.

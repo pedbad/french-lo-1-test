@@ -2,6 +2,27 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-08 - MainMenu Navigation Parity Refactor
+
+- Began the documented top-navigation refactor with a parity-first split:
+  - `src/components/layout/page-shell/MainMenu/navEntries.js`
+  - `src/components/layout/page-shell/MainMenu/useMainMenuHighlight.js`
+  - `src/components/layout/page-shell/MainMenu/MainMenuDesktopNav.jsx`
+  - `src/components/layout/page-shell/MainMenu/MainMenuMobilePanel.jsx`
+  - `src/components/layout/page-shell/MainMenu/MainMenuActions.jsx`
+- Reduced `MainMenu.jsx` to orchestration while preserving the existing class names,
+  DOM contracts, scroll-only nav click behavior, highlight thresholds, mobile
+  region markup, and Escape/resize handling.
+- Updated navigation tracking docs:
+  - `docs/navigation/NAV_CHECKLIST.md`
+  - `docs/navigation/NAV_CHANGES.md`
+- Validation:
+  - `yarn build`
+  - `yarn eslint src/components/layout/page-shell/MainMenu`
+  - full `yarn lint` still fails on existing unrelated lint errors outside this
+    nav split, including ignored `.claude/worktrees` files and older
+    exercise/debug files.
+
 ## 2026-05-05 - Remove Legacy Sounds Folder
 
 - Migrated remaining active UI feedback sounds out of `public/sounds/`:

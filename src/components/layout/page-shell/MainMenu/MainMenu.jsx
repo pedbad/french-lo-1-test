@@ -4,10 +4,17 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { IconButton } from "@/components/IconButton";
 import { handleModalLinkClick } from "@/utils/dom";
 import { MessageCircleMore } from "lucide-react";
 import React from "react";
+import { MainMenuActions } from "./MainMenuActions";
+import { MainMenuDesktopNav } from "./MainMenuDesktopNav";
+import { MainMenuMobilePanel } from "./MainMenuMobilePanel";
+import { getMainMenuNavEntries } from "./navEntries";
+import {
+	getMenuHighlightKey,
+	resolveMainMenuHighlight,
+} from "./useMainMenuHighlight";
 
 export class MainMenu extends React.Component {
 	constructor(props) {
@@ -21,78 +28,16 @@ export class MainMenu extends React.Component {
 	}
 
 	componentDidMount = () => {
-		// Helper: choose the section whose top is just below the menu
 		this.updateHighlight = () => {
 			const { config } = this.props;
-			const mainMenu = document.getElementById("mainMenu");
-			if (!mainMenu || !config) {
-				if (this.state.menuHighlight !== null) this.setState({ menuHighlight: null });
-				return;
-			}
-			const getNavAnchor = (targetId) =>
-				document.getElementById(`${targetId}-heading`) ||
-				document.getElementById(targetId);
+			const { menuHighlight, pendingNavTarget } = resolveMainMenuHighlight({
+				config,
+				pendingNavTarget: this.pendingNavTarget,
+			});
 
-			const mainMenuRect = mainMenu.getBoundingClientRect();
-			const mainMenuBottom = mainMenuRect.bottom;
-			// A section becomes "active" only once it reaches this line.
-			// This prevents intro from highlighting while the hero banner is still in view.
-			const activationLine = mainMenuBottom + 140;
-			const passed = [];
-
-			// While smooth-scrolling from a nav click, keep the clicked section active
-			// until its top reaches the activation line.
-			if (this.pendingNavTarget) {
-				const pendingTarget = getNavAnchor(this.pendingNavTarget);
-				if (pendingTarget) {
-					const pendingRect = pendingTarget.getBoundingClientRect();
-					if (pendingRect.top > activationLine + 8) {
-						const pendingKey =
-								this.pendingNavTarget === "introduction"
-									? "menuItem-introduction"
-									: `menuItem-${this.pendingNavTarget}`;
-						if (this.state.menuHighlight !== pendingKey) {
-							this.setState({ menuHighlight: pendingKey });
-						}
-						return;
-					}
-				}
-				this.pendingNavTarget = null;
-			}
-
-			// 1. Intro
-			const introEl = getNavAnchor("introduction");
-			if (introEl) {
-				const rect = introEl.getBoundingClientRect();
-				if (rect.top <= activationLine) {
-					passed.push({
-						key: "menuItem-introduction",
-						top: rect.top,
-					});
-				}
-			}
-
-			// 2. Config sections (including Monologues)
-			for (const [, value] of Object.entries(config)) {
-				const { id } = value;
-				const target = getNavAnchor(id);
-				if (!target) continue;
-
-				const rect = target.getBoundingClientRect();
-				if (rect.top <= activationLine) {
-					passed.push({
-						key: `menuItem-${id}`,
-						top: rect.top,
-					});
-				}
-			}
-
-			// Pick the section closest to the activation line from above.
-			passed.sort((a, b) => b.top - a.top);
-			const best = passed.length > 0 ? passed[0].key : null;
-
-			if (this.state.menuHighlight !== best) {
-				this.setState({ menuHighlight: best });
+			this.pendingNavTarget = pendingNavTarget;
+			if (this.state.menuHighlight !== menuHighlight) {
+				this.setState({ menuHighlight });
 			}
 		};
 
@@ -166,8 +111,7 @@ export class MainMenu extends React.Component {
 				}
 			} else {
 				this.pendingNavTarget = rawId;
-				const nextHighlight =
-					rawId === "introduction" ? "menuItem-introduction" : `menuItem-${rawId}`;
+				const nextHighlight = getMenuHighlightKey(rawId);
 				if (this.state.menuHighlight !== nextHighlight) {
 					this.setState({ menuHighlight: nextHighlight });
 				}
@@ -189,60 +133,7 @@ export class MainMenu extends React.Component {
 
 		if (!config) return null;
 
-		const navEntries = [
-			{
-				href: "#introduction",
-				id: "introduction",
-				label: "Introduction",
-			},
-			...Object.values(config)
-				.filter((value) => value.component && value.id)
-				.map((value) => {
-					const label = value.menuText ? value.menuText : value.titleText;
-					return {
-						href: `#${value.id}`,
-						id: value.id,
-						label,
-					};
-				})
-				.filter((item) => typeof item.label === "string" && item.label.trim().length > 0),
-		];
-
-		const topMenu = navEntries.map((item) => {
-			const highlight = menuHighlight === `menuItem-${item.id}`;
-			return (
-				<NavigationMenuItem
-					className={highlight ? "highlight" : ""}
-					id={`menuItem-${item.id}`}
-					key={`menuItem-${item.id}`}
-				>
-					<NavigationMenuLink asChild>
-						<a
-							className="nav-scroll-link nav nav-link text-[var(--nav-link-size)]"
-							href={item.href}
-							onClick={this.handleNavClick}
-						>
-							{item.label}
-						</a>
-					</NavigationMenuLink>
-				</NavigationMenuItem>
-			);
-		});
-
-		const mobileMenuItems = navEntries.map((item) => {
-			const highlight = menuHighlight === `menuItem-${item.id}`;
-			return (
-				<li key={`mobile-${item.id}`} className={highlight ? "highlight" : ""}>
-					<a
-						href={item.href}
-						className="nav-link nav-link-mobile nav nav-scroll-link text-[var(--nav-link-size)]"
-						onClick={this.handleNavClick}
-					>
-						{item.label}
-					</a>
-				</li>
-			);
-		});
+		const navEntries = getMainMenuNavEntries(config);
 
 		let theme = "moon"; // Going from light to dark hence moon
 		if (typeof document !== "undefined") {
@@ -271,72 +162,29 @@ export class MainMenu extends React.Component {
 							</NavigationMenuItem>
 						</NavigationMenuList>
 
-						{/* DESKTOP — Right-hand nav */}
-						<NavigationMenuList className="menu-right">
-							{topMenu}
-						</NavigationMenuList>
+						<MainMenuDesktopNav
+							navEntries={navEntries}
+							menuHighlight={menuHighlight}
+							onNavClick={this.handleNavClick}
+						/>
 
-						{/* RIGHT — Actions: theme toggle + hamburger */}
-						<div className="menu-actions">
-							<IconButton
-								className="size-9"
-								variant="ghost"
-								onClick={toggleDark}
-								size="icon"
-								theme={theme}
-								title={
-									theme === "moon"
-										? "Switch to dark mode"
-										: "Switch to light mode"
-								}
-							/>
-							<button
-								type="button"
-								className={`menu-toggle-button ${
-									mobileOpen ? "is-open" : ""
-								}`}
-								aria-controls={this.mobileMenuPanelId}
-								aria-label="Toggle navigation menu"
-								aria-expanded={mobileOpen}
-								onClick={this.toggleMobileMenu}
-							>
-								{/* Hamburger / close icon */}
-								{!mobileOpen ? (
-								// Hamburger
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-										aria-hidden="true"
-									>
-										<path d="M4 6h16M4 12h16M4 18h16" />
-									</svg>
-								) : (
-								// Close
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-										aria-hidden="true"
-									>
-										<path d="M6 6l12 12M18 6L6 18" />
-									</svg>
-								)}
-							</button>
-						</div>
+						<MainMenuActions
+							mobileMenuPanelId={this.mobileMenuPanelId}
+							mobileOpen={mobileOpen}
+							onToggleMobileMenu={this.toggleMobileMenu}
+							theme={theme}
+							toggleDark={toggleDark}
+						/>
 					</div>
 				</NavigationMenu>
 
-				{/* MOBILE DROPDOWN PANEL (same IA, not a second primary nav landmark) */}
-				<div
-					id={this.mobileMenuPanelId}
-					className={`mobile-menu ${mobileOpen ? "open" : ""}`}
-					role="region"
-					aria-label="Main navigation mobile"
-					aria-hidden={!mobileOpen}
-				>
-					<ul className="mobile-menu-list">
-						{mobileMenuItems}
-					</ul>
-				</div>
+				<MainMenuMobilePanel
+					mobileMenuPanelId={this.mobileMenuPanelId}
+					mobileOpen={mobileOpen}
+					navEntries={navEntries}
+					menuHighlight={menuHighlight}
+					onNavClick={this.handleNavClick}
+				/>
 			</header>
 		);
 	};
