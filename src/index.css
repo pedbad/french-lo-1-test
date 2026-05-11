@@ -976,7 +976,7 @@
 			display: none;
 		}
 
-		.blanks-container .blanks-words-shell {
+		.blanks-container > .blanks {
 			overflow-x: auto;
 		}
 	}
