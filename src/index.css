@@ -971,6 +971,10 @@
 			gap: 0.35rem;
 			font-size: calc(var(--nav-title-size) * 0.72);
 		}
+
+		#content > h1:first-child {
+			display: none;
+		}
 	}
 
 	@media (min-width: 1200px) {
