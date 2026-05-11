@@ -975,6 +975,10 @@
 		#content > h1:first-child {
 			display: none;
 		}
+
+		.blanks-container .blanks-words-shell {
+			overflow-x: auto;
+		}
 	}
 
 	@media (min-width: 1200px) {
