@@ -156,7 +156,7 @@ export class MainMenu extends React.Component {
 										onClick={this.handleNavClick}
 									>
 										<MessageCircleMore aria-hidden="true" className="nav-title-icon" />
-										{title}
+										<span className="nav-title-text">{title}</span>
 									</a>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
