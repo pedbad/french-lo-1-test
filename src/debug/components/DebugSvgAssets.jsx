@@ -347,7 +347,7 @@ const SVG_USAGE_MANIFEST = [
 		],
 	},
 	{
-		path: '/img/shared/reflective.svg',
+		path: '/img/shared/self-study.svg',
 		referenceCount: 6,
 		sources: [
 			'/src/lo-config/about-me.json',
