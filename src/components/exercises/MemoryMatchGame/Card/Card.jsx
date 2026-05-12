@@ -90,9 +90,10 @@ export class Card extends React.PureComponent {
 										<span>{card.content}</span>
 									</AudioClip>
 								) : (
-									<div
-										className="memory-card-image h-full w-full bg-contain bg-center bg-no-repeat"
-										style={{ backgroundImage: `url(${resolveAsset(card.image)})` }}
+									<img
+										className="memory-card-image h-full w-full object-contain"
+										src={resolveAsset(card.image)}
+										alt={card.localLanguage}
 									/>
 								)}
 							</div>

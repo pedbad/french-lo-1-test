@@ -288,73 +288,73 @@
               "audio": "audio/lo15/exercises/memoryMatchGame1/001-le-bus.mp3",
               "foreignLanguage": "Le bus",
               "localLanguage": "bus",
-              "image": "img/lo15/exercises/transport/bus.png"
+              "image": "img/lo15/exercises/transport/bus.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/002-le-taxi.mp3",
               "foreignLanguage": "Le taxi",
               "localLanguage": "taxi",
-              "image": "img/lo15/exercises/transport/taxi.png"
+              "image": "img/lo15/exercises/transport/taxi.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/003-le-metro.mp3",
               "foreignLanguage": "Le métro",
               "localLanguage": "underground train",
-              "image": "img/lo15/exercises/transport/underground-train.png"
+              "image": "img/lo15/exercises/transport/underground-train.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/004-le-ferry.mp3",
               "foreignLanguage": "Le ferry",
               "localLanguage": "ferry",
-              "image": "img/lo15/exercises/transport/ferry.png"
+              "image": "img/lo15/exercises/transport/ferry.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/005-l-avion.mp3",
               "foreignLanguage": "L'avion",
               "localLanguage": "aeroplane",
-              "image": "img/lo15/exercises/transport/aeroplane.png"
+              "image": "img/lo15/exercises/transport/aeroplane.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/006-le-velo.mp3",
               "foreignLanguage": "Le vélo",
               "localLanguage": "bicycle",
-              "image": "img/lo15/exercises/transport/bicycle.png"
+              "image": "img/lo15/exercises/transport/bicycle.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/007-le-bateau.mp3",
               "foreignLanguage": "Le bateau",
               "localLanguage": "boat",
-              "image": "img/lo15/exercises/transport/boat.png"
+              "image": "img/lo15/exercises/transport/boat.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/008-le-scooter.mp3",
               "foreignLanguage": "Le scooter",
               "localLanguage": "scooter",
-              "image": "img/lo15/exercises/transport/scooter.png"
+              "image": "img/lo15/exercises/transport/scooter.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/009-la-voiture.mp3",
               "foreignLanguage": "La voiture",
               "localLanguage": "car",
-              "image": "img/lo15/exercises/transport/car.png"
+              "image": "img/lo15/exercises/transport/car.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/010-l-helicoptere.mp3",
               "foreignLanguage": "L'hélicoptère",
               "localLanguage": "helicopter",
-              "image": "img/lo15/exercises/transport/helicopter.png"
+              "image": "img/lo15/exercises/transport/helicopter.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/011-la-moto.mp3",
               "foreignLanguage": "La moto",
               "localLanguage": "motorcycle",
-              "image": "img/lo15/exercises/transport/motorcycle.png"
+              "image": "img/lo15/exercises/transport/motorcycle.svg"
             },
             {
               "audio": "audio/lo15/exercises/memoryMatchGame1/012-le-train.mp3",
               "foreignLanguage": "Le train",
               "localLanguage": "train",
-              "image": "img/lo15/exercises/transport/train.png"
+              "image": "img/lo15/exercises/transport/overground-train.svg"
             }
           ],
           "showHintsText": "Show hints",
