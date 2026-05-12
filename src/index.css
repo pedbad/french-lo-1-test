@@ -1924,14 +1924,13 @@
 		padding: 0;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: flex-start;
 		align-content: flex-start;
-		column-gap: 0.25rem;
-		row-gap: 0.15rem;
+		column-gap: 0.4rem;
+		row-gap: 0.3rem;
 		width: 100%;
 		max-width: 100%;
-		margin-inline: auto;
 		min-height: 3rem;
 		overflow: visible;
 		z-index: 20;
@@ -1939,7 +1938,6 @@
 		touch-action: none;
 		overscroll-behavior: contain;
 		transition: width 1s;
-		text-align: center;
 	}
 
 	.blanks-container .words-container .draggable {
