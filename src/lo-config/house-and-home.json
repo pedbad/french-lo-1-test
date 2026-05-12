@@ -280,73 +280,73 @@
 					"items": [
 						{
 							"id": "salle-de-bains",
-							"image": "/img/lo5/exercises/rooms/bathroom.jpg",
+							"image": "/img/lo5/exercises/rooms/bathroom.svg",
 							"label": "salle de bains",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/001-la-salle-de-bains.mp3"
 						},
 						{
 							"id": "chambre",
-							"image": "/img/lo5/exercises/rooms/bedroom.jpg",
+							"image": "/img/lo5/exercises/rooms/bedroom.svg",
 							"label": "chambre",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/002-la-chambre.mp3"
 						},
 						{
 							"id": "cave",
-							"image": "/img/lo5/exercises/rooms/cellar.jpg",
+							"image": "/img/lo5/exercises/rooms/cellar.svg",
 							"label": "cave",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/003-la-cave.mp3"
 						},
 						{
 							"id": "douche",
-							"image": "/img/lo5/exercises/rooms/shower-room.jpg",
+							"image": "/img/lo5/exercises/rooms/shower-room.svg",
 							"label": "douche",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/004-la-douche.mp3"
 						},
 						{
 							"id": "salle-a-manger",
-							"image": "/img/lo5/exercises/rooms/dining-room.jpg",
+							"image": "/img/lo5/exercises/rooms/dining-room.svg",
 							"label": "salle à manger",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/005-la-salle-a-manger.mp3"
 						},
 						{
 							"id": "buanderie",
-							"image": "/img/lo5/exercises/rooms/utility-room.jpg",
+							"image": "/img/lo5/exercises/rooms/utility-room.svg",
 							"label": "buanderie",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/006-la-buanderie.mp3"
 						},
 						{
 							"id": "salon",
-							"image": "/img/lo5/exercises/rooms/lounge.jpg",
+							"image": "/img/lo5/exercises/rooms/lounge.svg",
 							"label": "salon",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/007-le-salon.mp3"
 						},
 						{
 							"id": "toilettes",
-							"image": "/img/lo5/exercises/rooms/toilet.jpg",
+							"image": "/img/lo5/exercises/rooms/toilet.svg",
 							"label": "toilettes",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/008-les-toilettes.mp3"
 						},
 						{
 							"id": "grenier",
-							"image": "/img/lo5/exercises/rooms/attic.jpg",
+							"image": "/img/lo5/exercises/rooms/attic.svg",
 							"label": "grenier",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/009-le-grenier.mp3"
 						},
 						{
 							"id": "balcon",
-							"image": "/img/lo5/exercises/rooms/balcony.jpg",
+							"image": "/img/lo5/exercises/rooms/balcony.svg",
 							"label": "balcon",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/010-le-balcon.mp3"
 						},
 						{
 							"id": "cuisine",
-							"image": "/img/lo5/exercises/rooms/kitchen.jpg",
+							"image": "/img/lo5/exercises/rooms/kitchen.svg",
 							"label": "cuisine",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/011-la-cuisine.mp3"
 						},
 						{
 							"id": "bureau",
-							"image": "/img/lo5/exercises/rooms/study.jpg",
+							"image": "/img/lo5/exercises/rooms/study.svg",
 							"label": "bureau",
 							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/012-le-bureau.mp3"
 						}
