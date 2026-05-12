@@ -16,13 +16,13 @@ import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 
 const LINE_MATCH_IMAGE_TILE_CLASS = [
-	"relative aspect-square min-h-[2.5rem] w-[2.8rem] overflow-hidden rounded-lg",
+	"relative aspect-square min-h-[4rem] w-[4rem] overflow-hidden rounded-lg",
 	"border border-[rgb(var(--color-primary-400)_/_0.92)]",
 	"bg-[rgb(var(--color-primary-200)_/_0.28)]",
 	"shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_20%,transparent)]",
-	"min-[1400px]:min-h-[3.1rem] min-[1400px]:w-[3.5rem]",
+	"min-[1400px]:min-h-[5rem] min-[1400px]:w-[5rem]",
 ].join(" ");
-const LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS = "min-h-[3.5rem] min-[1400px]:min-h-[4.1rem]";
+const LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS = "min-h-[4.5rem] min-[1400px]:min-h-[5.5rem]";
 
 const LINE_MATCH_SELECT_TRIGGER_CLASS = "w-full min-h-10 text-[var(--font-size-sm)] md:text-base";
 
@@ -614,7 +614,7 @@ export class LineMatch extends React.PureComponent {
 												<div className={LINE_MATCH_IMAGE_TILE_CLASS}>
 													<img
 														alt={item.alt || item.localLanguage || item.label || `Line match image ${index + 1}`}
-														className="h-full w-full object-cover"
+														className="h-full w-full object-contain"
 														loading="lazy"
 														src={resolveAsset(item.image)}
 													/>
@@ -708,7 +708,7 @@ export class LineMatch extends React.PureComponent {
 													>
 														<img
 															alt={item.alt || item.localLanguage || item.label || `Line match image ${index + 1}`}
-															className="h-full w-full object-cover"
+															className="h-full w-full object-contain"
 															loading="lazy"
 															src={resolveAsset(item.image)}
 														/>
