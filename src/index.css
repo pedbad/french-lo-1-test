@@ -1605,22 +1605,27 @@
 		height: 1.2rem;
 	}
 
-	/* Tiny screens: shrink sort buttons so both fit side-by-side */
-	@media (max-width: 479px) {
+	/* Mobile: keep sort buttons on one row — flex-share the available width */
+	@media (max-width: 639px) {
 		.phrases-table-container .sort-container {
+			flex-wrap: nowrap;
 			column-gap: 0.5rem;
 		}
 
 		.phrases-table-container .vocab-sort-button {
+			flex: 1 1 auto;
+			min-width: 0;
 			min-height: 2.4rem;
 			padding: 0.4rem 0.75rem;
 			font-size: calc(var(--font-size-base) * 0.82);
 			border-radius: 0.65rem;
+			justify-content: center;
 		}
 
 		.phrases-table-container .vocab-sort-button svg {
 			width: 1rem;
 			height: 1rem;
+			flex-shrink: 0;
 		}
 	}
 
