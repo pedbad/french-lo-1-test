@@ -1,6 +1,6 @@
 # Utility Refactor Checklist
 
-Use this checklist for each utility refactor PR/batch.
+> **This is a reusable process template**, not a tracker for a single ongoing task. Copy and fill in for each utility refactor batch. The specific task it was created for — dead utility cleanup (`audioConcat.js`, `mouse.js`) — is complete as of 2026-05.
 
 ## Planning
 
@@ -10,7 +10,7 @@ Use this checklist for each utility refactor PR/batch.
 
 ## Code Changes
 
-- [ ] New module file added under `src/utils/`.
+- [ ] New module file added under `src/utils/` (if applicable).
 - [ ] Functions moved without semantic changes.
 - [x] Compatibility layer handled appropriately for migration stage (preserved when needed, removed when complete).
 - [ ] No new duplicate helper logic introduced.
@@ -34,3 +34,12 @@ Use this checklist for each utility refactor PR/batch.
 - [ ] `README.md` migration trackers updated.
 - [ ] `CHANGES.md` includes a dated entry.
 - [ ] This checklist and TODO reflect new progress status.
+
+---
+
+## Completed Batches
+
+### Dead utility deletion (2026-05)
+- Deleted `src/utils/audioConcat.js` — confirmed zero consumers, was leftover audio-stitching prototype.
+- Deleted `src/utils/mouse.js` — confirmed zero consumers, was leftover mouse-tracking experiment.
+- `yarn build` verified clean after both deletions.
