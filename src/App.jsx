@@ -928,6 +928,7 @@ export default class App extends React.Component {
 								informationText={tabInformationText}
 								informationTextHTML={tabInformationTextHTML}
 							/>
+							<CustomComponent config={value} id={id} />
 						</>
 					);
 				}
@@ -1652,6 +1653,7 @@ export default class App extends React.Component {
 								title={titleText}
 								titleHTML={titleTextHTML}
 							>
+								<CustomComponent config={value} id={id} />
 							</AccordionArticle>,
 						);
 					} else {
@@ -1665,6 +1667,7 @@ export default class App extends React.Component {
 								title={titleText}
 								titleHTML={titleTextHTML}
 							>
+								<CustomComponent config={value} id={id} />
 							</Section>,
 						);
 					}
