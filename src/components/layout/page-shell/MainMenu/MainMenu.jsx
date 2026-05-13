@@ -144,7 +144,7 @@ export class MainMenu extends React.Component {
 
 		return (
 			<header className="main-menu" id="mainMenu">
-				<NavigationMenu className="menu-root w-full">
+				<NavigationMenu aria-label="Main navigation" className="menu-root w-full">
 					<div className="menu-flex">
 						{/* LEFT — Title / brand */}
 						<NavigationMenuList className="menu-left">
