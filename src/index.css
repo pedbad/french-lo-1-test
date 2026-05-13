@@ -1605,6 +1605,25 @@
 		height: 1.2rem;
 	}
 
+	/* Tiny screens: shrink sort buttons so both fit side-by-side */
+	@media (max-width: 479px) {
+		.phrases-table-container .sort-container {
+			column-gap: 0.5rem;
+		}
+
+		.phrases-table-container .vocab-sort-button {
+			min-height: 2.4rem;
+			padding: 0.4rem 0.75rem;
+			font-size: calc(var(--font-size-base) * 0.82);
+			border-radius: 0.65rem;
+		}
+
+		.phrases-table-container .vocab-sort-button svg {
+			width: 1rem;
+			height: 1rem;
+		}
+	}
+
 	@media (min-width: 640px) {
 		.phrases-table-container.container {
 			padding-inline: 0.75rem;
