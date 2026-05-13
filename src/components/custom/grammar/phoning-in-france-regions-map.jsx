@@ -96,6 +96,7 @@ const LEGEND_ITEMS = [
 		swatchClassName: "regional-telephone-map__legend-swatch--05",
 	},
 	{
+		audio: "audio/lo9/grammar/telephone-regions/007-mobile-06-07.mp3",
 		code: "06 / 07",
 		isMobile: true,
 		label: "Mobile (nationwide)",
@@ -371,7 +372,7 @@ export function PhoningInFranceRegionsMap() {
 										/>
 									</dt>
 									<dd>
-										{item.isMobile ? (
+										{!soundFile ? (
 											<span className="regional-telephone-map__legend-static">
 												<span className="regional-telephone-map__legend-code">{item.code}</span>
 												<span>{item.label}</span>
