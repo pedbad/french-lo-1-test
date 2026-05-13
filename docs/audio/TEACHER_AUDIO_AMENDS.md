@@ -124,3 +124,21 @@ Status labels:
 
 - `public/audio/lo13/exercises/028-la-tour-eiffel-se-trouve-a-paris.mp3`
   - Row audio for `La Tour Eiffel se trouve à Paris.`
+
+## LO9 - Phoning in France
+
+### Needs review (wrong speaker gender — re-record with male voice)
+
+- `public/audio/lo9/dialogues/phraseTable2/004-oh-excusez-moi-au-revoir-madame.mp3`
+  - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
+  - Currently female speaker. Should be male (caller who dialled the wrong number).
+
+- `public/audio/lo9/exercises/selectExercise1/004-oh-excusez-moi-au-revoir-madame.mp3`
+  - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
+  - Same line used in exercise 2 dialogue 1. Currently female. Should be male.
+
+### Needs new audio
+
+- `public/audio/lo9/grammar/telephone-regions/007-mobile-06-07.mp3`
+  - Text: `zéro six, zéro sept` (or equivalent — the two mobile prefixes spoken aloud)
+  - Required for the interactive telephone regions map legend: the `06 / 07 Mobile (nationwide)` entry needs an audio clip for consistency with the five landline region entries. Code is already prepared to use this file once it exists.
