@@ -46,17 +46,6 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ---
 
-## LO11 — Going to a Café
-
-### Re-record (wrong content / quality)
-
-- `public/audio/lo11/vocabulary/015-vous-voulez-quelque-chose-a-manger.mp3`
-  - Section: **Vocabulary**
-  - Text: `Vous voulez quelque chose à manger ?`
-  - Recorded as a statement; should have question intonation.
-
----
-
 ## LO7 — Opinions Matter
 
 ### Re-record (wrong content / quality)
@@ -138,6 +127,17 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Displayed text: `D'accord. À plus`
   - Current audio says: *À plus tard. À plus* — does not match.
   - Should say: *D'accord. À plus*
+
+---
+
+## LO11 — Going to a Café
+
+### Re-record (wrong content / quality)
+
+- `public/audio/lo11/vocabulary/015-vous-voulez-quelque-chose-a-manger.mp3`
+  - Section: **Vocabulary**
+  - Text: `Vous voulez quelque chose à manger ?`
+  - Recorded as a statement; should have question intonation.
 
 ---
 
