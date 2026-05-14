@@ -125,6 +125,25 @@ Status labels:
 - `public/audio/lo13/exercises/028-la-tour-eiffel-se-trouve-a-paris.mp3`
   - Row audio for `La Tour Eiffel se trouve à Paris.`
 
+## LO10 - Making Arrangements
+
+### Needs review (wrong speaker gender — re-record with male voice)
+
+- `public/audio/lo10/dialogues/phraseTable2/004-oh-excusez-moi-au-revoir-madame.mp3`
+  - Section: **Dialogues → A wrong number**, row 4
+  - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
+  - Currently female speaker. Should be male (the caller who dialled the wrong number).
+
+### Needs re-recording (wrong content)
+
+- `public/audio/lo10/exercises/dictationExercise4/009-d-accord-a-plus.mp3`
+  - Section: **Exercises → 4. Type what you hear**, last line
+  - Displayed text: `D'accord. À plus`
+  - Current audio says: *À plus tard. À plus* — does not match the displayed text.
+  - Should say: *D'accord. À plus*
+
+---
+
 ## LO9 - Phoning in France
 
 ### Needs review (wrong speaker gender — re-record with male voice)
