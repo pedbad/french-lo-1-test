@@ -30,7 +30,7 @@
             ],
             [
               "audio/lo10/dialogues/phraseTable1/003-quel-est-votre-numero-de-telephone-s-il-vous-plait-madame.mp3",
-              "Quel est votre numéro de téléphone s'il vous plaît Madame ?",
+              "Quel est votre numéro de téléphone, s'il vous plaît Madame ?",
               "What's your phone number please, Madam?"
             ],
             [
@@ -574,7 +574,7 @@
             ],
             [
               "",
-              "[D'accord ! À plus !]",
+              "[D'accord. À plus]",
               "audio/lo10/exercises/dictationExercise4/009-d-accord-a-plus.mp3"
             ]
           ],
