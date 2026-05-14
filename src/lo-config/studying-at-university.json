@@ -476,7 +476,7 @@
 						}
 					],
 					"titleText": "1. Chatting about your studies",
-					"informationTextHTML": "Listen to the full audio or each sentence, then choose the correct word or phrase from each inline dropdown to complete the conversation. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again."
+					"informationTextHTML": "Listen to the full audio or each sentence, then choose the correct word or phrase from each inline dropdown to complete the conversation. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again."
 				}
 			},
 			{
@@ -484,7 +484,7 @@
 					"component": "InlineTypedGapExercise",
 					"id": "inlineTypedGapExercise1",
 					"instructionsText": "Listen to the audio and type the missing French words into each comme question pattern.",
-					"informationTextHTML": "<p>Use the English and the audio to complete each French question. Type the missing words directly into the fixed <em>Qu'est-ce que ... comme ... ?</em> pattern so it becomes automatic. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
+					"informationTextHTML": "<p>Use the English and the audio to complete each French question. Type the missing words directly into the fixed <em>Qu'est-ce que ... comme ... ?</em> pattern so it becomes automatic. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>",
 					"useSequenceAudioController": true,
 					"items": [
 						{
@@ -654,7 +654,7 @@
 						}
 					],
 					"titleText": "5. Using present participles as adjectives",
-					"informationTextHTML": "<p>Type the present participle used as an adjective in each gap. Use the verb in the box to help you form the correct participle. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>"
+					"informationTextHTML": "<p>Type the present participle used as an adjective in each gap. Use the verb in the box to help you form the correct participle. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>"
 				}
 			},
 			{
@@ -680,7 +680,7 @@
 						}
 					],
 					"titleText": "6. Using past participles as adjectives",
-					"informationTextHTML": "<p>Type the past participle used as an adjective in each gap. Use the verb in the box to help you form the correct participle, and make sure it agrees with the noun. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>"
+					"informationTextHTML": "<p>Type the past participle used as an adjective in each gap. Use the verb in the box to help you form the correct participle, and make sure it agrees with the noun. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>"
 				}
 			}
 		],

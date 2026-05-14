@@ -322,7 +322,7 @@
 				"currentLocationNasalRhymeExercise": {
 					"component": "CurrentLocationNasalRhymeExercise",
 					"id": "currentLocationNasalRhymeExercise",
-					"informationTextHTML": "<p>Listen to the nonsense rhyme and identify examples of the nasal vowel sound <em>in / ain</em>. Replay the clip as needed, then read the rhyme aloud to practise your pronunciation. Use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal or hide the nasal sounds.</p>",
+					"informationTextHTML": "<p>Listen to the nonsense rhyme and identify examples of the nasal vowel sound <em>in / ain</em>. Replay the clip as needed, then read the rhyme aloud to practise your pronunciation. Use <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal or hide the nasal sounds.</p>",
 					"titleText": "1. Nonsense Rhyme"
 				}
 			},
@@ -331,7 +331,7 @@
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup3",
 					"instructionsText": "Select the correct form of 'in' to fill in the gaps.",
-					"informationTextHTML": "Choose the correct form of <strong>in</strong> for each place name: <strong>à</strong>, <strong>au</strong>, <strong>en</strong>, <strong>aux</strong>, or <strong>dans le</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
+					"informationTextHTML": "Choose the correct form of <strong>in</strong> for each place name: <strong>à</strong>, <strong>au</strong>, <strong>en</strong>, <strong>aux</strong>, or <strong>dans le</strong>. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to practise again.",
 					"shuffleItems": true,
 					"sampleSize": 8,
 					"showHintsText": "Show hints when moving",
@@ -393,7 +393,7 @@
 					"component": "SelectExercise",
 					"id": "selectExercise3",
 					"instructionsText": "Listen and choose the correct option to fill in the gaps.",
-					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review, <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"renderInlineChoices": true,
 					"showHintsText": "Show hints when moving",
 					"titleText": "3. Where do you live?",

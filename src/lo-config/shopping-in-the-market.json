@@ -106,7 +106,7 @@
             ],
             [
               "audio/lo12/dialogues/016-bien-ca-fait-10-euros-50-sil-vous-plait-madame.mp3",
-              "Bien ! Ça fait 10 &euro; 50 s'il vous plaît Madame !",
+              "Bien ! Ça fait 10 &euro; 50, s'il vous plaît Madame !",
               "Good! That comes to 10 &euro; 50 please madam."
             ]
           ],
@@ -422,7 +422,7 @@
             }
           ],
           "titleText": "1. Talking about where people go shopping",
-          "informationTextHTML": "Listen to each sentence and choose the correct present-tense form of <strong>aller</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices."
+          "informationTextHTML": "Listen to each sentence and choose the correct present-tense form of <strong>aller</strong>. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices."
         }
       },
       {
@@ -459,7 +459,7 @@
             }
           ],
           "titleText": "2. Marion's shopping list",
-          "informationTextHTML": "Choose the correct form of <strong>de</strong> or <strong>d&apos;</strong> after each quantity expression. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices."
+          "informationTextHTML": "Choose the correct form of <strong>de</strong> or <strong>d&apos;</strong> after each quantity expression. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices."
         }
       },
       {
@@ -492,7 +492,7 @@
             }
           ],
           "titleText": "3. Yves' shopping list",
-          "informationTextHTML": "Choose the correct partitive article for each food item. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices."
+          "informationTextHTML": "Choose the correct partitive article for each food item. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices."
         }
       },
       {
@@ -513,7 +513,7 @@
             ],
             [
               "",
-              "[200 grammes d'abricots s'il vous plaît.]",
+              "[200 grammes d'abricots, s'il vous plaît.]",
               "audio/lo12/exercises/025-200-grammes-dabricots-sil-vous-plait.mp3"
             ],
             [
@@ -553,7 +553,7 @@
             ],
             [
               "",
-              "[Un melon s'il vous plaît.]",
+              "[Un melon, s'il vous plaît.]",
               "audio/lo12/exercises/033-un-melon-sil-vous-plait.mp3"
             ],
             [
@@ -568,7 +568,7 @@
             ]
           ],
           "titleText": "4. Type what you hear",
-          "informationTextHTML": "Listen to the market exchange and write exactly what you hear. Replay the clips as needed, then use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to check your transcription."
+          "informationTextHTML": "Listen to the market exchange and write exactly what you hear. Replay the clips as needed, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> to check your transcription."
         }
       },
       {
@@ -662,7 +662,7 @@
             }
           ],
           "titleTextHTML": "5. Distinguishing the sounds <strong>u</strong> and <strong>ou</strong>",
-          "informationTextHTML": "Play the full audio first, then choose whether each word contains the sound <strong>u</strong> or <strong>ou</strong>. You can replay each word individually as needed. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices."
+          "informationTextHTML": "Play the full audio first, then choose whether each word contains the sound <strong>u</strong> or <strong>ou</strong>. You can replay each word individually as needed. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices."
         }
       }
     ],

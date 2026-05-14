@@ -292,7 +292,7 @@
           "cheatText": "Show answer",
           "component": "MemoryMatchGame",
           "id": "memoryMatchGame1",
-          "informationTextHTML": "Match each picture to the correct French word. You can also listen to the French word cards for help. Use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the matched pairs, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to start a new round.",
+          "informationTextHTML": "Match each picture to the correct French word. You can also listen to the French word cards for help. Use <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the matched pairs, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to start a new round.",
           "nPairsToPlay": 8,
           "cards": [
             {
@@ -394,7 +394,7 @@
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup1",
           "instructionsText": "Choose the correct partitive article or instrument form.",
-          "informationTextHTML": "Read each sentence and choose the correct form to complete it. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Read each sentence and choose the correct form to complete it. Work through all items first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> to reveal the correct forms, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "shuffleItems": true,
           "items": [
             {
@@ -446,7 +446,7 @@
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup2",
           "instructionsText": "Choose au, à la, à l', or aux as appropriate.",
-          "informationTextHTML": "Read each sentence and choose the correct contracted form after <em>jouer à</em>. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Read each sentence and choose the correct contracted form after <em>jouer à</em>. Work through all items first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> to reveal the correct forms, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "shuffleItems": false,
           "items": [
             {
@@ -486,7 +486,7 @@
           "component": "SelectExercise",
           "id": "selectExercise3",
           "instructionsText": "Listen to the responses and choose the matching activity.",
-          "informationTextHTML": "Play each audio clip and choose the activity that matches what you hear. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Play each audio clip and choose the activity that matches what you hear. Work through all items first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> to reveal the solutions, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "renderInlineChoices": true,
           "shuffleItems": true,
           "items": [
@@ -533,7 +533,7 @@
           "component": "DraggableFillGaps",
           "id": "draggableFillGaps1",
           "instructionsText": "Drag each word into the correct gap.",
-          "informationTextHTML": "Complete each short description by dragging the missing words into the correct gaps. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Complete each short description by dragging the missing words into the correct gaps. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the solution, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "items": [
             {
               "text": "Je ne fais pas [grand-chose]. Je fais la [grasse matinée]. Je vois mes [amis]. Quelquefois, je vais au [cinéma] ou je vais en [boîte]. Ça dépend !",

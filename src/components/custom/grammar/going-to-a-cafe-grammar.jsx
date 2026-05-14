@@ -29,7 +29,7 @@ const handleAudioRowClick = (soundFile, event) => {
 	playAudioLink(soundFile);
 };
 
-const AudioTable = ({ rows, tableId, headers }) => (
+const AudioTable = ({ rows, tableId, headers, swapColumns }) => (
 	<Table className="grammar-audio-table" variant="learning">
 		{headers ? (
 			<TableHeader>
@@ -49,12 +49,25 @@ const AudioTable = ({ rows, tableId, headers }) => (
 					key={`${tableId}-row-${index}`}
 					onClick={(event) => handleAudioRowClick(row.soundFile, event)}
 				>
-					<TableCell>
-						<AudioClip className="link" soundFile={row.soundFile}>
-							{row.french}
-						</AudioClip>
-					</TableCell>
-					<TableCell>{row.english}</TableCell>
+					{swapColumns ? (
+						<>
+							<TableCell>{row.english}</TableCell>
+							<TableCell>
+								<AudioClip className="link" soundFile={row.soundFile}>
+									{row.french}
+								</AudioClip>
+							</TableCell>
+						</>
+					) : (
+						<>
+							<TableCell>
+								<AudioClip className="link" soundFile={row.soundFile}>
+									{row.french}
+								</AudioClip>
+							</TableCell>
+							<TableCell>{row.english}</TableCell>
+						</>
+					)}
 				</TableRow>
 			))}
 		</TableBody>
@@ -218,7 +231,7 @@ export class GoingToACafeGrammarPrendre extends PureComponent {
 						.
 					</p>
 					<p>
-						In café French, do <strong>not</strong> use <strong>avoir</strong> for
+						In French, do <strong>not</strong> use <strong>avoir</strong> for
 						food and drink. Use{" "}
 						<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
 							<strong>prendre</strong>
@@ -261,7 +274,7 @@ export class GoingToACafeGrammarFlavoursWithA extends PureComponent {
 				soundFile: "audio/lo11/grammar/flavours-with-a/001-pour-moi-un-sandwich-au-fromage.mp3",
 			},
 			{
-				english: "I&apos;d like a vanilla ice-cream.",
+				english: "I'd like a vanilla ice-cream.",
 				french: <>Je voudrais une glace à la vanille.</>,
 				soundFile: "audio/lo11/grammar/flavours-with-a/002-je-voudrais-une-glace-a-la-vanille.mp3",
 			},
@@ -304,11 +317,11 @@ export class GoingToACafeGrammarDisjunctivePronouns extends PureComponent {
 		const exampleRows = [
 			{
 				english: "A coffee for me please.",
-				french: <>Pour moi un café s&apos;il vous plaît.</>,
+				french: <>Pour moi un café, s'il vous plaît.</>,
 				soundFile: "audio/lo11/grammar/disjunctive-pronouns/004-pour-moi-un-cafe-s-il-vous-plait.mp3",
 			},
 			{
-				english: "The children don&apos;t want to play football without him.",
+				english: "The children don't want to play football without him.",
 				french: <>Les enfants ne veulent pas jouer au football sans lui.</>,
 				soundFile:
 					"audio/lo11/grammar/disjunctive-pronouns/005-les-enfants-ne-veulent-pas-jouer-au-football-sans-lui.mp3",
@@ -371,8 +384,8 @@ export class GoingToACafeGrammarDisjunctivePronouns extends PureComponent {
 			>
 				<div className="panel" id={id ? `${id}Panel4` : undefined} key={`${id}Panel4`}>
 					<p>
-						French also has <strong>disjunctive</strong> or <strong>stressed</strong>
-						pronouns. They are used after prepositions such as{" "}
+						French has <strong>disjunctive</strong> or <strong>stressed</strong>
+						{" "}pronouns. They are used after prepositions such as{" "}
 						<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/001-pour.mp3">
 							<strong>pour</strong>
 						</AudioClip>
@@ -388,11 +401,12 @@ export class GoingToACafeGrammarDisjunctivePronouns extends PureComponent {
 					</p>
 					<p>Look at these examples:</p>
 					<AudioTable rows={exampleRows} tableId={`${id || "lo11-grammar4"}-examples`} />
-					<p className="mt-4">Here is the full pronoun set:</p>
+					<p className="mt-4">Here is the full list of pronouns:</p>
 					<AudioTable
 						rows={pronounRows}
 						tableId={`${id || "lo11-grammar4"}-pronouns`}
-						headers={["Subject pronoun", "Disjunctive pronoun"]}
+						headers={["Subject pronouns", "Disjunctive (or stressed) pronouns"]}
+						swapColumns={true}
 					/>
 				</div>
 			</div>

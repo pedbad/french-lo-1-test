@@ -252,7 +252,7 @@
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup1",
 					"instructionsText": "Select the correct part of être to fill in the gaps.",
-					"informationTextHTML": "Read each sentence and choose the correct form of <em>être</em> for the subject. Work through all items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal correct forms, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"informationTextHTML": "Read each sentence and choose the correct form of <em>être</em> for the subject. Work through all items first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal correct forms, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
@@ -293,7 +293,7 @@
 					"component": "SelectExercise",
 					"id": "selectExercise2",
 					"instructionsText": "Match each question with the correct answer.",
-					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. When you finish, use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again, or <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers to reveal the solutions.",
+					"informationTextHTML": "Play each audio clip and choose the text option that matches what you hear. When you finish, use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review, <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again, or <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> to reveal the solutions.",
 					"showHintsText": "Show hints when moving",
 					"items": [
 						{

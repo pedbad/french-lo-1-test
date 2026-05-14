@@ -452,7 +452,7 @@
 				"inlineChoiceGroup1": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup1",
-					"informationTextHTML": "Listen to each audio clip and select the correct nationality adjective. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"informationTextHTML": "Listen to each audio clip and select the correct nationality adjective. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
 					"cheatText": "Show answer",
@@ -490,7 +490,7 @@
 				"inlineChoiceGroup2": {
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup2",
-					"informationTextHTML": "Listen to each audio clip and choose the correct form: <strong>de</strong>, <strong>du</strong>, <strong>d'</strong>, or <strong>des</strong>. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.",
+					"informationTextHTML": "Listen to each audio clip and choose the correct form: <strong>de</strong>, <strong>du</strong>, <strong>d'</strong>, or <strong>des</strong>. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to practise again.",
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
 					"items": [
@@ -534,7 +534,7 @@
 				"typedTransformExercise3": {
 					"component": "TypedTransformExercise",
 					"id": "typedTransformExercise3",
-					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
+					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each adjective (including nationality adjectives). Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>",
 					"header": [
 						"Masculine",
 						"feminine",
@@ -614,7 +614,7 @@
 				"typedTransformExercise4": {
 					"component": "TypedTransformExercise",
 					"id": "typedTransformExercise4",
-					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers if you get stuck, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.</p>",
+					"informationTextHTML": "<p>Listen to each pair and type the feminine form for each profession. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>",
 					"header": [
 						"Masculine",
 						"feminine",
@@ -669,7 +669,7 @@
 				"dictationExercise5": {
 					"component": "DictationExercise",
 					"id": "dictationExercise5",
-					"informationTextHTML": "<p>Listen to each audio clip and write exactly what you hear. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your entries, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to practise again.</p>",
+					"informationTextHTML": "<p>Listen to each audio clip and write exactly what you hear. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your entries, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to practise again.</p>",
 					"instructionsText": "Listen and write what you hear.",
 					"phrases": [
 						[

@@ -46,6 +46,30 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ---
 
+## LO11 — Going to a Café
+
+### Re-record (wrong content / quality)
+
+- `public/audio/lo11/vocabulary/015-vous-voulez-quelque-chose-a-manger.mp3`
+  - Section: **Vocabulary**
+  - Text: `Vous voulez quelque chose à manger ?`
+  - Recorded as a statement; should have question intonation.
+
+### New recording
+
+- `public/audio/lo11/grammar/disjunctive-pronouns/015-je.mp3`
+- `public/audio/lo11/grammar/disjunctive-pronouns/016-tu.mp3`
+- `public/audio/lo11/grammar/disjunctive-pronouns/017-il.mp3`
+- `public/audio/lo11/grammar/disjunctive-pronouns/018-elle.mp3`
+- `public/audio/lo11/grammar/disjunctive-pronouns/019-nous.mp3`
+- `public/audio/lo11/grammar/disjunctive-pronouns/020-vous.mp3`
+- `public/audio/lo11/grammar/disjunctive-pronouns/021-ils.mp3`
+- `public/audio/lo11/grammar/disjunctive-pronouns/022-elles.mp3`
+  - Section: **Grammar and Usage → 4. Using disjunctive pronouns** (pronoun table, subject pronoun column)
+  - The subject pronoun column (je, tu, il, elle, nous, vous, ils, elles) currently has no audio. Once recorded, the `AudioTable` component will need updating to support audio in both columns.
+
+---
+
 ## LO7 — Opinions Matter
 
 ### Re-record (wrong content / quality)

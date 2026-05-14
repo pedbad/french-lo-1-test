@@ -4,7 +4,7 @@
       "src": "img/lo11/out-and-about-cafe.svg",
       "alt": "Going to a cafe illustration"
     },
-    "introHTML": "<p>This lesson teaches learners how to order food and drinks in a French café, using useful expressions such as <em>Je voudrais…</em>, <em>Pour moi…</em>, and <em>Vous désirez&nbsp;?</em>. It introduces common café vocabulary for drinks, snacks, ice creams, and flavours.</p><p>It also practises key grammar points including the conditional of <em>vouloir</em>, the verb <em>prendre</em> for food and drink, the preposition <em>à</em> in flavour phrases, and disjunctive pronouns after prepositions such as <em>pour</em> and <em>avec</em>.</p>",
+    "introHTML": "<p>This lesson teaches learners how to order food and drinks in a French café, using useful expressions such as <em>Je voudrais…</em>, <em>Pour moi…</em>, and <em>Vous désirez&nbsp;?</em>. It introduces common café vocabulary for drinks, snacks, ice creams, and flavours.</p><p>It also practises key grammar points including the conditional of <em>vouloir</em>, the verb <em>prendre</em> for food and drink, the preposition <em>à</em> when talking about flavours, fillings and toppings, and disjunctive pronouns after prepositions such as <em>pour</em> and <em>avec</em>.</p>",
     "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Order drinks, snacks, and ice creams politely in a French café.</li><li>Use <em>je voudrais</em> to make polite requests and <em>prendre</em> to talk about what someone is having.</li><li>Ask about flavours, fillings, and menu choices more naturally.</li><li>Use <em>au</em>, <em>à la</em>, <em>à l&apos;</em>, and <em>aux</em> correctly with flavours and toppings.</li><li>Recognise and use disjunctive pronouns such as <em>moi</em>, <em>toi</em>, and <em>eux</em> after prepositions.</li></ul>"
   },
   "dialogues": {
@@ -75,7 +75,7 @@
             ],
             [
               "audio/lo11/dialogues/phraseTable2/004-non-merci-pas-d-alcool-pour-moi-aujourd-hui-pour-moi-une-eau-minerale-s-il-vous-plait.mp3",
-              "Non merci ... pas d'alcool pour moi aujourd'hui&nbsp;! Pour moi une eau minérale s'il vous plaît&nbsp;!",
+              "Non merci ... pas d'alcool pour moi aujourd'hui&nbsp;! Pour moi une eau minérale, s'il vous plaît&nbsp;!",
               "No thanks, no alcohol for me today! A mineral water for me please!"
             ]
           ],
@@ -100,7 +100,7 @@
             ],
             [
               "audio/lo11/dialogues/phraseTable3/003-une-glace-a-la-vanille-pour-moi-deux-boules-et-pour-la-petite-une-glace-a-la-fraise-une-boule-s-il-vous-plait.mp3",
-              "Une glace à la vanille pour moi, deux boules, et pour la petite une glace à la fraise, une boule s'il vous plaît.",
+              "Une glace à la vanille pour moi, deux boules, et pour la petite une glace à la fraise, une boule, s'il vous plaît.",
               "A vanilla ice-cream for me, two scoops, and for the little girl a strawberry ice-cream, one scoop please."
             ],
             [
@@ -281,7 +281,7 @@
         "selectExerciseOrderingFoodDrink": {
           "component": "SelectExercise",
           "id": "selectExerciseOrderingFoodDrink",
-          "informationTextHTML": "Listen to the café dialogue and choose the correct word or phrase. Work through the conversation first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Listen to the café dialogue and choose the correct word or phrase. Work through the conversation first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "renderInlineChoices": true,
           "useSequenceAudioController": true,
           "items": [
@@ -318,7 +318,7 @@
               "audio": "audio/lo11/exercises/draggableFillGaps1/008-et-pour-vous-madame.mp3"
             },
             {
-              "text": "Je voudrais un [*croque-monsieur|café-crème|chocolat chaud|thé au citron|sandwich au jambon|omelette aux champignons] avec de la salade verte s'il vous plaît.",
+              "text": "Je voudrais un [*croque-monsieur|café-crème|chocolat chaud|thé au citron|sandwich au jambon|omelette aux champignons] avec de la salade verte, s'il vous plaît.",
               "audio": "audio/lo11/exercises/draggableFillGaps1/009-je-voudrais-un-croque-monsieur-avec-de-la-salade-verte-s-il-vous-plait.mp3"
             },
             {
@@ -337,7 +337,7 @@
         "selectExercise1": {
           "component": "SelectExercise",
           "id": "selectExercise1",
-          "informationTextHTML": "Listen to each sentence and choose the correct form of <strong>voudrais</strong>, <strong>voudrait</strong>, <strong>voudrions</strong>, <strong>voudriez</strong>, or <strong>voudraient</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "informationTextHTML": "Listen to each sentence and choose <strong>voudrais</strong>, <strong>voudrait</strong>, <strong>voudrions</strong>, <strong>voudriez</strong>, or <strong>voudraient</strong> as appropriate to complete each sentence correctly. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "renderInlineChoices": true,
           "shuffleItems": true,
           "items": [
@@ -373,7 +373,7 @@
         "selectExercise2": {
           "component": "SelectExercise",
           "id": "selectExercise2",
-          "informationTextHTML": "Listen to each sentence and choose the correct present-tense form of <strong>prendre</strong>. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "informationTextHTML": "Listen to each sentence and choose the correct present-tense form of <strong>prendre</strong>. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "renderInlineChoices": true,
           "shuffleItems": true,
           "items": [
@@ -413,7 +413,7 @@
         "inlineChoiceGroup3": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup3",
-          "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "shuffleItems": true,
           "items": [
             {

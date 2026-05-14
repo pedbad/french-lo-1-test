@@ -335,7 +335,7 @@
 					"component": "SelectExercise",
 					"id": "selectExercise1",
 					"instructionsText": "Listen to the full audio or each sentence, then choose the correct reflexive pronoun.",
-					"informationTextHTML": "Play the full audio first, then fill each gap with the correct reflexive pronoun. You can replay each sentence individually as needed. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"informationTextHTML": "Play the full audio first, then fill each gap with the correct reflexive pronoun. You can replay each sentence individually as needed. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"renderInlineChoices": true,
 					"shuffleItems": true,
 					"sampleSize": 8,
@@ -401,7 +401,7 @@
 					"component": "DraggableFillGaps",
 					"id": "draggableFillGaps1",
 					"instructionsText": "Complete the description by dragging each word into the correct gap.",
-					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices. If needed, use <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer to reveal the solution, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the solution, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"items": [
 						{
 							"text": "Je me réveille tous les matins à six heures et demie et je [me lève] tout de suite."
@@ -433,7 +433,7 @@
 					"component": "InlineChoiceGroup",
 					"id": "inlineChoiceGroup2",
 					"instructionsText": "Listen to each audio clip and choose the time you hear.",
-					"informationTextHTML": "Listen to each audio clip and choose the matching time. Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"informationTextHTML": "Listen to each audio clip and choose the matching time. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"shuffleItems": true,
 					"sampleSize": 8,
 					"items": [
@@ -501,7 +501,7 @@
 				"radioQuiz1": {
 					"component": "RadioQuiz",
 					"id": "dailyRoutineASummersDay",
-					"informationTextHTML": "Listen to Véronique describing a typical summer&apos;s day, then decide whether each statement is true (<em>vrai</em>) or false (<em>faux</em>). Use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+					"informationTextHTML": "Listen to Véronique describing a typical summer&apos;s day, then decide whether each statement is true (<em>vrai</em>) or false (<em>faux</em>). Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"instructionsText": "Listen to the full audio, then decide whether each statement is true or false.",
 					"options": [
 						"Vrai",

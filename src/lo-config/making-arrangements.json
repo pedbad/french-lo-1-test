@@ -365,7 +365,7 @@
         "selectExercise1": {
           "component": "SelectExercise",
           "id": "selectExercise1",
-          "informationTextHTML": "Listen to the poem <strong>Chacun à son goût&nbsp;!</strong> and choose the correct form of <strong>vouloir</strong> for each line. Work through the whole poem first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Listen to the poem <strong>Chacun à son goût&nbsp;!</strong> and choose the correct form of <strong>vouloir</strong> for each line. Work through the whole poem first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "layoutMode": "inline-passage",
           "useSequenceAudioController": true,
           "items": [
@@ -429,7 +429,7 @@
         "selectExercise2": {
           "component": "SelectExercise",
           "id": "selectExercise2",
-          "informationTextHTML": "Play each French sentence and choose the matching English meaning. Work through all the items first, then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices, <span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answers for support, and <span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset to try again.",
+          "informationTextHTML": "Play each French sentence and choose the matching English meaning. Work through all the items first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "shuffleItems": true,
           "items": [
             {
@@ -480,7 +480,7 @@
         "inlineChoiceGroup3": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup3",
-          "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers to review your choices.",
+          "informationTextHTML": "Choose <strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>, or <strong>aux</strong> to complete each sentence correctly. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices.",
           "items": [
             {
               "text": "Je vais [au|*à la|à l'|aux] bibliothèque.",
