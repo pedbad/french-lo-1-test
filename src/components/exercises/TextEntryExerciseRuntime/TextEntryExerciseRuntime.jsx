@@ -1,6 +1,6 @@
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
-import { Monologue } from "@/components/content";
+import { TypedAnswerField } from "@/components/content";
 import { AudioClip, IconButton } from "@/components/media";
 import { Input } from "@/components/ui/input";
 import {
@@ -353,7 +353,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 				const regex = /\[([^\]]+)\]/g;
 				let lastIndex = 0;
 				let match;
-				let monologueIndex = 0;
+				let typedAnswerFieldIndex = 0;
 
 				while ((match = regex.exec(phrase[1])) !== null) {
 					if (match.index > lastIndex) {
@@ -361,16 +361,16 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 					}
 
 					parts.push(
-						<Monologue
-							key={`Monologue${i}-${monologueIndex}`}
+						<TypedAnswerField
+							key={`TypedAnswerField${i}-${typedAnswerFieldIndex}`}
 							compact={true}
 							comparisonOptions={comparisonOptions}
-							id={`Monologue${i}-${monologueIndex}`}
+							id={`TypedAnswerField${i}-${typedAnswerFieldIndex}`}
 							content={match[1]}
 						/>
 					);
 
-					monologueIndex += 1;
+					typedAnswerFieldIndex += 1;
 					({ lastIndex } = regex);
 				}
 
@@ -380,7 +380,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 
 				cells.push(
 					<TableCell key={`row${i}cell1`}>
-						<span className="inline-monologue">{parts}</span>
+						<span className="inline-typed-answer">{parts}</span>
 					</TableCell>
 				);
 			}

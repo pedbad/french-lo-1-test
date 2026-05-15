@@ -15,12 +15,15 @@ import {
 	InlineTypedGapExercise,
 	LineMatch,
 	MemoryMatchGame,
+	PhraseReorderExercise,
 	RadioQuiz,
 	SelectExercise,
 	SequenceOrder,
 	Sortable,
 	TypedTransformExercise,
+	WordOrderExercise,
 	WordParts,
+	WordSpotExercise,
 } from "@/components/exercises";
 import { Footer, HeroSection, LandingPage, MainMenu } from "@/components/layout";
 import { resolveAsset } from "./utils/assets";
@@ -916,21 +919,24 @@ export default class App extends React.Component {
 						config={value}
 					/>
 				);
-			case "SequenceOrder":
+			case "WordSpotExercise":
+			case "WordParts": // deprecated alias
 				return (
-					<SequenceOrder
+					<WordSpotExercise
 						config={value}
 					/>
 				);
-			case "Sortable":
+			case "PhraseReorderExercise":
+			case "Sortable": // deprecated alias
 				return (
-					<Sortable
+					<PhraseReorderExercise
 						config={value}
 					/>
 				);
-			case "WordParts":
+			case "WordOrderExercise":
+			case "SequenceOrder": // deprecated alias
 				return (
-					<WordParts
+					<WordOrderExercise
 						config={value}
 					/>
 				);
@@ -1594,7 +1600,8 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "SequenceOrder": {
+			case "WordOrderExercise":
+			case "SequenceOrder": { // deprecated alias
 				articles.push(
 					<AccordionArticle
 						expandedByDefault={autoExpandSingleAccordion}
@@ -1605,7 +1612,7 @@ export default class App extends React.Component {
 						title={titleText}
 						titleHTML={titleTextHTML}
 					>
-						<SequenceOrder
+						<WordOrderExercise
 							config={value}
 						/>
 					</AccordionArticle>,
@@ -1636,7 +1643,8 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "Sortable": {
+			case "PhraseReorderExercise":
+			case "Sortable": { // deprecated alias
 				articles.push(
 					<AccordionArticle
 						expandedByDefault={autoExpandSingleAccordion}
@@ -1647,14 +1655,15 @@ export default class App extends React.Component {
 						title={titleText}
 						titleHTML={titleTextHTML}
 					>
-						<Sortable
+						<PhraseReorderExercise
 							config={value}
 						/>
 					</AccordionArticle>,
 				);
 				break;
 			}
-			case "WordParts": {
+			case "WordSpotExercise":
+			case "WordParts": { // deprecated alias
 				articles.push(
 					<AccordionArticle
 						expandedByDefault={autoExpandSingleAccordion}
@@ -1665,7 +1674,7 @@ export default class App extends React.Component {
 						title={titleText}
 						titleHTML={titleTextHTML}
 					>
-						<WordParts
+						<WordSpotExercise
 							config={value}
 						/>
 					</AccordionArticle>,

@@ -15,13 +15,16 @@ const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'InlineTypedGapExercise',
 	'LineMatch',
 	'MemoryMatchGame',
-	'Monologue',
+	'Monologue',         // deprecated alias
+	'PhraseReorderExercise',
 	'RadioQuiz',
 	'SelectExercise',
-	'SequenceOrder',
-	'Sortable',
+	'SequenceOrder',     // deprecated alias
+	'Sortable',          // deprecated alias
 	'TypedTransformExercise',
-	'WordParts',
+	'WordOrderExercise',
+	'WordParts',         // deprecated alias
+	'WordSpotExercise',
 ]);
 
 const CONTAINER_COMPONENTS = new Set(['Group', 'Section']);
@@ -34,13 +37,16 @@ const EXERCISE_COMPONENTS = new Set([
 	'InlineTypedGapExercise',
 	'LineMatch',
 	'MemoryMatchGame',
-	'Monologue',
+	'Monologue',         // deprecated alias
+	'PhraseReorderExercise',
 	'RadioQuiz',
 	'SelectExercise',
-	'SequenceOrder',
-	'Sortable',
+	'SequenceOrder',     // deprecated alias
+	'Sortable',          // deprecated alias
 	'TypedTransformExercise',
-	'WordParts',
+	'WordOrderExercise',
+	'WordParts',         // deprecated alias
+	'WordSpotExercise',
 ]);
 
 function stripMarkup(value) {

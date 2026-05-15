@@ -364,7 +364,7 @@
       {
         "wordparts1": {
           "cheatText": "Show answer",
-          "component": "WordParts",
+          "component": "WordSpotExercise",
           "id": "wordparts1",
           "informationTextHTML": "Select the part of each word that contains the nasal, <em>r</em>, <em>oi</em>, or silent <em>h</em> sound. You can reveal answers with the <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> button or start a new attempt with the <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> button.",
           "items": [
@@ -474,7 +474,7 @@
       },
       {
         "listeningOrder1": {
-          "component": "SequenceOrder",
+          "component": "WordOrderExercise",
           "id": "listeningOrder1",
           "informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to confirm, <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the correct order, or <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "cheatText": "Show answer",
@@ -495,7 +495,7 @@
       },
       {
         "listeningOrder2": {
-          "component": "SequenceOrder",
+          "component": "WordOrderExercise",
           "id": "listeningOrder2",
           "informationTextHTML": "Listen to the full audio, then drag the word cards left or right to match the order you hear. The numbers above show positions 1 to 8. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to confirm, <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the correct order, or <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
           "cheatText": "Show answer",
@@ -516,7 +516,7 @@
       },
       {
         "listeningOrder3": {
-          "component": "Sortable",
+          "component": "PhraseReorderExercise",
           "id": "listeningOrder3",
           "titleText": "7. Listening comprehension (part3)",
           "shuffleOnLoad": true,

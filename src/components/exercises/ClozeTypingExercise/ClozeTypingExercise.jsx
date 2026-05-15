@@ -8,7 +8,7 @@ import React from "react";
 // (prompt -> target form conversion).
 //
 // This wrapper renders gaps inline inside each table row using the shared
-// runtime's per-row Monologue path (useGlobalActions: false).
+// runtime's per-row TypedAnswerField path (useGlobalActions: false).
 // Any cloze-specific behaviour — partial credit, multi-gap scoring,
 // context-sensitive hint display — should be added here or via a flag
 // passed to TextEntryExerciseRuntime, without touching DictationExercise

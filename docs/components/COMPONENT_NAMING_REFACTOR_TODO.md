@@ -34,6 +34,19 @@
 5. Keep legacy aliases temporarily to avoid breakage.
 6. Remove deprecated names only after full LO coverage + QA sign-off.
 
+## Completed Renames (2026-05-15)
+- `WordParts` → `WordSpotExercise` (LO1 config updated; old name kept as deprecated alias)
+- `Sortable` → `PhraseReorderExercise` (LO1 config updated; old name kept as deprecated alias)
+- `SequenceOrder` → `WordOrderExercise` (LO1 config updated; old name kept as deprecated alias)
+- `Monologue` → `TypedAnswerField` (internal component — no config entries; old name kept as deprecated alias; CSS classes updated to `typed-answer-field-container` / `inline-typed-answer`)
+- Full exercise component documentation created: `docs/components/EXERCISE_COMPONENT_GUIDE.md`
+
+## Open (deprecated alias cleanup)
+- Remove `WordParts` alias once zero config usages confirmed
+- Remove `Sortable` alias once zero config usages confirmed
+- Remove `SequenceOrder` alias once zero config usages confirmed
+- Remove `Monologue` alias once zero internal usages confirmed
+
 ## Current Status
 - LO5:
   - `lineMatch1` uses `LineMatch` for connector-style picture/word matching with a mobile select fallback.
