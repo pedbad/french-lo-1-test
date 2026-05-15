@@ -109,12 +109,16 @@ export class MainMenu extends React.Component {
 				if (this.state.menuHighlight !== null) {
 					this.setState({ menuHighlight: null });
 				}
+				// Clear hash when navigating back to top
+				window.history.replaceState(null, "", window.location.pathname + window.location.search);
 			} else {
 				this.pendingNavTarget = rawId;
 				const nextHighlight = getMenuHighlightKey(rawId);
 				if (this.state.menuHighlight !== nextHighlight) {
 					this.setState({ menuHighlight: nextHighlight });
 				}
+				// Keep URL hash in sync with the nav section being visited
+				window.history.replaceState(null, "", `#${rawId}`);
 			}
 		}
 

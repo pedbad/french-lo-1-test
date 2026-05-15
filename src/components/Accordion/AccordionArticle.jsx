@@ -76,6 +76,22 @@ export function AccordionArticle({
 			const isExpanded = values.includes(id);
 			setExpanded(isExpanded);
 			persistExpandedState(id, isExpanded);
+
+			// Keep the URL hash in sync so the address bar reflects the open section
+			// and deep links can be shared. Use replaceState so back/forward history
+			// is not polluted with every section click.
+			if (typeof window !== "undefined") {
+				if (isExpanded) {
+					window.history.replaceState(null, "", `#${id}`);
+				} else if (window.location.hash === `#${id}`) {
+					// Clear the hash when the matching section is closed.
+					window.history.replaceState(
+						null,
+						"",
+						window.location.pathname + window.location.search,
+					);
+				}
+			}
 		},
 		[id]
 	);

@@ -113,15 +113,19 @@ export default class App extends React.Component {
 		}
 
 		// Always start at the top on hard refresh/navigation load.
+		// Skip scroll-to-top when a hash is present — AccordionArticle handles
+		// opening and scrolling to the target section instead.
 		// We intentionally persist accordion open/closed state only, not page scroll position.
 		if (typeof window !== "undefined") {
 			if ("scrollRestoration" in window.history) {
 				window.history.scrollRestoration = "manual";
 			}
-			window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-			window.requestAnimationFrame(() => {
+			if (!window.location.hash) {
 				window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-			});
+				window.requestAnimationFrame(() => {
+					window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+				});
+			}
 		}
 
 		const queryString = window.location.search;
@@ -174,8 +178,38 @@ export default class App extends React.Component {
 		}
 	};
 
-	componentDidUpdate = () => {
+	componentDidUpdate = (prevProps, prevState) => {
 		this.initialiseModalLinks();
+
+		// When the LO config first loads, handle a hash deep link by opening
+		// the matching accordion section and scrolling to it.
+		if (!prevState.config && this.state.config) {
+			this._handleHashDeepLink();
+		}
+	};
+
+	_handleHashDeepLink = () => {
+		if (typeof window === "undefined") return;
+		const hash = window.location.hash;
+		if (!hash) return;
+		const id = hash.slice(1);
+
+		// Small delay to let React finish painting the newly loaded config.
+		setTimeout(() => {
+			const el = document.getElementById(id);
+			if (!el) return;
+
+			// Open the accordion if it is currently closed.
+			if (el.getAttribute("data-state") === "closed") {
+				const trigger = el.querySelector(".accordion-trigger");
+				if (trigger) trigger.click();
+			}
+
+			// Scroll after the open animation has had time to settle.
+			setTimeout(() => {
+				el.scrollIntoView({ behavior: "smooth", block: "start" });
+			}, 350);
+		}, 100);
 	};
 
 	componentWillUnmount = () => {
