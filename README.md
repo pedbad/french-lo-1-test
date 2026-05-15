@@ -74,9 +74,9 @@ yarn build:server
 ```
 
 Files:
-- `/Users/ped/Sites/french/french-lo-1/debug-sandbox.html`
-- `/Users/ped/Sites/french/french-lo-1/src/debug/sandbox-main.jsx`
-- `/Users/ped/Sites/french/french-lo-1/src/debug/DebugSandbox.jsx`
+- `debug-sandbox.html`
+- `src/debug/sandbox-main.jsx`
+- `src/debug/DebugSandbox.jsx`
 
 ### Build behavior
 
@@ -149,7 +149,7 @@ Apache requirement:
 
 Use `.htaccess` in the deploy folder. This repo now ships a ready-to-deploy file at:
 
-- `/Users/ped/Sites/french/french-lo-1/public/.htaccess`
+- `public/.htaccess`
 
 `Vite` copies `public/.htaccess` into `dist/.htaccess` during build, so DevOps can deploy it as-is.
 
@@ -201,7 +201,7 @@ No-rewrite fallback URL (temporary):
 - `/projects/french-basic/?lo=first-contact`
 
 Full deployment checklist is in:
-- `/Users/ped/Sites/french/french-lo-1/docs/deployment/DEPLOTMENT.MD`
+- `docs/deployment/DEPLOTMENT.MD`
 
 ## Future Projects: Avoiding `.htaccess` for New Language Series
 
@@ -367,8 +367,8 @@ To avoid Unicode normalization drift in audio filenames/refs while migrating leg
 `yarn prepush:local` now uses `check:audio-unicode:branch`, so historical deleted legacy paths and future migrated audio changes are checked without requiring the old `public/sounds/fr` tree.
 
 Image migration docs:
-- `/Users/ped/Sites/french/french-lo-1/docs/styling/IMAGE_MIGRATION_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1/public/img/README.md`
+- `docs/styling/IMAGE_MIGRATION_PLAN.md`
+- `public/img/README.md`
 
 ## Accessibility & HTML Guardrails
 
@@ -445,8 +445,9 @@ Manual migration policy (status):
 - LO2 pilot is complete on `SelectExercise`.
 - FR config migration is now complete:
   - `DropDowns` -> `SelectExercise`
-  - `AnswerTable` -> `TypedTransformExercise` or `DictationExercise` (based on activity type)
+  - `AnswerTable` -> `TypedTransformExercise`, `DictationExercise`, or `ClozeTypingExercise` (based on activity type — see three-layer architecture below)
 - Runtime legacy aliases for `DropDowns` and `AnswerTable` have now been removed from `App.jsx`.
+- Zero `AnswerTable` usages remain across all LO JSON configs.
 
 ## Exercise Component Naming & Semantic Refactor Plan
 
@@ -633,7 +634,7 @@ Each wrapper has a `TODO(component-split)` comment marking where type-specific l
 ## SCSS Drift Guard
 
 To prevent refactor backsliding, this repo includes:
-- script: `/Users/ped/Sites/french/french-lo-1/scripts/check-scss-guard.sh`
+- script: `scripts/check-scss-guard.sh`
 
 Policy:
 - blocks any `.scss` / `.sass` files under `src/` (zero-SCSS baseline enforcement)
@@ -653,7 +654,7 @@ yarn check:scss:branch
 ## CI Quality Gates (GitHub Actions)
 
 This repo now includes a PR workflow at:
-- `/Users/ped/Sites/french/french-lo-1/.github/workflows/pr-quality.yml`
+- `.github/workflows/pr-quality.yml`
 
 It runs on every pull request and enforces:
 - `yarn build`
@@ -663,39 +664,39 @@ It runs on every pull request and enforces:
 - `yarn check:a11y:branch`
 
 For future projects, copy the reusable CI baseline from:
-- `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md` (section: **Out-of-the-Box GitHub Actions CI (Default)**)
+- `docs/process/FUTURE_PROJECTS.md` (section: **Out-of-the-Box GitHub Actions CI (Default)**)
 
 ## Migration Trackers
 
 The active migration/audit trackers are:
 
-- `/Users/ped/Sites/french/french-lo-1/docs/process/TASKS_COMPLETED.md` (live checklist)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/ACCORDION_ISSUES.md` (current accordion risk analysis)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
-- `/Users/ped/Sites/french/french-lo-1/docs/a11y/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/ANSWERTABLE_REFACTOR_TODO.md` (semantic split plan for generic `AnswerTable` usages)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/ANSWERTABLE_REFACTOR_CHECKLIST.md` (stepwise migration/QA checklist for AnswerTable variants)
-- `/Users/ped/Sites/french/french-lo-1/docs/a11y/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
-- `/Users/ped/Sites/french/french-lo-1/docs/a11y/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
-- `/Users/ped/Sites/french/french-lo-1/docs/styling/TYPOGRAPHY_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1/docs/styling/COLOR_PLAN.md`
-- `/Users/ped/Sites/french/french-lo-1/docs/a11y/HTML_ACCESSIBILITY_ISSUES.md`
-- `/Users/ped/Sites/french/french-lo-1/docs/a11y/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
-- `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
-- `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO8_MIGRATION_MAP.md` (LO8 audio migration record)
-- `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO8_AUDIO_BLOCKERS.md` (LO8 blocker/status note)
-- `/Users/ped/Sites/french/french-lo-1/docs/styling/FONTS_PROBLEM.md` (build asset duplication root-cause note)
-- `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
-- `/Users/ped/Sites/french/french-lo-1/docs/process/JSON_CONFIG_REFACTOR_AUDIT.md` (runtime-based JSON key audit baseline + LO1 findings)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/COMPONENT_ARCHITECTURE_AUDIT.md` (canonical component architecture audit, drift risks, target structure, phased plan)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/COMPONENT_TREE_STANDARD.md` (canonical directory tree + naming/import/export rules for component refactors)
-- `/Users/ped/Sites/french/french-lo-1/docs/archive/components/UTILITY_REFACTOR_README.md` (utility module architecture plan and compatibility approach)
-- `/Users/ped/Sites/french/french-lo-1/docs/archive/components/UTILITY_REFACTOR_TODO.md` (phased utility extraction tasks)
-- `/Users/ped/Sites/french/french-lo-1/docs/archive/components/UTILITY_REFACTOR_CHECKLIST.md` (batch/PR verification checklist for utility refactor)
-- `/Users/ped/Sites/french/french-lo-1/docs/archive/navigation/NAV_TODO.md` (human-readable nav refactor rationale + phased plan)
-- `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_CHECKLIST.md` (parity and regression checklist for nav split)
-- `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_CHANGES.md` (navigation decision/change log)
+- `docs/process/TASKS_COMPLETED.md` (live checklist)
+- `docs/components/ACCORDION_ISSUES.md` (current accordion risk analysis)
+- `docs/components/ACCORDION_CHANGES_TODO.md` (step-by-step migration plan + timeline)
+- `docs/components/ACCORDION_TASKS_COMPLETED.md` (accordion-specific completion tracker)
+- `docs/a11y/DOM_SEMANTIC_AUDIT.md` (semantic DOM target, risks, and compatibility strategy)
+- `docs/components/ANSWERTABLE_REFACTOR_TODO.md` (three-layer architecture rationale and current status)
+- `docs/components/ANSWERTABLE_REFACTOR_CHECKLIST.md` (stepwise migration/QA checklist — migration complete, mobile/a11y QA open)
+- `docs/a11y/DOM_SEMANTIC_TODO.md` (phased implementation plan for `main > section > article`)
+- `docs/a11y/DOM_SEMANTIC_CHECKLIST.md` (validation checklist for structure, nav, a11y, and regressions)
+- `docs/styling/TYPOGRAPHY_PLAN.md`
+- `docs/styling/COLOR_PLAN.md`
+- `docs/a11y/HTML_ACCESSIBILITY_ISSUES.md`
+- `docs/a11y/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
+- `docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
+- `docs/archive/audio/AUDIO_LO8_MIGRATION_MAP.md` (LO8 audio migration record)
+- `docs/archive/audio/LO8_AUDIO_BLOCKERS.md` (LO8 blocker/status note)
+- `docs/styling/FONTS_PROBLEM.md` (build asset duplication root-cause note)
+- `docs/process/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
+- `docs/process/JSON_CONFIG_REFACTOR_AUDIT.md` (runtime-based JSON key audit baseline + LO1 findings)
+- `docs/components/COMPONENT_ARCHITECTURE_AUDIT.md` (canonical component architecture audit, drift risks, target structure, phased plan)
+- `docs/components/COMPONENT_TREE_STANDARD.md` (canonical directory tree + naming/import/export rules for component refactors)
+- `docs/archive/components/UTILITY_REFACTOR_README.md` (utility module architecture plan and compatibility approach)
+- `docs/archive/components/UTILITY_REFACTOR_TODO.md` (phased utility extraction tasks)
+- `docs/archive/components/UTILITY_REFACTOR_CHECKLIST.md` (batch/PR verification checklist for utility refactor)
+- `docs/archive/navigation/NAV_TODO.md` (human-readable nav refactor rationale + phased plan)
+- `docs/navigation/NAV_CHECKLIST.md` (parity and regression checklist for nav split)
+- `docs/navigation/NAV_CHANGES.md` (navigation decision/change log)
 
 Component cleanup status:
 - Legacy `src/components/Form/**` namespace has been removed as dead code.
@@ -781,7 +782,7 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 ### Instruction Schema Unification (in progress)
 
 - Problem: instructional content is currently authored across overlapping keys (`instructions*`, `information*`, `info*` legacy), which render through different component paths and cause typography/layout drift.
-- Tracking doc: `/Users/ped/Sites/french/french-lo-1/INFORMATION_CONFIG_ISSUES.MD`
+- Tracking doc: `INFORMATION_CONFIG_ISSUES.MD`
 - Target contract:
   - section intro prose/layout: `instructionsLayout`
   - boxed guidance/alert text: `informationTextHTML` (or `informationText`)
@@ -800,8 +801,8 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
   - align LO2 Grammar look/feel and behavior with LO1 section architecture.
   - preserve LO2-specific pedagogy and audio while improving a11y semantics.
 - Key docs:
-  - `/Users/ped/Sites/french/french-lo-1/docs/grammar/GRAMMAR_TODO.md`
-  - `/Users/ped/Sites/french/french-lo-1/docs/grammar/GRAMMAR_TASK_CHECKLIST.md`
+  - `docs/grammar/GRAMMAR_TODO.md`
+  - `docs/grammar/GRAMMAR_TASK_CHECKLIST.md`
 - Current implementation decision:
   - short-term (done): LO2 Grammar now follows the same top-level architecture pattern as LO1:
     - `grammar.component` is a `Group` in LO2 config.
@@ -941,30 +942,30 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 ## LO3 Audio Migration Status
 
 - LO3 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo3/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/origins-and-languages.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/origins-and-languages-grammar.jsx`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/origins-and-languages-pronunciation.jsx`
+  - `src/lo-config/origins-and-languages.json`
+  - `src/components/custom/grammar/origins-and-languages-grammar.jsx`
+  - `src/components/custom/pronunciation/origins-and-languages-pronunciation.jsx`
 - New LO3 root:
   - `public/audio/lo3/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO3_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO3_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO3_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO3_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - removed LO3 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
 
 ## LO4 Audio Migration Status
 
 - LO4 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo4/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/current-location.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/current-location-pronunciation.jsx`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/exercises/current-location/nasal-rhyme-exercise.jsx`
+  - `src/lo-config/current-location.json`
+  - `src/components/custom/pronunciation/current-location-pronunciation.jsx`
+  - `src/components/exercises/current-location/nasal-rhyme-exercise.jsx`
 - New LO4 root:
   - `public/audio/lo4/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO4_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO4_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO4_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO4_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - removed 59 LO4 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
   - the later repo-wide cleanup removed the remaining `public/sounds/fr` tree after confirming no runtime references remained.
@@ -972,17 +973,17 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 ## LO8 Audio Migration Status
 
 - LO8 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo8/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/free-time.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/free-time-grammar.jsx`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/free-time-pronunciation.jsx`
+  - `src/lo-config/free-time.json`
+  - `src/components/custom/grammar/free-time-grammar.jsx`
+  - `src/components/custom/pronunciation/free-time-pronunciation.jsx`
 - New LO8 root:
   - `public/audio/lo8/...`
 - LO8 exercise images now use lesson-owned paths:
   - `public/img/lo8/exercises/vocabulary/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO8_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO8_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO8_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO8_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
   - `public/images/memory/...` copies have been removed; active images now live under `public/img/`.
@@ -990,9 +991,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 ## LO9 Audio Migration Status
 
 - LO9 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo9/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/phoning-in-france.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/phoning-in-france-grammar.jsx`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/phoning-in-france-pronunciation.jsx`
+  - `src/lo-config/phoning-in-france.json`
+  - `src/components/custom/grammar/phoning-in-france-grammar.jsx`
+  - `src/components/custom/pronunciation/phoning-in-france-pronunciation.jsx`
 - New LO9 root:
   - `public/audio/lo9/...`
 - LO9 now follows the newer section contract:
@@ -1000,18 +1001,18 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - grouped grammar articles
   - tabbed pronunciation items
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO9_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO9_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO9_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO9_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
 ## LO10 Audio Migration Status
 
 - LO10 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo10/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/making-arrangements.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/making-arrangements-grammar.jsx`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
+  - `src/lo-config/making-arrangements.json`
+  - `src/components/custom/grammar/making-arrangements-grammar.jsx`
+  - `src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
 - New LO10 root:
   - `public/audio/lo10/...`
 - LO10 now follows the newer section contract:
@@ -1019,17 +1020,17 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - grouped grammar articles
   - tabbed pronunciation items
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO10_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO10_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO10_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO10_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
 ## LO11 Audio Migration Status
 
 - LO11 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo11/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/going-to-a-cafe.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
+  - `src/lo-config/going-to-a-cafe.json`
+  - `src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
 - New LO11 root:
   - `public/audio/lo11/...`
 - LO11 now follows the newer section contract where source material exists:
@@ -1039,34 +1040,34 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Current source note:
   - LO11 still has no pronunciation section because the current repo does not contain authored café pronunciation content to migrate
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO11_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO11_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO11_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO11_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
 ## LO13 Audio Migration Status
 
 - LO13 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo13/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/daily-routine.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/daily-routine-grammar.jsx`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/misc/daily-routine-poem.jsx`
+  - `src/lo-config/daily-routine.json`
+  - `src/components/custom/grammar/daily-routine-grammar.jsx`
+  - `src/components/custom/misc/daily-routine-poem.jsx`
 - New LO13 root:
   - `public/audio/lo13/...`
 - Current source note:
   - LO13 currently has no lesson-owned pronunciation section in the repo, so this migration covers dialogues, vocabulary, grammar, and exercises only.
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO13_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO13_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO13_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO13_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
 ## LO15 Audio Migration Status
 
 - LO15 audio refs have been migrated from legacy `sounds/fr/...` to `audio/lo15/...` in:
-  - `/Users/ped/Sites/french/french-lo-1/src/lo-config/planning-a-holiday.json`
-  - `/Users/ped/Sites/french/french-lo-1/src/components/custom/grammar/planning-a-holiday-grammar.jsx`
+  - `src/lo-config/planning-a-holiday.json`
+  - `src/components/custom/grammar/planning-a-holiday-grammar.jsx`
 - New LO15 roots:
   - `public/audio/lo15/...`
   - `public/img/lo15/...`
@@ -1077,9 +1078,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Current source note:
   - two missing legacy weather clips were copied from migrated LO5 grammar audio, and shared `aller` grammar material was copied from migrated LO12 audio so LO15 remains self-contained.
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO15_MIGRATION_MAP.md`
+  - `docs/archive/audio/AUDIO_LO15_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO15_AUDIO_BLOCKERS.md`
+  - `docs/archive/audio/LO15_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
   - `public/images/` has been fully removed; all assets now live under `public/img/`.

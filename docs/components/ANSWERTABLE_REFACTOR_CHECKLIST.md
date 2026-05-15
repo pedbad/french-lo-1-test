@@ -1,19 +1,20 @@
 # AnswerTable Refactor Checklist
 
 ## Discovery and Classification
-- [ ] Find every `component: "AnswerTable"` usage in `src/lo-config/*.json`.
-- [ ] Classify each usage as one of:
-  - [ ] `DictationExercise`
-  - [ ] `TypedTransformExercise`
-  - [ ] `ClozeTypingExercise`
-- [ ] Record per-activity notes:
-  - [ ] has row audio
-  - [ ] has header row
-  - [ ] uses compact input behavior
+- [x] Find every `component: "AnswerTable"` usage in `src/lo-config/*.json`.
+- [x] Classify each usage as one of:
+  - [x] `DictationExercise`
+  - [x] `TypedTransformExercise`
+  - [x] `ClozeTypingExercise`
+- [x] Record per-activity notes:
+  - [x] has row audio
+  - [x] has header row
+  - [x] uses compact input behavior
+- Note: zero `AnswerTable` usages remain across all LO JSON configs. All have been migrated.
 
 ## Semantic API Definition
-- [ ] Define public component names and props contract.
-- [x] Keep `AnswerTable` as compatibility alias during transition.
+- [x] Define public component names and props contract (documented in README three-layer section).
+- [x] Keep `AnswerTable` as compatibility alias during transition (now fully removed — no longer needed).
 - [x] Define style variants (`compact` / `standard` / `guided`) without behavior drift.
 
 ## Implementation
@@ -21,15 +22,15 @@
 - [x] Create `TypedTransformExercise` component wrapper.
 - [x] Create `ClozeTypingExercise` component wrapper.
 - [x] Keep shared parsing/validation/audio logic in one internal module for DRY behavior.
-- [ ] Wire new components in:
-  - [x] `src/components/index.js`
-  - [x] `src/App.jsx` render switch paths
+- [x] Wire new components in:
+  - [x] `src/components/exercises/index.js`
+  - [x] `src/App.jsx` render switch paths (both inline and accordion-wrapped)
 
 ## Incremental Migration
 - [x] Migrate LO3 exercise 3 to semantic component name.
 - [x] Migrate LO3 exercise 4 to semantic component name.
 - [x] Migrate LO3 exercise 5 listening task to semantic component name (`DictationExercise`).
-- [ ] Migrate remaining LOs one activity at a time (no bulk rename).
+- [x] Migrate remaining LOs one activity at a time — complete. Zero `AnswerTable` configs remain.
 
 ## QA for each migrated activity
 - [x] Desktop layout parity.
@@ -40,7 +41,7 @@
 - [ ] Accessibility smoke check (labels/focus/keyboard order).
 
 ## Documentation and Guardrails
-- [x] Update `README.md` with new semantic component names and mapping.
+- [x] Update `README.md` with new semantic component names, mapping, and three-layer architecture diagram.
 - [x] Update `CHANGES.md` per migration batch.
-- [ ] Add final mapping table (`legacy -> semantic`) after all migrations complete.
-- [ ] Remove/deprecate `AnswerTable` only when zero config usages remain.
+- [x] Add final mapping table (`legacy -> semantic`) — see README "Typed-response exercise architecture" section.
+- [x] Remove/deprecate `AnswerTable` — alias fully removed from `App.jsx`; zero config usages remain.

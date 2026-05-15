@@ -55,13 +55,18 @@ Legacy compatibility:
   - use `DictationExercise` (best semantic fit).
 
 ## Current status update
-- Semantic wrappers are now in code and wired:
+- All three semantic wrappers are now in code and wired:
   - `TypedTransformExercise`
   - `DictationExercise`
-- Wrappers currently delegate to shared `AnswerTableRuntime` to keep behavior stable during migration.
-- Current behavior split in runtime:
+  - `ClozeTypingExercise`
+- All wrappers delegate to shared `TextEntryExerciseRuntime` (formerly called `AnswerTableRuntime` in early planning).
+- Behavior split in runtime:
   - `TypedTransformExercise`: strict compare + global controls + inline prompt audio option.
   - `DictationExercise`: dictation compare normalization + global controls + left audio icon.
-- Next phase remains:
-  - classify and migrate remaining LO `AnswerTable` usages.
-  - optionally split audio directories per semantic activity after behavior migration is stable.
+  - `ClozeTypingExercise`: strict compare + per-row inline gap rendering (no global controls bar).
+- Migration is complete: zero `AnswerTable` usages remain in any LO JSON config.
+- `AnswerTable` alias has been fully removed from `App.jsx`.
+- Three-layer DRY architecture is documented with ASCII diagram in README.
+- Remaining open items (see checklist):
+  - mobile layout parity QA for migrated activities.
+  - accessibility smoke check (labels / focus / keyboard order).
