@@ -75,37 +75,33 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20
-          cache: yarn
+          bun-version: latest
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Ensure origin/main exists for branch guards
         run: git fetch --no-tags origin main:refs/remotes/origin/main
 
       - name: Build
-        run: yarn build
+        run: bun run build
 
       - name: Lint
-        run: yarn lint
+        run: bun run lint
 
       - name: Typography guard (branch)
-        run: yarn check:typography:branch
+        run: bun run check:typography:branch
 
       - name: Color guard (branch)
-        run: yarn check:color:branch
+        run: bun run check:color:branch
 
       - name: A11y guard (branch)
-        run: yarn check:a11y:branch
+        run: bun run check:a11y:branch
 ```
 
-If the project uses Bun instead of Yarn, keep the same job shape and swap commands to:
-- install: `bun install --frozen-lockfile`
-- run scripts: `bun run <script>`
 
 ## Additional Prevention Defaults (Recommended)
 
@@ -121,8 +117,8 @@ Add these from day one to avoid late cleanup projects:
 5. Add visual regression snapshots for top-level routes and core components.
 6. Add a path hygiene guard (ASCII-only names, no spaces) for `public/` assets.
    - include an explicit image-path guard:
-     - block new `public/images/` additions (legacy path)
-     - enforce new image assets under `public/img/`
+     - block new `public/images/` or `public/img/` additions (legacy paths)
+     - enforce new image assets under `public/media/images/`
      - enforce lowercase + ASCII-safe filenames
 7. Add dependency update automation (Dependabot or Renovate) with weekly cadence.
 8. Add security scanning (CodeQL and `npm audit`/`yarn audit`) on schedule.
@@ -158,7 +154,7 @@ Use this as a hard "do not repeat" list.
 12. Do not switch shadcn primitive backend (Radix -> Base UI) without a documented strategic reason.
 13. Do not author modal content links in JSON as direct fragment hashes (for example `href="#tuvous"`).
 14. Do not use `<table>` for visual layout where flex/grid is the correct semantic choice.
-15. Do not add new image assets into a legacy catch-all folder (`public/images`); use `public/img/common`, `public/img/shared`, and `public/img/loX`.
+15. Do not add new image assets into a legacy catch-all folder (`public/images`); use `public/media/images/common`, `public/media/images/shared`, and `public/media/images/loX`.
 16. Do not use presentational emphasis tags (`<b>`, `<i>`) in authored HTML/JSON content; use semantic tags (`<strong>`, `<em>`) instead.
 17. Do not hardcode a single deployment mount path in build config (for example fixed Vite `base` tied to one folder name); make it env-configurable with a portable default.
 18. Do not ship query-only content routing as the primary URL strategy when SEO/discoverability matters; use path slugs as canonical routes.
@@ -173,7 +169,7 @@ Use this as a hard "do not repeat" list.
 Use this as the default image directory contract:
 
 ```text
-public/img/
+public/media/images/
 |- common/   (branding, footer, icons, flags, UI chrome)
 |- shared/   (cross-LO reusable sets)
 |- lo1..loN  (LO-specific assets)

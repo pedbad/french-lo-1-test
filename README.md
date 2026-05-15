@@ -635,17 +635,17 @@ The active migration/audit trackers are:
 - `/Users/ped/Sites/french/french-lo-1/docs/a11y/HTML_ACCESSIBILITY_ISSUES.md`
 - `/Users/ped/Sites/french/french-lo-1/docs/a11y/TABLE_AUDIT_PASS.md` (table semantics audit checklist + WAVE triage notes)
 - `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md` (cross-LO checklist for audio, architecture, consistency, a11y, and docs sync)
-- `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO8_MIGRATION_MAP.md` (LO8 audio migration record)
-- `/Users/ped/Sites/french/french-lo-1/docs/audio/LO8_AUDIO_BLOCKERS.md` (LO8 blocker/status note)
+- `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO8_MIGRATION_MAP.md` (LO8 audio migration record)
+- `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO8_AUDIO_BLOCKERS.md` (LO8 blocker/status note)
 - `/Users/ped/Sites/french/french-lo-1/docs/styling/FONTS_PROBLEM.md` (build asset duplication root-cause note)
 - `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md` (new-project blueprint + copy-only setup prompt)
 - `/Users/ped/Sites/french/french-lo-1/docs/process/JSON_CONFIG_REFACTOR_AUDIT.md` (runtime-based JSON key audit baseline + LO1 findings)
 - `/Users/ped/Sites/french/french-lo-1/docs/components/COMPONENT_ARCHITECTURE_AUDIT.md` (canonical component architecture audit, drift risks, target structure, phased plan)
 - `/Users/ped/Sites/french/french-lo-1/docs/components/COMPONENT_TREE_STANDARD.md` (canonical directory tree + naming/import/export rules for component refactors)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_README.md` (utility module architecture plan and compatibility approach)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_TODO.md` (phased utility extraction tasks)
-- `/Users/ped/Sites/french/french-lo-1/docs/components/UTILITY_REFACTOR_CHECKLIST.md` (batch/PR verification checklist for utility refactor)
-- `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_TODO.md` (human-readable nav refactor rationale + phased plan)
+- `/Users/ped/Sites/french/french-lo-1/docs/archive/components/UTILITY_REFACTOR_README.md` (utility module architecture plan and compatibility approach)
+- `/Users/ped/Sites/french/french-lo-1/docs/archive/components/UTILITY_REFACTOR_TODO.md` (phased utility extraction tasks)
+- `/Users/ped/Sites/french/french-lo-1/docs/archive/components/UTILITY_REFACTOR_CHECKLIST.md` (batch/PR verification checklist for utility refactor)
+- `/Users/ped/Sites/french/french-lo-1/docs/archive/navigation/NAV_TODO.md` (human-readable nav refactor rationale + phased plan)
 - `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_CHECKLIST.md` (parity and regression checklist for nav split)
 - `/Users/ped/Sites/french/french-lo-1/docs/navigation/NAV_CHANGES.md` (navigation decision/change log)
 
@@ -785,7 +785,7 @@ What this means:
 
 - Design tokens continue to live as CSS variables in `src/index.css`, but Tailwind utilities become the primary way those tokens are consumed.
 - Layout, spacing, typography, and most component styling move to Tailwind classes (or small `@apply` utilities where needed).
-- SCSS becomes minimal or legacy-only until fully migrated.
+- ✅ SCSS fully removed — styling is now CSS + Tailwind only.
 
 Why it is feasible here:
 
@@ -794,17 +794,17 @@ Why it is feasible here:
 
 ### Proposed migration path
 
-1. Define boundaries: new work uses Tailwind; SCSS only for legacy until migrated.
+1. ✅ Boundaries defined and enforced: all new work uses Tailwind; SCSS fully removed.
 2. Tokenize everything: ensure colors/spacing/radii/typography are mapped to Tailwind config or CSS vars.
 3. Migrate layout first: intro, menus, simple grids, page wrappers.
-4. Migrate component skins: replace component SCSS with Tailwind utilities.
-5. Remove unused SCSS once a component is fully migrated.
+4. ✅ Component skins migrated: all component SCSS replaced with Tailwind utilities.
+5. ✅ Unused SCSS removed: zero SCSS files remain in the codebase.
 
 ### Proposed near-term changes
 
 - Intro section layout in `src/App.jsx`: replace `intro-layout` and `intro-secondary` layout rules with responsive Tailwind classes.
 - New or refactored layout wrappers should default to Tailwind for flex/grid and breakpoints.
-- Migrate the custom accordion (`src/components/Accordion/*`) to shadcn/Radix Accordion; execution is tracked in `ACCORDION_CHANGES_TODO.md` with a debug-first rollout before main-app migration.
+- ✅ Custom accordion migrated to shadcn/Radix Accordion — complete. Full history in `ACCORDION_CHANGES_TODO.md`.
   - current status: debug migration and main-app cutover are complete via `src/components/Accordion/AccordionArticle.jsx`.
   - legacy app accordion container (`src/components/Accordion/Accordion.jsx`) was removed, and dead pathways (`window.refs`, `expandAllAccordions`, stale `expandNow`) were deleted.
   - naming cleanup: wrapper was renamed from `AppAccordionArticle` to `AccordionArticle`; root semantic tag is now `<article>`.
@@ -817,11 +817,11 @@ Yes, this is correct with one nuance: keep design tokens in `src/index.css` as C
 
 1. Tailwind for all new development: New UI components and features should be styled with Tailwind utilities.
 2. Consolidate design tokens: Centralize colors, spacing, typography, and breakpoints in `tailwind.config.js` and CSS variables in `src/index.css`.
-3. Phased migration of existing SCSS: As components are touched, refactor their styles from SCSS into Tailwind utilities in JSX.
+3. ✅ Phased migration of existing SCSS: complete — all component styles migrated to Tailwind utilities in JSX.
 4. Deprecate custom SCSS: Gradually shrink SCSS to only rare, complex cases that can’t be expressed with utilities.
 5. Use `@apply` strategically: Acceptable during transition, but the long-term goal is co-located Tailwind classes in markup.
 
-## TODO: Styling Consolidation
+## ✅ Styling Consolidation — Complete
 The SCSS removal migration is complete: app styling is now CSS + Tailwind only, with global/component rules centralized in `src/index.css` and tokens in one place.
 
 Proposed approach:
@@ -899,9 +899,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - New LO3 root:
   - `public/audio/lo3/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO3_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO3_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO3_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO3_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - removed LO3 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
 
@@ -914,9 +914,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - New LO4 root:
   - `public/audio/lo4/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO4_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO4_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO4_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO4_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - removed 59 LO4 legacy files from `public/sounds/fr` only when no remaining `src` references required them.
   - the later repo-wide cleanup removed the remaining `public/sounds/fr` tree after confirming no runtime references remained.
@@ -932,9 +932,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - LO8 exercise images now use lesson-owned paths:
   - `public/img/lo8/exercises/vocabulary/...`
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO8_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO8_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO8_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO8_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
   - `public/images/memory/...` copies have been removed; active images now live under `public/img/`.
@@ -952,9 +952,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - grouped grammar articles
   - tabbed pronunciation items
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO9_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO9_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO9_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO9_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
@@ -971,9 +971,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
   - grouped grammar articles
   - tabbed pronunciation items
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO10_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO10_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO10_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO10_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
@@ -991,9 +991,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Current source note:
   - LO11 still has no pronunciation section because the current repo does not contain authored café pronunciation content to migrate
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO11_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO11_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO11_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO11_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
@@ -1008,9 +1008,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Current source note:
   - LO13 currently has no lesson-owned pronunciation section in the repo, so this migration covers dialogues, vocabulary, grammar, and exercises only.
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO13_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO13_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO13_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO13_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
 
@@ -1029,9 +1029,9 @@ Native `title` tooltips are replaced with shadcn-style tooltips for consistent t
 - Current source note:
   - two missing legacy weather clips were copied from migrated LO5 grammar audio, and shared `aller` grammar material was copied from migrated LO12 audio so LO15 remains self-contained.
 - Migration record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/AUDIO_LO15_MIGRATION_MAP.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/AUDIO_LO15_MIGRATION_MAP.md`
 - Blocker record:
-  - `/Users/ped/Sites/french/french-lo-1/docs/audio/LO15_AUDIO_BLOCKERS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/archive/audio/LO15_AUDIO_BLOCKERS.md`
 - Legacy cleanup:
   - repo-wide `public/sounds/fr/...` cleanup is complete; the folder was removed after confirming no runtime references remain.
   - `public/images/` has been fully removed; all assets now live under `public/img/`.
@@ -1100,5 +1100,5 @@ LO1 listening exercises were refactored for consistency, clearer naming, and saf
 
 ## Badges
 
-![Node](https://img.shields.io/badge/node-18.x-brightgreen)
+![Node](https://img.shields.io/badge/node-20.x-brightgreen)
 ![Vite](https://img.shields.io/badge/built%20with-vite-646cff.svg?logo=vite)
