@@ -363,7 +363,7 @@
 					"inlineChoiceGroup1": {
 						"component": "InlineChoiceGroup",
 						"id": "inlineChoiceGroup1",
-						"instructionsText": "Listen to each exchange and choose the correct word or form.",
+						"informationText": "Listen to each exchange and choose the correct word or form.",
 						"informationTextHTML": "Listen carefully and complete each telephone exchange with the correct option. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 					"items": [
 						{
@@ -417,7 +417,7 @@
 					"selectExercise2": {
 						"component": "SelectExercise",
 						"id": "selectExercise2",
-						"instructionsText": "Listen to the dialogue and choose the correct reply each time.",
+						"informationText": "Listen to the dialogue and choose the correct reply each time.",
 						"informationTextHTML": "Complete the telephone conversation by choosing the correct spoken reply at each step. Work through the dialogue, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review it, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
 						"items": [
 							{

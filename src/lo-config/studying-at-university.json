@@ -434,7 +434,7 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"instructionsText": "Listen to the full audio or each sentence, then choose the correct word or phrase to complete the conversation.",
+					"informationText": "Listen to the full audio or each sentence, then choose the correct word or phrase to complete the conversation.",
 					"renderInlineChoices": true,
 					"useSequenceAudioController": true,
 					"items": [
@@ -483,7 +483,7 @@
 				"inlineTypedGapExercise1": {
 					"component": "InlineTypedGapExercise",
 					"id": "inlineTypedGapExercise1",
-					"instructionsText": "Listen to the audio and type the missing French words into each comme question pattern.",
+					"informationText": "Listen to the audio and type the missing French words into each comme question pattern.",
 					"informationTextHTML": "<p>Use the English and the audio to complete each French question. Type the missing words directly into the fixed <em>Qu'est-ce que ... comme ... ?</em> pattern so it becomes automatic. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>",
 					"useSequenceAudioController": true,
 					"items": [
@@ -535,7 +535,7 @@
 				"selectExercise3": {
 					"component": "SelectExercise",
 					"id": "selectExercise3",
-					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
+					"informationText": "Select the correct part of the verb to fill in the gaps.",
 					"renderInlineChoices": true,
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
@@ -585,7 +585,7 @@
 				"selectExercise2": {
 					"component": "SelectExercise",
 					"id": "selectExercise2",
-					"instructionsText": "Select the correct part of the verb to fill in the gaps.",
+					"informationText": "Select the correct part of the verb to fill in the gaps.",
 					"renderInlineChoices": true,
 					"shuffleItems": true,
 					"showHintsText": "Show hints when moving",
@@ -635,7 +635,7 @@
 				"inlineTypedGapExercise2": {
 					"component": "InlineTypedGapExercise",
 					"id": "inlineTypedGapExercise2",
-					"instructionsText": "Type the present participle used as an adjective in each gap.",
+					"informationText": "Type the present participle used as an adjective in each gap.",
 					"items": [
 						{
 							"text": "Le film est très [amusant::amuser]."
@@ -661,7 +661,7 @@
 				"inlineTypedGapExercise3": {
 					"component": "InlineTypedGapExercise",
 					"id": "inlineTypedGapExercise3",
-					"instructionsText": "Type the past participle used as an adjective in each gap.",
+					"informationText": "Type the past participle used as an adjective in each gap.",
 					"items": [
 						{
 							"text": "Les étudiants sont très [occupés::occuper]."

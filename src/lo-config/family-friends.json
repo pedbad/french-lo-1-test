@@ -341,7 +341,7 @@
 				"selectExercise1": {
 					"component": "SelectExercise",
 					"id": "selectExercise1",
-					"instructionsText": "Listen to the speakers and select what you hear.",
+					"informationText": "Listen to the speakers and select what you hear.",
 					"informationTextHTML": "Play each audio clip and choose the French sentence that matches what you hear. Work through all items first, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again, or <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> to reveal the solutions.",
 					"showHintsText": "Show hints when moving",
 					"items": [

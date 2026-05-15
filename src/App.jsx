@@ -646,37 +646,19 @@ export default class App extends React.Component {
 
 		const normalized = { ...node };
 
-		// Legacy alias compatibility: prefer canonical informationText* keys.
+		// Legacy alias compatibility: infoText* -> informationText* (kept defensively;
+		// no infoText* keys remain in config but guard against hand-authored files).
 		if (
 			!this.hasNonEmptyInstructionValue(normalized.informationTextHTML) &&
-      this.hasNonEmptyInstructionValue(normalized.infoTextHTML)
+			this.hasNonEmptyInstructionValue(normalized.infoTextHTML)
 		) {
 			normalized.informationTextHTML = normalized.infoTextHTML;
 		}
 		if (
 			!this.hasNonEmptyInstructionValue(normalized.informationText) &&
-      this.hasNonEmptyInstructionValue(normalized.infoText)
+			this.hasNonEmptyInstructionValue(normalized.infoText)
 		) {
 			normalized.informationText = normalized.infoText;
-		}
-
-		// PhraseTable guidance should render through the Info alert contract.
-		// During migration, lift legacy instructionsText* into informationText*
-		// and suppress duplicate instructions rendering for this component.
-		if (
-			normalized.component === "PhraseTable" &&
-      !this.hasNonEmptyInstructionValue(normalized.informationTextHTML) &&
-      !this.hasNonEmptyInstructionValue(normalized.informationText)
-		) {
-			if (this.hasNonEmptyInstructionValue(normalized.instructionsTextHTML)) {
-				normalized.informationTextHTML = normalized.instructionsTextHTML;
-				delete normalized.instructionsTextHTML;
-			} else if (
-				this.hasNonEmptyInstructionValue(normalized.instructionsText)
-			) {
-				normalized.informationText = normalized.instructionsText;
-				delete normalized.instructionsText;
-			}
 		}
 
 		Object.keys(normalized).forEach((key) => {

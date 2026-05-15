@@ -127,15 +127,16 @@ Add a config guard script and enforce it in pre-commit:
 
 ## Migration Checklist
 
-- [ ] Canonical field contract approved (`instructionsLayout` vs `informationTextHTML`).
+- [x] Canonical field contract approved (`informationText` / `informationTextHTML` for alert-style guidance).
 - [x] Runtime adapter added and tested.
 - [x] Duplicate non-tab info render path removed (`App.jsx` single-owner behavior).
 - [x] Alert typography parity fallback added for children-based info content.
-- [ ] Legacy key mapping covered in adapter tests.
-- [ ] LO JSON migration Batch A complete.
-- [ ] LO JSON migration Batch B complete.
-- [ ] LO JSON migration Batch C complete.
-- [ ] No new `infoText*` keys in repo.
+- [x] Legacy key mapping covered in adapter (infoText* guard kept defensively).
+- [x] LO JSON migration Batch A complete (LO1–LO5: instructionsText → informationText).
+- [x] LO JSON migration Batch B complete (LO6–LO10: instructionsText → informationText).
+- [x] LO JSON migration Batch C complete (LO11–LO15: instructionsText → informationText).
+- [x] No `instructionsText*` keys remain in any LO config. No `infoText*` keys remain.
+- [x] Dead `instructionsText*` lift block removed from App.jsx adapter.
 - [ ] Pre-commit schema guard enabled.
 - [ ] README authoring rules updated.
 - [ ] Visual parity sign-off complete.

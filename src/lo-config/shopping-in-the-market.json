@@ -368,7 +368,7 @@
         "selectExercise1": {
           "component": "SelectExercise",
           "id": "selectExercise1",
-          "instructionsText": "Select the correct word for each gap.",
+          "informationText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
           "items": [
@@ -429,7 +429,7 @@
         "selectExercise2": {
           "component": "SelectExercise",
           "id": "selectExercise2",
-          "instructionsText": "Select the correct word for each gap.",
+          "informationText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
           "items": [
@@ -466,7 +466,7 @@
         "selectExercise3": {
           "component": "SelectExercise",
           "id": "selectExercise3",
-          "instructionsText": "Select the correct word for each gap.",
+          "informationText": "Select the correct word for each gap.",
           "renderInlineChoices": true,
           "shuffleItems": true,
           "items": [
@@ -499,7 +499,7 @@
         "dictationExercise4": {
           "component": "DictationExercise",
           "id": "dictationExercise4",
-          "instructionsText": "Listen and write what you hear.",
+          "informationText": "Listen and write what you hear.",
           "phrases": [
             [
               "",

@@ -670,7 +670,7 @@
 					"component": "DictationExercise",
 					"id": "dictationExercise5",
 					"informationTextHTML": "<p>Listen to each audio clip and write exactly what you hear. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your entries, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to practise again.</p>",
-					"instructionsText": "Listen and write what you hear.",
+					"informationText": "Listen and write what you hear.",
 					"phrases": [
 						[
 							"",
