@@ -749,7 +749,7 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 - Remaining design-system work is now focused on color consolidation and accessibility/HTML validity phases.
 - Introduction + Grammar now use a dedicated hero-style Section so instruction text and imagery share the same baseline and card framing as the rest of the UI.
 - Special anchors currently add a short delay before scrolling so accordion panels have time to expand; TODO: smooth that interaction so the highlight feels more immediate once we refactor the anchor logic.
-- Modal links open a shadcn/Radix modal (no scrolling). The modal accepts **React content** (not just HTML strings) so inline `AudioClip` components can render and function. For core grammar modals (e.g. `tuvous`, `madame`), it renders the same React content exported from the focused custom components under `src/components/custom/`, so audio clips work and there’s no duplicated copy. JSON `infoTextHTML` is still used for simpler modal text. Optional highlight styles are applied via CSS animation and fade out after flashing.
+- Modal links open a shadcn/Radix modal (no scrolling). The modal accepts **React content** (not just HTML strings) so inline `AudioClip` components can render and function. For core grammar modals (e.g. `tuvous`, `madame`), it renders the same React content exported from the focused custom components under `src/components/custom/`, so audio clips work and there’s no duplicated copy. Simpler modal text uses `informationTextHTML` from config. Optional highlight styles are applied via CSS animation and fade out after flashing.
 - Link interaction contract (explicit, to avoid legacy overload):
   - top navigation uses `nav-scroll-link` and is scroll-only
   - top navigation hashes are semantic section IDs (`#introduction`, `#dialogues`, `#vocabulary`, `#grammar`, `#pronunciation`, `#exercises`)
@@ -781,15 +781,15 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 
 ### Instruction Schema Unification (in progress)
 
-- Problem: instructional content is currently authored across overlapping keys (`instructions*`, `information*`, `info*` legacy), which render through different component paths and cause typography/layout drift.
+- ✅ Config key migration complete. All LO JSON files now use canonical keys only.
 - Tracking doc: `INFORMATION_CONFIG_ISSUES.MD`
-- Target contract:
-  - section intro prose/layout: `instructionsLayout`
-  - boxed guidance/alert text: `informationTextHTML` (or `informationText`)
-- Migration approach:
-  1. runtime compatibility adapter (legacy -> canonical mapping)
-  2. JSON config migration in batches
-  3. pre-commit schema guard to block deprecated keys
+- Canonical contract (enforced):
+  - boxed guidance/alert text: `informationTextHTML` (HTML) or `informationText` (plain text)
+- What was migrated:
+  - `instructionsText` → `informationText` across 32 instances in 12 LO configs (LO2–LO15)
+  - dead `instructionsText*` lift block removed from App.jsx adapter
+  - `infoText*` adapter kept defensively (no config instances remain)
+- Remaining open: pre-commit schema guard to block deprecated keys from being reintroduced
 
 ### LO2 Grammar Unification (in progress)
 

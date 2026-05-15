@@ -2,6 +2,30 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-15 - JSON Config Key Cleanup + ClozeTypingExercise
+
+- Migrated all 32 `instructionsText` key usages to canonical `informationText` across 12 LO JSON configs:
+  - `src/lo-config/about-me.json`
+  - `src/lo-config/origins-and-languages.json`
+  - `src/lo-config/current-location.json`
+  - `src/lo-config/house-and-home.json`
+  - `src/lo-config/family-friends.json`
+  - `src/lo-config/opinions-matter.json`
+  - `src/lo-config/free-time.json`
+  - `src/lo-config/phoning-in-france.json`
+  - `src/lo-config/shopping-in-the-market.json`
+  - `src/lo-config/daily-routine.json`
+  - `src/lo-config/studying-at-university.json`
+  - `src/lo-config/planning-a-holiday.json`
+- Removed dead `instructionsText*` lift block from `src/App.jsx` adapter (no config usages remain)
+- Zero `instructionsText*` or `infoText*` keys remain in any LO config
+- Added `ClozeTypingExercise` semantic wrapper (`src/components/exercises/ClozeTypingExercise/`)
+  - delegates to shared `TextEntryExerciseRuntime` with `useGlobalActions: false` (inline gap rendering)
+  - wired into exercises barrel, `App.jsx` switch paths, and debug `LearningObjectStructureSummary`
+- Documented three-layer DRY exercise architecture in README with ASCII diagram and props contract table
+- Fixed debug sandbox: hardcoded preview URL replaced with `BASE_URL`-relative path; Yarn commands updated to Bun
+- Updated `INFORMATION_CONFIG_ISSUES.MD`, `ANSWERTABLE_REFACTOR_CHECKLIST.md`, and `ANSWERTABLE_REFACTOR_TODO.md` to reflect completed work
+
 ## 2026-05-08 - MainMenu Navigation Parity Refactor
 
 - Began the documented top-navigation refactor with a parity-first split:
