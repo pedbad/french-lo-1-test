@@ -19,7 +19,7 @@
 ## Implementation
 - [x] Create `DictationExercise` component wrapper.
 - [x] Create `TypedTransformExercise` component wrapper.
-- [ ] Create `ClozeTypingExercise` component wrapper.
+- [x] Create `ClozeTypingExercise` component wrapper.
 - [x] Keep shared parsing/validation/audio logic in one internal module for DRY behavior.
 - [ ] Wire new components in:
   - [x] `src/components/index.js`

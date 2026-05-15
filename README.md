@@ -552,6 +552,54 @@ Latest applied step:
     - dictation normalization mode (punctuation/apostrophe/spacing tolerant, accents strict)
     - trimmed leading/trailing whitespace on check
     - stable row layout (fixed status slot and non-jittering input width)
+
+### Typed-response exercise architecture (three-layer pattern)
+
+Typed-response exercises use a three-layer DRY architecture. All shared logic lives in one place; each semantic exercise type is a thin wrapper that declares its intent via props.
+
+```
+┌─────────────────────┐  ┌───────────────────────┐  ┌──────────────────────┐
+│  DictationExercise  │  │ TypedTransformExercise │  │ ClozeTypingExercise  │
+│  ─────────────────  │  │  ───────────────────── │  │  ──────────────────  │
+│  listen + transcribe│  │  prompt → target form  │  │  fill sentence gaps  │
+└────────┬────────────┘  └──────────┬────────────┘  └──────────┬───────────┘
+         │                          │                           │
+         └──────────────────────────┴───────────────────────────┘
+                                    │
+                    ┌───────────────▼────────────────┐
+                    │     TextEntryExerciseRuntime    │
+                    │  ─────────────────────────────  │
+                    │  input state & change handler   │
+                    │  check / show-answers / reset   │
+                    │  per-row diff + icon feedback   │
+                    │  audio column positioning       │
+                    │  progress dots                  │
+                    │  header rendering               │
+                    │  Enter-key submit               │
+                    └─────────────────────────────────┘
+```
+
+**Why this is DRY:**
+- Every feature (diff highlighting, check/reset/show logic, audio, progress dots, Enter-key submit) is written once in `TextEntryExerciseRuntime`.
+- Semantic wrappers are 3-line components that pass a handful of props — nothing is duplicated.
+- Future behaviour changes (for example accent normalisation policy, scoring) go into the runtime or the relevant wrapper only; the other wrappers are not affected.
+
+**What each wrapper configures:**
+
+| Component | `comparisonMode` | `audioColumnPosition` | `useGlobalActions` |
+|---|---|---|---|
+| `DictationExercise` | `"dictation"` (punctuation/spacing tolerant) | `"left"` | `true` |
+| `TypedTransformExercise` | `"strict"` (exact trim match) | `"left"` | `true` |
+| `ClozeTypingExercise` | `"strict"` | — | `false` (inline gaps) |
+
+**Adding future behaviour without coupling:**
+Each wrapper has a `TODO(component-split)` comment marking where type-specific logic should go. For example, `DictationExercise` can add its own accent normalisation rules without affecting `TypedTransformExercise`. The wrappers are the isolation boundary.
+
+**Files:**
+- `src/components/exercises/DictationExercise/DictationExercise.jsx`
+- `src/components/exercises/TypedTransformExercise/TypedTransformExercise.jsx`
+- `src/components/exercises/ClozeTypingExercise/ClozeTypingExercise.jsx`
+- `src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx` (shared runtime)
 - legacy `Blanks` activities across FR configs (`LO1-LO15` + `demo`) now use semantic `DraggableFillGaps`.
 - runtime compatibility alias has now been removed from `App`; use `DraggableFillGaps` as canonical naming.
 - LO1 exercise audio folders for former `phrases2/3/4` are now aligned to semantic names:

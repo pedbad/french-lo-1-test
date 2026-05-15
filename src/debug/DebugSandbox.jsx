@@ -59,9 +59,9 @@ export function DebugSandbox() {
 		if (typeof document === "undefined") return false;
 		return document.documentElement.classList.contains("dark");
 	});
-	const previewUrl = `${window.location.origin}/projects/french-basic/first-contact/`;
+	const previewUrl = `${window.location.origin}${import.meta.env.BASE_URL}first-contact/`;
 	const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
-	const chromeIncognitoCommandPowerShell = 'Start-Process "chrome.exe" "--incognito --disable-extensions `"https://lcdev.langcen.cam.ac.uk/projects/french-basic/first-contact/`""';
+	const chromeIncognitoCommandPowerShell = `Start-Process "chrome.exe" "--incognito --disable-extensions \`"${previewUrl}\`"""`;
 
 	React.useEffect(() => {
 		let mounted = true;
@@ -170,12 +170,12 @@ export function DebugSandbox() {
 							<h3 className="m-0 text-base">1) Clean build + preview</h3>
 							<pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
 								<code>{`rm -rf dist
-yarn build
-yarn preview`}</code>
+bun run build
+bun run preview`}</code>
 							</pre>
 							<p className="mb-0 mt-3 text-sm text-muted-foreground">One-line command:</p>
 							<pre className="mt-2 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
-								<code>{`rm -rf dist && yarn build && yarn preview`}</code>
+								<code>{`rm -rf dist && bun run build && bun run preview`}</code>
 							</pre>
 						</div>
 						<div className="rounded-xl border border-border/70 bg-muted/20 p-4">

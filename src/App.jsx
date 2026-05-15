@@ -8,6 +8,7 @@ import {
 } from "@/components/content";
 
 import {
+	ClozeTypingExercise,
 	DictationExercise,
 	DraggableFillGaps,
 	InlineChoiceGroup,
@@ -854,6 +855,12 @@ export default class App extends React.Component {
 		const { languageCode } = this.state;
 
 		switch (component) {
+			case "ClozeTypingExercise":
+				return (
+					<ClozeTypingExercise
+						config={value}
+					/>
+				);
 			case "TypedTransformExercise":
 				return (
 					<TypedTransformExercise
@@ -1205,6 +1212,24 @@ export default class App extends React.Component {
 		const compoundID = `LO${currentLearningObject}-${id}`;
 
 		switch (component) {
+			case "ClozeTypingExercise": {
+				articles.push(
+					<AccordionArticle
+						expandedByDefault={autoExpandSingleAccordion}
+						config={value}
+						id={`${compoundID}-Accordion`}
+						key={`${compoundID}-Accordion`}
+						target={targetId}
+						title={titleText}
+						titleHTML={titleTextHTML}
+					>
+						<ClozeTypingExercise
+							config={value}
+						/>
+					</AccordionArticle>,
+				);
+				break;
+			}
 			case "TypedTransformExercise": {
 				articles.push(
 					<AccordionArticle

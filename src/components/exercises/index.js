@@ -1,3 +1,4 @@
+export * from './ClozeTypingExercise';
 export * from './DictationExercise';
 export * from './DraggableFillGaps';
 export * from './DraggableFillGaps/DraggableWordTile';
