@@ -35,6 +35,7 @@ Non-negotiable architecture:
    - style guard script that fails on new hardcoded typography/colors outside token files
    - fail CI if any .scss/.sass files are added
    - fail CI on accessibility gate failures (lint + automated checks)
+   - **add config key schema guards on day one** — define which JSON keys are canonical for each content type and write a guard script that blocks banned/legacy keys from being committed. It is far cheaper to enforce a schema at the start than to clean up 15 LOs of key drift later. (Lesson learned: `instructionsText` / `infoText` variants accumulated across 32 config locations before being caught and cleaned up.)
 10. Add docs:
    - THEME_ARCHITECTURE.md
    - COMPONENT_GUIDELINES.md

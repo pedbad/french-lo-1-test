@@ -137,8 +137,8 @@ Add a config guard script and enforce it in pre-commit:
 - [x] LO JSON migration Batch C complete (LO11–LO15: instructionsText → informationText).
 - [x] No `instructionsText*` keys remain in any LO config. No `infoText*` keys remain.
 - [x] Dead `instructionsText*` lift block removed from App.jsx adapter.
-- [ ] Pre-commit schema guard enabled.
-- [ ] README authoring rules updated.
+- [x] Pre-commit schema guard enabled (`scripts/check-config-keys-guard.sh`, wired into `check:config-keys` and `prepush:local`).
+- [x] README authoring rules updated (canonical key table + banned key table added).
 - [ ] Visual parity sign-off complete.
 - [ ] Accessibility/W3C validation sign-off complete.
 

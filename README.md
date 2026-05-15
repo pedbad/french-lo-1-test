@@ -789,7 +789,27 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
   - `instructionsText` → `informationText` across 32 instances in 12 LO configs (LO2–LO15)
   - dead `instructionsText*` lift block removed from App.jsx adapter
   - `infoText*` adapter kept defensively (no config instances remain)
-- Remaining open: pre-commit schema guard to block deprecated keys from being reintroduced
+- ✅ Pre-commit schema guard added: `scripts/check-config-keys-guard.sh`
+
+### Config Authoring Rules
+
+When adding instructional content to any LO JSON config, use **only** these canonical keys:
+
+| Key | Use for | Example |
+|---|---|---|
+| `informationText` | Plain text instruction (no markup) | `"informationText": "Select the correct form."` |
+| `informationTextHTML` | HTML instruction (links, emphasis, etc.) | `"informationTextHTML": "<p>Listen and <em>choose</em>.</p>"` |
+
+**Never use these — they are banned and the pre-commit guard will block them:**
+
+| Banned key | Canonical replacement |
+|---|---|
+| `instructionsText` | `informationText` |
+| `instructionsTextHTML` | `informationTextHTML` |
+| `infoText` | `informationText` |
+| `infoTextHTML` | `informationTextHTML` |
+
+The guard runs automatically on `bun run check:config-keys` (staged) and is included in `prepush:local`.
 
 ### LO2 Grammar Unification (in progress)
 

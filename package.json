@@ -27,7 +27,9 @@
 		"check:audio-unicode": "node scripts/audio-unicode-guard.mjs --staged --check",
 		"check:audio-unicode:branch": "node scripts/audio-unicode-guard.mjs --against origin/main --check",
 		"fix:audio-unicode": "node scripts/audio-unicode-guard.mjs --fix",
-		"prepush:local": "yarn lint && yarn check:typography:branch && yarn check:color:branch && yarn check:a11y:branch && yarn check:scss:branch && yarn check:image-path:branch && yarn check:audio-unicode:branch"
+		"check:config-keys": "bash scripts/check-config-keys-guard.sh --staged",
+		"check:config-keys:branch": "bash scripts/check-config-keys-guard.sh --against origin/main",
+		"prepush:local": "bun run lint && bun run check:typography:branch && bun run check:color:branch && bun run check:a11y:branch && bun run check:scss:branch && bun run check:image-path:branch && bun run check:audio-unicode:branch && bun run check:config-keys:branch"
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.2.8",
