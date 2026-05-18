@@ -1778,56 +1778,56 @@
 		}
 	}
 
-	/* WordParts interaction/animation skin extracted from WordParts.scss. */
-	html.debug .word-parts-container span {
+	/* WordSpotExercise interaction/animation skin extracted from WordParts.scss. */
+	html.debug .word-spot-container span {
 		border: 1px solid color-mix(in oklab, var(--destructive) 20%, transparent);
 	}
 
-	.word-parts-container {
+	.word-spot-container {
 		position: relative;
 	}
 
-	.word-parts-container .word-parts-grid {
+	.word-spot-container .word-spot-grid {
 		display: grid;
 		row-gap: 0.35rem;
 	}
 
-	.word-parts-container .word-parts-row {
+	.word-spot-container .word-spot-row {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		align-items: center;
 		column-gap: 0.55rem;
 	}
 
-	.word-parts-container .word-parts-row.spacer {
+	.word-spot-container .word-spot-row.spacer {
 		min-height: 0.4rem;
 	}
 
-	.word-parts-container .word-parts-audio-cell .audio-clip {
+	.word-spot-container .word-spot-audio-cell .audio-clip {
 		margin: 0;
 	}
 
-	.word-parts-container .word-parts-text-cell {
+	.word-spot-container .word-spot-text-cell {
 		min-width: 0;
 	}
 
-	.word-parts-container :is(table p, .word-parts-text-cell p) {
+	.word-spot-container :is(table p, .word-spot-text-cell p) {
 		margin: 0;
 		letter-spacing: 0.2rem;
 		perspective: 600px;
 	}
 
-	.word-parts-container .wordparts-reset.icon-button {
+	.word-spot-container .wordparts-reset.icon-button {
 		border-color: var(--chart-2);
 		background-color: var(--chart-2);
 		color: var(--primary-foreground);
 	}
 
-	.word-parts-container .wordparts-reset.icon-button:hover {
+	.word-spot-container .wordparts-reset.icon-button:hover {
 		background-color: color-mix(in oklab, var(--chart-2) 85%, transparent);
 	}
 
-	.word-parts-container :is(table span, .word-parts-text-cell span) {
+	.word-spot-container :is(table span, .word-spot-text-cell span) {
 		border: 1px solid transparent;
 		cursor: pointer;
 		display: inline-block;
@@ -1837,7 +1837,7 @@
 		user-select: none;
 	}
 
-	.word-parts-container :is(table span, .word-parts-text-cell span)::before {
+	.word-spot-container :is(table span, .word-spot-text-cell span)::before {
 		content: "";
 		position: absolute;
 		top: 0;
@@ -1846,7 +1846,7 @@
 		height: 100%;
 	}
 
-	.word-parts-container :is(table span, .word-parts-text-cell span).animate {
+	.word-spot-container :is(table span, .word-spot-text-cell span).animate {
 		animation-name: vertical-rotate;
 		animation-duration: 0.5s;
 		animation-timing-function: linear;
@@ -1857,19 +1857,19 @@
 		display: inline-block;
 	}
 
-	.word-parts-container :is(table span, .word-parts-text-cell span).animate::before {
+	.word-spot-container :is(table span, .word-spot-text-cell span).animate::before {
 		animation-name: shade;
 		animation-duration: 0.25s;
 		animation-timing-function: linear;
 		animation-iteration-count: 2;
 	}
 
-	.word-parts-container :is(table span, .word-parts-text-cell span).error {
+	.word-spot-container :is(table span, .word-spot-text-cell span).error {
 		border: 1px solid var(--destructive);
 		background: color-mix(in oklab, var(--destructive) 20%, transparent);
 	}
 
-	.word-parts-container .word-space {
+	.word-spot-container .word-space {
 		display: inline-block;
 		width: 0.5em;
 	}
@@ -1914,8 +1914,8 @@
 	}
 
 	@media (min-width: 768px) {
-		.word-parts-container .word-parts-row > div,
-		.word-parts-container table td {
+		.word-spot-container .word-spot-row > div,
+		.word-spot-container table td {
 			padding: 0.25rem 1rem;
 		}
 	}
@@ -4298,7 +4298,7 @@ hr {
   -webkit-mask-image: url("/img/shared/icons/book-open-text.svg");
   mask-image: url("/img/shared/icons/book-open-text.svg");
 }
-#content .word-parts-container :is(table td, table span, .word-parts-text-cell, .word-parts-text-cell span) {
+#content .word-spot-container :is(table td, table span, .word-spot-text-cell, .word-spot-text-cell span) {
   font-size: calc(var(--font-size-base) * 1.5);
   line-height: var(--line-height-wordparts);
 }
@@ -4416,7 +4416,7 @@ hr {
 }
 
 @media (max-width: 959px) {
-  #content .word-parts-container :is(table td, table span, .word-parts-text-cell, .word-parts-text-cell span) {
+  #content .word-spot-container :is(table td, table span, .word-spot-text-cell, .word-spot-text-cell span) {
     font-size: calc(var(--font-size-base) * 1.15);
     line-height: var(--line-height-wordparts-mobile);
   }
