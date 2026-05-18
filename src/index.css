@@ -1895,6 +1895,30 @@
 		width: 0.5em;
 	}
 
+	/*
+	 * WHY CUSTOM KEYFRAMES (not Tailwind utilities):
+	 *
+	 * 1. These classes are applied imperatively via classList.add() in event
+	 *    handlers, not as static JSX className strings. Tailwind's JIT compiler
+	 *    only scans source at build time — it would purge these names and they
+	 *    would never ship. Safelisting them defeats the point of Tailwind.
+	 *
+	 * 2. The selectors are compound and parent-scoped
+	 *    (.word-spot-container :is(table span, .word-spot-text-cell span).animate)
+	 *    which cannot be expressed as a Tailwind utility class.
+	 *
+	 * WHY TWO-PHASE KEYFRAMES (0→90°, snap, 90→0°):
+	 *
+	 *    A simple rotateX sweep distorts the text visibly at the midpoint.
+	 *    The two-phase approach collapses the element to its edge (invisible at 90°),
+	 *    snaps the colour while nothing is visible, then expands back — so the
+	 *    text is never seen mid-distortion. Four variants cover all state transitions:
+	 *      card-flip-reveal       clear  → green  (correct click)
+	 *      card-flip-error        clear  → red    (incorrect click)
+	 *      card-flip-reset        green  → clear  (reset)
+	 *      card-flip-reset-error  red    → clear  (reset)
+	 */
+
 	/* Phase 1: rotate to edge (text disappears). Phase 2: rotate back with green — text never visible mid-distortion. */
 	@keyframes card-flip-reveal {
 		0% {
