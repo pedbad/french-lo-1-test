@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { Info } from "@/components/content";
 import {
 	Table,
 	TableBody,
@@ -110,7 +111,7 @@ export class ShoppingInTheMarketGrammarAller extends PureComponent {
 							<strong>aller</strong>
 						</AudioClip>{" "}
 						means <strong>to go</strong> and is used all the time when talking about
-						where you shop or where you are going next.
+						where you shop or where you are going.
 					</p>
 					<p>Here are the present-tense forms:</p>
 					<AudioTable rows={allerRows} tableId={id || "lo12-grammar1"} />
@@ -128,21 +129,24 @@ export class ShoppingInTheMarketGrammarAller extends PureComponent {
 						</AudioClip>
 						.
 					</p>
-					<p>
-						French also uses{" "}
-						<AudioClip className="link" soundFile="audio/lo12/grammar/007-aller.mp3">
-							<strong>aller</strong>
-						</AudioClip>{" "}
-						when asking how someone is. For example:{" "}
-						<AudioClip className="link" soundFile="audio/lo12/grammar/010-comment-ca-va.mp3">
-							<strong>Comment ça va&nbsp;?</strong>
-						</AudioClip>{" "}
-						and{" "}
-						<AudioClip className="link" soundFile="audio/lo12/grammar/011-vous-allez-bien.mp3">
-							<strong>Vous allez bien&nbsp;?</strong>
-						</AudioClip>
-						.
-					</p>
+					<div className="mt-3">
+						<Info variant="warning">
+							<strong>NB</strong>{" "}French uses{" "}
+							<AudioClip className="link" soundFile="audio/lo12/grammar/007-aller.mp3">
+								<strong>aller</strong>
+							</AudioClip>
+							{" "}— not <strong>être</strong> — when asking how someone is. This is a
+							common source of confusion for learners and worth remembering. For example:{" "}
+							<AudioClip className="link" soundFile="audio/lo12/grammar/010-comment-ca-va.mp3">
+								<strong>Comment ça va&nbsp;?</strong>
+							</AudioClip>{" "}
+							and{" "}
+							<AudioClip className="link" soundFile="audio/lo12/grammar/011-vous-allez-bien.mp3">
+								<strong>Vous allez bien&nbsp;?</strong>
+							</AudioClip>
+							.
+						</Info>
+					</div>
 				</div>
 			</div>
 		);
@@ -205,8 +209,45 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 			>
 				<div className="panel" id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
 					<p>
-						When you talk about food in general, French often uses partitive articles:
-						{" "}
+						The little words{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/021-de.mp3">
+							<strong>de</strong>
+						</AudioClip>
+						,{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/030-d.mp3">
+							<strong>d&apos;</strong>
+						</AudioClip>
+						,{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/018-du.mp3">
+							<strong>du</strong>
+						</AudioClip>
+						,{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/019-de-la.mp3">
+							<strong>de la</strong>
+						</AudioClip>
+						,{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/029-de-l.mp3">
+							<strong>de l&apos;</strong>
+						</AudioClip>
+						, and{" "}
+						<AudioClip className="link" soundFile="audio/lo12/grammar/020-des.mp3">
+							<strong>des</strong>
+						</AudioClip>
+						{" "}occur often in French and can sometimes cause confusion. You may find it
+						useful to study the following explanations to gain some clarity.
+					</p>
+					<p>
+						You will probably already have encountered some of these meaning <strong>from</strong>,
+						for example: <em>Je viens de France</em>, <em>elle vient du Canada</em>.
+					</p>
+					<div className="mt-3">
+						<Info
+							variant="warning"
+							informationTextHTML="<p><strong>NB</strong> These words have other meanings too, so it is important to bear the context in mind.</p>"
+						/>
+					</div>
+					<p>
+						When talking about non-specific quantities, French uses partitive articles:{" "}
 						<AudioClip className="link" soundFile="audio/lo12/grammar/018-du.mp3">
 							<strong>du</strong>
 						</AudioClip>
@@ -258,14 +299,14 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 						<TableBody>
 							<TableRow
 								className="cursor-pointer has-audio-row"
-								onClick={(event) => handleAudioRowClick("audio/lo12/grammar/012-du-fromage.mp3", event)}
+								onClick={(event) => handleAudioRowClick("audio/lo12/grammar/033-je-nai-pas-de-fromage.mp3", event)}
 							>
 								<TableCell>
-									<AudioClip className="link" soundFile="audio/lo12/grammar/012-du-fromage.mp3">
-										du fromage
+									<AudioClip className="link" soundFile="audio/lo12/grammar/033-je-nai-pas-de-fromage.mp3">
+										Je n&apos;ai pas de fromage.
 									</AudioClip>
 								</TableCell>
-								<TableCell>some cheese</TableCell>
+								<TableCell>I haven&apos;t got any cheese.</TableCell>
 							</TableRow>
 							<TableRow
 								className="cursor-pointer has-audio-row"
@@ -360,10 +401,11 @@ export class ShoppingInTheMarketGrammarPluralForms extends PureComponent {
 			>
 				<div className="panel" id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
 					<p>
-						Most French nouns form the plural by adding <strong>s</strong>. In market
-						vocabulary, one useful exception is that many nouns ending in{" "}
-						<strong>-eau</strong> or <strong>-au</strong> take <strong>x</strong>
-						instead.
+						Most French nouns form the plural by adding <strong>s</strong>. One useful
+						exception is that many nouns ending in <strong>-eau</strong> or{" "}
+						<strong>-au</strong> take <strong>x</strong>{" "}instead. A small number of
+						nouns ending in <strong>-ou</strong> also take <strong>x</strong>{" "}—
+						including <em>chou</em> (cabbage), giving <em>des choux</em>.
 					</p>
 					<AudioTable
 						headers={["French", "Meaning"]}

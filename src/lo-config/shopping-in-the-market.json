@@ -4,13 +4,13 @@
       "src": "img/lo12/out-and-about-shopping.svg",
       "alt": "Shopping in the market illustration"
     },
-    "introHTML": "<p>This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities such as <em>Donnez-moi deux kilos de pommes de terre, s'il vous plaît</em>, checking prices with <em>C'est combien&nbsp;?</em>, and responding to questions such as <em>Avec ça&nbsp;?</em> and <em>C'est tout&nbsp;?</em>.</p><p>It also introduces key vocabulary for shops, food items, quantities, and packaging, alongside useful grammar for <em>aller</em>, partitive and quantity articles, and plural forms often seen in market language.</p>",
-    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Talk about where you go shopping and describe everyday market routines.</li><li>Ask for quantities politely and ask how much produce costs.</li><li>Use <em>aller</em> accurately in the present tense.</li><li>Choose between <em>du</em>, <em>de la</em>, <em>de l&apos;</em>, <em>des</em>, and <em>de</em> more confidently.</li><li>Hear and pronounce the contrast between the French sounds <em>u</em> and <em>ou</em>.</li></ul>"
+    "introHTML": "<p>This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities such as <em>Donnez-moi deux kilos de pommes de terre, s'il vous plaît</em>, checking prices with <em>C'est combien&nbsp;?</em>, and responding to questions such as <em>Avec ça&nbsp;?</em> and <em>C'est tout&nbsp;?</em>.</p><p>It also introduces key vocabulary for shops, food items, quantities, and packaging, alongside useful grammar for <em>aller</em>, partitives and how to say <em>of</em>, and plural forms used when shopping.</p>",
+    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Talk about where you go shopping and describe everyday market routines.</li><li>Ask for quantities politely and ask how much produce costs.</li><li>Use <em>aller</em> accurately in the present tense.</li><li>Choose between <em>du</em>, <em>de la</em>, <em>de l&apos;</em>, <em>des</em>, and <em>de</em> more confidently.</li><li>Hear the difference between the French sounds <em>u</em> and <em>ou</em> and pronounce them correctly.</li></ul>"
   },
   "dialogues": {
     "component": "Section",
     "expandable": false,
-    "informationTextHTML": "<p>This section introduces two short market conversations: one about where people shop, and one about buying fruit and vegetables politely from a market stall.</p>",
+    "informationTextHTML": "<p>This section introduces two short market conversations: one about where people shop, and one about buying fruit and vegetables from a market stall.</p>",
     "content": [
       {
         "phraseTable1": {
@@ -308,7 +308,7 @@
     "sortable": true,
     "titleText": "Vocabulary",
     "informationTextHTML": "<p>This section introduces the key shop names, food words, quantity expressions, and useful market phrases used throughout the lesson.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Place vocabulary such as <em>le marché</em>, <em>la boulangerie</em>, and <em>la poissonnerie</em>.</li><li>Useful shopping expressions such as <em>Donnez-moi...</em>, <em>Avec ça&nbsp;?</em>, and <em>Ça fait...</em>.</li><li>Quantity language such as <em>un kilo</em>, <em>un demi-kilo</em>, <em>une barquette</em>, and <em>la pièce</em>.</li><li>Common fruit and vegetable words needed for simple market transactions.</li></ul>"
+    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Places in the town such as <em>le marché</em>, <em>la boulangerie</em>, and <em>la poissonnerie</em>.</li><li>Useful shopping expressions such as <em>Donnez-moi...</em>, <em>Avec ça&nbsp;?</em>, and <em>Ça fait...</em>.</li><li>Quantities such as <em>un kilo</em>, <em>un demi-kilo</em>, <em>une barquette</em>, and <em>la pièce</em>.</li><li>Common fruit and vegetables needed for simple market transactions.</li></ul>"
   },
   "grammar": {
     "component": "Group",
@@ -317,7 +317,7 @@
     "menuText": "Grammar",
     "titleText": "Grammar and Usage",
     "instructionsLayout": {
-      "paragraphHTML": "<p>This section explains how <em class='grammar-term-em'>aller</em> is used to talk about going shopping, how French quantity and partitive forms work in market language, and how useful plural patterns appear in common food words.</p>",
+      "paragraphHTML": "<p>This section explains how <em class='grammar-term-em'>aller</em> is used to talk about going shopping, how French quantity and partitive forms work in market language, and how useful plural patterns appear in common food vocabulary.</p>",
       "image": {
         "src": "img/shared/grammar.svg",
         "alt": "Grammar illustration"
@@ -348,7 +348,7 @@
           "component": "ShoppingInTheMarketGrammarPluralForms",
           "id": "grammar3",
           "menuText": "3. plurals",
-          "titleTextHTML": "3. Plural forms in common market nouns",
+          "titleTextHTML": "3. Nouns ending in <em>x</em> in the plural",
           "informationTextHTML": "<p>This part highlights the plural endings that are especially useful in market vocabulary, including nouns that take <em>-x</em> in the plural.</p>"
         }
       }
@@ -575,94 +575,43 @@
         "inlineChoiceGroup1": {
           "component": "InlineChoiceGroup",
           "id": "inlineChoiceGroup1",
-          "sampleSize": 10,
           "shuffleItems": true,
-          "soundFile": "audio/lo12/exercises/035-lo12ex4.mp3",
-          "useSequenceAudioController": true,
           "items": [
             {
-              "text": "du [*u|ou]",
-              "audio": "audio/lo12/grammar/018-du.mp3"
+              "text": "[rue|*roue]",
+              "audio": "audio/lo12/exercises/043-roue.mp3"
             },
             {
-              "text": "doux [u|*ou]",
-              "audio": "audio/lo12/pronunciation/012-doux.mp3"
-            },
-            {
-              "text": "pur [*u|ou]",
-              "audio": "audio/lo12/pronunciation/004-pur.mp3"
-            },
-            {
-              "text": "chou [u|*ou]",
-              "audio": "audio/lo12/exercises/036-chou.mp3"
-            },
-            {
-              "text": "légume [*u|ou]",
-              "audio": "audio/lo12/pronunciation/003-legume.mp3"
-            },
-            {
-              "text": "tout [u|*ou]",
-              "audio": "audio/lo12/pronunciation/007-tout.mp3"
-            },
-            {
-              "text": "tu [*u|ou]",
-              "audio": "audio/lo12/pronunciation/001-tu.mp3"
-            },
-            {
-              "text": "pour [u|*ou]",
-              "audio": "audio/lo12/pronunciation/011-pour.mp3"
-            },
-            {
-              "text": "rue [*u|ou]",
-              "audio": "audio/lo12/pronunciation/005-rue.mp3"
-            },
-            {
-              "text": "nous [u|*ou]",
-              "audio": "audio/lo12/pronunciation/008-nous.mp3"
-            },
-            {
-              "text": "nu [*u|ou]",
+              "text": "[*nu|nous]",
               "audio": "audio/lo12/pronunciation/009-nu.mp3"
             },
             {
-              "text": "vous [u|*ou]",
+              "text": "[*tu|tout]",
+              "audio": "audio/lo12/pronunciation/001-tu.mp3"
+            },
+            {
+              "text": "[pur|*pour]",
+              "audio": "audio/lo12/pronunciation/011-pour.mp3"
+            },
+            {
+              "text": "[*du|doux]",
+              "audio": "audio/lo12/grammar/018-du.mp3"
+            },
+            {
+              "text": "[vue|*vous]",
               "audio": "audio/lo12/pronunciation/010-vous.mp3"
             },
             {
-              "text": "bu [*u|ou]",
-              "audio": "audio/lo12/exercises/037-bu.mp3"
-            },
-            {
-              "text": "poule [u|*ou]",
-              "audio": "audio/lo12/pronunciation/013-poule.mp3"
-            },
-            {
-              "text": "vue [*u|ou]",
-              "audio": "audio/lo12/pronunciation/006-vue.mp3"
-            },
-            {
-              "text": "bout [u|*ou]",
-              "audio": "audio/lo12/exercises/041-bout.mp3"
-            },
-            {
-              "text": "pull [*u|ou]",
+              "text": "[*pull|poule]",
               "audio": "audio/lo12/pronunciation/014-pull.mp3"
             },
             {
-              "text": "couteau [u|*ou]",
-              "audio": "audio/lo12/exercises/042-couteau.mp3"
-            },
-            {
-              "text": "jus [*u|ou]",
-              "audio": "audio/lo12/exercises/044-jus.mp3"
-            },
-            {
-              "text": "roue [u|*ou]",
-              "audio": "audio/lo12/exercises/043-roue.mp3"
+              "text": "[bu|*bout]",
+              "audio": "audio/lo12/exercises/041-bout.mp3"
             }
           ],
-          "titleTextHTML": "5. Distinguishing the sounds <strong>u</strong> and <strong>ou</strong>",
-          "informationTextHTML": "Play the full audio first, then choose whether each word contains the sound <strong>u</strong> or <strong>ou</strong>. You can replay each word individually as needed. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices."
+          "titleTextHTML": "5. Which word do you hear?",
+          "informationTextHTML": "Play each audio clip and select the word you hear. Use <span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answers</span> to review your choices."
         }
       }
     ],

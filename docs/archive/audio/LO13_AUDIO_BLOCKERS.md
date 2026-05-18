@@ -2,28 +2,7 @@
 
 ## Status
 
-Open blockers remain in LO13 exercise 1.
-
-## Missing LO13 exercise 1 audio
-
-LO13 exercise 1 `Practise the reflexive verbs` now has the same long-player plus
-per-row-audio contract as later lessons, but the required lesson-owned recordings
-do not yet exist:
-
-- `public/audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3`
-- Record the full playlist in the same sentence order as files `017` to `028` below.
-- `public/audio/lo13/exercises/017-je-me-reveille-a-huit-heures.mp3`
-- `public/audio/lo13/exercises/018-je-mhabille-avant-de-prendre-mon-petit-dejeuner.mp3`
-- `public/audio/lo13/exercises/019-adele-se-leve-vers-dix-heures.mp3`
-- `public/audio/lo13/exercises/020-vous-vous-levez-a-quelle-heure.mp3`
-- `public/audio/lo13/exercises/021-nous-nous-reposons-pendant-le-week-end.mp3`
-- `public/audio/lo13/exercises/022-je-me-detends-pendant-les-vacances.mp3`
-- `public/audio/lo13/exercises/023-les-enfants-se-couchent-vers-neuf-heures.mp3`
-- `public/audio/lo13/exercises/024-patrick-se-couche-a-minuit.mp3`
-- `public/audio/lo13/exercises/025-tu-te-maquilles-aujourdhui.mp3`
-- `public/audio/lo13/exercises/026-tu-tappelles-comment.mp3`
-- `public/audio/lo13/exercises/027-et-ta-soeur-elle-sappelle-comment.mp3`
-- `public/audio/lo13/exercises/028-la-tour-eiffel-se-trouve-a-paris.mp3`
+Outstanding audio items are tracked in the single source of truth: `/AUDIO_SIGN_OFF.md`
 
 ## Resolved legacy filename drift
 

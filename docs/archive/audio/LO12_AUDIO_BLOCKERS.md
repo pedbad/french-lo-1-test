@@ -2,18 +2,7 @@
 
 ## Status
 
-Open blockers remain in the LO12 pronunciation exercise.
-
-## Missing LO12 pronunciation exercise audio
-
-The original authored `u / ou` content has been restored, but these lesson-owned audio
-targets do not yet have source files to copy from. They are currently referenced by
-exercise 5:
-
-- `public/audio/lo12/exercises/041-bout.mp3`
-- `public/audio/lo12/exercises/042-couteau.mp3`
-- `public/audio/lo12/exercises/043-roue.mp3`
-- `public/audio/lo12/exercises/044-jus.mp3`
+Outstanding audio items are tracked in the single source of truth: `/AUDIO_SIGN_OFF.md`
 
 ## Notes
 

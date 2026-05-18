@@ -143,23 +143,40 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ## LO12 — Shopping in the Market
 
+### Re-record (wrong content / quality)
+
+- `public/audio/lo12/dialogues/006-oui-cest-pratique-et-le-jeudi-je-vais-au-grand-marche-au-centre-ville-jachete-so.mp3`
+  - Section: **Dialogues → Talking about where you shop**, penultimate utterance
+  - Text: `Oui, c'est pratique. Et le jeudi, je vais au grand marché au centre-ville. J'achète souvent du fromage et du jambon là-bas. Il y a beaucoup de choix. Et il y a un très bon fleuriste aussi.`
+  - The word *un* sounds absent before *très bon fleuriste*. Re-record with *un* clearly audible.
+
+- `public/audio/lo12/pronunciation/016-ou.mp3`
+  - Section: **Pronunciation Focus** (heading audio for *ou*)
+  - Currently sounds like *oh*; should sound like *ooh* (the French *ou* vowel). Re-record.
+
+### Re-record (optional / low priority)
+
+- `public/audio/lo12/dialogues/007-tu-as-de-la-chance-si-nous-voulons-du-pain-marc-va-a-la-boulangerie-au-bout-de-l.mp3`
+  - Section: **Dialogues → Talking about where you shop**, last utterance
+  - Text: `Tu as de la chance ! Si nous voulons du pain, Marc va à la boulangerie au bout de la rue...`
+  - Teacher requests a very brief pause between *Si nous voulons du pain,* and *Marc*. Low priority.
+
 ### New recording
 
-- `public/audio/lo12/exercises/041-bout.mp3`
-  - Section: **Exercises — u / ou discrimination**
-  - Single-word clip: `bout`
+- `public/audio/lo12/grammar/033-je-nai-pas-de-fromage.mp3`
+  - Section: **Grammar → 2. Partitives — negation table**, first row
+  - Text to record: *Je n'ai pas de fromage.*
+  - This replaces the existing `du fromage / some cheese` positive example, which is being changed to a negative example to match the negation table context.
 
-- `public/audio/lo12/exercises/042-couteau.mp3`
-  - Section: **Exercises — u / ou discrimination**
-  - Single-word clip: `couteau`
+- `public/audio/lo12/exercises/041-bout.mp3`
+  - Section: **Exercises — 5. Which word do you hear?**
+  - Question word for the *bu / bout* listening pair. Record: *bout*
+  - Exercise plays this clip; student selects between written options *bu* and *bout*.
 
 - `public/audio/lo12/exercises/043-roue.mp3`
-  - Section: **Exercises — u / ou discrimination**
-  - Single-word clip: `roue`
-
-- `public/audio/lo12/exercises/044-jus.mp3`
-  - Section: **Exercises — u / ou discrimination**
-  - Single-word clip: `jus`
+  - Section: **Exercises — 5. Which word do you hear?**
+  - Question word for the *rue / roue* listening pair. Record: *roue*
+  - Exercise plays this clip; student selects between written options *rue* and *roue*.
 
 ---
 
