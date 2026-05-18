@@ -1847,21 +1847,14 @@
 	}
 
 	.word-spot-container :is(table span, .word-spot-text-cell span).animate {
-		animation-name: vertical-rotate;
+		animation-name: card-flip-reveal;
 		animation-duration: 0.5s;
-		animation-timing-function: linear;
+		animation-timing-function: ease-in-out;
 		animation-iteration-count: 1;
-		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-		border: 1px solid var(--chart-2);
+		animation-fill-mode: forwards;
+		backface-visibility: hidden;
 		box-sizing: border-box;
 		display: inline-block;
-	}
-
-	.word-spot-container :is(table span, .word-spot-text-cell span).animate::before {
-		animation-name: shade;
-		animation-duration: 0.25s;
-		animation-timing-function: linear;
-		animation-iteration-count: 2;
 	}
 
 	.word-spot-container :is(table span, .word-spot-text-cell span).error {
@@ -1870,12 +1863,14 @@
 	}
 
 	.word-spot-container :is(table span, .word-spot-text-cell span).resetting {
-		animation-name: vertical-rotate;
+		animation-name: card-flip-reset;
 		animation-duration: 0.5s;
-		animation-direction: reverse;
-		animation-timing-function: linear;
+		animation-timing-function: ease-in-out;
 		animation-iteration-count: 1;
 		animation-fill-mode: forwards;
+		backface-visibility: hidden;
+		box-sizing: border-box;
+		display: inline-block;
 	}
 
 	.word-spot-container .word-space {
@@ -1883,42 +1878,61 @@
 		width: 0.5em;
 	}
 
-	@keyframes vertical-rotate {
+	/* Phase 1: rotate to edge (text disappears). Phase 2: rotate back with green — text never visible mid-distortion. */
+	@keyframes card-flip-reveal {
 		0% {
 			transform: rotateX(0deg);
-			box-shadow: 4px 4px 4px color-mix(in oklab, var(--foreground) 20%, transparent);
+			background-color: transparent;
+			border: 1px solid transparent;
+			box-shadow: none;
+		}
+
+		49% {
+			transform: rotateX(90deg);
+			background-color: transparent;
+			border: 1px solid transparent;
+			box-shadow: none;
 		}
 
 		50% {
 			transform: rotateX(90deg);
-			box-shadow: 4px -4px 4px color-mix(in oklab, var(--foreground) 20%, transparent);
+			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+			border: 1px solid var(--chart-2);
 		}
 
 		100% {
-			transform: rotateX(180deg);
-			box-shadow: 4px 4px 4px color-mix(in oklab, var(--foreground) 20%, transparent);
+			transform: rotateX(0deg);
+			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+			border: 1px solid var(--chart-2);
+			box-shadow: 2px 2px 6px color-mix(in oklab, var(--chart-2) 30%, transparent);
 		}
 	}
 
-	@keyframes shade {
+	/* Mirror of card-flip-reveal: green collapses to edge, snaps clear, expands back. */
+	@keyframes card-flip-reset {
 		0% {
-			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+			transform: rotateX(0deg);
+			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+			border: 1px solid var(--chart-2);
 		}
 
-		45% {
-			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+		49% {
+			transform: rotateX(90deg);
+			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+			border: 1px solid var(--chart-2);
 		}
 
 		50% {
-			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
-		}
-
-		55% {
-			background-color: color-mix(in oklab, var(--foreground) 40%, transparent);
+			transform: rotateX(90deg);
+			background-color: transparent;
+			border: 1px solid transparent;
 		}
 
 		100% {
-			background-color: color-mix(in oklab, var(--destructive) 0%, transparent);
+			transform: rotateX(0deg);
+			background-color: transparent;
+			border: 1px solid transparent;
+			box-shadow: none;
 		}
 	}
 
