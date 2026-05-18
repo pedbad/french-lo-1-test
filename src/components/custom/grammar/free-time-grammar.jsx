@@ -357,12 +357,7 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 							<strong>jouer à la</strong>
 						</AudioClip>
 						{" "}for feminine nouns,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/jouer-patterns/007-jouer-a-l.mp3"
-						>
-							<strong>jouer à l&apos;</strong>
-						</AudioClip>
+						<strong>jouer à l&apos;</strong>
 						{" "}before a vowel or silent <strong>h</strong>, and{" "}
 						<AudioClip
 							className="link"

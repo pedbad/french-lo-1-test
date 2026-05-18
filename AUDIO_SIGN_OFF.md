@@ -82,9 +82,8 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Section: **Dialogues 3**
   - Audio should match the corrected displayed text: `Je joue de l'accordeon et je joue du piano aussi.`
 
-- `public/audio/lo8/grammar/jouer-patterns/007-jouer-a-l.mp3`
-  - Section: **Grammar — jouer patterns**
-  - `jouer a l'` sounds closer to `jouer a la`.
+- ~~`public/audio/lo8/grammar/jouer-patterns/007-jouer-a-l.mp3`~~
+  - **Resolved (2026-05-18)** — audio clip removed from the grammar component. *jouer à l'* now displays as plain text with no audio link, as the form is unnatural in isolation. No re-record needed.
 
 ---
 
