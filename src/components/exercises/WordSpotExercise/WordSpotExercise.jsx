@@ -76,17 +76,24 @@ export class WordSpotExercise extends React.PureComponent {
 	};
 
 	handleReset = () => {
-		// console.log("handleReset");
 		const spans = document.querySelectorAll(".word-spot-container .word-spot-grid span, .word-spot-container table span");
-		spans.forEach((span) => {
-			span.classList.remove('animate');
-			span.classList.remove('error');
-		});
-		this.setState({
-			complete: false,
-			failCount: 0,
-			nPlaced: 0,
-		});
+		const active = Array.from(spans).filter((span) =>
+			span.classList.contains('animate') || span.classList.contains('error')
+		);
+
+		if (active.length === 0) {
+			this.setState({ complete: false, failCount: 0, nPlaced: 0 });
+			return;
+		}
+
+		active.forEach((span) => span.classList.add('resetting'));
+
+		setTimeout(() => {
+			spans.forEach((span) => {
+				span.classList.remove('animate', 'error', 'resetting');
+			});
+			this.setState({ complete: false, failCount: 0, nPlaced: 0 });
+		}, 520);
 	};
 
 	render = () => {
