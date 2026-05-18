@@ -40,7 +40,7 @@ Replace the current drag-to-slots mechanics with a single, clear left/right sort
 - Optional V2: add keyboard reorder shortcuts for each card.
 
 ## Technical Notes (Current Implementation)
-- Component: `SequenceOrder`
+- Component: `WordOrderExercise` (renamed from `SequenceOrder` 2026-05-15)
 - No SCSS added; styling is utility-class based in JSX.
-- Exercise 5 config now points to `component: "SequenceOrder"`.
+- Exercise 5 config now points to `component: "WordOrderExercise"`.
 

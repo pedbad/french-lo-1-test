@@ -28,10 +28,10 @@ This document records what was fixed, why it was fixed, and the repeatable audit
   - data table semantics strengthened in:
     - `/Users/ped/Sites/french/french-lo-1/src/components/PhraseTable/PhraseTable.jsx`
 
-3. `Layout table` in LO1 pronunciation exercise (`WordParts`)
-- Issue: `WordParts` (for example `1. Identify pronunciation features`) used a non-data `<table>` for row alignment, which still triggers layout-table alerts.
-- Fix: replaced the layout table with semantic row containers (`.word-parts-grid` / `.word-parts-row`) in:
-  - `/Users/ped/Sites/french/french-lo-1/src/components/WordParts/WordParts.jsx`
+3. `Layout table` in LO1 pronunciation exercise (`WordSpotExercise`, formerly `WordParts`)
+- Issue: `WordSpotExercise` (for example `1. Identify pronunciation features`) used a non-data `<table>` for row alignment, which still triggers layout-table alerts.
+- Fix: replaced the layout table with semantic row containers (`.word-spot-grid` / `.word-spot-row`) in:
+  - `/Users/ped/Sites/french/french-lo-1/src/components/exercises/WordSpotExercise/WordSpotExercise.jsx`
   - `/Users/ped/Sites/french/french-lo-1/src/index.css`
 - Why: this removes layout-table markup entirely while preserving interaction behavior and visual structure.
 

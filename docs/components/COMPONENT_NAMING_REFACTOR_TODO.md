@@ -12,7 +12,7 @@
   - `InlineChoiceGroup` (inline single-choice per blank)
   - `SelectExercise` (select/dropdown choice per row)
   - `LineMatch` (connector-style picture/word matching)
-  - `Sortable` / `ListeningOrder` (reorder-based tasks)
+  - `PhraseReorderExercise` / `WordOrderExercise` (reorder-based tasks)
   - `Draggable*` / `Droppable*` for drag-target activities
 - Avoid ambiguous names that hide UX behavior.
 
@@ -55,6 +55,7 @@
   - `inlineChoiceGroup1` uses `InlineChoiceGroup` (practise verb forms).
   - `selectExercise2` uses `SelectExercise`.
 - LO3:
+  - `dropdowns1` migrated to `InlineChoiceGroup` — confirmed zero remaining `DropDowns` entries across all configs.
   - `dropdowns2` migrated to `InlineChoiceGroup` to match LO2 verb-practice pattern.
 - LO6:
   - pronunciation discrimination now uses a mixed `InlineChoiceGroup` instead of two separate dropdown-driven sets.
@@ -71,6 +72,5 @@
   - runtime fallback alias retained so legacy `Blanks` configs still render safely.
 
 ## Next Suggested Steps
-1. Evaluate LO3 `dropdowns1` for `InlineChoiceGroup` vs `SelectExercise`.
-2. Build full LO3+ inventory table (`LO`, `section`, `activity`, `current component`, `target component`).
-3. Plan eventual alias removal (`Blanks` switch-case support) once no external legacy configs depend on it.
+1. Build full LO3+ inventory table (`LO`, `section`, `activity`, `current component`, `target component`).
+2. QA all renamed components (desktop/mobile parity, keyboard, audio, check/reset/show-answer flow).

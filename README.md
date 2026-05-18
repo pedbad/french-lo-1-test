@@ -459,7 +459,7 @@ Direction:
 - keep config compatibility during migration with phased aliases, then remove deprecated names once all LOs are migrated.
 
 Naming principles:
-- prefer names like `InlineChoiceGroup`, `SelectExercise`, `DraggableFillGaps`, `ListeningOrder`, `Sortable` over generic/ambiguous names.
+- prefer names like `InlineChoiceGroup`, `SelectExercise`, `DraggableFillGaps`, `PhraseReorderExercise`, `WordOrderExercise` over generic/ambiguous names.
 - avoid umbrella names that hide interaction intent (for example `Blanks` when activity is drag/drop fill).
 - each component name should make expected UX clear from config alone.
 - for visual implementation, prefer Tailwind utilities and shadcn-style primitives first; only add shared CSS when the effect cannot be expressed cleanly with the existing utility/token system (for example small targeted 3D/perspective or legacy image-size overrides).

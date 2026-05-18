@@ -99,7 +99,7 @@ Use `section` when the node is primarily a grouping wrapper for other units.
 
 For LO1:
 1. Top-level blocks (`dialogues`, `grammar`, `exercises`, etc.) are thematic groups: `section` is correct.
-2. Leaf accordion panels like `PhraseTable1`, `WordParts`, `Blanks`, `SequenceOrder`, `Sortable` are good `article` candidates.
+2. Leaf accordion panels like `PhraseTable1`, `WordSpotExercise` (formerly `WordParts`), `DraggableFillGaps` (formerly `Blanks`), `WordOrderExercise` (formerly `SequenceOrder`), `PhraseReorderExercise` (formerly `Sortable`) are good `article` candidates.
 
 ## Inconsistencies To Fix
 1. Top-level section landmarks are now present, but section-header normalization still needs a final pass (consistent `<header>` wrappers for all top-level sections).

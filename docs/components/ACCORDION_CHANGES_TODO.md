@@ -75,8 +75,8 @@ Debug-first approach was used:
 
 - [x] `AnswerTable` branch uses `AccordionArticle`.
 - [x] `PhraseTable` branch uses `AccordionArticle`.
-- [x] `Blanks` and `WordParts` branches use `AccordionArticle`.
-- [x] `DropDowns`, `Monologue`, and `RadioQuiz` branches use `AccordionArticle`.
+- [x] `DraggableFillGaps` (formerly `Blanks`) and `WordSpotExercise` (formerly `WordParts`) branches use `AccordionArticle`.
+- [x] `InlineChoiceGroup`/`SelectExercise` (formerly `DropDowns`), `TypedAnswerField` (formerly `Monologue`), and `RadioQuiz` branches use `AccordionArticle`.
 - [x] All remaining content groups migrated.
 - [x] Build verified after each group.
 - [ ] **Pending:** Full manual parity checklist (see QA matrix below).
