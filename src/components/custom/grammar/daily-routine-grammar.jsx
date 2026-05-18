@@ -67,7 +67,7 @@ export class DailyRoutineGrammarOn extends PureComponent {
 						<AudioClip className="link" soundFile="audio/lo13/grammar/002-nous.mp3">
 							<strong>nous</strong>
 						</AudioClip>{" "}
-						in spoken French, but it still takes the <strong>third-person singular</strong>
+						in spoken French, but it still takes the <strong>third-person singular</strong>{" "}
 						verb form.
 					</p>
 					<p>
@@ -117,7 +117,7 @@ export class DailyRoutineGrammarReflexiveVerbs extends PureComponent {
 				soundFile: "audio/lo13/grammar/011-elle-se-repose.mp3",
 			},
 			{
-				english: "we / people rest",
+				english: "we / people rest / are resting",
 				french: <strong>on se repose</strong>,
 				soundFile: "audio/lo13/grammar/015-on-se-repose.mp3",
 			},

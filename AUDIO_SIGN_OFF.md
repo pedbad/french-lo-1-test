@@ -223,6 +223,12 @@ Single reference for all outstanding audio work — missing files, wrong-content
 - `public/audio/lo13/exercises/028-la-tour-eiffel-se-trouve-a-paris.mp3`
   - `La Tour Eiffel se trouve à Paris.`
 
+### Investigate (resolved — no action needed)
+
+- `public/audio/lo13/exercises/015-a-summers-day.mp3`
+  - Section: **Exercises → 4. A summer's day**
+  - Teacher initially reported no audio. File confirmed on disk (220 KB) and verified playing correctly. Likely a one-off playback glitch on teacher's device. No action needed.
+
 ---
 
 ## Resolved
