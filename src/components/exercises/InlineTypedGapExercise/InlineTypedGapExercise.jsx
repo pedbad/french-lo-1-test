@@ -105,7 +105,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
 			this.blanksMeta[blankIndex] = {
 				expected,
 				placeholder,
-				widthCh: Math.max(expected.length, placeholder.length, 6) + 2,
+				widthCh: Math.max(expected.length, 6) + 2,
 			};
 
 			segments.push({
@@ -312,7 +312,6 @@ export class InlineTypedGapExercise extends React.PureComponent {
 		const value = values[blankIndex] ?? "";
 		const result = checkedResults[blankIndex];
 		const diffHtml = diffResults[blankIndex];
-		const placeholderText = meta.placeholder || "Type your answer";
 		let stateClassName = "border-border text-foreground";
 
 		if (hasChecked && result === true) {
@@ -334,7 +333,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
 					id={`${id}-inline-typed-gap-${blankIndex}`}
 					onChange={(event) => this.handleInputChange(blankIndex, event.target.value)}
 					onKeyDown={this.handleInputKeyDown}
-					placeholder={placeholderText}
+					placeholder="Type your answer"
 					style={{ width: `${meta.widthCh}ch`, maxWidth: "100%" }}
 					type="text"
 					value={value}
@@ -350,17 +349,31 @@ export class InlineTypedGapExercise extends React.PureComponent {
 	};
 
 	renderSentence = (segments) => {
-		return segments.map((segment) => {
+		const rendered = [];
+		for (let i = 0; i < segments.length; i++) {
+			const segment = segments[i];
 			if (segment.type === "input") {
-				return (
+				rendered.push(
 					<React.Fragment key={segment.key}>
 						{this.renderInlineInput(segment.blankIndex)}
 					</React.Fragment>
 				);
+				const meta = this.blanksMeta[segment.blankIndex];
+				if (meta?.placeholder) {
+					const next = segments[i + 1];
+					if (next?.type === "text") {
+						rendered.push(<React.Fragment key={next.key}>{next.value}</React.Fragment>);
+						i++;
+					}
+					rendered.push(
+						<em key={`hint-${segment.blankIndex}`} className="text-muted-foreground whitespace-nowrap text-sm"> ({meta.placeholder})</em>
+					);
+				}
+			} else {
+				rendered.push(<React.Fragment key={segment.key}>{segment.value}</React.Fragment>);
 			}
-
-			return <React.Fragment key={segment.key}>{segment.value}</React.Fragment>;
-		});
+		}
+		return rendered;
 	};
 
 	render = () => {

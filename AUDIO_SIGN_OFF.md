@@ -110,6 +110,27 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ---
 
+## LO14 — Studying at University
+
+### Re-record (wrong speaker — use female voice)
+
+- `public/audio/lo14/dialogues/phraseTable1/001-qu-est-ce-que-tu-fais-comme-etudes.mp3`
+  - Section: **Dialogues → Talking about your studies**, row 1
+  - Text: `Qu'est-ce que tu fais comme études ?`
+  - Currently male speaker. Should be female.
+
+### New recording
+
+- `public/audio/lo14/grammar/pouvoir/010-je-peux-repondre-a-votre-question-tout-de-suite.mp3`
+  - Section: **Grammar → 3. Using pouvoir with an infinitive** — example row 1
+  - Text to record: *Je peux répondre à votre question tout de suite.*
+
+- `public/audio/lo14/grammar/pouvoir/011-vous-pouvez-ouvrir-la-fenetre-sil-vous-plait.mp3`
+  - Section: **Grammar → 3. Using pouvoir with an infinitive** — example row 2
+  - Text to record: *Vous pouvez ouvrir la fenêtre, s'il vous plaît ?*
+
+---
+
 ## LO10 — Making Arrangements
 
 ### Re-record (wrong speaker — use male voice)

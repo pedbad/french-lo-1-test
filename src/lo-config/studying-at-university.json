@@ -372,7 +372,7 @@
 		"sortable": true,
 		"titleText": "Vocabulary",
 		"informationTextHTML": "<p>This section introduces the core university words and useful expressions used throughout the lesson.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Words for people and roles such as <em>étudiant(e)</em>, <em>doctorant(e)</em>, <em>chercheur / chercheuse</em>, and <em>professeur</em>.</li><li>Useful expressions for studies and degrees such as <em>faire des études</em>, <em>licence</em>, <em>master</em>, and <em>doctorat</em>.</li><li>Names of academic subjects, years of study, and teaching formats such as <em>cours magistral</em>, <em>séminaire</em>, and <em>tutorat</em>.</li><li>Adjectives and phrases used to describe workload and feelings, such as <em>fatigant</em>, <em>stressant</em>, and <em>avoir un emploi du temps chargé</em>.</li></ul>"
+		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Words for people and roles such as <em>étudiant(e)</em>, <em>doctorant(e)</em>, <em>chercheur / chercheuse</em>, and <em>professeur(e)</em>.</li><li>Useful expressions for studies and degrees such as <em>faire des études</em>, <em>licence</em>, <em>master</em>, and <em>doctorat</em>.</li><li>Names of academic subjects, years of study, and teaching formats such as <em>la biologie</em>, <em>en deuxième année</em>, <em>le cours magistral</em>, and <em>le séminaire</em>.</li><li>Adjectives and phrases used to describe workload and feelings, such as <em>fatigant</em>, <em>stressant</em>, and <em>avoir un emploi du temps chargé</em>.</li></ul>"
 	},
 	"grammar": {
 		"component": "Group",
@@ -395,7 +395,7 @@
 					"id": "grammar1",
 					"menuText": "1. comme",
 					"titleTextHTML": "1. Asking idiomatic questions with <em class='grammar-term-em'>comme</em>",
-					"informationTextHTML": "<p>In this part, focus on how <em>comme</em> helps French ask what kind of studies, music, sport, or food someone is talking about.</p>"
+					"informationTextHTML": "<p>In this part, focus on how <em>comme</em> is used to ask what kind of studies, music, sport, or food someone is talking about.</p>"
 				}
 			},
 			{
@@ -654,7 +654,7 @@
 						}
 					],
 					"titleText": "5. Using present participles as adjectives",
-					"informationTextHTML": "<p>Type the present participle used as an adjective in each gap. Use the verb in the box to help you form the correct participle. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>"
+					"informationTextHTML": "<p>Type the present participle used as an adjective in each gap. Use the verb shown to the right to help you form the correct participle. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>"
 				}
 			},
 			{
@@ -680,7 +680,7 @@
 						}
 					],
 					"titleText": "6. Using past participles as adjectives",
-					"informationTextHTML": "<p>Type the past participle used as an adjective in each gap. Use the verb in the box to help you form the correct participle, and make sure it agrees with the noun. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>"
+					"informationTextHTML": "<p>Type the past participle used as an adjective in each gap. Use the verb shown to the right to help you form the correct participle, and make sure it agrees with the noun. Then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> if you get stuck, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>"
 				}
 			}
 		],

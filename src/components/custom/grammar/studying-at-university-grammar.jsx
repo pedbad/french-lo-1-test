@@ -112,7 +112,7 @@ export class StudyingAtUniversityGrammarDevoir extends PureComponent {
 				soundFile: "audio/lo14/grammar/devoir/002-je-dois-partir-a-trois-heures.mp3",
 			},
 			{
-				english: "They have to work hard.",
+				english: "They have to work very hard.",
 				french: (
 					<>
 						<strong>Ils doivent travailler</strong> très dur.
@@ -232,6 +232,19 @@ export class StudyingAtUniversityGrammarPouvoir extends PureComponent {
 			},
 		];
 
+		const pouvoirExampleRows = [
+				{
+					english: "I can answer your question right away.",
+					french: <strong>Je peux répondre à votre question tout de suite.</strong>,
+					soundFile: "audio/lo14/grammar/pouvoir/010-je-peux-repondre-a-votre-question-tout-de-suite.mp3",
+				},
+				{
+					english: "Can you open the window, please?",
+					french: <strong>Vous pouvez ouvrir la fenêtre, s&apos;il vous plaît&nbsp;?</strong>,
+					soundFile: "audio/lo14/grammar/pouvoir/011-vous-pouvez-ouvrir-la-fenetre-sil-vous-plait.mp3",
+				},
+			];
+
 		return (
 			<div
 				className="lo14-grammar3-container container"
@@ -250,12 +263,8 @@ export class StudyingAtUniversityGrammarPouvoir extends PureComponent {
 						means <strong>to be able to</strong>. Like <strong>devoir</strong>, it is
 						usually followed by an infinitive.
 					</p>
-					<p>
-						For example, <strong>Je peux répondre à votre question tout de suite.</strong>{" "}
-						means &ldquo;I can answer your question right away&rdquo;, and{" "}
-						<strong>Vous pouvez ouvrir la fenêtre, s&apos;il vous plaît&nbsp;?</strong>{" "}
-						means &ldquo;Can you open the window, please?&rdquo;
-					</p>
+					<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
+					<AudioTable rows={pouvoirExampleRows} tableId={`${id || "lo14-grammar3"}-examples`} />
 					<h4 className="mb-3 mt-5 text-base font-semibold">
 						Present tense of <strong>pouvoir</strong>:
 					</h4>
