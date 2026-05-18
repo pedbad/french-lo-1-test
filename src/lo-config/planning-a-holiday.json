@@ -237,7 +237,7 @@
     "sortable": true,
     "titleText": "Vocabulary",
     "informationTextHTML": "<p>This section introduces the key holiday, transport, beach, weather, and season vocabulary used throughout the lesson.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Holiday actions such as <em>passer</em>, <em>loger</em>, <em>voyager</em>, and <em>partir</em>.</li><li>Activity and place vocabulary such as <em>bronzer</em>, <em>nager</em>, <em>faire du ski</em>, <em>faire du tourisme</em>, and <em>sur la plage</em>.</li><li>Transport phrases such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, <em>à cheval</em>, and <em>à pied</em>.</li><li>Weather and season expressions such as <em>Quel temps fait-il&nbsp;?</em>, <em>Il fait beau</em>, <em>Il y a du soleil</em>, and <em>en été</em>.</li></ul>"
+    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Holiday activities such as <em>loger</em>, <em>voyager</em>, <em>partir</em>, <em>bronzer</em>, and <em>faire du tourisme</em>.</li><li>Means of transport such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, <em>à cheval</em>, and <em>à pied</em>.</li><li>Expressions to talk about the weather and the seasons such as <em>Quel temps fait-il&nbsp;?</em>, <em>Il fait beau</em>, <em>Il y a du soleil</em>, and <em>en été</em>.</li></ul>"
   },
   "grammar": {
     "component": "Group",
@@ -445,12 +445,16 @@
               "audio": "audio/lo15/exercises/selectExercise1/008-quand-je-suis-en-vacances-je-des-amis.mp3"
             },
             {
-              "text": "nous [font|faites|*faisons] des randonnées ensemble.",
-              "audio": "audio/lo15/exercises/selectExercise1/009-quand-je-suis-en-vacances-nous-des-randonnees-ensemble.mp3"
+              "text": "mes amis et moi [font|faites|*faisons] des randonnées ensemble.",
+              "audio": "audio/lo15/exercises/selectExercise1/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3"
             },
             {
-              "text": "le soir, ils ne [*cuisinent|cuisinons|cuisine] pas.",
-              "audio": "audio/lo15/exercises/selectExercise1/010-quand-je-suis-en-vacances-le-soir-ils-ne-pas.mp3"
+              "text": "le soir mes amis ne [*cuisinent|cuisinons|cuisine] pas.",
+              "audio": "audio/lo15/exercises/selectExercise1/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3"
+            },
+            {
+              "text": "C'est moi qui [*cuisine|cuisines|cuisinons].",
+              "audio": "audio/lo15/exercises/selectExercise1/012-cest-moi-qui-cuisine.mp3"
             },
             {
               "text": "nous [dînent|dînez|*dînons] au restaurant.",

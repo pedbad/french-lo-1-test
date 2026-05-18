@@ -110,6 +110,26 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ---
 
+## LO15 — Planning a Holiday
+
+### New recording
+
+- `public/audio/lo15/exercises/selectExercise1/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3`
+  - Section: **Exercises → 3. Adèle's holiday activities**, item 10
+  - Text to record: *Quand je suis en vacances, le soir mes amis ne cuisinent pas.*
+  - Note: include a short pause after *Quand je suis en vacances* and after *le soir* for natural phrasing. Replaces the old `010` file which had wrong text and missing pauses.
+
+- `public/audio/lo15/exercises/selectExercise1/012-cest-moi-qui-cuisine.mp3`
+  - Section: **Exercises → 3. Adèle's holiday activities**, item 11 (new)
+  - Text to record: *C'est moi qui cuisine.*
+
+- `public/audio/lo15/exercises/selectExercise1/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3`
+  - Section: **Exercises → 3. Adèle's holiday activities**, item 9
+  - Text to record: *Quand je suis en vacances, mes amis et moi faisons des randonnées ensemble.*
+  - Replaces the old `009` file which had *nous* instead of *mes amis et moi*.
+
+---
+
 ## LO14 — Studying at University
 
 ### Re-record (wrong speaker — use female voice)
