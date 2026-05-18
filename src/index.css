@@ -1441,7 +1441,7 @@
 		background-color: var(--card);
 	}
 
-	/* Typed transform global-check diff blocks (outside Monologue container). */
+	/* Typed transform global-check diff blocks (outside TypedAnswerField container). */
 	.answer-table-container .comparison-result {
 		border-radius: 8px;
 		padding: 2px 4px;
@@ -1778,7 +1778,7 @@
 		}
 	}
 
-	/* WordSpotExercise interaction/animation skin extracted from WordParts.scss. */
+	/* WordSpotExercise interaction/animation skin. */
 	html.debug .word-spot-container span {
 		border: 1px solid color-mix(in oklab, var(--destructive) 20%, transparent);
 	}
@@ -1817,6 +1817,7 @@
 		perspective: 600px;
 	}
 
+	/* .wordparts-reset — vestigial rule from original WordParts.scss, never applied by WordSpotExercise JSX. Kept for safety; remove once confirmed unused across all LOs. */
 	.word-spot-container .wordparts-reset.icon-button {
 		border-color: var(--chart-2);
 		background-color: var(--chart-2);
@@ -1919,7 +1920,6 @@
 	 *      card-flip-reset-error  red    → clear  (reset)
 	 */
 
-	/* Phase 1: rotate to edge (text disappears). Phase 2: rotate back with green — text never visible mid-distortion. */
 	@keyframes card-flip-reveal {
 		0% {
 			transform: rotateX(0deg);
@@ -2476,6 +2476,10 @@
 		}
 	}
 
+	/* LO-specific pronunciation panel layout overrides.
+	 * These ID selectors align the pronunciation accordion panels (flex column/row,
+	 * image sizing, text spacing) across LO1–LO4 and LO12 without touching shared styles.
+	 */
 	#LO1-pronunciation1-Accordion,
 	#LO1-pronunciation2-Accordion,
 	#LO1-pronunciation3-Accordion,
@@ -3131,6 +3135,7 @@
 		fill: linear-gradient;
 	}
 
+	/* Legacy audio progress fill keyframe — name retained from original AudioClip.scss. Not currently referenced by any component; candidate for removal once audio components are audited. */
 	@keyframes ge {
 		0% {
 			fill: linear-gradient(0deg, var(--destructive) 0%, var(--chart-2) 48%, var(--foreground) 48%);
@@ -3884,7 +3889,11 @@
 	--color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Legacy app-level styles migrated from src/App.scss (compiled to CSS to preserve behavior while we finish utility refactors). */
+/* Legacy app-level styles migrated from src/App.scss (compiled to CSS to preserve behavior while we finish utility refactors).
+ * Sections below: debug breakpoint indicator, flash/anchor animations, app shell, hero banner, content layout.
+ */
+
+/* Debug breakpoint indicator — shows current Tailwind breakpoint in top-left corner when html.debug is active. */
 html body::before {
   content: "S";
   background: color-mix(in oklab, var(--destructive) 50%, transparent);
@@ -3972,6 +3981,7 @@ html.debug body::before {
     --cell-dimension: 36px;
   }
 }
+/* Hero banner and main content layout. */
 .lo-menu {
   display: flex;
 }
@@ -3982,6 +3992,7 @@ html {
 html.debug .blanks-container .target-board .word.blank span {
   opacity: 0.2;
 }
+/* Flash / anchor highlight animations — used for URL hash target flashing and modal link highlights. */
 .flash {
   animation-name: flash-animation;
   animation-duration: 1000ms;
@@ -4114,6 +4125,7 @@ html.debug .blanks-container .target-board .word.blank span {
   }
 }
 
+/* App shell, error states, and global layout. */
 .no-config {
   opacity: 0;
   animation-name: fadeIn;
@@ -4123,6 +4135,7 @@ html.debug .blanks-container .target-board .word.blank span {
   animation-fill-mode: forwards;
 }
 
+/* Full-screen speech synthesis error overlay — shown when TTS is unavailable. */
 #SpeechSynthesisError {
   background-color: var(--card);
   background: var(--card);
