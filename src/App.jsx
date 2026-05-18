@@ -18,11 +18,8 @@ import {
 	PhraseReorderExercise,
 	RadioQuiz,
 	SelectExercise,
-	SequenceOrder,
-	Sortable,
 	TypedTransformExercise,
 	WordOrderExercise,
-	WordParts,
 	WordSpotExercise,
 } from "@/components/exercises";
 import { Footer, HeroSection, LandingPage, MainMenu } from "@/components/layout";
@@ -920,21 +917,18 @@ export default class App extends React.Component {
 					/>
 				);
 			case "WordSpotExercise":
-			case "WordParts": // deprecated alias
 				return (
 					<WordSpotExercise
 						config={value}
 					/>
 				);
 			case "PhraseReorderExercise":
-			case "Sortable": // deprecated alias
 				return (
 					<PhraseReorderExercise
 						config={value}
 					/>
 				);
 			case "WordOrderExercise":
-			case "SequenceOrder": // deprecated alias
 				return (
 					<WordOrderExercise
 						config={value}
@@ -1600,8 +1594,7 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "WordOrderExercise":
-			case "SequenceOrder": { // deprecated alias
+			case "WordOrderExercise": {
 				articles.push(
 					<AccordionArticle
 						expandedByDefault={autoExpandSingleAccordion}
@@ -1643,8 +1636,7 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "PhraseReorderExercise":
-			case "Sortable": { // deprecated alias
+			case "PhraseReorderExercise": {
 				articles.push(
 					<AccordionArticle
 						expandedByDefault={autoExpandSingleAccordion}
@@ -1662,8 +1654,7 @@ export default class App extends React.Component {
 				);
 				break;
 			}
-			case "WordSpotExercise":
-			case "WordParts": { // deprecated alias
+			case "WordSpotExercise": {
 				articles.push(
 					<AccordionArticle
 						expandedByDefault={autoExpandSingleAccordion}

@@ -15,15 +15,11 @@ const ACCORDION_BY_DEFAULT_COMPONENTS = new Set([
 	'InlineTypedGapExercise',
 	'LineMatch',
 	'MemoryMatchGame',
-	'Monologue',         // deprecated alias
 	'PhraseReorderExercise',
 	'RadioQuiz',
 	'SelectExercise',
-	'SequenceOrder',     // deprecated alias
-	'Sortable',          // deprecated alias
 	'TypedTransformExercise',
 	'WordOrderExercise',
-	'WordParts',         // deprecated alias
 	'WordSpotExercise',
 ]);
 
@@ -37,15 +33,11 @@ const EXERCISE_COMPONENTS = new Set([
 	'InlineTypedGapExercise',
 	'LineMatch',
 	'MemoryMatchGame',
-	'Monologue',         // deprecated alias
 	'PhraseReorderExercise',
 	'RadioQuiz',
 	'SelectExercise',
-	'SequenceOrder',     // deprecated alias
-	'Sortable',          // deprecated alias
 	'TypedTransformExercise',
 	'WordOrderExercise',
-	'WordParts',         // deprecated alias
 	'WordSpotExercise',
 ]);
 

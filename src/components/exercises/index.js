@@ -11,12 +11,9 @@ export * from './PhraseReorderExercise';
 export * from './ProgressDots';
 export * from './RadioQuiz';
 export * from './SelectExercise';
-export * from './SequenceOrder';   // deprecated alias -> PhraseReorderExercise/WordOrderExercise
-export * from './Sortable';        // deprecated alias -> PhraseReorderExercise
 export * from './SortableWordCard/SortableWordCard';
 export * from './TextEntryExerciseRuntime';
 export * from './TypedTransformExercise';
 export * from './WordOrderExercise';
-export * from './WordParts';       // deprecated alias -> WordSpotExercise
 export * from './WordSpotExercise';
 export * from './current-location';

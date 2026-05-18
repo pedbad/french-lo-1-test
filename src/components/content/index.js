@@ -3,7 +3,6 @@ export * from '../Explanation';
 export * from '../Info';
 export * from '../InstructionCallout';
 export * from '../ModalLinkDialog/ModalLinkDialog';
-export * from '../Monologue';        // deprecated alias -> TypedAnswerField
 export * from '../TypedAnswerField';
 export * from '../PhraseTable';
 export * from '../Section';

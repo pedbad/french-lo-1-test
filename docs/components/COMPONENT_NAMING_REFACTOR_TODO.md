@@ -41,11 +41,12 @@
 - `Monologue` → `TypedAnswerField` (internal component — no config entries; old name kept as deprecated alias; CSS classes updated to `typed-answer-field-container` / `inline-typed-answer`)
 - Full exercise component documentation created: `docs/components/EXERCISE_COMPONENT_GUIDE.md`
 
-## Open (deprecated alias cleanup)
-- Remove `WordParts` alias once zero config usages confirmed
-- Remove `Sortable` alias once zero config usages confirmed
-- Remove `SequenceOrder` alias once zero config usages confirmed
-- Remove `Monologue` alias once zero internal usages confirmed
+## Completed Alias Cleanup (2026-05-15)
+- `WordParts` alias removed — zero config usages confirmed
+- `Sortable` alias removed — zero config usages confirmed
+- `SequenceOrder` alias removed — zero config usages confirmed
+- `Monologue` alias removed — zero internal usages confirmed
+- `Blanks` switch-case already absent from App.jsx — no action needed
 
 ## Current Status
 - LO5:
