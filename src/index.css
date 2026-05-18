@@ -1858,12 +1858,29 @@
 	}
 
 	.word-spot-container :is(table span, .word-spot-text-cell span).error {
-		border: 1px solid var(--destructive);
-		background: color-mix(in oklab, var(--destructive) 20%, transparent);
+		animation-name: card-flip-error;
+		animation-duration: 0.5s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+		backface-visibility: hidden;
+		box-sizing: border-box;
+		display: inline-block;
 	}
 
 	.word-spot-container :is(table span, .word-spot-text-cell span).resetting {
 		animation-name: card-flip-reset;
+		animation-duration: 0.5s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+		backface-visibility: hidden;
+		box-sizing: border-box;
+		display: inline-block;
+	}
+
+	.word-spot-container :is(table span, .word-spot-text-cell span).resetting-error {
+		animation-name: card-flip-reset-error;
 		animation-duration: 0.5s;
 		animation-timing-function: ease-in-out;
 		animation-iteration-count: 1;
@@ -1920,6 +1937,64 @@
 			transform: rotateX(90deg);
 			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
 			border: 1px solid var(--chart-2);
+		}
+
+		50% {
+			transform: rotateX(90deg);
+			background-color: transparent;
+			border: 1px solid transparent;
+		}
+
+		100% {
+			transform: rotateX(0deg);
+			background-color: transparent;
+			border: 1px solid transparent;
+			box-shadow: none;
+		}
+	}
+
+	/* Same two-phase flip as card-flip-reveal but snaps to red. */
+	@keyframes card-flip-error {
+		0% {
+			transform: rotateX(0deg);
+			background-color: transparent;
+			border: 1px solid transparent;
+			box-shadow: none;
+		}
+
+		49% {
+			transform: rotateX(90deg);
+			background-color: transparent;
+			border: 1px solid transparent;
+			box-shadow: none;
+		}
+
+		50% {
+			transform: rotateX(90deg);
+			background-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+			border: 1px solid var(--destructive);
+		}
+
+		100% {
+			transform: rotateX(0deg);
+			background-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+			border: 1px solid var(--destructive);
+			box-shadow: 2px 2px 6px color-mix(in oklab, var(--destructive) 25%, transparent);
+		}
+	}
+
+	/* Mirror of card-flip-error: red collapses to edge, snaps clear, expands back. */
+	@keyframes card-flip-reset-error {
+		0% {
+			transform: rotateX(0deg);
+			background-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+			border: 1px solid var(--destructive);
+		}
+
+		49% {
+			transform: rotateX(90deg);
+			background-color: color-mix(in oklab, var(--destructive) 20%, transparent);
+			border: 1px solid var(--destructive);
 		}
 
 		50% {

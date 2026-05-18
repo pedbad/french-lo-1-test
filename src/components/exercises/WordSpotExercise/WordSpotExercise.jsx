@@ -86,11 +86,14 @@ export class WordSpotExercise extends React.PureComponent {
 			return;
 		}
 
-		active.forEach((span) => span.classList.add('resetting'));
+		active.forEach((span) => {
+			// Use the matching reverse keyframe so green resets green, red resets red.
+			span.classList.add(span.classList.contains('error') ? 'resetting-error' : 'resetting');
+		});
 
 		setTimeout(() => {
 			spans.forEach((span) => {
-				span.classList.remove('animate', 'error', 'resetting');
+				span.classList.remove('animate', 'error', 'resetting', 'resetting-error');
 			});
 			this.setState({ complete: false, failCount: 0, nPlaced: 0 });
 		}, 520);
