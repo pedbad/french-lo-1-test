@@ -3424,10 +3424,25 @@
 		align-items: flex-end;
 	}
 
-	footer .footer-container .lclogo svg,
-	footer .footer-container .cclogo svg {
+	footer .footer-container .lclogo img.logo,
+	footer .footer-container .cclogo img.logo {
 		height: 45px;
-		fill: currentColor;
+		transition:
+			filter 180ms ease,
+			opacity 180ms ease;
+	}
+
+	footer .footer-container .lclogo img.logo.theme-dark,
+	footer .footer-container .cclogo img.logo.theme-dark {
+		display: none;
+	}
+
+	footer .footer-container .lclogo a:hover img.logo,
+	footer .footer-container .lclogo a:active img.logo,
+	footer .footer-container .cclogo a:hover img.logo,
+	footer .footer-container .cclogo a:active img.logo {
+		opacity: 0.72;
+		filter: drop-shadow(0 0 6px color-mix(in oklab, var(--footer-hover-color) 55%, transparent));
 	}
 
 	footer .footer-container .elearninglogo img.logo {
@@ -3641,6 +3656,16 @@
 		display: block;
 	}
 
+	.dark footer .footer-container .lclogo img.logo.theme-light,
+	.dark footer .footer-container .cclogo img.logo.theme-light {
+		display: none;
+	}
+
+	.dark footer .footer-container .lclogo img.logo.theme-dark,
+	.dark footer .footer-container .cclogo img.logo.theme-dark {
+		display: block;
+	}
+
 	@media (min-width: 640px) {
 		footer .footer-container {
 			--footer-common-width: 320px;
@@ -3704,8 +3729,8 @@
 			width: auto;
 		}
 
-		footer .footer-container .square-logos .square-logos-row .lclogo svg,
-		footer .footer-container .square-logos .square-logos-row .cclogo svg {
+		footer .footer-container .square-logos .square-logos-row .lclogo img.logo,
+		footer .footer-container .square-logos .square-logos-row .cclogo img.logo {
 			height: 52px;
 		}
 
@@ -3731,8 +3756,8 @@
 	}
 
 	@media (min-width: 1024px) {
-		footer .footer-container .lclogo svg,
-		footer .footer-container .cclogo svg,
+		footer .footer-container .lclogo img.logo,
+		footer .footer-container .cclogo img.logo,
 		footer .footer-container .elearninglogo img.logo {
 			height: 54px;
 		}
@@ -3762,8 +3787,8 @@
 			max-width: none;
 		}
 
-		footer .footer-container .lclogo svg,
-		footer .footer-container .cclogo svg,
+		footer .footer-container .lclogo img.logo,
+		footer .footer-container .cclogo img.logo,
 		footer .footer-container .uclogo img,
 		footer .footer-container .elearninglogo img.logo {
 			height: 80px;
