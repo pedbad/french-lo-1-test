@@ -276,3 +276,102 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 - **LO2 Grammar — Subject pronouns** `audio/lo2/grammar/grammar-and-usage/025-iel.mp3`
   - Was missing at runtime; file now exists at `public/audio/lo2/grammar/grammar-and-usage/025-iel.mp3`.
+
+---
+
+## File Tree — All Outstanding Recordings
+
+Drop each completed file into the exact folder path shown. No code changes needed.
+
+```
+public/audio/
+├── lo5/
+│   ├── exercises/
+│   │   └── selectExercise2/
+│   │       └── 003-mme-leserre-est-tres-curieuse.mp3
+│   └── monologues/
+│       └── monologues1/
+│           └── 003-country-house-monologue.mp3
+├── lo6/
+│   ├── exercises/
+│   │   ├── double-ll-rhyme-annabelle-a-une-petite-fille.mp3
+│   │   └── double-ll-rhyme-la-famille-de-camille.mp3
+│   └── grammar/
+│       └── elles-ont.mp3
+├── lo7/
+│   ├── exercises/
+│   │   ├── articles/
+│   │   │   └── vous-preferez-la-france-ou-la-suisse.mp3
+│   │   ├── listening/
+│   │   │   └── lo7-dialogue-1.mp3
+│   │   └── poem/
+│   │       └── sept-couleurs-magiques.mp3
+│   └── vocabulary/
+│       └── basket-basketball.mp3
+├── lo8/
+│   └── dialogues/
+│       ├── dialogues2/
+│       │   └── 001-quest-ce-que-tu-fais-le-weekend.mp3
+│       └── dialogues3/
+│           └── 003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3
+├── lo9/
+│   ├── dialogues/
+│   │   └── phraseTable2/
+│   │       └── 004-oh-excusez-moi-au-revoir-madame.mp3
+│   ├── exercises/
+│   │   └── selectExercise1/
+│   │       └── 004-oh-excusez-moi-au-revoir-madame.mp3
+│   └── grammar/
+│       └── telephone-regions/
+│           └── 007-mobile-06-07.mp3
+├── lo10/
+│   ├── dialogues/
+│   │   └── phraseTable2/
+│   │       └── 004-oh-excusez-moi-au-revoir-madame.mp3
+│   └── exercises/
+│       └── dictationExercise4/
+│           └── 009-d-accord-a-plus.mp3
+├── lo11/
+│   └── vocabulary/
+│       └── 015-vous-voulez-quelque-chose-a-manger.mp3
+├── lo12/
+│   ├── dialogues/
+│   │   ├── 006-oui-cest-pratique-et-le-jeudi-je-vais-au-grand-marche-au-centre-ville-jachete-so.mp3
+│   │   └── 007-tu-as-de-la-chance-si-nous-voulons-du-pain-marc-va-a-la-boulangerie-au-bout-de-l.mp3
+│   ├── exercises/
+│   │   ├── 041-bout.mp3
+│   │   └── 043-roue.mp3
+│   ├── grammar/
+│   │   └── 033-je-nai-pas-de-fromage.mp3
+│   └── pronunciation/
+│       └── 016-ou.mp3
+├── lo13/
+│   └── exercises/
+│       ├── 016-reflexive-verbs-full-audio.mp3
+│       ├── 017-je-me-reveille-a-huit-heures.mp3
+│       ├── 018-je-mhabille-avant-de-prendre-mon-petit-dejeuner.mp3
+│       ├── 019-adele-se-leve-vers-dix-heures.mp3
+│       ├── 020-vous-vous-levez-a-quelle-heure.mp3
+│       ├── 021-nous-nous-reposons-pendant-le-week-end.mp3
+│       ├── 022-je-me-detends-pendant-les-vacances.mp3
+│       ├── 023-les-enfants-se-couchent-vers-neuf-heures.mp3
+│       ├── 024-patrick-se-couche-a-minuit.mp3
+│       ├── 025-tu-te-maquilles-aujourdhui.mp3
+│       ├── 026-tu-tappelles-comment.mp3
+│       ├── 027-et-ta-soeur-elle-sappelle-comment.mp3
+│       └── 028-la-tour-eiffel-se-trouve-a-paris.mp3
+├── lo14/
+│   ├── dialogues/
+│   │   └── phraseTable1/
+│   │       └── 001-qu-est-ce-que-tu-fais-comme-etudes.mp3
+│   └── grammar/
+│       └── pouvoir/
+│           ├── 010-je-peux-repondre-a-votre-question-tout-de-suite.mp3
+│           └── 011-vous-pouvez-ouvrir-la-fenetre-sil-vous-plait.mp3
+└── lo15/
+    └── exercises/
+        └── selectExercise1/
+            ├── 009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3
+            ├── 010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3
+            └── 012-cest-moi-qui-cuisine.mp3
+```
