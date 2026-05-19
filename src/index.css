@@ -3430,9 +3430,12 @@
 		fill: currentColor;
 	}
 
-	footer .footer-container .elearninglogo svg {
+	footer .footer-container .elearninglogo img.logo {
 		height: 50px;
-		fill: currentColor;
+	}
+
+	footer .footer-container .elearninglogo img.logo.theme-dark {
+		display: none;
 	}
 
 	footer .footer-container .license {
@@ -3621,6 +3624,14 @@
 		display: block;
 	}
 
+	.dark footer .footer-container .elearninglogo img.logo.theme-light {
+		display: none;
+	}
+
+	.dark footer .footer-container .elearninglogo img.logo.theme-dark {
+		display: block;
+	}
+
 	@media (min-width: 640px) {
 		footer .footer-container {
 			--footer-common-width: 320px;
@@ -3689,7 +3700,7 @@
 			height: 52px;
 		}
 
-		footer .footer-container .square-logos .square-logos-row .elearninglogo svg {
+		footer .footer-container .square-logos .square-logos-row .elearninglogo img.logo {
 			height: 58px;
 		}
 
@@ -3713,7 +3724,7 @@
 	@media (min-width: 1024px) {
 		footer .footer-container .lclogo svg,
 		footer .footer-container .cclogo svg,
-		footer .footer-container .elearninglogo svg {
+		footer .footer-container .elearninglogo img.logo {
 			height: 54px;
 		}
 
@@ -3745,7 +3756,7 @@
 		footer .footer-container .lclogo svg,
 		footer .footer-container .cclogo svg,
 		footer .footer-container .uclogo img,
-		footer .footer-container .elearninglogo svg {
+		footer .footer-container .elearninglogo img.logo {
 			height: 80px;
 		}
 	}
