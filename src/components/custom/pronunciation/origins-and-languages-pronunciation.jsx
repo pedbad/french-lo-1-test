@@ -22,8 +22,7 @@ export class OriginsAndLanguagesPronunciationFinalConsonantsLiaison extends Pure
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
-				<p>Usually, the consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. However, these are sounded when the next word begins with a vowel or mute <strong>h</strong>. This is known as making a liaison.</p>
-				<p>Compare these:</p>
+				<p>Usually, the consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. However, these are sounded when the next word begins with a vowel or mute <strong>h</strong>. This is known as making a liaison. Compare these:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div>
 						<AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/049-les-professeurs.mp3`}>les professeurs</AudioClip> /{' '}
@@ -48,7 +47,7 @@ export class OriginsAndLanguagesPronunciationEhSound extends PureComponent {
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
-				<p>Listen to the following:</p>
+				<p>Listen to the following examples and notice that <strong>-et</strong>, <strong>-ez</strong>, <strong>é</strong>, <strong>-ée</strong>, <strong>-és</strong>, <strong>-ées</strong> and also <strong>-er</strong> as an infinitive ending are all pronounced the same, as are the words <strong>est</strong> and <strong>es</strong>:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`audio/lo3/shared/064-vous-parlez.mp3`}>vous parl<strong>ez</strong></AudioClip></div>
 					<div><AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/020-il-est-americain.mp3`}>il <strong>est</strong> am<strong>é</strong>ricain</AudioClip></div>
@@ -60,7 +59,6 @@ export class OriginsAndLanguagesPronunciationEhSound extends PureComponent {
 					<div><AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/008-ecouter.mp3`}><strong>é</strong>cout<strong>er</strong></AudioClip></div>
 					<div><AudioClip className={`link`} soundFile={`audio/lo3/pronunciation/demystify/057-regarder.mp3`}>regard<strong>er</strong></AudioClip></div>
 				</div>
-				<p>You will notice that <strong>-et</strong>, <strong>-ez</strong>, <strong>é</strong>, <strong>-ée</strong>, <strong>-és</strong>, <strong>-ées</strong> and also <strong>-er</strong> as an infinitive ending are all pronounced the same, as are the words <strong>est</strong> and <strong>es</strong>.</p>
 			</div>
 		);
 	};
