@@ -75,55 +75,44 @@ export class AboutMePronunciationSilentE extends PureComponent {
 			}))
 			.filter((group) => group.items.length > 0);
 		return (
-			<div
-				className={`lo2-pronunciation1-container container`}
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className={`panel pronunciation-panel`}
-					id={id ? `${id}Panel1` : undefined}
-					key={`${id}Panel1`}
-				>
-					<h3>1. Silent letters at the end of a word</h3>
-					<p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word.
-						Listen to the following examples.</p>
-					<div className={`ml-2 grid grid-cols-1 gap-2 min-[900px]:grid-cols-2 min-[1200px]:mb-5 min-[1200px]:grid-cols-7 min-[1200px]:gap-2`}>
-						{groupedByEnding.map((group) => (
-							<div className={`m-0 space-y-1`} key={`ending-${group.ending}`}>
-								<p className={`m-0 text-[var(--font-size-sm)] font-semibold text-muted-foreground`}>
-									<strong>{group.ending}</strong>:
-								</p>
-								<div className={`space-y-1`}>
-									{group.items.map((item) => (
-										<div key={item.soundFile}>
-											<AudioClip className={`link`} soundFile={item.soundFile} alt={item.alt}>{item.label}</AudioClip>
-										</div>
-									))}
-								</div>
+			<div id={id || undefined}>
+				<p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word.
+					Listen to the following examples.</p>
+				<div className={`grid grid-cols-2 gap-2 min-[900px]:grid-cols-4 min-[1200px]:grid-cols-7 min-[1200px]:mb-5`}>
+					{groupedByEnding.map((group) => (
+						<div className={`flex flex-col gap-1.5 rounded-lg border border-border bg-muted/40 p-2.5`} key={`ending-${group.ending}`}>
+							<h3 className={`m-0 pb-1.5 border-b border-border text-xl font-bold text-foreground leading-none`}>
+								{group.ending}
+							</h3>
+							<div className={`space-y-1`}>
+								{group.items.map((item) => (
+									<div key={item.soundFile}>
+										<AudioClip className={`link`} soundFile={item.soundFile} alt={item.alt}>{item.label}</AudioClip>
+									</div>
+								))}
 							</div>
-						))}
-					</div>
-					<p>The letter <strong>e</strong> is not pronounced at the end of a word:</p>
-					<div className={`mb-3 ml-2 space-y-1 min-[1200px]:mb-5`}>
-						<div><AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/006-je-m-appelle.mp3`} alt={`Je m'appelle`}>Je m'appell<strong>e</strong></AudioClip></div>
-						<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/004-bibliothecaire.mp3`} alt={`bibliothécaire`}>bibliothécair<strong>e</strong></AudioClip></div>
-						<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/005-celibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></div>
-					</div>
-					<Info variant="warning">
-						<p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p>
-						<p>
-							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/002-ce.mp3`}>ce</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/003-de.mp3`}>de</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/008-je.mp3`}>je</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}>le</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/011-me.mp3`}>me</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/012-ne.mp3`}>ne</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/017-se.mp3`}>se</AudioClip>,&nbsp;
-							<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/018-te.mp3`}>te</AudioClip>
-						</p>
-					</Info>
+						</div>
+					))}
 				</div>
+				<p>The letter <strong>e</strong> is not pronounced at the end of a word:</p>
+				<div className={`mb-3 ml-2 space-y-1 min-[1200px]:mb-5`}>
+					<div><AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/006-je-m-appelle.mp3`} alt={`Je m'appelle`}>Je m'appell<strong>e</strong></AudioClip></div>
+					<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/004-bibliothecaire.mp3`} alt={`bibliothécaire`}>bibliothécair<strong>e</strong></AudioClip></div>
+					<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/005-celibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></div>
+				</div>
+				<Info variant="warning">
+					<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold"><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</h4>
+					<div>
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/002-ce.mp3`}>ce</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/003-de.mp3`}>de</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/008-je.mp3`}>je</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/grammar/grammar-and-usage/015-le.mp3`}>le</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/011-me.mp3`}>me</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/012-ne.mp3`}>ne</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/017-se.mp3`}>se</AudioClip>,&nbsp;
+						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/018-te.mp3`}>te</AudioClip>
+					</div>
+				</Info>
 			</div>
 		);
 	};
@@ -133,23 +122,12 @@ export class AboutMePronunciationFrenchTh extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
-			<div
-				className={`lo2-pronunciation2-container container`}
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className={`panel pronunciation-panel`}
-					id={id ? `${id}Panel2` : undefined}
-					key={`${id}Panel2`}
-				>
-					<h3>2. The French "th"</h3>
-					<p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g.
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/021-thomas.mp3`} alt={`Thomas`}><strong>Thomas</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/019-the.mp3`} alt={`thé`}><strong>thé</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/020-theologie.mp3`} alt={`théologie`}><strong>théologie</strong></AudioClip>,&nbsp;
-						<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/010-maths.mp3`} alt={`maths`}><strong>maths</strong></AudioClip></p>
-				</div>
+			<div id={id || undefined}>
+				<p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g.
+					<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/021-thomas.mp3`} alt={`Thomas`}><strong>Thomas</strong></AudioClip>,&nbsp;
+					<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/019-the.mp3`} alt={`thé`}><strong>thé</strong></AudioClip>,&nbsp;
+					<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/020-theologie.mp3`} alt={`théologie`}><strong>théologie</strong></AudioClip>,&nbsp;
+					<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/010-maths.mp3`} alt={`maths`}><strong>maths</strong></AudioClip></p>
 			</div>
 		);
 	};
