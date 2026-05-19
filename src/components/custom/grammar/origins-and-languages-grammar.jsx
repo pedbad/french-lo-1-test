@@ -35,7 +35,7 @@ export class OriginsAndLanguagesGrammarVerbGroups extends PureComponent {
 					id={id ? `${id}Panel1` : undefined}
 					key={`${id}Panel1`}
 				>
-					<p><strong>There are three groups of verbs in French.</strong> The biggest of these is called the <strong>-er</strong>{' '}group, simply because the infinitive ends with the letters&nbsp;
+					<p>There are <strong>three groups of verbs</strong> in French. The biggest of these is called the <strong>-er</strong>{' '}group, simply because the infinitive ends with the letters&nbsp;
 						<strong>-er</strong>.&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/056-parler.mp3`}>Parler</AudioClip> (to speak),&nbsp;
 						<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/019-habiter.mp3`}>habiter</AudioClip> (to live),&nbsp;
@@ -101,7 +101,7 @@ export class OriginsAndLanguagesGrammarVerbGroups extends PureComponent {
 						</Table>
 					</div>
 					<Separator className="my-4" />
-					<p><strong>venir</strong> is a common irregular verb.</p>
+					<p>The verb <strong>venir</strong> is a common irregular verb.</p>
 					<div className="mt-3">
 						<Table className="grammar-audio-table">
 							<thead>
