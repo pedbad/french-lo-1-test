@@ -32,7 +32,7 @@ export class Footer extends React.PureComponent{
 						<div className="square-logos-row">
 							{/* Logo LC */}
 							<div className={`lclogo square-logo`}>
-								<a href="https://www.langcen.cam.ac.uk/" target="_blank" rel="noopener noreferrer">
+								<a href="https://www.langcen.cam.ac.uk/culp/culp-index.html" target="_blank" rel="noopener noreferrer">
 									<img src={resolveAsset('/img/common/footer/LC_Logo_Black_SVG.svg')} className="logo theme-light" alt={lcLogoAlt} />
 									<img src={resolveAsset('/img/common/footer/LC_Logo_White_SVG.svg')} className="logo theme-dark" alt={lcLogoAlt} />
 								</a>
