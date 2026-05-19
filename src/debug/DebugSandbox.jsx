@@ -61,7 +61,7 @@ export function DebugSandbox() {
 	});
 	const previewUrl = `${window.location.origin}${import.meta.env.BASE_URL}first-contact/`;
 	const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
-	const chromeIncognitoCommandPowerShell = `Start-Process "chrome.exe" "--incognito --disable-extensions \`"${previewUrl}\`"""`;
+	const chromeIncognitoCommandPowerShell = 'Start-Process "chrome.exe" "--incognito --disable-extensions `"' + previewUrl + '`"""';
 
 	React.useEffect(() => {
 		let mounted = true;
