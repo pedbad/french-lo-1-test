@@ -222,6 +222,25 @@ bun run preview`}</code>
 							.
 						</p>
 					</div>
+					<div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
+						<h3 className="m-0 text-base">5) Viewing hidden WAVE alerts (disable CSS)</h3>
+						<p className="mt-2 mb-0 text-sm">
+							WAVE sometimes flags elements that are visually hidden (e.g. inactive tab panels). To reveal them, disable all CSS via the browser console — no extension needed.
+						</p>
+						<p className="mt-3 mb-1 text-sm text-muted-foreground">
+							<strong>Mac</strong> — open console: <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>J</kbd>
+							&nbsp;&nbsp;|&nbsp;&nbsp;
+							<strong>Windows</strong> — open console: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>
+						</p>
+						<p className="mt-2 mb-1 text-sm text-muted-foreground">Paste to disable styles:</p>
+						<pre className="overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+							<code>{`Array.from(document.styleSheets).forEach(s => { try { s.disabled = true; } catch(e){} })`}</code>
+						</pre>
+						<p className="mt-3 mb-1 text-sm text-muted-foreground">Paste to restore styles (or just reload the page):</p>
+						<pre className="overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+							<code>{`Array.from(document.styleSheets).forEach(s => { try { s.disabled = false; } catch(e){} })`}</code>
+						</pre>
+					</div>
 				</div>
 			</section>
 
