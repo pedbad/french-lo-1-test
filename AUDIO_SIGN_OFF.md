@@ -117,7 +117,7 @@ Single reference for all outstanding audio work — missing files, wrong-content
 - `public/audio/lo15/exercises/selectExercise1/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 10
   - Text to record: *Quand je suis en vacances, le soir mes amis ne cuisinent pas.*
-  - Note: include a short pause after *Quand je suis en vacances* and after *le soir* for natural phrasing. Replaces the old `010` file which had wrong text and missing pauses.
+  - Note: include a short natural pause after *Quand je suis en vacances* and **before** *le soir* (i.e. *Quand je suis en vacances, [pause] le soir mes amis ne cuisinent pas.*). Replaces the old `010` file which had wrong text and missing pauses.
 
 - `public/audio/lo15/exercises/selectExercise1/012-cest-moi-qui-cuisine.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 11 (new)
