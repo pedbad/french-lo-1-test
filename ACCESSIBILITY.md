@@ -97,13 +97,15 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO3 | `origins-and-languages` | ✅ done  | ✅ done        | h3 headings restored; short intro paragraphs merged |
 | LO4 | `current-location`      | ✅ done  | ✅ done        | h3 headings restored; NB → h4; inline audio icon fixed |
 | LO5 | `house-and-home`        | ✅ done  | ✅ done        | h3 headings added; "How to pronounce:" → h4; NB → h4 |
-| LO6 | `free-time`             | ✅ done  | ✅ done        | h3 headings added to pronunciation; short intro paragraphs merged in grammar (4 tabs) and pronunciation |
-| LO7 | `family-friends`        | ⬜ todo  | ⬜ todo        | |
-| LO8 | `shopping`              | ⬜ todo  | ⬜ todo        | |
-| LO9 | `making-arrangements`   | ⬜ todo  | ⬜ todo        | |
-| LO10 | `opinions-matter`      | ⬜ todo  | ⬜ todo        | |
-| LO11 | `phoning-in-france`    | ⬜ todo  | ⬜ todo        | |
-| LO12–LO15 | remaining LOs   | ⬜ todo  | ⬜ todo        | |
+| LO6 | `family-friends`        | ⬜ todo  | ✅ done        | h3 headings added (Double ll x3); "How to pronounce:" → h4; NB → h4 |
+| LO7 | `opinions-matter`       | ⬜ todo  | ⬜ todo        | |
+| LO8 | `free-time`             | ⬜ todo  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs) |
+| LO9 | `phoning-in-france`     | ⬜ todo  | ⬜ todo        | |
+| LO10 | `making-arrangements`  | ⬜ todo  | ⬜ todo        | |
+| LO11 | `going-to-a-cafe`      | ⬜ todo  | ⬜ todo        | |
+| LO12 | `shopping-in-the-market` | ⬜ todo | ⬜ todo       | |
+| LO13 | `daily-routine`        | ⬜ todo  | ⬜ todo        | |
+| LO14 | `studying-at-university` | ⬜ todo | ⬜ todo       | |
 
 ---
 
@@ -143,12 +145,22 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Added `<h3>2. Related spellings</h3>`
   - NB: `<p><strong>NB</strong>` → `<h4>`
 
-### LO6 — Free Time
+### LO6 — Family & Friends (`family-friends`)
+- `src/components/custom/pronunciation/family-friends-and-neighbours-pronunciation.jsx`
+  - Removed legacy container/panel wrapper divs
+  - Added `<h3>1. Double ll pronounced l</h3>`
+  - `<p><strong>How to pronounce double ll in French:</strong></p>` → `<h4>` (same text, better tag)
+  - Added `<h3>2. Double ll pronounced y</h3>`
+  - Added `<h3>3. Exceptions</h3>`
+  - NB: `<p><strong>NB</strong>` → `<h4>`
+  - All teacher sentences preserved exactly
+
+### LO8 — Free Time (`free-time`)
 - `src/components/custom/pronunciation/free-time-pronunciation.jsx`
   - Removed legacy container/panel wrapper divs
   - Added `<h3>1. The French -tion sound</h3>`
   - Added `<h3>2. More words with -tion</h3>`
-  - Teacher sentences preserved exactly — "Listen to these examples:" and "Practise a few more familiar words with the same sound:" kept as written
+  - Teacher sentences preserved exactly
 - `src/components/custom/grammar/free-time-grammar.jsx`
   - Merged short intro phrases into preceding paragraphs across all 4 grammar tabs
 
