@@ -663,11 +663,11 @@
 		display: flex;
 		align-items: center;
 		gap: clamp(0.9rem, 1.8vw, 1.6rem);
-		justify-content: center;
+		justify-content: flex-end;
 		flex-wrap: nowrap;
 		flex: 1 1 auto;
 		margin: 0 !important;
-		padding: 0 2rem;
+		padding: 0 0.75rem 0 0;
 		min-width: 0;
 		width: 100%;
 	}
@@ -964,6 +964,10 @@
 	@media (min-width: 1024px) and (max-width: 1279.98px) {
 		.main-menu .menu-right .nav-link {
 			font-size: calc(var(--nav-link-size) * 0.8);
+		}
+		.main-menu .menu-right {
+			gap: 0.5rem;
+			padding: 0 0.25rem 0 0;
 		}
 	}
 
