@@ -2,6 +2,14 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-20 - Accessibility (WAVE) Fixes — LO1 through LO5
+
+- Audited all pronunciation and grammar sections using the WAVE browser extension
+- Fixed **possible heading** alerts: short/bold standalone `<p>` elements converted to proper `<h3>` / `<h4>` heading elements or merged into adjacent paragraphs
+- Fixed **skipped heading level** alerts: restored missing `<h3>` section headings inside tab panels that were wrongly removed in an earlier a11y pass
+- Removed legacy container/panel wrapper divs from LO5 (structural cleanup, no visible change)
+- Full details, status table, and per-file breakdown in `ACCESSIBILITY.md`
+
 ## 2026-05-20 - Deployment Scripts Documented + Legacy Scripts Retired
 
 - DevOps engineer provided two deployment scripts replacing the old manual shell script:
