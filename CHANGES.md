@@ -2,6 +2,19 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-20 - Deployment Scripts Documented + Legacy Scripts Retired
+
+- DevOps engineer provided two deployment scripts replacing the old manual shell script:
+  - `1.deploy-lcdev-local.sh` — builds and deploys to lcdev (`/projects/french-basic/`)
+  - `2.deploy-lcitc-remote.sh` — builds and deploys to lcitc production on Mythic Beasts (`/french/french-basic/`)
+- Both scripts: clone repo, install deps, build with correct base path, validate 15 slug folders, rsync to server
+- Production script additionally: validates no dev base path remains, confirms `debug-sandbox.html` absent, verifies remote HTML
+- Legacy conversion scripts (`legacy.DO-NOT-RUN.*`) are retired — no longer needed since the build generates slug routes automatically
+- `DEPLOYMENT_TODO.md` updated with real script names, server paths, SSH details, and verification commands
+- Files changed:
+  - `DEPLOYMENT_TODO.md`
+  - `README.md`
+
 ## 2026-05-20 - Automated Slug Route Generation + Deployment Simplification
 
 - Added `generateSlugRoutes` Vite plugin to `vite.config.js`

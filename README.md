@@ -147,7 +147,9 @@ The `generateSlugRoutes` Vite plugin in `vite.config.js` handles this — it run
 every build and copies `dist/index.html` to `dist/<slug>/index.html` for all 15 LOs
 listed in `src/index-fr.json`.
 
-Full deployment instructions for both servers (lcdev + lcitc) are in:
+Deployment is handled by two scripts — `1.deploy-lcdev-local.sh` for staging and
+`2.deploy-lcitc-remote.sh` for production. Full instructions, verification commands,
+and troubleshooting are in:
 - `DEPLOYMENT_TODO.md`
 
 ## Future Projects: Avoiding `.htaccess` for New Language Series
