@@ -14,6 +14,38 @@ WAVE was reporting two categories of alerts across the pronunciation and grammar
 
 ---
 
+## How to audit an LO with WAVE
+
+### The problem with tabs and accordions
+
+WAVE only analyses what is **in the DOM at the time it runs**. In this app, inactive tab panels are present in the DOM but hidden with CSS (`display: none` or `visibility: hidden`). WAVE skips hidden elements, so alerts inside inactive tabs are invisible unless you force everything visible first.
+
+### Step-by-step audit process
+
+1. **Open the LO** in Chrome/Firefox at `http://localhost:5173/<slug>/`
+2. **Disable all CSS** so every tab panel and accordion is forced visible:
+   - Chrome: open DevTools → three-dot menu → **More tools → Coverage** (or use the Command menu `⌘⇧P` → "Disable JavaScript" won't help — you want CSS). Easiest method: install the **Web Developer** browser extension → **CSS → Disable All Styles**.
+   - Alternative: in the browser console run:
+     ```js
+     document.querySelectorAll('style, link[rel="stylesheet"]').forEach(el => el.disabled = true);
+     ```
+   - With CSS off, all tab panels, accordions, and hidden sections become visible as plain unstyled HTML.
+3. **Run WAVE** (click the extension icon). All alerts across every tab and section will now be reported in one pass.
+4. **Note the alert count and types** before touching any code.
+5. **Re-enable CSS** (reload the page), fix the issues in the source files, reload and re-run WAVE to confirm 0 alerts.
+
+### What to look for
+
+| WAVE alert | Typical cause in this codebase | Fix |
+|---|---|---|
+| Possible heading | Short `<p>` starting with `<strong>`, or ending in a colon | Convert to `<h3>`/`<h4>`, or merge into adjacent paragraph |
+| Possible heading | `<p><strong>How to pronounce:</strong></p>` | `<h4>How to pronounce:</h4>` |
+| Possible heading | `<p><strong>NB</strong> …</p>` inside `<Info>` box | `<h4 className="…"><strong>NB</strong> …</h4>` |
+| Skipped heading level | h2 → h4 with no h3 between | Add missing `<h3>` section heading inside tab panel |
+| Possible heading | Mobile card `<p>Form:</p>`, `<p>Examples:</p>` etc. | Change `<p>` → `<div>` |
+
+---
+
 ## Heading hierarchy pattern (all LOs)
 
 Every pronunciation section follows this structure:
