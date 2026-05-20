@@ -67,18 +67,18 @@ export class CurrentLocationGrammarPrepositionsInPlaces extends PureComponent {
 						{locationFormRows.map((row, index) => (
 							<Card className="border-border/70 bg-card/90 shadow-sm" key={`${row.form}-${index}`}>
 								<CardContent className="space-y-2 p-3">
-									<p className="m-0 text-sm font-semibold leading-[var(--line-height-app)]">
+									<div className="m-0 text-sm font-semibold leading-[var(--line-height-app)]">
 										<span className="text-muted-foreground">Form: </span>
 										<span>{row.form}</span>
-									</p>
-									<p className="m-0 text-sm leading-[var(--line-height-body)]">
+									</div>
+									<div className="m-0 text-sm leading-[var(--line-height-body)]">
 										<span className="font-semibold text-muted-foreground">Examples: </span>
 										<span>{row.examples}</span>
-									</p>
-									<p className="m-0 text-sm leading-[var(--line-height-body)]">
+									</div>
+									<div className="m-0 text-sm leading-[var(--line-height-body)]">
 										<span className="font-semibold text-muted-foreground">Use: </span>
 										<span>{row.use}</span>
-									</p>
+									</div>
 								</CardContent>
 							</Card>
 						))}
