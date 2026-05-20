@@ -8,7 +8,7 @@ export class CurrentLocationPronunciationNasalInAin extends PureComponent {
 		return (
 			<div id={id || undefined}>
 				<h3>1. The nasal sound &quot;in / ain&quot;</h3>
-				<p>Another nasal vowel sound in French: <AudioClip className={`super-compact`} soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/> (<strong>in / ain</strong>). This is how the letters <strong>-in-</strong> are pronounced <strong>when they end a word or occur before a consonant</strong>.</p>
+				<p>Another nasal vowel sound in French: <AudioClip className={`super-compact`} inline soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/> (<strong>in / ain</strong>). This is how the letters <strong>-in-</strong> are pronounced <strong>when they end a word or occur before a consonant</strong>.</p>
 				<p>The tongue and the mouth all have work to do in its production whilst air passes through nose and mouth.</p>
 				<h4>How to pronounce:</h4>
 				<div className={`mb-0 ml-2 space-y-1`}>
