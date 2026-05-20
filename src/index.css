@@ -868,7 +868,7 @@
 		border-left-color: rgb(var(--color-primary-400));
 	}
 
-	@media (max-width: 1199.98px) {
+	@media (max-width: 1023.98px) {
 		.main-menu nav {
 			max-width: none;
 		}
@@ -941,7 +941,7 @@
 		}
 	}
 
-	@media (min-width: 1200px) {
+	@media (min-width: 1024px) {
 		.main-menu nav {
 			max-width: none;
 		}
@@ -961,7 +961,7 @@
 		}
 	}
 
-	@media (min-width: 1200px) and (max-width: 1399.98px) {
+	@media (min-width: 1024px) and (max-width: 1279.98px) {
 		.main-menu .menu-right .nav-link {
 			font-size: calc(var(--nav-link-size) * 0.8);
 		}
