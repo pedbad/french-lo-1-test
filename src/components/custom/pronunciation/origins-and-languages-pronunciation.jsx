@@ -6,6 +6,7 @@ export class OriginsAndLanguagesPronunciationSilentEnt extends PureComponent {
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
+				<h3>1. Silent <em>-ent</em> endings</h3>
 				<p>The third person verb ending <strong>ent</strong> is never pronounced. For example:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`audio/lo3/shared/026-ils-parlent.mp3`}>Ils parl<strong>ent</strong></AudioClip></div>
@@ -22,6 +23,7 @@ export class OriginsAndLanguagesPronunciationFinalConsonantsLiaison extends Pure
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
+				<h3>2. Final consonants and liaison</h3>
 				<p>Usually, the consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word. However, these are sounded when the next word begins with a vowel or mute <strong>h</strong>. This is known as making a liaison. Compare these:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div>
@@ -47,6 +49,7 @@ export class OriginsAndLanguagesPronunciationEhSound extends PureComponent {
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
+				<h3>3. The sound &quot;eh&quot;</h3>
 				<p>Listen to the following examples and notice that <strong>-et</strong>, <strong>-ez</strong>, <strong>é</strong>, <strong>-ée</strong>, <strong>-és</strong>, <strong>-ées</strong> and also <strong>-er</strong> as an infinitive ending are all pronounced the same, as are the words <strong>est</strong> and <strong>es</strong>:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`audio/lo3/shared/064-vous-parlez.mp3`}>vous parl<strong>ez</strong></AudioClip></div>

@@ -76,14 +76,15 @@ export class AboutMePronunciationSilentE extends PureComponent {
 			.filter((group) => group.items.length > 0);
 		return (
 			<div id={id || undefined}>
+				<h3>1. Silent letters at the end of a word</h3>
 				<p>The consonants <strong>d</strong>, <strong>g</strong>, <strong>p</strong>, <strong>s</strong>, <strong>t</strong>, <strong>x</strong>, <strong>z</strong> are silent when they are the last letter of the word.
 					Listen to the following examples.</p>
 				<div className={`grid grid-cols-2 gap-2 min-[900px]:grid-cols-4 min-[1200px]:grid-cols-7 min-[1200px]:mb-5`}>
 					{groupedByEnding.map((group) => (
 						<div className={`flex flex-col gap-1.5 rounded-lg border border-border bg-muted/40 p-2.5`} key={`ending-${group.ending}`}>
-							<h3 className={`m-0 pb-1.5 border-b border-border text-xl font-bold text-foreground leading-none`}>
+							<h4 className={`m-0 pb-1.5 border-b border-border text-xl font-bold text-foreground leading-none`}>
 								{group.ending}
-							</h3>
+							</h4>
 							<div className={`space-y-1`}>
 								{group.items.map((item) => (
 									<div key={item.soundFile}>
@@ -123,6 +124,7 @@ export class AboutMePronunciationFrenchTh extends PureComponent {
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
+				<h3>2. The French &quot;th&quot;</h3>
 				<p>In French the letters <strong>th</strong> are pronounced <strong>t</strong>. e.g.
 					<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/021-thomas.mp3`} alt={`Thomas`}><strong>Thomas</strong></AudioClip>,&nbsp;
 					<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/019-the.mp3`} alt={`thé`}><strong>thé</strong></AudioClip>,&nbsp;

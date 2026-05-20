@@ -7,8 +7,10 @@ export class CurrentLocationPronunciationNasalInAin extends PureComponent {
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
+				<h3>1. The nasal sound &quot;in / ain&quot;</h3>
 				<p>Another nasal vowel sound in French: <AudioClip className={`super-compact`} soundFile={`/audio/lo4/pronunciation/demystify/001-ain.mp3`}/> (<strong>in / ain</strong>). This is how the letters <strong>-in-</strong> are pronounced <strong>when they end a word or occur before a consonant</strong>.</p>
-				<p>The tongue and the mouth all have work to do in its production whilst air passes through nose and mouth. Listen to these examples:</p>
+				<p>The tongue and the mouth all have work to do in its production whilst air passes through nose and mouth.</p>
+				<h4>How to pronounce:</h4>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/002-singapour.mp3`}>S<strong>in</strong>gapour</AudioClip></div>
 					<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/003-inde.mp3`}><strong>In</strong>de</AudioClip></div>
@@ -26,8 +28,9 @@ export class CurrentLocationPronunciationRelatedSpellings extends PureComponent 
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
+				<h3>2. Related spellings with the same sound</h3>
 				<Info variant="warning">
-					<h3 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold"><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</h3>
+					<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold"><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</h4>
 					<div><strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.</div>
 				</Info>
 				<div className={`mb-0 ml-2 space-y-1`}>
@@ -49,6 +52,7 @@ export class CurrentLocationPronunciationFinalEnEns extends PureComponent {
 		const { id } = this.props;
 		return (
 			<div id={id || undefined}>
+				<h3>3. Final &quot;en / ens&quot; with the same sound</h3>
 				<p>When the letters <strong>en</strong> or <strong>ens</strong> end a word, this is also pronounced (ain). Listen to these examples:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/014-australien.mp3`}>australi<strong>en</strong></AudioClip></div>
