@@ -33,10 +33,7 @@ export class FreeTimeGrammarAdjectiveAgreement extends PureComponent {
 						>
 							act<strong>if</strong>
 						</AudioClip>
-						.
-					</p>
-					<p>
-						Compare these two examples:
+						. Compare these two examples:
 					</p>
 					<p>
 						<AudioClip
@@ -151,9 +148,8 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 							<strong>faire</strong>
 						</AudioClip>
 						{" "}means both <strong>to do</strong> and <strong>to make</strong>. It is very
-						common and irregular, so it is worth learning well.
+						common and irregular, so it is worth learning well. Here it is in the present tense:
 					</p>
-					<p>Here it is in the present tense:</p>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{faireRows.map((row, index) => (
@@ -203,9 +199,8 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						>
 							<strong>des</strong>
 						</AudioClip>
-						{" "}for plurals.
+						{" "}for plurals. Here are some examples:
 					</p>
-					<p>Here are some examples:</p>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{exampleRows.map((row, index) => (
@@ -365,9 +360,8 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						>
 							<strong>jouer aux</strong>
 						</AudioClip>
-						{" "}for plurals.
+						{" "}for plurals. For example:
 					</p>
-					<p>For example:</p>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableBody>
 							{gameRows.map((row, index) => (
@@ -454,7 +448,7 @@ export class FreeTimeGrammarNounEndings extends PureComponent {
 						</AudioClip>
 						.
 					</p>
-					<p>Many nouns ending in <strong>-isme</strong> are masculine:</p>
+					<p>Many nouns ending in <strong>-isme</strong> are masculine, for example:</p>
 					<p>
 						<AudioClip
 							className="link"

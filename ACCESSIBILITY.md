@@ -76,7 +76,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO3 | `origins-and-languages` | ✅ done  | ✅ done        | h3 headings restored; short intro paragraphs merged |
 | LO4 | `current-location`      | ✅ done  | ✅ done        | h3 headings restored; NB → h4; inline audio icon fixed |
 | LO5 | `house-and-home`        | ✅ done  | ✅ done        | h3 headings added; "How to pronounce:" → h4; NB → h4 |
-| LO6 | `free-time`             | ⬜ todo  | ⬜ todo        | |
+| LO6 | `free-time`             | ✅ done  | ✅ done        | h3 headings added to pronunciation; short intro paragraphs merged in grammar (4 tabs) and pronunciation |
 | LO7 | `family-friends`        | ⬜ todo  | ⬜ todo        | |
 | LO8 | `shopping`              | ⬜ todo  | ⬜ todo        | |
 | LO9 | `making-arrangements`   | ⬜ todo  | ⬜ todo        | |
