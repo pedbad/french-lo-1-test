@@ -133,75 +133,22 @@ yarn build
 
 ## Apache Routing + SEO (Current Project)
 
-This project now uses canonical slug-path URLs for learning objects, for example:
+This project uses canonical slug-path URLs for learning objects:
 
 - `/first-contact/`
 - `/about-me/`
 
-Why:
-- cleaner, human-readable URLs
-- better crawl/index behavior than query-only routing
-- clearer canonical route strategy for SEO
+**No `mod_rewrite` or `.htaccess` required.** The build system generates a real
+`index.html` for every slug route automatically. When Apache receives a request for
+`/french/french-basic/first-contact/`, it finds `dist/first-contact/index.html` and
+serves it directly. React Router reads the URL and renders the correct LO.
 
-Apache requirement:
-- for SPA slug routes, Apache must rewrite unknown paths to `index.html`
-- static assets (`src/*.js`, `src/*.css`, `img/*`, `audio/*`, JSON files) must be excluded from rewrite
+The `generateSlugRoutes` Vite plugin in `vite.config.js` handles this — it runs after
+every build and copies `dist/index.html` to `dist/<slug>/index.html` for all 15 LOs
+listed in `src/index-fr.json`.
 
-Use `.htaccess` in the deploy folder. This repo now ships a ready-to-deploy file at:
-
-- `public/.htaccess`
-
-`Vite` copies `public/.htaccess` into `dist/.htaccess` during build, so DevOps can deploy it as-is.
-
-Default content:
-
-```apache
-Options -MultiViews
-RewriteEngine On
-RewriteBase /projects/french-basic/
-
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-RewriteRule ^ index.html [L]
-```
-
-### Apache Troubleshooting (if slug URLs still 404)
-
-If landing page works but `/first-contact/` returns 404:
-
-1. Ensure `.htaccess` is in the same directory as deployed `index.html` (`/projects/french-basic/`).
-2. Verify `.htaccess` is being applied:
-   - add a temporary invalid line like `THIS_SHOULD_BREAK`
-   - reload `/projects/french-basic/`
-   - if you do **not** get HTTP 500, Apache is ignoring `.htaccess` (likely `AllowOverride None`)
-3. If `.htaccess` is ignored, use VirtualHost/Directory rewrite config instead:
-
-```apache
-<Directory /var/www/html/projects/french-basic>
-  AllowOverride None
-  Require all granted
-  Options -MultiViews
-  RewriteEngine On
-  RewriteBase /projects/french-basic/
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-  RewriteRule ^ /projects/french-basic/index.html [L]
-</Directory>
-```
-
-4. Re-test these URLs:
-   - `/projects/french-basic/`
-   - `/projects/french-basic/first-contact/`
-   - `/projects/french-basic/src/lo-config/first-contact.json`
-
-No-rewrite fallback URL (temporary):
-- `/projects/french-basic/?lo=first-contact`
-
-Full deployment checklist is in:
-- `docs/deployment/DEPLOTMENT.MD`
+Full deployment instructions for both servers (lcdev + lcitc) are in:
+- `DEPLOYMENT_TODO.md`
 
 ## Future Projects: Avoiding `.htaccess` for New Language Series
 

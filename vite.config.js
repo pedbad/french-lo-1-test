@@ -2,6 +2,7 @@ import { createLogger, defineConfig } from 'vite';
 import { fileURLToPath } from 'url';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path from 'path';
+import fs from 'node:fs';
 import process from 'node:process';
 import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
@@ -17,6 +18,21 @@ logger.warn = (msg, options) => {
 };
 
 const basePath = process.env.VITE_BASE_PATH || './';
+
+function generateSlugRoutes() {
+	return {
+		name: 'generate-slug-routes',
+		closeBundle() {
+			const indexJson = JSON.parse(fs.readFileSync(path.resolve(projectRoot, 'src/index-fr.json'), 'utf-8'));
+			const template = fs.readFileSync(path.resolve(projectRoot, 'dist/index.html'), 'utf-8');
+			for (const lo of indexJson.learningObjects) {
+				const dir = path.resolve(projectRoot, 'dist', lo.slug);
+				fs.mkdirSync(dir, { recursive: true });
+				fs.writeFileSync(path.join(dir, 'index.html'), template);
+			}
+		}
+	};
+}
 
 export default defineConfig(() => {
 	const includeDebug = process.env.VITE_INCLUDE_DEBUG === 'true';
@@ -50,6 +66,7 @@ export default defineConfig(() => {
 		plugins: [
 			react(),
 			tailwindcss(),
+			generateSlugRoutes(),
 			viteStaticCopy({
 				targets: [
 					{

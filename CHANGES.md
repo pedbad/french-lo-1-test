@@ -2,6 +2,21 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-20 - Automated Slug Route Generation + Deployment Simplification
+
+- Added `generateSlugRoutes` Vite plugin to `vite.config.js`
+  - reads `src/index-fr.json` after every build
+  - copies `dist/index.html` to `dist/<slug>/index.html` for all 15 learning objects
+  - runs automatically on every build — no manual shell script required
+- Added `build:live` and `build:live:with-debug` scripts to `package.json` for production server (`/french/french-basic/` base path)
+- Deployment is now: run the correct build command → rsync `dist/` to server → done
+- No Apache `mod_rewrite` or `.htaccess` required on either server
+- Updated `DEPLOYMENT_TODO.md` with authoritative per-server instructions
+- Files changed:
+  - `vite.config.js`
+  - `package.json`
+  - `DEPLOYMENT_TODO.md`
+
 ## 2026-05-15 - JSON Config Key Cleanup + ClozeTypingExercise
 
 - Migrated all 32 `instructionsText` key usages to canonical `informationText` across 12 LO JSON configs:
