@@ -27,7 +27,7 @@ export class CurrentLocationPronunciationRelatedSpellings extends PureComponent 
 		return (
 			<div id={id || undefined}>
 				<Info variant="warning">
-					<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold"><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</h4>
+					<h3 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold"><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</h3>
 					<div><strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.</div>
 				</Info>
 				<div className={`mb-0 ml-2 space-y-1`}>
