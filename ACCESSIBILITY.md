@@ -14,6 +14,27 @@ WAVE was reporting two categories of alerts across the pronunciation and grammar
 
 ---
 
+## Golden rule: teacher content is never sacrificed for WAVE compliance
+
+**The teacher's words, sentences, and paragraph structures must be preserved exactly as written.** WAVE compliance is achieved by adding structural elements (headings, semantic tags) around or above the content — never by rewriting, reordering, or removing what the teacher wrote.
+
+Acceptable fixes that do not alter teacher content:
+- Adding an `<h3>` or `<h4>` heading above existing paragraphs
+- Changing a `<p><strong>NB…</strong></p>` label to `<h4>NB…</h4>` (same words, better tag)
+- Changing a `<p><strong>How to pronounce:</strong></p>` label to `<h4>How to pronounce:</h4>`
+- Changing mobile card `<p>Form:</p>` labels to `<div>` (UI chrome, not teacher prose)
+- **Merging two consecutive teacher sentences into one `<p>` is only acceptable if both sentences are present in full and the meaning is identical — no words added, removed, or reordered**
+
+Not acceptable:
+- Rewriting a teacher sentence to make it longer, shorter, or differently worded
+- Removing a sentence because it happens to end with a colon
+- Changing punctuation (e.g. colon → period) to trick WAVE
+- Adding words the teacher did not write
+
+If a teacher sentence genuinely triggers a WAVE "possible heading" alert and cannot be fixed without altering the wording, **accept the WAVE alert and document it as a known exception below** rather than changing the content.
+
+---
+
 ## How to audit an LO with WAVE
 
 ### The problem with tabs and accordions
@@ -121,3 +142,23 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Merged "Listen to these examples…" into preceding paragraph
   - Added `<h3>2. Related spellings</h3>`
   - NB: `<p><strong>NB</strong>` → `<h4>`
+
+### LO6 — Free Time
+- `src/components/custom/pronunciation/free-time-pronunciation.jsx`
+  - Removed legacy container/panel wrapper divs
+  - Added `<h3>1. The French -tion sound</h3>`
+  - Added `<h3>2. More words with -tion</h3>`
+  - Teacher sentences preserved exactly — "Listen to these examples:" and "Practise a few more familiar words with the same sound:" kept as written
+- `src/components/custom/grammar/free-time-grammar.jsx`
+  - Merged short intro phrases into preceding paragraphs across all 4 grammar tabs
+
+---
+
+## Known WAVE exceptions (accepted, teacher content preserved)
+
+These alerts are left in place because fixing them would require altering teacher content, which is not permitted.
+
+| LO  | Location | Alert type | Teacher text | Reason accepted |
+|-----|----------|------------|-------------|-----------------|
+| LO6 | Pronunciation Tab 1 | Possible heading | "Listen to these examples:" | Short standalone sentence ending in colon; teacher wording retained |
+| LO6 | Pronunciation Tab 2 | Possible heading (hidden) | "Practise a few more familiar words with the same sound:" | Teacher wording retained; hidden tab so low impact |
