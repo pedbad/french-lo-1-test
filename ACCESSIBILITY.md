@@ -100,7 +100,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO6 | `family-friends`        | ✅ done  | ✅ done        | h3 headings added (Double ll x3, grammar × 2); "How to pronounce:" → h4; NB → h4; "Verbs in French continued" → h4 |
 | LO7 | `opinions-matter`       | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 3); NB → h4; legacy wrappers removed |
 | LO8 | `free-time`             | ⬜ todo  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs) |
-| LO9 | `phoning-in-france`     | ⬜ todo  | ⬜ todo        | |
+| LO9 | `phoning-in-france`     | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); NB → h4; legacy wrappers removed; short paragraphs merged |
 | LO10 | `making-arrangements`  | ⬜ todo  | ⬜ todo        | |
 | LO11 | `going-to-a-cafe`      | ⬜ todo  | ⬜ todo        | |
 | LO12 | `shopping-in-the-market` | ⬜ todo | ⬜ todo       | |
@@ -176,6 +176,21 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Added `<h3>1. Borrowed nouns and gender</h3>`
   - Added `<h3>2. Likes, dislikes, articles, and infinitives</h3>`
   - Added `<h3>3. Quel, quelle, quels, quelles</h3>`
+  - All teacher sentences preserved exactly
+
+### LO9 — Phoning in France (`phoning-in-france`)
+- `src/components/custom/pronunciation/phoning-in-france-pronunciation.jsx`
+  - Removed legacy lo9-pronunciation*-container/panel wrapper divs
+  - Added `<h3>1. Numbers 5–10</h3>`
+  - Merged "Listen and repeat:" into preceding paragraph (all words preserved)
+  - Added `<h3>2. Final consonants in connected speech</h3>`
+  - Merged "For example:" into preceding paragraph (all words preserved)
+- `src/components/custom/grammar/phoning-in-france-grammar.jsx`
+  - Removed legacy lo9-grammar*-container/panel wrapper divs
+  - Fixed hardcoded `id="RegionalTelephoneMap"` → `id={id || undefined}`
+  - Added `<h3>1. Telephone numbers in France</h3>`
+  - NB: `<p><strong>NB</strong>` → `<h4>`
+  - Added `<h3>2. Using <em>bien</em> for confirmation</h3>`
   - All teacher sentences preserved exactly
 
 ### LO8 — Free Time (`free-time`)
