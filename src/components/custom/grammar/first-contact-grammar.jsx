@@ -8,19 +8,9 @@ export class FirstContactGrammarFormsOfAddress extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
-			<div
-				className={`lo1-grammar-container container`}
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel` : undefined}
-					key={`${id}CustomComponent1`}
-				>
-					<h3>1. Forms of address and politeness</h3>
-					<Grammar1Body />
-				</div>
+			<div id={id || undefined}>
+				<h3>1. Forms of address and politeness</h3>
+				<Grammar1Body />
 			</div>
 		);
 	};
@@ -54,19 +44,9 @@ export class FirstContactGrammarTuVous extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
-			<div
-				className={`lo2-grammar-container`}
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel2` : undefined}
-					key={`${id}CustomComponent2`}
-				>
-					<h3>2. The "<em className={`grammar-term-em`}>tu</em>" vs "<em className={`grammar-term-em`}>vous</em>" distinction</h3>
-					<Grammar2Body />
-				</div>
+			<div id={id || undefined}>
+				<h3>2. The "<em className={`grammar-term-em`}>tu</em>" vs "<em className={`grammar-term-em`}>vous</em>" distinction</h3>
+				<Grammar2Body />
 			</div>
 		);
 	};

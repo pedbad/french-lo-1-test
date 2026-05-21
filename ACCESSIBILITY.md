@@ -92,7 +92,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 
 | LO  | Slug                    | Grammar | Pronunciation | Notes |
 |-----|-------------------------|---------|---------------|-------|
-| LO1 | `first-contact`         | ✅ done  | ✅ done        | Reference implementation — untouched during a11y work |
+| LO1 | `first-contact`         | ✅ done  | ✅ done        | Legacy container/panel wrappers removed from grammar (lo1-grammar-container container + lo2-grammar-container); both tabs now consistent |
 | LO2 | `about-me`              | ✅ done  | ✅ done        | h3 headings restored; letter card labels → h4 |
 | LO3 | `origins-and-languages` | ✅ done  | ✅ done        | h3 headings restored; short intro paragraphs merged |
 | LO4 | `current-location`      | ✅ done  | ✅ done        | h3 headings restored; NB → h4; inline audio icon fixed |
