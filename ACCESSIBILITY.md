@@ -98,7 +98,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO4 | `current-location`      | ✅ done  | ✅ done        | h3 headings restored; NB → h4; inline audio icon fixed |
 | LO5 | `house-and-home`        | ✅ done  | ✅ done        | h3 headings added; "How to pronounce:" → h4; NB → h4 |
 | LO6 | `family-friends`        | ⬜ todo  | ✅ done        | h3 headings added (Double ll x3); "How to pronounce:" → h4; NB → h4 |
-| LO7 | `opinions-matter`       | ⬜ todo  | ⬜ todo        | |
+| LO7 | `opinions-matter`       | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 3); NB → h4; legacy wrappers removed |
 | LO8 | `free-time`             | ⬜ todo  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs) |
 | LO9 | `phoning-in-france`     | ⬜ todo  | ⬜ todo        | |
 | LO10 | `making-arrangements`  | ⬜ todo  | ⬜ todo        | |
@@ -155,6 +155,20 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - NB: `<p><strong>NB</strong>` → `<h4>`
   - All teacher sentences preserved exactly
 
+### LO7 — Opinions Matter (`opinions-matter`)
+- `src/components/custom/pronunciation/opinions-matter-pronunciation.jsx`
+  - Removed legacy container/panel wrapper divs
+  - Added `<h3>1. Words borrowed from English</h3>`
+  - Added `<h3>2. Sounded final consonants</h3>`
+  - NB: `<p><strong>NB</strong>` → `<h4>`
+  - "Listen again to these examples:" logged as known WAVE exception (no preceding sentence to merge with)
+- `src/components/custom/grammar/opinions-matter-grammar.jsx`
+  - Removed legacy container/panel wrapper divs
+  - Added `<h3>1. Borrowed nouns and gender</h3>`
+  - Added `<h3>2. Likes, dislikes, articles, and infinitives</h3>`
+  - Added `<h3>3. Quel, quelle, quels, quelles</h3>`
+  - All teacher sentences preserved exactly
+
 ### LO8 — Free Time (`free-time`)
 - `src/components/custom/pronunciation/free-time-pronunciation.jsx`
   - Removed legacy container/panel wrapper divs
@@ -174,3 +188,4 @@ These alerts are left in place because fixing them would require altering teache
 |-----|----------|------------|-------------|-----------------|
 | LO6 | Pronunciation Tab 1 | Possible heading | "Listen to these examples:" | Short standalone sentence ending in colon; teacher wording retained |
 | LO6 | Pronunciation Tab 2 | Possible heading (hidden) | "Practise a few more familiar words with the same sound:" | Teacher wording retained; hidden tab so low impact |
+| LO7 | Pronunciation Tab 2 | Possible heading | "Listen again to these examples:" | Short standalone sentence ending in colon; no preceding paragraph to merge with; teacher wording retained |
