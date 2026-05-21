@@ -77,65 +77,55 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo10-grammar1-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className="panel"
-					id={id ? `${id}Panel1` : undefined}
-					key={`${id}Panel1`}
-				>
-					<p>
-						Use{" "}
-						<AudioClip className="link" soundFile="audio/lo10/grammar/vouloir/001-vouloir.mp3">
-							<strong>vouloir</strong>
-						</AudioClip>
-						{" "}to say what someone wants to do. It is very common when inviting
-						someone somewhere or agreeing on plans.
-					</p>
-					<p>Here is the present tense:</p>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableBody>
-							{vouloirRows.map((row, index) => (
-								<TableRow
-									className="cursor-pointer has-audio-row"
-									key={`${id || "lo10-grammar1"}-vouloir-row-${index}`}
-									onClick={(event) => handleAudioRowClick(row.soundFile, event)}
-								>
-									<TableCell>
-										<AudioClip className="link" soundFile={row.soundFile}>
-											{row.french}
-										</AudioClip>
-									</TableCell>
-									<TableCell>{row.english}</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-					<p className="mt-4">
-						After <strong>vouloir</strong>, the next verb stays in the infinitive.
-					</p>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableBody>
-							{exampleRows.map((row, index) => (
-								<TableRow
-									className="cursor-pointer has-audio-row"
-									key={`${id || "lo10-grammar1"}-example-row-${index}`}
-									onClick={(event) => handleAudioRowClick(row.soundFile, event)}
-								>
-									<TableCell>
-										<AudioClip className="link" soundFile={row.soundFile}>
-											{row.french}
-										</AudioClip>
-									</TableCell>
-									<TableCell>{row.english}</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-				</div>
+			<div id={id || undefined}>
+				<h3>1. Using <em>vouloir</em> to make plans</h3>
+				<p>
+					Use{" "}
+					<AudioClip className="link" soundFile="audio/lo10/grammar/vouloir/001-vouloir.mp3">
+						<strong>vouloir</strong>
+					</AudioClip>
+					{" "}to say what someone wants to do. It is very common when inviting
+					someone somewhere or agreeing on plans. Here is the present tense:
+				</p>
+				<Table className="grammar-audio-table" variant="learning">
+					<TableBody>
+						{vouloirRows.map((row, index) => (
+							<TableRow
+								className="cursor-pointer has-audio-row"
+								key={`${id || "lo10-grammar1"}-vouloir-row-${index}`}
+								onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+							>
+								<TableCell>
+									<AudioClip className="link" soundFile={row.soundFile}>
+										{row.french}
+									</AudioClip>
+								</TableCell>
+								<TableCell>{row.english}</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+				<p className="mt-4">
+					After <strong>vouloir</strong>, the next verb stays in the infinitive.
+				</p>
+				<Table className="grammar-audio-table" variant="learning">
+					<TableBody>
+						{exampleRows.map((row, index) => (
+							<TableRow
+								className="cursor-pointer has-audio-row"
+								key={`${id || "lo10-grammar1"}-example-row-${index}`}
+								onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+							>
+								<TableCell>
+									<AudioClip className="link" soundFile={row.soundFile}>
+										{row.french}
+									</AudioClip>
+								</TableCell>
+								<TableCell>{row.english}</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
 			</div>
 		);
 	};
@@ -168,44 +158,35 @@ export class MakingArrangementsGrammarPrepositionA extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo10-grammar2-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className="panel"
-					id={id ? `${id}Panel2` : undefined}
-					key={`${id}Panel2`}
-				>
-					<p>
-						The preposition <strong>à</strong> often means <strong>to</strong>,
-						{" "}<strong>at</strong>, or <strong>in</strong> before a common noun.
-						French contracts it depending on the noun that follows:
-						{" "}<strong>au</strong> before a masculine noun, <strong>à la</strong>
-						{" "}before a feminine noun, <strong>à l&apos;</strong> before a vowel or
-						silent <strong>h</strong>, and <strong>aux</strong> before a plural noun.
-					</p>
-					<p>Compare these examples:</p>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableBody>
-							{prepositionRows.map((row, index) => (
-								<TableRow
-									className="cursor-pointer has-audio-row"
-									key={`${id || "lo10-grammar2"}-row-${index}`}
-									onClick={(event) => handleAudioRowClick(row.soundFile, event)}
-								>
-									<TableCell>
-										<AudioClip className="link" soundFile={row.soundFile}>
-											{row.french}
-										</AudioClip>
-									</TableCell>
-									<TableCell>{row.english}</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-				</div>
+			<div id={id || undefined}>
+				<h3>2. Using <em>à</em> with places</h3>
+				<p>
+					The preposition <strong>à</strong> often means <strong>to</strong>,
+					{" "}<strong>at</strong>, or <strong>in</strong> before a common noun.
+					French contracts it depending on the noun that follows:
+					{" "}<strong>au</strong> before a masculine noun, <strong>à la</strong>
+					{" "}before a feminine noun, <strong>à l&apos;</strong> before a vowel or
+					silent <strong>h</strong>, and <strong>aux</strong> before a plural noun.
+					Compare these examples:
+				</p>
+				<Table className="grammar-audio-table" variant="learning">
+					<TableBody>
+						{prepositionRows.map((row, index) => (
+							<TableRow
+								className="cursor-pointer has-audio-row"
+								key={`${id || "lo10-grammar2"}-row-${index}`}
+								onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+							>
+								<TableCell>
+									<AudioClip className="link" soundFile={row.soundFile}>
+										{row.french}
+									</AudioClip>
+								</TableCell>
+								<TableCell>{row.english}</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
 			</div>
 		);
 	};

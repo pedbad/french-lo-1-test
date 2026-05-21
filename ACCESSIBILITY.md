@@ -101,7 +101,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO7 | `opinions-matter`       | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 3); NB → h4; legacy wrappers removed |
 | LO8 | `free-time`             | ⬜ todo  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs) |
 | LO9 | `phoning-in-france`     | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); NB → h4; legacy wrappers removed; short paragraphs merged |
-| LO10 | `making-arrangements`  | ⬜ todo  | ⬜ todo        | |
+| LO10 | `making-arrangements`  | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); short paragraphs merged; legacy wrappers removed |
 | LO11 | `going-to-a-cafe`      | ⬜ todo  | ⬜ todo        | |
 | LO12 | `shopping-in-the-market` | ⬜ todo | ⬜ todo       | |
 | LO13 | `daily-routine`        | ⬜ todo  | ⬜ todo        | |
@@ -178,6 +178,21 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Added `<h3>3. Quel, quelle, quels, quelles</h3>`
   - All teacher sentences preserved exactly
 
+### LO10 — Making Arrangements (`making-arrangements`)
+- `src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
+  - Removed legacy lo10-pronunciation*-container/panel wrapper divs
+  - Added `<h3>1. The French ui sound</h3>`
+  - Merged "Listen and repeat these examples:" into preceding paragraph
+  - Added `<h3>2. More words with ui</h3>`
+  - "Practise the same sound in a few more useful words:" logged as known WAVE exception
+- `src/components/custom/grammar/making-arrangements-grammar.jsx`
+  - Removed legacy lo10-grammar*-container/panel wrapper divs
+  - Added `<h3>1. Using <em>vouloir</em> to make plans</h3>`
+  - Merged "Here is the present tense:" into preceding paragraph
+  - Added `<h3>2. Using <em>à</em> with places</h3>`
+  - Merged "Compare these examples:" into preceding paragraph
+  - All teacher sentences preserved exactly
+
 ### LO9 — Phoning in France (`phoning-in-france`)
 - `src/components/custom/pronunciation/phoning-in-france-pronunciation.jsx`
   - Removed legacy lo9-pronunciation*-container/panel wrapper divs
@@ -213,3 +228,4 @@ These alerts are left in place because fixing them would require altering teache
 | LO6 | Pronunciation Tab 1 | Possible heading | "Listen to these examples:" | Short standalone sentence ending in colon; teacher wording retained |
 | LO6 | Pronunciation Tab 2 | Possible heading (hidden) | "Practise a few more familiar words with the same sound:" | Teacher wording retained; hidden tab so low impact |
 | LO7 | Pronunciation Tab 2 | Possible heading | "Listen again to these examples:" | Short standalone sentence ending in colon; no preceding paragraph to merge with; teacher wording retained |
+| LO10 | Pronunciation Tab 2 | Possible heading | "Practise the same sound in a few more useful words:" | Only sentence in tab; no preceding paragraph to merge with; teacher wording retained |
