@@ -103,7 +103,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO9 | `phoning-in-france`     | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); NB → h4; legacy wrappers removed; short paragraphs merged |
 | LO10 | `making-arrangements`  | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); short paragraphs merged; legacy wrappers removed |
 | LO11 | `going-to-a-cafe`      | ✅ done  | n/a            | h3 headings added (grammar × 4); short paragraphs merged; "Prendre" label → h4; legacy wrappers removed |
-| LO12 | `shopping-in-the-market` | ⬜ todo | ⬜ todo       | |
+| LO12 | `shopping-in-the-market` | ✅ done | ✅ done       | h3 headings added (grammar × 3); NB → h4; legacy wrappers removed; single-tab pronunciation wrapper removed |
 | LO13 | `daily-routine`        | ⬜ todo  | ⬜ todo        | |
 | LO14 | `studying-at-university` | ⬜ todo | ⬜ todo       | |
 
@@ -178,6 +178,21 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Added `<h3>3. Quel, quelle, quels, quelles</h3>`
   - All teacher sentences preserved exactly
 
+### LO12 — Shopping in the Market (`shopping-in-the-market`)
+- `src/components/custom/pronunciation/shopping-in-the-market-pronunciation.jsx`
+  - Removed legacy lo12-demystify-container/panel wrapper divs
+  - Single non-tabbed section; existing `<h3>How to pronounce: u and ou</h3>` retained
+- `src/components/custom/grammar/shopping-in-the-market-grammar.jsx`
+  - Removed legacy lo12-grammar*-container/panel wrapper divs (all 3 tabs)
+  - Added `<h3>1. Using <em>aller</em> to talk about where you go</h3>`
+  - Merged "Here are the present-tense forms:" into preceding paragraph
+  - NB (children): wrapped in `<h4 className="...">` — content preserved exactly
+  - Added `<h3>2. Partitives, quantities, and negation with <em>de</em></h3>`
+  - NB (informationTextHTML): converted to children `<h4>` pattern
+  - "After a specific quantity, use de or d':" and "The same de or d' appears after a negation:" logged as known WAVE exceptions (each follows a table)
+  - Added `<h3>3. Nouns ending in <em>x</em> in the plural</h3>`
+  - All teacher sentences preserved exactly
+
 ### LO11 — Going to a Café (`going-to-a-cafe`)
 - No pronunciation section in this LO
 - `src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
@@ -244,3 +259,5 @@ These alerts are left in place because fixing them would require altering teache
 | LO7 | Pronunciation Tab 2 | Possible heading | "Listen again to these examples:" | Short standalone sentence ending in colon; no preceding paragraph to merge with; teacher wording retained |
 | LO10 | Pronunciation Tab 2 | Possible heading | "Practise the same sound in a few more useful words:" | Only sentence in tab; no preceding paragraph to merge with; teacher wording retained |
 | LO11 | Grammar Tab 4 | Possible heading | "Here is the full list of pronouns:" | Follows a table; no preceding paragraph to merge with; teacher wording retained |
+| LO12 | Grammar Tab 2 | Possible heading | "After a specific quantity, use de or d':" | Follows a table; no merge possible; teacher wording retained |
+| LO12 | Grammar Tab 2 | Possible heading | "The same de or d' appears after a negation:" | Follows a table; no merge possible; teacher wording retained |

@@ -5,17 +5,8 @@ export class ShoppingInTheMarketPronunciation extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
-			<div
-				className="lo12-demystify-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className="panel pronunciation-panel"
-					id={id ? `${id}Panel` : undefined}
-					key={`${id}CustomComponent`}
-				>
-					<h3>
+			<div id={id || undefined}>
+				<h3>
 						How to pronounce:{" "}
 						<AudioClip className="link" soundFile="audio/lo12/pronunciation/015-u.mp3">
 							<strong>u</strong>
@@ -67,7 +58,6 @@ export class ShoppingInTheMarketPronunciation extends PureComponent {
 							<strong>doux (gentle/sweet)</strong>
 						</AudioClip>
 					</p>
-				</div>
 			</div>
 		);
 	};
