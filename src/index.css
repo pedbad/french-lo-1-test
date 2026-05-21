@@ -2553,6 +2553,12 @@
 		gap: 0.75rem;
 	}
 
+	/* Tab 2 opens with an Info box immediately below the h3 — the shared
+	   0.75rem flex gap is too wide in that context; tighten it here. */
+	#LO4-pronunciation2-Accordion .pronunciation-panel {
+		gap: 0.3rem;
+	}
+
 	/* Pronunciation panel h3: section label inside each tab panel.
 	 * Kept visible (unlike grammar, where the accordion header already shows
 	 * the heading), but sized down so it reads as a compact orientation label
