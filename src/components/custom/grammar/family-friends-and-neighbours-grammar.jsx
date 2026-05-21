@@ -1,7 +1,7 @@
 import { AudioClip } from "@/components/AudioClip";
 import { Info } from "@/components/Info";
 import { Separator } from "@/components/ui/separator";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 import { playAudioLink } from "@/utils/audioPlayback";
 
@@ -9,7 +9,11 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 	render = () => {
 		const { id } = this.props;
 		return (
-			<div id={id || undefined}>
+			<div
+				className={`lo6-grammar1-container container`}
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
 				<h3>1. Possessive adjectives</h3>
 				<p>
 					In French, the gender of the noun has implications for the <strong>possessive
@@ -54,6 +58,12 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 					. Here is a complete list of the possessive adjectives:
 				</p>
 				<Table className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-only">
+						<TableRow>
+							<TableHead scope="col">French</TableHead>
+							<TableHead scope="col">English</TableHead>
+						</TableRow>
+					</TableHeader>
 					<TableBody>
 						<TableRow>
 							<TableCell>
@@ -225,9 +235,14 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 		];
 
 		return (
-			<div id={id || undefined}>
+			<div
+				className={`lo6-grammar2-container container`}
+				id={id || undefined}
+				key={`${id}CustomComponent`}
+			>
 				<h3>2. The verb <em>avoir</em></h3>
-				<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">Verbs in French continued</h4>
+				{/* h4→grammar-sub-heading: replaces old inline Tailwind style */}
+				<h4 className="grammar-sub-heading">Verbs in French continued</h4>
 				<p>
 						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/avoir.mp3`}>
 							<strong>Avoir</strong>
@@ -241,6 +256,12 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 					</p>
 					<p>It occurs very frequently and so is worth memorising if possible.</p>
 					<Table className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-only">
+							<TableRow>
+								<TableHead scope="col">French</TableHead>
+								<TableHead scope="col">English</TableHead>
+							</TableRow>
+						</TableHeader>
 						<TableBody>
 							{avoirRows.map((row, index) => (
 								<TableRow
@@ -264,7 +285,15 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 						verb <strong>to be</strong> or sometimes <strong>to feel</strong> would be used.
 						Here are some of these expressions:
 					</p>
-					<Table>
+					<Table className="grammar-audio-table">
+						<TableHeader className="sr-only">
+							<TableRow>
+								<TableHead scope="col">Expression</TableHead>
+								<TableHead scope="col">Meaning</TableHead>
+								<TableHead scope="col">Example</TableHead>
+								<TableHead scope="col">Translation</TableHead>
+							</TableRow>
+						</TableHeader>
 						<TableBody>
 							{expressionRows.map((row, index) => (
 								<TableRow
@@ -365,25 +394,28 @@ export class FamilyFriendsAndNeighboursDoubleLlPractice extends PureComponent {
 							role="button"
 							tabIndex={0}
 						>
-							<p className="lo6-reference-title">
+							{/* <p>→<div>: WAVE flags <p> with bold content as possible heading */}
+						<div className="lo6-reference-title">
 								<span className="lo6-reference-audio-label">
 									<AudioClip className="super-compact-speaker" soundFile={audioFile} />
 									<strong>{audioLabel}</strong>
 								</span>
 								{note ? <small>{note}</small> : null}
-							</p>
+							</div>
 							{lines.map((line, lineIndex) => (
-								<p className="lo6-reference-line" key={`${id || "doubleLlPractice"}-block-${index}-line-${lineIndex}`}>
+								<div className="lo6-reference-line" key={`${id || "doubleLlPractice"}-block-${index}-line-${lineIndex}`}>
 									{line}
-								</p>
+								</div>
 							))}
 						</article>
 					))}
-					<p className="lo6-reference-meta">
+					{/* <p>→<div>: WAVE flags <p> with bold/short content as possible heading */}
+					<div className="lo6-reference-meta">
 						<small>&copy; Jacqueline Rosen</small>
-					</p>
+					</div>
 				</div>
-				<p className="lo6-reading-meta">Try reading the rhymes aloud to practice your pronunciation.</p>
+				{/* <p>→<div>: WAVE flags short <p> as possible heading */}
+				<div className="lo6-reading-meta">Try reading the rhymes aloud to practice your pronunciation.</div>
 			</div>
 		);
 	};

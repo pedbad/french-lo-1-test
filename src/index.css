@@ -2550,6 +2550,10 @@
 	#LO5-pronunciation1-Accordion .pronunciation-panel,
 	#LO5-pronunciation2-Accordion .pronunciation-panel,
 	#LO5-pronunciation-Group-Section .pronunciation-panel,
+	#LO6-pronunciation1-Accordion .pronunciation-panel,
+	#LO6-pronunciation2-Accordion .pronunciation-panel,
+	#LO6-pronunciation3-Accordion .pronunciation-panel,
+	#LO6-pronunciation-Group-Section .pronunciation-panel,
 	#LO12-pronunciation-Section .pronunciation-panel {
 		display: flex;
 		flex-direction: column;
@@ -4848,6 +4852,7 @@ hr {
 #content .lo6-reference-line {
   display: block;
   margin: 0;
+  font-size: var(--font-size-base);
   line-height: 1.8;
   text-align: left;
 }
