@@ -19,73 +19,79 @@ export class HouseAndHomeGrammarThirdPersonForms extends PureComponent {
 						In French there are some verbs and expressions which are used only in the third
 						person singular: <strong>il</strong>.
 					</p>
-					<p>
-						<strong>Il y a</strong> means <strong>there is</strong> or <strong>there are</strong>.
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/001-il-y-a-un-petit-jardin-devant-la-maison.mp3`}>
-							Il y a un petit jardin devant la maison
-						</AudioClip>.
-						{" "}There is a small garden in front of the house.
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/002-il-y-a-trois-chambres-au-premier-etage.mp3`}>
-							Il y a trois chambres au premier étage
-						</AudioClip>.
-						{" "}There are three bedrooms on the first floor.
-					</p>
-					<p>Here are a few more examples of verbs which work in the same way:</p>
-					<p>
-						From the verb{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/003-pleuvoir.mp3`}>
-							<strong>pleuvoir</strong>
-						</AudioClip>
-						:
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/004-il-pleut.mp3`}>
-							<strong>Il pleut</strong>
-						</AudioClip>
-						{" "}e.g.{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/005-il-pleut-aujourdhui.mp3`}>
-							<strong>Il pleut</strong> aujourd'hui
-						</AudioClip>
-						{" "}It's raining today.
-					</p>
-					<p>
-						From the verb{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/006-neiger.mp3`}>
-							<strong>neiger</strong>
-						</AudioClip>
-						:
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/007-il-neige.mp3`}>
-							<strong>Il neige</strong>
-						</AudioClip>
-						{" "}e.g.{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/008-il-neige-en-hiver.mp3`}>
-							<strong>Il neige</strong> en hiver
-						</AudioClip>
-						{" "}It snows in the winter.
-					</p>
-					<p>
-						From the verb{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/009-falloir.mp3`}>
-							<strong>falloir</strong>
-						</AudioClip>
-						:
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/010-il-faut.mp3`}>
-							<strong>Il faut</strong>
-						</AudioClip>
-						{" "}e.g.{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/011-il-faut-ecouter.mp3`}>
-							<strong>Il faut</strong> écouter
-						</AudioClip>
-						{" "}It's necessary / you need to listen.
-					</p>
+					{/* ul/li: <li> picks up font-size-base; bold at list-item start
+					    does not trigger WAVE possible-heading (only <p> is checked) */}
+					<ul className="list-none p-0 mt-1 space-y-1">
+						<li><strong>Il y a</strong> means <strong>there is</strong> or <strong>there are</strong>.</li>
+						<li>
+							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/001-il-y-a-un-petit-jardin-devant-la-maison.mp3`}>
+								Il y a un petit jardin devant la maison
+							</AudioClip>.
+							{" "}There is a small garden in front of the house.
+						</li>
+						<li>
+							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/002-il-y-a-trois-chambres-au-premier-etage.mp3`}>
+								Il y a trois chambres au premier étage
+							</AudioClip>.
+							{" "}There are three bedrooms on the first floor.
+						</li>
+					</ul>
+					<p className="mt-3">Here are a few more examples of verbs which work in the same way:</p>
+					{/* Each verb group as a <li> — inner <div>s inherit font-size-base from <li>.
+					    "From the verb X:" is a <div> (not <p>) so WAVE won't flag it. */}
+					<ul className="list-none p-0 mt-1 space-y-3">
+						<li>
+							<div>From the verb{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/003-pleuvoir.mp3`}>
+									<strong>pleuvoir</strong>
+								</AudioClip>:
+							</div>
+							<div className="ml-2">
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/004-il-pleut.mp3`}>
+									<strong>Il pleut</strong>
+								</AudioClip>
+								{" "}e.g.{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/005-il-pleut-aujourdhui.mp3`}>
+									<strong>Il pleut</strong> aujourd'hui
+								</AudioClip>
+								{" "}It's raining today.
+							</div>
+						</li>
+						<li>
+							<div>From the verb{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/006-neiger.mp3`}>
+									<strong>neiger</strong>
+								</AudioClip>:
+							</div>
+							<div className="ml-2">
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/007-il-neige.mp3`}>
+									<strong>Il neige</strong>
+								</AudioClip>
+								{" "}e.g.{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/008-il-neige-en-hiver.mp3`}>
+									<strong>Il neige</strong> en hiver
+								</AudioClip>
+								{" "}It snows in the winter.
+							</div>
+						</li>
+						<li>
+							<div>From the verb{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/009-falloir.mp3`}>
+									<strong>falloir</strong>
+								</AudioClip>:
+							</div>
+							<div className="ml-2">
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/010-il-faut.mp3`}>
+									<strong>Il faut</strong>
+								</AudioClip>
+								{" "}e.g.{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/011-il-faut-ecouter.mp3`}>
+									<strong>Il faut</strong> écouter
+								</AudioClip>
+								{" "}It's necessary / you need to listen.
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		);
