@@ -4580,6 +4580,20 @@ hr {
   color: inherit !important;
 }
 
+/* Lettered grammar sub-headings (e.g. "a. The indefinite article").
+ * Rule divider style: thin top border acts as a section break, text stays
+ * compact and muted so it reads as a label rather than a heading. */
+#content .grammar-sub-heading {
+  margin-top: 1.35rem;
+  margin-bottom: 0.4rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--muted-foreground);
+  line-height: var(--line-height-app);
+}
+
 .fr-FR #hero {
   background-position: center center;
   display: flex;

@@ -3,12 +3,6 @@ import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { AudioClip, IconButton } from "@/components/media";
 import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioClip";
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableRow,
-} from "@/components/ui/table";
 import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
@@ -474,9 +468,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 
 			if (!phraseText) {
 				rows.push(
-					<TableRow className="spacer" key={`row-${i}`}>
-						<TableCell colSpan={1}></TableCell>
-					</TableRow>
+					<div aria-hidden="true" className="spacer h-3" key={`row-${i}`} />
 				);
 				continue;
 			}
@@ -502,12 +494,11 @@ export class InlineChoiceGroup extends React.PureComponent {
 			const rowHasResult = this.state.hasChecked && rowAttempted && rowFullyChecked;
 
 			rows.push(
-				<TableRow key={`row-${i}`}>
-					<TableCell className="align-top px-0 py-2">
-						<div
-							className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowVisualStatus === "playing" ? "text-[var(--chart-2)]" : ""}`}
-							onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
-						>
+				<div className="border-b py-2 transition-colors hover:bg-muted/50" key={`row-${i}`} role="listitem">
+					<div
+						className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowVisualStatus === "playing" ? "text-[var(--chart-2)]" : ""}`}
+						onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
+					>
 							{item.audio ? (
 								<span
 									className={`inline-flex shrink-0 self-start ${rowBlankIndices.length > 0 ? "pt-[15px]" : "pt-0.5"}`}
@@ -549,21 +540,20 @@ export class InlineChoiceGroup extends React.PureComponent {
 								</span>
 							) : null}
 							<div className="min-w-0 flex-1">{this.renderSentence(segments)}</div>
-							{rowHasResult ? (
-								<span
-									aria-hidden="true"
-									className={`inline-flex shrink-0 items-center justify-center pt-0.5 ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
-								>
-									{rowIsCorrect ? (
-										<CircleCheck className="h-10 w-10" />
-									) : (
-										<CircleX className="h-10 w-10" />
-									)}
-								</span>
-							) : null}
-						</div>
-					</TableCell>
-				</TableRow>
+						{rowHasResult ? (
+							<span
+								aria-hidden="true"
+								className={`inline-flex shrink-0 items-center justify-center pt-0.5 ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+							>
+								{rowIsCorrect ? (
+									<CircleCheck className="h-10 w-10" />
+								) : (
+									<CircleX className="h-10 w-10" />
+								)}
+							</span>
+						) : null}
+					</div>
+				</div>
 			);
 		}
 
@@ -612,9 +602,9 @@ export class InlineChoiceGroup extends React.PureComponent {
 					)
 				) : null}
 
-				<Table className={INLINE_CHOICE_TABLE_TEXT_CLASS}>
-					<TableBody>{rows}</TableBody>
-				</Table>
+				<div className={`${INLINE_CHOICE_TABLE_TEXT_CLASS} w-full [&>:last-child]:border-b-0`} role="list">
+					{rows}
+				</div>
 
 				<div className="exercise-divider" data-orientation="horizontal" role="none" />
 				<ProgressDots correct={nCorrect} total={this.nToSolve} />
