@@ -50,7 +50,7 @@ export class CurrentLocationNasalRhymeExercise extends PureComponent{
 											<BookOpenText aria-hidden="true" className="h-5 w-5 text-[var(--chart-3)]" />
 											<span>Tu aimes… ?</span>
 										</h4>
-										<p className="m-0 text-xs text-muted-foreground" aria-label="Poem attribution">&copy; Jacqueline Rosen</p>
+										<small className="text-xs text-muted-foreground" aria-label="Poem attribution">&copy; Jacqueline Rosen</small>
 									</div>
 									<div className="space-y-2.5">
 										<p className="m-0 rounded-md bg-muted/35 px-4 py-2.5 leading-8">
