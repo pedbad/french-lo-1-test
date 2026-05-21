@@ -176,7 +176,7 @@ export class WordSpotExercise extends React.PureComponent {
 			}
 
 			phraseList.push(
-				<p key={`${id}-phraseLine${i}`}>{ phrase }</p>
+				<div key={`${id}-phraseLine${i}`}>{ phrase }</div>
 			);
 		}
 

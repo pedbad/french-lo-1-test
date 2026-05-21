@@ -2550,24 +2550,19 @@
 		gap: 0.75rem;
 	}
 
-	#LO1-pronunciation1-Accordion .pronunciation-panel h3,
-	#LO1-pronunciation2-Accordion .pronunciation-panel h3,
-	#LO1-pronunciation3-Accordion .pronunciation-panel h3,
-	#LO1-pronunciation4-Accordion .pronunciation-panel h3,
-	#LO1-pronunciation-Group-Section .pronunciation-panel h3,
-	#LO2-pronunciation1-Accordion .pronunciation-panel h3,
-	#LO2-pronunciation2-Accordion .pronunciation-panel h3,
-	#LO2-pronunciation-Group-Section .pronunciation-panel h3,
-	#LO3-pronunciation1-Accordion .pronunciation-panel h3,
-	#LO3-pronunciation2-Accordion .pronunciation-panel h3,
-	#LO3-pronunciation3-Accordion .pronunciation-panel h3,
-	#LO3-pronunciation-Group-Section .pronunciation-panel h3,
-	#LO4-pronunciation1-Accordion .pronunciation-panel h3,
-	#LO4-pronunciation2-Accordion .pronunciation-panel h3,
-	#LO4-pronunciation3-Accordion .pronunciation-panel h3,
-	#LO4-pronunciation-Group-Section .pronunciation-panel h3,
-	#LO12-pronunciation-Section .pronunciation-panel h3 {
+	/* Pronunciation panel h3: section label inside each tab panel.
+	 * Kept visible (unlike grammar, where the accordion header already shows
+	 * the heading), but sized down so it reads as a compact orientation label
+	 * rather than a page-level heading.  Covers all LOs via the shared
+	 * .pronunciation-panel class — no per-LO ID lists needed.
+	 */
+	#content .pronunciation-panel h3 {
 		margin-top: 0;
+		margin-bottom: 0;
+		font-size: var(--font-size-lg);
+		font-weight: 600;
+		padding-bottom: 0.35rem;
+		border-bottom: 1px solid rgb(var(--color-border-subtle) / 0.45);
 	}
 
 	#LO1-pronunciation1-Accordion .pronunciation-content,

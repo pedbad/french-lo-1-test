@@ -21,10 +21,9 @@ export class FirstContactPronunciationNasalOnOm extends PureComponent {
 						id={id ? `${id}Panel` : undefined}
 						key={`${id}Panel`}
 					>
-						<h3>1. Nasal vowel: "on / om"</h3>
+						<h3>1. Nasal vowel: "<AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/001-on-om.mp3`}>on / om</AudioClip>"</h3>
 						<div className={`pronunciation-content`}>
 							<div className={`text pronunciation-text`}>
-								<div>1 <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/001-on-om.mp3`} ><strong>-on</strong> / <strong>om</strong></AudioClip></div>
 								<p>In French, <strong>on</strong> and <strong>om</strong> represent the same nasal vowel sound.
 							In this first topic you will have encountered this sound in the words <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/002-bonjour.mp3`} >bonjour</AudioClip> and <AudioClip className={`link`} soundFile={`audio/lo1/pronunciation/pronunciation1/003-bonsoir.mp3`} >bonsoir</AudioClip>.
 							The sound is created as air comes through both nose and mouth. If you have a slight cold or pinch your nose you will be able to produce the sound without difficulty!</p>
