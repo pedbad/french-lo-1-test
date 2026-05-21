@@ -633,8 +633,7 @@ export class LineMatch extends React.PureComponent {
 												</div>
 												<div className={LINE_MATCH_IMAGE_TILE_CLASS}>
 													<img
-														{/* See IMAGE ALT TEXT POLICY comment at top of file — do NOT use item.label here */}
-										alt={item.alt || item.localLanguage || ""}
+														alt={item.alt || item.localLanguage || "" /* see IMAGE ALT TEXT POLICY at top of file */}
 														className="h-full w-full object-contain"
 														loading="lazy"
 														src={resolveAsset(item.image)}
@@ -728,8 +727,7 @@ export class LineMatch extends React.PureComponent {
 														type="button"
 													>
 														<img
-															{/* See IMAGE ALT TEXT POLICY comment at top of file — do NOT use item.label here */}
-										alt={item.alt || item.localLanguage || ""}
+															alt={item.alt || item.localLanguage || "" /* see IMAGE ALT TEXT POLICY at top of file */}
 															className="h-full w-full object-contain"
 															loading="lazy"
 															src={resolveAsset(item.image)}
