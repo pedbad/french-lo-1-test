@@ -97,7 +97,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO3 | `origins-and-languages` | ✅ done  | ✅ done        | h3 headings restored; short intro paragraphs merged |
 | LO4 | `current-location`      | ✅ done  | ✅ done        | h3 headings restored; NB → h4; inline audio icon fixed |
 | LO5 | `house-and-home`        | ✅ done  | ✅ done        | h3 headings added; "How to pronounce:" → h4; NB → h4 |
-| LO6 | `family-friends`        | ⬜ todo  | ✅ done        | h3 headings added (Double ll x3); "How to pronounce:" → h4; NB → h4 |
+| LO6 | `family-friends`        | ✅ done  | ✅ done        | h3 headings added (Double ll x3, grammar × 2); "How to pronounce:" → h4; NB → h4; "Verbs in French continued" → h4 |
 | LO7 | `opinions-matter`       | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 3); NB → h4; legacy wrappers removed |
 | LO8 | `free-time`             | ⬜ todo  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs) |
 | LO9 | `phoning-in-france`     | ⬜ todo  | ⬜ todo        | |
@@ -154,6 +154,15 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Added `<h3>3. Exceptions</h3>`
   - NB: `<p><strong>NB</strong>` → `<h4>`
   - All teacher sentences preserved exactly
+
+### LO6 — Family & Friends grammar update
+- `src/components/custom/grammar/family-friends-and-neighbours-grammar.jsx`
+  - Removed legacy lo6-grammar*-container/panel wrapper divs (Tab 1 and Tab 2)
+  - Added `<h3>1. Possessive adjectives</h3>`
+  - Merged "Here is a complete list of the possessive adjectives:" into preceding paragraph (all words preserved)
+  - Added `<h3>2. The verb <em>avoir</em></h3>`
+  - `<p><strong>Verbs in French continued</strong></p>` → `<h4>` (same words, better tag)
+  - `FamilyFriendsAndNeighboursDoubleLlPractice` is used in exercises section — left unchanged
 
 ### LO7 — Opinions Matter (`opinions-matter`)
 - `src/components/custom/pronunciation/opinions-matter-pronunciation.jsx`

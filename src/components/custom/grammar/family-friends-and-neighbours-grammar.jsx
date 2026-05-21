@@ -9,118 +9,107 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 	render = () => {
 		const { id } = this.props;
 		return (
-			<div
-				className={`lo6-grammar1-container container`}
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel1` : undefined}
-					key={`${id}Panel1`}
-				>
+			<div id={id || undefined}>
+				<h3>1. Possessive adjectives</h3>
+				<p>
+					In French, the gender of the noun has implications for the <strong>possessive
+					adjectives</strong>.{" "}
+					There are two ways of saying <strong>my</strong> for singular nouns in French:{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon.mp3`}>
+						<strong>mon</strong>
+					</AudioClip>
+					{" "}for masculine nouns, for example{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon-frere.mp3`}>
+						<strong>mon</strong> frère
+					</AudioClip>
+					{" "}and{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon-jardin.mp3`}>
+						<strong>mon</strong> jardin
+					</AudioClip>
+					, and{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma.mp3`}>
+						<strong>ma</strong>
+					</AudioClip>
+					{" "}for feminine nouns, for example{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma-femme.mp3`}>
+						<strong>ma</strong> femme
+					</AudioClip>
+					{" "}and{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma-maison.mp3`}>
+						<strong>ma</strong> maison
+					</AudioClip>
+					.
+				</p>
+				<p>
+					It is important to remember that the gender of the noun itself is what matters
+					here, and not the gender of the owner. There is only one way of saying{" "}
+					<strong>my</strong> for plural nouns, for example{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes-oncles.mp3`}>
+						<strong>mes</strong> oncles
+					</AudioClip>
+					{" "}and{" "}
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes-tantes.mp3`}>
+						<strong>mes</strong> tantes
+					</AudioClip>
+					. Here is a complete list of the possessive adjectives:
+				</p>
+				<Table className="grammar-audio-table" variant="learning">
+					<TableBody>
+						<TableRow>
+							<TableCell>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon.mp3`}>mon</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma.mp3`}>ma</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes.mp3`}>mes</AudioClip>
+							</TableCell>
+							<TableCell>my</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ton.mp3`}>ton</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ta.mp3`}>ta</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/tes.mp3`}>tes</AudioClip>
+							</TableCell>
+							<TableCell>your (sing)</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/son.mp3`}>son</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/sa.mp3`}>sa</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ses.mp3`}>ses</AudioClip>{" "}
+								<span className="ped-warn text-base font-bold leading-none">*</span>
+							</TableCell>
+							<TableCell>his / her</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/notre.mp3`}>notre</AudioClip> (sing),{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/nos.mp3`}>nos</AudioClip> (pl)
+							</TableCell>
+							<TableCell>our</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/votre.mp3`}>votre</AudioClip> (sing),{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/vos.mp3`}>vos</AudioClip> (pl)
+							</TableCell>
+							<TableCell>your (formal, pl)</TableCell>
+						</TableRow>
+						<TableRow>
+							<TableCell>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/leur.mp3`}>leur</AudioClip> (sing),{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/leurs.mp3`}>leurs</AudioClip> (pl)
+							</TableCell>
+							<TableCell>their</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
+				<Info variant="warning">
 					<p>
-						In French, the gender of the noun has implications for the <strong>possessive
-						adjectives</strong>.
-						{" "}There are two ways of saying <strong>my</strong> for singular nouns in French:
-						{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon.mp3`}>
-							<strong>mon</strong>
-						</AudioClip>
-						{" "}for masculine nouns, for example{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon-frere.mp3`}>
-							<strong>mon</strong> frère
-						</AudioClip>
-						{" "}and{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon-jardin.mp3`}>
-							<strong>mon</strong> jardin
-						</AudioClip>
-						, and{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma.mp3`}>
-							<strong>ma</strong>
-						</AudioClip>
-						{" "}for feminine nouns, for example{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma-femme.mp3`}>
-							<strong>ma</strong> femme
-						</AudioClip>
-						{" "}and{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma-maison.mp3`}>
-							<strong>ma</strong> maison
-						</AudioClip>
-						.
+						<span className="ped-warn text-base font-bold">*</span>{" "}
+						All of these can mean <strong>his</strong> or <strong>her</strong>. The gender
+						of the noun, not the owner, is the factor to consider.
 					</p>
-					<p>
-						It is important to remember that the gender of the noun itself is what matters
-						here, and not the gender of the owner. There is only one way of saying{" "}
-						<strong>my</strong> for plural nouns, for example{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes-oncles.mp3`}>
-							<strong>mes</strong> oncles
-						</AudioClip>
-						{" "}and{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes-tantes.mp3`}>
-							<strong>mes</strong> tantes
-						</AudioClip>
-						.
-					</p>
-					<p>Here is a complete list of the possessive adjectives:</p>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableBody>
-							<TableRow>
-								<TableCell>
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon.mp3`}>mon</AudioClip>,{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma.mp3`}>ma</AudioClip>,{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes.mp3`}>mes</AudioClip>
-								</TableCell>
-								<TableCell>my</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ton.mp3`}>ton</AudioClip>,{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ta.mp3`}>ta</AudioClip>,{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/tes.mp3`}>tes</AudioClip>
-								</TableCell>
-								<TableCell>your (sing)</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/son.mp3`}>son</AudioClip>,{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/sa.mp3`}>sa</AudioClip>,{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ses.mp3`}>ses</AudioClip>{" "}
-									<span className="ped-warn text-base font-bold leading-none">*</span>
-								</TableCell>
-								<TableCell>his / her</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/notre.mp3`}>notre</AudioClip> (sing),{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/nos.mp3`}>nos</AudioClip> (pl)
-								</TableCell>
-								<TableCell>our</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/votre.mp3`}>votre</AudioClip> (sing),{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/vos.mp3`}>vos</AudioClip> (pl)
-								</TableCell>
-								<TableCell>your (formal, pl)</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/leur.mp3`}>leur</AudioClip> (sing),{" "}
-									<AudioClip className={`link`} soundFile={`audio/lo6/grammar/leurs.mp3`}>leurs</AudioClip> (pl)
-								</TableCell>
-								<TableCell>their</TableCell>
-							</TableRow>
-						</TableBody>
-					</Table>
-					<Info variant="warning">
-						<p>
-							<span className="ped-warn text-base font-bold">*</span>{" "}
-							All of these can mean <strong>his</strong> or <strong>her</strong>. The gender
-							of the noun, not the owner, is the factor to consider.
-						</p>
-					</Info>
-				</div>
+				</Info>
 			</div>
 		);
 	};
@@ -236,18 +225,10 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 		];
 
 		return (
-			<div
-				className={`lo6-grammar2-container container`}
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div
-					className={`panel`}
-					id={id ? `${id}Panel2` : undefined}
-					key={`${id}Panel2`}
-				>
-					<p><strong>Verbs in French continued</strong></p>
-					<p>
+			<div id={id || undefined}>
+				<h3>2. The verb <em>avoir</em></h3>
+				<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">Verbs in French continued</h4>
+				<p>
 						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/avoir.mp3`}>
 							<strong>Avoir</strong>
 						</AudioClip>
@@ -306,7 +287,6 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 							))}
 						</TableBody>
 					</Table>
-				</div>
 			</div>
 		);
 	};
