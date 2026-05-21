@@ -32,7 +32,7 @@ export const Grammar1Body = ({ highlightIntro = false, showInfoBox = false } = {
 	return (
 		<>
 			<p><span className={`modal-link-target ${highlightIntro ? highlightClass : ""}`} id={`madame`}>In French there is no equivalent to the English Ms.
-				To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar1/001-madame.mp3`}><strong>Madame</strong></AudioClip> regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
+				To be politically correct a woman is addressed as <AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar1/001-madame.mp3`}><strong>Madame</strong></AudioClip>{" "}regardless of her marital status unless she is unmarried and specifies that she wishes to be addressed as&nbsp;
 			</span><span className={`modal-link-target`} id={`mademoiselle`} ><AudioClip className={`link`} soundFile={`audio/lo1/grammar/grammar1/002-mademoiselle.mp3`}><strong>Mademoiselle</strong></AudioClip>. <strong>Mademoiselle</strong> is otherwise reserved
 				for a teenage girl.</span></p>
 			{showInfoBox ? <Info>{abbreviationsList}</Info> : abbreviationsList}
