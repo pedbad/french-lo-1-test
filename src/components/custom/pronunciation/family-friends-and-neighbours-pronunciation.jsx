@@ -15,9 +15,8 @@ export class FamilyFriendsAndNeighboursPronunciationDoubleLlAsL extends PureComp
 					<AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/ll-a.mp3`}>
 						<strong>double ll</strong>
 					</AudioClip>
-					{" "}is pronounced <strong>l</strong>.
+					{" "}is pronounced <strong>l</strong>. Listen to these examples:
 				</p>
-				<p>Listen to these examples:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/une-balle.mp3`}><strong>une balle</strong></AudioClip></div>
 					<div><AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/elle-est-belle.mp3`}><strong>Elle est belle</strong></AudioClip></div>
@@ -41,9 +40,8 @@ export class FamilyFriendsAndNeighboursPronunciationDoubleLlAsY extends PureComp
 					<AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/ll-b.mp3`}>
 						<strong>double ll</strong>
 					</AudioClip>
-					{" "}is pronounced like the English letter <strong>y</strong>.
+					{" "}is pronounced like the English letter <strong>y</strong>. Listen to these examples:
 				</p>
-				<p>Listen to these examples:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/une-fille.mp3`}><strong>une fille</strong></AudioClip></div>
 					<div><AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/une-famille.mp3`}><strong>une famille</strong></AudioClip></div>
@@ -68,8 +66,7 @@ export class FamilyFriendsAndNeighboursPronunciationExceptions extends PureCompo
 		return (
 			<div id={id || undefined}>
 				<h3>3. Exceptions</h3>
-				<p>There are a few exceptions when double <strong>ll</strong> follows <strong>i</strong>.</p>
-				<p>Here are some common ones to practise:</p>
+				<p>There are a few exceptions when double <strong>ll</strong> follows <strong>i</strong>. Here are some common ones to practise:</p>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/la-ville.mp3`}><strong>la ville</strong></AudioClip></div>
 					<div><AudioClip className={`link`} soundFile={`audio/lo6/pronunciation/le-village.mp3`}><strong>le village</strong></AudioClip></div>
