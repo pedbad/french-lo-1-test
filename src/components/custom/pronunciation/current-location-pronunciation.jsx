@@ -38,7 +38,7 @@ export class CurrentLocationPronunciationRelatedSpellings extends PureComponent 
 					<h3>2. Related spellings with the same sound</h3>
 					<div className={`pronunciation-content`}>
 						<div className={`pronunciation-text`}>
-							<div className="mt-3 mb-3">
+							<div className="mt-2 mb-3">
 								<Info variant="warning">
 									<p><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant: <strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.</p>
 								</Info>
