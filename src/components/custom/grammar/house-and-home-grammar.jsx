@@ -21,7 +21,7 @@ export class HouseAndHomeGrammarThirdPersonForms extends PureComponent {
 					</p>
 					{/* ul/li: <li> picks up font-size-base; bold at list-item start
 					    does not trigger WAVE possible-heading (only <p> is checked) */}
-					<ul className="list-none p-0 mt-1 space-y-1">
+					<ul className="!list-none !p-0 mt-1 space-y-1">
 						<li><strong>Il y a</strong> means <strong>there is</strong> or <strong>there are</strong>.</li>
 						<li>
 							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/001-il-y-a-un-petit-jardin-devant-la-maison.mp3`}>
@@ -39,7 +39,7 @@ export class HouseAndHomeGrammarThirdPersonForms extends PureComponent {
 					<p className="mt-3">Here are a few more examples of verbs which work in the same way:</p>
 					{/* Each verb group as a <li> — inner <div>s inherit font-size-base from <li>.
 					    "From the verb X:" is a <div> (not <p>) so WAVE won't flag it. */}
-					<ul className="list-none p-0 mt-1 space-y-3">
+					<ul className="!list-none !p-0 mt-1 space-y-3">
 						<li>
 							<div>From the verb{" "}
 								<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/003-pleuvoir.mp3`}>
@@ -140,7 +140,7 @@ export class HouseAndHomeGrammarAdjectivalAgreement extends PureComponent {
 					<div>Look at these examples:</div>
 					{/* ul/li: bold text mid-sentence avoids WAVE possible-heading;
 					    li picks up font-size-base from #content :where(p, li, …) */}
-					<ul className="list-none p-0 mt-1 space-y-1">
+					<ul className="!list-none !p-0 mt-1 space-y-1">
 						<li>
 							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/016-le-salon-est-spacieux.mp3`}>
 								Le salon est spaci<strong>eux</strong>
