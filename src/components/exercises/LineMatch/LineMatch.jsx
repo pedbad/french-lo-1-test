@@ -28,6 +28,26 @@ const LINE_MATCH_SELECT_TRIGGER_CLASS = "w-full min-h-10 text-[var(--font-size-s
 
 const LINE_MATCH_CONNECTOR_STROKE = "var(--chart-5)";
 const LINE_MATCH_CONNECTOR_GLOW = "color-mix(in oklab, var(--chart-5) 26%, transparent)";
+
+/*
+ * IMAGE ALT TEXT POLICY — IMPORTANT (accessibility + pedagogy)
+ * ─────────────────────────────────────────────────────────────
+ * LineMatch is a picture-to-word matching exercise. The student sees an image
+ * and must identify the correct French label for it. Using item.label as img
+ * alt text is EDUCATIONALLY WRONG: a screen reader user would hear the French
+ * answer immediately, bypassing the exercise entirely.
+ *
+ * Correct alt text priority:
+ *   1. item.alt        — an explicit descriptive label set in the config
+ *                        (e.g. "Illustration of a bathroom")
+ *   2. item.localLanguage — the English translation/description if provided
+ *   3. ""              — decorative fallback; omit from the accessibility tree
+ *                        when no description is available rather than revealing
+ *                        the answer.
+ *
+ * To add proper alt text, set "alt" or "localLanguage" on each item in the
+ * lo-config JSON. Do NOT fall back to item.label here.
+ */
 const LINE_MATCH_CORRECT_STROKE = "var(--chart-2)";
 const LINE_MATCH_CORRECT_GLOW = "color-mix(in oklab, var(--chart-2) 28%, transparent)";
 const LINE_MATCH_RECOIL_STROKE = "var(--destructive)";
@@ -613,8 +633,7 @@ export class LineMatch extends React.PureComponent {
 												</div>
 												<div className={LINE_MATCH_IMAGE_TILE_CLASS}>
 													<img
-														{/* item.label is the answer — using it as alt reveals the answer to screen readers.
-										    Fall back to "" (decorative) when no explicit alt or localLanguage is set. */}
+														{/* See IMAGE ALT TEXT POLICY comment at top of file — do NOT use item.label here */}
 										alt={item.alt || item.localLanguage || ""}
 														className="h-full w-full object-contain"
 														loading="lazy"
@@ -709,8 +728,7 @@ export class LineMatch extends React.PureComponent {
 														type="button"
 													>
 														<img
-															{/* item.label is the answer — using it as alt reveals the answer to screen readers.
-										    Fall back to "" (decorative) when no explicit alt or localLanguage is set. */}
+															{/* See IMAGE ALT TEXT POLICY comment at top of file — do NOT use item.label here */}
 										alt={item.alt || item.localLanguage || ""}
 															className="h-full w-full object-contain"
 															loading="lazy"
