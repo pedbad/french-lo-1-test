@@ -239,6 +239,9 @@
 		--hero-title-color: oklch(0.612 0.130 160.6);
 		--footer-background: var(--sidebar);
 		--accordion-mist: color-mix(in oklab, var(--chart-2) 18%, var(--card));
+		/* shadcn remaps chart-1 to blue in dark mode, but --ped-warn is semantically
+		 * "amber/warn". Pin it to chart-5 (orange-red) so warn UI stays warm in dark. */
+		--ped-warn: var(--chart-5);
 		--accordion-hover-text: var(--foreground);
 		--emphasis-strong-color: color-mix(in oklab, var(--foreground) 90%, var(--chart-3));
 		--emphasis-em-color: color-mix(in oklab, var(--foreground) 88%, var(--ped-warn));
@@ -4027,6 +4030,49 @@ html.debug .blanks-container .target-board .word.blank span {
   background-color: color-mix(in oklab, var(--chart-3) 85%, var(--foreground));
 }
 
+/* ── Dark mode: ghost / outline style for exercise action buttons ────────────
+ * In dark mode the solid fills read as harsh. These overrides convert each
+ * button to a transparent fill with a coloured border and coloured text,
+ * while the hover state adds a very subtle tinted fill for feedback.
+ * ---------------------------------------------------------------------- */
+
+/* "Show answer" — warn / amber-orange (chart-5) */
+.dark .btn-ped-warn {
+  border-width: 1px;
+  border-style: solid;
+  border-color: color-mix(in oklab, var(--ped-warn) 58%, transparent);
+  background-color: color-mix(in oklab, var(--ped-warn) 9%, transparent);
+  color: color-mix(in oklab, var(--ped-warn) 78%, var(--foreground));
+}
+.dark .btn-ped-warn:hover {
+  background-color: color-mix(in oklab, var(--ped-warn) 18%, transparent);
+  border-color: color-mix(in oklab, var(--ped-warn) 74%, transparent);
+}
+
+/* "Reset" — teal (chart-2) */
+.dark .btn-chart-2 {
+  border-color: color-mix(in oklab, var(--chart-2) 58%, transparent);
+  background-color: color-mix(in oklab, var(--chart-2) 9%, transparent);
+  color: color-mix(in oklab, var(--chart-2) 78%, var(--foreground));
+}
+.dark .btn-chart-2:hover {
+  background-color: color-mix(in oklab, var(--chart-2) 18%, transparent);
+  border-color: color-mix(in oklab, var(--chart-2) 74%, transparent);
+}
+
+/* "Check answers" — amber-gold (chart-3) */
+.dark .btn-hero-title {
+  border-width: 1px;
+  border-style: solid;
+  border-color: color-mix(in oklab, var(--chart-3) 58%, transparent);
+  background-color: color-mix(in oklab, var(--chart-3) 9%, transparent);
+  color: color-mix(in oklab, var(--chart-3) 78%, var(--foreground));
+}
+.dark .btn-hero-title:hover {
+  background-color: color-mix(in oklab, var(--chart-3) 18%, transparent);
+  border-color: color-mix(in oklab, var(--chart-3) 74%, transparent);
+}
+
 @keyframes flash-animation {
   0% {
     background-color: color-mix(in oklab, var(--ring) 0%, transparent);
@@ -4290,7 +4336,6 @@ hr {
   margin-bottom: 0;
 }
 :is(#content, #debug-sandbox-page) .instruction-callout .instruction-callout-content :is(p, div, li) {
-  font-size: var(--font-size-xl);
   line-height: var(--line-height-body);
 }
 :is(#content, #debug-sandbox-page) .instruction-callout .instruction-callout-content em {
@@ -4340,6 +4385,15 @@ hr {
   -webkit-mask-size: contain;
   mask-size: contain;
 }
+/* Dark mode: replace vivid blue Info box with a muted teal ghost */
+.dark #content .information {
+  background-color: color-mix(in oklab, var(--card) 88%, var(--chart-2) 12%);
+  border-color: color-mix(in oklab, var(--chart-2) 28%, transparent);
+}
+.dark #content .information .info-icon {
+  background-color: color-mix(in oklab, var(--chart-2) 55%, var(--card));
+}
+
 #content .abbreviations {
   font-size: var(--font-size-base);
   line-height: var(--line-height-body);

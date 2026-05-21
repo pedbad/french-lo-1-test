@@ -3,7 +3,7 @@ import { injectAudioCueIntoHTML } from "../instructionCues";
 import { resolveAsset } from "../../utils/assets";
 import { InstructionCallout } from "../InstructionCallout";
 
-export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-xl)] leading-[var(--line-height-body)] [&_p]:!text-[var(--font-size-xl)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-xl)] [&_li]:!leading-[var(--line-height-body)]";
+export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-lg)] leading-[var(--line-height-body)] [&_p]:!text-[var(--font-size-lg)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-lg)] [&_li]:!leading-[var(--line-height-body)]";
 export const applyInstructionTypographyToHTML = (html) => {
 	if (typeof DOMParser === "undefined") {
 		return html;
@@ -19,7 +19,7 @@ export const applyInstructionTypographyToHTML = (html) => {
 		node.replaceWith(replacement);
 	});
 	doc.querySelectorAll("div, li").forEach((node) => {
-		node.style.fontSize = "var(--font-size-xl)";
+		node.style.fontSize = "var(--font-size-lg)";
 		node.style.lineHeight = "var(--line-height-body)";
 	});
 	return doc.body.innerHTML;
