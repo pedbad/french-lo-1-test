@@ -101,7 +101,8 @@ export class OriginsAndLanguagesGrammarVerbGroups extends PureComponent {
 						</Table>
 					</div>
 					<Separator className="my-4" />
-					<p>The verb <strong>venir</strong> is a common irregular verb.</p>
+					{/* <p>→<div>: short line starting with bold text triggers WAVE "possible heading" */}
+					<div>The verb <strong>venir</strong> is a common irregular verb.</div>
 					<div className="mt-3">
 						<Table className="grammar-audio-table">
 							<thead>
