@@ -8,7 +8,7 @@ export class HouseAndHomePronunciationNasalAn extends PureComponent {
 		return (
 			<div id={id || undefined}>
 				<h3>1. Nasal sound: an</h3>
-				<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">How to pronounce:</h4>
+				<h4 className="pronunciation-sub-label">How to pronounce:</h4>
 				<p>
 					The third of the nasal vowels is{" "}
 					<AudioClip

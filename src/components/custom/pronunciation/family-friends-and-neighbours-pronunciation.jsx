@@ -8,7 +8,7 @@ export class FamilyFriendsAndNeighboursPronunciationDoubleLlAsL extends PureComp
 		return (
 			<div id={id || undefined}>
 				<h3>1. Double ll pronounced l</h3>
-				<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">How to pronounce double ll in French:</h4>
+				<h4 className="pronunciation-sub-label">How to pronounce double ll in French:</h4>
 				<p><strong>Double ll</strong> is sometimes mispronounced by learners of French, but the following rules should help to avoid this problem.</p>
 				<p>
 					After the vowels <strong>a</strong>, <strong>e</strong>, <strong>o</strong>,

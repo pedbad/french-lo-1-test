@@ -4594,6 +4594,16 @@ hr {
   line-height: var(--line-height-app);
 }
 
+/* Quiet signpost label inside pronunciation panels — sits below the h3 tab
+   heading so must step well back visually: smaller, muted, no border. */
+#content .pronunciation-sub-label {
+  margin: 0.5rem 0 0.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--muted-foreground);
+  line-height: var(--line-height-app);
+}
+
 .fr-FR #hero {
   background-position: center center;
   display: flex;
