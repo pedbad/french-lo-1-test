@@ -69,30 +69,25 @@ export class StudyingAtUniversityGrammarComme extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo14-grammar1-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
-					<p>
-						Some English questions translate literally into French, but others sound more
-						natural with an idiomatic pattern. One useful example is the construction with{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo14/grammar/using-comme/001-comme.mp3"
-						>
-							<strong>comme</strong>
-						</AudioClip>
-						.
-					</p>
-					<p>
-						French often uses this pattern to ask what kind of studies, music, sport, or
-						food someone is talking about. It is especially useful in questions such as{" "}
-						<strong>Qu&apos;est-ce que tu fais comme études&nbsp;?</strong>
-					</p>
-					<AudioTable rows={commeRows} tableId={id || "lo14-grammar1"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>1. Asking idiomatic questions with <em>comme</em></h3>
+				<p>
+					Some English questions translate literally into French, but others sound more
+					natural with an idiomatic pattern. One useful example is the construction with{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo14/grammar/using-comme/001-comme.mp3"
+					>
+						<strong>comme</strong>
+					</AudioClip>
+					.
+				</p>
+				<p>
+					French often uses this pattern to ask what kind of studies, music, sport, or
+					food someone is talking about. It is especially useful in questions such as{" "}
+					<strong>Qu&apos;est-ce que tu fais comme études&nbsp;?</strong>
+				</p>
+				<AudioTable rows={commeRows} tableId={id || "lo14-grammar1"} />
 			</div>
 		);
 	};
@@ -160,27 +155,22 @@ export class StudyingAtUniversityGrammarDevoir extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo14-grammar2-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
-					<p>
-						The irregular verb{" "}
-						<AudioClip className="link" soundFile="audio/lo14/grammar/devoir/001-devoir.mp3">
-							<strong>devoir</strong>
-						</AudioClip>{" "}
-						means <strong>to have to</strong> or <strong>must</strong>. It is followed by
-						another verb in the infinitive form.
-					</p>
-					<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
-					<AudioTable rows={exampleRows} tableId={`${id || "lo14-grammar2"}-examples`} />
-					<h4 className="mb-3 mt-5 text-base font-semibold">
-						Present tense of <strong>devoir</strong>:
-					</h4>
-					<AudioTable rows={devoirRows} tableId={id || "lo14-grammar2"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>2. Using <em>devoir</em> with an infinitive</h3>
+				<p>
+					The irregular verb{" "}
+					<AudioClip className="link" soundFile="audio/lo14/grammar/devoir/001-devoir.mp3">
+						<strong>devoir</strong>
+					</AudioClip>{" "}
+					means <strong>to have to</strong> or <strong>must</strong>. It is followed by
+					another verb in the infinitive form.
+				</p>
+				<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
+				<AudioTable rows={exampleRows} tableId={`${id || "lo14-grammar2"}-examples`} />
+				<h4 className="mb-3 mt-5 text-base font-semibold">
+					Present tense of <strong>devoir</strong>:
+				</h4>
+				<AudioTable rows={devoirRows} tableId={id || "lo14-grammar2"} />
 			</div>
 		);
 	};
@@ -246,30 +236,25 @@ export class StudyingAtUniversityGrammarPouvoir extends PureComponent {
 			];
 
 		return (
-			<div
-				className="lo14-grammar3-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
-					<p>
-						The irregular verb{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo14/grammar/pouvoir/001-pouvoir.mp3"
-						>
-							<strong>pouvoir</strong>
-						</AudioClip>{" "}
-						means <strong>to be able to</strong>. Like <strong>devoir</strong>, it is
-						usually followed by an infinitive.
-					</p>
-					<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
-					<AudioTable rows={pouvoirExampleRows} tableId={`${id || "lo14-grammar3"}-examples`} />
-					<h4 className="mb-3 mt-5 text-base font-semibold">
-						Present tense of <strong>pouvoir</strong>:
-					</h4>
-					<AudioTable rows={pouvoirRows} tableId={id || "lo14-grammar3"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>3. Using <em>pouvoir</em> with an infinitive</h3>
+				<p>
+					The irregular verb{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo14/grammar/pouvoir/001-pouvoir.mp3"
+					>
+						<strong>pouvoir</strong>
+					</AudioClip>{" "}
+					means <strong>to be able to</strong>. Like <strong>devoir</strong>, it is
+					usually followed by an infinitive.
+				</p>
+				<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
+				<AudioTable rows={pouvoirExampleRows} tableId={`${id || "lo14-grammar3"}-examples`} />
+				<h4 className="mb-3 mt-5 text-base font-semibold">
+					Present tense of <strong>pouvoir</strong>:
+				</h4>
+				<AudioTable rows={pouvoirRows} tableId={id || "lo14-grammar3"} />
 			</div>
 		);
 	};
@@ -314,32 +299,27 @@ export class StudyingAtUniversityGrammarParticiples extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo14-grammar4-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel4` : undefined} key={`${id}Panel4`}>
-					<p>French has both present and past participles, and both can be used as adjectives.</p>
-					<p>
-						<strong>Present participles</strong> often end in <em>-ant</em>. In English,
-						they often correspond to adjectives ending in <em>-ing</em>, such as
-						&ldquo;interesting&rdquo; or &ldquo;tiring&rdquo;.
-					</p>
-					<AudioTable rows={presentRows} tableId={`${id || "lo14-grammar4"}-present`} />
-					<p>
-						<strong>Past participles</strong> of many <em>-er</em> verbs end in{" "}
-						<strong>-é</strong>. They can also be used as adjectives, like
-						&ldquo;tired&rdquo;, &ldquo;motivated&rdquo;, or &ldquo;fascinated&rdquo;.
-					</p>
-					<AudioTable rows={pastRows} tableId={`${id || "lo14-grammar4"}-past`} />
-					<Info variant="warning">
-						<p>
-							<strong>NB</strong> When present or past participles are used as adjectives,
-							they must agree in gender and number with the noun they describe.
-						</p>
-					</Info>
-				</div>
+			<div id={id || undefined}>
+				<h3>4. Present and past participles as adjectives</h3>
+				<p>French has both present and past participles, and both can be used as adjectives.</p>
+				<p>
+					<strong>Present participles</strong> often end in <em>-ant</em>. In English,
+					they often correspond to adjectives ending in <em>-ing</em>, such as
+					&ldquo;interesting&rdquo; or &ldquo;tiring&rdquo;.
+				</p>
+				<AudioTable rows={presentRows} tableId={`${id || "lo14-grammar4"}-present`} />
+				<p>
+					<strong>Past participles</strong> of many <em>-er</em> verbs end in{" "}
+					<strong>-é</strong>. They can also be used as adjectives, like
+					&ldquo;tired&rdquo;, &ldquo;motivated&rdquo;, or &ldquo;fascinated&rdquo;.
+				</p>
+				<AudioTable rows={pastRows} tableId={`${id || "lo14-grammar4"}-past`} />
+				<Info variant="warning">
+					<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">
+						<strong>NB</strong> When present or past participles are used as adjectives,
+						they must agree in gender and number with the noun they describe.
+					</h4>
+				</Info>
 			</div>
 		);
 	};

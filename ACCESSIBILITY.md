@@ -104,8 +104,8 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO10 | `making-arrangements`  | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); short paragraphs merged; legacy wrappers removed |
 | LO11 | `going-to-a-cafe`      | ✅ done  | n/a            | h3 headings added (grammar × 4); short paragraphs merged; "Prendre" label → h4; legacy wrappers removed |
 | LO12 | `shopping-in-the-market` | ✅ done | ✅ done       | h3 headings added (grammar × 3); NB → h4; legacy wrappers removed; single-tab pronunciation wrapper removed |
-| LO13 | `daily-routine`        | ⬜ todo  | ⬜ todo        | |
-| LO14 | `studying-at-university` | ⬜ todo | ⬜ todo       | |
+| LO13 | `daily-routine`        | ✅ done  | n/a            | h3 headings added (grammar × 3); merged "Here is the present tense of se reposer:" into preceding paragraph; legacy wrappers removed |
+| LO14 | `studying-at-university` | ✅ done | n/a           | h3 headings added (grammar × 4); NB → h4; legacy wrappers removed; existing h4 sub-labels retained |
 
 ---
 
@@ -176,6 +176,28 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Added `<h3>1. Borrowed nouns and gender</h3>`
   - Added `<h3>2. Likes, dislikes, articles, and infinitives</h3>`
   - Added `<h3>3. Quel, quelle, quels, quelles</h3>`
+  - All teacher sentences preserved exactly
+
+### LO14 — Studying at University (`studying-at-university`)
+- No pronunciation section in this LO
+- `src/components/custom/grammar/studying-at-university-grammar.jsx`
+  - Removed legacy lo14-grammar*-container/panel wrapper divs (all 4 tabs)
+  - Added `<h3>1. Asking idiomatic questions with <em>comme</em></h3>`
+  - Added `<h3>2. Using <em>devoir</em> with an infinitive</h3>`
+  - Added `<h3>3. Using <em>pouvoir</em> with an infinitive</h3>`
+  - Added `<h3>4. Present and past participles as adjectives</h3>`
+  - Existing `<h4>` sub-labels in Tabs 2 and 3 retained exactly
+  - NB in Tab 4: `<p><strong>NB</strong>` → `<h4>`
+  - All teacher sentences preserved exactly
+
+### LO13 — Daily Routine (`daily-routine`)
+- No pronunciation section in this LO
+- `src/components/custom/grammar/daily-routine-grammar.jsx`
+  - Removed legacy lo13-grammar*-container/panel wrapper divs (all 3 tabs)
+  - Added `<h3>1. Using <em>on</em> in everyday French</h3>`
+  - Added `<h3>2. Forming reflexive verbs in the present tense</h3>`
+  - Merged "Here is the present tense of se reposer:" into preceding paragraph
+  - Added `<h3>3. Reflexive forms before a vowel</h3>`
   - All teacher sentences preserved exactly
 
 ### LO12 — Shopping in the Market (`shopping-in-the-market`)

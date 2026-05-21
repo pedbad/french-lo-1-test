@@ -47,41 +47,36 @@ export class DailyRoutineGrammarOn extends PureComponent {
 	render = () => {
 		const { id } = this.props;
 		return (
-			<div
-				className="lo13-grammar1-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
-					<p>
-						The French subject pronoun{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/001-on.mp3">
-							<strong>on</strong>
-						</AudioClip>{" "}
-						literally means <strong>one</strong>, but in everyday speech it very often
-						means <strong>we</strong>. Depending on the context, it can also mean
-						<strong> people</strong> or <strong>you</strong> in a general sense.
-					</p>
-					<p>
-						It is commonly used instead of{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/002-nous.mp3">
-							<strong>nous</strong>
-						</AudioClip>{" "}
-						in spoken French, but it still takes the <strong>third-person singular</strong>{" "}
-						verb form.
-					</p>
-					<p>
-						For example,{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/003-on-parle-francais-ici.mp3">
-							<strong>On parle français ici.</strong>
-						</AudioClip>{" "}
-						means “French is spoken here”, and{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/004-on-va-au-cinema.mp3">
-							<strong>On va au cinéma&nbsp;?</strong>
-						</AudioClip>{" "}
-						can mean “Are we going to the cinema?” or “Shall we go to the cinema?”
-					</p>
-				</div>
+			<div id={id || undefined}>
+				<h3>1. Using <em>on</em> in everyday French</h3>
+				<p>
+					The French subject pronoun{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/001-on.mp3">
+						<strong>on</strong>
+					</AudioClip>{" "}
+					literally means <strong>one</strong>, but in everyday speech it very often
+					means <strong>we</strong>. Depending on the context, it can also mean
+					<strong> people</strong> or <strong>you</strong> in a general sense.
+				</p>
+				<p>
+					It is commonly used instead of{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/002-nous.mp3">
+						<strong>nous</strong>
+					</AudioClip>{" "}
+					in spoken French, but it still takes the <strong>third-person singular</strong>{" "}
+					verb form.
+				</p>
+				<p>
+					For example,{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/003-on-parle-francais-ici.mp3">
+						<strong>On parle français ici.</strong>
+					</AudioClip>{" "}
+					means "French is spoken here", and{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/004-on-va-au-cinema.mp3">
+						<strong>On va au cinéma&nbsp;?</strong>
+					</AudioClip>{" "}
+					can mean "Are we going to the cinema?" or "Shall we go to the cinema?"
+				</p>
 			</div>
 		);
 	};
@@ -139,67 +134,61 @@ export class DailyRoutineGrammarReflexiveVerbs extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo13-grammar2-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
-					<p>
-						In French, <strong>reflexive verbs</strong> are verbs where the subject and
-						object refer to the same person. In the infinitive, they usually appear with{" "}
-						<strong>se</strong>, for example{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/005-se-laver.mp3">
-							<strong>se laver</strong>
-						</AudioClip>{" "}
-						and{" "}
-						<AudioClip className="link" soundFile="audio/lo13/vocabulary/017-se-reposer.mp3">
-							<strong>se reposer</strong>
-						</AudioClip>
-						.
-					</p>
-					<p>
-						In a sentence, the reflexive pronoun comes between the subject and the verb:
-						{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/006-me.mp3">
-							<strong>me</strong>
-						</AudioClip>
-						,{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/007-te.mp3">
-							<strong>te</strong>
-						</AudioClip>
-						,{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
-							<strong>se</strong>
-						</AudioClip>
-						,{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/002-nous.mp3">
-							<strong>nous</strong>
-						</AudioClip>
-						,{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/009-vous.mp3">
-							<strong>vous</strong>
-						</AudioClip>
-						,{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
-							<strong>se</strong>
-						</AudioClip>
-						.
-					</p>
-					<p>
-						For example,{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/010-je-me-lave.mp3">
-							<strong>Je me lave</strong>
-						</AudioClip>{" "}
-						means “I wash myself / I have a wash”, and{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/011-elle-se-repose.mp3">
-							<strong>Elle se repose</strong>
-						</AudioClip>{" "}
-						means “She is resting / She is having a rest.”
-					</p>
-					<p>Here is the present tense of <strong>se reposer</strong>:</p>
-					<AudioTable rows={reflexiveRows} tableId={id || "lo13-grammar2"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>2. Forming reflexive verbs in the present tense</h3>
+				<p>
+					In French, <strong>reflexive verbs</strong> are verbs where the subject and
+					object refer to the same person. In the infinitive, they usually appear with{" "}
+					<strong>se</strong>, for example{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/005-se-laver.mp3">
+						<strong>se laver</strong>
+					</AudioClip>{" "}
+					and{" "}
+					<AudioClip className="link" soundFile="audio/lo13/vocabulary/017-se-reposer.mp3">
+						<strong>se reposer</strong>
+					</AudioClip>
+					.
+				</p>
+				<p>
+					In a sentence, the reflexive pronoun comes between the subject and the verb:
+					{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/006-me.mp3">
+						<strong>me</strong>
+					</AudioClip>
+					,{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/007-te.mp3">
+						<strong>te</strong>
+					</AudioClip>
+					,{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
+						<strong>se</strong>
+					</AudioClip>
+					,{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/002-nous.mp3">
+						<strong>nous</strong>
+					</AudioClip>
+					,{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/009-vous.mp3">
+						<strong>vous</strong>
+					</AudioClip>
+					,{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
+						<strong>se</strong>
+					</AudioClip>
+					.
+				</p>
+				<p>
+					For example,{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/010-je-me-lave.mp3">
+						<strong>Je me lave</strong>
+					</AudioClip>{" "}
+					means "I wash myself / I have a wash", and{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/011-elle-se-repose.mp3">
+						<strong>Elle se repose</strong>
+					</AudioClip>{" "}
+					means "She is resting / She is having a rest." Here is the present tense of <strong>se reposer</strong>:
+				</p>
+				<AudioTable rows={reflexiveRows} tableId={id || "lo13-grammar2"} />
 			</div>
 		);
 	};
@@ -252,27 +241,22 @@ export class DailyRoutineGrammarReflexiveBeforeVowel extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo13-grammar3-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
-					<p>
-						When a reflexive verb begins with a vowel or silent <strong>h</strong>, the
-						short pronouns change to <strong>m&apos;</strong>, <strong>t&apos;</strong>,
-						and <strong>s&apos;</strong>. The plural forms <strong>nous</strong> and{" "}
-						<strong>vous</strong> stay the same.
-					</p>
-					<p>
-						The verb{" "}
-						<AudioClip className="link" soundFile="audio/lo13/grammar/019-sappeler.mp3">
-							<strong>s&apos;appeler</strong>
-						</AudioClip>{" "}
-						is a useful model for this pattern.
-					</p>
-					<AudioTable rows={appelerRows} tableId={id || "lo13-grammar3"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>3. Reflexive forms before a vowel</h3>
+				<p>
+					When a reflexive verb begins with a vowel or silent <strong>h</strong>, the
+					short pronouns change to <strong>m&apos;</strong>, <strong>t&apos;</strong>,
+					and <strong>s&apos;</strong>. The plural forms <strong>nous</strong> and{" "}
+					<strong>vous</strong> stay the same.
+				</p>
+				<p>
+					The verb{" "}
+					<AudioClip className="link" soundFile="audio/lo13/grammar/019-sappeler.mp3">
+						<strong>s&apos;appeler</strong>
+					</AudioClip>{" "}
+					is a useful model for this pattern.
+				</p>
+				<AudioTable rows={appelerRows} tableId={id || "lo13-grammar3"} />
 			</div>
 		);
 	};
