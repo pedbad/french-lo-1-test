@@ -107,7 +107,7 @@ export class OriginsAndLanguagesGrammarVerbGroups extends PureComponent {
 							<thead>
 								<TableRow>
 									<th>
-										<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/063-venir-de.mp3`}><strong>venir de</strong></AudioClip>
+										<AudioClip className={`link`} soundFile={`audio/lo3/grammar/grammar-and-usage/063-venir-de.mp3`}>venir de</AudioClip>
 									</th>
 									<th>to come from</th>
 								</TableRow>
@@ -191,11 +191,12 @@ export class OriginsAndLanguagesGrammarDeForms extends PureComponent {
 						/>
 					</div>
 					<p>Look at the following examples illustrating the forms:</p>
-					<p>Je viens <span className="ped-neg"><strong>de</strong></span> Paris (for towns, cities, villages)</p>
-					<p>Je viens <span className="ped-affirm"><strong>de</strong></span> Belgique (for feminine countries and regions beginning with a consonant)</p>
-					<p>Je viens <span className="ped-neutral"><strong>d'</strong></span>Angleterre (for all singular place names beginning with a vowel or mute h)</p>
-					<p>Je viens <span className="ped-accent"><strong>du</strong></span> Canada (for masculine countries and regions beginning with a consonant)</p>
-					<p>Je viens <span className="ped-warn"><strong>des</strong></span> Seychelles (for plural countries)</p>
+					{/* <p>→<div>: short lines starting with bold text trigger WAVE "possible heading" */}
+					<div>Je viens <span className="ped-neg"><strong>de</strong></span> Paris (for towns, cities, villages)</div>
+					<div>Je viens <span className="ped-affirm"><strong>de</strong></span> Belgique (for feminine countries and regions beginning with a consonant)</div>
+					<div>Je viens <span className="ped-neutral"><strong>d'</strong></span>Angleterre (for all singular place names beginning with a vowel or mute h)</div>
+					<div>Je viens <span className="ped-accent"><strong>du</strong></span> Canada (for masculine countries and regions beginning with a consonant)</div>
+					<div>Je viens <span className="ped-warn"><strong>des</strong></span> Seychelles (for plural countries)</div>
 				</div>
 			</div>
 		);

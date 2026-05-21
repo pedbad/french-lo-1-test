@@ -141,8 +141,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"titleText": "Vocabulary",
-		"informationTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core nationality and country vocabulary, including masculine and feminine forms.</li><li>How to identify country gender and number cues used with place names.</li><li>Useful question-and-answer patterns for origin and language use (for example <em>D&apos;où viens-tu ?</em>, <em>Quelles langues parles-tu ?</em>).</li><li>How vocabulary choices support accurate speaking and listening in real interaction.</li></ul>",
+		"informationTextHTML": "<p>This section introduces key nationality and language vocabulary, followed by useful question-and-answer patterns for talking about origin and languages in French.</p><p><strong>You will learn:</strong></p><ul><li>Core nationality and country vocabulary, including masculine and feminine forms.</li><li>How to identify country gender and number cues used with place names.</li><li>Useful question-and-answer patterns for origin and language use (for example <em>D&apos;où viens-tu ?</em>, <em>Quelles langues parles-tu ?</em>).</li><li>How vocabulary choices support accurate speaking and listening in real interaction.</li></ul>",
 		"content": [
 			{
 				"vocabulary1": {
@@ -416,7 +415,7 @@
 				"pronunciation1": {
 					"component": "OriginsAndLanguagesPronunciationSilentEnt",
 					"id": "pronunciation1",
-					"informationTextHTML": "<p><strong>To sound or not to sound ?</strong></p><p>In this part, focus on silent <em>-ent</em> endings in third-person plural verb forms. Listen carefully and repeat each example aloud.</p>",
+					"informationTextHTML": "<p>In this part, focus on silent <em>-ent</em> endings in third-person plural verb forms. Listen carefully and repeat each example aloud.</p>",
 					"titleTextHTML": "1. Silent <em>-ent</em> endings"
 				}
 			},
