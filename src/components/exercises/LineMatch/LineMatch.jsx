@@ -613,7 +613,9 @@ export class LineMatch extends React.PureComponent {
 												</div>
 												<div className={LINE_MATCH_IMAGE_TILE_CLASS}>
 													<img
-														alt={item.alt || item.localLanguage || item.label || `Line match image ${index + 1}`}
+														{/* item.label is the answer — using it as alt reveals the answer to screen readers.
+										    Fall back to "" (decorative) when no explicit alt or localLanguage is set. */}
+										alt={item.alt || item.localLanguage || ""}
 														className="h-full w-full object-contain"
 														loading="lazy"
 														src={resolveAsset(item.image)}
@@ -707,7 +709,9 @@ export class LineMatch extends React.PureComponent {
 														type="button"
 													>
 														<img
-															alt={item.alt || item.localLanguage || item.label || `Line match image ${index + 1}`}
+															{/* item.label is the answer — using it as alt reveals the answer to screen readers.
+										    Fall back to "" (decorative) when no explicit alt or localLanguage is set. */}
+										alt={item.alt || item.localLanguage || ""}
 															className="h-full w-full object-contain"
 															loading="lazy"
 															src={resolveAsset(item.image)}
