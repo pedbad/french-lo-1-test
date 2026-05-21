@@ -32,14 +32,8 @@ export class CurrentLocationPronunciationRelatedSpellings extends PureComponent 
 				<div className="mt-3">
 					<Info variant="warning">
 						<p><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</p>
-						<div className="mt-2 flex flex-wrap gap-1">
-							<span className="pronunciation-spelling-badge">ain</span>
-							<span className="pronunciation-spelling-badge">aim</span>
-							<span className="pronunciation-spelling-badge">ein</span>
-							<span className="pronunciation-spelling-badge">im</span>
-							<span className="pronunciation-spelling-badge">ym</span>
-							<span className="pronunciation-spelling-badge">yn</span>
-							<span className="pronunciation-spelling-badge">eim</span>
+						<div className="mt-2">
+							<strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.
 						</div>
 					</Info>
 				</div>
