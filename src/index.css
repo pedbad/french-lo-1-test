@@ -4386,11 +4386,11 @@ hr {
   mask-size: contain;
 }
 /* Dark mode: replace vivid blue Info box with a muted teal ghost */
-.dark #content .information {
+.dark :is(#content, #debug-sandbox-page) .information {
   background-color: color-mix(in oklab, var(--card) 88%, var(--chart-2) 12%);
   border-color: color-mix(in oklab, var(--chart-2) 28%, transparent);
 }
-.dark #content .information .info-icon {
+.dark :is(#content, #debug-sandbox-page) .information .info-icon {
   background-color: color-mix(in oklab, var(--chart-2) 55%, var(--card));
 }
 

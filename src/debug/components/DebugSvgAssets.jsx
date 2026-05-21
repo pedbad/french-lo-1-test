@@ -363,21 +363,6 @@ const SVG_USAGE_MANIFEST = [
 		referenceCount: 1,
 		sources: ['/src/components/custom/grammar/phoning-in-france-regions-map.jsx'],
 	},
-	{
-		path: '/src/components/ErrorLog/copy.svg',
-		referenceCount: 1,
-		sources: ['/src/index.css'],
-	},
-	{
-		path: '/src/components/ErrorLog/upArrow.svg',
-		referenceCount: 1,
-		sources: ['/src/index.css'],
-	},
-	{
-		path: '/src/components/ErrorLog/whiteCross.svg',
-		referenceCount: 1,
-		sources: ['/src/index.css'],
-	},
 ].sort((left, right) => left.path.localeCompare(right.path));
 
 const LUCIDE_USAGE_MANIFEST = [
