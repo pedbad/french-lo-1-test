@@ -102,7 +102,7 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO8 | `free-time`             | ⬜ todo  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs) |
 | LO9 | `phoning-in-france`     | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); NB → h4; legacy wrappers removed; short paragraphs merged |
 | LO10 | `making-arrangements`  | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); short paragraphs merged; legacy wrappers removed |
-| LO11 | `going-to-a-cafe`      | ⬜ todo  | ⬜ todo        | |
+| LO11 | `going-to-a-cafe`      | ✅ done  | n/a            | h3 headings added (grammar × 4); short paragraphs merged; "Prendre" label → h4; legacy wrappers removed |
 | LO12 | `shopping-in-the-market` | ⬜ todo | ⬜ todo       | |
 | LO13 | `daily-routine`        | ⬜ todo  | ⬜ todo        | |
 | LO14 | `studying-at-university` | ⬜ todo | ⬜ todo       | |
@@ -178,6 +178,20 @@ The same `h3` / `h4` pattern applies to grammar sections.
   - Added `<h3>3. Quel, quelle, quels, quelles</h3>`
   - All teacher sentences preserved exactly
 
+### LO11 — Going to a Café (`going-to-a-cafe`)
+- No pronunciation section in this LO
+- `src/components/custom/grammar/going-to-a-cafe-grammar.jsx`
+  - Removed legacy lo11-grammar*-container/panel wrapper divs (all 4 tabs)
+  - Added `<h3>1. Using <em>je voudrais</em> for polite requests</h3>`
+  - Merged "Here are the conditional forms:" into preceding paragraph
+  - Added `<h3>2. Using <em>prendre</em> for food and drink</h3>`
+  - `<p><AudioClip><strong>Prendre</strong></AudioClip></p>` → `<h4>` (table label; same words, better tag)
+  - Added `<h3>3. Using <em>à</em> with flavours and fillings</h3>`
+  - Merged "Compare these examples:" into preceding paragraph
+  - Added `<h3>4. Using disjunctive pronouns after prepositions</h3>`
+  - Merged "Look at these examples:" into preceding paragraph
+  - "Here is the full list of pronouns:" logged as known WAVE exception (follows a table)
+
 ### LO10 — Making Arrangements (`making-arrangements`)
 - `src/components/custom/pronunciation/making-arrangements-pronunciation.jsx`
   - Removed legacy lo10-pronunciation*-container/panel wrapper divs
@@ -229,3 +243,4 @@ These alerts are left in place because fixing them would require altering teache
 | LO6 | Pronunciation Tab 2 | Possible heading (hidden) | "Practise a few more familiar words with the same sound:" | Teacher wording retained; hidden tab so low impact |
 | LO7 | Pronunciation Tab 2 | Possible heading | "Listen again to these examples:" | Short standalone sentence ending in colon; no preceding paragraph to merge with; teacher wording retained |
 | LO10 | Pronunciation Tab 2 | Possible heading | "Practise the same sound in a few more useful words:" | Only sentence in tab; no preceding paragraph to merge with; teacher wording retained |
+| LO11 | Grammar Tab 4 | Possible heading | "Here is the full list of pronouns:" | Follows a table; no preceding paragraph to merge with; teacher wording retained |

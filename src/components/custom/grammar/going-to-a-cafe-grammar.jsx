@@ -111,49 +111,43 @@ export class GoingToACafeGrammarConditionalVouloir extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo11-grammar1-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel1` : undefined} key={`${id}Panel1`}>
-					<p>
-						To express what you would like, use{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/conditional-vouloir/001-je-voudrais.mp3"
-						>
-							<strong>Je voudrais</strong>
-						</AudioClip>
-						. For example,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/conditional-vouloir/002-je-voudrais-une-glace.mp3"
-						>
-							<strong>Je voudrais une glace</strong>
-						</AudioClip>{" "}
-						means “I&apos;d like an ice-cream.”
-					</p>
-					<p>
-						This is the present conditional of{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/conditional-vouloir/003-vouloir.mp3"
-						>
-							<strong>vouloir</strong>
-						</AudioClip>
-						. To say what you would like to do, add an infinitive afterwards, as in{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/conditional-vouloir/004-je-voudrais-aller-au-marche-demain.mp3"
-						>
-							<strong>Je voudrais aller au marché demain</strong>
-						</AudioClip>
-						.
-					</p>
-					<p>Here are the conditional forms:</p>
-					<AudioTable rows={vouloirRows} tableId={id || "lo11-grammar1"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>1. Using <em>je voudrais</em> for polite requests</h3>
+				<p>
+					To express what you would like, use{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/conditional-vouloir/001-je-voudrais.mp3"
+					>
+						<strong>Je voudrais</strong>
+					</AudioClip>
+					. For example,{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/conditional-vouloir/002-je-voudrais-une-glace.mp3"
+					>
+						<strong>Je voudrais une glace</strong>
+					</AudioClip>{" "}
+					means "I&apos;d like an ice-cream."
+				</p>
+				<p>
+					This is the present conditional of{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/conditional-vouloir/003-vouloir.mp3"
+					>
+						<strong>vouloir</strong>
+					</AudioClip>
+					. To say what you would like to do, add an infinitive afterwards, as in{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/conditional-vouloir/004-je-voudrais-aller-au-marche-demain.mp3"
+					>
+						<strong>Je voudrais aller au marché demain</strong>
+					</AudioClip>
+					. Here are the conditional forms:
+				</p>
+				<AudioTable rows={vouloirRows} tableId={id || "lo11-grammar1"} />
 			</div>
 		);
 	};
@@ -196,69 +190,64 @@ export class GoingToACafeGrammarPrendre extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo11-grammar2-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel2` : undefined} key={`${id}Panel2`}>
-					<p>
-						The verb{" "}
-						<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
-							<strong>prendre</strong>
-						</AudioClip>{" "}
-						is very common. It often means <strong>to take</strong>, for example{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/002-je-prends-le-bus-pour-aller-au-centre-ville.mp3"
-						>
-							<strong>Je prends le bus pour aller au centre-ville</strong>
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/003-prenez-la-premiere-rue-a-droite.mp3"
-						>
-							<strong>Prenez la première rue à droite&nbsp;!</strong>
-						</AudioClip>
-						, and{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/004-il-prend-une-douche.mp3"
-						>
-							<strong>Il prend une douche</strong>
-						</AudioClip>
-						.
-					</p>
-					<p>
-						In French, do <strong>not</strong> use <strong>avoir</strong> for
-						food and drink. Use{" "}
-						<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
-							<strong>prendre</strong>
-						</AudioClip>{" "}
-						instead, as in{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/006-je-prends-un-cafe.mp3"
-						>
-							<strong>Je prends un café</strong>
-						</AudioClip>{" "}
-						or{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/007-je-prends-mon-petit-dejeuner-a-huit-heures.mp3"
-						>
-							<strong>Je prends mon petit déjeuner à huit heures</strong>
-						</AudioClip>
-						.
-					</p>
-					<p>
-						<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
-							<strong>Prendre</strong>
-						</AudioClip>
-					</p>
-					<AudioTable rows={prendreRows} tableId={id || "lo11-grammar2"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>2. Using <em>prendre</em> for food and drink</h3>
+				<p>
+					The verb{" "}
+					<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
+						<strong>prendre</strong>
+					</AudioClip>{" "}
+					is very common. It often means <strong>to take</strong>, for example{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/prendre/002-je-prends-le-bus-pour-aller-au-centre-ville.mp3"
+					>
+						<strong>Je prends le bus pour aller au centre-ville</strong>
+					</AudioClip>
+					,{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/prendre/003-prenez-la-premiere-rue-a-droite.mp3"
+					>
+						<strong>Prenez la première rue à droite&nbsp;!</strong>
+					</AudioClip>
+					, and{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/prendre/004-il-prend-une-douche.mp3"
+					>
+						<strong>Il prend une douche</strong>
+					</AudioClip>
+					.
+				</p>
+				<p>
+					In French, do <strong>not</strong> use <strong>avoir</strong> for
+					food and drink. Use{" "}
+					<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
+						<strong>prendre</strong>
+					</AudioClip>{" "}
+					instead, as in{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/prendre/006-je-prends-un-cafe.mp3"
+					>
+						<strong>Je prends un café</strong>
+					</AudioClip>{" "}
+					or{" "}
+					<AudioClip
+						className="link"
+						soundFile="audio/lo11/grammar/prendre/007-je-prends-mon-petit-dejeuner-a-huit-heures.mp3"
+					>
+						<strong>Je prends mon petit déjeuner à huit heures</strong>
+					</AudioClip>
+					.
+				</p>
+				<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">
+					<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
+						<strong>Prendre</strong>
+					</AudioClip>
+				</h4>
+				<AudioTable rows={prendreRows} tableId={id || "lo11-grammar2"} />
 			</div>
 		);
 	};
@@ -291,21 +280,15 @@ export class GoingToACafeGrammarFlavoursWithA extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo11-grammar3-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel3` : undefined} key={`${id}Panel3`}>
-					<p>
-						To describe flavours, fillings, and toppings, French often uses the
-						preposition <strong>à</strong> with the article:
-						{" "}<strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>,
-						and <strong>aux</strong>.
-					</p>
-					<p>Compare these examples:</p>
-					<AudioTable rows={flavourRows} tableId={id || "lo11-grammar3"} />
-				</div>
+			<div id={id || undefined}>
+				<h3>3. Using <em>à</em> with flavours and fillings</h3>
+				<p>
+					To describe flavours, fillings, and toppings, French often uses the
+					preposition <strong>à</strong> with the article:
+					{" "}<strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>,
+					and <strong>aux</strong>. Compare these examples:
+				</p>
+				<AudioTable rows={flavourRows} tableId={id || "lo11-grammar3"} />
 			</div>
 		);
 	};
@@ -377,38 +360,32 @@ export class GoingToACafeGrammarDisjunctivePronouns extends PureComponent {
 		];
 
 		return (
-			<div
-				className="lo11-grammar4-container container"
-				id={id || undefined}
-				key={`${id}CustomComponent`}
-			>
-				<div className="panel" id={id ? `${id}Panel4` : undefined} key={`${id}Panel4`}>
-					<p>
-						French has <strong>disjunctive</strong> or <strong>stressed</strong>
-						{" "}pronouns. They are used after prepositions such as{" "}
-						<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/001-pour.mp3">
-							<strong>pour</strong>
-						</AudioClip>
-						,{" "}
-						<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/002-avec.mp3">
-							<strong>avec</strong>
-						</AudioClip>
-						, and{" "}
-						<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/003-sans.mp3">
-							<strong>sans</strong>
-						</AudioClip>
-						.
-					</p>
-					<p>Look at these examples:</p>
-					<AudioTable rows={exampleRows} tableId={`${id || "lo11-grammar4"}-examples`} />
-					<p className="mt-4">Here is the full list of pronouns:</p>
-					<AudioTable
-						rows={pronounRows}
-						tableId={`${id || "lo11-grammar4"}-pronouns`}
-						headers={["Subject pronouns", "Disjunctive (or stressed) pronouns"]}
-						swapColumns={true}
-					/>
-				</div>
+			<div id={id || undefined}>
+				<h3>4. Using disjunctive pronouns after prepositions</h3>
+				<p>
+					French has <strong>disjunctive</strong> or <strong>stressed</strong>
+					{" "}pronouns. They are used after prepositions such as{" "}
+					<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/001-pour.mp3">
+						<strong>pour</strong>
+					</AudioClip>
+					,{" "}
+					<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/002-avec.mp3">
+						<strong>avec</strong>
+					</AudioClip>
+					, and{" "}
+					<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/003-sans.mp3">
+						<strong>sans</strong>
+					</AudioClip>
+					. Look at these examples:
+				</p>
+				<AudioTable rows={exampleRows} tableId={`${id || "lo11-grammar4"}-examples`} />
+				<p className="mt-4">Here is the full list of pronouns:</p>
+				<AudioTable
+					rows={pronounRows}
+					tableId={`${id || "lo11-grammar4"}-pronouns`}
+					headers={["Subject pronouns", "Disjunctive (or stressed) pronouns"]}
+					swapColumns={true}
+				/>
 			</div>
 		);
 	};
