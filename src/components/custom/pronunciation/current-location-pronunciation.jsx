@@ -29,10 +29,20 @@ export class CurrentLocationPronunciationRelatedSpellings extends PureComponent 
 		return (
 			<div id={id || undefined}>
 				<h3>2. Related spellings with the same sound</h3>
-				<Info variant="warning">
-					<p><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</p>
-					<div><strong>ain</strong>, <strong>aim</strong>, <strong>ein</strong>, <strong>im</strong>, <strong>ym</strong>, <strong>yn</strong>, <strong>eim</strong>.</div>
-				</Info>
+				<div className="mt-3">
+					<Info variant="warning">
+						<p><strong>NB</strong> This is a useful sound to practise as the following are also pronounced in the same way when they end a word or occur before a consonant:</p>
+						<div className="mt-2 flex flex-wrap gap-1">
+							<span className="pronunciation-spelling-badge">ain</span>
+							<span className="pronunciation-spelling-badge">aim</span>
+							<span className="pronunciation-spelling-badge">ein</span>
+							<span className="pronunciation-spelling-badge">im</span>
+							<span className="pronunciation-spelling-badge">ym</span>
+							<span className="pronunciation-spelling-badge">yn</span>
+							<span className="pronunciation-spelling-badge">eim</span>
+						</div>
+					</Info>
+				</div>
 				<div className={`mb-0 ml-2 space-y-1`}>
 					<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/007-marocain.mp3`}>maroc<strong>ain</strong></AudioClip></div>
 					<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/008-faim.mp3`}>f<strong>aim</strong></AudioClip></div>
