@@ -57,6 +57,47 @@ Use this checklist for each new LO (LO4 onward) to avoid architecture and stylin
 - [ ] Ensure labels/ids are valid and unique.
 - [ ] Preserve keyboard focus and screen-reader behavior after refactors.
 
+### 7a) LO1 (first-contact) — Visual and Accessibility Reference Standard
+
+**LO1 is the approved style and UX source of truth as of 2026-05-21.** When auditing or building a new LO, verify each pattern below matches LO1. If a deliberate deviation is needed, document the reason explicitly — do not silently let it drift.
+
+#### Grammar accordion
+- [ ] Content `h3` headings inside accordion cards are visually hidden (kept in DOM for screen readers/WAVE) via the visually-hidden CSS pattern:
+  ```css
+  #content #grammar .accordion-card-content > div > h3:first-child { /* visually-hidden pattern */ }
+  ```
+  Rationale: the accordion header itself renders as an `h3`, so the content `h3` would duplicate it visually but must remain for screen readers.
+- [ ] Accordion content area uses `padding: 1.25rem 1.5rem`.
+- [ ] Prominent statement blocks (e.g. `#tuvous`) use `display: block; font-size: var(--font-size-xl); font-weight: 500`.
+
+#### Pronunciation tabs
+- [ ] Every tab panel has an `h3` heading with an `AudioClip` inline — pattern: `<h3>N. Label "<AudioClip>word</AudioClip>"</h3>`.
+- [ ] The `h3` is styled down via `.pronunciation-panel h3` (`font-size: var(--font-size-lg)`, compact `border-bottom`).
+- [ ] No `<strong>` wrapper inside `AudioClip` inside an `h3` — this breaks the green colour via CSS specificity.
+
+#### Info boxes
+- [ ] Light mode: blue border/background (primary palette) — this is intentional, not an error.
+- [ ] Dark mode: muted teal ghost style — background via `color-mix(in oklab, var(--card) 88%, var(--chart-2) 12%)`, faint teal border, teal icon.
+
+#### Exercise action buttons
+- [ ] Light mode: solid filled (colours: ped-warn = amber, chart-2 = teal, chart-3 = amber-gold).
+- [ ] Dark mode: ghost/outline style — transparent fill, coloured border + text.
+- [ ] `--ped-warn` is pinned to `var(--chart-5)` inside `.dark` to prevent shadcn's dark-mode remap of `chart-1` to blue from bleeding into warn semantics.
+
+#### Instruction / intro text
+- [ ] `InstructionCallout` uses `--font-size-lg` (1.35 rem), set via `INSTRUCTION_TEXT_CLASS` and `applyInstructionTypographyToHTML` in `src/components/Section/instructions-media.jsx`.
+- [ ] Do not use `--font-size-xl` for instruction callouts — confirmed too large.
+
+#### WAVE compliance
+- [ ] Zero "possible heading" alerts — `WordSpotExercise` phrase wrappers must be `<div>`, not `<p>`.
+- [ ] Grammar `h3` duplication handled by the visually-hidden pattern above (not by removing the heading from the DOM).
+- [ ] Pronunciation tab `h3` headings present and visible (tab button labels are not heading elements and do not count).
+
+#### Abbreviations reference box
+- [ ] `.abbreviations dl` styled as a reference/aside box: `border-left` accent, muted background, small-caps `dt` label.
+
+> **Drift warning:** if any LO deviates from any pattern above, add a comment in the relevant component or config file explaining the reason, and note it in `CHANGES.md`. Silent drift without documentation is not acceptable.
+
 ## 8) Regression + Build Validation
 
 - [ ] `yarn build` passes.

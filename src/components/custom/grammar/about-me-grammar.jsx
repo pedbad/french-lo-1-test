@@ -41,6 +41,12 @@ export const AboutMeSubjectPronounsBody = ({ highlightTarget = "" } = {}) => {
 	);
 };
 
+// LO2 grammar components deliberately omit an h3 inside the accordion panel body.
+// The accordion header (rendered by AccordionArticle) already carries the section
+// title as an h3, and the heading hierarchy is complete without a duplicate inside
+// the panel. This differs from LO1 where content h3s are present but visually hidden
+// via CSS — the LO1 approach was needed because LO1 custom components pre-dated the
+// accordion header pattern. LO2 onwards should follow this cleaner approach.
 export class AboutMeGrammarVerbs extends PureComponent {
 	render = () => {
 		const { id } = this.props;

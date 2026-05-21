@@ -2,6 +2,43 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-21 - LO1 Style Polish, Dark Mode Overhaul, a11y Fixes + LO1 Designated Reference Standard
+
+### LO1 designated as style and UX source of truth
+- LO1 (slug `first-contact`) is now the **approved visual and accessibility reference standard** for all future LOs.
+- The full pattern catalogue (grammar accordion, pronunciation tabs, info boxes, exercise buttons, instruction callout, WAVE compliance, abbreviations box) has been recorded in `docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md` section 7a.
+
+### Instruction callout font-size fix (global)
+- Reduced `InstructionCallout` font-size from `--font-size-xl` to `--font-size-lg` (1.35 rem) — `--font-size-xl` was confirmed too large.
+- Change is global: applied via `INSTRUCTION_TEXT_CLASS` and `applyInstructionTypographyToHTML` in `src/components/Section/instructions-media.jsx`.
+
+### Dark mode Info box redesign
+- Info boxes in dark mode now use a muted teal ghost style instead of the previous solid dark treatment.
+- Background: `color-mix(in oklab, var(--card) 88%, var(--chart-2) 12%)`, faint teal border, teal icon.
+- Light mode retains the existing blue border/background (primary palette) — intentional.
+
+### Dark mode exercise button redesign + `--ped-warn` semantic fix
+- Exercise action buttons in dark mode now render as ghost/outline style: transparent fill, coloured border + text.
+- Light mode retains solid filled style (ped-warn = amber, chart-2 = teal, chart-3 = amber-gold).
+- Fixed semantic bug: `--ped-warn` is now pinned to `var(--chart-5)` inside `.dark` to prevent shadcn's dark-mode remap of `chart-1` to blue from bleeding into warn-colour semantics.
+
+### Grammar accordion visual polish
+- Content `h3` headings inside accordion cards are now visually hidden (visually-hidden CSS pattern) to avoid duplication with the accordion header `h3`, while remaining in the DOM for screen readers/WAVE.
+  ```css
+  #content #grammar .accordion-card-content > div > h3:first-child { /* visually-hidden */ }
+  ```
+- Accordion content area padding standardised to `1.25rem 1.5rem`.
+- Prominent statement blocks (e.g. `#tuvous`) promoted with `display: block; font-size: var(--font-size-xl); font-weight: 500`.
+
+### Pronunciation h3 styling
+- All pronunciation tab panels now have a visible `h3` heading with an inline `AudioClip` — pattern: `<h3>N. Label "<AudioClip>word</AudioClip>"</h3>`.
+- `h3` styled down via `.pronunciation-panel h3` (`font-size: var(--font-size-lg)`, compact `border-bottom`).
+- Removed any `<strong>` wrappers inside `AudioClip` inside `h3` — these broke the green colour via CSS specificity.
+
+### WordSpotExercise `<p>` → `<div>` fix (WAVE possible heading alerts)
+- Phrase wrapper elements in `WordSpotExercise` changed from `<p>` to `<div>` to eliminate WAVE "possible heading" false-positive alerts caused by bold/large text inside paragraph elements.
+- LO1 now passes WAVE with zero possible heading alerts.
+
 ## 2026-05-20 - Accessibility (WAVE) Fixes — LO1 through LO5
 
 - Audited all pronunciation and grammar sections using the WAVE browser extension
