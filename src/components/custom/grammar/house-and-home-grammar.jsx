@@ -130,27 +130,32 @@ export class HouseAndHomeGrammarAdjectivalAgreement extends PureComponent {
 						</AudioClip>.
 						{" "}To form the feminine plural, add <strong>s</strong>.
 					</p>
-					<p>Look at these examples:</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/016-le-salon-est-spacieux.mp3`}>
-							Le salon est spaci<strong>eux</strong>
-						</AudioClip>.
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/017-la-cuisine-est-spacieuse.mp3`}>
-							La cuisine est spaci<strong>euse</strong>
-						</AudioClip>.
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/018-les-appartements-sont-spacieux.mp3`}>
-							Les appartements sont spaci<strong>eux</strong>
-						</AudioClip>.
-					</p>
-					<p>
-						<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/019-les-chambres-sont-spacieuses.mp3`}>
-							Les chambres sont spaci<strong>euses</strong>
-						</AudioClip>.
-					</p>
+					{/* <p>→<div>: short text triggers WAVE "possible heading" */}
+					<div>Look at these examples:</div>
+					{/* ul/li: bold text mid-sentence avoids WAVE possible-heading;
+					    li picks up font-size-base from #content :where(p, li, …) */}
+					<ul className="list-none p-0 mt-1 space-y-1">
+						<li>
+							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/016-le-salon-est-spacieux.mp3`}>
+								Le salon est spaci<strong>eux</strong>
+							</AudioClip>.
+						</li>
+						<li>
+							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/017-la-cuisine-est-spacieuse.mp3`}>
+								La cuisine est spaci<strong>euse</strong>
+							</AudioClip>.
+						</li>
+						<li>
+							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/018-les-appartements-sont-spacieux.mp3`}>
+								Les appartements sont spaci<strong>eux</strong>
+							</AudioClip>.
+						</li>
+						<li>
+							<AudioClip className={`link`} soundFile={`audio/lo5/grammar/grammar-and-usage/019-les-chambres-sont-spacieuses.mp3`}>
+								Les chambres sont spaci<strong>euses</strong>
+							</AudioClip>.
+						</li>
+					</ul>
 				</div>
 			</div>
 		);
