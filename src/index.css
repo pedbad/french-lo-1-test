@@ -2547,6 +2547,9 @@
 	#LO4-pronunciation2-Accordion .pronunciation-panel,
 	#LO4-pronunciation3-Accordion .pronunciation-panel,
 	#LO4-pronunciation-Group-Section .pronunciation-panel,
+	#LO5-pronunciation1-Accordion .pronunciation-panel,
+	#LO5-pronunciation2-Accordion .pronunciation-panel,
+	#LO5-pronunciation-Group-Section .pronunciation-panel,
 	#LO12-pronunciation-Section .pronunciation-panel {
 		display: flex;
 		flex-direction: column;
