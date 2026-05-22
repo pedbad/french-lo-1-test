@@ -407,6 +407,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 						<div className="space-y-1.5">
 							<div className="grid w-full grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-2">
 								<Input
+									aria-label={`Item ${i + 1}: type your answer`}
 									className={`min-h-10 text-[var(--font-size-sm)] md:text-base ${inputToneClass}`}
 									onChange={(event) => this.handleInputChange(i, event.target.value)}
 									onKeyDown={(event) => this.handleInputKeyDown(i, event)}
@@ -474,11 +475,32 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 				{htmlContent ? <div className="html-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
 				<Table className={useGlobalActions ? "table-fixed" : undefined}>
+					{!header && (
+						/* colgroup sets column widths for table-fixed independently of any header row */
+						<colgroup>
+							{longestRow > 2 && !shouldInlineAudioWithPrompt && <col style={{ width: "3.5rem" }} />}
+							{hasNonEmptyPromptColumn && <col style={{ width: "34%" }} />}
+							<col />
+						</colgroup>
+					)}
 					{header ? (
 						<TableHeader>
 							<TableRow>{headerCells}</TableRow>
 						</TableHeader>
-					) : null}
+					) : (
+						/* zero-height th row satisfies WAVE "layout table"; widths come from colgroup above */
+						<TableHeader>
+							<TableRow style={{ height: 0 }}>
+								{longestRow > 2 && !shouldInlineAudioWithPrompt && (
+									<TableHead scope="col" style={{ height: 0, padding: 0, overflow: "hidden", border: "none" }}>Audio</TableHead>
+								)}
+								{hasNonEmptyPromptColumn && (
+									<TableHead scope="col" style={{ height: 0, padding: 0, overflow: "hidden", border: "none" }}>Prompt</TableHead>
+								)}
+								<TableHead scope="col" style={{ height: 0, padding: 0, overflow: "hidden", border: "none" }}>Answer</TableHead>
+							</TableRow>
+						</TableHeader>
+					)}
 					<TableBody>{rows}</TableBody>
 				</Table>
 

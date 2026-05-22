@@ -1,6 +1,6 @@
 import { AudioClip } from "@/components/AudioClip";
 import { Info } from "@/components/Info";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 import { playAudioLink } from "@/utils/audioPlayback";
 import { PhoningInFranceRegionsMap } from "./phoning-in-france-regions-map";
@@ -11,31 +11,35 @@ export class PhoningInFranceGrammarTelephoneNumbers extends PureComponent {
 		return (
 			<div id={id || undefined}>
 				<h3>1. Telephone numbers in France</h3>
-				<div className="lo9-figure-container">
-					<PhoningInFranceRegionsMap />
-				</div>
-				<div className="mt-4">
-					<Info variant="warning">
-						{/* h4→p: heading inside an Info box is redundant */}
-						<p>
-							<strong>NB</strong> Within France, telephone numbers usually have
-							ten digits. For landlines, the first two digits are the area code.
-						</p>
-						<p>
-							Mobile numbers usually begin with <strong>06</strong> or{" "}
-							<strong>07</strong>.
-						</p>
-						<p>
-							Telephone numbers are normally spoken in two-digit groups, for
-							example{" "}
-							<AudioClip
-								className="link"
-								soundFile="audio/lo9/grammar/telephone-regions/006-example-mobile-number.mp3"
-							>
-								07 11 15 22 55
-							</AudioClip>
-						</p>
-					</Info>
+				{/* id="RegionalTelephoneMap" required — all map CSS is scoped to this id */}
+				<div id="RegionalTelephoneMap">
+					<div className="lo9-figure-container">
+						<PhoningInFranceRegionsMap />
+					</div>
+					<div className="mt-4">
+						<Info variant="warning">
+							{/* h4→p: heading inside an Info box is redundant */}
+							<p>
+								<strong>NB</strong> Within France, telephone numbers usually have
+								ten digits. For landlines, the first two digits are the area code.
+							</p>
+							{/* p→div: short <p> triggers WAVE "possible heading" */}
+							<div>
+								Mobile numbers usually begin with <strong>06</strong> or{" "}
+								<strong>07</strong>.
+							</div>
+							<p>
+								Telephone numbers are normally spoken in two-digit groups, for
+								example{" "}
+								<AudioClip
+									className="link"
+									soundFile="audio/lo9/grammar/telephone-regions/006-example-mobile-number.mp3"
+								>
+									07 11 15 22 55
+								</AudioClip>
+							</p>
+						</Info>
+					</div>
 				</div>
 			</div>
 		);
@@ -103,6 +107,9 @@ export class PhoningInFranceGrammarBienForConfirmation extends PureComponent {
 					<strong> that&apos;s right</strong>.
 				</p>
 				<Table className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-only">
+						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+					</TableHeader>
 					<TableBody>
 						{confirmationRows.map((row, index) => (
 							<TableRow
