@@ -46,7 +46,8 @@ export class HouseAndHomePronunciationRelatedSpellings extends PureComponent {
 					<h3>2. Related spellings</h3>
 					<div className={`pronunciation-content`}>
 						<div className={`pronunciation-text`}>
-							<p>Here are more words to practise with the same sound:</p>
+							{/* <p>→<div>: short label triggers WAVE "possible heading" */}
+							<div>Here are more words to practise with the same sound:</div>
 							<div className={`mb-0 ml-2 space-y-1`}>
 								<div><AudioClip className={`link`} soundFile={`audio/lo5/pronunciation/demystify/005-enfant.mp3`}>enfant</AudioClip></div>
 								<div><AudioClip className={`link`} soundFile={`audio/lo5/pronunciation/demystify/006-ensemble.mp3`}>ensemble</AudioClip></div>

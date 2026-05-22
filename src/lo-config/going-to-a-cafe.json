@@ -5,7 +5,7 @@
       "alt": "Going to a cafe illustration"
     },
     "introHTML": "<p>This lesson teaches learners how to order food and drinks in a French café, using useful expressions such as <em>Je voudrais…</em>, <em>Pour moi…</em>, and <em>Vous désirez&nbsp;?</em>. It introduces common café vocabulary for drinks, snacks, ice creams, and flavours.</p><p>It also practises key grammar points including the conditional of <em>vouloir</em>, the verb <em>prendre</em> for food and drink, the preposition <em>à</em> when talking about flavours, fillings and toppings, and disjunctive pronouns after prepositions such as <em>pour</em> and <em>avec</em>.</p>",
-    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Order drinks, snacks, and ice creams politely in a French café.</li><li>Use <em>je voudrais</em> to make polite requests and <em>prendre</em> to talk about what someone is having.</li><li>Ask about flavours, fillings, and menu choices more naturally.</li><li>Use <em>au</em>, <em>à la</em>, <em>à l&apos;</em>, and <em>aux</em> correctly with flavours and toppings.</li><li>Recognise and use disjunctive pronouns such as <em>moi</em>, <em>toi</em>, and <em>eux</em> after prepositions.</li></ul>"
+    "informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Order drinks, snacks, and ice creams politely in a French café.</li><li>Use <em>je voudrais</em> to make polite requests and <em>prendre</em> to talk about what someone is having.</li><li>Ask about flavours, fillings, and menu choices more naturally.</li><li>Use <em>au</em>, <em>à la</em>, <em>à l&apos;</em>, and <em>aux</em> correctly with flavours and toppings.</li><li>Recognise and use disjunctive pronouns such as <em>moi</em>, <em>toi</em>, and <em>eux</em> after prepositions.</li></ul>"
   },
   "dialogues": {
     "component": "Section",
@@ -131,7 +131,7 @@
     "expandable": false,
     "id": "vocabulary",
     "informationTextHTML": "<p>This section introduces the key café expressions and menu vocabulary used throughout the lesson.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Useful ordering expressions such as <em>Vous désirez&nbsp;?</em>, <em>Qu&apos;est-ce que vous prenez&nbsp;?</em>, and <em>Je voudrais</em>.</li><li>Drink vocabulary such as <em>café-crème</em>, <em>chocolat chaud</em>, <em>eau minérale</em>, and <em>bière pression</em>.</li><li>Food and snack items such as <em>crêpe</em>, <em>croque-monsieur</em>, and <em>omelette aux champignons</em>.</li><li>Words for flavours and portions such as <em>parfum</em> and <em>boule</em>.</li></ul>",
+    "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Useful ordering expressions such as <em>Vous désirez&nbsp;?</em>, <em>Qu&apos;est-ce que vous prenez&nbsp;?</em>, and <em>Je voudrais</em>.</li><li>Drink vocabulary such as <em>café-crème</em>, <em>chocolat chaud</em>, <em>eau minérale</em>, and <em>bière pression</em>.</li><li>Food and snack items such as <em>crêpe</em>, <em>croque-monsieur</em>, and <em>omelette aux champignons</em>.</li><li>Words for flavours and portions such as <em>parfum</em> and <em>boule</em>.</li></ul>",
     "phrases": [
       ["audio/lo11/vocabulary/001-vous-desirez.mp3", "Vous désirez&nbsp;?", "What can I get you?"],
       [

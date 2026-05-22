@@ -5,7 +5,7 @@
       "src": "img/lo15/planning-a-holiday.svg",
       "alt": "Illustration for planning a holiday"
     },
-    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Talk about holiday destinations, travel plans, transport, weather, and future activities.</li><li>Use the near future tense with <em>aller + infinitive</em> to describe plans, for example <em>Je vais passer mes vacances en France</em>.</li><li>Use <em>aller</em> to mean “to go”, to ask how someone is, and to form future intentions.</li><li>Use <em>faire</em> and <em>il y a</em> in common weather expressions such as <em>Il fait chaud</em> and <em>Il y a du soleil</em>.</li><li>Recognise useful holiday vocabulary for activities, transport, seasons, and francophone places.</li></ul>"
+    "informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Talk about holiday destinations, travel plans, transport, weather, and future activities.</li><li>Use the near future tense with <em>aller + infinitive</em> to describe plans, for example <em>Je vais passer mes vacances en France</em>.</li><li>Use <em>aller</em> to mean “to go”, to ask how someone is, and to form future intentions.</li><li>Use <em>faire</em> and <em>il y a</em> in common weather expressions such as <em>Il fait chaud</em> and <em>Il y a du soleil</em>.</li><li>Recognise useful holiday vocabulary for activities, transport, seasons, and francophone places.</li></ul>"
   },
   "dialogues": {
     "component": "Section",
@@ -237,7 +237,7 @@
     "sortable": true,
     "titleText": "Vocabulary",
     "informationTextHTML": "<p>This section introduces the key holiday, transport, beach, weather, and season vocabulary used throughout the lesson.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Holiday activities such as <em>loger</em>, <em>voyager</em>, <em>partir</em>, <em>bronzer</em>, and <em>faire du tourisme</em>.</li><li>Means of transport such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, <em>à cheval</em>, and <em>à pied</em>.</li><li>Expressions to talk about the weather and the seasons such as <em>Quel temps fait-il&nbsp;?</em>, <em>Il fait beau</em>, <em>Il y a du soleil</em>, and <em>en été</em>.</li></ul>"
+    "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Holiday activities such as <em>loger</em>, <em>voyager</em>, <em>partir</em>, <em>bronzer</em>, and <em>faire du tourisme</em>.</li><li>Means of transport such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, <em>à cheval</em>, and <em>à pied</em>.</li><li>Expressions to talk about the weather and the seasons such as <em>Quel temps fait-il&nbsp;?</em>, <em>Il fait beau</em>, <em>Il y a du soleil</em>, and <em>en été</em>.</li></ul>"
   },
   "grammar": {
     "component": "Group",

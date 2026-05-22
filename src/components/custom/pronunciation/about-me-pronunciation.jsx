@@ -108,7 +108,8 @@ export class AboutMePronunciationSilentE extends PureComponent {
 								<div><AudioClip className={`link`} soundFile={`audio/lo2/vocabulary/005-celibataire.mp3`} alt={`célibataire`}>célibatair<strong>e</strong></AudioClip></div>
 							</div>
 							<Info variant="warning">
-								<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold"><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</h4>
+								{/* h4→p: heading inside an Info box is redundant */}
+							<p><strong>NB</strong> 2-letter words ending in <strong>e</strong> are exceptions:</p>
 								<div>
 									<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/002-ce.mp3`}>ce</AudioClip>,&nbsp;
 									<AudioClip className={`link`} soundFile={`audio/lo2/pronunciation/demystify/003-de.mp3`}>de</AudioClip>,&nbsp;

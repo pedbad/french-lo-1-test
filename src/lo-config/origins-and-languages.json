@@ -5,7 +5,7 @@
 			"alt": "Origins and languages illustration"
 		},
 		"introHTML": "<p>This lesson teaches how to use and understand French vocabulary, verb groups, and pronunciation while developing listening and speaking skills through contextual exercises that reinforce grammatical accuracy and gender agreement.</p>",
-		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Ask and answer questions about nationality, origin, and languages in French.</li><li>Use core vocabulary for countries, nationalities, and language names with better accuracy.</li><li>Recognise and apply key verb patterns used in common conversation.</li><li>Improve pronunciation and listening confidence through guided audio practice.</li><li>Complete interactive exercises that reinforce comprehension and spoken forms.</li></ul>"
+		"informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Ask and answer questions about nationality, origin, and languages in French.</li><li>Use core vocabulary for countries, nationalities, and language names with better accuracy.</li><li>Recognise and apply key verb patterns used in common conversation.</li><li>Improve pronunciation and listening confidence through guided audio practice.</li><li>Complete interactive exercises that reinforce comprehension and spoken forms.</li></ul>"
 	},
 	"dialogues": {
 		"component": "Section",

@@ -502,7 +502,8 @@ export class SelectExercise extends React.PureComponent {
 					const isPassageMeta = Boolean(item?.passageMeta);
 
 					passageLines.push(
-						<p
+						/* <p>→<div>: short poem lines trigger WAVE "possible heading" alert */
+						<div
 							className={`relative m-0 overflow-hidden text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base ${
 								isPassageMeta
 									? "pt-1 text-right text-muted-foreground"
@@ -598,7 +599,7 @@ export class SelectExercise extends React.PureComponent {
 								</span>
 							)}
 						</span>
-					</p>
+					</div>
 				);
 				continue;
 			}
@@ -702,9 +703,10 @@ export class SelectExercise extends React.PureComponent {
 										{this.renderSentenceWithoutChoices(segments)}
 									</button>
 								) : (
-									<p className="col-start-2 row-start-1 m-0 min-w-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base">
+									/* p→div: short item text triggers WAVE "possible heading" */
+									<div className="col-start-2 row-start-1 m-0 min-w-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] md:text-base">
 										{this.renderSentenceWithoutChoices(segments)}
-									</p>
+									</div>
 								)}
 
 								{rowHasChoices ? (

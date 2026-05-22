@@ -16,10 +16,11 @@ export class PhoningInFranceGrammarTelephoneNumbers extends PureComponent {
 				</div>
 				<div className="mt-4">
 					<Info variant="warning">
-						<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">
+						{/* h4→p: heading inside an Info box is redundant */}
+						<p>
 							<strong>NB</strong> Within France, telephone numbers usually have
 							ten digits. For landlines, the first two digits are the area code.
-						</h4>
+						</p>
 						<p>
 							Mobile numbers usually begin with <strong>06</strong> or{" "}
 							<strong>07</strong>.

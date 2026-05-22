@@ -5,7 +5,7 @@
       "alt": "Opinions matter illustration"
     },
     "introHTML": "<p>This lesson teaches learners how to express likes, dislikes, and preferences in French using verbs such as <em>aimer</em>, <em>adorer</em>, <em>détester</em>, and <em>préférer</em>. It introduces sentence patterns for talking about activities, sports, and favourite things, and shows how to use definite articles with general nouns (for example <em>j&apos;aime le football</em>, <em>je n&apos;aime pas la natation</em>). Learners also practise interrogative adjectives (<em>quel</em>, <em>quelle</em>, <em>quels</em>, <em>quelles</em>) to ask questions, and work on pronunciation of words borrowed from English like <em>le tennis</em>, <em>le foot</em>, and <em>le week-end</em>.</p>",
-    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Talk about likes, dislikes, and preferences in French.</li><li>Use common verbs such as <em>aimer</em>, <em>adorer</em>, <em>détester</em>, and <em>préférer</em> with greater confidence.</li><li>Use definite articles more accurately when talking about sports, activities, and general things.</li><li>Ask and answer questions about favourite activities, colours, and countries.</li><li>Recognise how some words borrowed from English are pronounced in French.</li></ul>"
+    "informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Talk about likes, dislikes, and preferences in French.</li><li>Use common verbs such as <em>aimer</em>, <em>adorer</em>, <em>détester</em>, and <em>préférer</em> with greater confidence.</li><li>Use definite articles more accurately when talking about sports, activities, and general things.</li><li>Ask and answer questions about favourite activities, colours, and countries.</li><li>Recognise how some words borrowed from English are pronounced in French.</li></ul>"
   },
   "dialogues": {
     "component": "Section",
@@ -136,7 +136,7 @@
     "expandable": false,
     "id": "vocabulary",
     "informationTextHTML": "<p>This section introduces key verbs, sports, activities, weather words, and descriptive adjectives used throughout the unit.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Core verbs for expressing likes and dislikes.</li><li>Vocabulary for sports, hobbies, and free-time activities.</li><li>Words for weather, places, and general preferences.</li><li>Useful adjectives for giving reasons and opinions.</li></ul>",
+    "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core verbs for expressing likes and dislikes.</li><li>Vocabulary for sports, hobbies, and free-time activities.</li><li>Words for weather, places, and general preferences.</li><li>Useful adjectives for giving reasons and opinions.</li></ul>",
     "phrases": [
       ["audio/lo7/vocabulary/adorer.mp3", "adorer", "to adore"],
       ["audio/lo7/vocabulary/aimer.mp3", "aimer", "to like, to love"],

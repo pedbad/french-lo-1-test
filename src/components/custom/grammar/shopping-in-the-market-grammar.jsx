@@ -126,7 +126,8 @@ export class ShoppingInTheMarketGrammarAller extends PureComponent {
 				</p>
 				<div className="mt-3">
 					<Info variant="warning">
-						<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">
+						{/* h4→p: heading inside an Info box is redundant */}
+						<p>
 							<strong>NB</strong>{" "}French uses{" "}
 							<AudioClip className="link" soundFile="audio/lo12/grammar/007-aller.mp3">
 								<strong>aller</strong>
@@ -141,7 +142,7 @@ export class ShoppingInTheMarketGrammarAller extends PureComponent {
 								<strong>Vous allez bien&nbsp;?</strong>
 							</AudioClip>
 							.
-						</h4>
+						</p>
 					</Info>
 				</div>
 			</div>
@@ -234,9 +235,10 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 				</p>
 				<div className="mt-3">
 					<Info variant="warning">
-						<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">
+						{/* h4→p: heading inside an Info box is redundant */}
+						<p>
 							<strong>NB</strong> These words have other meanings too, so it is important to bear the context in mind.
-						</h4>
+						</p>
 					</Info>
 				</div>
 				<p>

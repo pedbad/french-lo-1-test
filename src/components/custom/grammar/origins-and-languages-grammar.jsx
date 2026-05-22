@@ -191,7 +191,8 @@ export class OriginsAndLanguagesGrammarDeForms extends PureComponent {
 							informationTextHTML="<p><strong>NB</strong> The word <strong>de</strong> occurs in French with a variety of meanings. Here it means <strong>from</strong>, and it's followed by a place name.</p>"
 						/>
 					</div>
-					<p>Look at the following examples illustrating the forms:</p>
+					{/* <p>→<div>: short label triggers WAVE "possible heading" */}
+					<div>Look at the following examples illustrating the forms:</div>
 					{/* ul/li: bold text falls mid-sentence so no WAVE possible-heading alert,
 					    and li picks up font-size-base from #content :where(p, li, …) */}
 					<ul className="!list-none !p-0 mt-1 space-y-1">

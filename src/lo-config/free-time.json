@@ -5,7 +5,7 @@
       "alt": "Free time illustration"
     },
     "introHTML": "<p>This lesson teaches you how to talk about free-time activities in French. You will practise using verbs such as <em>faire</em> and <em>jouer</em> to describe hobbies, sports, music, and weekend routines, while learning how French uses partitive articles with these activities. The unit also helps you notice adjective agreement and improve pronunciation of common <em>-tion</em> words.</p>",
-    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Talk about hobbies, sports, and weekend routines in French.</li><li>Use <em>faire</em> with the correct partitive article (<em>du</em>, <em>de la</em>, <em>de l&apos;</em>, <em>des</em>).</li><li>Use <em>jouer de</em> for musical instruments and <em>jouer à</em> for sports and games.</li><li>Recognise and apply adjective agreement patterns such as <em>sportif / sportive</em>.</li><li>Pronounce common French words ending in <em>-tion</em> more confidently.</li></ul>"
+    "informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Talk about hobbies, sports, and weekend routines in French.</li><li>Use <em>faire</em> with the correct partitive article (<em>du</em>, <em>de la</em>, <em>de l&apos;</em>, <em>des</em>).</li><li>Use <em>jouer de</em> for musical instruments and <em>jouer à</em> for sports and games.</li><li>Recognise and apply adjective agreement patterns such as <em>sportif / sportive</em>.</li><li>Pronounce common French words ending in <em>-tion</em> more confidently.</li></ul>"
   },
   "dialogues": {
     "component": "Section",
@@ -121,7 +121,7 @@
     "expandable": false,
     "id": "vocabulary",
     "informationTextHTML": "<p>This section introduces key free-time vocabulary used throughout the unit.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Core vocabulary for hobbies and free time (for example <em>temps libre</em>, <em>loisirs</em>, <em>passe-temps</em>).</li><li>Useful verbs for activities and games (for example <em>faire</em>, <em>jouer à</em>, <em>jouer de</em>).</li><li>Sports and leisure nouns (for example <em>aviron</em>, <em>escalade</em>, <em>natation</em>, <em>pétanque</em>).</li><li>Useful adjectives for describing preferences and activities (for example <em>actif / active</em>, <em>dangereux / dangereuse</em>, <em>sportif / sportive</em>).</li></ul>",
+    "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core vocabulary for hobbies and free time (for example <em>temps libre</em>, <em>loisirs</em>, <em>passe-temps</em>).</li><li>Useful verbs for activities and games (for example <em>faire</em>, <em>jouer à</em>, <em>jouer de</em>).</li><li>Sports and leisure nouns (for example <em>aviron</em>, <em>escalade</em>, <em>natation</em>, <em>pétanque</em>).</li><li>Useful adjectives for describing preferences and activities (for example <em>actif / active</em>, <em>dangereux / dangereuse</em>, <em>sportif / sportive</em>).</li></ul>",
     "phrases": [
       [
         "audio/lo8/vocabulary/001-temps-libre.mp3",

@@ -2554,6 +2554,18 @@
 	#LO6-pronunciation2-Accordion .pronunciation-panel,
 	#LO6-pronunciation3-Accordion .pronunciation-panel,
 	#LO6-pronunciation-Group-Section .pronunciation-panel,
+	#LO7-pronunciation1-Accordion .pronunciation-panel,
+	#LO7-pronunciation2-Accordion .pronunciation-panel,
+	#LO7-pronunciation-Group-Section .pronunciation-panel,
+	#LO8-pronunciation1-Accordion .pronunciation-panel,
+	#LO8-pronunciation2-Accordion .pronunciation-panel,
+	#LO8-pronunciation-Group-Section .pronunciation-panel,
+	#LO9-pronunciation1-Accordion .pronunciation-panel,
+	#LO9-pronunciation2-Accordion .pronunciation-panel,
+	#LO9-pronunciation-Group-Section .pronunciation-panel,
+	#LO10-pronunciation1-Accordion .pronunciation-panel,
+	#LO10-pronunciation2-Accordion .pronunciation-panel,
+	#LO10-pronunciation-Group-Section .pronunciation-panel,
 	#LO12-pronunciation-Section .pronunciation-panel {
 		display: flex;
 		flex-direction: column;

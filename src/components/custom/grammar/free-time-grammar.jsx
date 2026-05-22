@@ -448,7 +448,8 @@ export class FreeTimeGrammarNounEndings extends PureComponent {
 						</AudioClip>
 						.
 					</p>
-					<p>Many nouns ending in <strong>-isme</strong> are masculine, for example:</p>
+					{/* <p>→<div>: short label triggers WAVE "possible heading" */}
+					<div>Many nouns ending in <strong>-isme</strong> are masculine, for example:</div>
 					<p>
 						<AudioClip
 							className="link"

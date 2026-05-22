@@ -5,7 +5,7 @@
 			"src": "img/lo14/studying-at-university.svg",
 			"alt": "Studying at university illustration"
 		},
-		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Say what and where you study, and talk about degrees and years of study.</li><li>Use university vocabulary for lectures, seminars, research, essays, and academic life.</li><li>Ask more natural French questions with <em>comme</em>, especially about studies and preferences.</li><li>Use <em>devoir</em> and <em>pouvoir</em> with infinitives to talk about obligations and possibilities.</li><li>Recognise and use present and past participles as adjectives more accurately.</li></ul>"
+		"informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Say what and where you study, and talk about degrees and years of study.</li><li>Use university vocabulary for lectures, seminars, research, essays, and academic life.</li><li>Ask more natural French questions with <em>comme</em>, especially about studies and preferences.</li><li>Use <em>devoir</em> and <em>pouvoir</em> with infinitives to talk about obligations and possibilities.</li><li>Recognise and use present and past participles as adjectives more accurately.</li></ul>"
 	},
 	"dialogues": {
 		"component": "Section",
@@ -372,7 +372,7 @@
 		"sortable": true,
 		"titleText": "Vocabulary",
 		"informationTextHTML": "<p>This section introduces the core university words and useful expressions used throughout the lesson.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Words for people and roles such as <em>étudiant(e)</em>, <em>doctorant(e)</em>, <em>chercheur / chercheuse</em>, and <em>professeur(e)</em>.</li><li>Useful expressions for studies and degrees such as <em>faire des études</em>, <em>licence</em>, <em>master</em>, and <em>doctorat</em>.</li><li>Names of academic subjects, years of study, and teaching formats such as <em>la biologie</em>, <em>en deuxième année</em>, <em>le cours magistral</em>, and <em>le séminaire</em>.</li><li>Adjectives and phrases used to describe workload and feelings, such as <em>fatigant</em>, <em>stressant</em>, and <em>avoir un emploi du temps chargé</em>.</li></ul>"
+		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Words for people and roles such as <em>étudiant(e)</em>, <em>doctorant(e)</em>, <em>chercheur / chercheuse</em>, and <em>professeur(e)</em>.</li><li>Useful expressions for studies and degrees such as <em>faire des études</em>, <em>licence</em>, <em>master</em>, and <em>doctorat</em>.</li><li>Names of academic subjects, years of study, and teaching formats such as <em>la biologie</em>, <em>en deuxième année</em>, <em>le cours magistral</em>, and <em>le séminaire</em>.</li><li>Adjectives and phrases used to describe workload and feelings, such as <em>fatigant</em>, <em>stressant</em>, and <em>avoir un emploi du temps chargé</em>.</li></ul>"
 	},
 	"grammar": {
 		"component": "Group",

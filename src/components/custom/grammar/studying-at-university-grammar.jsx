@@ -315,10 +315,11 @@ export class StudyingAtUniversityGrammarParticiples extends PureComponent {
 				</p>
 				<AudioTable rows={pastRows} tableId={`${id || "lo14-grammar4"}-past`} />
 				<Info variant="warning">
-					<h4 className="m-0 mb-1 text-[var(--font-size-base)] font-semibold">
+					{/* h4→p: heading inside an Info box is redundant */}
+					<p>
 						<strong>NB</strong> When present or past participles are used as adjectives,
 						they must agree in gender and number with the noun they describe.
-					</h4>
+					</p>
 				</Info>
 			</div>
 		);

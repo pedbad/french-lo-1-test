@@ -5,7 +5,7 @@
       "alt": "Shopping in the market illustration"
     },
     "introHTML": "<p>This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities such as <em>Donnez-moi deux kilos de pommes de terre, s'il vous plaît</em>, checking prices with <em>C'est combien&nbsp;?</em>, and responding to questions such as <em>Avec ça&nbsp;?</em> and <em>C'est tout&nbsp;?</em>.</p><p>It also introduces key vocabulary for shops, food items, quantities, and packaging, alongside useful grammar for <em>aller</em>, partitives and how to say <em>of</em>, and plural forms used when shopping.</p>",
-    "informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Talk about where you go shopping and describe everyday market routines.</li><li>Ask for quantities politely and ask how much produce costs.</li><li>Use <em>aller</em> accurately in the present tense.</li><li>Choose between <em>du</em>, <em>de la</em>, <em>de l&apos;</em>, <em>des</em>, and <em>de</em> more confidently.</li><li>Hear the difference between the French sounds <em>u</em> and <em>ou</em> and pronounce them correctly.</li></ul>"
+    "informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Talk about where you go shopping and describe everyday market routines.</li><li>Ask for quantities politely and ask how much produce costs.</li><li>Use <em>aller</em> accurately in the present tense.</li><li>Choose between <em>du</em>, <em>de la</em>, <em>de l&apos;</em>, <em>des</em>, and <em>de</em> more confidently.</li><li>Hear the difference between the French sounds <em>u</em> and <em>ou</em> and pronounce them correctly.</li></ul>"
   },
   "dialogues": {
     "component": "Section",
@@ -308,7 +308,7 @@
     "sortable": true,
     "titleText": "Vocabulary",
     "informationTextHTML": "<p>This section introduces the key shop names, food words, quantity expressions, and useful market phrases used throughout the lesson.</p>",
-    "informationTextHTML": "<h3>You will learn:</h3><ul><li>Places in the town such as <em>le marché</em>, <em>la boulangerie</em>, and <em>la poissonnerie</em>.</li><li>Useful shopping expressions such as <em>Donnez-moi...</em>, <em>Avec ça&nbsp;?</em>, and <em>Ça fait...</em>.</li><li>Quantities such as <em>un kilo</em>, <em>un demi-kilo</em>, <em>une barquette</em>, and <em>la pièce</em>.</li><li>Common fruit and vegetables needed for simple market transactions.</li></ul>"
+    "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Places in the town such as <em>le marché</em>, <em>la boulangerie</em>, and <em>la poissonnerie</em>.</li><li>Useful shopping expressions such as <em>Donnez-moi...</em>, <em>Avec ça&nbsp;?</em>, and <em>Ça fait...</em>.</li><li>Quantities such as <em>un kilo</em>, <em>un demi-kilo</em>, <em>une barquette</em>, and <em>la pièce</em>.</li><li>Common fruit and vegetables needed for simple market transactions.</li></ul>"
   },
   "grammar": {
     "component": "Group",

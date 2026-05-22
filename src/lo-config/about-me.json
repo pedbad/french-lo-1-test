@@ -5,7 +5,7 @@
 			"alt": "About me themed illustration"
 		},
 		"introHTML": "<p>This lesson helps you talk about who you are in French. You will practise introducing yourself, describing your personal situation and profession, and answering common personal questions politely. Through listening and speaking tasks, you will also improve key pronunciation patterns for clearer, more natural French.</p>",
-		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Introduce yourself and describe your situation and profession (for example <em>célibataire</em>, <em>marié(e)</em>, <em>bibliothécaire</em>, <em>professeur(e)</em>).</li><li>Use the verb <em>être</em> with subject pronouns.</li><li>Recognise how grammatical gender affects articles and agreement in everyday expressions.</li><li>Recognise and produce key pronunciation features, including silent final consonants and <em>th</em>.</li><li>Respond accurately in guided listening and interactive practice activities.</li></ul>"
+		"informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Introduce yourself and describe your situation and profession (for example <em>célibataire</em>, <em>marié(e)</em>, <em>bibliothécaire</em>, <em>professeur(e)</em>).</li><li>Use the verb <em>être</em> with subject pronouns.</li><li>Recognise how grammatical gender affects articles and agreement in everyday expressions.</li><li>Recognise and produce key pronunciation features, including silent final consonants and <em>th</em>.</li><li>Respond accurately in guided listening and interactive practice activities.</li></ul>"
 	},
 	"monologues": {
 		"component": "Section",
@@ -46,7 +46,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"informationTextHTML": "<p>This section introduces the vocabulary used in the unit and presents it in two ways: alphabetically and semantically.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core personal-status vocabulary (for example <em>célibataire</em>, <em>marié(e)</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>Masculine and feminine forms of adjectives and professions (for example <em>divorcé(e)</em>, <em>avocat(e)</em>).</li></ul>",
+		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core personal-status vocabulary (for example <em>célibataire</em>, <em>marié(e)</em>).</li><li>Study and profession terms (for example <em>étudiant(e), professeur(e), médecin, bibliothécaire</em>).</li><li>Useful ways to ask someone's profession (for example <em>Que faites-vous ?</em>, <em>Quel est votre métier ?</em>).</li><li>Masculine and feminine forms of adjectives and professions (for example <em>divorcé(e)</em>, <em>avocat(e)</em>).</li></ul>",
 		"phrases": [
 			[
 				"audio/lo2/vocabulary/011-etre.mp3",

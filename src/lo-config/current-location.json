@@ -5,7 +5,7 @@
 			"alt": "Current location illustration"
 		},
 		"introHTML": "<p>This lesson teaches learners how to talk about where they live and where places are located in French. It introduces key questions and answers using <em>habiter</em>, prepositions for “in” (<em>à, en, au, aux, dans le</em>), and vocabulary for describing types of places and surroundings. It also develops pronunciation with the nasal vowel sound <em>in</em> (as in <em>Singapour</em>, <em>jardin</em>, <em>indien</em>), helping learners speak more naturally when discussing locations and geography.</p>",
-		"informationHTML": "<h3>After completing this unit, you will be able to:</h3><ul><li>Ask and answer questions about where people live and where places are located.</li><li>Use key location structures with <em>habiter</em> and <em>se trouver</em> in everyday context.</li><li>Choose the correct French form for “in” (<em>à, en, au, aux, dans le</em>) based on place type and gender.</li><li>Use vocabulary for environment and accommodation (for example <em>à la campagne, en banlieue, dans un immeuble</em>).</li><li>Recognise and produce the nasal vowel sound <em>in</em> in common words and phrases.</li></ul>"
+		"informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Ask and answer questions about where people live and where places are located.</li><li>Use key location structures with <em>habiter</em> and <em>se trouver</em> in everyday context.</li><li>Choose the correct French form for “in” (<em>à, en, au, aux, dans le</em>) based on place type and gender.</li><li>Use vocabulary for environment and accommodation (for example <em>à la campagne, en banlieue, dans un immeuble</em>).</li><li>Recognise and produce the nasal vowel sound <em>in</em> in common words and phrases.</li></ul>"
 	},
 	"dialogues": {
 		"component": "Section",
@@ -120,7 +120,7 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
-		"informationTextHTML": "<h3>You will learn:</h3><ul><li>Core location vocabulary for where people live and where places are found.</li><li>How to ask and answer location questions with <em>habiter</em> and <em>se trouver</em>.</li><li>How to describe surroundings and accommodation (for example <em>à la campagne</em>, <em>en banlieue</em>, <em>dans un appartement</em>).</li><li>How to use these forms more confidently in spoken and listening activities.</li></ul>",
+		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core location vocabulary for where people live and where places are found.</li><li>How to ask and answer location questions with <em>habiter</em> and <em>se trouver</em>.</li><li>How to describe surroundings and accommodation (for example <em>à la campagne</em>, <em>en banlieue</em>, <em>dans un appartement</em>).</li><li>How to use these forms more confidently in spoken and listening activities.</li></ul>",
 		"phrases": [
 			[
 				"/audio/lo4/vocabulary/vocabulary/001-habiter.mp3",

@@ -379,7 +379,8 @@ export class GoingToACafeGrammarDisjunctivePronouns extends PureComponent {
 					. Look at these examples:
 				</p>
 				<AudioTable rows={exampleRows} tableId={`${id || "lo11-grammar4"}-examples`} />
-				<p className="mt-4">Here is the full list of pronouns:</p>
+				{/* <p>→<div>: short label triggers WAVE "possible heading" */}
+				<div className="mt-4">Here is the full list of pronouns:</div>
 				<AudioTable
 					rows={pronounRows}
 					tableId={`${id || "lo11-grammar4"}-pronouns`}
