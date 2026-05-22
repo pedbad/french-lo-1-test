@@ -1,5 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 import { playAudioLink } from "@/utils/audioPlayback";
 
@@ -35,21 +35,25 @@ export class FreeTimeGrammarAdjectiveAgreement extends PureComponent {
 						</AudioClip>
 						. Compare these two examples:
 					</p>
-					<p>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/adjective-agreement/003-mon-frere-est-sportif.mp3"
-						>
-							Mon frère est sport<strong>if</strong>.
-						</AudioClip>
-						{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/adjective-agreement/004-ma-soeur-est-sportive.mp3"
-						>
-							Ma sœur est sporti<strong>ve</strong>.
-						</AudioClip>
-					</p>
+					{/* p→div: short <p> with audio triggers WAVE "possible heading" */}
+					<div className="mb-0 ml-2 space-y-1">
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/adjective-agreement/003-mon-frere-est-sportif.mp3"
+							>
+								Mon frère est sport<strong>if</strong>.
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/adjective-agreement/004-ma-soeur-est-sportive.mp3"
+							>
+								Ma sœur est sporti<strong>ve</strong>.
+							</AudioClip>
+						</div>
+					</div>
 				</div>
 			</div>
 		);
@@ -151,6 +155,9 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						common and irregular, so it is worth learning well. Here it is in the present tense:
 					</p>
 					<Table className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-only">
+							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						</TableHeader>
 						<TableBody>
 							{faireRows.map((row, index) => (
 								<TableRow
@@ -199,9 +206,14 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						>
 							<strong>des</strong>
 						</AudioClip>
-						{" "}for plurals. Here are some examples:
-					</p>
+						{" "}for plurals.
+						</p>
+						{/* p→div: short label triggers WAVE "possible heading" */}
+						<div style={{ fontSize: "var(--font-size-base)" }}>Here are some examples:</div>
 					<Table className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-only">
+							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						</TableHeader>
 						<TableBody>
 							{exampleRows.map((row, index) => (
 								<TableRow
@@ -305,6 +317,9 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						instruments:
 					</p>
 					<Table className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-only">
+							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						</TableHeader>
 						<TableBody>
 							{instrumentRows.map((row, index) => (
 								<TableRow
@@ -360,9 +375,14 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						>
 							<strong>jouer aux</strong>
 						</AudioClip>
-						{" "}for plurals. For example:
-					</p>
+						{" "}for plurals.
+						</p>
+						{/* p→div: short label triggers WAVE "possible heading" */}
+						<div style={{ fontSize: "var(--font-size-base)" }}>For example:</div>
 					<Table className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-only">
+							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						</TableHeader>
 						<TableBody>
 							{gameRows.map((row, index) => (
 								<TableRow
@@ -404,75 +424,84 @@ export class FreeTimeGrammarNounEndings extends PureComponent {
 						Some word endings can help you guess noun gender. Many nouns ending in
 						<strong> -tion</strong> or <strong>-ie</strong> are feminine:
 					</p>
-					<p>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/001-laction.mp3"
-						>
-							l&apos;action
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/002-la-nation.mp3"
-						>
-							la nation
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/003-la-natation.mp3"
-						>
-							la natation
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/004-la-biologie.mp3"
-						>
-							la biologie
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/005-la-geographie.mp3"
-						>
-							la géographie
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/006-la-sociologie.mp3"
-						>
-							la sociologie
-						</AudioClip>
-						.
-					</p>
-					{/* <p>→<div>: short label triggers WAVE "possible heading" */}
-					<div>Many nouns ending in <strong>-isme</strong> are masculine, for example:</div>
-					<p>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/007-lathletisme.mp3"
-						>
-							l&apos;athlétisme
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/008-lexistentialisme.mp3"
-						>
-							l&apos;existentialisme
-						</AudioClip>
-						,{" "}
-						<AudioClip
-							className="link"
-							soundFile="audio/lo8/grammar/noun-endings/009-le-socialisme.mp3"
-						>
-							le socialisme
-						</AudioClip>
-						.
-					</p>
+					<div className="mb-0 ml-2 space-y-1">
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/001-laction.mp3"
+							>
+								l&apos;action
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/002-la-nation.mp3"
+							>
+								la nation
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/003-la-natation.mp3"
+							>
+								la natation
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/004-la-biologie.mp3"
+							>
+								la biologie
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/005-la-geographie.mp3"
+							>
+								la géographie
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/006-la-sociologie.mp3"
+							>
+								la sociologie
+							</AudioClip>
+						</div>
+					</div>
+					{/* p→div: short label triggers WAVE "possible heading" */}
+					<div className="mt-2" style={{ fontSize: "var(--font-size-base)" }}>Many nouns ending in <strong>-isme</strong> are masculine, for example:</div>
+					<div className="mb-0 ml-2 space-y-1">
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/007-lathletisme.mp3"
+							>
+								l&apos;athlétisme
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/008-lexistentialisme.mp3"
+							>
+								l&apos;existentialisme
+							</AudioClip>
+						</div>
+						<div>
+							<AudioClip
+								className="link"
+								soundFile="audio/lo8/grammar/noun-endings/009-le-socialisme.mp3"
+							>
+								le socialisme
+							</AudioClip>
+						</div>
+					</div>
 				</div>
 			</div>
 		);
