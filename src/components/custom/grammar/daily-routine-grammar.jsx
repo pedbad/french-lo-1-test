@@ -1,5 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
 
@@ -24,6 +24,9 @@ const handleAudioRowClick = (soundFile, event) => {
 
 const AudioTable = ({ rows, tableId }) => (
 	<Table className="grammar-audio-table" variant="learning">
+		<TableHeader className="sr-only">
+			<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+		</TableHeader>
 		<TableBody>
 			{rows.map((row, index) => (
 				<TableRow

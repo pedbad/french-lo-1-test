@@ -175,9 +175,10 @@ export class RadioQuiz extends React.Component {
 				<div className="rounded-xl border border-border/70 bg-card/60 p-4 shadow-sm" key={`radio-${id}-${rowIndex}`}>
 					<div className="flex flex-col gap-3 xl:flex-row xl:items-start xl:justify-between">
 						<div className="min-w-0 flex-1 text-left">
-							<p className="m-0 text-[var(--font-size-base)] leading-[var(--line-height-body)] text-foreground">{phrase}</p>
+							{/* p→div: each quiz statement is a short <p> that WAVE flags as "possible heading" */}
+							<div className="m-0 text-[var(--font-size-base)] leading-[var(--line-height-body)] text-foreground">{phrase}</div>
 							{showExplanation[rowIndex] && explanation ? (
-								<p className="mt-2 text-sm leading-[var(--line-height-body)] text-muted-foreground">{explanation}</p>
+								<div className="mt-2 text-sm leading-[var(--line-height-body)] text-muted-foreground">{explanation}</div>
 							) : null}
 						</div>
 
