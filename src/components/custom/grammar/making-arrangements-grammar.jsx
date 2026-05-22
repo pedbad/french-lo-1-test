@@ -1,5 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
 
@@ -85,9 +85,14 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 						<strong>vouloir</strong>
 					</AudioClip>
 					{" "}to say what someone wants to do. It is very common when inviting
-					someone somewhere or agreeing on plans. Here is the present tense:
+					someone somewhere or agreeing on plans.
 				</p>
+				{/* p→div: short label triggers WAVE "possible heading" */}
+				<div style={{ fontSize: "var(--font-size-base)" }}>Here is the present tense:</div>
 				<Table className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-only">
+						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+					</TableHeader>
 					<TableBody>
 						{vouloirRows.map((row, index) => (
 							<TableRow
@@ -109,6 +114,9 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 					After <strong>vouloir</strong>, the next verb stays in the infinitive.
 				</p>
 				<Table className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-only">
+						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+					</TableHeader>
 					<TableBody>
 						{exampleRows.map((row, index) => (
 							<TableRow
@@ -167,9 +175,13 @@ export class MakingArrangementsGrammarPrepositionA extends PureComponent {
 					{" "}<strong>au</strong> before a masculine noun, <strong>à la</strong>
 					{" "}before a feminine noun, <strong>à l&apos;</strong> before a vowel or
 					silent <strong>h</strong>, and <strong>aux</strong> before a plural noun.
-					Compare these examples:
 				</p>
+				{/* p→div: short label triggers WAVE "possible heading" */}
+				<div style={{ fontSize: "var(--font-size-base)" }}>Compare these examples:</div>
 				<Table className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-only">
+						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+					</TableHeader>
 					<TableBody>
 						{prepositionRows.map((row, index) => (
 							<TableRow
