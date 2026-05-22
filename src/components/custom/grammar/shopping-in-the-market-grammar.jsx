@@ -42,7 +42,11 @@ const AudioTable = ({ headers, rows, tableId }) => (
 					))}
 				</TableRow>
 			</TableHeader>
-		) : null}
+		) : (
+			<TableHeader className="sr-only">
+				<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+			</TableHeader>
+		)}
 		<TableBody>
 			{rows.map((row, index) => (
 				<TableRow
@@ -261,7 +265,8 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 					.
 				</p>
 				<AudioTable rows={partitiveRows} tableId={id || "lo12-grammar2-partitives"} />
-				<p>
+				{/* p→div: short <p> with audio triggers WAVE "possible heading" */}
+				<div style={{ fontSize: "var(--font-size-base)" }}>
 					After a specific quantity, use{" "}
 					<AudioClip className="link" soundFile="audio/lo12/grammar/021-de.mp3">
 						<strong>de</strong>
@@ -271,9 +276,10 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 						<strong>d&apos;</strong>
 					</AudioClip>
 					:
-				</p>
+				</div>
 				<AudioTable rows={quantityRows} tableId={id || "lo12-grammar2-quantities"} />
-				<p>
+				{/* p→div: short <p> with audio triggers WAVE "possible heading" */}
+				<div style={{ fontSize: "var(--font-size-base)" }}>
 					The same{" "}
 					<AudioClip className="link" soundFile="audio/lo12/grammar/021-de.mp3">
 						<strong>de</strong>
@@ -283,7 +289,7 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 						<strong>d&apos;</strong>
 					</AudioClip>{" "}
 					appears after a negation:
-				</p>
+				</div>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader>
 						<TableRow>

@@ -102,7 +102,7 @@ export class OriginsAndLanguagesGrammarVerbGroups extends PureComponent {
 					</div>
 					<Separator className="my-4" />
 					{/* <p>→<div>: short line starting with bold text triggers WAVE "possible heading" */}
-					<div>The verb <strong>venir</strong> is a common irregular verb.</div>
+					<div style={{ fontSize: "var(--font-size-base)" }}>The verb <strong>venir</strong> is a common irregular verb.</div>
 					<div className="mt-3">
 						<Table className="grammar-audio-table">
 							<thead>
