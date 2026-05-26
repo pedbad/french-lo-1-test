@@ -4496,16 +4496,7 @@ hr {
   -webkit-mask-image: url("/img/common/custom-icons/volume-1.svg");
   mask-image: url("/img/common/custom-icons/volume-1.svg");
 }
-#content .inline-icon-book-outline {
-  background-color: var(--chart-3);
-  -webkit-mask-image: url("/img/common/custom-icons/book-open-text-outline.svg");
-  mask-image: url("/img/common/custom-icons/book-open-text-outline.svg");
-}
-#content .inline-icon-book {
-  background-color: var(--chart-3);
-  -webkit-mask-image: url("/img/common/custom-icons/book-open-text.svg");
-  mask-image: url("/img/common/custom-icons/book-open-text.svg");
-}
+
 #content .word-spot-container :is(table td, table span, .word-spot-text-cell, .word-spot-text-cell span) {
   font-size: calc(var(--font-size-base) * 1.5);
   line-height: var(--line-height-wordparts);

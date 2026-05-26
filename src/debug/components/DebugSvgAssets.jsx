@@ -55,16 +55,7 @@ const SVG_USAGE_MANIFEST = [
 		referenceCount: 1,
 		sources: ['/src/index.css'],
 	},
-	{
-		path: '/img/common/custom-icons/book-open-text-outline.svg',
-		referenceCount: 2,
-		sources: ['/src/index.css'],
-	},
-	{
-		path: '/img/common/custom-icons/book-open-text.svg',
-		referenceCount: 2,
-		sources: ['/src/index.css'],
-	},
+
 	{
 		path: '/img/common/custom-icons/circle-check.svg',
 		referenceCount: 4,
