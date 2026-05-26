@@ -223,14 +223,13 @@ export class RadioQuiz extends React.Component {
 									<AudioClip className="super-compact" soundFile={soundFile} />
 								</div>
 							) : null}
-							{rowHasResult ? (
-								<span
-									aria-hidden="true"
-									className={`inline-flex shrink-0 items-center justify-center ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
-								>
-									{rowIsCorrect ? <CircleCheck className="h-10 w-10" /> : <CircleX className="h-10 w-10" />}
-								</span>
-							) : null}
+							<span
+								aria-hidden="true"
+								className={`inline-flex h-10 w-10 shrink-0 items-center justify-center ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+								style={{ visibility: rowHasResult ? "visible" : "hidden" }}
+							>
+								{rowIsCorrect ? <CircleCheck className="h-10 w-10" /> : <CircleX className="h-10 w-10" />}
+							</span>
 						</div>
 					</div>
 				</div>

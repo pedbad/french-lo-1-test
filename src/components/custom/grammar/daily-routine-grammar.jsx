@@ -69,17 +69,22 @@ export class DailyRoutineGrammarOn extends PureComponent {
 					in spoken French, but it still takes the <strong>third-person singular</strong>{" "}
 					verb form.
 				</p>
-				<p>
-					For example,{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/003-on-parle-francais-ici.mp3">
-						<strong>On parle français ici.</strong>
-					</AudioClip>{" "}
-					means "French is spoken here", and{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/004-on-va-au-cinema.mp3">
-						<strong>On va au cinéma&nbsp;?</strong>
-					</AudioClip>{" "}
-					can mean "Are we going to the cinema?" or "Shall we go to the cinema?"
-				</p>
+				{/* p→div: short label triggers WAVE "possible heading" */}
+				<div style={{ fontSize: "var(--font-size-base)" }}>For example:</div>
+				<div className="mb-0 ml-2 space-y-1">
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/003-on-parle-francais-ici.mp3">
+							<strong>On parle français ici.</strong>
+						</AudioClip>{" "}
+						— "French is spoken here"
+					</div>
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/004-on-va-au-cinema.mp3">
+							<strong>On va au cinéma&nbsp;?</strong>
+						</AudioClip>{" "}
+						— "Are we going to the cinema?" or "Shall we go to the cinema?"
+					</div>
+				</div>
 			</div>
 		);
 	};
@@ -154,43 +159,56 @@ export class DailyRoutineGrammarReflexiveVerbs extends PureComponent {
 				</p>
 				<p>
 					In a sentence, the reflexive pronoun comes between the subject and the verb:
-					{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/006-me.mp3">
-						<strong>me</strong>
-					</AudioClip>
-					,{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/007-te.mp3">
-						<strong>te</strong>
-					</AudioClip>
-					,{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
-						<strong>se</strong>
-					</AudioClip>
-					,{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/002-nous.mp3">
-						<strong>nous</strong>
-					</AudioClip>
-					,{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/009-vous.mp3">
-						<strong>vous</strong>
-					</AudioClip>
-					,{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
-						<strong>se</strong>
-					</AudioClip>
-					.
 				</p>
-				<p>
-					For example,{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/010-je-me-lave.mp3">
-						<strong>Je me lave</strong>
-					</AudioClip>{" "}
-					means "I wash myself / I have a wash", and{" "}
-					<AudioClip className="link" soundFile="audio/lo13/grammar/011-elle-se-repose.mp3">
-						<strong>Elle se repose</strong>
-					</AudioClip>{" "}
-					means "She is resting / She is having a rest." Here is the present tense of <strong>se reposer</strong>:
-				</p>
+				<div className="mb-0 ml-2 space-y-1">
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/006-me.mp3">
+							<strong>me</strong>
+						</AudioClip>
+					</div>
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/007-te.mp3">
+							<strong>te</strong>
+						</AudioClip>
+					</div>
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
+							<strong>se</strong>
+						</AudioClip>
+					</div>
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/002-nous.mp3">
+							<strong>nous</strong>
+						</AudioClip>
+					</div>
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/009-vous.mp3">
+							<strong>vous</strong>
+						</AudioClip>
+					</div>
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/008-se.mp3">
+							<strong>se</strong>
+						</AudioClip>
+					</div>
+				</div>
+				{/* p→div: short label triggers WAVE "possible heading" */}
+				<div style={{ fontSize: "var(--font-size-base)" }}>For example:</div>
+				<div className="mb-0 ml-2 space-y-1">
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/010-je-me-lave.mp3">
+							<strong>Je me lave</strong>
+						</AudioClip>{" "}
+						— "I wash myself / I have a wash"
+					</div>
+					<div>
+						<AudioClip className="link" soundFile="audio/lo13/grammar/011-elle-se-repose.mp3">
+							<strong>Elle se repose</strong>
+						</AudioClip>{" "}
+						— "She is resting / She is having a rest."
+					</div>
+				</div>
+				<div style={{ fontSize: "var(--font-size-base)" }}>Here is the present tense of <strong>se reposer</strong>:</div>
 				<AudioTable rows={reflexiveRows} tableId={id || "lo13-grammar2"} />
 			</div>
 		);
