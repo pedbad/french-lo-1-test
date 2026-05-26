@@ -2,6 +2,25 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-26 — GrammarLabel component + accessibility and layout fixes (LO13, LO14)
+
+### GrammarLabel — single source of truth for grammar section labels
+- Created `src/components/custom/grammar/GrammarLabel.jsx` — a shared component for short introductory labels that precede grammar tables or example lists (e.g. "For example:", "Here are the conditional forms:", "Present tense of devoir:").
+- Enforces `font-size: var(--font-size-base)` via inline style, preventing the size drift that occurs when `<div>` replaces `<p>` inside `.panel` wrappers.
+- Renders as a plain `<div>` (not a heading element) so WAVE does not flag it as a "possible heading".
+- Accepts an optional `className` prop for spacing variants (e.g. `mt-3`, `mt-4`).
+- Replaces all previous inconsistent patterns: `<div style={{ fontSize: "var(--font-size-base)" }}>`, `<h4 className="... font-semibold">`, `<p className="mt-3">`, and bare `<div>` without font size.
+- Applied to all grammar files: `daily-routine`, `going-to-a-cafe`, `making-arrangements`, `shopping-in-the-market`, `free-time`, `house-and-home`, `origins-and-languages`, `studying-at-university`.
+
+### LO13 daily-routine — grammar layout improvements
+- Accordion 1 (Using *on*): inline examples split onto separate indented lines with em-dash translations.
+- Accordion 2 (Reflexive verbs): reflexive pronouns (me, te, se, nous, vous, se) moved to individual lines; inline examples split onto separate lines.
+- RadioQuiz: result icon (✓/✗) now always reserves its space (40px) with `visibility: hidden` before checking, so Vrai/Faux buttons no longer shift position on "Check answers".
+
+### LO14 studying-at-university — WAVE fixes
+- Fixed 7 layout table alerts: added `<TableHeader className="sr-only">` to the shared `AudioTable` component.
+- Replaced 4 bold `<h4 className="font-semibold">` labels with `<GrammarLabel>` for visual consistency.
+
 ## 2026-05-21 - LO1 Style Polish, Dark Mode Overhaul, a11y Fixes + LO1 Designated Reference Standard
 
 ### LO1 designated as style and UX source of truth

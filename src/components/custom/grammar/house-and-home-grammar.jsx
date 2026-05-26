@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import { PureComponent } from "react";
 
 export class HouseAndHomeGrammarThirdPersonForms extends PureComponent {
@@ -36,7 +37,7 @@ export class HouseAndHomeGrammarThirdPersonForms extends PureComponent {
 							{" "}There are three bedrooms on the first floor.
 						</li>
 					</ul>
-					<p className="mt-3">Here are a few more examples of verbs which work in the same way:</p>
+					<GrammarLabel className="mt-3">Here are a few more examples of verbs which work in the same way:</GrammarLabel>
 					{/* Each verb group as a <li> — inner <div>s inherit font-size-base from <li>.
 					    "From the verb X:" is a <div> (not <p>) so WAVE won't flag it. */}
 					<ul className="!list-none !p-0 mt-1 space-y-3">
@@ -137,7 +138,7 @@ export class HouseAndHomeGrammarAdjectivalAgreement extends PureComponent {
 						{" "}To form the feminine plural, add <strong>s</strong>.
 					</p>
 					{/* <p>→<div>: short text triggers WAVE "possible heading" */}
-					<div>Look at these examples:</div>
+					<GrammarLabel>Look at these examples:</GrammarLabel>
 					{/* ul/li: bold text mid-sentence avoids WAVE possible-heading;
 					    li picks up font-size-base from #content :where(p, li, …) */}
 					<ul className="!list-none !p-0 mt-1 space-y-1">

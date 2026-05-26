@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
@@ -88,7 +89,7 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 					someone somewhere or agreeing on plans.
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>Here is the present tense:</div>
+				<GrammarLabel>Here is the present tense:</GrammarLabel>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader className="sr-only">
 						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
@@ -177,7 +178,7 @@ export class MakingArrangementsGrammarPrepositionA extends PureComponent {
 					silent <strong>h</strong>, and <strong>aux</strong> before a plural noun.
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>Compare these examples:</div>
+				<GrammarLabel>Compare these examples:</GrammarLabel>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader className="sr-only">
 						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>

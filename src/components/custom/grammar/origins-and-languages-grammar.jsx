@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import { Info } from "@/components/Info";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Separator } from "@/components/ui/separator";
@@ -102,7 +103,7 @@ export class OriginsAndLanguagesGrammarVerbGroups extends PureComponent {
 					</div>
 					<Separator className="my-4" />
 					{/* <p>→<div>: short line starting with bold text triggers WAVE "possible heading" */}
-					<div style={{ fontSize: "var(--font-size-base)" }}>The verb <strong>venir</strong> is a common irregular verb.</div>
+					<GrammarLabel>The verb <strong>venir</strong> is a common irregular verb.</GrammarLabel>
 					<div className="mt-3">
 						<Table className="grammar-audio-table">
 							<thead>
@@ -192,7 +193,7 @@ export class OriginsAndLanguagesGrammarDeForms extends PureComponent {
 						/>
 					</div>
 					{/* <p>→<div>: short label triggers WAVE "possible heading" */}
-					<div>Look at the following examples illustrating the forms:</div>
+					<GrammarLabel>Look at the following examples illustrating the forms:</GrammarLabel>
 					{/* ul/li: bold text falls mid-sentence so no WAVE possible-heading alert,
 					    and li picks up font-size-base from #content :where(p, li, …) */}
 					<ul className="!list-none !p-0 mt-1 space-y-1">

@@ -1,6 +1,7 @@
 import { AudioClip } from "@/components/AudioClip";
 import { Info } from "@/components/Info";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
 
@@ -25,6 +26,9 @@ const handleAudioRowClick = (soundFile, event) => {
 
 const AudioTable = ({ rows, tableId }) => (
 	<Table className="grammar-audio-table" variant="learning">
+		<TableHeader className="sr-only">
+			<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+		</TableHeader>
 		<TableBody>
 			{rows.map((row, index) => (
 				<TableRow
@@ -165,11 +169,9 @@ export class StudyingAtUniversityGrammarDevoir extends PureComponent {
 					means <strong>to have to</strong> or <strong>must</strong>. It is followed by
 					another verb in the infinitive form.
 				</p>
-				<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
+				<GrammarLabel>Here are two common examples:</GrammarLabel>
 				<AudioTable rows={exampleRows} tableId={`${id || "lo14-grammar2"}-examples`} />
-				<h4 className="mb-3 mt-5 text-base font-semibold">
-					Present tense of <strong>devoir</strong>:
-				</h4>
+				<GrammarLabel className="mt-5">Present tense of <strong>devoir</strong>:</GrammarLabel>
 				<AudioTable rows={devoirRows} tableId={id || "lo14-grammar2"} />
 			</div>
 		);
@@ -249,11 +251,9 @@ export class StudyingAtUniversityGrammarPouvoir extends PureComponent {
 					means <strong>to be able to</strong>. Like <strong>devoir</strong>, it is
 					usually followed by an infinitive.
 				</p>
-				<h4 className="mb-3 text-base font-semibold">Here are two common examples:</h4>
+				<GrammarLabel>Here are two common examples:</GrammarLabel>
 				<AudioTable rows={pouvoirExampleRows} tableId={`${id || "lo14-grammar3"}-examples`} />
-				<h4 className="mb-3 mt-5 text-base font-semibold">
-					Present tense of <strong>pouvoir</strong>:
-				</h4>
+				<GrammarLabel className="mt-5">Present tense of <strong>pouvoir</strong>:</GrammarLabel>
 				<AudioTable rows={pouvoirRows} tableId={id || "lo14-grammar3"} />
 			</div>
 		);

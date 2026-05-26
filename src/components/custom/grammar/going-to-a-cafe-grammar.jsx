@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import {
 	Table,
 	TableBody,
@@ -154,7 +155,7 @@ export class GoingToACafeGrammarConditionalVouloir extends PureComponent {
 					.
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>Here are the conditional forms:</div>
+				<GrammarLabel>Here are the conditional forms:</GrammarLabel>
 				<AudioTable rows={vouloirRows} tableId={id || "lo11-grammar1"} />
 			</div>
 		);
@@ -306,7 +307,7 @@ export class GoingToACafeGrammarFlavoursWithA extends PureComponent {
 					and <strong>aux</strong>.
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>Compare these examples:</div>
+				<GrammarLabel>Compare these examples:</GrammarLabel>
 				<AudioTable rows={flavourRows} tableId={id || "lo11-grammar3"} />
 			</div>
 		);
@@ -398,10 +399,10 @@ export class GoingToACafeGrammarDisjunctivePronouns extends PureComponent {
 					.
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>Look at these examples:</div>
+				<GrammarLabel>Look at these examples:</GrammarLabel>
 				<AudioTable rows={exampleRows} tableId={`${id || "lo11-grammar4"}-examples`} />
 				{/* <p>→<div>: short label triggers WAVE "possible heading" */}
-				<div className="mt-4" style={{ fontSize: "var(--font-size-base)" }}>Here is the full list of pronouns:</div>
+				<GrammarLabel className="mt-4">Here is the full list of pronouns:</GrammarLabel>
 				<AudioTable
 					rows={pronounRows}
 					tableId={`${id || "lo11-grammar4"}-pronouns`}

@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
@@ -70,7 +71,7 @@ export class DailyRoutineGrammarOn extends PureComponent {
 					verb form.
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>For example:</div>
+				<GrammarLabel>For example:</GrammarLabel>
 				<div className="mb-0 ml-2 space-y-1">
 					<div>
 						<AudioClip className="link" soundFile="audio/lo13/grammar/003-on-parle-francais-ici.mp3">
@@ -193,7 +194,7 @@ export class DailyRoutineGrammarReflexiveVerbs extends PureComponent {
 					</div>
 				</div>
 				{/* p→div: short label triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>For example:</div>
+				<GrammarLabel>For example:</GrammarLabel>
 				<div className="mb-0 ml-2 space-y-1">
 					<div>
 						<AudioClip className="link" soundFile="audio/lo13/grammar/010-je-me-lave.mp3">
@@ -208,7 +209,7 @@ export class DailyRoutineGrammarReflexiveVerbs extends PureComponent {
 						— "She is resting / She is having a rest."
 					</div>
 				</div>
-				<div style={{ fontSize: "var(--font-size-base)" }}>Here is the present tense of <strong>se reposer</strong>:</div>
+				<GrammarLabel>Here is the present tense of <strong>se reposer</strong>:</GrammarLabel>
 				<AudioTable rows={reflexiveRows} tableId={id || "lo13-grammar2"} />
 			</div>
 		);

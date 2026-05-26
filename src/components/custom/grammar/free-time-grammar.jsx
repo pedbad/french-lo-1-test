@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { PureComponent } from "react";
 import { playAudioLink } from "@/utils/audioPlayback";
@@ -209,7 +210,7 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						{" "}for plurals.
 						</p>
 						{/* p→div: short label triggers WAVE "possible heading" */}
-						<div style={{ fontSize: "var(--font-size-base)" }}>Here are some examples:</div>
+						<GrammarLabel>Here are some examples:</GrammarLabel>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableHeader className="sr-only">
 							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
@@ -378,7 +379,7 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						{" "}for plurals.
 						</p>
 						{/* p→div: short label triggers WAVE "possible heading" */}
-						<div style={{ fontSize: "var(--font-size-base)" }}>For example:</div>
+						<GrammarLabel>For example:</GrammarLabel>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableHeader className="sr-only">
 							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
@@ -475,7 +476,7 @@ export class FreeTimeGrammarNounEndings extends PureComponent {
 						</div>
 					</div>
 					{/* p→div: short label triggers WAVE "possible heading" */}
-					<div className="mt-2" style={{ fontSize: "var(--font-size-base)" }}>Many nouns ending in <strong>-isme</strong> are masculine, for example:</div>
+					<GrammarLabel className="mt-2">Many nouns ending in <strong>-isme</strong> are masculine, for example:</GrammarLabel>
 					<div className="mb-0 ml-2 space-y-1">
 						<div>
 							<AudioClip

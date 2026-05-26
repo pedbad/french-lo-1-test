@@ -1,4 +1,5 @@
 import { AudioClip } from "@/components/AudioClip";
+import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import { Info } from "@/components/content";
 import {
 	Table,
@@ -266,7 +267,7 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 				</p>
 				<AudioTable rows={partitiveRows} tableId={id || "lo12-grammar2-partitives"} />
 				{/* p→div: short <p> with audio triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>
+				<GrammarLabel>
 					After a specific quantity, use{" "}
 					<AudioClip className="link" soundFile="audio/lo12/grammar/021-de.mp3">
 						<strong>de</strong>
@@ -276,10 +277,10 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 						<strong>d&apos;</strong>
 					</AudioClip>
 					:
-				</div>
+				</GrammarLabel>
 				<AudioTable rows={quantityRows} tableId={id || "lo12-grammar2-quantities"} />
 				{/* p→div: short <p> with audio triggers WAVE "possible heading" */}
-				<div style={{ fontSize: "var(--font-size-base)" }}>
+				<GrammarLabel>
 					The same{" "}
 					<AudioClip className="link" soundFile="audio/lo12/grammar/021-de.mp3">
 						<strong>de</strong>
@@ -289,7 +290,7 @@ export class ShoppingInTheMarketGrammarPartitivesAndQuantities extends PureCompo
 						<strong>d&apos;</strong>
 					</AudioClip>{" "}
 					appears after a negation:
-				</div>
+				</GrammarLabel>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader>
 						<TableRow>

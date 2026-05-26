@@ -164,6 +164,7 @@ Use this as a hard "do not repeat" list.
    - rewrite-capable SPA hosting, or
    - pre-rendered static routes (preferred when rewrite access is limited).
 21. Do not default to bespoke CSS for card/tile interactions when Tailwind and shadcn primitives can express the layout cleanly. Drop to shared CSS only for the narrow pieces utilities do not cover well.
+22. Do not use `<h4>`, `<p>`, or bare `<div>` for short grammar section labels (e.g. "For example:", "Here are the conditional forms:"). Always use `<GrammarLabel>` — it enforces correct font size and prevents WAVE "possible heading" alerts. One component = one change site for all labels.
 
 ### Image Asset Structure Rule (Carry Forward)
 
@@ -294,6 +295,28 @@ Why this is best practice:
 - keeps production markup deterministic and easier to maintain
 - avoids debug component sprawl in core app component namespaces
 - makes intent explicit: sandbox code is for developer diagnostics only
+
+### Grammar Section Label Rule (Carry Forward)
+
+Short introductory labels that appear immediately before a grammar table or example list must use a single shared component — never a bare `<div>`, `<p>`, or `<h4>`.
+
+1. Always import and use `<GrammarLabel>` from `src/components/custom/grammar/GrammarLabel.jsx`:
+   ```jsx
+   import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
+
+   <GrammarLabel>For example:</GrammarLabel>
+   <GrammarLabel className="mt-4">Here is the full list of pronouns:</GrammarLabel>
+   ```
+2. The component enforces `font-size: var(--font-size-base)` and renders as a `<div>` — preventing both font-size drift and WAVE "possible heading" alerts.
+3. Use the optional `className` prop only for spacing (e.g. `mt-3`, `mt-4`). Never add `font-semibold`, `font-bold`, or heading classes.
+4. Do NOT use `<h4>` for these labels — they are not document headings and will distort the heading outline for screen readers.
+5. Do NOT use a bare `<div>` or `<p>` — both risk size drift and WAVE alerts.
+
+Why this matters:
+- Plain `<div>` inside `.panel` wrappers inherits a smaller font size than `<p>` — causing invisible style drift.
+- Short `<p>` elements trigger WAVE "possible heading" false positives when they start with bold text or end with a colon.
+- Bold `<h4>` labels look like sub-headings and are semantically incorrect for these labels.
+- A single component means one change updates every label site simultaneously.
 
 ### Table Semantics Rule (Carry Forward)
 

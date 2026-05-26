@@ -64,6 +64,8 @@ WAVE only analyses what is **in the DOM at the time it runs**. In this app, inac
 | Possible heading | `<p><strong>NB</strong> …</p>` inside `<Info>` box | `<h4 className="…"><strong>NB</strong> …</h4>` |
 | Skipped heading level | h2 → h4 with no h3 between | Add missing `<h3>` section heading inside tab panel |
 | Possible heading | Mobile card `<p>Form:</p>`, `<p>Examples:</p>` etc. | Change `<p>` → `<div>` |
+| Possible heading | Short label before a grammar table (`<p>For example:</p>`) | Use `<GrammarLabel>` from `src/components/custom/grammar/GrammarLabel.jsx` |
+| Layout table | Grammar `<Table>` with no `<TableHeader>` | Add `<TableHeader className="sr-only"><TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow></TableHeader>` |
 
 ---
 
@@ -86,6 +88,8 @@ Short standalone `<p>` elements that would trigger WAVE (e.g. "Listen to the fol
 
 The same `h3` / `h4` pattern applies to grammar sections.
 
+Short **introductory labels before grammar tables** (e.g. "For example:", "Here are the conditional forms:") must use `<GrammarLabel>` — see `src/components/custom/grammar/GrammarLabel.jsx`. Do not use `<h4>`, `<p>`, or a bare `<div>` for these.
+
 ---
 
 ## Status by LO
@@ -99,13 +103,13 @@ The same `h3` / `h4` pattern applies to grammar sections.
 | LO5 | `house-and-home`        | ✅ done  | ✅ done        | h3 headings added; "How to pronounce:" → h4; NB → h4 |
 | LO6 | `family-friends`        | ✅ done  | ✅ done        | h3 headings added (Double ll x3, grammar × 2); "How to pronounce:" → h4; NB → h4; "Verbs in French continued" → h4 |
 | LO7 | `opinions-matter`       | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 3); NB → h4; legacy wrappers removed |
-| LO8 | `free-time`             | ⬜ todo  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs) |
+| LO8 | `free-time`             | ✅ done  | ✅ done        | h3 headings added; short intro paragraphs merged in grammar (4 tabs); GrammarLabel applied |
 | LO9 | `phoning-in-france`     | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); NB → h4; legacy wrappers removed; short paragraphs merged |
-| LO10 | `making-arrangements`  | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); short paragraphs merged; legacy wrappers removed |
-| LO11 | `going-to-a-cafe`      | ✅ done  | n/a            | h3 headings added (grammar × 4); short paragraphs merged; "Prendre" label → h4; legacy wrappers removed |
-| LO12 | `shopping-in-the-market` | ✅ done | ✅ done       | h3 headings added (grammar × 3); NB → h4; legacy wrappers removed; single-tab pronunciation wrapper removed |
-| LO13 | `daily-routine`        | ✅ done  | n/a            | h3 headings added (grammar × 3); merged "Here is the present tense of se reposer:" into preceding paragraph; legacy wrappers removed |
-| LO14 | `studying-at-university` | ✅ done | n/a           | h3 headings added (grammar × 4); NB → h4; legacy wrappers removed; existing h4 sub-labels retained |
+| LO10 | `making-arrangements`  | ✅ done  | ✅ done        | h3 headings added (pronunciation × 2, grammar × 2); short paragraphs merged; legacy wrappers removed; GrammarLabel applied |
+| LO11 | `going-to-a-cafe`      | ✅ done  | n/a            | h3 headings added (grammar × 4); short paragraphs merged; GrammarLabel applied; layout tables fixed |
+| LO12 | `shopping-in-the-market` | ✅ done | ✅ done       | h3 headings added (grammar × 3); NB → h4; legacy wrappers removed; GrammarLabel applied; layout tables fixed |
+| LO13 | `daily-routine`        | ✅ done  | n/a            | h3 headings added (grammar × 3); grammar layout improved (pronouns + examples on own lines); GrammarLabel applied; layout tables fixed; RadioQuiz icon space reserved |
+| LO14 | `studying-at-university` | ✅ done | n/a           | 7 layout table alerts fixed; bold h4 sub-labels replaced with GrammarLabel |
 
 ---
 
