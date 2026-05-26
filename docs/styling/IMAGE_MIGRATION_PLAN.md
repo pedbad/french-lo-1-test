@@ -21,15 +21,11 @@ public/img/
 |- common/
 |  |- branding/
 |  |- footer/
-|  |- icons/
-|  |- flags/
-|  |- ui/
+|  (common/icons/, common/flags/, common/ui/ removed — never used)
 |- shared/
-|  |- memory/
-|  |- memory-animals/
-|  |- memory-food/
-|  |- memory-rooms/
-|  |- memory-transport/
+|  |- icons/       (UI SVG icons used as CSS mask-images)
+|  |- exercises/
+|  |  |- vocabulary/  (shared vocabulary SVGs across LOs)
 |- lo1/
 |- lo2/
 |- lo3/

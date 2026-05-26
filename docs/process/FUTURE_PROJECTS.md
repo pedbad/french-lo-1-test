@@ -172,7 +172,7 @@ Use this as the default image directory contract:
 
 ```text
 public/media/images/
-|- common/   (branding, footer, icons, flags, UI chrome)
+|- common/   (branding, footer logos)
 |- shared/   (cross-LO reusable sets)
 |- lo1..loN  (LO-specific assets)
 ```

@@ -10,9 +10,15 @@ This directory is the new image source-of-truth for migrated assets.
 
 ## Directory contract
 
-- `common/`: shared UI/branding assets used across the app.
-- `shared/`: reusable learning-content asset sets used by multiple LOs (for example memory games).
+- `common/`: shared UI/branding assets used across the app (branding, footer logos).
+  - `branding/` — banner and app-level brand assets.
+  - `footer/` — organisation logos (LC, CC, eLearning, UCAM) in light and dark variants.
+- `shared/`: reusable learning-content asset sets used by multiple LOs (icons, vocabulary sets, section images).
+  - `icons/` — SVG icons used as CSS mask-images for exercise buttons (eye, reset, check, volume, etc.).
+  - `exercises/vocabulary/` — vocabulary illustration SVGs shared across LOs.
 - `lo1` ... `lo15`: assets specific to a single learning object.
+
+> **Note:** `common/flags/`, `common/icons/`, and `common/ui/` have been removed. Flags are no longer used in this project. UI icons live under `shared/icons/` (referenced by `src/index.css`).
 
 ## Naming contract (required)
 
