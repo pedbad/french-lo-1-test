@@ -172,10 +172,19 @@ Use this as the default image directory contract:
 
 ```text
 public/media/images/
-|- common/   (branding, footer logos)
-|- shared/   (cross-LO reusable sets)
-|- lo1..loN  (LO-specific assets)
+|- common/            (app-shell assets — cross-language, infrastructure)
+|  |- branding/       (banners, app-level brand assets)
+|  |- footer/         (organisation logos in light/dark variants)
+|  |- custom-icons/   (bespoke designer SVGs used as CSS mask-images)
+|- shared/            (cross-LO content assets — language-specific but not LO-specific)
+|- lo1..loN           (LO-specific assets)
 ```
+
+**`common/custom-icons/` rule:**
+- Use for static designer SVG files loaded via CSS `mask-image` — NOT for Lucide React components.
+- Lucide icons are React components imported from `lucide-react` and rendered inline in the DOM.
+- Custom icons are disk files served by URL, coloured by CSS `background-color` + `mask-image`.
+- Keep the two systems clearly separate — never put Lucide SVG exports in `custom-icons/`.
 
 Naming rules:
 1. lowercase only

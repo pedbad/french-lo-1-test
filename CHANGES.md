@@ -2,6 +2,15 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-26 — Image folder restructure: shared/icons → common/custom-icons
+
+- Moved `public/img/shared/icons/` → `public/img/common/custom-icons/`.
+  - These are bespoke designer SVGs used as CSS `mask-image` values — app-shell infrastructure, not LO content.
+  - Named `custom-icons` to distinguish clearly from Lucide React components (which are inline SVG, not disk files).
+  - `common/` is the correct home: cross-language, used by every LO, nothing French-course-specific.
+- Updated all references: `src/index.css` (9 mask-image URLs), `src/components/exercises/ProgressDots/ProgressDots.jsx`, `src/debug/components/DebugSvgAssets.jsx`.
+- Updated `public/img/README.md`, `docs/styling/IMAGE_MIGRATION_PLAN.md`, `docs/process/FUTURE_PROJECTS.md`.
+
 ## 2026-05-26 — GrammarLabel component + accessibility and layout fixes (LO13, LO14)
 
 ### GrammarLabel — single source of truth for grammar section labels

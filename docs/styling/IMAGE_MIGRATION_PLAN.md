@@ -18,14 +18,15 @@ This lets us add new designer assets safely without reintroducing path bugs.
 
 ```text
 public/img/
-|- common/
+|- common/                        (app-shell assets, cross-language)
 |  |- branding/
 |  |- footer/
+|  |- custom-icons/               (designer SVGs used as CSS mask-images — NOT Lucide)
 |  (common/icons/, common/flags/, common/ui/ removed — never used)
-|- shared/
-|  |- icons/       (UI SVG icons used as CSS mask-images)
-|  |- exercises/
-|  |  |- vocabulary/  (shared vocabulary SVGs across LOs)
+|- shared/                        (French course content used across multiple LOs)
+|  |- grammar.svg
+|  |- self-study.svg
+|  (shared/icons/ moved to common/custom-icons/)
 |- lo1/
 |- lo2/
 |- lo3/

@@ -51,47 +51,47 @@ Use ripgrep to list `.svg` references under `src/`, then update this manifest.
 */
 const SVG_USAGE_MANIFEST = [
 	{
-		path: '/img/shared/icons/cross.svg',
+		path: '/img/common/custom-icons/cross.svg',
 		referenceCount: 1,
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/shared/icons/book-open-text-outline.svg',
+		path: '/img/common/custom-icons/book-open-text-outline.svg',
 		referenceCount: 2,
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/shared/icons/book-open-text.svg',
+		path: '/img/common/custom-icons/book-open-text.svg',
 		referenceCount: 2,
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/shared/icons/circle-check.svg',
+		path: '/img/common/custom-icons/circle-check.svg',
 		referenceCount: 4,
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/shared/icons/eye.svg',
+		path: '/img/common/custom-icons/eye.svg',
 		referenceCount: 2,
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/shared/icons/message-square-warning.svg',
+		path: '/img/common/custom-icons/message-square-warning.svg',
 		referenceCount: 2,
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/shared/icons/reset.svg',
+		path: '/img/common/custom-icons/reset.svg',
 		referenceCount: 2,
 		sources: ['/src/index.css'],
 	},
 	{
-		path: '/img/shared/icons/tortoise.svg',
+		path: '/img/common/custom-icons/tortoise.svg',
 		referenceCount: 1,
 		sources: ['/src/components/exercises/ProgressDots/ProgressDots.jsx'],
 	},
 	{
-		path: '/img/shared/icons/volume-1.svg',
+		path: '/img/common/custom-icons/volume-1.svg',
 		referenceCount: 2,
 		sources: ['/src/index.css'],
 	},

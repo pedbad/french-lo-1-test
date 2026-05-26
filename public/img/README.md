@@ -10,15 +10,15 @@ This directory is the new image source-of-truth for migrated assets.
 
 ## Directory contract
 
-- `common/`: shared UI/branding assets used across the app (branding, footer logos).
+- `common/`: app-shell assets used across all languages and all LOs — infrastructure, not content.
   - `branding/` — banner and app-level brand assets.
   - `footer/` — organisation logos (LC, CC, eLearning, UCAM) in light and dark variants.
-- `shared/`: reusable learning-content asset sets used by multiple LOs (icons, vocabulary sets, section images).
-  - `icons/` — SVG icons used as CSS mask-images for exercise buttons (eye, reset, check, volume, etc.).
-  - `exercises/vocabulary/` — vocabulary illustration SVGs shared across LOs.
+  - `custom-icons/` — bespoke designer SVGs used as CSS mask-images for exercise buttons (eye, reset, check, volume, book, tortoise, etc.). **Distinct from Lucide React components** — these are static files loaded via `mask-image` in `src/index.css`.
+- `shared/`: reusable French course content used by multiple LOs (section images).
+  - `grammar.svg`, `self-study.svg` — section header images referenced in LO JSON configs.
 - `lo1` ... `lo15`: assets specific to a single learning object.
 
-> **Note:** `common/flags/`, `common/icons/`, and `common/ui/` have been removed. Flags are no longer used in this project. UI icons live under `shared/icons/` (referenced by `src/index.css`).
+> **Note:** `common/flags/`, `common/icons/`, and `common/ui/` have been removed. Flags are no longer used. The custom designer icons that were previously under `shared/icons/` now live in `common/custom-icons/` where they belong semantically.
 
 ## Naming contract (required)
 
