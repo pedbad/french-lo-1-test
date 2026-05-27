@@ -26,13 +26,9 @@ export default {
 	safelist: [
 		"rounded-md",
 		"px-1",
-		"bg-amber-300/90",
 		"text-lg",
 		"font-semibold",
-		"text-amber-950",
 		"ring-2",
-		"ring-amber-400/80",
-		"animate-highlight-flash",
 	],
 	theme: {
 		extend: {

@@ -2,7 +2,7 @@ import { AudioClip } from "@/components/AudioClip";
 import { PhraseTable } from "@/components/PhraseTable";
 import { PureComponent } from "react";
 
-const highlightClass = "modal-highlight-flash font-semibold text-amber-950";
+const highlightClass = "modal-highlight-flash font-semibold text-[var(--edu-accent)]";
 
 export const AboutMeSubjectPronounsBody = ({ highlightTarget = "" } = {}) => {
 	const isActive = (target) => highlightTarget === target;
