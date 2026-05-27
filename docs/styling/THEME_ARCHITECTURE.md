@@ -379,10 +379,16 @@ Currently `--edu-affirm`, `--edu-warn`, `--edu-neg` delegate to shadcn's
 
 The flash animation uses hardcoded RGB amber, disconnected from `--edu-warn`.
 
-- [ ] Add `--highlight-active-bg` token to `:root` pointing at `--edu-warn`
-- [ ] Replace `rgb(252 211 77 / 0.9)` in keyframe with `var(--highlight-active-bg)`
-- [ ] Replace `rgb(251 191 36 / 0.4)` box-shadow with token equivalent
-- [ ] Update dark mode override for `--highlight-active-bg` if needed
+- [x] Add `--highlight-active-bg` token to `:root` pointing at `--edu-warn`
+- [x] Replace `rgb(252 211 77 / 0.9)` in keyframe with `var(--highlight-active-bg)`
+- [x] Replace `rgb(251 191 36 / 0.4)` box-shadow with token equivalent
+- [x] Update dark mode override for `--highlight-active-bg` if needed
+
+> Completed as part of Step 1 (d641ea1). All flash keyframes (`anchor-flash`,
+> `modal-highlight-flash`) already use `var(--edu-warn)` with `color-mix()`.
+> No separate `--highlight-active-bg` intermediate token was needed — direct
+> `var(--edu-warn)` references are cleaner. `--color-traffic-amber` is declared
+> but unused and will be removed in Step 7 with the rest of the legacy RGB system.
 
 ---
 
