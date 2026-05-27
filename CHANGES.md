@@ -2,6 +2,16 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-27 — Created `docs/styling/THEME_ARCHITECTURE.md`
+
+New document covering:
+- Visual explanation of how CSS, Tailwind v4, and shadcn interact
+- How the style resolution chain works (JSX class → Tailwind → CSS variable → browser)
+- Current state audit: the four token groups and their drift problems
+- Token naming convention for all future LC projects (`--palette-*`, `--brand-*`, UI roles, `--edu-*`)
+- 9-step baby-step cleanup checklist for the current French LO
+- Designer handoff checklist (what a designer needs to provide to re-skin a course)
+
 ## 2026-05-27 — Rename `--ped-*` → `--edu-*` semantic colour tokens
 
 Renamed all educational semantic colour tokens and utility classes from the ambiguous `ped-` prefix to the unambiguous `edu-` prefix. `ped` could be read as a person's name; `edu` clearly communicates "educational/pedagogical" to any developer reading the codebase cold.
