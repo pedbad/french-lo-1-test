@@ -52,9 +52,7 @@
 		--color-border-default: 203 213 225;
 		--color-border-strong: 148 163 184;
 
-		--color-traffic-red: 239 68 68;
-		--color-traffic-amber: 245 158 11;
-		--color-traffic-green: 34 197 94;
+
 
 		/* Typography */
 		--font-size-xs: 0.85rem;
@@ -206,9 +204,7 @@
 		--color-border-default: 71 85 105;
 		--color-border-strong: 148 163 184;
 
-		--color-traffic-red: 248 113 113;
-		--color-traffic-amber: 251 191 36;
-		--color-traffic-green: 74 222 128;
+
 
 		/* shadcn */
 
