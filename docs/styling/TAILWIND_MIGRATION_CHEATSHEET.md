@@ -161,7 +161,7 @@ const badgeVariants = cva(
 3. Real project pattern: shared exercise action button variants
 
 Why:
-1. Avoid repeated class strings (`btn-ped-warn`, `hidden-help`, `show`, `exercise-icon-button`) across many components.
+1. Avoid repeated class strings (`btn-edu-warn`, `hidden-help`, `show`, `exercise-icon-button`) across many components.
 2. Keep behavior/style composition in one file for easier refactor safety.
 
 Implementation:

@@ -78,7 +78,7 @@ export const ModalLinkDialog = ({ open, title, contentHTML, content, onClose }) 
 				)}
 				<div className="flex justify-end">
 					<DialogClose asChild>
-						<Button type="button" variant="secondary" className="btn-ped-warn">
+						<Button type="button" variant="secondary" className="btn-edu-warn">
 							Close
 						</Button>
 					</DialogClose>

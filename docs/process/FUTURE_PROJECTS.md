@@ -273,6 +273,38 @@ Use this pattern for all future projects that need a desktop nav + hamburger mob
    - mobile open/close
    - nav click behavior
 
+### Educational Semantic Colour Token Rule (Carry Forward)
+
+Use the `--edu-*` prefix for all colour tokens that describe a **role in learning content**, not a visual appearance or brand value.
+
+**Token set:**
+```css
+--edu-affirm   /* correct answer, success, positive feedback      */
+--edu-warn     /* caution, hint, amber call-to-action              */
+--edu-neg      /* wrong answer, error, negative feedback           */
+--edu-neutral  /* secondary/supporting text, inactive state        */
+--edu-accent   /* highlighted term, active selection emphasis      */
+```
+
+**Companion utility classes** (apply token colour to inline text):
+```css
+.edu-affirm { color: var(--edu-affirm); }
+.edu-warn   { color: var(--edu-warn);   }
+.edu-neg    { color: var(--edu-neg);    }
+.edu-neutral{ color: var(--edu-neutral);}
+.edu-accent { color: var(--edu-accent); }
+```
+
+**Rules:**
+1. Always use `--edu-*` prefix — never `--ped-*` (ambiguous, could be read as a person's name).
+2. These tokens describe semantic role only. Never name them by colour (`--green`, `--amber`).
+3. In dark mode, re-pin `--edu-warn` explicitly if the underlying `--chart-*` token shifts hue (shadcn remaps `--chart-1` to blue in dark mode — always verify warn stays warm/amber).
+4. `--edu-*` tokens are course-neutral and brand-neutral. They must not contain brand colour values directly — they should reference shadcn tokens (`--chart-2`, `--destructive`, etc.) or dedicated palette tokens.
+5. Document the full token set and utility classes with a block comment in the CSS file so any developer can understand the system without reading the docs.
+
+**Why not `--ped-*`:**
+`ped` is a common nickname and can be confused with a person's name. `edu` is universally understood as "educational" by any developer reading cold.
+
 ### Semantic Emphasis Rule (Carry Forward)
 
 1. Author inline emphasis with semantic tags only:
@@ -326,6 +358,50 @@ Why this matters:
 - Short `<p>` elements trigger WAVE "possible heading" false positives when they start with bold text or end with a colon.
 - Bold `<h4>` labels look like sub-headings and are semantically incorrect for these labels.
 - A single component means one change updates every label site simultaneously.
+
+### Instruction Text Icon Token System (Future Architecture)
+
+**Problem:** Exercise instruction text currently lives in JSON config files as raw HTML strings rendered via `dangerouslySetInnerHTML`. Because they are raw HTML — not JSX — Lucide React components cannot be embedded. This forces two separate icon systems to coexist:
+
+| Context | Mechanism | Source |
+|---|---|---|
+| Instruction text (JSON) | CSS `mask-image` + custom SVG file | `common/custom-icons/*.svg` |
+| Exercise UI (JSX) | Lucide React component | `lucide-react` package |
+
+This is not true DRY. The same visual icon requires two separate definitions.
+
+**Target architecture:** Replace raw HTML instruction strings in JSON with a lightweight token format, and build a shared renderer component that parses tokens into React — including Lucide icons inline.
+
+**JSON config (before):**
+```json
+"informationTextHTML": "Click <span class='inline-icon inline-icon-check'></span> to check your answers"
+```
+
+**JSON config (after):**
+```json
+"instruction": "Click [icon:CircleCheck] to check your answers"
+```
+
+**Renderer component:**
+```jsx
+// <InstructionText value="Click [icon:CircleCheck] to check your answers" />
+// renders: <>Click <CircleCheck size={16} aria-hidden="true" /> to check your answers</>
+```
+
+**Benefits once complete:**
+- One icon source (Lucide) for all contexts — instruction text and exercise UI
+- CSS mask-image custom SVGs retained only for genuinely bespoke designer icons not in Lucide
+- `circle-check.svg`, `eye.svg`, `eye-off.svg`, `rotate-ccw.svg`, `volume-2.svg` can be removed from `common/custom-icons/`
+- No more `dangerouslySetInnerHTML` in exercise instruction paths — safer and more testable
+
+**Migration scope:**
+1. Build `InstructionText` component with token parser and Lucide name registry.
+2. Update every exercise component that uses `dangerouslySetInnerHTML` for instruction text.
+3. Migrate all JSON configs from HTML strings to token strings.
+4. Retain safe fallback for legacy HTML content (links, `<strong>`, `<em>`) — parser must handle mixed text and HTML nodes.
+5. Remove redundant CSS mask-image icon files once all references are gone.
+
+**Do not start this migration mid-project.** Plan as a dedicated sprint with a full config audit upfront. The migration touches every exercise type and all LO config files simultaneously.
 
 ### Table Semantics Rule (Carry Forward)
 

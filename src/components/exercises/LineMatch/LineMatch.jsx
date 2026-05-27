@@ -710,7 +710,7 @@ export class LineMatch extends React.PureComponent {
 										return (
 											<li className="flex items-center" key={`line-match-picture-${itemKey}`}>
 												<div
-													className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} ${pictureCardLayoutClass} cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--chart-3)_12%,transparent)] transition ${isCorrect ? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--chart-5)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--ped-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--ped-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[rgb(var(--color-primary-200)_/_0.42)]"}`}
+													className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} ${pictureCardLayoutClass} cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--chart-3)_12%,transparent)] transition ${isCorrect ? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--chart-5)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--edu-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[rgb(var(--color-primary-200)_/_0.42)]"}`}
 													onClick={() => this.handleSourceActivate(itemKey)}
 												>
 													{pictureStatusText ? (
@@ -719,7 +719,7 @@ export class LineMatch extends React.PureComponent {
 														</div>
 													) : null}
 													<button
-														className={`${LINE_MATCH_IMAGE_TILE_CLASS} cursor-pointer transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_color-mix(in_oklab,var(--chart-3)_22%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_oklab,var(--chart-5)_44%,transparent)] ${isCorrect ? "border-[var(--chart-2)]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--ped-warn)_42%,var(--foreground))]" : ""}`}
+														className={`${LINE_MATCH_IMAGE_TILE_CLASS} cursor-pointer transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_color-mix(in_oklab,var(--chart-3)_22%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_oklab,var(--chart-5)_44%,transparent)] ${isCorrect ? "border-[var(--chart-2)]" : isActive ? "border-[color-mix(in_oklab,var(--chart-5)_54%,var(--foreground))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))]" : ""}`}
 														onClick={(event) => {
 															event.stopPropagation();
 															this.handleSourceActivate(itemKey);
@@ -735,7 +735,7 @@ export class LineMatch extends React.PureComponent {
 													</button>
 													<button
 														aria-label={`Select picture ${index + 1} as connection source`}
-														className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--chart-2)] bg-[var(--chart-2)] ring-2 ring-[color-mix(in_oklab,var(--chart-2)_28%,transparent)]" : isActive ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--chart-5)_40%,transparent)]" : connectedTargetId ? "border-[var(--ped-warn)] bg-[var(--ped-warn)]" : "border-[color-mix(in_oklab,var(--chart-3)_72%,var(--foreground))] bg-background"}`}
+														className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--chart-2)] bg-[var(--chart-2)] ring-2 ring-[color-mix(in_oklab,var(--chart-2)_28%,transparent)]" : isActive ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--chart-5)_40%,transparent)]" : connectedTargetId ? "border-[var(--edu-warn)] bg-[var(--edu-warn)]" : "border-[color-mix(in_oklab,var(--chart-3)_72%,var(--foreground))] bg-background"}`}
 														onClick={(event) => {
 															event.stopPropagation();
 															this.handleSourceActivate(itemKey);
@@ -759,13 +759,13 @@ export class LineMatch extends React.PureComponent {
 										const isActiveTarget = activeTargetId === targetId;
 										return (
 											<li
-												className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} cursor-pointer items-center gap-3 rounded-lg border px-3 shadow-[0_2px_6px_color-mix(in_oklab,var(--chart-3)_14%,transparent)] transition ${isCorrect ? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_16%,var(--card))]" : isActiveTarget ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_10%,var(--card))]" : connectedSourceId ? "border-[var(--ped-warn)] bg-[color-mix(in_oklab,var(--ped-warn)_12%,var(--card))]" : "border-[rgb(var(--color-primary-400)_/_0.92)] bg-[rgb(var(--color-primary-200)_/_0.78)]"}`}
+												className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} cursor-pointer items-center gap-3 rounded-lg border px-3 shadow-[0_2px_6px_color-mix(in_oklab,var(--chart-3)_14%,transparent)] transition ${isCorrect ? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_16%,var(--card))]" : isActiveTarget ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_10%,var(--card))]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[color-mix(in_oklab,var(--edu-warn)_12%,var(--card))]" : "border-[rgb(var(--color-primary-400)_/_0.92)] bg-[rgb(var(--color-primary-200)_/_0.78)]"}`}
 												key={`line-match-word-${targetId}`}
 												onClick={() => this.handleTargetActivate(targetId)}
 											>
 												<button
 													aria-label={`Connect selected picture to ${item.label}`}
-													className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--chart-2)] bg-[var(--chart-2)]" : connectedSourceId ? "border-[var(--ped-warn)] bg-[var(--ped-warn)]" : isActiveTarget ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--chart-5)_40%,transparent)]" : activeSourceId ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_20%,var(--background))]" : "border-[color-mix(in_oklab,var(--chart-3)_72%,var(--foreground))] bg-background"}`}
+													className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--chart-2)] bg-[var(--chart-2)]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[var(--edu-warn)]" : isActiveTarget ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--chart-5)_40%,transparent)]" : activeSourceId ? "border-[var(--chart-5)] bg-[color-mix(in_oklab,var(--chart-5)_20%,var(--background))]" : "border-[color-mix(in_oklab,var(--chart-3)_72%,var(--foreground))] bg-background"}`}
 													onClick={(event) => {
 														event.stopPropagation();
 														this.handleTargetActivate(targetId);

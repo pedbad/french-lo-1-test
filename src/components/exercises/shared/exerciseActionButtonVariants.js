@@ -5,7 +5,7 @@ import { cva } from "class-variance-authority";
  *
  * Why this is better for maintenance (especially for SCSS-first teams):
  * - Legacy pattern: each exercise component hand-built long class strings.
- *   Example: "btn-ped-warn hidden-help exercise-icon-button show".
+ *   Example: "btn-edu-warn hidden-help exercise-icon-button show".
  * - Problem: one visual/state change required multi-file edits and could drift.
  * - This file defines a single variant contract (tone/progressive/visible/align/role).
  * - Components now declare intent (what state they need) instead of repeating raw class
@@ -23,7 +23,7 @@ export const exerciseActionButtonVariants = cva("exercise-icon-button", {
 			none: "",
 			neutral: "btn-chart-2",
 			primary: "btn-hero-title",
-			warn: "btn-ped-warn",
+			warn: "btn-edu-warn",
 		},
 		progressive: {
 			false: "",

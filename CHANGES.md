@@ -2,6 +2,27 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-27 — Rename `--ped-*` → `--edu-*` semantic colour tokens
+
+Renamed all educational semantic colour tokens and utility classes from the ambiguous `ped-` prefix to the unambiguous `edu-` prefix. `ped` could be read as a person's name; `edu` clearly communicates "educational/pedagogical" to any developer reading the codebase cold.
+
+**Files changed:**
+- `src/index.css` — all `--ped-*` CSS variable declarations, all `.ped-*` utility classes, `.btn-ped-warn` → `.btn-edu-warn`. Improved block comments to fully explain the `--edu-*` system and the dark-mode override rationale.
+- `src/components/layout/page-shell/BackToTopButton/BackToTopButton.jsx`
+- `src/components/exercises/shared/exerciseActionButtonVariants.js`
+- `src/components/exercises/LineMatch/LineMatch.jsx`
+- `src/components/ModalLinkDialog/ModalLinkDialog.jsx`
+- `src/components/custom/grammar/family-friends-and-neighbours-grammar.jsx`
+- `src/components/custom/grammar/origins-and-languages-grammar.jsx`
+- `CHANGES.md`, `docs/styling/COLOR_AUDIT.md`, `docs/styling/TAILWIND_MIGRATION_CHEATSHEET.md`, `docs/process/FUTURE_LO_REFACTOR_CHECKLIST.md`, `docs/process/TASKS_COMPLETED.md`, `docs/process/FUTURE_PROJECTS.md`
+
+**Token mapping (unchanged values, new names):**
+- `--edu-affirm` — correct answer, success, positive feedback (was `--ped-affirm`)
+- `--edu-warn` — caution, hint, amber call-to-action (was `--ped-warn`)
+- `--edu-neg` — wrong answer, error, negative feedback (was `--ped-neg`)
+- `--edu-neutral` — secondary/supporting text, inactive state (was `--ped-neutral`)
+- `--edu-accent` — highlighted term, active emphasis (was `--ped-accent`)
+
 ## 2026-05-26 — Image folder restructure: shared/icons → common/custom-icons
 
 - Moved `public/img/shared/icons/` → `public/img/common/custom-icons/`.
@@ -45,10 +66,10 @@ This file summarizes the work completed in this repo during the session. It incl
 - Background: `color-mix(in oklab, var(--card) 88%, var(--chart-2) 12%)`, faint teal border, teal icon.
 - Light mode retains the existing blue border/background (primary palette) — intentional.
 
-### Dark mode exercise button redesign + `--ped-warn` semantic fix
+### Dark mode exercise button redesign + `--edu-warn` semantic fix
 - Exercise action buttons in dark mode now render as ghost/outline style: transparent fill, coloured border + text.
-- Light mode retains solid filled style (ped-warn = amber, chart-2 = teal, chart-3 = amber-gold).
-- Fixed semantic bug: `--ped-warn` is now pinned to `var(--chart-5)` inside `.dark` to prevent shadcn's dark-mode remap of `chart-1` to blue from bleeding into warn-colour semantics.
+- Light mode retains solid filled style (edu-warn = amber, chart-2 = teal, chart-3 = amber-gold).
+- Fixed semantic bug: `--edu-warn` is now pinned to `var(--chart-5)` inside `.dark` to prevent shadcn's dark-mode remap of `chart-1` to blue from bleeding into warn-colour semantics.
 
 ### Grammar accordion visual polish
 - Content `h3` headings inside accordion cards are now visually hidden (visually-hidden CSS pattern) to avoid duplication with the accordion header `h3`, while remaining in the DOM for screen readers/WAVE.
@@ -2112,8 +2133,8 @@ Standardized styling on shadcn tokens and reduced hardcoded colors.
 
 ### New semantic tokens + helpers
 - Added in `src/index.css`:
-  - `--ped-affirm`, `--ped-warn`, `--ped-neg`, `--ped-neutral`, `--ped-accent`
-  - `.ped-affirm`, `.ped-warn`, `.ped-neg`, `.ped-neutral`, `.ped-accent`
+  - `--edu-affirm`, `--edu-warn`, `--edu-neg`, `--edu-neutral`, `--edu-accent`
+  - `.edu-affirm`, `.edu-warn`, `.edu-neg`, `.edu-neutral`, `.edu-accent`
 
 ### New custom theme tokens (single source of truth)
 - Added in `src/index.css`:
@@ -2205,7 +2226,7 @@ Converted many icon SVGs to `currentColor` so they inherit CSS color.
 
 ## 17) Dialogue Row Audio + Anchor Highlight (+ Typography + Grammar Layout)
 - `src/components/PhraseTable/PhraseTable.jsx` now lets users click anywhere in a phrase row to replay its audio clip, matching the speaker button behavior for faster review.
-- Anchored sections now reliably open + flash: `handleSpecialLinkClick` follows `.accordion-article` even after the semantic `<section>` switch, and the target gets a `.flash-target` class that animates with a warm `--ped-warn` glow.
+- Anchored sections now reliably open + flash: `handleSpecialLinkClick` follows `.accordion-article` even after the semantic `<section>` switch, and the target gets a `.flash-target` class that animates with a warm `--edu-warn` glow.
 - Inline `.special-anchor` links (normal + visited) use the same `oklch(0.646 0.222 41.116)` orange as the highlight in both global and `.can-speak` contexts so the link visually matches its destination.
 - Added typography tokens (`--body-font-size`, `--body-line-height`) and applied them to paragraphs, list items, and table cells via `#content :where(...)` selectors so accordions, tables, and Info blocks share the same intro-scale body text.
 - Grammar section image layout is now driven by React/Tailwind components instead of inline JSON styles, keeping the instructions card responsive without hard-coded padding.
@@ -2689,15 +2710,15 @@ Why this was important:
 
 ## 68) Color Hotspot Migration (App/MainMenu/AudioClip) + Guard Compatibility Fix
 - Updated `/Users/ped/Sites/french/french-lo-1/src/App.scss`:
-  - replaced remaining literal warning/link accent color `oklch(0.646 0.222 41.116)` with semantic token `var(--ped-warn)` for modal links.
+  - replaced remaining literal warning/link accent color `oklch(0.646 0.222 41.116)` with semantic token `var(--edu-warn)` for modal links.
   - replaced button text fallback `var(--primary-foreground, #fff)` with token-only `var(--primary-foreground)`.
-  - replaced hover darkening mixes from `black` to tokenized `var(--foreground)` in `.btn-ped-warn`, `.btn-chart-2`, and `.btn-hero-title`.
+  - replaced hover darkening mixes from `black` to tokenized `var(--foreground)` in `.btn-edu-warn`, `.btn-chart-2`, and `.btn-hero-title`.
   - replaced hero local custom property literal `oklch(0.398 0.07 227.392)` with semantic token `var(--chart-3)`.
-  - updated `.modal-link`/`:visited` text-decoration color mixes to derive from `var(--ped-warn)` token.
+  - updated `.modal-link`/`:visited` text-decoration color mixes to derive from `var(--edu-warn)` token.
 - Updated `/Users/ped/Sites/french/french-lo-1/src/components/MainMenu/MainMenu.scss`:
   - replaced mobile toggle/menu separator literal `oklch(0 0 0 / 0.06)` with tokenized `color-mix(in oklab, var(--foreground) 6%, transparent)`.
 - Updated `/Users/ped/Sites/french/french-lo-1/src/components/AudioClip/AudioClip.scss`:
-  - replaced hover literal accent `oklch(0.646 0.222 41.116)` with semantic `var(--ped-warn)`.
+  - replaced hover literal accent `oklch(0.646 0.222 41.116)` with semantic `var(--edu-warn)`.
 - Updated `/Users/ped/Sites/french/french-lo-1/scripts/check-color-guard.sh`:
   - replaced Bash `mapfile` usage with a Bash-3-compatible read loop for macOS compatibility.
   - replaced HTML-comment skip regex with a Bash-3-safe string match.

@@ -128,20 +128,31 @@
 		--accordion-mist: color-mix(in oklab, var(--footer-background) 40%, var(--card));
 		--accordion-hover-text: var(--foreground);
 
-		/* Pedagogical (content) accents: semantic, not brand-specific. */
-		--ped-affirm: var(--chart-2);
-		--ped-warn: var(--chart-1);
-		--ped-neg: var(--destructive);
-		--ped-neutral: var(--muted-foreground);
-		--ped-accent: var(--primary);
+		/*
+		 * Educational (edu) semantic colour tokens.
+		 * Prefix: --edu-* (edu = educational/pedagogical — not a person's name).
+		 * These tokens describe the ROLE of a colour in learning content,
+		 * not its appearance. They are course-neutral and brand-neutral:
+		 *   --edu-affirm   correct answer, success, positive feedback
+		 *   --edu-warn     caution, hint, amber call-to-action
+		 *   --edu-neg      wrong answer, error, negative feedback
+		 *   --edu-neutral  secondary/supporting text, inactive state
+		 *   --edu-accent   highlighted term, active selection emphasis
+		 * Companion utility classes: .edu-affirm, .edu-warn, .edu-neg, .edu-neutral, .edu-accent
+		 */
+		--edu-affirm: var(--chart-2);
+		--edu-warn: var(--chart-1);
+		--edu-neg: var(--destructive);
+		--edu-neutral: var(--muted-foreground);
+		--edu-accent: var(--primary);
 		--emphasis-strong-color: color-mix(in oklab, var(--foreground) 86%, var(--chart-3));
-		--emphasis-em-color: color-mix(in oklab, var(--foreground) 84%, var(--ped-warn));
-		--instruction-callout-accent-start: color-mix(in oklab, var(--ped-warn) 62%, var(--foreground));
-		--instruction-callout-accent-end: color-mix(in oklab, var(--ped-warn) 28%, var(--page-background));
-		--instruction-callout-shadow: color-mix(in oklab, var(--ped-warn) 8%, transparent);
-		--modal-link-accent: color-mix(in oklab, var(--ped-warn) 68%, var(--foreground));
-		--modal-link-hover: color-mix(in oklab, var(--ped-warn) 78%, var(--foreground));
-		--modal-link-visited: color-mix(in oklab, var(--ped-warn) 52%, var(--foreground));
+		--emphasis-em-color: color-mix(in oklab, var(--foreground) 84%, var(--edu-warn));
+		--instruction-callout-accent-start: color-mix(in oklab, var(--edu-warn) 62%, var(--foreground));
+		--instruction-callout-accent-end: color-mix(in oklab, var(--edu-warn) 28%, var(--page-background));
+		--instruction-callout-shadow: color-mix(in oklab, var(--edu-warn) 8%, transparent);
+		--modal-link-accent: color-mix(in oklab, var(--edu-warn) 68%, var(--foreground));
+		--modal-link-hover: color-mix(in oklab, var(--edu-warn) 78%, var(--foreground));
+		--modal-link-visited: color-mix(in oklab, var(--edu-warn) 52%, var(--foreground));
 		--modal-link-underline: color-mix(in oklab, var(--modal-link-accent) 60%, transparent);
 		--modal-link-underline-hover: color-mix(in oklab, var(--modal-link-hover) 74%, transparent);
 
@@ -239,18 +250,19 @@
 		--hero-title-color: oklch(0.612 0.130 160.6);
 		--footer-background: var(--sidebar);
 		--accordion-mist: color-mix(in oklab, var(--chart-2) 18%, var(--card));
-		/* shadcn remaps chart-1 to blue in dark mode, but --ped-warn is semantically
-		 * "amber/warn". Pin it to chart-5 (orange-red) so warn UI stays warm in dark. */
-		--ped-warn: var(--chart-5);
+		/* Dark mode override: shadcn remaps --chart-1 to blue in dark mode,
+		 * but --edu-warn must stay warm (amber/orange) for caution semantics.
+		 * Pin to chart-5 (orange-red) so all warn UI remains visually consistent. */
+		--edu-warn: var(--chart-5);
 		--accordion-hover-text: var(--foreground);
 		--emphasis-strong-color: color-mix(in oklab, var(--foreground) 90%, var(--chart-3));
-		--emphasis-em-color: color-mix(in oklab, var(--foreground) 88%, var(--ped-warn));
-		--instruction-callout-accent-start: color-mix(in oklab, var(--ped-warn) 54%, var(--foreground));
-		--instruction-callout-accent-end: color-mix(in oklab, var(--ped-warn) 24%, var(--card));
-		--instruction-callout-shadow: color-mix(in oklab, var(--ped-warn) 12%, transparent);
-		--modal-link-accent: color-mix(in oklab, var(--ped-warn) 62%, var(--foreground));
-		--modal-link-hover: color-mix(in oklab, var(--ped-warn) 72%, var(--foreground));
-		--modal-link-visited: color-mix(in oklab, var(--ped-warn) 46%, var(--foreground));
+		--emphasis-em-color: color-mix(in oklab, var(--foreground) 88%, var(--edu-warn));
+		--instruction-callout-accent-start: color-mix(in oklab, var(--edu-warn) 54%, var(--foreground));
+		--instruction-callout-accent-end: color-mix(in oklab, var(--edu-warn) 24%, var(--card));
+		--instruction-callout-shadow: color-mix(in oklab, var(--edu-warn) 12%, transparent);
+		--modal-link-accent: color-mix(in oklab, var(--edu-warn) 62%, var(--foreground));
+		--modal-link-hover: color-mix(in oklab, var(--edu-warn) 72%, var(--foreground));
+		--modal-link-visited: color-mix(in oklab, var(--edu-warn) 46%, var(--foreground));
 		--modal-link-underline: color-mix(in oklab, var(--modal-link-accent) 62%, transparent);
 		--modal-link-underline-hover: color-mix(in oklab, var(--modal-link-hover) 76%, transparent);
 
@@ -367,21 +379,25 @@
 		font-style: italic;
 	}
 
-	/* Pedagogical (content) helpers for lesson text and examples. */
-	.ped-affirm {
-		color: var(--ped-affirm);
+	/*
+	 * Educational utility classes — apply --edu-* token colours to inline text.
+	 * Used in JSX as className="edu-warn" etc., and in JSON HTML strings
+	 * as <span class="edu-warn">. Mirrors the --edu-* CSS variable set above.
+	 */
+	.edu-affirm {
+		color: var(--edu-affirm);
 	}
-	.ped-warn {
-		color: var(--ped-warn);
+	.edu-warn {
+		color: var(--edu-warn);
 	}
-	.ped-neg {
-		color: var(--ped-neg);
+	.edu-neg {
+		color: var(--edu-neg);
 	}
-	.ped-neutral {
-		color: var(--ped-neutral);
+	.edu-neutral {
+		color: var(--edu-neutral);
 	}
-	.ped-accent {
-		color: var(--ped-accent);
+	.edu-accent {
+		color: var(--edu-accent);
 	}
 }
 
@@ -2334,7 +2350,7 @@
 
 	.blanks-container .word.invalid-drop span {
 		animation: blanks-invalid-shake 240ms ease-in-out;
-		box-shadow: 0 0 0 2px color-mix(in oklab, var(--ped-warn) 72%, transparent);
+		box-shadow: 0 0 0 2px color-mix(in oklab, var(--edu-warn) 72%, transparent);
 	}
 
 	.blanks-container .exercise-help .exercise-help-hints .invalid-drop-hint {
@@ -2359,8 +2375,8 @@
 
 	.blanks-container .target.word.invalid-target {
 		animation: blanks-invalid-flash 380ms ease-out;
-		background: color-mix(in oklab, var(--ped-warn) 18%, var(--card));
-		border-color: color-mix(in oklab, var(--ped-warn) 76%, var(--border));
+		background: color-mix(in oklab, var(--edu-warn) 18%, var(--card));
+		border-color: color-mix(in oklab, var(--edu-warn) 76%, var(--border));
 	}
 
 	@keyframes blanks-invalid-shake {
@@ -2373,8 +2389,8 @@
 	}
 
 	@keyframes blanks-invalid-flash {
-		0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 40%, transparent); }
-		50% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--ped-warn) 30%, transparent); }
+		0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--edu-warn) 40%, transparent); }
+		50% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--edu-warn) 30%, transparent); }
 		100% { box-shadow: 0 0 0 0 transparent; }
 	}
 
@@ -2907,7 +2923,7 @@
 	}
 
 	#RegionalTelephoneMap .regional-telephone-map__legend-trigger:hover {
-		color: var(--ped-warn);
+		color: var(--edu-warn);
 	}
 
 	#RegionalTelephoneMap .regional-telephone-map__legend-code {
@@ -3072,7 +3088,7 @@
 	}
 
 	.audio-link:hover {
-		color: var(--ped-warn);
+		color: var(--edu-warn);
 	}
 
 	.audio-link.memory-card-audio-link {
@@ -3081,7 +3097,7 @@
 
 	.audio-link.memory-card-audio-link:is(:hover, :focus-visible) {
 		background-color: color-mix(in oklab, var(--chart-3) 12%, transparent);
-		color: var(--ped-warn);
+		color: var(--edu-warn);
 	}
 
 	.audio-link.memory-card-audio-link svg {
@@ -3183,8 +3199,8 @@
 
 	button.circular-audio-progress:not(.playing):is(:hover, :focus-visible),
 	button.circular-audio-progress-speaker:not(.playing):is(:hover, :focus-visible) {
-		color: var(--ped-warn);
-		filter: drop-shadow(0 0 6px color-mix(in oklab, var(--ped-warn) 22%, transparent));
+		color: var(--edu-warn);
+		filter: drop-shadow(0 0 6px color-mix(in oklab, var(--edu-warn) 22%, transparent));
 	}
 
 	.circular-audio-progress-speaker svg,
@@ -4007,8 +4023,8 @@ html.debug .blanks-container .target-board .word.blank span {
 }
 
 .modal-link-target.flash-target {
-  background-color: color-mix(in oklab, var(--ped-warn) 40%, transparent);
-  box-shadow: 0 0 0 5px color-mix(in oklab, var(--ped-warn) 20%, transparent);
+  background-color: color-mix(in oklab, var(--edu-warn) 40%, transparent);
+  box-shadow: 0 0 0 5px color-mix(in oklab, var(--edu-warn) 20%, transparent);
   border-radius: 0.4rem;
   display: inline-block;
   padding: 0.1rem 0.4rem;
@@ -4021,14 +4037,14 @@ html.debug .blanks-container .target-board .word.blank span {
   padding: 0.1rem 0.35rem;
 }
 
-.btn-ped-warn {
-  background-color: var(--ped-warn);
-  border-color: var(--ped-warn);
+.btn-edu-warn {
+  background-color: var(--edu-warn);
+  border-color: var(--edu-warn);
   color: var(--primary-foreground);
 }
 
-.btn-ped-warn:hover {
-  background-color: color-mix(in oklab, var(--ped-warn) 85%, var(--foreground));
+.btn-edu-warn:hover {
+  background-color: color-mix(in oklab, var(--edu-warn) 85%, var(--foreground));
 }
 
 .btn-chart-2 {
@@ -4058,16 +4074,16 @@ html.debug .blanks-container .target-board .word.blank span {
  * ---------------------------------------------------------------------- */
 
 /* "Show answer" — warn / amber-orange (chart-5) */
-.dark .btn-ped-warn {
+.dark .btn-edu-warn {
   border-width: 1px;
   border-style: solid;
-  border-color: color-mix(in oklab, var(--ped-warn) 58%, transparent);
-  background-color: color-mix(in oklab, var(--ped-warn) 9%, transparent);
-  color: color-mix(in oklab, var(--ped-warn) 78%, var(--foreground));
+  border-color: color-mix(in oklab, var(--edu-warn) 58%, transparent);
+  background-color: color-mix(in oklab, var(--edu-warn) 9%, transparent);
+  color: color-mix(in oklab, var(--edu-warn) 78%, var(--foreground));
 }
-.dark .btn-ped-warn:hover {
-  background-color: color-mix(in oklab, var(--ped-warn) 18%, transparent);
-  border-color: color-mix(in oklab, var(--ped-warn) 74%, transparent);
+.dark .btn-edu-warn:hover {
+  background-color: color-mix(in oklab, var(--edu-warn) 18%, transparent);
+  border-color: color-mix(in oklab, var(--edu-warn) 74%, transparent);
 }
 
 /* "Reset" — teal (chart-2) */
@@ -4120,26 +4136,26 @@ html.debug .blanks-container .target-board .word.blank span {
 }
 @keyframes anchor-flash {
   0% {
-    background-color: color-mix(in oklab, var(--ped-warn) 20%, transparent);
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 20%, transparent);
+    background-color: color-mix(in oklab, var(--edu-warn) 20%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--edu-warn) 20%, transparent);
   }
   50% {
-    background-color: color-mix(in oklab, var(--ped-warn) 50%, transparent);
-    box-shadow: 0 0 0 6px color-mix(in oklab, var(--ped-warn) 25%, transparent);
+    background-color: color-mix(in oklab, var(--edu-warn) 50%, transparent);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--edu-warn) 25%, transparent);
   }
   100% {
-    background-color: color-mix(in oklab, var(--ped-warn) 20%, transparent);
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 20%, transparent);
+    background-color: color-mix(in oklab, var(--edu-warn) 20%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--edu-warn) 20%, transparent);
   }
 }
 @keyframes modal-highlight-flash {
   0% {
-    background-color: color-mix(in oklab, var(--ped-warn) 8%, transparent);
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--ped-warn) 8%, transparent);
+    background-color: color-mix(in oklab, var(--edu-warn) 8%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--edu-warn) 8%, transparent);
   }
   50% {
-    background-color: color-mix(in oklab, var(--ped-warn) 24%, transparent);
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ped-warn) 12%, transparent);
+    background-color: color-mix(in oklab, var(--edu-warn) 24%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--edu-warn) 12%, transparent);
   }
   100% {
     background-color: transparent;
@@ -4477,7 +4493,7 @@ hr {
   vector-effect: non-scaling-stroke;
 }
 #content .inline-icon-eye {
-  background-color: var(--ped-warn);
+  background-color: var(--edu-warn);
   -webkit-mask-image: url("/img/common/custom-icons/eye.svg");
   mask-image: url("/img/common/custom-icons/eye.svg");
 }

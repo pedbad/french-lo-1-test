@@ -148,8 +148,8 @@ Top files with literal color usage:
 103:		--footer-background: oklch(0.851 0.089 178.8);
 104:		--accordion-mist: oklch(0.9330 0.0055 183.0);
 105:		--accordion-hover-text: oklch(0.145 0 0);
-108:		--ped-affirm: var(--chart-2);
-109:		--ped-warn: var(--chart-1);
+108:		--edu-affirm: var(--chart-2);
+109:		--edu-warn: var(--chart-1);
 118:		--color-primary-50: 15 118 220;
 119:		--color-primary-100: 14 165 233;
 120:		--color-primary-200: 59 130 246;
@@ -660,11 +660,11 @@ src/components/CrossWord/CrossWord.jsx:248:													border: cell ? '1px soli
 src/components/CrossWord/CrossWord.jsx:249:													backgroundColor: cell ? 'var(--background)' : 'var(--muted)',
 src/components/CrossWord/CrossWord.jsx:287:																? 'color-mix(in oklab, var(--chart-2) 25%, transparent)'
 src/components/CrossWord/CrossWord.jsx:289:																	? 'color-mix(in oklab, var(--destructive) 20%, transparent)'
-src/index.css:108:		--ped-affirm: var(--chart-2);
-src/index.css:109:		--ped-warn: var(--chart-1);
-src/index.css:110:		--ped-neg: var(--destructive);
-src/index.css:111:		--ped-neutral: var(--muted-foreground);
-src/index.css:112:		--ped-accent: var(--primary);
+src/index.css:108:		--edu-affirm: var(--chart-2);
+src/index.css:109:		--edu-warn: var(--chart-1);
+src/index.css:110:		--edu-neg: var(--destructive);
+src/index.css:111:		--edu-neutral: var(--muted-foreground);
+src/index.css:112:		--edu-accent: var(--primary);
 src/index.css:200:		--page-background: var(--background);
 src/index.css:202:		--footer-background: var(--sidebar);
 src/index.css:211:		background-color: rgb(var(--color-surface-base) / 1);

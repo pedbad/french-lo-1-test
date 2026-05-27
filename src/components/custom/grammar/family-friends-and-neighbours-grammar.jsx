@@ -86,7 +86,7 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/son.mp3`}>son</AudioClip>,{" "}
 								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/sa.mp3`}>sa</AudioClip>,{" "}
 								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ses.mp3`}>ses</AudioClip>{" "}
-								<span className="ped-warn text-base font-bold leading-none">*</span>
+								<span className="edu-warn text-base font-bold leading-none">*</span>
 							</TableCell>
 							<TableCell>his / her</TableCell>
 						</TableRow>
@@ -115,7 +115,7 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 				</Table>
 				<Info variant="warning">
 					<p>
-						<span className="ped-warn text-base font-bold">*</span>{" "}
+						<span className="edu-warn text-base font-bold">*</span>{" "}
 						All of these can mean <strong>his</strong> or <strong>her</strong>. The gender
 						of the noun, not the owner, is the factor to consider.
 					</p>

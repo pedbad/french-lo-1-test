@@ -197,11 +197,11 @@ export class OriginsAndLanguagesGrammarDeForms extends PureComponent {
 					{/* ul/li: bold text falls mid-sentence so no WAVE possible-heading alert,
 					    and li picks up font-size-base from #content :where(p, li, …) */}
 					<ul className="!list-none !p-0 mt-1 space-y-1">
-						<li>Je viens <span className="ped-neg"><strong>de</strong></span> Paris (for towns, cities, villages)</li>
-						<li>Je viens <span className="ped-affirm"><strong>de</strong></span> Belgique (for feminine countries and regions beginning with a consonant)</li>
-						<li>Je viens <span className="ped-neutral"><strong>d'</strong></span>Angleterre (for all singular place names beginning with a vowel or mute h)</li>
-						<li>Je viens <span className="ped-accent"><strong>du</strong></span> Canada (for masculine countries and regions beginning with a consonant)</li>
-						<li>Je viens <span className="ped-warn"><strong>des</strong></span> Seychelles (for plural countries)</li>
+						<li>Je viens <span className="edu-neg"><strong>de</strong></span> Paris (for towns, cities, villages)</li>
+						<li>Je viens <span className="edu-affirm"><strong>de</strong></span> Belgique (for feminine countries and regions beginning with a consonant)</li>
+						<li>Je viens <span className="edu-neutral"><strong>d'</strong></span>Angleterre (for all singular place names beginning with a vowel or mute h)</li>
+						<li>Je viens <span className="edu-accent"><strong>du</strong></span> Canada (for masculine countries and regions beginning with a consonant)</li>
+						<li>Je viens <span className="edu-warn"><strong>des</strong></span> Seychelles (for plural countries)</li>
 					</ul>
 				</div>
 			</div>
