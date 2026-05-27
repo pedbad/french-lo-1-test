@@ -92,7 +92,7 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 				<GrammarLabel>Here is the present tense:</GrammarLabel>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader className="sr-only">
-						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 					</TableHeader>
 					<TableBody>
 						{vouloirRows.map((row, index) => (
@@ -116,7 +116,7 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 				</p>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader className="sr-only">
-						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 					</TableHeader>
 					<TableBody>
 						{exampleRows.map((row, index) => (
@@ -181,7 +181,7 @@ export class MakingArrangementsGrammarPrepositionA extends PureComponent {
 				<GrammarLabel>Compare these examples:</GrammarLabel>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader className="sr-only">
-						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 					</TableHeader>
 					<TableBody>
 						{prepositionRows.map((row, index) => (

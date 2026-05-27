@@ -34,7 +34,10 @@ const handleAudioRowClick = (soundFile, event) => {
 const AudioTable = ({ rows, tableId }) => (
 	<Table className="grammar-audio-table" variant="learning">
 		<TableHeader className="sr-only">
-			<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+			<TableRow className="border-0">
+				<TableHead className="h-0 p-0 leading-[0]">French</TableHead>
+				<TableHead className="h-0 p-0 leading-[0]">English</TableHead>
+			</TableRow>
 		</TableHeader>
 		<TableBody>
 			{rows.map((row, index) => (
@@ -125,7 +128,7 @@ export class PlanningAHolidayGrammarWeather extends PureComponent {
 						</AudioClip>
 						.
 					</p>
-					<h4 className="mb-3 text-base font-semibold">
+					<h4 className="mb-3 mt-5 text-base font-semibold">
 						Weather expressions with <em>faire</em>
 					</h4>
 					<AudioTable rows={faireRows} tableId={`${id || "lo15-grammar1"}-faire`} />

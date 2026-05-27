@@ -44,7 +44,7 @@ const AudioTable = ({ rows, tableId, headers, swapColumns }) => (
 			</TableHeader>
 		) : (
 			<TableHeader className="sr-only">
-				<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+				<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 			</TableHeader>
 		)}
 		<TableBody>

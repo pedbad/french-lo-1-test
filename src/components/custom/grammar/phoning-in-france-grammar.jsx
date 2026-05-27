@@ -108,7 +108,7 @@ export class PhoningInFranceGrammarBienForConfirmation extends PureComponent {
 				</p>
 				<Table className="grammar-audio-table" variant="learning">
 					<TableHeader className="sr-only">
-						<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 					</TableHeader>
 					<TableBody>
 						{confirmationRows.map((row, index) => (

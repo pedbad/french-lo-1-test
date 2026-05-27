@@ -157,7 +157,7 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 					</p>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableHeader className="sr-only">
-							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 						</TableHeader>
 						<TableBody>
 							{faireRows.map((row, index) => (
@@ -213,7 +213,7 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						<GrammarLabel>Here are some examples:</GrammarLabel>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableHeader className="sr-only">
-							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 						</TableHeader>
 						<TableBody>
 							{exampleRows.map((row, index) => (
@@ -319,7 +319,7 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 					</p>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableHeader className="sr-only">
-							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 						</TableHeader>
 						<TableBody>
 							{instrumentRows.map((row, index) => (
@@ -382,7 +382,7 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						<GrammarLabel>For example:</GrammarLabel>
 					<Table className="grammar-audio-table" variant="learning">
 						<TableHeader className="sr-only">
-							<TableRow><TableHead>French</TableHead><TableHead>English</TableHead></TableRow>
+							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
 						</TableHeader>
 						<TableBody>
 							{gameRows.map((row, index) => (

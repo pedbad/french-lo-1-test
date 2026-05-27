@@ -12,6 +12,19 @@ New document covering:
 - 9-step baby-step cleanup checklist for the current French LO
 - Designer handoff checklist (what a designer needs to provide to re-skin a course)
 
+## 2026-05-27 — Step 1: Pin `--edu-*` tokens to own oklch values
+
+Cut the `--edu-*` educational colour tokens free from shadcn's `--chart-*`
+dependency. All five tokens now own their values directly in both light and
+dark mode. The emergency `--edu-warn: var(--chart-5)` dark mode patch is
+removed — replaced by an explicit pinned value. No visual change.
+
+- `--edu-affirm`  — pinned `oklch(0.6 0.118 184.704)` light / `oklch(0.696 0.17 162.48)` dark
+- `--edu-warn`    — pinned `oklch(0.646 0.222 41.116)` light / `oklch(0.645 0.246 16.439)` dark
+- `--edu-neg`     — pinned `oklch(0.577 0.245 27.325)` light / `oklch(0.704 0.191 22.216)` dark
+- `--edu-neutral` — pinned `oklch(0.556 0 0)` light / `oklch(0.708 0 0)` dark
+- `--edu-accent`  — pinned `oklch(0.205 0 0)` light / `oklch(0.922 0 0)` dark
+
 ## 2026-05-27 — Rename `--ped-*` → `--edu-*` semantic colour tokens
 
 Renamed all educational semantic colour tokens and utility classes from the ambiguous `ped-` prefix to the unambiguous `edu-` prefix. `ped` could be read as a person's name; `edu` clearly communicates "educational/pedagogical" to any developer reading the codebase cold.

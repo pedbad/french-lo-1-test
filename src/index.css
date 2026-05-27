@@ -139,12 +139,18 @@
 		 *   --edu-neutral  secondary/supporting text, inactive state
 		 *   --edu-accent   highlighted term, active selection emphasis
 		 * Companion utility classes: .edu-affirm, .edu-warn, .edu-neg, .edu-neutral, .edu-accent
+		 *
+		 * IMPORTANT: these tokens own their values directly (pinned oklch).
+		 * Do NOT reference --chart-* here. shadcn remapped --chart-1 to blue
+		 * in dark mode without warning — that silently broke --edu-warn.
+		 * Owning the values means shadcn updates can never affect these colours.
+		 * Dark mode overrides are set explicitly in the .dark block below.
 		 */
-		--edu-affirm: var(--chart-2);
-		--edu-warn: var(--chart-1);
-		--edu-neg: var(--destructive);
-		--edu-neutral: var(--muted-foreground);
-		--edu-accent: var(--primary);
+		--edu-affirm:  oklch(0.6   0.118 184.704);  /* green  — correct / success        */
+		--edu-warn:    oklch(0.646 0.222  41.116);  /* amber  — caution / hint            */
+		--edu-neg:     oklch(0.577 0.245  27.325);  /* red    — wrong / error             */
+		--edu-neutral: oklch(0.556 0       0);      /* grey   — secondary / inactive      */
+		--edu-accent:  oklch(0.205 0       0);      /* near-black — emphasis / selection  */
 		--emphasis-strong-color: color-mix(in oklab, var(--foreground) 86%, var(--chart-3));
 		--emphasis-em-color: color-mix(in oklab, var(--foreground) 84%, var(--edu-warn));
 		--instruction-callout-accent-start: color-mix(in oklab, var(--edu-warn) 62%, var(--foreground));
@@ -250,10 +256,16 @@
 		--hero-title-color: oklch(0.612 0.130 160.6);
 		--footer-background: var(--sidebar);
 		--accordion-mist: color-mix(in oklab, var(--chart-2) 18%, var(--card));
-		/* Dark mode override: shadcn remaps --chart-1 to blue in dark mode,
-		 * but --edu-warn must stay warm (amber/orange) for caution semantics.
-		 * Pin to chart-5 (orange-red) so all warn UI remains visually consistent. */
-		--edu-warn: var(--chart-5);
+		/*
+		 * Dark mode: --edu-* tokens explicitly re-pinned.
+		 * All five values are set here so dark mode is self-contained
+		 * and no edu token ever falls back to a shadcn --chart-* value.
+		 */
+		--edu-affirm:  oklch(0.696 0.17  162.48);   /* green  — slightly lighter in dark  */
+		--edu-warn:    oklch(0.645 0.246  16.439);  /* amber-orange — warm, never blue    */
+		--edu-neg:     oklch(0.704 0.191  22.216);  /* red    — slightly lighter in dark  */
+		--edu-neutral: oklch(0.708 0       0);      /* grey   — lighter for dark bg       */
+		--edu-accent:  oklch(0.922 0       0);      /* near-white — follows foreground    */
 		--accordion-hover-text: var(--foreground);
 		--emphasis-strong-color: color-mix(in oklab, var(--foreground) 90%, var(--chart-3));
 		--emphasis-em-color: color-mix(in oklab, var(--foreground) 88%, var(--edu-warn));

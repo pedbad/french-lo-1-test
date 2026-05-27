@@ -363,13 +363,13 @@ Do not skip steps — each one unlocks the next.
 Currently `--edu-affirm`, `--edu-warn`, `--edu-neg` delegate to shadcn's
 `--chart-*` tokens. shadcn already broke this once (chart-1 → blue in dark).
 
-- [ ] Replace `--edu-affirm: var(--chart-2)` with pinned oklch value
-- [ ] Replace `--edu-warn: var(--chart-1)` with pinned oklch value
-- [ ] Replace `--edu-neg: var(--destructive)` with pinned oklch value
-- [ ] Replace `--edu-neutral: var(--muted-foreground)` with pinned oklch value
-- [ ] Replace `--edu-accent: var(--primary)` with pinned oklch value
-- [ ] Remove the dark-mode `--edu-warn: var(--chart-5)` patch (no longer needed)
-- [ ] Update comments to reflect that edu tokens are now self-contained
+- [x] Replace `--edu-affirm: var(--chart-2)` with pinned oklch value
+- [x] Replace `--edu-warn: var(--chart-1)` with pinned oklch value
+- [x] Replace `--edu-neg: var(--destructive)` with pinned oklch value
+- [x] Replace `--edu-neutral: var(--muted-foreground)` with pinned oklch value
+- [x] Replace `--edu-accent: var(--primary)` with pinned oklch value
+- [x] Remove the dark-mode `--edu-warn: var(--chart-5)` patch (no longer needed)
+- [x] Update comments to reflect that edu tokens are now self-contained
 
 > Values stay visually identical — this is a dependency cut, not a design change.
 
