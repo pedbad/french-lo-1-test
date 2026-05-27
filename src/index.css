@@ -1555,6 +1555,19 @@
 		white-space: initial;
 	}
 
+	/*
+	 * Fix inconsistent column widths across grammar audio tables.
+	 * Without fixed layout, white-space:nowrap on .audio-link causes the
+	 * browser to allocate column 1 a width proportional to the longest
+	 * French phrase — so "Il y a du vent." gets a wider column than
+	 * "Il pleut.", shifting the English column to a different horizontal
+	 * position in each table.  Fixed layout distributes width equally
+	 * regardless of content, giving every table a consistent 50/50 split.
+	 */
+	.grammar-audio-table {
+		table-layout: fixed;
+	}
+
 	.lo3-grammar1-container .grammar-audio-table tbody tr {
 		cursor: pointer;
 	}
@@ -5068,4 +5081,55 @@ hr {
 #debug-sandbox-page .token-link-preview--hover {
   color: var(--modal-link-hover);
   text-decoration-color: var(--modal-link-underline-hover);
+}
+
+/*
+ * Grammar audio table: suppress the horizontal scrollbar that the Table
+ * component's overflow-auto wrapper would otherwise show when a long
+ * white-space:nowrap audio-link button (e.g. "Il y a du vent.") makes the
+ * table content wider than its container.  The scrollbar adds ~17 px of
+ * phantom height below the last row, creating uneven section spacing.
+ *
+ * This rule is intentionally OUTSIDE any @layer so it beats the
+ * overflow-auto Tailwind utility (which lives in @layer utilities).
+ * :has() is supported in all modern browsers (Chrome 105+, Firefox 121+).
+ */
+div:has(> table.grammar-audio-table) {
+  overflow: visible;
+}
+
+/*
+ * sr-table-head: visually hides a <thead> while keeping <th scope="col">
+ * column headers in the DOM for screen readers and accessibility audits
+ * (WAVE, axe).  Without this, tables with only <td> cells are flagged as
+ * "layout tables."
+ *
+ * Why not Tailwind sr-only?
+ *   sr-only lives in @layer utilities, which beats @layer components.
+ *   Any rule we add in @layer components to override it loses.
+ *
+ * Why display:block first?
+ *   position:absolute alone is unreliable on display:table-header-group
+ *   elements — browsers may still include them in the table layout.
+ *   display:block removes the element from the CSS table formatting
+ *   context before position:absolute takes effect.
+ *
+ * Why unlayered (no @layer)?
+ *   Unlayered CSS beats ALL @layer rules regardless of specificity,
+ *   so this wins over both Tailwind utilities and our component styles.
+ */
+.sr-table-head {
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.sr-table-head tr {
+  border: 0;
 }

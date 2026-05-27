@@ -32,11 +32,11 @@ const handleAudioRowClick = (soundFile, event) => {
 };
 
 const AudioTable = ({ rows, tableId }) => (
-	<Table className="grammar-audio-table" variant="learning">
-		<TableHeader className="sr-only">
-			<TableRow className="border-0">
-				<TableHead className="h-0 p-0 leading-[0]">French</TableHead>
-				<TableHead className="h-0 p-0 leading-[0]">English</TableHead>
+	<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+		<TableHeader className="sr-table-head">
+			<TableRow>
+				<TableHead scope="col">French</TableHead>
+				<TableHead scope="col">English</TableHead>
 			</TableRow>
 		</TableHeader>
 		<TableBody>

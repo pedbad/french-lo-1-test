@@ -90,9 +90,12 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
 				<GrammarLabel>Here is the present tense:</GrammarLabel>
-				<Table className="grammar-audio-table" variant="learning">
-					<TableHeader className="sr-only">
-						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+				<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-table-head">
+						<TableRow>
+							<TableHead scope="col">French</TableHead>
+							<TableHead scope="col">English</TableHead>
+						</TableRow>
 					</TableHeader>
 					<TableBody>
 						{vouloirRows.map((row, index) => (
@@ -114,9 +117,12 @@ export class MakingArrangementsGrammarVouloir extends PureComponent {
 				<p className="mt-4">
 					After <strong>vouloir</strong>, the next verb stays in the infinitive.
 				</p>
-				<Table className="grammar-audio-table" variant="learning">
-					<TableHeader className="sr-only">
-						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+				<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-table-head">
+						<TableRow>
+							<TableHead scope="col">French</TableHead>
+							<TableHead scope="col">English</TableHead>
+						</TableRow>
 					</TableHeader>
 					<TableBody>
 						{exampleRows.map((row, index) => (
@@ -179,9 +185,12 @@ export class MakingArrangementsGrammarPrepositionA extends PureComponent {
 				</p>
 				{/* p→div: short label triggers WAVE "possible heading" */}
 				<GrammarLabel>Compare these examples:</GrammarLabel>
-				<Table className="grammar-audio-table" variant="learning">
-					<TableHeader className="sr-only">
-						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+				<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-table-head">
+						<TableRow>
+							<TableHead scope="col">French</TableHead>
+							<TableHead scope="col">English</TableHead>
+						</TableRow>
 					</TableHeader>
 					<TableBody>
 						{prepositionRows.map((row, index) => (

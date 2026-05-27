@@ -295,7 +295,7 @@ export class PhraseTable extends React.PureComponent {
 							<TableRow>{headerCells}</TableRow>
 						</TableHeader>
 					) : (
-						<TableHeader className="sr-only">
+						<TableHeader className="sr-table-head">
 							<TableRow className="border-0">
 								{Array.from({ length: longestRow }).map((_, index) => (
 									<TableHead key={`sr-header-${id}-${index}`} className="h-0 p-0 leading-[0]" scope="col">

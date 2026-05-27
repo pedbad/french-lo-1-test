@@ -57,11 +57,11 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 					</AudioClip>
 					. Here is a complete list of the possessive adjectives:
 				</p>
-				<Table className="grammar-audio-table" variant="learning">
-					<TableHeader className="sr-only">
-						<TableRow className="border-0">
-							<TableHead className="h-0 p-0 leading-[0]" scope="col">French</TableHead>
-							<TableHead className="h-0 p-0 leading-[0]" scope="col">English</TableHead>
+				<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-table-head">
+						<TableRow>
+							<TableHead scope="col">French</TableHead>
+							<TableHead scope="col">English</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>
@@ -255,11 +255,11 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 						{" "}meaning I have a sister.
 					</p>
 					<p>It occurs very frequently and so is worth memorising if possible.</p>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableHeader className="sr-only">
-							<TableRow className="border-0">
-								<TableHead className="h-0 p-0 leading-[0]" scope="col">French</TableHead>
-								<TableHead className="h-0 p-0 leading-[0]" scope="col">English</TableHead>
+					<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-table-head">
+							<TableRow>
+								<TableHead scope="col">French</TableHead>
+								<TableHead scope="col">English</TableHead>
 							</TableRow>
 						</TableHeader>
 						<TableBody>
@@ -285,13 +285,13 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 						verb <strong>to be</strong> or sometimes <strong>to feel</strong> would be used.
 						Here are some of these expressions:
 					</p>
-					<Table className="grammar-audio-table">
-						<TableHeader className="sr-only">
-							<TableRow className="border-0">
-								<TableHead className="h-0 p-0 leading-[0]" scope="col">Expression</TableHead>
-								<TableHead className="h-0 p-0 leading-[0]" scope="col">Meaning</TableHead>
-								<TableHead className="h-0 p-0 leading-[0]" scope="col">Example</TableHead>
-								<TableHead className="h-0 p-0 leading-[0]" scope="col">Translation</TableHead>
+					<Table aria-label="Expression, meaning, example, and translation" className="grammar-audio-table">
+						<TableHeader className="sr-table-head">
+							<TableRow>
+								<TableHead scope="col">Expression</TableHead>
+								<TableHead scope="col">Meaning</TableHead>
+								<TableHead scope="col">Example</TableHead>
+								<TableHead scope="col">Translation</TableHead>
 							</TableRow>
 						</TableHeader>
 						<TableBody>

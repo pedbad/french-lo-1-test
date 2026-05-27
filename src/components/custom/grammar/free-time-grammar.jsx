@@ -155,9 +155,12 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						{" "}means both <strong>to do</strong> and <strong>to make</strong>. It is very
 						common and irregular, so it is worth learning well. Here it is in the present tense:
 					</p>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableHeader className="sr-only">
-							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+					<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-table-head">
+							<TableRow>
+								<TableHead scope="col">French</TableHead>
+								<TableHead scope="col">English</TableHead>
+							</TableRow>
 						</TableHeader>
 						<TableBody>
 							{faireRows.map((row, index) => (
@@ -211,9 +214,12 @@ export class FreeTimeGrammarFaireAndPartitives extends PureComponent {
 						</p>
 						{/* p→div: short label triggers WAVE "possible heading" */}
 						<GrammarLabel>Here are some examples:</GrammarLabel>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableHeader className="sr-only">
-							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+					<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-table-head">
+							<TableRow>
+								<TableHead scope="col">French</TableHead>
+								<TableHead scope="col">English</TableHead>
+							</TableRow>
 						</TableHeader>
 						<TableBody>
 							{exampleRows.map((row, index) => (
@@ -317,9 +323,12 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						, you use <strong>jouer de</strong> plus the partitive article for musical
 						instruments:
 					</p>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableHeader className="sr-only">
-							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+					<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-table-head">
+							<TableRow>
+								<TableHead scope="col">French</TableHead>
+								<TableHead scope="col">English</TableHead>
+							</TableRow>
 						</TableHeader>
 						<TableBody>
 							{instrumentRows.map((row, index) => (
@@ -380,9 +389,12 @@ export class FreeTimeGrammarJouerPatterns extends PureComponent {
 						</p>
 						{/* p→div: short label triggers WAVE "possible heading" */}
 						<GrammarLabel>For example:</GrammarLabel>
-					<Table className="grammar-audio-table" variant="learning">
-						<TableHeader className="sr-only">
-							<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+					<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+						<TableHeader className="sr-table-head">
+							<TableRow>
+								<TableHead scope="col">French</TableHead>
+								<TableHead scope="col">English</TableHead>
+							</TableRow>
 						</TableHeader>
 						<TableBody>
 							{gameRows.map((row, index) => (

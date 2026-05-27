@@ -106,9 +106,12 @@ export class PhoningInFranceGrammarBienForConfirmation extends PureComponent {
 					information is correct, a bit like <strong>isn&apos;t it?</strong> or
 					<strong> that&apos;s right</strong>.
 				</p>
-				<Table className="grammar-audio-table" variant="learning">
-					<TableHeader className="sr-only">
-						<TableRow className="border-0"><TableHead className="h-0 p-0 leading-[0]">French</TableHead><TableHead className="h-0 p-0 leading-[0]">English</TableHead></TableRow>
+				<Table aria-label="French and English" className="grammar-audio-table" variant="learning">
+					<TableHeader className="sr-table-head">
+						<TableRow>
+							<TableHead scope="col">French</TableHead>
+							<TableHead scope="col">English</TableHead>
+						</TableRow>
 					</TableHeader>
 					<TableBody>
 						{confirmationRows.map((row, index) => (
