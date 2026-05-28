@@ -292,8 +292,8 @@ bun run preview`}</code>
 						Active and hover nav states are driven by{" "}
 						<code className="rounded bg-muted px-1 py-0.5 text-xs">--nav-active-color</code>,
 						which points to{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--hero-title-color</code>{" "}
-						(brand teal). Note: the real <code className="rounded bg-muted px-1 py-0.5 text-xs">.main-menu</code> class
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--brand-primary</code>{" "}
+						(LC teal — <code className="rounded bg-muted px-1 py-0.5 text-xs">oklch(0.612 0.130 160.6)</code>). Note: the real <code className="rounded bg-muted px-1 py-0.5 text-xs">.main-menu</code> class
 						has <code className="rounded bg-muted px-1 py-0.5 text-xs">position: fixed</code> so cannot be
 						used here — these previews reference the token directly.
 					</p>
@@ -344,7 +344,7 @@ bun run preview`}</code>
 							className="h-9 w-9 shrink-0 rounded border border-border/70 shadow-sm"
 							style={{ background: "var(--nav-active-color)" }}
 						/>
-						<code className="text-sm">--nav-active-color → --hero-title-color → oklch(0.612 0.130 160.6)</code>
+						<code className="text-sm">--nav-active-color → --brand-primary → oklch(0.612 0.130 160.6)</code>
 					</div>
 				</div>
 			</section>

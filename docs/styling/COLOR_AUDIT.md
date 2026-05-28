@@ -1,5 +1,9 @@
 # Color Audit
 
+> **Status (2026-05-28):** Historical record — superseded by the style refactor.
+> The `--color-*` RGB triple system documented here was retired in Steps 7 & 8.
+> See `docs/styling/THEME_ARCHITECTURE.md` for the current token architecture.
+
 Date: 2026-02-11  
 Repo: `/Users/ped/Sites/french/french-lo-1`
 
