@@ -119,11 +119,20 @@
 		--sidebar-border: oklch(0.922 0 0);
 		--sidebar-ring: oklch(0.708 0 0);
 
-		/* Custom theme accents (single source of truth). */
-		--page-background: oklch(0.976 0.023 90.7);
-		--hero-title-color: oklch(0.612 0.130 160.6);
-		--footer-background: oklch(0.851 0.089 178.8);
-		--nav-active-color: var(--hero-title-color);
+		/* Brand layer — Language Centre French.
+		 * These three tokens hold the raw brand values.
+		 * Swap this block (and the dark-mode overrides below) to re-skin a course.
+		 * --brand-primary is the same in both modes; --brand-surface and
+		 * --brand-footer are overridden in .dark below.                       */
+		--brand-primary: oklch(0.612 0.130 160.6);   /* LC teal-green           */
+		--brand-surface: oklch(0.976 0.023 90.7);    /* warm cream page bg      */
+		--brand-footer:  oklch(0.851 0.089 178.8);   /* muted teal footer       */
+
+		/* UI role tokens — consume the brand layer, never raw values. */
+		--page-background:   var(--brand-surface);
+		--hero-title-color:  var(--brand-primary);
+		--footer-background: var(--brand-footer);
+		--nav-active-color:  var(--brand-primary);
 		--accordion-mist: color-mix(in oklab, var(--footer-background) 40%, var(--card));
 		--accordion-hover-text: var(--foreground);
 
@@ -248,10 +257,13 @@
 		--sidebar-border: oklch(1 0 0 / 10%);
 		--sidebar-ring: oklch(0.556 0 0);
 
-		/* Custom theme accents (single source of truth). */
-		--page-background: var(--background);
-		--hero-title-color: oklch(0.612 0.130 160.6);
-		--footer-background: var(--sidebar);
+		/* Brand layer dark mode overrides.
+		 * --brand-primary is unchanged (teal works on dark bg).
+		 * UI role tokens (--page-background, --hero-title-color,
+		 * --footer-background, --nav-active-color) resolve automatically
+		 * through the brand layer — no need to re-state them here. */
+		--brand-surface: var(--background);   /* warm cream → dark bg       */
+		--brand-footer:  var(--sidebar);      /* muted teal → dark sidebar  */
 		--accordion-mist: color-mix(in oklab, var(--chart-2) 18%, var(--card));
 		/*
 		 * Dark mode: --edu-* tokens explicitly re-pinned.

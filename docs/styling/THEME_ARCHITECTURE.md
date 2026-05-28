@@ -434,14 +434,22 @@ The brand colour is teal-green.
 
 Give the three existing brand values proper names so they form a coherent layer.
 
-- [ ] Add `--brand-primary: oklch(0.612 0.130 160.6)` to `:root`
-- [ ] Add `--brand-surface: oklch(0.976 0.023 90.7)` to `:root`
-- [ ] Add `--brand-footer: oklch(0.851 0.089 178.8)` to `:root`
-- [ ] Update `--hero-title-color` to reference `var(--brand-primary)`
-- [ ] Update `--page-background` to reference `var(--brand-surface)`
-- [ ] Update `--footer-background` to reference `var(--brand-footer)`
-- [ ] Update `--nav-active-color` (from Step 4) to reference `var(--brand-primary)`
-- [ ] Add matching dark mode overrides for `--brand-*` tokens
+- [x] Add `--brand-primary: oklch(0.612 0.130 160.6)` to `:root`
+- [x] Add `--brand-surface: oklch(0.976 0.023 90.7)` to `:root`
+- [x] Add `--brand-footer: oklch(0.851 0.089 178.8)` to `:root`
+- [x] Update `--hero-title-color` to reference `var(--brand-primary)`
+- [x] Update `--page-background` to reference `var(--brand-surface)`
+- [x] Update `--footer-background` to reference `var(--brand-footer)`
+- [x] Update `--nav-active-color` (from Step 4) to reference `var(--brand-primary)`
+- [x] Add matching dark mode overrides for `--brand-*` tokens
+
+> Brand layer added above the UI role tokens block in `:root`. Dark mode overrides
+> only `--brand-surface` (→ `var(--background)`) and `--brand-footer` (→ `var(--sidebar)`);
+> `--brand-primary` is the same in both modes (teal reads well on dark bg).
+> All four UI role tokens (`--page-background`, `--hero-title-color`,
+> `--footer-background`, `--nav-active-color`) now resolve through the brand layer —
+> no raw oklch values remain in the UI role block. Dark mode no longer re-states the
+> UI role tokens; they auto-cascade through the overridden brand tokens.
 
 ---
 

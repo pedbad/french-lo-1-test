@@ -2,6 +2,34 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-28 — Style refactor Step 5: introduce --brand-* token layer
+
+Added a proper brand layer to `src/index.css` — three tokens that own the raw
+Language Centre brand colour values. All UI role tokens now consume the brand
+layer; no raw oklch values remain in the UI role block.
+
+**Brand tokens added (light mode `:root`):**
+- `--brand-primary: oklch(0.612 0.130 160.6)` — LC teal-green
+- `--brand-surface: oklch(0.976 0.023 90.7)` — warm cream page background
+- `--brand-footer:  oklch(0.851 0.089 178.8)` — muted teal footer
+
+**UI role tokens now reference brand layer (light mode):**
+- `--page-background:   var(--brand-surface)`
+- `--hero-title-color:  var(--brand-primary)`
+- `--footer-background: var(--brand-footer)`
+- `--nav-active-color:  var(--brand-primary)` (was `var(--hero-title-color)` — now
+  points directly to the brand layer, cutting out the intermediate hop)
+
+**Dark mode `.dark` block simplified:**
+- Added `--brand-surface: var(--background)` and `--brand-footer: var(--sidebar)`
+  as the only two brand overrides needed (teal is the same in both modes)
+- Removed the three explicit UI role overrides (`--page-background`,
+  `--hero-title-color`, `--footer-background`) — they now auto-cascade through
+  the brand layer, so re-stating them was redundant
+
+**Why this matters:** swapping the brand block (+ dark overrides) is now all that is
+needed to re-skin the course for Spanish, German, etc. Zero component changes required.
+
 ## 2026-05-28 — Style refactor Step 4: replace nav blue with brand teal
 
 **Problem:** The nav active/highlight state was driven by `rgb(var(--color-primary-400))` —
