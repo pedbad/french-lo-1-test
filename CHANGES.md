@@ -2,6 +2,37 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-28 — Style refactor Steps 2 & 3 + dead variable cleanup
+
+**Step 2 (already done in Step 1):** All flash animation keyframes (`anchor-flash`,
+`modal-highlight-flash`) already used `var(--edu-warn)` with `color-mix()` — no
+hardcoded RGB amber remained. Checklist updated to reflect this.
+
+**Dead variables removed:** `--color-traffic-red`, `--color-traffic-amber`,
+`--color-traffic-green` were declared in both light and dark mode since the initial
+commit but never referenced anywhere. Removed from `src/index.css`.
+
+**Step 3 — Safelist hardcodes replaced:**
+- `text-amber-950` → `text-[var(--edu-accent)]` in `ModalLinkDialog.jsx`,
+  `about-me-grammar.jsx`, `first-contact-grammar.jsx`
+- Dead safelist entries removed from `tailwind.config.js`: `bg-amber-300/90`,
+  `ring-amber-400/80`, `animate-highlight-flash`
+
+## 2026-05-28 — WAVE accessibility: restore sr-table-head headers across all 15 LOs
+
+Fixed WAVE "Layout table" alerts that appeared after a previous session removed
+`<TableHeader className="sr-only">` blocks from grammar tables. The old `sr-only`
+approach was replaced with a new `.sr-table-head` class (unlayered CSS, beats all
+Tailwind utilities) that properly hides `<thead>` visually while keeping
+`<th scope="col">` cells in the DOM for screen readers.
+
+- Added `.sr-table-head` and `.sr-table-head tr` rules to end of `src/index.css`
+- Restored `<TableHeader className="sr-table-head">` in all 10 grammar files
+  that have `grammar-audio-table` tables across all 15 LOs
+- `going-to-a-cafe` and `shopping-in-the-market` AudioTable components now
+  fall back to `sr-table-head` when no visible `headers` prop is passed
+- `PhraseTable.jsx` updated from `sr-only` to `sr-table-head`
+
 ## 2026-05-27 — Created `docs/styling/THEME_ARCHITECTURE.md`
 
 New document covering:

@@ -396,9 +396,16 @@ The flash animation uses hardcoded RGB amber, disconnected from `--edu-warn`.
 
 Safelist classes bypass the token system and will go stale.
 
-- [ ] Identify where `bg-amber-300/90`, `text-amber-950`, `ring-amber-400/80` are applied
-- [ ] Replace with token-based Tailwind classes or inline CSS variable references
-- [ ] Remove the raw palette entries from `tailwind.config.js` safelist
+- [x] Identify where `bg-amber-300/90`, `text-amber-950`, `ring-amber-400/80` are applied
+- [x] Replace with token-based Tailwind classes or inline CSS variable references
+- [x] Remove the raw palette entries from `tailwind.config.js` safelist
+
+> `text-amber-950` was used in `ModalLinkDialog.jsx`, `about-me-grammar.jsx`,
+> and `first-contact-grammar.jsx` — replaced with `text-[var(--edu-accent)]`.
+> `bg-amber-300/90`, `ring-amber-400/80`, and `animate-highlight-flash` were
+> dead (no production usage) — removed from safelist directly.
+> Also removed dead `--color-traffic-*` variables (red/amber/green) that were
+> declared since day one but never consumed by any component.
 
 ---
 
