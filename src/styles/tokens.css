@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Layer 3 — UI Role Tokens + shadcn System Tokens + Educational Tokens
+   ==========================================================================
+   These tokens consume the brand layer and never contain raw colour values.
+   Grouped in three sections:
+
+   A. shadcn system tokens (--primary, --background, --chart-* …)
+      Do NOT rename shadcn tokens — shadcn components reference them directly.
+      NOTE: shadcn's --primary (near-black) ≠ --brand-primary (LC teal).
+            --primary       = shadcn UI system (button fills, active controls)
+            --brand-primary = Language Centre brand colour (hero, nav, footer)
+
+   B. UI role tokens (--page-background, --nav-active-color …)
+      Consume brand layer. Never contain raw oklch values.
+
+   C. Educational semantic tokens (--edu-*)
+      Describe the ROLE of a colour in learning content.
+      Own their values directly (pinned oklch) — never reference --chart-*.
+   ========================================================================== */
+
+@layer base {
+	:root {
+		color-scheme: light;
+
+		/* Font families */
+		--font-sans:         'OpenSans Regular', sans-serif;
+		--font-heading:      'Feijoa Medium', serif;
+		--font-heading-bold: 'Feijoa Bold', serif;
+		--font-mono:         'JetBrains Mono', monospace;
+
+		/* Typography scale */
+		--font-size-xs:   0.85rem;
+		--font-size-sm:   1rem;
+		--font-size-base: 1.15rem;
+		--font-size-lg:   1.35rem;
+		--font-size-xl:   1.6rem;
+		--font-size-2xl:  clamp(1.75rem, 3vw, 2.25rem);
+		--font-size-3xl:  clamp(2.25rem, 4vw, 3rem);
+		--line-height-2xl:             1.2;
+		--line-height-3xl:             1.15;
+		--line-height-xs:              1.4;
+		--line-height-sm:              1.5;
+		--line-height-body:            1.7;
+		--line-height-body-tight:      1.6;
+		--line-height-body-loose:      1.8;
+		--line-height-lg:              1.8;
+		--line-height-xl:              1.9;
+		--line-height-app:             1.4;
+		--line-height-wordparts:         1.3;
+		--line-height-wordparts-mobile:  1.35;
+		--nav-title-size: 1.85rem;
+		--nav-link-size:  var(--font-size-lg);
+
+		/* A. shadcn system tokens
+		 * Do not rename these — shadcn components reference them by these exact names. */
+		--radius:                     0.625rem;
+		--background:                 oklch(1 0 0);
+		--foreground:                 oklch(0.145 0 0);
+		--card:                       oklch(1 0 0);
+		--card-foreground:            oklch(0.145 0 0);
+		--popover:                    oklch(1 0 0);
+		--popover-foreground:         oklch(0.145 0 0);
+		--primary:                    oklch(0.205 0 0);
+		--primary-foreground:         oklch(0.985 0 0);
+		--secondary:                  oklch(0.97 0 0);
+		--secondary-foreground:       oklch(0.205 0 0);
+		--muted:                      oklch(0.97 0 0);
+		--muted-foreground:           oklch(0.556 0 0);
+		--accent:                     oklch(0.97 0 0);
+		--accent-foreground:          oklch(0.205 0 0);
+		--destructive:                oklch(0.577 0.245 27.325);
+		--border:                     oklch(0.922 0 0);
+		--input:                      oklch(0.922 0 0);
+		--ring:                       oklch(0.708 0 0);
+		--chart-1:                    oklch(0.646 0.222 41.116);
+		--chart-2:                    oklch(0.6 0.118 184.704);
+		--chart-3:                    oklch(0.398 0.07 227.392);
+		--chart-4:                    oklch(0.828 0.189 84.429);
+		--chart-5:                    oklch(0.769 0.188 70.08);
+		--poem-accent-red:            oklch(0.637 0.237 25.331);
+		--poem-accent-orange:         oklch(0.709 0.196 49.131);
+		--poem-accent-yellow:         oklch(0.842 0.172 87.933);
+		--poem-accent-green:          oklch(0.733 0.185 145.151);
+		--poem-accent-blue:           oklch(0.625 0.186 254.624);
+		--poem-accent-indigo:         oklch(0.544 0.209 279.102);
+		--poem-accent-violet:         oklch(0.62 0.252 318.284);
+		--sidebar:                    oklch(0.985 0 0);
+		--sidebar-foreground:         oklch(0.145 0 0);
+		--sidebar-primary:            oklch(0.205 0 0);
+		--sidebar-primary-foreground: oklch(0.985 0 0);
+		--sidebar-accent:             oklch(0.97 0 0);
+		--sidebar-accent-foreground:  oklch(0.205 0 0);
+		--sidebar-border:             oklch(0.922 0 0);
+		--sidebar-ring:               oklch(0.708 0 0);
+
+		/* B. UI role tokens — consume brand layer, never raw values */
+		--page-background:   var(--brand-surface);
+		--hero-title-color:  var(--brand-primary);
+		--footer-background: var(--brand-footer);
+		--nav-active-color:  var(--brand-primary);
+		--accordion-mist:       color-mix(in oklab, var(--footer-background) 40%, var(--card));
+		--accordion-hover-text: var(--foreground);
+
+		/* C. Educational semantic tokens
+		 * Prefix: --edu-* — course-neutral and brand-neutral.
+		 * Own their values directly (pinned oklch).
+		 * Never reference --chart-* (shadcn remapped chart-1 to blue in dark mode
+		 * without warning — that silently broke --edu-warn for one release). */
+		--edu-affirm:  oklch(0.6   0.118 184.704);  /* green  — correct / success        */
+		--edu-warn:    oklch(0.646 0.222  41.116);  /* amber  — caution / hint            */
+		--edu-neg:     oklch(0.577 0.245  27.325);  /* red    — wrong / error             */
+		--edu-neutral: oklch(0.556 0       0);      /* grey   — secondary / inactive      */
+		--edu-accent:  oklch(0.205 0       0);      /* near-black — emphasis / selection  */
+
+		--emphasis-strong-color:            color-mix(in oklab, var(--foreground) 86%, var(--chart-3));
+		--emphasis-em-color:                color-mix(in oklab, var(--foreground) 84%, var(--edu-warn));
+		--instruction-callout-accent-start: color-mix(in oklab, var(--edu-warn) 62%, var(--foreground));
+		--instruction-callout-accent-end:   color-mix(in oklab, var(--edu-warn) 28%, var(--page-background));
+		--instruction-callout-shadow:       color-mix(in oklab, var(--edu-warn)  8%, transparent);
+		--modal-link-accent:                color-mix(in oklab, var(--edu-warn) 68%, var(--foreground));
+		--modal-link-hover:                 color-mix(in oklab, var(--edu-warn) 78%, var(--foreground));
+		--modal-link-visited:               color-mix(in oklab, var(--edu-warn) 52%, var(--foreground));
+		--modal-link-underline:             color-mix(in oklab, var(--modal-link-accent) 60%, transparent);
+		--modal-link-underline-hover:       color-mix(in oklab, var(--modal-link-hover)  74%, transparent);
+
+		/* Footer visual accents */
+		--footer-crest-conic-a-start: color-mix(in oklab, var(--footer-background) 68%, var(--card));
+		--footer-crest-conic-a-mid:   color-mix(in oklab, var(--footer-background) 24%, transparent);
+		--footer-crest-conic-b-start: color-mix(in oklab, var(--footer-background) 66%, var(--card));
+		--footer-crest-conic-b-mid:   color-mix(in oklab, var(--footer-background) 22%, transparent);
+		--footer-crest-linear-start:  color-mix(in oklab, var(--footer-background) 50%, var(--card));
+		--footer-crest-linear-mid:    color-mix(in oklab, var(--footer-background) 18%, transparent);
+		--footer-social-icon-fg:      var(--primary-foreground);
+	}
+
+	.dark {
+		color-scheme: dark;
+
+		/* A. shadcn dark mode overrides */
+		--background:                 oklch(0.145 0 0);
+		--foreground:                 oklch(0.985 0 0);
+		--card:                       oklch(0.205 0 0);
+		--card-foreground:            oklch(0.985 0 0);
+		--popover:                    oklch(0.205 0 0);
+		--popover-foreground:         oklch(0.985 0 0);
+		--primary:                    oklch(0.922 0 0);
+		--primary-foreground:         oklch(0.205 0 0);
+		--secondary:                  oklch(0.269 0 0);
+		--secondary-foreground:       oklch(0.985 0 0);
+		--muted:                      oklch(0.269 0 0);
+		--muted-foreground:           oklch(0.708 0 0);
+		--accent:                     oklch(0.269 0 0);
+		--accent-foreground:          oklch(0.985 0 0);
+		--destructive:                oklch(0.704 0.191 22.216);
+		--border:                     oklch(1 0 0 / 10%);
+		--input:                      oklch(1 0 0 / 15%);
+		--ring:                       oklch(0.556 0 0);
+		--chart-1:                    oklch(0.488 0.243 264.376);
+		--chart-2:                    oklch(0.696 0.17 162.48);
+		--chart-3:                    oklch(0.769 0.188 70.08);
+		--chart-4:                    oklch(0.627 0.265 303.9);
+		--chart-5:                    oklch(0.645 0.246 16.439);
+		--poem-accent-red:            oklch(0.702 0.203 22.533);
+		--poem-accent-orange:         oklch(0.76 0.165 52.852);
+		--poem-accent-yellow:         oklch(0.866 0.154 95.338);
+		--poem-accent-green:          oklch(0.79 0.162 147.758);
+		--poem-accent-blue:           oklch(0.725 0.16 251.24);
+		--poem-accent-indigo:         oklch(0.67 0.188 283.258);
+		--poem-accent-violet:         oklch(0.724 0.213 319.347);
+		--sidebar:                    oklch(0.205 0 0);
+		--sidebar-foreground:         oklch(0.985 0 0);
+		--sidebar-primary:            oklch(0.488 0.243 264.376);
+		--sidebar-primary-foreground: oklch(0.985 0 0);
+		--sidebar-accent:             oklch(0.269 0 0);
+		--sidebar-accent-foreground:  oklch(0.985 0 0);
+		--sidebar-border:             oklch(1 0 0 / 10%);
+		--sidebar-ring:               oklch(0.556 0 0);
+
+		/* B. UI role token dark overrides */
+		--accordion-mist:       color-mix(in oklab, var(--chart-2) 18%, var(--card));
+		--accordion-hover-text: var(--foreground);
+
+		/* C. Educational semantic token dark overrides.
+		 * All five values pinned here so dark mode is self-contained.
+		 * No edu token ever falls back to a shadcn --chart-* value. */
+		--edu-affirm:  oklch(0.696 0.17  162.48);   /* green  — slightly lighter in dark  */
+		--edu-warn:    oklch(0.645 0.246  16.439);   /* amber-orange — warm, never blue    */
+		--edu-neg:     oklch(0.704 0.191  22.216);   /* red    — slightly lighter in dark  */
+		--edu-neutral: oklch(0.708 0       0);       /* grey   — lighter for dark bg       */
+		--edu-accent:  oklch(0.922 0       0);       /* near-white — follows foreground    */
+
+		--emphasis-strong-color:            color-mix(in oklab, var(--foreground) 90%, var(--chart-3));
+		--emphasis-em-color:                color-mix(in oklab, var(--foreground) 88%, var(--edu-warn));
+		--instruction-callout-accent-start: color-mix(in oklab, var(--edu-warn) 54%, var(--foreground));
+		--instruction-callout-accent-end:   color-mix(in oklab, var(--edu-warn) 24%, var(--card));
+		--instruction-callout-shadow:       color-mix(in oklab, var(--edu-warn) 12%, transparent);
+		--modal-link-accent:                color-mix(in oklab, var(--edu-warn) 62%, var(--foreground));
+		--modal-link-hover:                 color-mix(in oklab, var(--edu-warn) 72%, var(--foreground));
+		--modal-link-visited:               color-mix(in oklab, var(--edu-warn) 46%, var(--foreground));
+		--modal-link-underline:             color-mix(in oklab, var(--modal-link-accent) 62%, transparent);
+		--modal-link-underline-hover:       color-mix(in oklab, var(--modal-link-hover)  76%, transparent);
+
+		/* Footer social dark-mode palette */
+		--footer-social-dark-fg:           #fff;
+		--footer-social-dark-border:       rgb(255 255 255 / 86%);
+		--footer-social-dark-bg:           linear-gradient(165deg, #1a1a1a 0%, #060606 100%);
+		--footer-social-dark-shadow:       0 0 0 1px rgb(255 255 255 / 14%) inset, 0 8px 18px rgb(0 0 0 / 46%);
+		--footer-social-dark-glow:         drop-shadow(0 0 7px rgb(255 255 255 / 20%));
+		--footer-social-dark-border-hover: #fff;
+	}
+}

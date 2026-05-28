@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Layer 2 — Brand Tokens (Language Centre French)
+   ==========================================================================
+   Maps raw palette values to brand roles for this specific course.
+   To re-skin for a different language course:
+     1. Copy this file → theme-lc-[language].css
+     2. Replace the oklch values with the new course's brand colours
+     3. Update the @import in index.css to point to the new file
+   Zero component or token changes required.
+
+   --brand-primary stays the same in dark mode (LC teal reads well on dark bg).
+   Only --brand-surface and --brand-footer need dark-mode overrides.
+   ========================================================================== */
+
+@layer base {
+	:root {
+		--brand-primary: oklch(0.612 0.130 160.6);   /* LC teal-green           */
+		--brand-surface: oklch(0.976 0.023 90.7);    /* warm cream page bg      */
+		--brand-footer:  oklch(0.851 0.089 178.8);   /* muted teal footer       */
+	}
+
+	.dark {
+		/* --brand-primary is unchanged — LC teal works on dark backgrounds. */
+		--brand-surface: var(--background);   /* warm cream → dark base bg  */
+		--brand-footer:  var(--sidebar);      /* muted teal → dark sidebar  */
+	}
+}

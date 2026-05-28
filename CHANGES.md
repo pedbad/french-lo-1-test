@@ -2,6 +2,27 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-28 — Style refactor Step 6: split index.css into separate token files
+
+Extracted all CSS variable declarations out of `src/index.css` into three purpose-built
+files under `src/styles/`, turning `index.css` into a lean entry point.
+
+**New files:**
+- `src/styles/palette-lc.css` — Layer 1: raw `--color-*` RGB palette values (light + dark)
+- `src/styles/theme-lc-french.css` — Layer 2: `--brand-*` tokens; the only file to touch
+  when re-skinning for a different language course
+- `src/styles/tokens.css` — Layer 3: shadcn system tokens, UI role tokens (`--page-background`
+  etc.), and educational semantic tokens (`--edu-*`) with full dark-mode overrides
+
+**`src/index.css` changes:**
+- Added four `@import` lines (palette → theme → tokens → fonts) after the Tailwind imports
+- Removed the entire `:root { }` and `.dark { }` token declaration blocks (~12,000 chars)
+- Utility classes (`.edu-affirm`, `.bg-surface-base`, etc.) and all component styles remain
+
+**Other:**
+- Removed `import './styles/fonts.css'` from `src/main.jsx` and `src/debug/sandbox-main.jsx`
+  — `index.css` (already imported by both entry points) now handles fonts via `@import`
+
 ## 2026-05-28 — Style refactor Step 5: introduce --brand-* token layer
 
 Added a proper brand layer to `src/index.css` — three tokens that own the raw

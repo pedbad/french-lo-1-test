@@ -10,11 +10,22 @@ Create a new production-ready React app using Bun, Tailwind CSS, shadcn/ui, and 
 Non-negotiable architecture:
 1. Use Bun for install/dev/build/test scripts.
 2. Use Tailwind as the only styling system. Do not use SCSS/SASS.
-3. Implement strict single source of truth for design:
-   - Keep one semantic token contract in `src/styles/tokens.css`.
-   - Keep locale/brand color palette overrides in `src/styles/themes/theme-<locale>.css`.
+3. Implement strict single source of truth for design using a four-file CSS split:
+   ```
+   src/styles/
+     palette-lc.css          ← Layer 1: raw oklch colour values (--palette-*)
+     theme-lc-[language].css ← Layer 2: brand tokens (--brand-*); swap to re-skin
+     tokens.css              ← Layer 3: UI role tokens + shadcn system tokens + --edu-*
+     fonts.css               ← @font-face declarations only
+   src/index.css             ← entry point: @import the four files, then Tailwind
+   ```
+   Import order in index.css: palette → theme → tokens → fonts → Tailwind plugin/config.
+   - `tokens.css` is the semantic token contract consumed by components.
+   - `theme-lc-[language].css` is the ONLY file changed to re-skin for a new course.
+   - `palette-lc.css` holds raw values; components NEVER reference these directly.
    - Tailwind and shadcn consume semantic tokens only.
-   - No hardcoded color/font-size/font-family values outside token files.
+   - No hardcoded colour/font-size/font-family values outside token files.
+   - fonts.css is imported via index.css — NOT via JS imports in main.jsx.
 4. Must support light and dark mode from day one using class-based theme switching.
 5. Ensure token parity across light/dark (no ad hoc per-component overrides).
    - Include locale/brand theming from day one via `data-theme` on the root element.

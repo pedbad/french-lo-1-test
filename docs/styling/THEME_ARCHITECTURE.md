@@ -457,13 +457,21 @@ Give the three existing brand values proper names so they form a coherent layer.
 
 Move the four token groups out of one giant `:root` block into their own files.
 
-- [ ] Create `src/styles/palette-lc.css` — raw LC colour values (`--palette-*`)
-- [ ] Create `src/styles/theme-lc-french.css` — brand tokens (`--brand-*`)
-- [ ] Create `src/styles/tokens.css` — UI role tokens (no raw values)
-- [ ] Move `src/styles/fonts.css` content to align with new structure
-- [ ] Update `src/index.css` to `@import` the new files in order:
-      palette → theme → tokens → fonts → tailwind
-- [ ] Verify build passes and no visual change
+- [x] Create `src/styles/palette-lc.css` — raw LC colour values (`--palette-*`)
+- [x] Create `src/styles/theme-lc-french.css` — brand tokens (`--brand-*`)
+- [x] Create `src/styles/tokens.css` — UI role tokens (no raw values)
+- [x] Move `src/styles/fonts.css` content to align with new structure
+- [x] Update `src/index.css` to `@import` the new files in order:
+      palette → theme → tokens → fonts
+- [x] Verify build passes and no visual change
+
+> Three new files created under `src/styles/`. `index.css` now imports them in
+> the correct cascade order: palette → theme → tokens → fonts. The entire `:root`
+> and `.dark` token declaration blocks (≈12,000 chars) were removed from
+> `index.css`; only utility classes and component styles remain there.
+> `fonts.css` JS imports removed from `main.jsx` and `sandbox-main.jsx` —
+> `index.css` is now the single CSS entry point for both app and debug builds.
+> Build passes. Zero visual change.
 
 ---
 
