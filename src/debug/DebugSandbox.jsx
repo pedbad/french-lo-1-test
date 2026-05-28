@@ -43,6 +43,7 @@ const DEBUG_MENU_ITEMS = [
 	{ href: "#sandbox-validation-quickstart", label: "Quickstart" },
 	{ href: "#sandbox-typography", label: "Typography" },
 	{ href: "#sandbox-instruction-callout", label: "Instruction" },
+	{ href: "#sandbox-nav-tokens", label: "Nav" },
 	{ href: "#sandbox-link-tokens", label: "Links" },
 	{ href: "#sandbox-info", label: "Info" },
 	{ href: "#sandbox-buttons", label: "Buttons" },
@@ -281,6 +282,61 @@ bun run preview`}</code>
 							a dark-mode override.
 						</div>
 					</InstructionCallout>
+				</div>
+			</section>
+
+			<section aria-labelledby="sandbox-nav-tokens">
+				<h2 id="sandbox-nav-tokens">Nav Tokens</h2>
+				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
+					<p className="m-0 text-sm text-muted-foreground">
+						Active and hover nav states are driven by{" "}
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--nav-active-color</code>,
+						which points to{" "}
+						<code className="rounded bg-muted px-1 py-0.5 text-xs">--hero-title-color</code>{" "}
+						(brand teal). The samples below use the real <code className="rounded bg-muted px-1 py-0.5 text-xs">.main-menu</code> CSS classes.
+					</p>
+					{/* Desktop nav states */}
+					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
+						<p className="mb-2 text-sm font-medium text-muted-foreground">Desktop — hover &amp; active states</p>
+						<nav className="main-menu">
+							<ul className="menu-right flex gap-2 list-none m-0 p-0">
+								<li>
+									<a href="#sandbox-nav-tokens">Default link</a>
+								</li>
+								<li>
+									<a className="force-hover" href="#sandbox-nav-tokens" style={{ color: "var(--nav-active-color)", fontWeight: 600, borderBottom: "3px solid var(--nav-active-color)", padding: "0.18rem 0.5rem 0.22rem", borderRadius: 0, display: "inline-flex", alignItems: "center" }}>Hover preview</a>
+								</li>
+								<li className="highlight">
+									<a href="#sandbox-nav-tokens">Active / current</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					{/* Mobile nav states */}
+					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
+						<p className="mb-2 text-sm font-medium text-muted-foreground">Mobile — active state (left border + colour)</p>
+						<nav className="main-menu">
+							<div className="mobile-menu open" style={{ maxHeight: "none", overflow: "visible" }}>
+								<ul className="mobile-menu-list list-none m-0 p-0">
+									<li>
+										<a className="nav-link-mobile" href="#sandbox-nav-tokens">Default link</a>
+									</li>
+									<li className="highlight">
+										<a className="nav-link-mobile" href="#sandbox-nav-tokens">Active / current</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+					{/* Token swatch */}
+					<div className="flex items-center gap-3">
+						<span
+							aria-hidden="true"
+							className="h-9 w-9 shrink-0 rounded border border-border/70 shadow-sm"
+							style={{ background: "var(--nav-active-color)" }}
+						/>
+						<code className="text-sm">--nav-active-color → --hero-title-color</code>
+					</div>
 				</div>
 			</section>
 
