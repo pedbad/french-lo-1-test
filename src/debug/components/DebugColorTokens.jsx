@@ -12,6 +12,60 @@ const SOURCE_TEXT_MODULES = import.meta.glob('/src/**/*.{js,jsx,ts,tsx,css,scss}
 	query: '?raw',
 });
 
+/* ── Token classification ─────────────────────────────────────────────────── */
+
+const SHADCN_TOKEN_NAMES = new Set([
+	'--background', '--foreground',
+	'--card', '--card-foreground',
+	'--popover', '--popover-foreground',
+	'--primary', '--primary-foreground',
+	'--secondary', '--secondary-foreground',
+	'--muted', '--muted-foreground',
+	'--accent', '--accent-foreground',
+	'--destructive',
+	'--border', '--input', '--ring',
+	'--chart-1', '--chart-2', '--chart-3', '--chart-4', '--chart-5',
+	'--sidebar', '--sidebar-foreground',
+	'--sidebar-primary', '--sidebar-primary-foreground',
+	'--sidebar-accent', '--sidebar-accent-foreground',
+	'--sidebar-border', '--sidebar-ring',
+]);
+
+function classifyToken(name) {
+	if (name.startsWith('--color-')) return 'tailwind';
+	if (SHADCN_TOKEN_NAMES.has(name)) return 'shadcn';
+	return 'custom';
+}
+
+const GROUPS = [
+	{
+		id: 'shadcn',
+		label: 'shadcn System Tokens',
+		sourceFile: 'src/styles/tokens.css — Section A',
+		description: 'Tokens shadcn/ui components reference directly. Do not rename.',
+		headerColor: 'bg-[color-mix(in_oklab,var(--chart-1)_12%,var(--card))] border-[color-mix(in_oklab,var(--chart-1)_40%,var(--border))]',
+		badgeColor: 'border-orange-400/70 bg-transparent text-orange-700 dark:text-orange-300',
+	},
+	{
+		id: 'tailwind',
+		label: 'Tailwind Colour Aliases',
+		sourceFile: 'tailwind.config.js → @theme',
+		description: 'Generated --color-* aliases that map Tailwind utility classes (bg-background, text-foreground …) to CSS tokens. Usage count shows 0 because these are consumed via class names, never via var(--color-*) directly.',
+		headerColor: 'bg-[color-mix(in_oklab,var(--chart-2)_12%,var(--card))] border-[color-mix(in_oklab,var(--chart-2)_40%,var(--border))]',
+		badgeColor: 'border-sky-500/70 bg-transparent text-sky-700 dark:text-sky-300',
+	},
+	{
+		id: 'custom',
+		label: 'Custom Design Tokens',
+		sourceFile: 'theme-lc-french.css + tokens.css — Sections B–F',
+		description: 'Brand scale (--brand-*), UI role tokens, educational states (--edu-*), exercise interaction (--ex-*), depth shadows (--shadow-*), component tokens, and content accent palette.',
+		headerColor: 'bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] border-[color-mix(in_oklab,var(--brand-primary)_40%,var(--border))]',
+		badgeColor: 'border-teal-500/70 bg-transparent text-teal-700 dark:text-teal-300',
+	},
+];
+
+/* ── Core utilities (unchanged) ───────────────────────────────────────────── */
+
 function getTokenMap(scopeClassName) {
 	const probe = document.createElement('div');
 	if (scopeClassName) probe.className = scopeClassName;
@@ -69,7 +123,7 @@ function collectColorRows() {
 	const rows = [];
 
 	Array.from(allNames)
-		.sort((left, right) => left.localeCompare(right))
+		.sort((a, b) => a.localeCompare(b))
 		.forEach((token) => {
 			const lightRaw = resolveValueString(lightMap.get(token) || '', lightMap).trim();
 			const darkRaw = resolveValueString(darkMap.get(token) || '', darkMap).trim();
@@ -78,6 +132,7 @@ function collectColorRows() {
 			rows.push({
 				darkRaw,
 				darkSwatch: toRenderableColor(darkRaw),
+				group: classifyToken(token),
 				lightRaw,
 				lightSwatch: toRenderableColor(lightRaw),
 				token,
@@ -108,6 +163,8 @@ function getTokenUsageCounts(tokenNames) {
 	return counts;
 }
 
+/* ── Sub-components ───────────────────────────────────────────────────────── */
+
 function Swatch({ value }) {
 	return (
 		<span
@@ -118,88 +175,138 @@ function Swatch({ value }) {
 	);
 }
 
+function TokenTable({ rows }) {
+	return (
+		<div className="overflow-x-auto">
+			<table className="min-w-full border-collapse text-base">
+				<thead>
+					<tr className="border-b border-border/70 text-left">
+						<th className="px-2 py-2 font-semibold">Token</th>
+						<th className="px-2 py-2 font-semibold">Light</th>
+						<th className="px-2 py-2 font-semibold">Dark</th>
+						<th className="px-2 py-2 font-semibold">Usage</th>
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map((row) => (
+						<tr className="border-b border-border/40 align-top" key={row.token}>
+							<td className="px-2 py-2">
+								<code>{row.token}</code>
+							</td>
+							<td className="px-2 py-2">
+								<div className="flex items-start gap-2">
+									<Swatch value={row.lightSwatch} />
+									<code className="break-all">{row.lightRaw || '(unset)'}</code>
+								</div>
+							</td>
+							<td className="px-2 py-2">
+								<div className="flex items-start gap-2">
+									<Swatch value={row.darkSwatch} />
+									<code className="break-all">{row.darkRaw || '(unset)'}</code>
+								</div>
+							</td>
+							<td className="px-2 py-2">
+								<Badge
+									className={`text-sm font-medium ${row.usageCount > 0 ? USED_BADGE_CLASS : UNUSED_BADGE_CLASS}`}
+									variant="outline"
+								>
+									{row.usageCount > 0 ? `Used (${row.usageCount})` : 'Unused (0)'}
+								</Badge>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	);
+}
+
+function TokenGroup({ group, rows }) {
+	const [open, setOpen] = React.useState(group.id === 'custom');
+	const usedCount = rows.filter((r) => r.usageCount > 0).length;
+
+	return (
+		<div className={`rounded-xl border ${group.headerColor} overflow-hidden`}>
+			<button
+				aria-expanded={open}
+				className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
+				onClick={() => setOpen((v) => !v)}
+				type="button"
+			>
+				<div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+					<span className="text-base font-semibold">{group.label}</span>
+					<code className="text-sm text-[var(--muted-foreground)]">{group.sourceFile}</code>
+				</div>
+				<div className="flex shrink-0 items-center gap-2">
+					<Badge className={`text-sm font-medium ${group.badgeColor}`} variant="outline">
+						{`${rows.length} tokens`}
+					</Badge>
+					<Badge className={`text-sm font-medium ${USED_BADGE_CLASS}`} variant="outline">
+						{`${usedCount} used`}
+					</Badge>
+					<span aria-hidden="true" className="text-[var(--muted-foreground)]">{open ? '▲' : '▼'}</span>
+				</div>
+			</button>
+
+			{open && (
+				<div className="border-t border-border/40 bg-card px-4 pb-4 pt-3">
+					<p className="mb-3 text-sm text-[var(--muted-foreground)]">{group.description}</p>
+					<TokenTable rows={rows} />
+				</div>
+			)}
+		</div>
+	);
+}
+
+/* ── Main export ──────────────────────────────────────────────────────────── */
+
 export function DebugColorTokens() {
-	const [rows, setRows] = React.useState([]);
+	const [rowsByGroup, setRowsByGroup] = React.useState({ custom: [], shadcn: [], tailwind: [] });
 	const [errorMessage, setErrorMessage] = React.useState('');
 
 	React.useEffect(() => {
 		try {
 			const baseRows = collectColorRows();
 			const usageCounts = getTokenUsageCounts(baseRows.map((row) => row.token));
-			setRows(baseRows.map((row) => ({
-				...row,
-				usageCount: usageCounts.get(row.token) || 0,
-			})));
+			const withCounts = baseRows.map((row) => ({ ...row, usageCount: usageCounts.get(row.token) || 0 }));
+
+			setRowsByGroup({
+				custom:   withCounts.filter((r) => r.group === 'custom'),
+				shadcn:   withCounts.filter((r) => r.group === 'shadcn'),
+				tailwind: withCounts.filter((r) => r.group === 'tailwind'),
+			});
 			setErrorMessage('');
 		} catch (error) {
 			setErrorMessage(`Failed to collect color tokens: ${error?.message || error}`);
 		}
 	}, []);
 
-	const usedCount = rows.filter((row) => row.usageCount > 0).length;
-	const unusedCount = rows.length - usedCount;
+	const allRows = [...rowsByGroup.shadcn, ...rowsByGroup.tailwind, ...rowsByGroup.custom];
+	const totalUsed = allRows.filter((r) => r.usageCount > 0).length;
 
 	return (
 		<section aria-labelledby="sandbox-color-tokens">
-			<h2 id="sandbox-color-tokens">Color Tokens (Light + Dark)</h2>
-			<p className="mb-3 text-base text-[var(--muted-foreground)]">
-				Debug inventory of app color token names and resolved values in both themes.
-			</p>
-			<p className="mb-3 text-sm text-[var(--muted-foreground)]">
-				Usage is source-reference based (`var(--token)` across `src/`, excluding `src/debug/`).
+			<h2 id="sandbox-color-tokens">Color Tokens — by source</h2>
+			<p className="mb-4 text-base text-[var(--muted-foreground)]">
+				Tokens are grouped by their source file, matching the four-layer token architecture. Each group is collapsed by default except Custom Design Tokens.
 			</p>
 			{errorMessage ? (
 				<p className="mb-3 text-base text-[var(--destructive)]">{errorMessage}</p>
 			) : null}
-			<div className="rounded-xl border border-border bg-card p-3">
-				<p className="mb-2 text-base font-semibold">
-					{`Total color tokens detected: ${rows.length}`}
-				</p>
-				<div className="mb-3 flex flex-wrap items-center gap-2">
-					<Badge className={`text-sm font-medium ${USED_BADGE_CLASS}`} variant="outline">{`Used: ${usedCount}`}</Badge>
-					<Badge className={`text-sm font-medium ${UNUSED_BADGE_CLASS}`} variant="outline">{`Unused: ${unusedCount}`}</Badge>
-				</div>
-				<div className="overflow-x-auto">
-					<table className="min-w-full border-collapse text-base">
-						<thead>
-							<tr className="border-b border-border/70 text-left">
-								<th className="px-2 py-2 font-semibold">Token</th>
-								<th className="px-2 py-2 font-semibold">Light</th>
-								<th className="px-2 py-2 font-semibold">Dark</th>
-								<th className="px-2 py-2 font-semibold">Usage</th>
-							</tr>
-						</thead>
-						<tbody>
-							{rows.map((row) => (
-								<tr className="border-b border-border/40 align-top" key={row.token}>
-									<td className="px-2 py-2">
-										<code>{row.token}</code>
-									</td>
-									<td className="px-2 py-2">
-										<div className="flex items-start gap-2">
-											<Swatch value={row.lightSwatch} />
-											<code className="break-all">{row.lightRaw || '(unset)'}</code>
-										</div>
-									</td>
-									<td className="px-2 py-2">
-										<div className="flex items-start gap-2">
-											<Swatch value={row.darkSwatch} />
-											<code className="break-all">{row.darkRaw || '(unset)'}</code>
-										</div>
-									</td>
-									<td className="px-2 py-2">
-										<Badge
-											className={`text-sm font-medium ${row.usageCount > 0 ? USED_BADGE_CLASS : UNUSED_BADGE_CLASS}`}
-											variant="outline"
-										>
-											{row.usageCount > 0 ? `Used (${row.usageCount})` : 'Unused (0)'}
-										</Badge>
-									</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
-				</div>
+			<div className="mb-4 flex flex-wrap items-center gap-2 rounded-xl border border-border bg-card px-4 py-3">
+				<span className="text-base font-semibold">Total:</span>
+				<Badge className={`text-sm font-medium ${USED_BADGE_CLASS}`} variant="outline">{`${totalUsed} used`}</Badge>
+				<Badge className={`text-sm font-medium ${UNUSED_BADGE_CLASS}`} variant="outline">{`${allRows.length - totalUsed} unused`}</Badge>
+				<span className="text-sm text-[var(--muted-foreground)]">{`across ${allRows.length} color tokens`}</span>
+			</div>
+			<div className="flex flex-col gap-3">
+				{GROUPS.map((group) => (
+					<TokenGroup
+						group={group}
+						key={group.id}
+						rows={rowsByGroup[group.id] || []}
+					/>
+				))}
 			</div>
 		</section>
 	);
