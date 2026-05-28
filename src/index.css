@@ -123,6 +123,7 @@
 		--page-background: oklch(0.976 0.023 90.7);
 		--hero-title-color: oklch(0.612 0.130 160.6);
 		--footer-background: oklch(0.851 0.089 178.8);
+		--nav-active-color: var(--hero-title-color);
 		--accordion-mist: color-mix(in oklab, var(--footer-background) 40%, var(--card));
 		--accordion-hover-text: var(--foreground);
 
@@ -722,9 +723,9 @@
 	}
 
 	.main-menu .menu-right li > a:hover {
-		color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
 		font-weight: 600;
-		border-bottom-color: rgb(var(--color-primary-400));
+		border-bottom-color: var(--nav-active-color);
 	}
 
 	.main-menu .menu-right li.highlight {
@@ -732,14 +733,14 @@
 	}
 
 	.main-menu .menu-right li.highlight > a {
-		color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
 		font-weight: 600;
-		border-bottom-color: rgb(var(--color-primary-400));
+		border-bottom-color: var(--nav-active-color);
 	}
 
 	.main-menu .menu-right li.highlight > a:hover {
-		color: rgb(var(--color-primary-400));
-		border-bottom-color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
+		border-bottom-color: var(--nav-active-color);
 	}
 
 	.main-menu .menu-actions {
@@ -851,12 +852,12 @@
 	}
 
 	.main-menu .mobile-menu .mobile-menu-list li.highlight > a {
-		color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
 		font-weight: 600;
 	}
 
 	.main-menu .mobile-menu .mobile-menu-list li.highlight {
-		border-left: 5px solid rgb(var(--color-primary-400));
+		border-left: 5px solid var(--nav-active-color);
 	}
 
 	.main-menu .mobile-menu .nav-link-mobile {
@@ -869,7 +870,7 @@
 	}
 
 	.main-menu .mobile-menu .nav-link-mobile:hover {
-		color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
 	}
 
 	.main-menu .mobile-menu.open {
@@ -878,21 +879,21 @@
 
 	.dark .main-menu .menu-right li.highlight > a,
 	.dark .main-menu .mobile-menu .mobile-menu-list li.highlight > a {
-		color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
 	}
 
 	.dark .main-menu .menu-right li > a:hover {
-		color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
 		font-weight: 600;
-		border-bottom-color: rgb(var(--color-primary-400));
+		border-bottom-color: var(--nav-active-color);
 	}
 
 	.dark .main-menu .menu-right li.highlight > a:hover {
-		color: rgb(var(--color-primary-400));
+		color: var(--nav-active-color);
 	}
 
 	.dark .main-menu .mobile-menu .mobile-menu-list li.highlight {
-		border-left-color: rgb(var(--color-primary-400));
+		border-left-color: var(--nav-active-color);
 	}
 
 	@media (max-width: 1149.98px) {
