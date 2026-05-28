@@ -710,7 +710,7 @@ export class LineMatch extends React.PureComponent {
 										return (
 											<li className="flex items-center" key={`line-match-picture-${itemKey}`}>
 												<div
-													className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} ${pictureCardLayoutClass} cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_12%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--ex-active)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--edu-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[rgb(var(--color-primary-200)_/_0.42)]"}`}
+													className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} ${pictureCardLayoutClass} cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_12%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--ex-active)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--edu-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[color-mix(in_oklab,var(--brand-primary)_12%,transparent)]"}`}
 													onClick={() => this.handleSourceActivate(itemKey)}
 												>
 													{pictureStatusText ? (
@@ -759,7 +759,7 @@ export class LineMatch extends React.PureComponent {
 										const isActiveTarget = activeTargetId === targetId;
 										return (
 											<li
-												className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} cursor-pointer items-center gap-3 rounded-lg border px-3 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_16%,var(--card))]" : isActiveTarget ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--card))]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[color-mix(in_oklab,var(--edu-warn)_12%,var(--card))]" : "border-[rgb(var(--color-primary-400)_/_0.92)] bg-[rgb(var(--color-primary-200)_/_0.78)]"}`}
+												className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} cursor-pointer items-center gap-3 rounded-lg border px-3 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_16%,var(--card))]" : isActiveTarget ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--card))]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[color-mix(in_oklab,var(--edu-warn)_12%,var(--card))]" : "border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)] bg-[color-mix(in_oklab,var(--brand-primary)_25%,var(--card))]"}`}
 												key={`line-match-word-${targetId}`}
 												onClick={() => this.handleTargetActivate(targetId)}
 											>
