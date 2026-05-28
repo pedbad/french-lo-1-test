@@ -293,40 +293,49 @@ bun run preview`}</code>
 						<code className="rounded bg-muted px-1 py-0.5 text-xs">--nav-active-color</code>,
 						which points to{" "}
 						<code className="rounded bg-muted px-1 py-0.5 text-xs">--hero-title-color</code>{" "}
-						(brand teal). The samples below use the real <code className="rounded bg-muted px-1 py-0.5 text-xs">.main-menu</code> CSS classes.
+						(brand teal). Note: the real <code className="rounded bg-muted px-1 py-0.5 text-xs">.main-menu</code> class
+						has <code className="rounded bg-muted px-1 py-0.5 text-xs">position: fixed</code> so cannot be
+						used here — these previews reference the token directly.
 					</p>
 					{/* Desktop nav states */}
 					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
-						<p className="mb-2 text-sm font-medium text-muted-foreground">Desktop — hover &amp; active states</p>
-						<nav className="main-menu">
-							<ul className="menu-right flex gap-2 list-none m-0 p-0">
-								<li>
-									<a href="#sandbox-nav-tokens">Default link</a>
-								</li>
-								<li>
-									<a className="force-hover" href="#sandbox-nav-tokens" style={{ color: "var(--nav-active-color)", fontWeight: 600, borderBottom: "3px solid var(--nav-active-color)", padding: "0.18rem 0.5rem 0.22rem", borderRadius: 0, display: "inline-flex", alignItems: "center" }}>Hover preview</a>
-								</li>
-								<li className="highlight">
-									<a href="#sandbox-nav-tokens">Active / current</a>
-								</li>
-							</ul>
-						</nav>
+						<p className="mb-3 text-sm font-medium text-muted-foreground">Desktop — link states</p>
+						<ul className="flex flex-wrap items-end gap-6 list-none m-0 p-0">
+							<li className="flex flex-col items-start gap-1">
+								<span className="text-xs text-muted-foreground">Default</span>
+								<a
+									className="inline-flex items-center border-b-[3px] border-b-transparent px-2 py-1 font-medium text-foreground/80 no-underline"
+									href="#sandbox-nav-tokens"
+								>
+									Planning a holiday
+								</a>
+							</li>
+							<li className="flex flex-col items-start gap-1">
+								<span className="text-xs text-muted-foreground">Hover / active</span>
+								<a
+									className="inline-flex items-center px-2 py-1 font-semibold no-underline"
+									href="#sandbox-nav-tokens"
+									style={{ color: "var(--nav-active-color)", borderBottom: "3px solid var(--nav-active-color)" }}
+								>
+									Planning a holiday
+								</a>
+							</li>
+						</ul>
 					</div>
 					{/* Mobile nav states */}
 					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
-						<p className="mb-2 text-sm font-medium text-muted-foreground">Mobile — active state (left border + colour)</p>
-						<nav className="main-menu">
-							<div className="mobile-menu open" style={{ maxHeight: "none", overflow: "visible" }}>
-								<ul className="mobile-menu-list list-none m-0 p-0">
-									<li>
-										<a className="nav-link-mobile" href="#sandbox-nav-tokens">Default link</a>
-									</li>
-									<li className="highlight">
-										<a className="nav-link-mobile" href="#sandbox-nav-tokens">Active / current</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
+						<p className="mb-3 text-sm font-medium text-muted-foreground">Mobile — active state (left border + colour)</p>
+						<ul className="list-none m-0 p-0 divide-y divide-[color-mix(in_oklab,var(--foreground)_6%,transparent)]">
+							<li className="py-2 px-3 text-muted-foreground text-sm">
+								Default link
+							</li>
+							<li
+								className="py-2 text-sm font-semibold"
+								style={{ borderLeft: "5px solid var(--nav-active-color)", paddingLeft: "12px", color: "var(--nav-active-color)" }}
+							>
+								Active / current
+							</li>
+						</ul>
 					</div>
 					{/* Token swatch */}
 					<div className="flex items-center gap-3">
@@ -335,7 +344,7 @@ bun run preview`}</code>
 							className="h-9 w-9 shrink-0 rounded border border-border/70 shadow-sm"
 							style={{ background: "var(--nav-active-color)" }}
 						/>
-						<code className="text-sm">--nav-active-color → --hero-title-color</code>
+						<code className="text-sm">--nav-active-color → --hero-title-color → oklch(0.612 0.130 160.6)</code>
 					</div>
 				</div>
 			</section>
