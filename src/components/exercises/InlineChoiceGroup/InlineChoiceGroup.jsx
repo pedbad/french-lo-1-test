@@ -381,14 +381,14 @@ export class InlineChoiceGroup extends React.PureComponent {
 					{meta.options.map((option, optionIndex) => {
 						const isSelected = selectedIndex === optionIndex;
 						const baseClasses = "inline-flex min-h-8 items-center rounded-lg border px-2.5 py-1 text-[var(--font-size-sm)] leading-[var(--line-height-app)] font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out select-none";
-						let stateClasses = "border-border/70 bg-background text-foreground hover:-translate-y-[1px] hover:border-[var(--chart-3)] hover:bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)] hover:shadow-[0_2px_8px_color-mix(in_oklab,var(--chart-3)_14%,transparent)]";
+						let stateClasses = "border-border/70 bg-background text-foreground hover:-translate-y-[1px] hover:border-[var(--ex-neutral)] hover:bg-[color-mix(in_oklab,var(--ex-neutral)_10%,transparent)] hover:shadow-[0_2px_8px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)]";
 
 						if (isSelected && isCorrectSelection) {
-							stateClasses = "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_20%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--chart-2)_35%,transparent)]";
+							stateClasses = "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_20%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--edu-affirm)_35%,transparent)]";
 						} else if (isSelected && isIncorrectSelection) {
 							stateClasses = "border-[var(--destructive)] bg-[color-mix(in_oklab,var(--destructive)_18%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--destructive)_30%,transparent)]";
 						} else if (isSelected) {
-							stateClasses = "border-[color-mix(in_oklab,var(--chart-4)_58%,var(--border))] bg-[color-mix(in_oklab,var(--chart-4)_26%,transparent)] text-foreground font-semibold shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--chart-4)_34%,transparent)]";
+							stateClasses = "border-[color-mix(in_oklab,var(--ex-revealed)_58%,var(--border))] bg-[color-mix(in_oklab,var(--ex-revealed)_26%,transparent)] text-foreground font-semibold shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--ex-revealed)_34%,transparent)]";
 						}
 
 						return (
@@ -496,7 +496,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 			rows.push(
 				<div className="border-b py-2 transition-colors hover:bg-muted/50" key={`row-${i}`} role="listitem">
 					<div
-						className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowVisualStatus === "playing" ? "text-[var(--chart-2)]" : ""}`}
+						className={`m-0 flex items-start gap-2 leading-[var(--line-height-app)] ${item.audio ? "cursor-pointer" : ""} ${rowVisualStatus === "playing" ? "text-[var(--edu-affirm)]" : ""}`}
 						onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
 					>
 							{item.audio ? (
@@ -543,7 +543,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 						{rowHasResult ? (
 							<span
 								aria-hidden="true"
-								className={`inline-flex shrink-0 items-center justify-center pt-0.5 ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+								className={`inline-flex shrink-0 items-center justify-center pt-0.5 ${rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]"}`}
 							>
 								{rowIsCorrect ? (
 									<CircleCheck className="h-10 w-10" />

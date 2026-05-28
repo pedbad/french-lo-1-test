@@ -36,10 +36,10 @@ export class Card extends React.PureComponent {
 			? "[transform:rotateY(180deg)]"
 			: "[transform:rotateY(0deg)]";
 		const stateClass = isMatched
-			? "border-[color-mix(in_oklab,var(--chart-2)_58%,var(--border))] bg-[color-mix(in_oklab,var(--chart-2)_8%,var(--card))] shadow-[0_10px_22px_color-mix(in_oklab,var(--chart-2)_18%,transparent)]"
+			? "border-[color-mix(in_oklab,var(--edu-affirm)_58%,var(--border))] bg-[color-mix(in_oklab,var(--edu-affirm)_8%,var(--card))] shadow-[0_10px_22px_color-mix(in_oklab,var(--edu-affirm)_18%,transparent)]"
 			: isRevealed
-				? "border-border-subtle bg-card shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_12%,transparent)]"
-				: "border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)] bg-[color-mix(in_oklab,var(--brand-primary)_30%,var(--card))] shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_20%,transparent)] hover:border-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_55%,var(--card))] hover:shadow-[0_10px_22px_color-mix(in_oklab,var(--chart-3)_28%,transparent)]";
+				? "border-border-subtle bg-card shadow-[0_6px_14px_color-mix(in_oklab,var(--ex-neutral)_12%,transparent)]"
+				: "border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)] bg-[color-mix(in_oklab,var(--brand-primary)_30%,var(--card))] shadow-[0_6px_14px_color-mix(in_oklab,var(--ex-neutral)_20%,transparent)] hover:border-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_55%,var(--card))] hover:shadow-[0_10px_22px_color-mix(in_oklab,var(--ex-neutral)_28%,transparent)]";
 
 		return (
 			<div
@@ -80,7 +80,7 @@ export class Card extends React.PureComponent {
 								aria-hidden="true"
 								className="relative z-[1] h-10 w-10"
 								strokeWidth={1}
-								style={{ color: "var(--chart-3)" }}
+								style={{ color: "var(--ex-neutral)" }}
 							/>
 						</div>
 						<div className="absolute inset-0 flex h-full w-full rounded-[inherit] bg-[linear-gradient(180deg,var(--background),color-mix(in_oklab,var(--brand-primary)_12%,var(--background)))] p-2 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)]">

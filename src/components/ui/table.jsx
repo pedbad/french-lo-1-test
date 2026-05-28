@@ -15,7 +15,7 @@ const TABLE_VARIANTS = {
 		caption: "mt-4 text-sm text-muted-foreground",
 		cell: "p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
 		head: "h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-		row: "border-b bg-card transition-colors hover:bg-[color-mix(in_oklab,var(--muted)_70%,transparent)] hover:text-[var(--chart-2)] data-[state=selected]:bg-muted",
+		row: "border-b bg-card transition-colors hover:bg-[color-mix(in_oklab,var(--muted)_70%,transparent)] hover:text-[var(--edu-affirm)] data-[state=selected]:bg-muted",
 		table: "mt-4 w-full caption-bottom text-sm",
 		wrapper: "relative w-full overflow-auto",
 	},

@@ -1038,7 +1038,7 @@
 	}
 
 	.show-hints .word.success.highlight span::after {
-		background: radial-gradient(circle, var(--chart-2) 0%, transparent 100%);
+		background: radial-gradient(circle, var(--edu-affirm) 0%, transparent 100%);
 	}
 
 	@media (min-width: 960px) {
@@ -1185,8 +1185,8 @@
 	}
 
 	.typed-answer-field-container div.comparison-result .inserted {
-		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-		border: 1px solid var(--chart-2);
+		background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
+		border: 1px solid var(--edu-affirm);
 	}
 
 	.typed-answer-field-container .comparison-result {
@@ -1258,13 +1258,13 @@
 	}
 
 	.answer-table-container .comparison-result .inserted {
-		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-		border: 1px solid var(--chart-2);
+		background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
+		border: 1px solid var(--edu-affirm);
 	}
 
 	.inline-typed-gap-exercise-container .comparison-result .inserted {
-		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-		border: 1px solid var(--chart-2);
+		background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
+		border: 1px solid var(--edu-affirm);
 	}
 
 	/* Phrase table layout extracted from PhraseTable.scss. */
@@ -1310,7 +1310,7 @@
 
 	.lo3-grammar1-container .grammar-audio-table tbody tr:hover {
 		background-color: color-mix(in oklab, var(--muted) 70%, transparent);
-		color: var(--chart-2);
+		color: var(--edu-affirm);
 	}
 
 	@media (max-width: 639px) {
@@ -1450,7 +1450,7 @@
 	}
 
 	html.debug option.hint {
-		background-color: color-mix(in oklab, var(--chart-2) 10%, transparent);
+		background-color: color-mix(in oklab, var(--edu-affirm) 10%, transparent);
 	}
 
 	.drop-downs-container .phrases-html p,
@@ -1473,7 +1473,7 @@
 
 	.drop-downs-container .phrases-html p svg.tick,
 	.drop-downs-container table td p svg.tick {
-		color: var(--chart-2);
+		color: var(--edu-affirm);
 	}
 
 	.drop-downs-container .phrases-html p svg.cross,
@@ -1488,8 +1488,8 @@
 
 	.drop-downs-container .phrases-html p.correct > span,
 	.drop-downs-container table td p.correct > span {
-		border-color: var(--chart-2);
-		background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
+		border-color: var(--edu-affirm);
+		background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
 		pointer-events: none;
 	}
 
@@ -1595,13 +1595,13 @@
 
 	/* .wordparts-reset — vestigial rule from original WordParts.scss, never applied by WordSpotExercise JSX. Kept for safety; remove once confirmed unused across all LOs. */
 	.word-spot-container .wordparts-reset.icon-button {
-		border-color: var(--chart-2);
-		background-color: var(--chart-2);
+		border-color: var(--edu-affirm);
+		background-color: var(--edu-affirm);
 		color: var(--primary-foreground);
 	}
 
 	.word-spot-container .wordparts-reset.icon-button:hover {
-		background-color: color-mix(in oklab, var(--chart-2) 85%, transparent);
+		background-color: color-mix(in oklab, var(--edu-affirm) 85%, transparent);
 	}
 
 	.word-spot-container :is(table span, .word-spot-text-cell span) {
@@ -1713,15 +1713,15 @@
 
 		50% {
 			transform: rotateX(90deg);
-			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-			border: 1px solid var(--chart-2);
+			background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
+			border: 1px solid var(--edu-affirm);
 		}
 
 		100% {
 			transform: rotateX(0deg);
-			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-			border: 1px solid var(--chart-2);
-			box-shadow: 2px 2px 6px color-mix(in oklab, var(--chart-2) 30%, transparent);
+			background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
+			border: 1px solid var(--edu-affirm);
+			box-shadow: 2px 2px 6px color-mix(in oklab, var(--edu-affirm) 30%, transparent);
 		}
 	}
 
@@ -1729,14 +1729,14 @@
 	@keyframes card-flip-reset {
 		0% {
 			transform: rotateX(0deg);
-			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-			border: 1px solid var(--chart-2);
+			background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
+			border: 1px solid var(--edu-affirm);
 		}
 
 		49% {
 			transform: rotateX(90deg);
-			background-color: color-mix(in oklab, var(--chart-2) 20%, transparent);
-			border: 1px solid var(--chart-2);
+			background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
+			border: 1px solid var(--edu-affirm);
 		}
 
 		50% {
@@ -1919,7 +1919,7 @@
 	.blanks-container.type-pictures-answers .dragging span,
 	.blanks-container.type-questions-answers .dragging span,
 	.blanks-container.type-phrases .dragging span {
-		box-shadow: 0 12px 22px color-mix(in oklab, var(--chart-3) 32%, transparent);
+		box-shadow: 0 12px 22px color-mix(in oklab, var(--ex-neutral) 32%, transparent);
 	}
 
 	.blanks-container.type-pictures-answers td img {
@@ -2004,7 +2004,7 @@
 		min-width: max(var(--blanks-slot-px, 0px), clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem));
 		max-width: max(var(--blanks-slot-px, 0px), clamp(5.5rem, calc(var(--blanks-slot-ch, 7) * 0.52rem + 1.55rem), 8.5rem));
 		min-height: 2.1rem;
-		border: solid 1px color-mix(in oklab, var(--border) 56%, var(--chart-3));
+		border: solid 1px color-mix(in oklab, var(--border) 56%, var(--ex-neutral));
 		border-radius: 9999px;
 		background: color-mix(in oklab, var(--muted) 82%, var(--card));
 		box-shadow:
@@ -2018,21 +2018,21 @@
 	}
 
 	.blanks-container .target-board .word.blank.highlight {
-		background: color-mix(in oklab, var(--chart-3) 18%, var(--card));
-		border-color: color-mix(in oklab, var(--chart-3) 74%, var(--foreground));
+		background: color-mix(in oklab, var(--ex-neutral) 18%, var(--card));
+		border-color: color-mix(in oklab, var(--ex-neutral) 74%, var(--foreground));
 		box-shadow:
-			0 0 0 3px color-mix(in oklab, var(--chart-3) 22%, transparent),
+			0 0 0 3px color-mix(in oklab, var(--ex-neutral) 22%, transparent),
 			inset 0 1px 0 color-mix(in oklab, var(--background) 56%, transparent),
-			0 3px 10px color-mix(in oklab, var(--chart-3) 18%, transparent);
+			0 3px 10px color-mix(in oklab, var(--ex-neutral) 18%, transparent);
 		transform: translateY(-1px);
 	}
 
 	.blanks-container .target-board .word.blank .blanks-slot-icon {
-		color: color-mix(in oklab, var(--chart-3) 52%, var(--muted-foreground));
+		color: color-mix(in oklab, var(--ex-neutral) 52%, var(--muted-foreground));
 	}
 
 	.blanks-container .target-board .word.blank.highlight .blanks-slot-icon {
-		color: color-mix(in oklab, var(--chart-3) 74%, var(--foreground));
+		color: color-mix(in oklab, var(--ex-neutral) 74%, var(--foreground));
 		opacity: 0.92;
 		transform: translateY(-1px);
 	}
@@ -2676,7 +2676,7 @@
 		appearance: none;
 		background: transparent;
 		border: 0;
-		color: var(--chart-2);
+		color: var(--edu-affirm);
 		cursor: pointer;
 		font: inherit;
 		padding: 0;
@@ -2840,12 +2840,12 @@
 		text-decoration: none !important;
 		--progress-width: 100%;
 		white-space: nowrap;
-		color: var(--chart-2);
+		color: var(--edu-affirm);
 		cursor: pointer;
 	}
 
 	.audio-link.playing {
-		color: var(--chart-2);
+		color: var(--edu-affirm);
 	}
 
 	.audio-link:hover {
@@ -2857,7 +2857,7 @@
 	}
 
 	.audio-link.memory-card-audio-link:is(:hover, :focus-visible) {
-		background-color: color-mix(in oklab, var(--chart-3) 12%, transparent);
+		background-color: color-mix(in oklab, var(--ex-neutral) 12%, transparent);
 		color: var(--edu-warn);
 	}
 
@@ -2910,7 +2910,7 @@
 	}
 
 	.audio-container.playing {
-		color: var(--chart-2);
+		color: var(--edu-affirm);
 	}
 
 	.audio-container.inline {
@@ -2942,11 +2942,11 @@
 	/* Legacy audio progress fill keyframe — name retained from original AudioClip.scss. Not currently referenced by any component; candidate for removal once audio components are audited. */
 	@keyframes ge {
 		0% {
-			fill: linear-gradient(0deg, var(--destructive) 0%, var(--chart-2) 48%, var(--foreground) 48%);
+			fill: linear-gradient(0deg, var(--destructive) 0%, var(--edu-affirm) 48%, var(--foreground) 48%);
 		}
 
 		100% {
-			fill: linear-gradient(0deg, var(--destructive) 0%, var(--chart-2) 90%, var(--foreground) 90%);
+			fill: linear-gradient(0deg, var(--destructive) 0%, var(--edu-affirm) 90%, var(--foreground) 90%);
 		}
 	}
 
@@ -3083,7 +3083,7 @@
 
 	footer .footer-container {
 		--footer-common-width: 216px;
-		--footer-hover-color: var(--chart-3);
+		--footer-hover-color: var(--ex-neutral);
 		position: relative;
 		z-index: 1;
 		color: var(--foreground);
@@ -3342,11 +3342,11 @@
 	}
 
 	.dark footer .footer-container {
-		--footer-hover-color: var(--chart-4);
+		--footer-hover-color: var(--ex-active);
 	}
 
 	.dark footer .footer-container .footer-links {
-		--footer-hover-color: var(--chart-3);
+		--footer-hover-color: var(--ex-active);
 	}
 
 	.dark footer .footer-container .footer-links .footer-link-button {
@@ -3606,9 +3606,9 @@
 }
 
 @layer utilities {
-	.text-stroke-chart-3 {
-		-webkit-text-stroke: 1px var(--chart-3);
-		text-stroke: 1px var(--chart-3);
+	.text-stroke-neutral {
+		-webkit-text-stroke: 1px var(--ex-neutral);
+		text-stroke: 1px var(--ex-neutral);
 		paint-order: stroke fill;
 	}
 }
@@ -3653,7 +3653,7 @@
 	--color-ring: var(--ring);
 	--color-chart-1: var(--chart-1);
 	--color-chart-2: var(--chart-2);
-	--color-chart-3: var(--chart-3);
+	--color-chart-3: var(--ex-neutral);
 	--color-chart-4: var(--chart-4);
 	--color-chart-5: var(--chart-5);
 	--color-sidebar: var(--sidebar);
@@ -3808,24 +3808,24 @@ html.debug .blanks-container .target-board .word.blank span {
   background-color: color-mix(in oklab, var(--edu-warn) 85%, var(--foreground));
 }
 
-.btn-chart-2 {
-  background-color: var(--chart-2);
-  border-color: var(--chart-2);
+.btn-ex-affirm {
+  background-color: var(--edu-affirm);
+  border-color: var(--edu-affirm);
   color: var(--primary-foreground);
 }
 
-.btn-chart-2:hover {
-  background-color: color-mix(in oklab, var(--chart-2) 85%, var(--foreground));
+.btn-ex-affirm:hover {
+  background-color: color-mix(in oklab, var(--edu-affirm) 85%, var(--foreground));
 }
 
-.btn-hero-title {
-  background-color: var(--chart-3);
-  border-color: var(--chart-3);
+.btn-ex-action {
+  background-color: var(--ex-active);
+  border-color: var(--ex-active);
   color: var(--primary-foreground);
 }
 
-.btn-hero-title:hover {
-  background-color: color-mix(in oklab, var(--chart-3) 85%, var(--foreground));
+.btn-ex-action:hover {
+  background-color: color-mix(in oklab, var(--ex-active) 85%, var(--foreground));
 }
 
 /* ── Dark mode: ghost / outline style for exercise action buttons ────────────
@@ -3834,7 +3834,7 @@ html.debug .blanks-container .target-board .word.blank span {
  * while the hover state adds a very subtle tinted fill for feedback.
  * ---------------------------------------------------------------------- */
 
-/* "Show answer" — warn / amber-orange (chart-5) */
+/* "Show answer" — edu-warn amber */
 .dark .btn-edu-warn {
   border-width: 1px;
   border-style: solid;
@@ -3847,28 +3847,28 @@ html.debug .blanks-container .target-board .word.blank span {
   border-color: color-mix(in oklab, var(--edu-warn) 74%, transparent);
 }
 
-/* "Reset" — teal (chart-2) */
-.dark .btn-chart-2 {
-  border-color: color-mix(in oklab, var(--chart-2) 58%, transparent);
-  background-color: color-mix(in oklab, var(--chart-2) 9%, transparent);
-  color: color-mix(in oklab, var(--chart-2) 78%, var(--foreground));
+/* "Reset" — affirm green */
+.dark .btn-ex-affirm {
+  border-color: color-mix(in oklab, var(--edu-affirm) 58%, transparent);
+  background-color: color-mix(in oklab, var(--edu-affirm) 9%, transparent);
+  color: color-mix(in oklab, var(--edu-affirm) 78%, var(--foreground));
 }
-.dark .btn-chart-2:hover {
-  background-color: color-mix(in oklab, var(--chart-2) 18%, transparent);
-  border-color: color-mix(in oklab, var(--chart-2) 74%, transparent);
+.dark .btn-ex-affirm:hover {
+  background-color: color-mix(in oklab, var(--edu-affirm) 18%, transparent);
+  border-color: color-mix(in oklab, var(--edu-affirm) 74%, transparent);
 }
 
-/* "Check answers" — amber-gold (chart-3) */
-.dark .btn-hero-title {
+/* "Check answers" — active warm gold */
+.dark .btn-ex-action {
   border-width: 1px;
   border-style: solid;
-  border-color: color-mix(in oklab, var(--chart-3) 58%, transparent);
-  background-color: color-mix(in oklab, var(--chart-3) 9%, transparent);
-  color: color-mix(in oklab, var(--chart-3) 78%, var(--foreground));
+  border-color: color-mix(in oklab, var(--ex-active) 58%, transparent);
+  background-color: color-mix(in oklab, var(--ex-active) 9%, transparent);
+  color: color-mix(in oklab, var(--ex-active) 78%, var(--foreground));
 }
-.dark .btn-hero-title:hover {
-  background-color: color-mix(in oklab, var(--chart-3) 18%, transparent);
-  border-color: color-mix(in oklab, var(--chart-3) 74%, transparent);
+.dark .btn-ex-action:hover {
+  background-color: color-mix(in oklab, var(--ex-active) 18%, transparent);
+  border-color: color-mix(in oklab, var(--ex-active) 74%, transparent);
 }
 
 @keyframes flash-animation {
@@ -4178,7 +4178,7 @@ hr {
   width: 0.95em;
   height: 0.95em;
   transform: translateY(-50%);
-  background-color: var(--chart-3);
+  background-color: var(--ex-neutral);
   -webkit-mask-image: url("/img/common/custom-icons/circle-check.svg");
   mask-image: url("/img/common/custom-icons/circle-check.svg");
   -webkit-mask-repeat: no-repeat;
@@ -4190,11 +4190,11 @@ hr {
 }
 /* Dark mode: replace vivid blue Info box with a muted teal ghost */
 .dark :is(#content, #debug-sandbox-page) .information {
-  background-color: color-mix(in oklab, var(--card) 88%, var(--chart-2) 12%);
-  border-color: color-mix(in oklab, var(--chart-2) 28%, transparent);
+  background-color: color-mix(in oklab, var(--card) 88%, var(--edu-affirm) 12%);
+  border-color: color-mix(in oklab, var(--edu-affirm) 28%, transparent);
 }
 .dark :is(#content, #debug-sandbox-page) .information .info-icon {
-  background-color: color-mix(in oklab, var(--chart-2) 55%, var(--card));
+  background-color: color-mix(in oklab, var(--edu-affirm) 55%, var(--card));
 }
 
 #content .abbreviations {
@@ -4246,7 +4246,7 @@ hr {
   line-height: 1;
   vertical-align: -0.12em;
   transform: translateY(0.02em);
-  color: var(--chart-3);
+  color: var(--ex-neutral);
   stroke-width: 2;
   overflow: visible;
 }
@@ -4259,17 +4259,17 @@ hr {
   mask-image: url("/img/common/custom-icons/eye.svg");
 }
 #content .inline-icon-reset {
-  background-color: var(--chart-2);
+  background-color: var(--edu-affirm);
   -webkit-mask-image: url("/img/common/custom-icons/reset.svg");
   mask-image: url("/img/common/custom-icons/reset.svg");
 }
 #content .inline-icon-check {
-  background-color: var(--chart-3);
+  background-color: var(--ex-neutral);
   -webkit-mask-image: url("/img/common/custom-icons/circle-check.svg");
   mask-image: url("/img/common/custom-icons/circle-check.svg");
 }
 #content .inline-icon-audio {
-  background-color: var(--chart-3);
+  background-color: var(--ex-neutral);
   -webkit-mask-image: url("/img/common/custom-icons/volume-1.svg");
   mask-image: url("/img/common/custom-icons/volume-1.svg");
 }
@@ -4535,7 +4535,7 @@ hr {
   width: 1.1rem;
   height: 1.1rem;
   flex: 0 0 auto;
-  color: var(--chart-3);
+  color: var(--ex-neutral);
 }
 
 .lo-6 .lo6-reading-attribution {

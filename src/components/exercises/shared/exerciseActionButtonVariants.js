@@ -21,8 +21,8 @@ export const exerciseActionButtonVariants = cva("exercise-icon-button", {
 		tone: {
 			// Keep "none" as default to avoid unintentional color changes in legacy callsites.
 			none: "",
-			neutral: "btn-chart-2",
-			primary: "btn-hero-title",
+			neutral: "btn-ex-affirm",
+			primary: "btn-ex-action",
 			warn: "btn-edu-warn",
 		},
 		progressive: {

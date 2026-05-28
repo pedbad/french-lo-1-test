@@ -510,7 +510,7 @@ export class SelectExercise extends React.PureComponent {
 									: `rounded-lg border border-border/70 bg-background/80 px-3 py-2 shadow-sm ${
 										item?.audio ? "cursor-pointer" : ""
 									} ${
-										isActive ? "text-[var(--chart-2)]" : rowBlankIndices.length === 0 ? "text-foreground/90" : ""
+										isActive ? "text-[var(--edu-affirm)]" : rowBlankIndices.length === 0 ? "text-foreground/90" : ""
 									}`
 							}`}
 							key={`select-passage-line-${id}-${i}`}
@@ -587,7 +587,7 @@ export class SelectExercise extends React.PureComponent {
 							{isPassageMeta ? null : (
 								<span
 									aria-hidden="true"
-									className={`col-start-3 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+									className={`col-start-3 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
 								>
 									{rowBlankIndices.length > 0 ? (
 										rowIsCorrect ? (
@@ -610,7 +610,7 @@ export class SelectExercise extends React.PureComponent {
 						rowHasChoices ? "p-3 md:p-4" : "px-3 py-2.5 md:px-4 md:py-3"
 					} ${item.audio ? "cursor-pointer" : ""} ${
 						item.audio && (useMasterRowAudio ? isActive : rowAudioStatus[i] === "playing")
-							? "text-[var(--chart-2)]"
+							? "text-[var(--edu-affirm)]"
 							: ""
 					}`}
 					key={`select-row-${id}-${i}`}
@@ -696,7 +696,7 @@ export class SelectExercise extends React.PureComponent {
 								{item.audio ? (
 									<button
 										aria-label={`Play audio for row ${i + 1}`}
-										className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--chart-2)]" : "text-foreground hover:text-[var(--chart-2)]"}`}
+										className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--edu-affirm)]" : "text-foreground hover:text-[var(--edu-affirm)]"}`}
 										onClick={() => this.triggerRowAudio(i)}
 										type="button"
 									>
@@ -751,7 +751,7 @@ export class SelectExercise extends React.PureComponent {
 						{rowHasChoices ? (
 							<span
 								aria-hidden="true"
-								className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"}`}
+								className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
 							>
 								{rowIsCorrect ? (
 									<CircleCheck className="h-10 w-10" />

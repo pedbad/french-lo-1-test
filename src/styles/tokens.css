@@ -94,12 +94,24 @@
 		--sidebar-ring:               oklch(0.708 0 0);
 
 		/* B. UI role tokens — consume brand layer, never raw values */
+
+		/* Brand role aliases — course-neutral names for the brand scale slots */
+		--brand-surface: var(--brand-secondary);   /* page background */
+		--brand-footer:  var(--brand-tertiary);    /* footer surface  */
+
 		--page-background:   var(--brand-surface);
 		--hero-title-color:  var(--brand-primary);
 		--footer-background: var(--brand-footer);
 		--nav-active-color:  var(--brand-primary);
-		--accordion-mist:       color-mix(in oklab, var(--footer-background) 40%, var(--card));
-		--accordion-hover-text: var(--foreground);
+
+		/* Accordion */
+		--accordion-bg:          color-mix(in oklab, var(--footer-background) 40%, var(--card));
+		--accordion-bg-hover:    color-mix(in oklab, var(--footer-background) 55%, var(--card));
+		--accordion-border:      color-mix(in oklab, var(--footer-background) 60%, var(--card));
+		--accordion-header-font: var(--font-heading);
+		--accordion-text:        var(--foreground);
+		--accordion-hover-text:  var(--foreground);
+		--accordion-mist:        var(--accordion-bg);   /* deprecated — use --accordion-bg */
 
 		/* C. Educational semantic tokens
 		 * Prefix: --edu-* — course-neutral and brand-neutral.
@@ -112,7 +124,7 @@
 		--edu-neutral: oklch(0.556 0       0);      /* grey   — secondary / inactive      */
 		--edu-accent:  oklch(0.205 0       0);      /* near-black — emphasis / selection  */
 
-		--emphasis-strong-color:            color-mix(in oklab, var(--foreground) 86%, var(--chart-3));
+		--emphasis-strong-color:            color-mix(in oklab, var(--foreground) 86%, var(--ex-neutral));
 		--emphasis-em-color:                color-mix(in oklab, var(--foreground) 84%, var(--edu-warn));
 		--instruction-callout-accent-start: color-mix(in oklab, var(--edu-warn) 62%, var(--foreground));
 		--instruction-callout-accent-end:   color-mix(in oklab, var(--edu-warn) 28%, var(--page-background));
@@ -131,6 +143,63 @@
 		--footer-crest-linear-start:  color-mix(in oklab, var(--footer-background) 50%, var(--card));
 		--footer-crest-linear-mid:    color-mix(in oklab, var(--footer-background) 18%, transparent);
 		--footer-social-icon-fg:      var(--primary-foreground);
+
+		/* D. Exercise interaction tokens (`--ex-*`) + depth shadows
+		 * Pinned oklch — NEVER reference --chart-* tokens.
+		 * shadcn remaps chart-3 → amber-orange and chart-4 → vivid purple in dark mode.
+		 * These tokens keep predictable semantics across colour schemes. */
+		--ex-neutral:   oklch(0.398 0.07  227.392);  /* muted slate  — shadows, borders, neutral hover */
+		--ex-active:    oklch(0.769 0.188  70.08);   /* warm gold    — active drag / live connector    */
+		--ex-revealed:  oklch(0.828 0.189  84.429);  /* bright gold  — revealed correct-answer state   */
+
+		/* Depth shadows — consume --ex-neutral; never reference chart tokens */
+		--shadow-sm: 0  2px  6px color-mix(in oklab, var(--ex-neutral) 14%, transparent);
+		--shadow-md: 0  6px 14px color-mix(in oklab, var(--ex-neutral) 20%, transparent);
+		--shadow-lg: 0 10px 22px color-mix(in oklab, var(--ex-neutral) 28%, transparent);
+		--shadow-xl: 0 12px 28px color-mix(in oklab, var(--ex-neutral) 34%, transparent);
+
+		/* E. Component tokens */
+
+		/* Buttons */
+		--btn-primary-bg:       var(--primary);
+		--btn-primary-text:     var(--primary-foreground);
+		--btn-primary-bg-hover: oklch(from var(--primary) calc(l - 0.06) c h);
+		--btn-secondary-bg:     var(--secondary);
+		--btn-secondary-text:   var(--secondary-foreground);
+
+		/* Modal */
+		--modal-border:   var(--border);
+		--modal-overlay:  oklch(0 0 0 / 50%);
+
+		/* Audio player */
+		--audio-track:    color-mix(in oklab, var(--border) 80%, transparent);
+		--audio-fill:     var(--edu-affirm);
+		--audio-icon:     var(--foreground);
+
+		/* Word tile typography */
+		--font-size-word-xs: 0.8rem;
+		--font-size-word-sm: 0.9rem;
+		--font-size-word-md: 1rem;
+		--font-size-word-lg: 1.15rem;
+
+		/* F. Content accent palette — 7 vivid hues for annotated learning content.
+		 * Formerly --poem-accent-*; backward-compat aliases kept below. */
+		--content-accent-red:    oklch(0.637 0.237  25.331);
+		--content-accent-orange: oklch(0.709 0.196  49.131);
+		--content-accent-yellow: oklch(0.842 0.172  87.933);
+		--content-accent-green:  oklch(0.733 0.185 145.151);
+		--content-accent-blue:   oklch(0.625 0.186 254.624);
+		--content-accent-indigo: oklch(0.544 0.209 279.102);
+		--content-accent-violet: oklch(0.62  0.252 318.284);
+
+		/* Backward-compat aliases — will be removed once all consumers updated */
+		--poem-accent-red:    var(--content-accent-red);
+		--poem-accent-orange: var(--content-accent-orange);
+		--poem-accent-yellow: var(--content-accent-yellow);
+		--poem-accent-green:  var(--content-accent-green);
+		--poem-accent-blue:   var(--content-accent-blue);
+		--poem-accent-indigo: var(--content-accent-indigo);
+		--poem-accent-violet: var(--content-accent-violet);
 	}
 
 	.dark {
@@ -160,13 +229,6 @@
 		--chart-3:                    oklch(0.769 0.188 70.08);
 		--chart-4:                    oklch(0.627 0.265 303.9);
 		--chart-5:                    oklch(0.645 0.246 16.439);
-		--poem-accent-red:            oklch(0.702 0.203 22.533);
-		--poem-accent-orange:         oklch(0.76 0.165 52.852);
-		--poem-accent-yellow:         oklch(0.866 0.154 95.338);
-		--poem-accent-green:          oklch(0.79 0.162 147.758);
-		--poem-accent-blue:           oklch(0.725 0.16 251.24);
-		--poem-accent-indigo:         oklch(0.67 0.188 283.258);
-		--poem-accent-violet:         oklch(0.724 0.213 319.347);
 		--sidebar:                    oklch(0.205 0 0);
 		--sidebar-foreground:         oklch(0.985 0 0);
 		--sidebar-primary:            oklch(0.488 0.243 264.376);
@@ -177,8 +239,11 @@
 		--sidebar-ring:               oklch(0.556 0 0);
 
 		/* B. UI role token dark overrides */
-		--accordion-mist:       color-mix(in oklab, var(--chart-2) 18%, var(--card));
-		--accordion-hover-text: var(--foreground);
+		--accordion-bg:          color-mix(in oklab, var(--edu-affirm) 18%, var(--card));
+		--accordion-bg-hover:    color-mix(in oklab, var(--edu-affirm) 26%, var(--card));
+		--accordion-border:      color-mix(in oklab, var(--edu-affirm) 28%, var(--card));
+		--accordion-hover-text:  var(--foreground);
+		--accordion-mist:        var(--accordion-bg);   /* deprecated alias */
 
 		/* C. Educational semantic token dark overrides.
 		 * All five values pinned here so dark mode is self-contained.
@@ -189,7 +254,7 @@
 		--edu-neutral: oklch(0.708 0       0);       /* grey   — lighter for dark bg       */
 		--edu-accent:  oklch(0.922 0       0);       /* near-white — follows foreground    */
 
-		--emphasis-strong-color:            color-mix(in oklab, var(--foreground) 90%, var(--chart-3));
+		--emphasis-strong-color:            color-mix(in oklab, var(--foreground) 90%, var(--edu-warn));
 		--emphasis-em-color:                color-mix(in oklab, var(--foreground) 88%, var(--edu-warn));
 		--instruction-callout-accent-start: color-mix(in oklab, var(--edu-warn) 54%, var(--foreground));
 		--instruction-callout-accent-end:   color-mix(in oklab, var(--edu-warn) 24%, var(--card));
@@ -199,6 +264,22 @@
 		--modal-link-visited:               color-mix(in oklab, var(--edu-warn) 46%, var(--foreground));
 		--modal-link-underline:             color-mix(in oklab, var(--modal-link-accent) 62%, transparent);
 		--modal-link-underline-hover:       color-mix(in oklab, var(--modal-link-hover)  76%, transparent);
+
+		/* D. Exercise interaction token dark overrides
+		 * All three values pinned — no chart token references.
+		 * chart-3 is amber-orange and chart-4 is vivid purple in dark mode. */
+		--ex-neutral:  oklch(0.556 0       0);      /* neutral grey  — not amber like dark chart-3  */
+		--ex-active:   oklch(0.769 0.188  70.08);   /* warm gold     — same as light; works on dark */
+		--ex-revealed: oklch(0.769 0.188  70.08);   /* warm gold     — not purple like dark chart-4 */
+
+		/* F. Content accent dark overrides */
+		--content-accent-red:    oklch(0.702 0.203  22.533);
+		--content-accent-orange: oklch(0.76  0.165  52.852);
+		--content-accent-yellow: oklch(0.866 0.154  95.338);
+		--content-accent-green:  oklch(0.79  0.162 147.758);
+		--content-accent-blue:   oklch(0.725 0.16  251.24);
+		--content-accent-indigo: oklch(0.67  0.188 283.258);
+		--content-accent-violet: oklch(0.724 0.213 319.347);
 
 		/* Footer social dark-mode palette */
 		--footer-social-dark-fg:           #fff;

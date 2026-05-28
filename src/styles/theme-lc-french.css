@@ -1,27 +1,36 @@
 /* ==========================================================================
    Layer 2 — Brand Tokens (Language Centre French)
    ==========================================================================
-   Maps raw palette values to brand roles for this specific course.
+   Maps raw colour values to the four brand scale slots for this course.
    To re-skin for a different language course:
      1. Copy this file → theme-lc-[language].css
      2. Replace the oklch values with the new course's brand colours
      3. Update the @import in index.css to point to the new file
    Zero component or token changes required.
 
-   --brand-primary stays the same in dark mode (LC teal reads well on dark bg).
-   Only --brand-surface and --brand-footer need dark-mode overrides.
+   Brand scale:
+     --brand-primary    required — main accent (nav, hero, exercise cards)
+     --brand-secondary  required — page surface / background
+     --brand-tertiary   required — footer / secondary surface
+     --brand-quaternary optional — deep variant / reserved slot
+
+   tokens.css defines role aliases:
+     --brand-surface → --brand-secondary
+     --brand-footer  → --brand-tertiary
    ========================================================================== */
 
 @layer base {
 	:root {
-		--brand-primary: oklch(0.612 0.130 160.6);   /* LC teal-green           */
-		--brand-surface: oklch(0.976 0.023 90.7);    /* warm cream page bg      */
-		--brand-footer:  oklch(0.851 0.089 178.8);   /* muted teal footer       */
+		--brand-primary:    oklch(0.612 0.130 160.6);   /* LC teal-green           */
+		--brand-secondary:  oklch(0.976 0.023  90.7);   /* warm cream page bg      */
+		--brand-tertiary:   oklch(0.851 0.089 178.8);   /* muted teal footer       */
+		--brand-quaternary: oklch(0.44  0.10  165.0);   /* deep teal — spare slot  */
 	}
 
 	.dark {
-		/* --brand-primary is unchanged — LC teal works on dark backgrounds. */
-		--brand-surface: var(--background);   /* warm cream → dark base bg  */
-		--brand-footer:  var(--sidebar);      /* muted teal → dark sidebar  */
+		/* --brand-primary unchanged — LC teal reads well on dark backgrounds. */
+		--brand-secondary:  var(--background);   /* warm cream → dark base bg  */
+		--brand-tertiary:   var(--sidebar);      /* muted teal → dark sidebar  */
+		/* --brand-quaternary: deep teal also works on dark bg, no override needed */
 	}
 }

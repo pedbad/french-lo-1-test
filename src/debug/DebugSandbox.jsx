@@ -198,7 +198,7 @@ bun run preview`}</code>
 						<p className="mb-0 mt-2 text-sm">
 							Open the preview page, copy page source/outer HTML, then validate at{' '}
 							<a
-								className="font-semibold text-[var(--chart-3)] underline underline-offset-4"
+								className="font-semibold text-[var(--ex-neutral)] underline underline-offset-4"
 								href="https://validator.w3.org/nu/#textarea"
 								rel="noreferrer"
 								target="_blank"
@@ -213,7 +213,7 @@ bun run preview`}</code>
 						<p className="mb-0 mt-2 text-sm">
 							Use the browser extension on the same preview page (incognito with extensions disabled is preferred for cleaner results), and review errors/alerts with source context at{' '}
 							<a
-								className="font-semibold text-[var(--chart-3)] underline underline-offset-4"
+								className="font-semibold text-[var(--ex-neutral)] underline underline-offset-4"
 								href="https://wave.webaim.org/"
 								rel="noreferrer"
 								target="_blank"
@@ -456,7 +456,7 @@ bun run preview`}</code>
 								Semantic
 							</IconButton>
 							<IconButton
-								className="vocab-sort-button btn-chart-2"
+								className="vocab-sort-button btn-ex-affirm"
 								theme="alphabetic"
 								size="lg"
 								title="Vocabulary organised alphabetically"

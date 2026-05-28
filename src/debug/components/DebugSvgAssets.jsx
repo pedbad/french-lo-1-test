@@ -600,7 +600,7 @@ export function DebugSvgAssets() {
 									</CardDescription>
 								</CardHeader>
 								<CardContent className="space-y-3 px-4 pb-4 pt-0">
-									<div className="flex min-h-24 items-center justify-center rounded-md border border-border/70 bg-[var(--muted)]/40 px-2 py-3 text-[var(--chart-3)]">
+									<div className="flex min-h-24 items-center justify-center rounded-md border border-border/70 bg-[var(--muted)]/40 px-2 py-3 text-[var(--ex-neutral)]">
 										<IconComponent aria-hidden="true" className="h-10 w-10" />
 									</div>
 									<details className="rounded-md border border-border/70 p-2 text-xs">

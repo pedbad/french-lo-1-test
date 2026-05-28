@@ -15,7 +15,7 @@ const TortoiseProgressIcon = ({ filled, iconSrc, index, shouldDance, instanceId 
 			aria-hidden="true"
 			className={`${TORTOISE_ICON_BASE_CLASS} transition-opacity duration-[1500ms] ease-in-out${danceClasses}`}
 			style={{
-				color: "var(--chart-3)",
+				color: "var(--ex-neutral)",
 				opacity: filled ? 1 : 0.35,
 				transformOrigin: "50% 65%",
 			}}

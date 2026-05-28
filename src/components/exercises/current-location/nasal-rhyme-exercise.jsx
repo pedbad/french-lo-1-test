@@ -47,7 +47,7 @@ export class CurrentLocationNasalRhymeExercise extends PureComponent{
 								>
 									<div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle/70 pb-2">
 										<h4 className="m-0 flex items-center gap-2 text-[var(--font-size-lg)]" id={id ? `${id}-poem-title` : undefined}>
-											<BookOpenText aria-hidden="true" className="h-5 w-5 text-[var(--chart-3)]" />
+											<BookOpenText aria-hidden="true" className="h-5 w-5 text-[var(--ex-neutral)]" />
 											<span>Tu aimes… ?</span>
 										</h4>
 										<small className="text-xs text-muted-foreground" aria-label="Poem attribution">&copy; Jacqueline Rosen</small>

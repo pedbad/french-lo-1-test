@@ -193,14 +193,14 @@ export class RadioQuiz extends React.Component {
 									const isCorrectSelection = rowHasResult && isSelected && optionIndex === answerIndex;
 									const isIncorrectSelection = rowHasResult && isSelected && optionIndex !== answerIndex;
 									const baseClasses = "inline-flex min-h-8 items-center rounded-lg border px-2.5 py-1 text-[var(--font-size-sm)] leading-[var(--line-height-app)] font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out select-none";
-									let stateClasses = "border-border/70 bg-background text-foreground hover:-translate-y-[1px] hover:border-[var(--chart-3)] hover:bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)] hover:shadow-[0_2px_8px_color-mix(in_oklab,var(--chart-3)_14%,transparent)]";
+									let stateClasses = "border-border/70 bg-background text-foreground hover:-translate-y-[1px] hover:border-[var(--ex-neutral)] hover:bg-[color-mix(in_oklab,var(--ex-neutral)_10%,transparent)] hover:shadow-[0_2px_8px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)]";
 
 									if (isCorrectSelection) {
-										stateClasses = "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_20%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--chart-2)_35%,transparent)]";
+										stateClasses = "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_20%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--edu-affirm)_35%,transparent)]";
 									} else if (isIncorrectSelection) {
 										stateClasses = "border-[var(--destructive)] bg-[color-mix(in_oklab,var(--destructive)_18%,transparent)] text-foreground shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--destructive)_30%,transparent)]";
 									} else if (isSelected) {
-										stateClasses = "border-[color-mix(in_oklab,var(--chart-4)_58%,var(--border))] bg-[color-mix(in_oklab,var(--chart-4)_26%,transparent)] text-foreground font-semibold shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--chart-4)_34%,transparent)]";
+										stateClasses = "border-[color-mix(in_oklab,var(--ex-revealed)_58%,var(--border))] bg-[color-mix(in_oklab,var(--ex-revealed)_26%,transparent)] text-foreground font-semibold shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--ex-revealed)_34%,transparent)]";
 									}
 
 									return (
@@ -225,7 +225,7 @@ export class RadioQuiz extends React.Component {
 							) : null}
 							<span
 								aria-hidden="true"
-								className={`inline-flex h-10 w-10 shrink-0 items-center justify-center ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+								className={`inline-flex h-10 w-10 shrink-0 items-center justify-center ${rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]"}`}
 								style={{ visibility: rowHasResult ? "visible" : "hidden" }}
 							>
 								{rowIsCorrect ? <CircleCheck className="h-10 w-10" /> : <CircleX className="h-10 w-10" />}

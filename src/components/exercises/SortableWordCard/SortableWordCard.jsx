@@ -54,16 +54,16 @@ export const SortableWordCard = React.forwardRef(function SortableWordCard(props
 	const shadowClass = isDragging
 		? "shadow-none"
 		: stacked
-			? "shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_20%,transparent)] hover:shadow-[0_10px_22px_color-mix(in_oklab,var(--chart-3)_28%,transparent)]"
-			: "shadow-[0_2px_6px_color-mix(in_oklab,var(--chart-3)_14%,transparent)] hover:shadow-[0_4px_10px_color-mix(in_oklab,var(--chart-3)_22%,transparent)]";
+			? "shadow-[0_6px_14px_color-mix(in_oklab,var(--ex-neutral)_20%,transparent)] hover:shadow-[0_10px_22px_color-mix(in_oklab,var(--ex-neutral)_28%,transparent)]"
+			: "shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)] hover:shadow-[0_4px_10px_color-mix(in_oklab,var(--ex-neutral)_22%,transparent)]";
 	const cursorClass = isDragging ? "cursor-grabbing" : "cursor-pointer active:cursor-grabbing";
 
 	const targetClass = isDropTarget
-		? "border-[var(--chart-5)] ring-2 ring-[color-mix(in_oklab,var(--chart-5)_58%,transparent)]"
+		? "border-[var(--ex-active)] ring-2 ring-[color-mix(in_oklab,var(--ex-active)_58%,transparent)]"
 		: "";
 
 	const mergedStyle = isDropTarget
-		? { backgroundColor: "color-mix(in oklab, var(--chart-5) 55%, var(--card))", ...style }
+		? { backgroundColor: "color-mix(in oklab, var(--ex-active) 55%, var(--card))", ...style }
 		: style;
 
 	return (

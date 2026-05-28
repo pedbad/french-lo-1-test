@@ -233,7 +233,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 		return (
 			<button
 				type="button"
-				className="m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] text-foreground transition-colors duration-150 hover:text-[var(--chart-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base"
+				className="m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] text-foreground transition-colors duration-150 hover:text-[var(--edu-affirm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base"
 				onClick={(event) => this.handlePromptAudioClick(rowIndex, soundFile, event)}
 			>
 				{promptText}
@@ -393,10 +393,10 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 
 				const inputToneClass = rowHasResult
 					? (rowIsCorrect
-						? "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_16%,transparent)]"
+						? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_16%,transparent)]"
 						: "border-[var(--destructive)] bg-[color-mix(in_oklab,var(--destructive)_12%,transparent)]")
 					: userValue
-						? "border-[var(--chart-3)] bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)]"
+						? "border-[var(--ex-neutral)] bg-[color-mix(in_oklab,var(--ex-neutral)_10%,transparent)]"
 						: "border-border";
 				const answerCellClassName = useGlobalActions
 					? (shouldInlineAudioWithPrompt ? "align-top w-[66%]" : "align-top")
@@ -417,7 +417,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 								/>
 								<span
 									aria-hidden="true"
-									className={`inline-flex h-10 w-10 shrink-0 items-center justify-center transition-opacity duration-200 ${rowHasResult ? "opacity-100" : "opacity-0"} ${rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]"}`}
+									className={`inline-flex h-10 w-10 shrink-0 items-center justify-center transition-opacity duration-200 ${rowHasResult ? "opacity-100" : "opacity-0"} ${rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]"}`}
 								>
 									{rowIsCorrect ? <CircleCheck className="h-9 w-9" /> : <CircleX className="h-9 w-9" />}
 								</span>

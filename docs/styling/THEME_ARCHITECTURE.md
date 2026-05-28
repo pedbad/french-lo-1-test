@@ -434,22 +434,19 @@ The brand colour is teal-green.
 
 Give the three existing brand values proper names so they form a coherent layer.
 
-- [x] Add `--brand-primary: oklch(0.612 0.130 160.6)` to `:root`
-- [x] Add `--brand-surface: oklch(0.976 0.023 90.7)` to `:root`
-- [x] Add `--brand-footer: oklch(0.851 0.089 178.8)` to `:root`
-- [x] Update `--hero-title-color` to reference `var(--brand-primary)`
-- [x] Update `--page-background` to reference `var(--brand-surface)`
-- [x] Update `--footer-background` to reference `var(--brand-footer)`
-- [x] Update `--nav-active-color` (from Step 4) to reference `var(--brand-primary)`
-- [x] Add matching dark mode overrides for `--brand-*` tokens
+- [x] Add `--brand-primary` to `theme-lc-french.css`
+- [x] Add `--brand-secondary` (page surface), `--brand-tertiary` (footer), `--brand-quaternary` (deep variant) to `theme-lc-french.css`
+- [x] Add `--brand-surface: var(--brand-secondary)` and `--brand-footer: var(--brand-tertiary)` role aliases to `tokens.css`
+- [x] Update `--hero-title-color` / `--page-background` / `--footer-background` / `--nav-active-color` to reference brand tokens
+- [x] Add matching dark mode overrides for `--brand-*` tokens in `theme-lc-french.css`
 
-> Brand layer added above the UI role tokens block in `:root`. Dark mode overrides
-> only `--brand-surface` (→ `var(--background)`) and `--brand-footer` (→ `var(--sidebar)`);
-> `--brand-primary` is the same in both modes (teal reads well on dark bg).
-> All four UI role tokens (`--page-background`, `--hero-title-color`,
-> `--footer-background`, `--nav-active-color`) now resolve through the brand layer —
-> no raw oklch values remain in the UI role block. Dark mode no longer re-states the
-> UI role tokens; they auto-cascade through the overridden brand tokens.
+> Brand layer lives in `src/styles/theme-lc-french.css`. Four named slots:
+> `--brand-primary` (teal), `--brand-secondary` (warm cream bg), `--brand-tertiary`
+> (muted teal footer), `--brand-quaternary` (deep teal, reserved). Dark mode overrides
+> `--brand-secondary` → `var(--background)` and `--brand-tertiary` → `var(--sidebar)`;
+> primary and quaternary are unchanged. Role aliases `--brand-surface` and
+> `--brand-footer` live in `tokens.css` so UI role tokens can resolve through them
+> without raw values. All four UI role tokens cascade through the brand layer.
 
 ---
 
@@ -533,16 +530,61 @@ that affects every shadcn component. For now, document the intentional split.
 
 ---
 
+### Step 10 — Token naming audit: semantic --ex-*, --shadow-*, component tokens ✅
+
+Systematic rename to eliminate raw `--chart-*` references from exercise code and
+add purpose-built token groups for exercise interaction, depth, buttons, modal,
+audio, and content accent colours.
+
+- [x] Retire `--chart-2/3/4/5` from all exercise CSS and JSX; replaced with pinned `--ex-*` tokens.
+      `shadcn` remaps chart-3 → amber-orange and chart-4 → vivid purple in dark mode —
+      this caused visual bugs (shadow boxes turned orange; selected state turned purple).
+- [x] Add **Section D** to `tokens.css`: `--ex-neutral`, `--ex-active`, `--ex-revealed`
+      — pinned oklch in light and dark; dark overrides: neutral grey, warm gold, warm gold.
+- [x] Add **depth shadow tokens**: `--shadow-sm/md/lg/xl` consuming `--ex-neutral`.
+- [x] Expand accordion tokens: `--accordion-bg`, `--accordion-bg-hover`, `--accordion-border`,
+      `--accordion-header-font`, `--accordion-text` (replaces lone `--accordion-mist`).
+      `--accordion-mist` kept as deprecated alias pointing to `--accordion-bg`.
+- [x] Add **Section E** (component tokens): buttons (`--btn-primary-*`, `--btn-secondary-*`),
+      modal (`--modal-border`, `--modal-overlay`), audio (`--audio-track/fill/icon`),
+      word typography (`--font-size-word-xs/sm/md/lg`).
+- [x] Add **Section F** (content accent): `--content-accent-red/orange/yellow/green/blue/indigo/violet`
+      replacing the old `--poem-accent-*` names. Backward-compat aliases kept.
+- [x] Rename CSS classes in `index.css`:
+      `.btn-chart-2` → `.btn-ex-affirm` (green affirm; uses `--edu-affirm`),
+      `.btn-hero-title` → `.btn-ex-action` (warm gold action; uses `--ex-active`),
+      `.text-stroke-chart-3` → `.text-stroke-neutral`.
+- [x] Fix `--footer-hover-color` dark mode: was `var(--chart-4)` (purple) / `var(--chart-3)`
+      (amber); now `var(--ex-active)` in both dark contexts.
+- [x] Update `exerciseActionButtonVariants.js` tone mapping to new class names.
+- [x] Update 21 files: `App.jsx`, 12 exercise components, 2 debug files, `index.css`,
+      `theme-lc-french.css`, `tokens.css`, `exerciseActionButtonVariants.js`.
+
+> **`--ex-neutral`** is the key fix: in dark mode it resolves to neutral grey
+> `oklch(0.556 0 0)` instead of the amber-orange that `--chart-3` becomes.
+> **`--ex-revealed`** (warm gold) fixes the dark-mode "selected" state that turned
+> purple via `--chart-4`. **`--ex-active`** (warm amber-gold, same value in both
+> modes) replaces `--chart-5` for drag handles and active connectors.
+> The `--edu-affirm` token (pinned green, already existing) now handles all
+> correct-state colouring previously done with `--chart-2` — same value, better name.
+
+---
+
 ## 7. Designer Handoff Checklist (Future Projects)
 
 When a designer provides specs for a new language course, they should supply:
 
 ```
-Colours:
-  Primary brand colour (main accent):          _____________
-  Primary brand colour — dark variant:         _____________
-  Surface colour (page background):            _____________
-  Footer colour:                               _____________
+Colours (all four slots are independent — they are not computed from each other):
+  --brand-primary    main accent (nav active, hero title, exercise highlights): ______
+  --brand-secondary  page background surface:                                   ______
+  --brand-tertiary   footer surface:                                            ______
+  --brand-quaternary deep variant / reserved (optional):                        ______
+
+  Dark mode — only provide overrides where light value is unsuitable:
+  --brand-primary in dark mode (if different):                                  ______
+  --brand-secondary in dark mode (if different from shadcn --background):       ______
+  --brand-tertiary in dark mode (if different from shadcn --sidebar):           ______
 
 Fonts:
   Heading font name + weights:                 _____________
@@ -552,15 +594,14 @@ Fonts:
 Font sizes (or confirm use of existing scale):
   Base body size:                              _____________
   Heading sizes:                               _____________
-
-Dark mode:
-  Primary colour in dark mode:                 _____________
-  Surface colour in dark mode:                 _____________
 ```
 
 Developer takes this sheet and populates:
-1. `src/styles/palette-lc.css` (raw oklch values)
-2. `src/styles/theme-lc-[course].css` (brand token assignments)
-3. `src/styles/fonts.css` (new @font-face declarations if different fonts)
+
+1. **`src/styles/theme-lc-[course].css`** — four `--brand-*` oklch values (the only file that changes for a re-skin)
+2. **`src/styles/fonts.css`** — new `@font-face` declarations if different fonts
+3. `src/styles/palette-lc.css` — currently an empty placeholder; reserved for a future raw `--palette-*` system if needed
+
+`tokens.css` defines the role aliases (`--brand-surface`, `--brand-footer`) and all UI role tokens — **never edit tokens.css for a re-skin**.
 
 Zero component files change. The app repaints automatically.

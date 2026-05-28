@@ -2,6 +2,48 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-28 — Style refactor Step 10: token naming audit
+
+Systematic token naming refactor. Core goal: eliminate raw `--chart-*` references from
+exercise code (shadcn remaps chart-3 → amber and chart-4 → purple in dark mode, causing
+visual bugs in exercise state colours and shadows), and add purpose-built semantic token
+groups for the whole app.
+
+**`src/styles/theme-lc-french.css`** — expanded brand scale from 3 to 4 slots:
+- `--brand-primary` (LC teal-green, unchanged)
+- `--brand-secondary` (warm cream page bg; was `--brand-surface`)
+- `--brand-tertiary` (muted teal footer; was `--brand-footer`)
+- `--brand-quaternary` (deep teal, reserved/spare slot)
+- Dark mode overrides only where needed; primary/quaternary unchanged in dark
+
+**`src/styles/tokens.css`** — new/expanded sections:
+- **Brand role aliases**: `--brand-surface: var(--brand-secondary)`, `--brand-footer: var(--brand-tertiary)`
+- **Accordion tokens** (Section B expanded): `--accordion-bg`, `--accordion-bg-hover`, `--accordion-border`, `--accordion-header-font`, `--accordion-text`; `--accordion-mist` kept as deprecated alias
+- **Section D — exercise interaction tokens** (pinned oklch, never --chart-*):
+  `--ex-neutral` (muted slate light → neutral grey dark; not amber like chart-3 dark),
+  `--ex-active` (warm gold, same in both modes; replaces chart-5),
+  `--ex-revealed` (bright gold; not purple like chart-4 dark)
+- **Depth shadows**: `--shadow-sm/md/lg/xl` consuming `--ex-neutral`
+- **Section E — component tokens**: `--btn-primary-*`, `--btn-secondary-*`, `--modal-border`, `--modal-overlay`, `--audio-track/fill/icon`, `--font-size-word-xs/sm/md/lg`
+- **Section F — content accent palette**: `--content-accent-red/orange/yellow/green/blue/indigo/violet` replacing `--poem-accent-*`; backward-compat aliases kept
+
+**`src/index.css`** — chart token sweep:
+- All `var(--chart-2)` → `var(--edu-affirm)` (green; same value, better name)
+- All `var(--chart-3)` → `var(--ex-neutral)` (muted slate → neutral grey dark)
+- All `var(--chart-4)` → `var(--ex-revealed)` (warm gold; not purple in dark)
+- All `var(--chart-5)` → `var(--ex-active)` (warm gold; not red in dark)
+- CSS classes renamed: `.btn-chart-2` → `.btn-ex-affirm`, `.btn-hero-title` → `.btn-ex-action`, `.text-stroke-chart-3` → `.text-stroke-neutral`
+- `--footer-hover-color` dark mode fixed: was purple (`--chart-4`) / amber (`--chart-3`), now `var(--ex-active)` (warm gold) in both dark contexts
+
+**JSX components updated** (chart token replacement):
+`App.jsx`, `DraggableWordTile.jsx`, `InlineChoiceGroup.jsx`, `InlineTypedGapExercise.jsx`,
+`LineMatch.jsx`, `Card.jsx` (MemoryMatch), `ProgressDots.jsx`, `RadioQuiz.jsx`,
+`SelectExercise.jsx`, `SortableWordCard.jsx`, `TextEntryExerciseRuntime.jsx`,
+`nasal-rhyme-exercise.jsx`, `exerciseActionButtonVariants.js`, `PhraseTable.jsx`,
+`alert.jsx`, `table.jsx`, `DebugSandbox.jsx`, `DebugSvgAssets.jsx`
+
+---
+
 ## 2026-05-28 — Style refactor Steps 7 & 8: retire the --color-* RGB system and clean up tailwind.config.js
 
 Replaced every remaining `rgb(var(--color-*))` usage with direct shadcn / brand tokens.

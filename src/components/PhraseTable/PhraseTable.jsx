@@ -89,7 +89,7 @@ export class PhraseTable extends React.PureComponent {
 		const isSemanticSort = tableSort === "natural";
 		const isAlphabeticalSort = tableSort === "alphabetical" || tableSort === "reverse";
 		const semanticButtonClass = `vocab-sort-button btn-hero-title${isSemanticSort ? " vocab-sort-button-active" : ""}`;
-		const alphabeticalButtonClass = `vocab-sort-button btn-chart-2${isAlphabeticalSort ? " vocab-sort-button-active" : ""}`;
+		const alphabeticalButtonClass = `vocab-sort-button btn-ex-affirm${isAlphabeticalSort ? " vocab-sort-button-active" : ""}`;
 
 		// Always start from the immutable original
 		const basePhrases = this.originalPhrases || [];

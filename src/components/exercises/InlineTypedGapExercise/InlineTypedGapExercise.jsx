@@ -315,11 +315,11 @@ export class InlineTypedGapExercise extends React.PureComponent {
 		let stateClassName = "border-border text-foreground";
 
 		if (hasChecked && result === true) {
-			stateClassName = "border-[var(--chart-2)] bg-[color-mix(in_oklab,var(--chart-2)_16%,transparent)] text-foreground";
+			stateClassName = "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_16%,transparent)] text-foreground";
 		} else if (hasChecked && result === false) {
 			stateClassName = "border-[var(--destructive)] bg-[color-mix(in_oklab,var(--destructive)_12%,transparent)] text-foreground";
 		} else if (value.trim() !== "") {
-			stateClassName = "border-[var(--chart-3)] bg-[color-mix(in_oklab,var(--chart-3)_10%,transparent)] text-foreground";
+			stateClassName = "border-[var(--ex-neutral)] bg-[color-mix(in_oklab,var(--ex-neutral)_10%,transparent)] text-foreground";
 		}
 
 		return (
@@ -447,7 +447,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
 			rows.push(
 				<div
 					className={`rounded-xl border border-border/70 bg-card/60 p-3 shadow-sm md:p-4 ${
-						isActive ? "text-[var(--chart-2)]" : ""
+						isActive ? "text-[var(--edu-affirm)]" : ""
 					}`}
 					key={`inline-typed-gap-row-${id}-${i}`}
 				>
@@ -483,8 +483,8 @@ export class InlineTypedGapExercise extends React.PureComponent {
 									<button
 										className={`m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${
 											isActive || rowAudioStatus[i] === "playing"
-												? "text-[var(--chart-2)]"
-												: "text-foreground hover:text-[var(--chart-2)]"
+												? "text-[var(--edu-affirm)]"
+												: "text-foreground hover:text-[var(--edu-affirm)]"
 										}`}
 										onClick={(event) => this.handlePromptAudioClick(i, playlistIndex, event)}
 										type="button"
@@ -505,7 +505,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
 								<span
 									aria-hidden="true"
 									className={`inline-flex min-h-10 w-11 items-center justify-center ${
-										rowHasResult ? (rowIsCorrect ? "text-[var(--chart-2)]" : "text-[var(--destructive)]") : "invisible"
+										rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"
 									}`}
 								>
 									{rowIsCorrect ? <CircleCheck className="h-10 w-10" /> : <CircleX className="h-10 w-10" />}
