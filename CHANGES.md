@@ -2,6 +2,26 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-28 — Style refactor Step 4: replace nav blue with brand teal
+
+**Problem:** The nav active/highlight state was driven by `rgb(var(--color-primary-400))` —
+a generic Tailwind blue (96 165 250). The Language Centre brand colour is teal-green.
+
+**Fix:** Introduced a semantic UI role token `--nav-active-color` that points to
+`--hero-title-color` (brand teal, `oklch(0.612 0.130 160.6)`). This is a stepping-stone —
+Step 5 will redirect it to `--brand-primary` once that layer exists.
+
+- Added `--nav-active-color: var(--hero-title-color)` to the custom accents block in `:root`
+  (light mode; dark mode inherits naturally — `--hero-title-color` is the same value in both)
+- Replaced 14 `rgb(var(--color-primary-400))` nav CSS references in `src/index.css`
+  with `var(--nav-active-color)` — covering desktop hover, desktop active, mobile active
+  highlight, and dark-mode overrides for all of the above
+- Added a "Nav Tokens" debug section in `src/debug/DebugSandbox.jsx` (above "Modal Link
+  Tokens") showing desktop default/hover-active colours, mobile active colour, and a
+  colour swatch — using inline `var(--nav-active-color)` references rather than the
+  `.main-menu` class (which has `position: fixed; top: 0` and would escape the debug
+  sandbox container to the viewport top)
+
 ## 2026-05-28 — Style refactor Steps 2 & 3 + dead variable cleanup
 
 **Step 2 (already done in Step 1):** All flash animation keyframes (`anchor-flash`,

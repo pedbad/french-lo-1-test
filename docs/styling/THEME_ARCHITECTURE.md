@@ -414,11 +414,19 @@ Safelist classes bypass the token system and will go stale.
 The nav active/highlight state uses `--color-primary-400` (generic blue).
 The brand colour is teal-green.
 
-- [ ] Identify all uses of `rgb(var(--color-primary-400))` in nav CSS
-- [ ] Add a named UI role token: `--nav-active-color`
-- [ ] Set `--nav-active-color: var(--hero-title-color)` (brand teal, for now)
-- [ ] Replace all `rgb(var(--color-primary-400))` nav references with `var(--nav-active-color)`
-- [ ] Verify nav active/hover state visually in light and dark mode
+- [x] Identify all uses of `rgb(var(--color-primary-400))` in nav CSS
+- [x] Add a named UI role token: `--nav-active-color`
+- [x] Set `--nav-active-color: var(--hero-title-color)` (brand teal, for now)
+- [x] Replace all `rgb(var(--color-primary-400))` nav references with `var(--nav-active-color)`
+- [x] Verify nav active/hover state visually in light and dark mode
+
+> 14 nav CSS references replaced across desktop hover/active, mobile highlight,
+> and dark-mode overrides in `src/index.css`. `--nav-active-color` added to the
+> custom accents block in `:root` (light mode only — dark mode inherits it naturally
+> since `--hero-title-color` is the same in both modes). A "Nav Tokens" section
+> was added to the debug sandbox above "Modal Link Tokens" to inspect the token
+> chain (`--nav-active-color → --hero-title-color → oklch(0.612 0.130 160.6)`)
+> without triggering the `.main-menu { position: fixed }` viewport escape.
 
 ---
 
