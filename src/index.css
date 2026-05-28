@@ -21,32 +21,35 @@
 /* Optional: add any small project-wide tweaks here. */
 
 @layer base {
-		.bg-surface-base {
-		background-color: rgb(var(--color-surface-base) / 1);
+	/* Semantic utility shims — point to shadcn / brand tokens.
+	 * These class names are kept for backward compatibility but no longer
+	 * use the retired --color-* RGB triple system. */
+	.bg-surface-base {
+		background-color: var(--page-background);
 	}
 	.bg-surface-elevated {
-		background-color: rgb(var(--color-surface-elevated) / 1);
+		background-color: var(--card);
 	}
 	.bg-surface-overlay {
-		background-color: rgb(var(--color-surface-overlay) / 1);
+		background-color: var(--foreground);
 	}
 	.text-text-primary {
-		color: rgb(var(--color-text-primary) / 1);
+		color: var(--foreground);
 	}
 	.text-text-secondary {
-		color: rgb(var(--color-text-secondary) / 1);
+		color: var(--muted-foreground);
 	}
 	.text-text-tertiary {
-		color: rgb(var(--color-text-tertiary) / 1);
+		color: color-mix(in oklab, var(--muted-foreground) 75%, var(--background));
 	}
 	.border-border-subtle {
-		border-color: rgb(var(--color-border-subtle) / 1);
+		border-color: var(--border);
 	}
 	.border-border-default {
-		border-color: rgb(var(--color-border-default) / 1);
+		border-color: var(--border);
 	}
 	.border-border-strong {
-		border-color: rgb(var(--color-border-strong) / 1);
+		border-color: var(--ring);
 	}
 
 	body {
@@ -921,8 +924,8 @@
 	}
 
 	#content .accordion-card-content {
-		outline: 2px solid rgb(var(--color-border-subtle) / 0.5);
-		background-color: rgb(var(--color-secondary-100) / 0.5);
+		outline: 2px solid oklch(from var(--border) l c h / 0.5);
+		background-color: color-mix(in oklab, var(--muted) 50%, var(--card));
 	}
 
 	/* Grammar accordion cards: add comfortable reading space inside the grammar
@@ -2364,7 +2367,7 @@
 		font-size: var(--font-size-lg);
 		font-weight: 600;
 		padding-bottom: 0.35rem;
-		border-bottom: 1px solid rgb(var(--color-border-subtle) / 0.45);
+		border-bottom: 1px solid oklch(from var(--border) l c h / 0.45);
 	}
 
 	#LO1-pronunciation1-Accordion .pronunciation-content,
@@ -4201,7 +4204,7 @@ hr {
   padding: 0.65rem 1rem;
   border-left: 3px solid var(--muted-foreground);
   border-radius: 0 6px 6px 0;
-  background-color: rgb(var(--color-secondary-100) / 0.6);
+  background-color: color-mix(in oklab, var(--muted) 65%, var(--card));
 }
 
 #content .abbreviations dt {
@@ -4598,9 +4601,9 @@ hr {
 #content .lo6-reference-audio-card:hover,
 #content .lo6-reference-audio-card:focus-visible {
   outline: none;
-  border-color: rgb(var(--color-primary-400) / 1);
-  background: color-mix(in oklab, rgb(var(--color-primary-50) / 1) 78%, var(--card));
-  box-shadow: 0 0 0 3px color-mix(in oklab, rgb(var(--color-primary-200) / 1) 55%, transparent);
+  border-color: var(--brand-primary);
+  background: color-mix(in oklab, var(--brand-primary) 10%, var(--card));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand-primary) 35%, transparent);
   transform: translateY(-1px);
 }
 

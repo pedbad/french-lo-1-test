@@ -49,8 +49,8 @@ export const SortableWordCard = React.forwardRef(function SortableWordCard(props
 				: "text-[calc(var(--font-size-sm)*0.98)]";
 
 	const stateClass = isDragging
-		? "border-[rgb(var(--color-primary-400)_/_1)] bg-[rgb(var(--color-primary-300)_/_0.82)] opacity-95"
-		: "border-[rgb(var(--color-primary-400)_/_0.92)] bg-[rgb(var(--color-primary-200)_/_0.78)] hover:border-[rgb(var(--color-primary-400)_/_1)] hover:bg-[rgb(var(--color-primary-300)_/_0.9)]";
+		? "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_55%,var(--card))] opacity-95"
+		: "border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)] bg-[color-mix(in_oklab,var(--brand-primary)_30%,var(--card))] hover:border-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_55%,var(--card))]";
 	const shadowClass = isDragging
 		? "shadow-none"
 		: stacked
@@ -75,21 +75,21 @@ export const SortableWordCard = React.forwardRef(function SortableWordCard(props
 			{...rest}
 		>
 			{showIndex ? (
-				<span className={`inline-flex items-center justify-center rounded-full border border-[rgb(var(--color-primary-400)_/_0.45)] bg-[rgb(var(--color-primary-50)_/_0.8)] font-semibold text-[rgb(var(--color-text-secondary)_/_1)] ${stacked ? "absolute left-1.5 top-1.5 h-5 min-w-5 px-1 text-[calc(var(--font-size-sm)*0.68)] min-[1400px]:h-6 min-[1400px]:min-w-6 min-[1400px]:text-[calc(var(--font-size-sm)*0.72)]" : "h-7 min-w-7 px-2 text-xs"}`}>
+				<span className={`inline-flex items-center justify-center rounded-full border border-[oklch(from_var(--brand-primary)_l_c_h_/_0.45)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] font-semibold text-[var(--muted-foreground)] ${stacked ? "absolute left-1.5 top-1.5 h-5 min-w-5 px-1 text-[calc(var(--font-size-sm)*0.68)] min-[1400px]:h-6 min-[1400px]:min-w-6 min-[1400px]:text-[calc(var(--font-size-sm)*0.72)]" : "h-7 min-w-7 px-2 text-xs"}`}>
 					{slotLabel}
 				</span>
 			) : null}
 			{stacked ? (
 				<>
-					<span className={`${textClass} font-semibold leading-tight text-[rgb(var(--color-text-primary)_/_1)]`}>
+					<span className={`${textClass} font-semibold leading-tight text-[var(--foreground)]`}>
 						{label}
 					</span>
-					<Icon className={`${iconClass} text-[rgb(var(--color-primary-400)_/_0.95)] transition group-hover:text-[rgb(var(--color-primary-400)_/_1)]`} />
+					<Icon className={`${iconClass} text-[oklch(from_var(--brand-primary)_l_c_h_/_0.95)] transition group-hover:text-[var(--brand-primary)]`} />
 				</>
 			) : (
 				<>
-					<Icon className={`${iconClass} text-[rgb(var(--color-primary-400)_/_0.95)] transition group-hover:text-[rgb(var(--color-primary-400)_/_1)]`} />
-					<span className={`${textClass} font-semibold leading-tight text-[rgb(var(--color-text-primary)_/_1)]`}>
+					<Icon className={`${iconClass} text-[oklch(from_var(--brand-primary)_l_c_h_/_0.95)] transition group-hover:text-[var(--brand-primary)]`} />
+					<span className={`${textClass} font-semibold leading-tight text-[var(--foreground)]`}>
 						{label}
 					</span>
 				</>

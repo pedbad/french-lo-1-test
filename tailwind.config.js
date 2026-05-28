@@ -1,20 +1,6 @@
 // tailwind.config.js
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-/**
- * Helper to map CSS variables:
- *   --color-primary-50, --color-primary-100, etc.
- * into Tailwind color scales like primary-50, primary-100...
- */
-const buildPalette = (token) => ({
-	100: `rgb(var(--color-${token}-100) / <alpha-value>)`,
-	200: `rgb(var(--color-${token}-200) / <alpha-value>)`,
-	300: `rgb(var(--color-${token}-300) / <alpha-value>)`,
-	400: `rgb(var(--color-${token}-400) / <alpha-value>)`,
-	50: `rgb(var(--color-${token}-50) / <alpha-value>)`,
-	DEFAULT: `rgb(var(--color-${token}-400) / <alpha-value>)`,
-});
-
 /** @type {import('tailwindcss').Config} */
 export default {
 	// Tailwind v4 does automatic source detection, so this is optional.
@@ -36,27 +22,26 @@ export default {
 				"highlight-flash": "highlight-flash 1.2s ease 0s 3",
 			},
 			colors: {
-				background: 'rgb(var(--color-surface-base) / <alpha-value>)',
+				// Colours now point at shadcn / brand tokens using CSS relative
+				// colour syntax so opacity modifiers (e.g. /70) keep working.
+				background: 'oklch(from var(--background) l c h / <alpha-value>)',
 				border: {
-					DEFAULT: 'rgb(var(--color-border-default) / <alpha-value>)',
-					default: 'rgb(var(--color-border-default) / <alpha-value>)',
-					strong: 'rgb(var(--color-border-strong) / <alpha-value>)',
-					subtle: 'rgb(var(--color-border-subtle) / <alpha-value>)',
+					DEFAULT: 'oklch(from var(--border) l c h / <alpha-value>)',
+					default: 'oklch(from var(--border) l c h / <alpha-value>)',
+					strong:  'oklch(from var(--ring) l c h / <alpha-value>)',
+					subtle:  'oklch(from var(--border) l c h / <alpha-value>)',
 				},
-				foreground: 'rgb(var(--color-text-primary) / <alpha-value>)',
-				primary: buildPalette('primary'),
-				secondary: buildPalette('secondary'),
+				foreground: 'oklch(from var(--foreground) l c h / <alpha-value>)',
 				surface: {
-					base: 'rgb(var(--color-surface-base) / <alpha-value>)',
-					elevated: 'rgb(var(--color-surface-elevated) / <alpha-value>)',
-					overlay: 'rgb(var(--color-surface-overlay) / <alpha-value>)',
+					base:     'oklch(from var(--background) l c h / <alpha-value>)',
+					elevated: 'oklch(from var(--card) l c h / <alpha-value>)',
+					overlay:  'oklch(from var(--foreground) l c h / <alpha-value>)',
 				},
-				tertiary: buildPalette('tertiary'),
 				text: {
-					disabled: 'rgb(var(--color-text-disabled) / <alpha-value>)',
-					primary: 'rgb(var(--color-text-primary) / <alpha-value>)',
-					secondary: 'rgb(var(--color-text-secondary) / <alpha-value>)',
-					tertiary: 'rgb(var(--color-text-tertiary) / <alpha-value>)',
+					disabled:  'oklch(from var(--muted-foreground) l c h / 0.55)',
+					primary:   'oklch(from var(--foreground) l c h / <alpha-value>)',
+					secondary: 'oklch(from var(--muted-foreground) l c h / <alpha-value>)',
+					tertiary:  'oklch(from var(--muted-foreground) l c h / 0.8)',
 				},
 			},
 			// Merge fonts with shadcn's expectations

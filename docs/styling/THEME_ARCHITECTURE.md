@@ -480,11 +480,23 @@ Move the four token groups out of one giant `:root` block into their own files.
 The legacy RGB triple system (`--color-primary-*`, `--color-surface-*`, etc.)
 predates the brand token layer. Once Step 5 and 6 are done, replace it.
 
-- [ ] Audit all uses of `rgb(var(--color-*))` in `index.css`
-- [ ] Replace each with the equivalent brand or UI role token from Step 5/6
-- [ ] Remove legacy `--color-*` variable declarations
-- [ ] Update `tailwind.config.js` `buildPalette` references
-- [ ] Verify build and visual parity
+- [x] Audit all uses of `rgb(var(--color-*))` in `index.css`
+- [x] Replace each with the equivalent brand or UI role token from Step 5/6
+- [x] Remove legacy `--color-*` variable declarations
+- [x] Update `tailwind.config.js` `buildPalette` references
+- [x] Verify build and visual parity
+
+> All nine utility class definitions updated to consume shadcn tokens directly
+> (`var(--page-background)`, `var(--card)`, `var(--foreground)`, `var(--border)`, etc.).
+> Five component CSS rules in `index.css` updated: accordion-card-content, pronunciation
+> h3 border, abbreviations background, and `lo6-reference-audio-card` hover state.
+> Five JSX files updated (`alert.jsx`, `SortableWordCard.jsx`, `Card.jsx` in
+> MemoryMatchGame, `LineMatch.jsx`, `LandingPage.jsx`) — all `rgb(var(--color-*))` 
+> arbitrary values replaced with `oklch(from var(--brand-primary) l c h / α)` for
+> tinted borders/icons or `color-mix(in oklab, var(--brand-primary) X%, var(--card))`
+> for surface fills. `src/styles/palette-lc.css` cleared to a comment-only file.
+> `buildPalette` helper and `primary/secondary/tertiary` scales removed from
+> `tailwind.config.js` — done as part of Step 8.
 
 ---
 
@@ -492,11 +504,19 @@ predates the brand token layer. Once Step 5 and 6 are done, replace it.
 
 The Tailwind config should map to CSS variables, never to raw values.
 
-- [ ] Replace `buildPalette('primary')` with direct `--brand-primary` mappings
-- [ ] Remove or replace the `secondary` and `tertiary` buildPalette calls
-- [ ] Confirm all Tailwind colour aliases (`background`, `foreground`, etc.)
+- [x] Replace `buildPalette('primary')` with direct `--brand-primary` mappings
+- [x] Remove or replace the `secondary` and `tertiary` buildPalette calls
+- [x] Confirm all Tailwind colour aliases (`background`, `foreground`, etc.)
       point to the correct token variables from Step 6
-- [ ] Document in config comments which token each alias maps to
+- [x] Document in config comments which token each alias maps to
+
+> Completed alongside Step 7. `buildPalette` function removed. `primary`,
+> `secondary`, `tertiary` colour scales removed (no JSX used the generated
+> `primary-50`, `primary-400` etc. Tailwind classes — all relied on arbitrary
+> values which are now updated). All remaining colour aliases (`background`,
+> `foreground`, `border.*`, `surface.*`, `text.*`) now use CSS relative colour
+> syntax `oklch(from var(--TOKEN) l c h / <alpha-value>)` so opacity modifiers
+> (e.g. `bg-surface-elevated/70`, `border-border-subtle/70`) continue to work.
 
 ---
 

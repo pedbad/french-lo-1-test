@@ -39,7 +39,7 @@ export class Card extends React.PureComponent {
 			? "border-[color-mix(in_oklab,var(--chart-2)_58%,var(--border))] bg-[color-mix(in_oklab,var(--chart-2)_8%,var(--card))] shadow-[0_10px_22px_color-mix(in_oklab,var(--chart-2)_18%,transparent)]"
 			: isRevealed
 				? "border-border-subtle bg-card shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_12%,transparent)]"
-				: "border-[rgb(var(--color-primary-400)_/_0.92)] bg-[rgb(var(--color-primary-200)_/_0.78)] shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_20%,transparent)] hover:border-[rgb(var(--color-primary-400)_/_1)] hover:bg-[rgb(var(--color-primary-300)_/_0.9)] hover:shadow-[0_10px_22px_color-mix(in_oklab,var(--chart-3)_28%,transparent)]";
+				: "border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)] bg-[color-mix(in_oklab,var(--brand-primary)_30%,var(--card))] shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_20%,transparent)] hover:border-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_55%,var(--card))] hover:shadow-[0_10px_22px_color-mix(in_oklab,var(--chart-3)_28%,transparent)]";
 
 		return (
 			<div
@@ -72,9 +72,9 @@ export class Card extends React.PureComponent {
 					>
 						<div
 							aria-hidden="true"
-							className="absolute inset-0 grid h-full w-full place-items-center overflow-hidden rounded-[inherit] bg-[linear-gradient(160deg,rgb(var(--color-primary-50)_/_0.98),rgb(var(--color-primary-200)_/_0.92))] text-[rgb(var(--color-text-secondary)_/_1)] shadow-[inset_0_1px_0_rgb(var(--color-primary-50)_/_0.85),inset_0_-12px_18px_rgb(var(--color-primary-300)_/_0.16)] [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:translateZ(1px)]"
+							className="absolute inset-0 grid h-full w-full place-items-center overflow-hidden rounded-[inherit] bg-[linear-gradient(160deg,color-mix(in_oklab,var(--brand-primary)_12%,var(--card)),color-mix(in_oklab,var(--brand-primary)_35%,var(--card)))] text-[var(--muted-foreground)] shadow-[inset_0_1px_0_oklch(from_var(--brand-primary)_l_c_h_/_0.85),inset_0_-12px_18px_oklch(from_var(--brand-primary)_l_c_h_/_0.16)] [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:translateZ(1px)]"
 						>
-							<div className="absolute inset-[8%] rounded-[calc(var(--radius)-0.1rem)] border border-[rgb(var(--color-primary-400)_/_0.26)] opacity-80" />
+							<div className="absolute inset-[8%] rounded-[calc(var(--radius)-0.1rem)] border border-[oklch(from_var(--brand-primary)_l_c_h_/_0.26)] opacity-80" />
 							<div className="absolute left-[14%] top-[10%] h-8 w-8 rounded-full bg-white/45 blur-xl" />
 							<BadgeQuestionMark
 								aria-hidden="true"
@@ -83,8 +83,8 @@ export class Card extends React.PureComponent {
 								style={{ color: "var(--chart-3)" }}
 							/>
 						</div>
-						<div className="absolute inset-0 flex h-full w-full rounded-[inherit] bg-[linear-gradient(180deg,rgb(var(--color-background)_/_1),rgb(var(--color-primary-50)_/_0.42))] p-2 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)]">
-							<div className="flex h-full w-full flex-col items-center justify-center gap-1 rounded-[calc(var(--radius)-0.15rem)] bg-card/92 px-1 shadow-[inset_0_1px_0_rgb(var(--color-primary-50)_/_0.7)]">
+						<div className="absolute inset-0 flex h-full w-full rounded-[inherit] bg-[linear-gradient(180deg,var(--background),color-mix(in_oklab,var(--brand-primary)_12%,var(--background)))] p-2 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)]">
+							<div className="flex h-full w-full flex-col items-center justify-center gap-1 rounded-[calc(var(--radius)-0.15rem)] bg-card/92 px-1 shadow-[inset_0_1px_0_oklch(from_var(--brand-primary)_l_c_h_/_0.7)]">
 								{card.type === 'text' ? (
 									<AudioClip className="link memory-card-audio-link inline-flex items-center justify-center gap-2 rounded-lg px-2 py-1.5 text-[calc(var(--font-size-sm)*0.92)] font-semibold leading-none" soundFile={`${card.audio}`} title={`Listen to ${card.content}`}>
 										<span>{card.content}</span>

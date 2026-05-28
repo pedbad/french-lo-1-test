@@ -1,78 +1,12 @@
 /* ==========================================================================
    Layer 1 — Raw Colour Palette (Language Centre)
    ==========================================================================
-   Raw RGB triple values used by the System A legacy colour scale.
-   These are named --color-* for now; Step 7 of the style refactor will
-   rename them to the canonical --palette-* naming convention.
+   Step 7 complete: the --color-* RGB triple system has been retired.
+   All component CSS and JSX now consume shadcn tokens (--background,
+   --foreground, --border, --muted, --muted-foreground, --card) or the
+   brand layer (--brand-primary, --brand-surface, --brand-footer) directly.
 
-   Rule: never use these tokens directly in components or UI role tokens.
-   Always go through the brand layer (--brand-*) or a named UI role token.
+   Step 8 will introduce a --palette-* namespace (named oklch values) here
+   so the brand layer (theme-lc-french.css) can reference named swatches
+   instead of raw oklch literals.
    ========================================================================== */
-
-@layer base {
-	:root {
-		--color-primary-50:   239 246 255;
-		--color-primary-100:  219 234 254;
-		--color-primary-200:  191 219 254;
-		--color-primary-300:  147 197 253;
-		--color-primary-400:   96 165 250;
-
-		--color-secondary-50:  249 250 251;
-		--color-secondary-100: 243 244 246;
-		--color-secondary-200: 229 231 235;
-		--color-secondary-300: 209 213 219;
-		--color-secondary-400: 156 163 175;
-
-		--color-tertiary-50:  245 243 255;
-		--color-tertiary-100: 237 233 254;
-		--color-tertiary-200: 221 214 254;
-		--color-tertiary-300: 196 181 253;
-		--color-tertiary-400: 167 139 250;
-
-		--color-surface-base:     255 229 169;
-		--color-surface-elevated:  249 250 251;
-		--color-surface-overlay:    15  23  42;
-
-		--color-text-primary:    15  23  42;
-		--color-text-secondary:  71  85 105;
-		--color-text-tertiary:  100 116 139;
-		--color-text-disabled:  148 163 184;
-
-		--color-border-subtle:  226 232 240;
-		--color-border-default: 203 213 225;
-		--color-border-strong:  148 163 184;
-	}
-
-	.dark {
-		--color-primary-50:    15 118 220;
-		--color-primary-100:   14 165 233;
-		--color-primary-200:   59 130 246;
-		--color-primary-300:   96 165 250;
-		--color-primary-400:  147 197 253;
-
-		--color-secondary-50:    15  23  42;
-		--color-secondary-100:   30  41  59;
-		--color-secondary-200:   51  65  85;
-		--color-secondary-300:   71  85 105;
-		--color-secondary-400:  148 163 184;
-
-		--color-tertiary-50:    49  46 129;
-		--color-tertiary-100:   79  70 229;
-		--color-tertiary-200:  124  58 237;
-		--color-tertiary-300:  167 139 250;
-		--color-tertiary-400:  196 181 253;
-
-		--color-surface-base:      15  23  42;
-		--color-surface-elevated:  30  41  59;
-		--color-surface-overlay:    8  47  73;
-
-		--color-text-primary:   226 232 240;
-		--color-text-secondary: 203 213 225;
-		--color-text-tertiary:  148 163 184;
-		--color-text-disabled:  100 116 139;
-
-		--color-border-subtle:    51  65  85;
-		--color-border-default:   71  85 105;
-		--color-border-strong:   148 163 184;
-	}
-}

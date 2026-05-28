@@ -2,6 +2,48 @@
 
 This file summarizes the work completed in this repo during the session. It includes case-sensitivity fixes, content cleanup, theming unification, banner updates, and asset/logo updates. Paths are repo-relative.
 
+## 2026-05-28 — Style refactor Steps 7 & 8: retire the --color-* RGB system and clean up tailwind.config.js
+
+Replaced every remaining `rgb(var(--color-*))` usage with direct shadcn / brand tokens.
+`buildPalette` and the `primary`/`secondary`/`tertiary` colour scales removed from config.
+
+**`src/styles/palette-lc.css`** — cleared to comment-only. All `--color-*` RGB triple
+declarations removed. File retained as a placeholder for the future `--palette-*` system.
+
+**`src/index.css` — utility classes (lines 24–50):**
+- Nine `.bg-*`, `.text-*`, `.border-*` utility definitions updated:
+  `.bg-surface-base → var(--page-background)`, `.bg-surface-elevated → var(--card)`,
+  `.text-text-primary → var(--foreground)`, `.text-text-secondary → var(--muted-foreground)`,
+  `.border-border-subtle → var(--border)`, `.border-border-strong → var(--ring)`, etc.
+
+**`src/index.css` — component CSS:**
+- `accordion-card-content`: outline → `oklch(from var(--border) l c h / 0.5)`;
+  background → `color-mix(in oklab, var(--muted) 50%, var(--card))`
+- Pronunciation h3: border-bottom → `oklch(from var(--border) l c h / 0.45)`
+- `.abbreviations` block: background → `color-mix(in oklab, var(--muted) 65%, var(--card))`
+- `lo6-reference-audio-card:hover`: border → `var(--brand-primary)`;
+  background → `color-mix(in oklab, var(--brand-primary) 10%, var(--card))`;
+  box-shadow → `color-mix(in oklab, var(--brand-primary) 35%, transparent)`
+
+**JSX files updated:**
+- `src/components/ui/alert.jsx`: `default`/`info` variant now uses `var(--brand-primary)`
+  border/text and `color-mix(…12%…)` background instead of `--color-primary-*`
+- `src/components/exercises/SortableWordCard/SortableWordCard.jsx`: all six
+  `rgb(var(--color-primary-*))` references replaced with `oklch(from var(--brand-primary)…)`
+  (borders/icons) or `color-mix(in oklab, var(--brand-primary)…)` (surface fills);
+  text colours use `var(--foreground)` and `var(--muted-foreground)`
+- `src/components/exercises/MemoryMatchGame/Card/Card.jsx`: unrevealed state border/bg;
+  card-back gradient, decorative border, shadow; card-front gradient — all updated
+- `src/components/exercises/LineMatch/LineMatch.jsx`: image tile border and background
+- `src/components/layout/page-shell/LandingPage/LandingPage.jsx`: border → `var(--border)`
+
+**`tailwind.config.js`:**
+- `buildPalette` helper function removed
+- `primary`, `secondary`, `tertiary` colour scales removed (no JSX used theme-class names)
+- All remaining aliases now use CSS relative colour syntax for opacity-modifier support:
+  `background`, `foreground`, `border.*`, `surface.*` → `oklch(from var(--TOKEN) l c h / <alpha-value>)`
+  `text.disabled`, `text.tertiary` → fixed-alpha variants of `--muted-foreground`
+
 ## 2026-05-28 — Style refactor Step 6: split index.css into separate token files
 
 Extracted all CSS variable declarations out of `src/index.css` into three purpose-built

@@ -18,7 +18,7 @@ export class LandingPage extends React.Component{
 			learningObjects.forEach((learningObject, index) => {
 				cards.push(
 					<li
-						className="flex h-[300px] w-[300px] rounded-[20px] border border-[rgb(var(--color-border-subtle)/1)] bg-[linear-gradient(180deg,var(--primary)_0%,var(--destructive)_100%)] hover:bg-[linear-gradient(180deg,var(--destructive)_0%,var(--primary)_100%)]"
+						className="flex h-[300px] w-[300px] rounded-[20px] border border-[var(--border)] bg-[linear-gradient(180deg,var(--primary)_0%,var(--destructive)_100%)] hover:bg-[linear-gradient(180deg,var(--destructive)_0%,var(--primary)_100%)]"
 						key={`card-${index}`}>
 						<a
 							className="flex h-full w-full flex-col items-center justify-between p-5 text-center !no-underline"

@@ -17,8 +17,8 @@ import React from "react";
 
 const LINE_MATCH_IMAGE_TILE_CLASS = [
 	"relative aspect-square min-h-[4rem] w-[4rem] overflow-hidden rounded-lg",
-	"border border-[rgb(var(--color-primary-400)_/_0.92)]",
-	"bg-[rgb(var(--color-primary-200)_/_0.28)]",
+	"border border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)]",
+	"bg-[color-mix(in_oklab,var(--brand-primary)_15%,var(--card))]",
 	"shadow-[0_6px_14px_color-mix(in_oklab,var(--chart-3)_20%,transparent)]",
 	"min-[1400px]:min-h-[5rem] min-[1400px]:w-[5rem]",
 ].join(" ");

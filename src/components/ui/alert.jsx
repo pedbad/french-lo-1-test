@@ -9,9 +9,9 @@ const alertVariants = cva(
 		variants: {
 			variant: {
 				default:
-          "border-[rgb(var(--color-primary-400)/1)] bg-[rgb(var(--color-primary-50)/1)] text-[var(--primary)]",
+          "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] text-[var(--brand-primary)]",
 				info:
-          "border-[rgb(var(--color-primary-400)/1)] bg-[rgb(var(--color-primary-50)/1)] text-[var(--primary)]",
+          "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] text-[var(--brand-primary)]",
 				warning:
           "border-[color-mix(in_oklab,var(--chart-5)_78%,var(--foreground))] bg-[color-mix(in_oklab,var(--chart-5)_24%,var(--card))] text-[color-mix(in_oklab,var(--chart-5)_62%,var(--foreground))]",
 				success:
