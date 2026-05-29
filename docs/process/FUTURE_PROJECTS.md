@@ -606,6 +606,24 @@ document.documentElement.classList.toggle("dark", isDarkMode);
 - Use `src/assets/fonts` for app fonts that are versioned and tokenized.
 - Keep file names ASCII-safe (no accents/spaces) for cross-platform reliability.
 
+### Audio Folder Naming Rule (Carry Forward)
+
+Audio subfolders must use **semantic, zero-padded names** — never component names.
+
+```
+audio/loX/dialogues/phraseTable1/   ← current LOs (acceptable)
+audio/loX/dialogues/01/             ← preferred for new projects
+```
+
+**Never** name folders after components (`phraseTable`, `draggableFillGaps`, `selectExercise`).
+Component names change; content categories don't. If the PhraseTable component is
+ever renamed or replaced, folder names that match it become misleading.
+
+For new projects use neutral ordered names: `01/`, `02/` or `part-1/`, `part-2/`.
+
+Individual audio files must always carry a zero-padded numeric prefix: `001-kebab-name.mp3`.
+Each subfolder gets its own independent sequence starting at `001`.
+
 ## Light/Dark Mode Rules
 
 - Theme controlled by root class (`.dark`) + token overrides.
