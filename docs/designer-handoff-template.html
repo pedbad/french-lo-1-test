@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Handoff Sheet — Language Centre</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: A4;
+      margin: 12mm 14mm;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.4;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────────────────── */
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2.5px solid #1a1a1a;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .header-title {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .header-sub {
+      font-size: 9pt;
+      color: #666;
+      margin-top: 3px;
+    }
+
+    .header-meta {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-top: 3px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 14px;
+    }
+
+    .meta-field {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+
+    .meta-label {
+      font-weight: 700;
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 6.5pt;
+      letter-spacing: 0.7px;
+    }
+
+    .meta-value {
+      border-bottom: 1px solid #ccc;
+      min-width: 90px;
+      padding-bottom: 1px;
+      font-size: 8.5pt;
+      text-align: right;
+    }
+
+    /* ── Section ─────────────────────────────────────────────────────────────── */
+
+    .section {
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #999;
+      margin-bottom: 7px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    /* ── Note box ────────────────────────────────────────────────────────────── */
+
+    .note-box {
+      background: #fffcf0;
+      border: 1px solid #e8cc70;
+      border-left: 3px solid #c8a820;
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 7.5pt;
+      color: #6a5200;
+      margin-bottom: 14px;
+    }
+
+    .note-box code {
+      font-family: 'Courier New', monospace;
+      font-size: 7pt;
+      background: rgba(0,0,0,0.06);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    /* ── Colour grid ─────────────────────────────────────────────────────────── */
+
+    .colour-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .colour-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .swatch {
+      height: 68px;
+      width: 100%;
+    }
+
+    .colour-info {
+      padding: 7px 8px;
+    }
+
+    .colour-slot {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #aaa;
+      margin-bottom: 2px;
+    }
+
+    .colour-name {
+      font-size: 8.5pt;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #1a1a1a;
+    }
+
+    .colour-usage {
+      font-size: 7pt;
+      color: #666;
+      margin-bottom: 7px;
+      line-height: 1.45;
+    }
+
+    .colour-values {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .colour-value-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .value-label {
+      font-size: 6pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #bbb;
+      width: 28px;
+      flex-shrink: 0;
+    }
+
+    .value-text {
+      font-family: 'Courier New', monospace;
+      font-size: 7pt;
+      color: #333;
+      background: #f4f4f4;
+      padding: 2px 5px;
+      border-radius: 3px;
+      flex: 1;
+    }
+
+    .approx {
+      font-size: 6pt;
+      color: #bbb;
+      font-style: italic;
+    }
+
+    /* ── Dark mode strip ─────────────────────────────────────────────────────── */
+
+    .dark-strip {
+      background: #111;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: #ddd;
+    }
+
+    .dark-strip-title {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .dark-strip-body {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .dark-note-text {
+      font-size: 7.5pt;
+      color: #888;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .dark-overrides {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .dark-override {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dark-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 5px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .dark-override-slot {
+      font-size: 6.5pt;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .dark-override-val {
+      font-family: 'Courier New', monospace;
+      font-size: 7pt;
+      color: #999;
+    }
+
+    /* ── App diagram ─────────────────────────────────────────────────────────── */
+
+    .app-diagram {
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: 7pt;
+    }
+
+    .diag-nav {
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+    }
+
+    .diag-nav-logo { font-weight: 700; font-size: 8.5pt; }
+    .diag-nav-item { opacity: 0.65; }
+    .diag-nav-item.on { opacity: 1; font-weight: 600; text-decoration: underline; }
+    .diag-nav-tag { margin-left: auto; font-size: 6pt; opacity: 0.55; font-style: italic; }
+
+    .diag-body {
+      display: flex;
+      min-height: 72px;
+    }
+
+    .diag-main {
+      flex: 1;
+      padding: 8px 12px;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .diag-main-heading { font-size: 9pt; font-weight: 700; margin-bottom: 3px; }
+    .diag-main-note { font-size: 6.5pt; color: #888; font-style: italic; }
+
+    .diag-sidebar {
+      width: 90px;
+      padding: 8px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .diag-sidebar-note { font-size: 6pt; opacity: 0.55; line-height: 1.4; }
+
+    .diag-footer {
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+
+    .diag-footer-label { font-size: 6.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px; opacity: 0.75; }
+    .diag-footer-note { font-size: 6pt; opacity: 0.4; font-style: italic; margin-left: auto; }
+
+    /* ── Typography ──────────────────────────────────────────────────────────── */
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .type-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 9px 10px;
+    }
+
+    .type-role {
+      font-size: 6.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #aaa;
+      margin-bottom: 5px;
+    }
+
+    .type-sample {
+      font-size: 17pt;
+      line-height: 1.1;
+      margin-bottom: 7px;
+      color: #1a1a1a;
+    }
+
+    .type-sample.mono-sample {
+      font-family: 'Courier New', monospace;
+      font-size: 11pt;
+    }
+
+    .type-row {
+      display: flex;
+      gap: 5px;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .type-key {
+      font-size: 6pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #bbb;
+      width: 40px;
+      flex-shrink: 0;
+    }
+
+    .type-val {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .type-file {
+      font-family: 'Courier New', monospace;
+      font-size: 6.5pt;
+      color: #666;
+      background: #f4f4f4;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    /* ── Checklist ───────────────────────────────────────────────────────────── */
+
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 20px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 8pt;
+      color: #333;
+      padding: 2px 0;
+    }
+
+    .checkbox {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #bbb;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Doc footer ──────────────────────────────────────────────────────────── */
+
+    .doc-footer {
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid #e8e8e8;
+      display: flex;
+      justify-content: space-between;
+      font-size: 6.5pt;
+      color: #bbb;
+    }
+
+    /* ── Print ───────────────────────────────────────────────────────────────── */
+
+    @media print {
+      body { padding: 0; max-width: none; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────────────────────── -->
+  <div class="header">
+    <div>
+      <div class="header-title">Brand Handoff Sheet</div>
+      <div class="header-sub">Colour &amp; Typography — Language Centre Learning Objects</div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-row">
+        <div class="meta-field">
+          <span class="meta-label">Course</span>
+          <span class="meta-value">French Beginners</span>
+        </div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-field">
+          <span class="meta-label">Designer</span>
+          <span class="meta-value">Jane Smith</span>
+        </div>
+        <div class="meta-field">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">May 2026</span>
+        </div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-field">
+          <span class="meta-label">Version</span>
+          <span class="meta-value">1.0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DEVELOPER NOTE ─────────────────────────────────────────────────────── -->
+  <div class="note-box">
+    <strong>For the developer:</strong> copy the four oklch values into <code>theme-lc-french.css</code>
+    as the <code>--brand-primary/secondary/tertiary/quaternary</code> slots.
+    Add font files to <code>public/media/fonts/</code> and update <code>src/styles/fonts.css</code>.
+    No other files need to change.
+  </div>
+
+  <!-- ── BRAND COLOURS ──────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">Brand Colours — Light Mode (oklch is the source of truth; hex values are approximate)</div>
+    <div class="colour-grid">
+
+      <div class="colour-card">
+        <div class="swatch" style="background: oklch(0.612 0.130 160.6);"></div>
+        <div class="colour-info">
+          <div class="colour-slot">Slot 1 — Primary</div>
+          <div class="colour-name">Language Centre Teal</div>
+          <div class="colour-usage">Nav bar · Hero banner · Footer background · Main brand accent</div>
+          <div class="colour-values">
+            <div class="colour-value-row">
+              <span class="value-label">oklch</span>
+              <span class="value-text">0.612 0.130 160.6</span>
+            </div>
+            <div class="colour-value-row">
+              <span class="value-label">hex</span>
+              <span class="value-text">#2A7A5E <span class="approx">(approx)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="colour-card">
+        <div class="swatch" style="background: oklch(0.976 0.023 90.7); border-bottom: 1px solid #eee;"></div>
+        <div class="colour-info">
+          <div class="colour-slot">Slot 2 — Secondary</div>
+          <div class="colour-name">Warm Cream</div>
+          <div class="colour-usage">Page background · Light surface areas · Lesson body</div>
+          <div class="colour-values">
+            <div class="colour-value-row">
+              <span class="value-label">oklch</span>
+              <span class="value-text">0.976 0.023 90.7</span>
+            </div>
+            <div class="colour-value-row">
+              <span class="value-label">hex</span>
+              <span class="value-text">#F9F6EF <span class="approx">(approx)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="colour-card">
+        <div class="swatch" style="background: oklch(0.851 0.089 178.8);"></div>
+        <div class="colour-info">
+          <div class="colour-slot">Slot 3 — Tertiary</div>
+          <div class="colour-name">Muted Teal</div>
+          <div class="colour-usage">Footer body · Sidebar panels · Secondary surfaces</div>
+          <div class="colour-values">
+            <div class="colour-value-row">
+              <span class="value-label">oklch</span>
+              <span class="value-text">0.851 0.089 178.8</span>
+            </div>
+            <div class="colour-value-row">
+              <span class="value-label">hex</span>
+              <span class="value-text">#A8D4C8 <span class="approx">(approx)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="colour-card">
+        <div class="swatch" style="background: oklch(0.44 0.10 165.0);"></div>
+        <div class="colour-info">
+          <div class="colour-slot">Slot 4 — Quaternary</div>
+          <div class="colour-name">Deep Forest</div>
+          <div class="colour-usage">Hover darks · Deep accent · Active-state shadows</div>
+          <div class="colour-values">
+            <div class="colour-value-row">
+              <span class="value-label">oklch</span>
+              <span class="value-text">0.44 0.10 165.0</span>
+            </div>
+            <div class="colour-value-row">
+              <span class="value-label">hex</span>
+              <span class="value-text">#1D4D3A <span class="approx">(approx)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── DARK MODE ──────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="dark-strip">
+      <div class="dark-strip-title">Dark Mode Overrides</div>
+      <div class="dark-strip-body">
+        <div class="dark-note-text">
+          Only Slot 2 and Slot 3 change in dark mode — they fall back to
+          the system's standard dark background and dark sidebar colours.
+          Slots 1 and 4 stay identical across both modes.
+          Everything else (cards, text, borders, exercise states) switches automatically.
+          No extra values needed from the designer.
+        </div>
+        <div class="dark-overrides">
+          <div class="dark-override">
+            <div class="dark-swatch" style="background: oklch(0.145 0 0);"></div>
+            <div>
+              <div class="dark-override-slot">Slot 2 in dark</div>
+              <div class="dark-override-val">system dark bg</div>
+              <div class="dark-override-val" style="color:#555;">oklch(0.145 0 0)</div>
+            </div>
+          </div>
+          <div class="dark-override">
+            <div class="dark-swatch" style="background: oklch(0.205 0 0);"></div>
+            <div>
+              <div class="dark-override-slot">Slot 3 in dark</div>
+              <div class="dark-override-val">system dark sidebar</div>
+              <div class="dark-override-val" style="color:#555;">oklch(0.205 0 0)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── APP LAYOUT DIAGRAM ─────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">Where Colours Appear — App Layout Map</div>
+    <div class="app-diagram">
+      <div class="diag-nav" style="background: oklch(0.612 0.130 160.6);">
+        <span class="diag-nav-logo">LC French</span>
+        <span class="diag-nav-item on">Unit 1</span>
+        <span class="diag-nav-item">Unit 2</span>
+        <span class="diag-nav-item">Unit 3</span>
+        <span class="diag-nav-tag">← Nav bar uses Slot 1 Primary</span>
+      </div>
+      <div class="diag-body">
+        <div class="diag-main" style="background: oklch(0.976 0.023 90.7);">
+          <div class="diag-main-heading">Lesson content area</div>
+          <div class="diag-main-note">← Page surface uses Slot 2 Secondary (warm cream in light mode)</div>
+        </div>
+        <div class="diag-sidebar" style="background: oklch(0.851 0.089 178.8); color: rgba(0,0,0,0.5);">
+          <div class="diag-sidebar-note">Slot 3<br>Tertiary<br>(sidebar)</div>
+        </div>
+      </div>
+      <div class="diag-footer" style="background: oklch(0.612 0.130 160.6);">
+        <span class="diag-footer-label">Footer — Slot 1 Primary</span>
+        <span class="diag-footer-note">Inner footer panels use Slot 3 Tertiary · Exercise colours are fixed and not brand-derived</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TYPOGRAPHY ─────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">Typography — supply .woff2 font files; name the file exactly as shown</div>
+    <div class="type-grid">
+
+      <div class="type-card">
+        <div class="type-role">Body Font — Regular</div>
+        <div class="type-sample" style="font-weight: 400;">The quick brown fox</div>
+        <div class="type-row"><span class="type-key">Name</span><span class="type-val">Open Sans</span></div>
+        <div class="type-row"><span class="type-key">Weight</span><span class="type-val">Regular (400)</span></div>
+        <div class="type-row"><span class="type-key">File</span><span class="type-file">OpenSans-Regular.woff2</span></div>
+        <div class="type-row"><span class="type-key">Used for</span><span class="type-val" style="font-size:7pt; font-weight:400;">All body copy, instructions, labels, UI text</span></div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-role">Heading Font — Display / Medium</div>
+        <div class="type-sample" style="font-family: Georgia, serif; font-weight: 500;">The quick brown fox</div>
+        <div class="type-row"><span class="type-key">Name</span><span class="type-val">Feijoa</span></div>
+        <div class="type-row"><span class="type-key">Weight</span><span class="type-val">Medium (500)</span></div>
+        <div class="type-row"><span class="type-key">File</span><span class="type-file">Feijoa-Medium.woff2</span></div>
+        <div class="type-row"><span class="type-key">Used for</span><span class="type-val" style="font-size:7pt; font-weight:400;">Section headings, lesson titles, accordion headers</span></div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-role">Heading Font — Bold / Hero</div>
+        <div class="type-sample" style="font-family: Georgia, serif; font-weight: 700;">The quick brown fox</div>
+        <div class="type-row"><span class="type-key">Name</span><span class="type-val">Feijoa Bold</span></div>
+        <div class="type-row"><span class="type-key">Weight</span><span class="type-val">Bold (700)</span></div>
+        <div class="type-row"><span class="type-key">File</span><span class="type-file">Feijoa-Bold.woff2</span></div>
+        <div class="type-row"><span class="type-key">Used for</span><span class="type-val" style="font-size:7pt; font-weight:400;">Hero banner text, prominent display headings</span></div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-role">Monospace — Code &amp; Debug Labels</div>
+        <div class="type-sample mono-sample">The quick brown fox</div>
+        <div class="type-row"><span class="type-key">Name</span><span class="type-val">JetBrains Mono</span></div>
+        <div class="type-row"><span class="type-key">Weight</span><span class="type-val">Regular (400)</span></div>
+        <div class="type-row"><span class="type-key">File</span><span class="type-file">JetBrainsMono-Regular.woff2</span></div>
+        <div class="type-row"><span class="type-key">Used for</span><span class="type-val" style="font-size:7pt; font-weight:400;">Code snippets, debug tooling only — optional</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── HANDOFF CHECKLIST ──────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">Designer Sign-Off Checklist</div>
+    <div class="checklist">
+      <div class="check-item"><div class="checkbox"></div>4 brand colours confirmed with oklch values filled in above</div>
+      <div class="check-item"><div class="checkbox"></div>Body font file supplied (.woff2 format)</div>
+      <div class="check-item"><div class="checkbox"></div>Heading font file supplied (.woff2 format)</div>
+      <div class="check-item"><div class="checkbox"></div>Heading-bold font file supplied (.woff2 format)</div>
+      <div class="check-item"><div class="checkbox"></div>Monospace font file supplied — or confirmed not needed</div>
+      <div class="check-item"><div class="checkbox"></div>Slot 2 confirmed as the lightest tone (it becomes the page background)</div>
+      <div class="check-item"><div class="checkbox"></div>Slot 1 Primary checked for AA contrast against white text</div>
+      <div class="check-item"><div class="checkbox"></div>Dark mode overrides accepted as system defaults — or custom values noted separately</div>
+      <div class="check-item"><div class="checkbox"></div>This sheet handed to developer with font files attached</div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+  <div class="doc-footer">
+    <span>Language Centre · Brand Handoff Sheet · v1.0</span>
+    <span>To create a new sheet: duplicate this file and replace the four oklch values, colour names, and font details.</span>
+    <span>oklch values → oklch.com</span>
+  </div>
+
+</body>
+</html>
