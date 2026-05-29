@@ -51,6 +51,7 @@ const DEBUG_MENU_ITEMS = [
 	{ href: "#sandbox-font-tokens", label: "Fonts" },
 	{ href: "#sandbox-svg-assets-anchor", label: "SVG Assets" },
 	{ href: "#sandbox-lo-structure", label: "LO Structure" },
+	{ href: "#sandbox-designer-handoff", label: "Handoff ↗" },
 ];
 
 export function DebugSandbox() {
@@ -530,6 +531,56 @@ bun run preview`}</code>
 					</section>
 				)}
 			</div>
+
+			<section aria-labelledby="sandbox-designer-handoff" id="sandbox-designer-handoff">
+				<h2 id="sandbox-designer-handoff-heading">Designer Brand Handoff Sheet</h2>
+				<div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+					<p className="mb-4 text-sm text-[var(--muted-foreground)]">
+						A two-page printable reference for the designer handing brand colours and
+						fonts to the developer. Contains colour slots with swatches, dark-mode
+						overrides, an app layout diagram, typography fields, and rendered component
+						previews (nav, accordion, buttons, modal, exercise states, footer).
+					</p>
+
+					{/* Colour slot preview */}
+					<div className="mb-5 flex gap-2">
+						{[
+							{ label: 'Primary',     color: 'oklch(0.612 0.130 160.6)' },
+							{ label: 'Secondary',   color: 'oklch(0.976 0.023  90.7)', border: true },
+							{ label: 'Tertiary',    color: 'oklch(0.851 0.089 178.8)' },
+							{ label: 'Quaternary',  color: 'oklch(0.44  0.10  165.0)' },
+						].map(({ label, color, border }) => (
+							<div className="flex flex-col items-center gap-1" key={label}>
+								<span
+									aria-hidden="true"
+									className={`h-10 w-16 rounded-md shadow-sm ${border ? 'border border-border' : ''}`}
+									style={{ background: color }}
+								/>
+								<span className="text-xs text-[var(--muted-foreground)]">{label}</span>
+							</div>
+						))}
+						<div className="ml-2 flex items-center">
+							<span className="text-xs text-[var(--muted-foreground)]">← French course example values</span>
+						</div>
+					</div>
+
+					<div className="flex flex-wrap items-center gap-4">
+						<a
+							className="inline-flex items-center gap-2 rounded-lg border border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_10%,var(--card))] px-4 py-2 text-sm font-semibold text-[var(--brand-primary)] no-underline transition-colors hover:bg-[color-mix(in_oklab,var(--brand-primary)_18%,var(--card))]"
+							href={`${import.meta.env.BASE_URL}designer-handoff-template.html`}
+							rel="noreferrer"
+							target="_blank"
+						>
+							Open handoff sheet
+							<span aria-hidden="true">↗</span>
+						</a>
+						<p className="m-0 text-xs text-[var(--muted-foreground)]">
+							To export as PDF: <strong>File → Print → Save as PDF</strong> in Chrome — enable <em>Background graphics</em>.
+							Source file: <code className="rounded bg-muted px-1 py-0.5">public/designer-handoff-template.html</code>
+						</p>
+					</div>
+				</div>
+			</section>
 
 			<LearningObjectStructureSummary
 				appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
