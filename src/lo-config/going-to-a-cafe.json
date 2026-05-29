@@ -343,27 +343,27 @@
           "items": [
             {
               "text": "Je [*voudrais|voudrait|voudriez|voudrions|voudraient] un chocolat chaud.",
-              "audio": "audio/lo11/exercises/01-select/001-je-voudrais-un-chocolat-chaud.mp3"
+              "audio": "audio/lo11/exercises/02-select/001-je-voudrais-un-chocolat-chaud.mp3"
             },
             {
               "text": "Ma mère [voudrais|*voudrait|voudriez|voudrions|voudraient] un thé vert.",
-              "audio": "audio/lo11/exercises/01-select/002-ma-mere-voudrait-un-the-vert.mp3"
+              "audio": "audio/lo11/exercises/02-select/002-ma-mere-voudrait-un-the-vert.mp3"
             },
             {
               "text": "Nous [voudrais|voudrait|voudriez|*voudrions|voudraient] dîner au restaurant ce soir.",
-              "audio": "audio/lo11/exercises/01-select/003-nous-voudrions-diner-au-restaurant-ce-soir.mp3"
+              "audio": "audio/lo11/exercises/02-select/003-nous-voudrions-diner-au-restaurant-ce-soir.mp3"
             },
             {
               "text": "Les enfants [voudrais|voudrait|voudriez|voudrions|*voudraient] quelque chose à manger.",
-              "audio": "audio/lo11/exercises/01-select/004-les-enfants-voudraient-quelque-chose-a-manger.mp3"
+              "audio": "audio/lo11/exercises/02-select/004-les-enfants-voudraient-quelque-chose-a-manger.mp3"
             },
             {
               "text": "Caroline et moi [voudrais|voudrait|voudriez|*voudrions|voudraient] quelque chose à boire.",
-              "audio": "audio/lo11/exercises/01-select/005-caroline-et-moi-voudrions-quelque-chose-a-boire.mp3"
+              "audio": "audio/lo11/exercises/02-select/005-caroline-et-moi-voudrions-quelque-chose-a-boire.mp3"
             },
             {
               "text": "Amélie et Laurent [voudrais|voudrait|voudriez|voudrions|*voudraient] une pizza avec une salade verte.",
-              "audio": "audio/lo11/exercises/01-select/006-amelie-et-laurent-voudraient-une-pizza-avec-une-salade-verte.mp3"
+              "audio": "audio/lo11/exercises/02-select/006-amelie-et-laurent-voudraient-une-pizza-avec-une-salade-verte.mp3"
             }
           ],
           "titleText": "2. Practise the verb forms"
@@ -379,31 +379,31 @@
           "items": [
             {
               "text": "Qu'est-ce que tu [*prends|prend|prenez|prenons|prennent]&nbsp;?",
-              "audio": "audio/lo11/exercises/02-select/001-qu-est-ce-que-tu-prends.mp3"
+              "audio": "audio/lo11/exercises/03-select/001-qu-est-ce-que-tu-prends.mp3"
             },
             {
               "text": "Vous [prends|prend|*prenez|prenons|prennent] un café&nbsp;?",
-              "audio": "audio/lo11/exercises/02-select/002-vous-prenez-un-cafe.mp3"
+              "audio": "audio/lo11/exercises/03-select/002-vous-prenez-un-cafe.mp3"
             },
             {
               "text": "Pauline [prends|*prend|prenez|prenons|prennent] un croque-monsieur.",
-              "audio": "audio/lo11/exercises/02-select/003-pauline-prend-un-croque-monsieur.mp3"
+              "audio": "audio/lo11/exercises/03-select/003-pauline-prend-un-croque-monsieur.mp3"
             },
             {
               "text": "David et moi [prends|prend|prenez|*prenons|prennent] une glace au chocolat.",
-              "audio": "audio/lo11/exercises/02-select/004-david-et-moi-prenons-une-glace-au-chocolat.mp3"
+              "audio": "audio/lo11/exercises/03-select/004-david-et-moi-prenons-une-glace-au-chocolat.mp3"
             },
             {
               "text": "Mon copain [prends|*prend|prenez|prenons|prennent] un sandwich au fromage.",
-              "audio": "audio/lo11/exercises/02-select/005-mon-copain-prend-un-sandwich-au-fromage.mp3"
+              "audio": "audio/lo11/exercises/03-select/005-mon-copain-prend-un-sandwich-au-fromage.mp3"
             },
             {
               "text": "Je [*prends|prend|prenez|prenons|prennent] un verre de vin blanc.",
-              "audio": "audio/lo11/exercises/02-select/006-je-prends-un-verre-de-vin-blanc.mp3"
+              "audio": "audio/lo11/exercises/03-select/006-je-prends-un-verre-de-vin-blanc.mp3"
             },
             {
               "text": "Mes enfants [prends|prend|prenez|prenons|*prennent] toujours des frites avec leur pizza.",
-              "audio": "audio/lo11/exercises/02-select/007-mes-enfants-prennent-toujours-des-frites-avec-leur-pizza.mp3"
+              "audio": "audio/lo11/exercises/03-select/007-mes-enfants-prennent-toujours-des-frites-avec-leur-pizza.mp3"
             }
           ],
           "titleText": "3. More verb practice"
@@ -418,31 +418,31 @@
           "items": [
             {
               "text": "Je voudrais un thé [*au|à la|à l'|aux] citron.",
-              "audio": "audio/lo11/exercises/03-inline-choice/001-je-voudrais-un-the-x-citron.mp3"
+              "audio": "audio/lo11/exercises/04-inline-choice/001-je-voudrais-un-the-x-citron.mp3"
             },
             {
               "text": "Alex voudrait un sandwich [*au|à la|à l'|aux] poulet.",
-              "audio": "audio/lo11/exercises/03-inline-choice/002-alex-voudrait-un-sandwich-x-poulet.mp3"
+              "audio": "audio/lo11/exercises/04-inline-choice/002-alex-voudrait-un-sandwich-x-poulet.mp3"
             },
             {
               "text": "Pour moi un sandwich [*au|à la|à l'|aux] jambon et [au|*à la|à l'|aux] tomate.",
-              "audio": "audio/lo11/exercises/03-inline-choice/003-pour-moi-un-sandwich-x-jambon-et-x-tomate.mp3"
+              "audio": "audio/lo11/exercises/04-inline-choice/003-pour-moi-un-sandwich-x-jambon-et-x-tomate.mp3"
             },
             {
               "text": "Je voudrais une pizza [*au|à la|à l'|aux] fromage et [au|à la|à l'|*aux] champignons.",
-              "audio": "audio/lo11/exercises/03-inline-choice/004-je-voudrais-une-pizza-x-fromage-et-x-champignons.mp3"
+              "audio": "audio/lo11/exercises/04-inline-choice/004-je-voudrais-une-pizza-x-fromage-et-x-champignons.mp3"
             },
             {
               "text": "J'aime la sauce [au|à la|*à l'|aux] orange.",
-              "audio": "audio/lo11/exercises/03-inline-choice/005-j-aime-la-sauce-x-orange.mp3"
+              "audio": "audio/lo11/exercises/04-inline-choice/005-j-aime-la-sauce-x-orange.mp3"
             },
             {
               "text": "Tu prends une glace [au|*à la|à l'|aux] vanille, ou [au|*à la|à l'|aux] fraise&nbsp;?",
-              "audio": "audio/lo11/exercises/03-inline-choice/006-tu-prends-une-glace-x-vanille-ou-x-fraise.mp3"
+              "audio": "audio/lo11/exercises/04-inline-choice/006-tu-prends-une-glace-x-vanille-ou-x-fraise.mp3"
             },
             {
               "text": "Je prends une glace [*au|à la|à l'|aux] chocolat.",
-              "audio": "audio/lo11/exercises/03-inline-choice/007-je-prends-une-glace-x-chocolat.mp3"
+              "audio": "audio/lo11/exercises/04-inline-choice/007-je-prends-une-glace-x-chocolat.mp3"
             }
           ],
           "titleText": "4. Flavours, toppings and fillings"

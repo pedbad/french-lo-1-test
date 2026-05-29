@@ -368,46 +368,46 @@
 					"items": [
 						{
 							"text": "Allô, oui ?",
-							"audio": "audio/lo9/exercises/01-select/001-allo-oui.mp3"
+							"audio": "audio/lo9/exercises/02-select/001-allo-oui.mp3"
 						},
 						{
 							"text": "Bonjour Madame, c&apos;est [combien|*bien] le 02 25 09 10 44 ?",
-							"audio": "audio/lo9/exercises/01-select/002-bonjour-madame-cest-bien-le-02-25-09-10-44.mp3"
+							"audio": "audio/lo9/exercises/02-select/002-bonjour-madame-cest-bien-le-02-25-09-10-44.mp3"
 						},
 						{
 							"text": "Ah non, Monsieur, je suis [désolé|*désolée]. Il y a [un|*une] erreur ! C&apos;est [*le|la] 02 25 09 10 47.",
-							"audio": "audio/lo9/exercises/01-select/003-ah-non-monsieur-je-suis-desolee-il-y-a-une-erreur.mp3"
+							"audio": "audio/lo9/exercises/02-select/003-ah-non-monsieur-je-suis-desolee-il-y-a-une-erreur.mp3"
 						},
 						{
 							"text": "Oh ! Excusez-moi ! Au revoir Madame !",
-							"audio": "audio/lo9/exercises/01-select/004-oh-excusez-moi-au-revoir-madame.mp3"
+							"audio": "audio/lo9/exercises/02-select/004-oh-excusez-moi-au-revoir-madame.mp3"
 						},
 							{
 								"text": "Au revoir Monsieur !",
-								"audio": "audio/lo9/exercises/01-select/005-au-revoir-monsieur.mp3"
+								"audio": "audio/lo9/exercises/02-select/005-au-revoir-monsieur.mp3"
 							},
 							{
 								"text": ""
 							},
 							{
 								"text": "Allô, oui ?",
-								"audio": "audio/lo9/exercises/01-select/001-allo-oui.mp3"
+								"audio": "audio/lo9/exercises/02-select/001-allo-oui.mp3"
 						},
 						{
 							"text": "Bonjour Madame, [*c&apos;est|ces] bien le 03 25 09 13 45 ?",
-							"audio": "audio/lo9/exercises/01-select/006-bonjour-madame-cest-bien-le-03-25-09-13-45.mp3"
+							"audio": "audio/lo9/exercises/02-select/006-bonjour-madame-cest-bien-le-03-25-09-13-45.mp3"
 						},
 						{
 							"text": "Ah non, Madame, je suis [*désolée|désolées]. Il y a une [horreur|*erreur] ! C&apos;est [*le|les] 03 26 09 13 47.",
-							"audio": "audio/lo9/exercises/01-select/007-ah-non-madame-je-suis-desolee-il-y-a-une-erreur.mp3"
+							"audio": "audio/lo9/exercises/02-select/007-ah-non-madame-je-suis-desolee-il-y-a-une-erreur.mp3"
 						},
 						{
 							"text": "Oh ! Excusez-moi ! Au revoir Madame !",
-							"audio": "audio/lo9/exercises/01-select/004-oh-excusez-moi-au-revoir-madame.mp3"
+							"audio": "audio/lo9/exercises/02-select/004-oh-excusez-moi-au-revoir-madame.mp3"
 						},
 						{
 							"text": "Au revoir Madame !",
-							"audio": "audio/lo9/exercises/01-select/008-au-revoir-madame.mp3"
+							"audio": "audio/lo9/exercises/02-select/008-au-revoir-madame.mp3"
 						}
 					],
 					"titleText": "2. Talking on the phone"
@@ -422,47 +422,47 @@
 						"items": [
 							{
 								"text": "Allô, oui ?",
-								"audio": "audio/lo9/exercises/01-fill-gaps/001-allo-oui.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/001-allo-oui.mp3"
 							},
 							{
 								"text": "Bonjour, c&apos;est bien le 05 24 07 19 55 ?",
-								"audio": "audio/lo9/exercises/01-fill-gaps/002-bonjour-cest-bien-le-05-24-07-19-55.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/002-bonjour-cest-bien-le-05-24-07-19-55.mp3"
 							},
 							{
 								"text": "Choose Dominique&apos;s reply: [Oui, c&apos;est Dominique à l&apos;appareil.|Oui, je veux bien. À quelle heure ?|Oui, d&apos;accord. Tu veux aller où ?|Oui, très bien ! J&apos;aime beaucoup le nouveau café.|*Oui, c&apos;est bien ça.]",
-								"audio": "audio/lo9/exercises/01-fill-gaps/003-oui-cest-bien-ca.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/003-oui-cest-bien-ca.mp3"
 							},
 							{
 								"text": "Dominique est là, s&apos;il vous plaît ?",
-								"audio": "audio/lo9/exercises/01-fill-gaps/004-dominique-est-la-sil-vous-plait.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/004-dominique-est-la-sil-vous-plait.mp3"
 							},
 							{
 								"text": "Choose Dominique&apos;s reply: [Oui, c&apos;est bien ça.|Oui, je veux bien. À quelle heure ?|Oui, d&apos;accord. Tu veux aller où ?|Oui, très bien ! J&apos;aime beaucoup le nouveau café.|*Oui, c&apos;est Dominique à l&apos;appareil.]",
-								"audio": "audio/lo9/exercises/01-fill-gaps/005-oui-cest-dominique-a-lappareil.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/005-oui-cest-dominique-a-lappareil.mp3"
 							},
 							{
 								"text": "Dominique, tu veux prendre un verre avec moi ce soir ?",
-								"audio": "audio/lo9/exercises/01-fill-gaps/006-dominique-tu-veux-prendre-un-verre-avec-moi-ce-soir.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/006-dominique-tu-veux-prendre-un-verre-avec-moi-ce-soir.mp3"
 							},
 							{
 								"text": "Choose Dominique&apos;s reply: [Oui, c&apos;est bien ça.|Oui, c&apos;est Dominique à l&apos;appareil.|Oui, d&apos;accord. Tu veux aller où ?|Oui, très bien ! J&apos;aime beaucoup le nouveau café.|*Oui, je veux bien. À quelle heure ?]",
-								"audio": "audio/lo9/exercises/01-fill-gaps/007-oui-je-veux-bien-a-quelle-heure.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/007-oui-je-veux-bien-a-quelle-heure.mp3"
 							},
 							{
 								"text": "À huit heures ?",
-								"audio": "audio/lo9/exercises/01-fill-gaps/008-a-huit-heures.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/008-a-huit-heures.mp3"
 							},
 							{
 								"text": "Choose Dominique&apos;s reply: [Oui, c&apos;est bien ça.|Oui, c&apos;est Dominique à l&apos;appareil.|Oui, je veux bien. À quelle heure ?|Oui, très bien ! J&apos;aime beaucoup le nouveau café.|*Oui, d&apos;accord. Tu veux aller où ?]",
-								"audio": "audio/lo9/exercises/01-fill-gaps/009-oui-daccord-tu-veux-aller-ou.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/009-oui-daccord-tu-veux-aller-ou.mp3"
 							},
 							{
 								"text": "Au nouveau café au centre-ville ?",
-								"audio": "audio/lo9/exercises/01-fill-gaps/010-au-nouveau-cafe-au-centre-ville.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/010-au-nouveau-cafe-au-centre-ville.mp3"
 							},
 							{
 								"text": "Choose Dominique&apos;s reply: [Oui, c&apos;est bien ça.|Oui, c&apos;est Dominique à l&apos;appareil.|Oui, je veux bien. À quelle heure ?|Oui, d&apos;accord. Tu veux aller où ?|*Oui, très bien ! J&apos;aime beaucoup le nouveau café.]",
-								"audio": "audio/lo9/exercises/01-fill-gaps/011-oui-tres-bien-jaime-beaucoup-le-nouveau-cafe.mp3"
+								"audio": "audio/lo9/exercises/03-fill-gaps/011-oui-tres-bien-jaime-beaucoup-le-nouveau-cafe.mp3"
 							}
 						],
 						"titleText": "3. Answer the questions"

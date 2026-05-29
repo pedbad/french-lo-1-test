@@ -396,47 +396,47 @@
           "items": [
             {
               "text": "Marc n'aime pas [le|la|*l'|les] athlétisme.",
-              "audio": "audio/lo7/exercises/01-articles/005-marc-n-aime-pas-l-athletisme.mp3"
+              "audio": "audio/lo7/exercises/02-articles/005-marc-n-aime-pas-l-athletisme.mp3"
             },
             {
               "text": "Serge déteste [*le|la|l'|les] foot.",
-              "audio": "audio/lo7/exercises/01-articles/007-serge-deteste-le-foot.mp3"
+              "audio": "audio/lo7/exercises/02-articles/007-serge-deteste-le-foot.mp3"
             },
             {
               "text": "Tu aimes [*le|la|l'|les] surf ?",
-              "audio": "audio/lo7/exercises/01-articles/008-tu-aimes-le-surf.mp3"
+              "audio": "audio/lo7/exercises/02-articles/008-tu-aimes-le-surf.mp3"
             },
             {
               "text": "Mon copain aime beaucoup [le|*la|l'|les] course.",
-              "audio": "audio/lo7/exercises/01-articles/006-mon-copain-aime-beaucoup-la-course.mp3"
+              "audio": "audio/lo7/exercises/02-articles/006-mon-copain-aime-beaucoup-la-course.mp3"
             },
             {
               "text": "Clément n'aime pas du tout [le|la|*l'|les] équitation.",
-              "audio": "audio/lo7/exercises/01-articles/001-clement-n-aime-pas-du-tout-l-equitation.mp3"
+              "audio": "audio/lo7/exercises/02-articles/001-clement-n-aime-pas-du-tout-l-equitation.mp3"
             },
             {
               "text": "Je préfère [le|*la|l'|les] musculation.",
-              "audio": "audio/lo7/exercises/01-articles/004-je-prefere-la-musculation.mp3"
+              "audio": "audio/lo7/exercises/02-articles/004-je-prefere-la-musculation.mp3"
             },
             {
               "text": "Vous aimez [*le|la|l'|les] basket ?",
-              "audio": "audio/lo7/exercises/01-articles/010-vous-aimez-le-basket.mp3"
+              "audio": "audio/lo7/exercises/02-articles/010-vous-aimez-le-basket.mp3"
             },
             {
               "text": "Vous préférez [le|*la|l'|les] France ou [le|*la|l'|les] Suisse ?",
-              "audio": "audio/lo7/exercises/01-articles/011-vous-preferez-la-france-ou-la-suisse.mp3"
+              "audio": "audio/lo7/exercises/02-articles/011-vous-preferez-la-france-ou-la-suisse.mp3"
             },
             {
               "text": "Je déteste [le|*la|l'|les] pluie !",
-              "audio": "audio/lo7/exercises/01-articles/003-je-deteste-la-pluie.mp3"
+              "audio": "audio/lo7/exercises/02-articles/003-je-deteste-la-pluie.mp3"
             },
             {
               "text": "J'adore [le|*la|l'|les] neige !",
-              "audio": "audio/lo7/exercises/01-articles/002-j-adore-la-neige.mp3"
+              "audio": "audio/lo7/exercises/02-articles/002-j-adore-la-neige.mp3"
             },
             {
               "text": "Tu aimes [le|la|l'|*les] animaux ?",
-              "audio": "audio/lo7/exercises/01-articles/009-tu-aimes-les-animaux.mp3"
+              "audio": "audio/lo7/exercises/02-articles/009-tu-aimes-les-animaux.mp3"
             }
           ],
           "titleText": "2. Talking about likes and dislikes"
@@ -454,7 +454,7 @@
           "items": [
             {
               "text": "Je suis très [sportif]. J'aime beaucoup [le foot]. J'aime aussi le tennis et [le cricket] mais je n'aime pas [du tout] le rugby. C'est [dangereux] ! Ma sœur est [active] mais elle n'est pas très sportive. Elle [préfère] le yoga. C'est [relaxant]. Mes parents [aiment] le ski ! Ils adorent [la neige] ! Moi, je n'aime pas [le froid] ! Je [déteste] le shopping ! Qu'est-ce que tu [aimes] faire pendant ton [temps] libre ?",
-              "audio": "audio/lo7/exercises/01-listening/001-lo7-dialogue-1.mp3"
+              "audio": "audio/lo7/exercises/03-listening/001-lo7-dialogue-1.mp3"
             }
           ],
           "titleText": "3. Fill in the gaps: likes and dislikes"

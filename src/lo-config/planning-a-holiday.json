@@ -370,35 +370,35 @@
           "items": [
             {
               "text": "Il fait mauvais. [*The weather's bad.|It's sunny.|It's windy.|It's cold.|It's raining.|The weather's good.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/001-il-fait-mauvais.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/001-il-fait-mauvais.mp3"
             },
             {
               "text": "Il y a du soleil. [*It's sunny.|It's raining.|It's cold.|It's hot.|It's snowing.|The weather's bad.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/002-il-y-a-du-soleil.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/002-il-y-a-du-soleil.mp3"
             },
             {
               "text": "Il fait froid. [*It's cold.|It's hot.|It's snowing.|It's windy.|It's sunny.|The weather's good.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/003-il-fait-froid.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/003-il-fait-froid.mp3"
             },
             {
               "text": "Il pleut. [*It's raining.|It's windy.|The weather's good.|It's sunny.|It's snowing.|It's hot.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/004-il-pleut.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/004-il-pleut.mp3"
             },
             {
               "text": "Il fait chaud. [*It's hot.|It's cold.|The weather's bad.|It's raining.|It's windy.|It's snowing.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/005-il-fait-chaud.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/005-il-fait-chaud.mp3"
             },
             {
               "text": "Il neige. [*It's snowing.|It's sunny.|It's raining.|It's hot.|The weather's bad.|It's windy.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/006-il-neige.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/006-il-neige.mp3"
             },
             {
               "text": "Il fait beau. [*The weather's good.|It's windy.|It's cold.|It's raining.|It's snowing.|The weather's bad.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/007-il-fait-beau.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/007-il-fait-beau.mp3"
             },
             {
               "text": "Il y a du vent. [*It's windy.|It's hot.|It's snowing.|It's sunny.|It's cold.|The weather's good.]",
-              "audio": "audio/lo15/exercises/01-fill-gaps/008-il-y-a-du-vent.mp3"
+              "audio": "audio/lo15/exercises/02-fill-gaps/008-il-y-a-du-vent.mp3"
             }
           ],
           "titleText": "2. Practise your weather vocabulary",
@@ -414,51 +414,51 @@
           "items": [
             {
               "text": "je ne [travaillez|travailles|*travaille] pas.",
-              "audio": "audio/lo15/exercises/01-select/001-quand-je-suis-en-vacances-je-ne-pas.mp3"
+              "audio": "audio/lo15/exercises/03-select/001-quand-je-suis-en-vacances-je-ne-pas.mp3"
             },
             {
               "text": "je me [détend|*détends|détendent] !",
-              "audio": "audio/lo15/exercises/01-select/002-quand-je-suis-en-vacances-je-me.mp3"
+              "audio": "audio/lo15/exercises/03-select/002-quand-je-suis-en-vacances-je-me.mp3"
             },
             {
               "text": "je me [*lève|lèves|lèvent] tard.",
-              "audio": "audio/lo15/exercises/01-select/003-quand-je-suis-en-vacances-je-me-tard.mp3"
+              "audio": "audio/lo15/exercises/03-select/003-quand-je-suis-en-vacances-je-me-tard.mp3"
             },
             {
               "text": "je [bronzes|bronzent|*bronze].",
-              "audio": "audio/lo15/exercises/01-select/004-quand-je-suis-en-vacances-je.mp3"
+              "audio": "audio/lo15/exercises/03-select/004-quand-je-suis-en-vacances-je.mp3"
             },
             {
               "text": "je [lisent|*lis|lit] un peu.",
-              "audio": "audio/lo15/exercises/01-select/005-quand-je-suis-en-vacances-je-un-peu.mp3"
+              "audio": "audio/lo15/exercises/03-select/005-quand-je-suis-en-vacances-je-un-peu.mp3"
             },
             {
               "text": "je [nagent|*nage|nagez].",
-              "audio": "audio/lo15/exercises/01-select/006-quand-je-suis-en-vacances-je.mp3"
+              "audio": "audio/lo15/exercises/03-select/006-quand-je-suis-en-vacances-je.mp3"
             },
             {
               "text": "je [*fais|fait|font] du tourisme.",
-              "audio": "audio/lo15/exercises/01-select/007-quand-je-suis-en-vacances-je-du-tourisme.mp3"
+              "audio": "audio/lo15/exercises/03-select/007-quand-je-suis-en-vacances-je-du-tourisme.mp3"
             },
             {
               "text": "je [*vois|voit|voient] des amis.",
-              "audio": "audio/lo15/exercises/01-select/008-quand-je-suis-en-vacances-je-des-amis.mp3"
+              "audio": "audio/lo15/exercises/03-select/008-quand-je-suis-en-vacances-je-des-amis.mp3"
             },
             {
               "text": "mes amis et moi [font|faites|*faisons] des randonnées ensemble.",
-              "audio": "audio/lo15/exercises/01-select/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3"
+              "audio": "audio/lo15/exercises/03-select/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3"
             },
             {
               "text": "le soir mes amis ne [*cuisinent|cuisinons|cuisine] pas.",
-              "audio": "audio/lo15/exercises/01-select/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3"
+              "audio": "audio/lo15/exercises/03-select/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3"
             },
             {
               "text": "C'est moi qui [*cuisine|cuisines|cuisinons].",
-              "audio": "audio/lo15/exercises/01-select/012-cest-moi-qui-cuisine.mp3"
+              "audio": "audio/lo15/exercises/03-select/012-cest-moi-qui-cuisine.mp3"
             },
             {
               "text": "nous [dînent|dînez|*dînons] au restaurant.",
-              "audio": "audio/lo15/exercises/01-select/011-quand-je-suis-en-vacances-nous-au-restaurant.mp3"
+              "audio": "audio/lo15/exercises/03-select/011-quand-je-suis-en-vacances-nous-au-restaurant.mp3"
             }
           ],
           "titleText": "3. Adèle's holiday activities",
@@ -474,32 +474,32 @@
             [
               "",
               "[Je suis canadien et je viens du Québec.]",
-              "audio/lo15/exercises/01-dictation/001-je-suis-canadien-et-je-viens-du-quebec.mp3"
+              "audio/lo15/exercises/04-dictation/001-je-suis-canadien-et-je-viens-du-quebec.mp3"
             ],
             [
               "",
               "[Je parle français et anglais.]",
-              "audio/lo15/exercises/01-dictation/002-je-parle-francais-et-anglais.mp3"
+              "audio/lo15/exercises/04-dictation/002-je-parle-francais-et-anglais.mp3"
             ],
             [
               "",
               "[J'habite en France depuis cinq ans.]",
-              "audio/lo15/exercises/01-dictation/003-j-habite-en-france-depuis-cinq-ans.mp3"
+              "audio/lo15/exercises/04-dictation/003-j-habite-en-france-depuis-cinq-ans.mp3"
             ],
             [
               "",
               "[J'aime voyager.]",
-              "audio/lo15/exercises/01-dictation/004-j-aime-voyager.mp3"
+              "audio/lo15/exercises/04-dictation/004-j-aime-voyager.mp3"
             ],
             [
               "",
               "[D'habitude, je passe mes vacances en Europe dans un pays francophone.]",
-              "audio/lo15/exercises/01-dictation/005-d-habitude-je-passe-mes-vacances-en-europe-dans-un-pays-francophone.mp3"
+              "audio/lo15/exercises/04-dictation/005-d-habitude-je-passe-mes-vacances-en-europe-dans-un-pays-francophone.mp3"
             ],
             [
               "",
               "[J'aime la Suisse et le Luxembourg mais je ne connais pas la Belgique.]",
-              "audio/lo15/exercises/01-dictation/006-j-aime-la-suisse-et-le-luxembourg-mais-je-ne-connais-pas-la-belgique.mp3"
+              "audio/lo15/exercises/04-dictation/006-j-aime-la-suisse-et-le-luxembourg-mais-je-ne-connais-pas-la-belgique.mp3"
             ]
           ],
           "titleText": "4. Type what you hear",
@@ -516,19 +516,19 @@
           "items": [
             {
               "text": "Cette année, je vais [passer] mes vacances au Canada ! Je vais [revoir] ma famille !",
-              "audio": "audio/lo15/exercises/02-fill-gaps/001-cette-annee-je-vais-mes-vacances-au-canada-je-vais-ma-famille.mp3"
+              "audio": "audio/lo15/exercises/05-fill-gaps/001-cette-annee-je-vais-mes-vacances-au-canada-je-vais-ma-famille.mp3"
             },
             {
               "text": "Mes parents vont [être] très contents de me revoir. Ils vont [venir] me chercher à l'aéroport.",
-              "audio": "audio/lo15/exercises/02-fill-gaps/002-mes-parents-vont-tres-contents-de-me-revoir-ils-vont-me-chercher-a-l-aeroport.mp3"
+              "audio": "audio/lo15/exercises/05-fill-gaps/002-mes-parents-vont-tres-contents-de-me-revoir-ils-vont-me-chercher-a-l-aeroport.mp3"
             },
             {
               "text": "Pendant mes vacances, je vais [faire] du ski et du snow-rafting. J'adore la neige. Je vais [retrouver] mes amis et on va [sortir] ensemble. On va [dîner] au restaurant.",
-              "audio": "audio/lo15/exercises/02-fill-gaps/003-pendant-mes-vacances-je-vais-du-ski-et-du-snow-rafting-j-adore-la-neige-je-vais-mes-amis-et-on.mp3"
+              "audio": "audio/lo15/exercises/05-fill-gaps/003-pendant-mes-vacances-je-vais-du-ski-et-du-snow-rafting-j-adore-la-neige-je-vais-mes-amis-et-on.mp3"
             },
             {
               "text": "Je vais [aller] au Carnaval de Québec. Je vais bien [m'amuser] ! C'est sûr !",
-              "audio": "audio/lo15/exercises/02-fill-gaps/004-je-vais-au-carnaval-de-quebec-je-vais-bien-c-est-sur.mp3"
+              "audio": "audio/lo15/exercises/05-fill-gaps/004-je-vais-au-carnaval-de-quebec-je-vais-bien-c-est-sur.mp3"
             }
           ],
           "titleText": "5. Fill in the gaps: Jo's holiday plans",

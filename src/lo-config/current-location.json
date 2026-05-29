@@ -401,23 +401,23 @@
 					"items": [
 						{
 							"text": "Tu habites [*à la campagne | à la montagne | au bord de la mer] ?",
-							"audio": "/audio/lo4/exercises/04-select/001-tu-habites-a-la-campagne.mp3"
+							"audio": "/audio/lo4/exercises/02-select/001-tu-habites-a-la-campagne.mp3"
 						},
 						{
 							"text": "Non, j'habite [au centre-ville |*dans une grande ville | pas loin de la ville].",
-							"audio": "/audio/lo4/exercises/04-select/002-non-j-habite-dans-une-grande-ville.mp3"
+							"audio": "/audio/lo4/exercises/02-select/002-non-j-habite-dans-une-grande-ville.mp3"
 						},
 						{
 							"text": "Nous habitons [en résidence universitaire | près de l'université | *à deux minutes de l'université].",
-							"audio": "/audio/lo4/exercises/04-select/003-nous-habitons-a-deux-minutes-de-l-universite.mp3"
+							"audio": "/audio/lo4/exercises/02-select/003-nous-habitons-a-deux-minutes-de-l-universite.mp3"
 						},
 						{
 							"text": "Nous habitons dans [un grand immeuble | une grande maison | *un petit immeuble].",
-							"audio": "/audio/lo4/exercises/04-select/004-nous-habitons-dans-un-petit-immeuble.mp3"
+							"audio": "/audio/lo4/exercises/02-select/004-nous-habitons-dans-un-petit-immeuble.mp3"
 						},
 						{
 							"text": "L'immeuble se trouve [*en banlieue | au centre-ville | à 20 minutes d'ici].",
-							"audio": "/audio/lo4/exercises/04-select/005-l-immeuble-se-trouve-en-banlieue.mp3"
+							"audio": "/audio/lo4/exercises/02-select/005-l-immeuble-se-trouve-en-banlieue.mp3"
 						}
 					],
 					"audio": []

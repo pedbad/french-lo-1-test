@@ -366,51 +366,51 @@
 					"items": [
 						{
 							"text": "[le|*la|les] salle de bains",
-							"audio": "audio/lo5/exercises/01-select/001-la-salle-de-bains.mp3"
+							"audio": "audio/lo5/exercises/02-select/001-la-salle-de-bains.mp3"
 						},
 						{
 							"text": "[le|*la|les] chambre",
-							"audio": "audio/lo5/exercises/01-select/002-la-chambre.mp3"
+							"audio": "audio/lo5/exercises/02-select/002-la-chambre.mp3"
 						},
 						{
 							"text": "[le|*la|les] cave",
-							"audio": "audio/lo5/exercises/01-select/003-la-cave.mp3"
+							"audio": "audio/lo5/exercises/02-select/003-la-cave.mp3"
 						},
 						{
 							"text": "[le|*la|les] douche",
-							"audio": "audio/lo5/exercises/01-select/004-la-douche.mp3"
+							"audio": "audio/lo5/exercises/02-select/004-la-douche.mp3"
 						},
 						{
 							"text": "[le|*la|les] salle à manger",
-							"audio": "audio/lo5/exercises/01-select/005-la-salle-a-manger.mp3"
+							"audio": "audio/lo5/exercises/02-select/005-la-salle-a-manger.mp3"
 						},
 						{
 							"text": "[le|*la|les] buanderie",
-							"audio": "audio/lo5/exercises/01-select/006-la-buanderie.mp3"
+							"audio": "audio/lo5/exercises/02-select/006-la-buanderie.mp3"
 						},
 						{
 							"text": "[*le|la|les] salon",
-							"audio": "audio/lo5/exercises/01-select/007-le-salon.mp3"
+							"audio": "audio/lo5/exercises/02-select/007-le-salon.mp3"
 						},
 						{
 							"text": "[le|la|*les] toilettes",
-							"audio": "audio/lo5/exercises/01-select/008-les-toilettes.mp3"
+							"audio": "audio/lo5/exercises/02-select/008-les-toilettes.mp3"
 						},
 						{
 							"text": "[*le|la|les] grenier",
-							"audio": "audio/lo5/exercises/01-select/009-le-grenier.mp3"
+							"audio": "audio/lo5/exercises/02-select/009-le-grenier.mp3"
 						},
 						{
 							"text": "[*le|la|les] balcon",
-							"audio": "audio/lo5/exercises/01-select/010-le-balcon.mp3"
+							"audio": "audio/lo5/exercises/02-select/010-le-balcon.mp3"
 						},
 						{
 							"text": "[le|*la|les] cuisine",
-							"audio": "audio/lo5/exercises/01-select/011-la-cuisine.mp3"
+							"audio": "audio/lo5/exercises/02-select/011-la-cuisine.mp3"
 						},
 						{
 							"text": "[*le|la|les] bureau",
-							"audio": "audio/lo5/exercises/01-select/012-le-bureau.mp3"
+							"audio": "audio/lo5/exercises/02-select/012-le-bureau.mp3"
 						}
 					],
 					"titleText": "2. Do you remember the gender?"
@@ -427,27 +427,27 @@
 					"items": [
 						{
 							"text": "Le bureau est [*lumineux|lumineuse|lumineuses]",
-							"audio": "audio/lo5/exercises/02-select/001-le-bureau-est-lumineux.mp3"
+							"audio": "audio/lo5/exercises/03-select/001-le-bureau-est-lumineux.mp3"
 						},
 						{
 							"text": "La cave est [dangereux|*dangereuse|dangereuses]",
-							"audio": "audio/lo5/exercises/02-select/002-la-cave-est-dangereuse.mp3"
+							"audio": "audio/lo5/exercises/03-select/002-la-cave-est-dangereuse.mp3"
 						},
 						{
 							"text": "Mme Leserre est très [curieux|*curieuse|curieuses]",
-							"audio": "audio/lo5/exercises/02-select/003-mme-leserre-est-tres-curieuse.mp3"
+							"audio": "audio/lo5/exercises/03-select/003-mme-leserre-est-tres-curieuse.mp3"
 						},
 						{
 							"text": "Pauline, tu es très [courageux|*courageuse|courageuses]",
-							"audio": "audio/lo5/exercises/02-select/004-pauline-tu-es-tres-courageuse.mp3"
+							"audio": "audio/lo5/exercises/03-select/004-pauline-tu-es-tres-courageuse.mp3"
 						},
 						{
 							"text": "Le Champagne est [*délicieux|délicieuse|délicieuses]",
-							"audio": "audio/lo5/exercises/02-select/005-le-champagne-est-delicieux.mp3"
+							"audio": "audio/lo5/exercises/03-select/005-le-champagne-est-delicieux.mp3"
 						},
 						{
 							"text": "Les étudiantes sont [ambitieux|ambitieuse|*ambitieuses]",
-							"audio": "audio/lo5/exercises/02-select/006-les-etudiantes-sont-ambitieuses.mp3"
+							"audio": "audio/lo5/exercises/03-select/006-les-etudiantes-sont-ambitieuses.mp3"
 						}
 					],
 					"commented-out": "test [a|*b|c|d|e] and [*a|b|c|d].",

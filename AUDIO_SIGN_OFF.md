@@ -39,7 +39,7 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Section: **Dialogues → Monologue 1**
   - The spoken adjectives may sound like masculine `grand` instead of feminine `grande` in `une grande maison` and `une grande cuisine`.
 
-- `public/audio/lo5/exercises/02-select/003-mme-leserre-est-tres-curieuse.mp3`
+- `public/audio/lo5/exercises/03-select/003-mme-leserre-est-tres-curieuse.mp3`
   - Section: **Exercises → Exercise 2**
   - In `Leserre`, the `s` sounds like `z` and should sound like `s`.
 
@@ -73,11 +73,11 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Section: **Vocabulary**
   - `basket` is fine, but `basketball` sounds wrong; the first `a` is not pronounced correctly.
 
-- `public/audio/lo7/exercises/01-articles/011-vous-preferez-la-france-ou-la-suisse.mp3`
+- `public/audio/lo7/exercises/02-articles/011-vous-preferez-la-france-ou-la-suisse.mp3`
   - Section: **Exercises — articles**
   - The intonation is not right for a question where the speaker is choosing between two options.
 
-- `public/audio/lo7/exercises/01-listening/001-lo7-dialogue-1.mp3`
+- `public/audio/lo7/exercises/03-listening/001-lo7-dialogue-1.mp3`
   - Section: **Exercises — listening**
   - The speaker says `sportive`; it should be `sportif`. The final `t` in `cricket` is also missing.
 
@@ -115,7 +115,7 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
   - Currently female speaker. Should be male (the caller who dialled the wrong number).
 
-- `public/audio/lo9/exercises/01-select/004-oh-excusez-moi-au-revoir-madame.mp3`
+- `public/audio/lo9/exercises/02-select/004-oh-excusez-moi-au-revoir-madame.mp3`
   - Section: **Exercises → 2. Talking on the phone**, dialogue 1, row 4
   - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
   - Currently female speaker. Should be male. Note: the same clip is reused for both dialogues in this exercise — separate recordings may be needed if the two instances must sound distinct.
@@ -133,16 +133,16 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### New recording
 
-- `public/audio/lo15/exercises/01-select/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3`
+- `public/audio/lo15/exercises/03-select/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 10
   - Text to record: *Quand je suis en vacances, le soir mes amis ne cuisinent pas.*
   - Note: include a short natural pause after *Quand je suis en vacances* and **before** *le soir* (i.e. *Quand je suis en vacances, [pause] le soir mes amis ne cuisinent pas.*). Replaces the old `010` file which had wrong text and missing pauses.
 
-- `public/audio/lo15/exercises/01-select/012-cest-moi-qui-cuisine.mp3`
+- `public/audio/lo15/exercises/03-select/012-cest-moi-qui-cuisine.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 11 (new)
   - Text to record: *C'est moi qui cuisine.*
 
-- `public/audio/lo15/exercises/01-select/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3`
+- `public/audio/lo15/exercises/03-select/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 9
   - Text to record: *Quand je suis en vacances, mes amis et moi faisons des randonnées ensemble.*
   - Replaces the old `009` file which had *nous* instead of *mes amis et moi*.
