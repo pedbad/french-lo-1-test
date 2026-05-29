@@ -20,13 +20,13 @@ const SELECT_EXERCISE_INLINE_TRIGGER_CLASS = "inline-flex min-h-9 w-auto max-w-f
 const SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS = "inline-flex h-8 w-auto max-w-full px-2 align-middle text-[var(--font-size-sm)] leading-[var(--line-height-app)]";
 const SELECT_EXERCISE_PLACEHOLDER_TEXT = "Select answer";
 const SELECT_EXERCISE_PASSAGE_ACCENTS = {
-	blue: "var(--poem-accent-blue)",
-	green: "var(--poem-accent-green)",
-	indigo: "var(--poem-accent-indigo)",
-	orange: "var(--poem-accent-orange)",
-	red: "var(--poem-accent-red)",
-	violet: "var(--poem-accent-violet)",
-	yellow: "var(--poem-accent-yellow)",
+	blue: "var(--content-accent-blue)",
+	green: "var(--content-accent-green)",
+	indigo: "var(--content-accent-indigo)",
+	orange: "var(--content-accent-orange)",
+	red: "var(--content-accent-red)",
+	violet: "var(--content-accent-violet)",
+	yellow: "var(--content-accent-yellow)",
 };
 
 export class SelectExercise extends React.PureComponent {
