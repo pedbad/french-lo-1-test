@@ -31,8 +31,11 @@ const SHADCN_TOKEN_NAMES = new Set([
 	'--sidebar-border', '--sidebar-ring',
 ]);
 
+// Tailwind's --color-* aliases mirror shadcn tokens and are consumed via
+// utility class names, not var() references. They add noise without useful
+// information, so they are excluded from the debug display entirely.
 function classifyToken(name) {
-	if (name.startsWith('--color-')) return 'tailwind';
+	if (name.startsWith('--color-')) return null;
 	if (SHADCN_TOKEN_NAMES.has(name)) return 'shadcn';
 	return 'custom';
 }
@@ -42,17 +45,9 @@ const GROUPS = [
 		id: 'shadcn',
 		label: 'shadcn System Tokens',
 		sourceFile: 'src/styles/tokens.css — Section A',
-		description: 'Tokens shadcn/ui components reference directly. Do not rename.',
+		description: 'Tokens shadcn/ui components reference directly by these exact names. Do not rename.',
 		headerColor: 'bg-[color-mix(in_oklab,var(--chart-1)_12%,var(--card))] border-[color-mix(in_oklab,var(--chart-1)_40%,var(--border))]',
 		badgeColor: 'border-orange-400/70 bg-transparent text-orange-700 dark:text-orange-300',
-	},
-	{
-		id: 'tailwind',
-		label: 'Tailwind Colour Aliases',
-		sourceFile: 'tailwind.config.js → @theme',
-		description: 'Generated --color-* aliases that map Tailwind utility classes (bg-background, text-foreground …) to CSS tokens. Usage count shows 0 because these are consumed via class names, never via var(--color-*) directly.',
-		headerColor: 'bg-[color-mix(in_oklab,var(--chart-2)_12%,var(--card))] border-[color-mix(in_oklab,var(--chart-2)_40%,var(--border))]',
-		badgeColor: 'border-sky-500/70 bg-transparent text-sky-700 dark:text-sky-300',
 	},
 	{
 		id: 'custom',
@@ -261,19 +256,20 @@ function TokenGroup({ group, rows }) {
 /* ── Main export ──────────────────────────────────────────────────────────── */
 
 export function DebugColorTokens() {
-	const [rowsByGroup, setRowsByGroup] = React.useState({ custom: [], shadcn: [], tailwind: [] });
+	const [rowsByGroup, setRowsByGroup] = React.useState({ custom: [], shadcn: [] });
 	const [errorMessage, setErrorMessage] = React.useState('');
 
 	React.useEffect(() => {
 		try {
 			const baseRows = collectColorRows();
 			const usageCounts = getTokenUsageCounts(baseRows.map((row) => row.token));
-			const withCounts = baseRows.map((row) => ({ ...row, usageCount: usageCounts.get(row.token) || 0 }));
+			const withCounts = baseRows
+				.filter((row) => row.group !== null)
+				.map((row) => ({ ...row, usageCount: usageCounts.get(row.token) || 0 }));
 
 			setRowsByGroup({
-				custom:   withCounts.filter((r) => r.group === 'custom'),
-				shadcn:   withCounts.filter((r) => r.group === 'shadcn'),
-				tailwind: withCounts.filter((r) => r.group === 'tailwind'),
+				custom: withCounts.filter((r) => r.group === 'custom'),
+				shadcn: withCounts.filter((r) => r.group === 'shadcn'),
 			});
 			setErrorMessage('');
 		} catch (error) {
@@ -281,7 +277,7 @@ export function DebugColorTokens() {
 		}
 	}, []);
 
-	const allRows = [...rowsByGroup.shadcn, ...rowsByGroup.tailwind, ...rowsByGroup.custom];
+	const allRows = [...rowsByGroup.shadcn, ...rowsByGroup.custom];
 	const totalUsed = allRows.filter((r) => r.usageCount > 0).length;
 
 	return (
