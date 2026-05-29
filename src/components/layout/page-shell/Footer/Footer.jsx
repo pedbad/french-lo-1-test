@@ -33,24 +33,24 @@ export class Footer extends React.PureComponent{
 							{/* Logo LC */}
 							<div className={`lclogo square-logo`}>
 								<a href="https://www.langcen.cam.ac.uk/culp/culp-index.html" target="_blank" rel="noopener noreferrer">
-									<img src={resolveAsset('/img/common/footer/LC_logo_Black_LightMode_SVG.svg')} className="logo theme-light" alt={lcLogoAlt} />
-									<img src={resolveAsset('/img/common/footer/LC_logo_White_DarkMode_SVG.svg')} className="logo theme-dark" alt={lcLogoAlt} />
+									<img src={resolveAsset('/img/common/footer/lc-logo-black.svg')} className="logo theme-light" alt={lcLogoAlt} />
+									<img src={resolveAsset('/img/common/footer/lc-logo-white.svg')} className="logo theme-dark" alt={lcLogoAlt} />
 								</a>
 							</div>
 
 							{/* Logo CC */}
 							<div className={`cclogo square-logo`}>
 								<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">
-									<img src={resolveAsset('/img/common/footer/CC_Logo_Black_SVG.svg')} className="logo theme-light" alt={ccLogoAlt} />
-									<img src={resolveAsset('/img/common/footer/CC_Logo_White_SVG.svg')} className="logo theme-dark" alt={ccLogoAlt} />
+									<img src={resolveAsset('/img/common/footer/cc-logo-black.svg')} className="logo theme-light" alt={ccLogoAlt} />
+									<img src={resolveAsset('/img/common/footer/cc-logo-white.svg')} className="logo theme-dark" alt={ccLogoAlt} />
 								</a>
 							</div>
 
 							{/* Logo elearning */}
 							<div className={`elearninglogo square-logo`}>
 								<a href="https://www.langcen.cam.ac.uk/opencourseware" target="_blank" rel="noopener noreferrer">
-									<img src={resolveAsset('/img/common/footer/eLearning_Logo_Black_NoText_SVG.svg')} className="logo theme-light" alt="eLearning" />
-									<img src={resolveAsset('/img/common/footer/eLearning_Logo_White_NoText_SVG.svg')} className="logo theme-dark" alt="eLearning" />
+									<img src={resolveAsset('/img/common/footer/elearning-logo-black.svg')} className="logo theme-light" alt="eLearning" />
+									<img src={resolveAsset('/img/common/footer/elearning-logo-white.svg')} className="logo theme-dark" alt="eLearning" />
 								</a>
 							</div>
 						</div>

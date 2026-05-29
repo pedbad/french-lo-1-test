@@ -12,6 +12,25 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ---
 
+## LO1 — First Contact
+
+### Missing
+
+- `public/audio/lo1/pronunciation/oi-sound/004-bonsoir.mp3`
+  - Section: **Pronunciation — 3. The sound "oi"**
+  - JSX links to this file with the text *bonsoir*, but the file does not exist.
+    The folder contains `004-au-revoir.mp3` instead — record a new clip of *bonsoir*
+    or confirm whether the existing `au-revoir` file should be used here instead
+    (in which case a developer update to the JSX is needed).
+
+### Orphaned file (review)
+
+- `public/audio/lo1/pronunciation/silent-h/004-au-revoir.mp3`
+  - This file is not referenced in any JSX or config. The same folder's JSX only
+    references files `001`–`003` (homme, horrible, horizon). Delete if unneeded.
+
+---
+
 ## LO5 — House and Home
 
 ### Re-record (wrong content / quality)
