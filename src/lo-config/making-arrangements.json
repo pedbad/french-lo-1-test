@@ -371,51 +371,51 @@
           "items": [
             {
               "text": "Je [*veux|veut|voulons|voulez|veulent] sortir.",
-              "audio": "audio/lo10/exercises/selectExercise1/001-je-veux-sortir.mp3"
+              "audio": "audio/lo10/exercises/01-select/001-je-veux-sortir.mp3"
             },
             {
               "text": "Tu [*veux|veut|voulons|voulez|veulent] dormir.",
-              "audio": "audio/lo10/exercises/selectExercise1/002-tu-veux-dormir.mp3"
+              "audio": "audio/lo10/exercises/01-select/002-tu-veux-dormir.mp3"
             },
             {
               "text": "Annie [veux|*veut|voulons|voulez|veulent] courir.",
-              "audio": "audio/lo10/exercises/selectExercise1/003-annie-veut-courir.mp3"
+              "audio": "audio/lo10/exercises/01-select/003-annie-veut-courir.mp3"
             },
             {
               "text": "Dani [veux|*veut|voulons|voulez|veulent] tricoter.",
-              "audio": "audio/lo10/exercises/selectExercise1/004-dani-veut-tricoter.mp3"
+              "audio": "audio/lo10/exercises/01-select/004-dani-veut-tricoter.mp3"
             },
             {
               "text": "Lucie [veux|*veut|voulons|voulez|veulent] papoter.",
-              "audio": "audio/lo10/exercises/selectExercise1/005-lucie-veut-papoter.mp3"
+              "audio": "audio/lo10/exercises/01-select/005-lucie-veut-papoter.mp3"
             },
             {
               "text": "Millie [veux|*veut|voulons|voulez|veulent] méditer.",
-              "audio": "audio/lo10/exercises/selectExercise1/006-millie-veut-mediter.mp3"
+              "audio": "audio/lo10/exercises/01-select/006-millie-veut-mediter.mp3"
             },
             {
               "text": "Nous [veux|veut|*voulons|voulez|veulent] bouquiner.",
-              "audio": "audio/lo10/exercises/selectExercise1/007-nous-voulons-bouquiner.mp3"
+              "audio": "audio/lo10/exercises/01-select/007-nous-voulons-bouquiner.mp3"
             },
             {
               "text": "Vous [veux|veut|voulons|*voulez|veulent] bavarder.",
-              "audio": "audio/lo10/exercises/selectExercise1/008-vous-voulez-bavarder.mp3"
+              "audio": "audio/lo10/exercises/01-select/008-vous-voulez-bavarder.mp3"
             },
             {
               "text": "Mes amis [veux|veut|voulons|voulez|*veulent] dessiner.",
-              "audio": "audio/lo10/exercises/selectExercise1/009-mes-amis-veulent-dessiner.mp3"
+              "audio": "audio/lo10/exercises/01-select/009-mes-amis-veulent-dessiner.mp3"
             },
             {
               "text": "Les enfants [veux|veut|voulons|voulez|*veulent] grandir.",
-              "audio": "audio/lo10/exercises/selectExercise1/010-les-enfants-veulent-grandir.mp3"
+              "audio": "audio/lo10/exercises/01-select/010-les-enfants-veulent-grandir.mp3"
             },
             {
               "text": "Leurs parents [veux|veut|voulons|voulez|*veulent] rajeunir.",
-              "audio": "audio/lo10/exercises/selectExercise1/011-leurs-parents-veulent-rajeunir.mp3"
+              "audio": "audio/lo10/exercises/01-select/011-leurs-parents-veulent-rajeunir.mp3"
             },
             {
               "text": "Ils ne [veux|veut|voulons|voulez|*veulent] pas vieillir&nbsp;! Moi non plus&nbsp;!",
-              "audio": "audio/lo10/exercises/selectExercise1/012-ils-ne-veulent-pas-vieillir-moi-non-plus.mp3"
+              "audio": "audio/lo10/exercises/01-select/012-ils-ne-veulent-pas-vieillir-moi-non-plus.mp3"
             },
             {
               "passageMeta": true,
@@ -434,43 +434,43 @@
           "items": [
             {
               "text": "Martin veut acheter un vélo. [*Martin wants to buy a bike.|My friends want to visit the old town.|We want to play badminton tomorrow evening.|I want to go to the cinema on Friday.|Angèle wants to have a drink with her friends.|I don't want to sing in the choir.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/001-martin-veut-acheter-un-velo.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/001-martin-veut-acheter-un-velo.mp3"
             },
             {
               "text": "Mes amis veulent visiter la vieille ville. [*My friends want to visit the old town.|Martin wants to buy a bike.|Do you want to make an appointment for tomorrow?|We want to play badminton tomorrow evening.|Do you want to live in the town centre?|Angèle wants to have a drink with her friends.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/002-mes-amis-veulent-visiter-la-vieille-ville.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/002-mes-amis-veulent-visiter-la-vieille-ville.mp3"
             },
             {
               "text": "Vous voulez prendre un rendez-vous pour demain ? [*Do you want to make an appointment for tomorrow?|Do they want to do some shopping tomorrow morning?|Do you want to live in the town centre?|Martin wants to buy a bike.|We want to play badminton tomorrow evening.|I don't want to sing in the choir.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/003-vous-voulez-prendre-un-rendez-vous-pour-demain.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/003-vous-voulez-prendre-un-rendez-vous-pour-demain.mp3"
             },
             {
               "text": "Nous voulons jouer au badminton demain soir. [*We want to play badminton tomorrow evening.|My friends want to visit the old town.|Do you want to make an appointment for tomorrow?|I want to go to the cinema on Friday.|They don't want to play football today.|Angèle wants to have a drink with her friends.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/004-nous-voulons-jouer-au-badminton-demain-soir.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/004-nous-voulons-jouer-au-badminton-demain-soir.mp3"
             },
             {
               "text": "Ils veulent faire du shopping demain matin ? [*Do they want to do some shopping tomorrow morning?|Do you want to make an appointment for tomorrow?|Do you want to live in the town centre?|My friends want to visit the old town.|I want to go to the cinema on Friday.|Angèle wants to have a drink with her friends.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/005-ils-veulent-faire-du-shopping-demain-matin.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/005-ils-veulent-faire-du-shopping-demain-matin.mp3"
             },
             {
               "text": "Je veux aller au cinéma vendredi. [*I want to go to the cinema on Friday.|Martin wants to buy a bike.|Do you want to live in the town centre?|Do they want to do some shopping tomorrow morning?|Angèle wants to have a drink with her friends.|I don't want to sing in the choir.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/006-je-veux-aller-au-cinema-vendredi.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/006-je-veux-aller-au-cinema-vendredi.mp3"
             },
             {
               "text": "Tu veux habiter au centre-ville ? [*Do you want to live in the town centre?|Do you want to make an appointment for tomorrow?|Do they want to do some shopping tomorrow morning?|Martin wants to buy a bike.|My friends want to visit the old town.|I don't want to sing in the choir.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/007-tu-veux-habiter-au-centre-ville.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/007-tu-veux-habiter-au-centre-ville.mp3"
             },
             {
               "text": "Elles ne veulent pas jouer au foot aujourd'hui. [*They don't want to play football today.|We want to play badminton tomorrow evening.|Do they want to do some shopping tomorrow morning?|Martin wants to buy a bike.|Do you want to live in the town centre?|I don't want to sing in the choir.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/008-elles-ne-veulent-pas-jouer-au-foot-aujourd-hui.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/008-elles-ne-veulent-pas-jouer-au-foot-aujourd-hui.mp3"
             },
             {
               "text": "Angèle veut prendre un verre avec ses amis. [*Angèle wants to have a drink with her friends.|Martin wants to buy a bike.|My friends want to visit the old town.|I want to go to the cinema on Friday.|We want to play badminton tomorrow evening.|Do they want to do some shopping tomorrow morning?]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/009-angele-veut-prendre-un-verre-avec-ses-amis.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/009-angele-veut-prendre-un-verre-avec-ses-amis.mp3"
             },
             {
               "text": "Je ne veux pas chanter dans la chorale. [*I don't want to sing in the choir.|They don't want to play football today.|Do you want to make an appointment for tomorrow?|I want to go to the cinema on Friday.|Do you want to live in the town centre?|Angèle wants to have a drink with her friends.]",
-              "audio": "audio/lo10/exercises/draggableFillGaps1/010-je-ne-veux-pas-chanter-dans-la-chorale.mp3"
+              "audio": "audio/lo10/exercises/01-fill-gaps/010-je-ne-veux-pas-chanter-dans-la-chorale.mp3"
             }
           ],
           "titleText": "2. What does everyone want to do?"
@@ -484,43 +484,43 @@
           "items": [
             {
               "text": "Je vais [au|*à la|à l'|aux] bibliothèque.",
-              "audio": "audio/lo10/exercises/selectExercise3/001-je-vais-x-bibliotheque.mp3"
+              "audio": "audio/lo10/exercises/03-select/001-je-vais-x-bibliotheque.mp3"
             },
             {
               "text": "Ma copine travaille [au|*à la|à l'|aux] pharmacie.",
-              "audio": "audio/lo10/exercises/selectExercise3/002-ma-copine-travaille-x-pharmacie.mp3"
+              "audio": "audio/lo10/exercises/03-select/002-ma-copine-travaille-x-pharmacie.mp3"
             },
             {
               "text": "Je vais [*au|à la|à l'|aux] centre commercial.",
-              "audio": "audio/lo10/exercises/selectExercise3/003-je-vais-x-centre-commercial.mp3"
+              "audio": "audio/lo10/exercises/03-select/003-je-vais-x-centre-commercial.mp3"
             },
             {
               "text": "Nous allons [au|*à la|à l'|aux] piscine.",
-              "audio": "audio/lo10/exercises/selectExercise3/004-nous-allons-x-piscine.mp3"
+              "audio": "audio/lo10/exercises/03-select/004-nous-allons-x-piscine.mp3"
             },
             {
               "text": "Les enfants sont [au|à la|*à l'|aux] école.",
-              "audio": "audio/lo10/exercises/selectExercise3/005-les-enfants-sont-xecole.mp3"
+              "audio": "audio/lo10/exercises/03-select/005-les-enfants-sont-xecole.mp3"
             },
             {
               "text": "Mon bureau se trouve [*au|à la|à l'|aux] centre-ville.",
-              "audio": "audio/lo10/exercises/selectExercise3/006-mon-bureau-se-trouve-x-centre-ville.mp3"
+              "audio": "audio/lo10/exercises/03-select/006-mon-bureau-se-trouve-x-centre-ville.mp3"
             },
             {
               "text": "Vous allez [au|à la|*à l'|aux] exposition ?",
-              "audio": "audio/lo10/exercises/selectExercise3/007-vous-allez-xexposition.mp3"
+              "audio": "audio/lo10/exercises/03-select/007-vous-allez-xexposition.mp3"
             },
             {
               "text": "Le professeur écrit une lettre [au|à la|à l'|*aux] étudiants.",
-              "audio": "audio/lo10/exercises/selectExercise3/008-le-professeur-ecrit-une-lettre-x-etudiants.mp3"
+              "audio": "audio/lo10/exercises/03-select/008-le-professeur-ecrit-une-lettre-x-etudiants.mp3"
             },
             {
               "text": "Tu veux dîner [*au|à la|à l'|aux] restaurant ce soir ?",
-              "audio": "audio/lo10/exercises/selectExercise3/009-tu-veux-diner-x-restaurant-ce-soir.mp3"
+              "audio": "audio/lo10/exercises/03-select/009-tu-veux-diner-x-restaurant-ce-soir.mp3"
             },
             {
               "text": "J'aime passer mes vacances [au|à la|à l'|*aux] Pays-Bas.",
-              "audio": "audio/lo10/exercises/selectExercise3/010-j-aime-passer-mes-vacances-x-pays-bas.mp3"
+              "audio": "audio/lo10/exercises/03-select/010-j-aime-passer-mes-vacances-x-pays-bas.mp3"
             }
           ],
           "titleText": "3. Practise the prepositions"
@@ -535,47 +535,47 @@
             [
               "",
               "[Patrick, tu veux jouer au tennis aujourd'hui ?]",
-              "audio/lo10/exercises/dictationExercise4/001-patrick-tu-veux-jouer-au-tennis-aujourd-hui.mp3"
+              "audio/lo10/exercises/04-dictation/001-patrick-tu-veux-jouer-au-tennis-aujourd-hui.mp3"
             ],
             [
               "",
               "[Je ne sais pas. À quelle heure ?]",
-              "audio/lo10/exercises/dictationExercise4/002-je-ne-sais-pas-a-quelle-heure.mp3"
+              "audio/lo10/exercises/04-dictation/002-je-ne-sais-pas-a-quelle-heure.mp3"
             ],
             [
               "",
               "[À 2 heures. Ça va ?]",
-              "audio/lo10/exercises/dictationExercise4/003-a-2-heures-ca-va.mp3"
+              "audio/lo10/exercises/04-dictation/003-a-2-heures-ca-va.mp3"
             ],
             [
               "",
               "[Ah non, à 2 heures ça ne va pas ! Ce n'est pas possible !]",
-              "audio/lo10/exercises/dictationExercise4/004-ah-non-a-2-heures-ca-ne-va-pas-ce-n-est-pas-possible.mp3"
+              "audio/lo10/exercises/04-dictation/004-ah-non-a-2-heures-ca-ne-va-pas-ce-n-est-pas-possible.mp3"
             ],
             [
               "",
               "[Oh c'est dommage ! Pourquoi ? Tu as cours aujourd'hui ?]",
-              "audio/lo10/exercises/dictationExercise4/005-oh-c-est-dommage-pourquoi-tu-as-cours-aujourd-hui.mp3"
+              "audio/lo10/exercises/04-dictation/005-oh-c-est-dommage-pourquoi-tu-as-cours-aujourd-hui.mp3"
             ],
             [
               "",
               "[Non, je n'ai pas de cours aujourd'hui, mais j'ai un rendez-vous avec mon prof à 2 heures.]",
-              "audio/lo10/exercises/dictationExercise4/006-non-je-n-ai-pas-de-cours-aujourd-hui-mais-j-ai-un-rendez-vous-avec-mon-prof-a-2-heures.mp3"
+              "audio/lo10/exercises/04-dictation/006-non-je-n-ai-pas-de-cours-aujourd-hui-mais-j-ai-un-rendez-vous-avec-mon-prof-a-2-heures.mp3"
             ],
             [
               "",
               "[À 4 heures donc ?]",
-              "audio/lo10/exercises/dictationExercise4/007-a-4-heures-donc.mp3"
+              "audio/lo10/exercises/04-dictation/007-a-4-heures-donc.mp3"
             ],
             [
               "",
               "[Ah oui, je veux bien. Je suis libre à partir de 4 heures !]",
-              "audio/lo10/exercises/dictationExercise4/008-ah-oui-je-veux-bien-je-suis-libre-a-partir-de-4-heures.mp3"
+              "audio/lo10/exercises/04-dictation/008-ah-oui-je-veux-bien-je-suis-libre-a-partir-de-4-heures.mp3"
             ],
             [
               "",
               "[D'accord. À plus]",
-              "audio/lo10/exercises/dictationExercise4/009-d-accord-a-plus.mp3"
+              "audio/lo10/exercises/04-dictation/009-d-accord-a-plus.mp3"
             ]
           ],
           "titleText": "4. Type what you hear"

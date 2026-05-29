@@ -298,19 +298,19 @@
 					"items": [
 						{
 							"text": "Salut les enfants ! Tout va bien ? [*Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/selectExercise2/003-salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
+							"audio": "audio/lo2/exercises/02-select/003-salut-les-enfants-tout-va-bien-moi-oui-ca-va-mais-teri-est-malade-depuis-hier.mp3"
 						},
 						{
 							"text": "Tu es archiviste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|*Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/selectExercise2/004-tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
+							"audio": "audio/lo2/exercises/02-select/004-tu-es-archiviste-ah-non-je-suis-etudiante-en-histoire.mp3"
 						},
 						{
 							"text": "Monsieur Tondereau est journaliste ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|*Non, il est bibliothécaire.|Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/selectExercise2/001-monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
+							"audio": "audio/lo2/exercises/02-select/001-monsieur-tondereau-est-journaliste-non-il-est-bibliothecaire.mp3"
 						},
 						{
 							"text": "Que faites-vous dans la vie ? [Moi, oui, ça va … mais Teri est malade depuis hier.|Ah non ! je suis étudiant en histoire.|Non, il est bibliothécaire.|*Je suis professeur de géographie.]",
-							"audio": "audio/lo2/exercises/selectExercise2/002-que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
+							"audio": "audio/lo2/exercises/02-select/002-que-faites-vous-dans-la-vie-je-suis-professeur-de-geographie.mp3"
 						}
 					],
 					"titleText": "2. Answering questions"

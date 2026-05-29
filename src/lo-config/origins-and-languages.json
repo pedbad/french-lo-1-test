@@ -458,27 +458,27 @@
 					"items": [
 						{
 							"text": "Je suis [marocain|*marocaine|africain|africaine].",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup1/001-je-suis-marocaine.mp3"
+							"audio": "audio/lo3/exercises/01-inline-choice/001-je-suis-marocaine.mp3"
 						},
 						{
 							"text": "Je suis [américain|américaine|mexicain|*mexicaine].",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup1/002-je-suis-mexicaine.mp3"
+							"audio": "audio/lo3/exercises/01-inline-choice/002-je-suis-mexicaine.mp3"
 						},
 						{
 							"text": "Je suis [*canadien|canadienne|ghanéen|ghanéenne].",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup1/003-je-suis-canadien.mp3"
+							"audio": "audio/lo3/exercises/01-inline-choice/003-je-suis-canadien.mp3"
 						},
 						{
 							"text": "Je suis [français|*française|anglais|anglaise].",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup1/004-je-suis-francaise.mp3"
+							"audio": "audio/lo3/exercises/01-inline-choice/004-je-suis-francaise.mp3"
 						},
 						{
 							"text": "Je suis [*chinois|chinoise|gallois|galloise].",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup1/005-je-suis-chinois.mp3"
+							"audio": "audio/lo3/exercises/01-inline-choice/005-je-suis-chinois.mp3"
 						},
 						{
 							"text": "Je suis [anglais|anglaise|sénégalais|*sénégalaise].",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup1/006-je-suis-senegalaise.mp3"
+							"audio": "audio/lo3/exercises/01-inline-choice/006-je-suis-senegalaise.mp3"
 						}
 					],
 					"commented-out": "test [a|*b|c|d|e] and [*a|b|c|d].",
@@ -495,35 +495,35 @@
 					"items": [
 						{
 							"text": "Je viens [*de|d'|du|des] France.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/001-je-viens-de-france.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/001-je-viens-de-france.mp3"
 						},
 						{
 							"text": "Je viens [*de|d'|du|des] Suisse.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/002-je-viens-de-suisse.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/002-je-viens-de-suisse.mp3"
 						},
 						{
 							"text": "Je viens [de|*d'|du|des] Orléans.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/003-je-viens-d-orleans.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/003-je-viens-d-orleans.mp3"
 						},
 						{
 							"text": "Je viens [de|d'|*du|des] Maroc.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/004-je-viens-du-maroc.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/004-je-viens-du-maroc.mp3"
 						},
 						{
 							"text": "Je viens [*de|d'|du|des] Tunisie.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/005-je-viens-de-tunisie.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/005-je-viens-de-tunisie.mp3"
 						},
 						{
 							"text": "Je viens [de|*d'|du|des] Ecosse.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/006-je-viens-d-ecosse.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/006-je-viens-d-ecosse.mp3"
 						},
 						{
 							"text": "Je viens [de|d'|*du|des] Gabon.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/007-je-viens-du-gabon.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/007-je-viens-du-gabon.mp3"
 						},
 						{
 							"text": "Je viens [de|d'|du|*des] États-Unis.",
-							"audio": "audio/lo3/exercises/inlineChoiceGroup2/008-je-viens-des-etats-unis.mp3"
+							"audio": "audio/lo3/exercises/02-inline-choice/008-je-viens-des-etats-unis.mp3"
 						}
 					],
 					"titleText": "2. Practise saying where you're from"
@@ -543,67 +543,67 @@
 						[
 							"américain",
 							"[américaine]",
-							"audio/lo3/exercises/typedTransformExercise3/001-americain-americaine.mp3"
+							"audio/lo3/exercises/03-transform/001-americain-americaine.mp3"
 						],
 						[
 							"asiatique",
 							"[asiatique]",
-							"audio/lo3/exercises/typedTransformExercise3/002-asiatique-m-asiatique-f.mp3"
+							"audio/lo3/exercises/03-transform/002-asiatique-m-asiatique-f.mp3"
 						],
 						[
 							"brésilien",
 							"[brésilienne]",
-							"audio/lo3/exercises/typedTransformExercise3/003-bresilien-bresilienne.mp3"
+							"audio/lo3/exercises/03-transform/003-bresilien-bresilienne.mp3"
 						],
 						[
 							"croate",
 							"[croate]",
-							"audio/lo3/exercises/typedTransformExercise3/004-croate-m-croate-f.mp3"
+							"audio/lo3/exercises/03-transform/004-croate-m-croate-f.mp3"
 						],
 						[
 							"danois",
 							"[danoise]",
-							"audio/lo3/exercises/typedTransformExercise3/005-danois-danoise.mp3"
+							"audio/lo3/exercises/03-transform/005-danois-danoise.mp3"
 						],
 						[
 							"italien",
 							"[italienne]",
-							"audio/lo3/exercises/typedTransformExercise3/006-italien-italienne.mp3"
+							"audio/lo3/exercises/03-transform/006-italien-italienne.mp3"
 						],
 						[
 							"portugais",
 							"[portugaise]",
-							"audio/lo3/exercises/typedTransformExercise3/007-portugais-portugaise.mp3"
+							"audio/lo3/exercises/03-transform/007-portugais-portugaise.mp3"
 						],
 						[
 							"russe",
 							"[russe]",
-							"audio/lo3/exercises/typedTransformExercise3/008-russe-m-russe-f.mp3"
+							"audio/lo3/exercises/03-transform/008-russe-m-russe-f.mp3"
 						],
 						[
 							"ukrainien",
 							"[ukrainienne]",
-							"audio/lo3/exercises/typedTransformExercise3/009-ukrainien-ukrainienne.mp3"
+							"audio/lo3/exercises/03-transform/009-ukrainien-ukrainienne.mp3"
 						],
 						[
 							"célibataire",
 							"[célibataire]",
-							"audio/lo3/exercises/typedTransformExercise3/010-celibataire-m-celibataire-f.mp3"
+							"audio/lo3/exercises/03-transform/010-celibataire-m-celibataire-f.mp3"
 						],
 						[
 							"fatigué",
 							"[fatiguée]",
-							"audio/lo3/exercises/typedTransformExercise3/011-fatigue-fatiguee.mp3"
+							"audio/lo3/exercises/03-transform/011-fatigue-fatiguee.mp3"
 						],
 						[
 							"malade",
 							"[malade]",
-							"audio/lo3/exercises/typedTransformExercise3/012-malade-m-malade-f.mp3"
+							"audio/lo3/exercises/03-transform/012-malade-m-malade-f.mp3"
 						],
 						[
 							"marié",
 							"[mariée]",
-							"audio/lo3/exercises/typedTransformExercise3/013-marie-mariee.mp3"
+							"audio/lo3/exercises/03-transform/013-marie-mariee.mp3"
 						]
 					],
 					"titleText": "3. Practise masculine and feminine forms: Adjectives"
@@ -623,42 +623,42 @@
 						[
 							"dentiste",
 							"[dentiste]",
-							"audio/lo3/exercises/typedTransformExercise4/001-dentiste-m-dentiste-f.mp3"
+							"audio/lo3/exercises/04-transform/001-dentiste-m-dentiste-f.mp3"
 						],
 						[
 							"doctorant",
 							"[doctorante]",
-							"audio/lo3/exercises/typedTransformExercise4/002-doctorant-doctorante.mp3"
+							"audio/lo3/exercises/04-transform/002-doctorant-doctorante.mp3"
 						],
 						[
 							"étudiant",
 							"[étudiante]",
-							"audio/lo3/exercises/typedTransformExercise4/003-etudiant-etudiante.mp3"
+							"audio/lo3/exercises/04-transform/003-etudiant-etudiante.mp3"
 						],
 						[
 							"informaticien",
 							"[informaticienne]",
-							"audio/lo3/exercises/typedTransformExercise4/004-informaticien-informaticienne.mp3"
+							"audio/lo3/exercises/04-transform/004-informaticien-informaticienne.mp3"
 						],
 						[
 							"journaliste",
 							"[journaliste]",
-							"audio/lo3/exercises/typedTransformExercise4/005-journaliste-m-journaliste-f.mp3"
+							"audio/lo3/exercises/04-transform/005-journaliste-m-journaliste-f.mp3"
 						],
 						[
 							"mécanicien",
 							"[mécanicienne]",
-							"audio/lo3/exercises/typedTransformExercise4/006-mecanicien-mecanicienne.mp3"
+							"audio/lo3/exercises/04-transform/006-mecanicien-mecanicienne.mp3"
 						],
 						[
 							"médecin",
 							"[médecin]",
-							"audio/lo3/exercises/typedTransformExercise4/007-medecin-m-medecin-f.mp3"
+							"audio/lo3/exercises/04-transform/007-medecin-m-medecin-f.mp3"
 						],
 						[
 							"pharmacien",
 							"[pharmacienne]",
-							"audio/lo3/exercises/typedTransformExercise4/008-pharmacien-pharmacienne.mp3"
+							"audio/lo3/exercises/04-transform/008-pharmacien-pharmacienne.mp3"
 						]
 					],
 					"titleText": "4. Practise masculine and feminine forms: Professions"
@@ -674,42 +674,42 @@
 						[
 							"",
 							"[Je suis marié avec Lucie.]",
-							"audio/lo3/exercises/dictationExercise5/001-je-suis-marie-avec-lucie.mp3"
+							"audio/lo3/exercises/05-dictation/001-je-suis-marie-avec-lucie.mp3"
 						],
 						[
 							"",
 							"[Je suis canadien et je viens de Montréal.]",
-							"audio/lo3/exercises/dictationExercise5/002-je-suis-canadien-et-je-viens-de-montreal.mp3"
+							"audio/lo3/exercises/05-dictation/002-je-suis-canadien-et-je-viens-de-montreal.mp3"
 						],
 						[
 							"",
 							"[Lucie est anglaise.]",
-							"audio/lo3/exercises/dictationExercise5/003-lucie-est-anglaise.mp3"
+							"audio/lo3/exercises/05-dictation/003-lucie-est-anglaise.mp3"
 						],
 						[
 							"",
 							"[Elle vient de Bristol.]",
-							"audio/lo3/exercises/dictationExercise5/004-elle-vient-de-bristol.mp3"
+							"audio/lo3/exercises/05-dictation/004-elle-vient-de-bristol.mp3"
 						],
 						[
 							"",
 							"[Elle parle anglais et un petit peu français.]",
-							"audio/lo3/exercises/dictationExercise5/005-elle-parle-anglais-et-un-petit-peu-francais.mp3"
+							"audio/lo3/exercises/05-dictation/005-elle-parle-anglais-et-un-petit-peu-francais.mp3"
 						],
 						[
 							"",
 							"[Je suis bilingue.]",
-							"audio/lo3/exercises/dictationExercise5/006-je-suis-bilingue.mp3"
+							"audio/lo3/exercises/05-dictation/006-je-suis-bilingue.mp3"
 						],
 						[
 							"",
 							"[Je parle anglais et français.]",
-							"audio/lo3/exercises/dictationExercise5/007-je-parle-anglais-et-francais.mp3"
+							"audio/lo3/exercises/05-dictation/007-je-parle-anglais-et-francais.mp3"
 						],
 						[
 							"",
 							"[Je suis professeur de maths et Lucie est avocate.]",
-							"audio/lo3/exercises/dictationExercise5/008-je-suis-professeur-de-maths-et-lucie-est-avocate.mp3"
+							"audio/lo3/exercises/05-dictation/008-je-suis-professeur-de-maths-et-lucie-est-avocate.mp3"
 						]
 					],
 					"titleText": "5. Type what you hear"

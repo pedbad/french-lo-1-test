@@ -648,14 +648,14 @@ public/audio/
       nasal-vowels/          ← semantic topic name
       silent-h/
     exercises/
-      fill-gaps-01/          ← task name + number; NOT draggableFillGaps1/
-      fill-gaps-02/
-      matching-01/           ← NOT memoryMatchGame1/
-      select-01/             ← NOT selectExercise1/
-      dictation-01/          ← NOT dictationExercise1/
-      listening-order-01/    ← NOT listeningOrder1/
-      transform-01/          ← NOT typedTransformExercise1/
-      inline-choice-01/      ← NOT inlineChoiceGroup1/
+      01-fill-gaps/          ← number first; NOT draggableFillGaps1/
+      02-fill-gaps/
+      01-matching/           ← NOT memoryMatchGame1/
+      01-select/             ← NOT selectExercise1/
+      01-dictation/          ← NOT dictationExercise1/
+      01-listening-order/    ← NOT listeningOrder1/
+      01-transform/          ← NOT typedTransformExercise1/
+      01-inline-choice/      ← NOT inlineChoiceGroup1/
     shared/                  ← audio reused across multiple sections of the same LO
   lo-02/
     ...
@@ -684,16 +684,23 @@ UI sounds (`public/audio/ui/`) do not carry a numeric prefix — there is no ord
 
 #### Exercise folder name map (component → task name)
 
+Number always comes first, zero-padded to 2 digits. The number is the instance number
+for that exercise type within the LO (preserved from the original, gaps are fine).
+
 | Old (component name) | New (task name) |
 |----------------------|-----------------|
 | `phraseTable1` | `01` (inside `dialogues/`) |
-| `draggableFillGaps1` | `fill-gaps-01` |
-| `selectExercise1` | `select-01` |
-| `memoryMatchGame1` | `matching-01` |
-| `dictationExercise1` | `dictation-01` |
-| `typedTransformExercise1` | `transform-01` |
-| `inlineChoiceGroup1` | `inline-choice-01` |
-| `listeningOrder1` | `listening-order-01` |
+| `draggableFillGaps1` | `01-fill-gaps` |
+| `draggableFillGapsPictures1` | `01-fill-gaps-pictures` |
+| `selectExercise1` | `01-select` |
+| `memoryMatchGame1` | `01-matching` |
+| `dictationExercise1` | `01-dictation` |
+| `typedTransformExercise1` | `01-transform` |
+| `inlineChoiceGroup1` | `01-inline-choice` |
+| `listeningOrder1` | `01-listening-order` |
+| `wordparts1` | `01-word-parts` |
+| `dropdowns4` | `04-select` (dropdown is a select variant; number preserved) |
+| semantic name (`articles`) | `01-articles` (add number prefix) |
 | `grammar1`, `pronunciation1` | semantic topic name (e.g. `nasal-vowels/`) |
 
 **Rule:** folder names describe what the *learner experiences*, not what *component renders it*. If a component is renamed or replaced the folder name must stay stable.
@@ -751,7 +758,7 @@ public/images/
 |-----------|--------------------|----------------|
 | `lo1`–`lo15` (no zero-padding, no hyphen) | `lo-01`–`lo-15` | Very high — do on new project |
 | `img/` | `images/` | High — all config + JSX refs |
-| `draggableFillGaps1/` etc. in exercises | `fill-gaps-01/` etc. | High — ~50 folders, ~400 refs |
+| `draggableFillGaps1/` etc. in exercises | `01-fill-gaps/` etc. | High — ~50 folders, ~400 refs |
 | `CC_Logo_Black_SVG.svg` (PascalCase) | `cc-logo-black.svg` | Low — footer images only |
 | `grammar1/`, `pronunciation1/` (number without topic) | semantic topic name | Low — a handful of LOs |
 

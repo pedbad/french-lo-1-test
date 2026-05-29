@@ -296,91 +296,91 @@
           "nPairsToPlay": 8,
           "cards": [
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/001-la-fleur.mp3",
+              "audio": "audio/lo8/exercises/01-matching/001-la-fleur.mp3",
               "foreignLanguage": "la fleur",
               "localLanguage": "flower",
               "image": "img/lo8/exercises/vocabulary/flower.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/002-la-foret.mp3",
+              "audio": "audio/lo8/exercises/01-matching/002-la-foret.mp3",
               "foreignLanguage": "la forêt",
               "localLanguage": "forest",
               "image": "img/lo8/exercises/vocabulary/forest.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/003-le-babyfoot.mp3",
+              "audio": "audio/lo8/exercises/01-matching/003-le-babyfoot.mp3",
               "foreignLanguage": "le babyfoot",
               "localLanguage": "table football",
               "image": "img/lo8/exercises/vocabulary/table-football.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/004-larbre.mp3",
+              "audio": "audio/lo8/exercises/01-matching/004-larbre.mp3",
               "foreignLanguage": "l'arbre",
               "localLanguage": "tree",
               "image": "img/lo8/exercises/vocabulary/tree.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/005-la-neige.mp3",
+              "audio": "audio/lo8/exercises/01-matching/005-la-neige.mp3",
               "foreignLanguage": "la neige",
               "localLanguage": "snow",
               "image": "img/lo8/exercises/vocabulary/snow.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/006-danser.mp3",
+              "audio": "audio/lo8/exercises/01-matching/006-danser.mp3",
               "foreignLanguage": "danser",
               "localLanguage": "dancing",
               "image": "img/lo8/exercises/vocabulary/dancing.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/007-la-pluie.mp3",
+              "audio": "audio/lo8/exercises/01-matching/007-la-pluie.mp3",
               "foreignLanguage": "la pluie",
               "localLanguage": "rain",
               "image": "img/lo8/exercises/vocabulary/rain.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/008-le-foot.mp3",
+              "audio": "audio/lo8/exercises/01-matching/008-le-foot.mp3",
               "foreignLanguage": "le foot",
               "localLanguage": "football",
               "image": "img/lo8/exercises/vocabulary/football.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/009-dormir.mp3",
+              "audio": "audio/lo8/exercises/01-matching/009-dormir.mp3",
               "foreignLanguage": "dormir",
               "localLanguage": "sleeping",
               "image": "img/lo8/exercises/vocabulary/sleeping.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/010-lathletisme.mp3",
+              "audio": "audio/lo8/exercises/01-matching/010-lathletisme.mp3",
               "foreignLanguage": "l'athlétisme",
               "localLanguage": "athletics",
               "image": "img/lo8/exercises/vocabulary/athletics.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/011-le-soleil.mp3",
+              "audio": "audio/lo8/exercises/01-matching/011-le-soleil.mp3",
               "foreignLanguage": "le soleil",
               "localLanguage": "sun",
               "image": "img/lo8/exercises/vocabulary/sun.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/012-le-basket.mp3",
+              "audio": "audio/lo8/exercises/01-matching/012-le-basket.mp3",
               "foreignLanguage": "le basket",
               "localLanguage": "basketball",
               "image": "img/lo8/exercises/vocabulary/basketball.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/013-tricoter.mp3",
+              "audio": "audio/lo8/exercises/01-matching/013-tricoter.mp3",
               "foreignLanguage": "tricoter",
               "localLanguage": "knitting",
               "image": "img/lo8/exercises/vocabulary/knitting.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/014-chanter.mp3",
+              "audio": "audio/lo8/exercises/01-matching/014-chanter.mp3",
               "foreignLanguage": "chanter",
               "localLanguage": "singing",
               "image": "img/lo8/exercises/vocabulary/singing.svg"
             },
             {
-              "audio": "audio/lo8/exercises/memoryMatchGame1/015-le-shopping.mp3",
+              "audio": "audio/lo8/exercises/01-matching/015-le-shopping.mp3",
               "foreignLanguage": "le shopping",
               "localLanguage": "shopping",
               "image": "img/lo8/exercises/vocabulary/shopping.svg"
@@ -399,43 +399,43 @@
           "items": [
             {
               "text": "Je fais [*du|de la|de l'|des] shopping.",
-              "audio": "audio/lo8/exercises/selectExercise1/001-je-fais-du-shopping.mp3"
+              "audio": "audio/lo8/exercises/01-select/001-je-fais-du-shopping.mp3"
             },
             {
               "text": "Vous faites [*du|de la|*de l'|des] jogging le matin ?",
-              "audio": "audio/lo8/exercises/selectExercise1/002-vous-faites-du-jogging-le-matin.mp3"
+              "audio": "audio/lo8/exercises/01-select/002-vous-faites-du-jogging-le-matin.mp3"
             },
             {
               "text": "Tu fais [du|de la|*de l'|des] aviron ?",
-              "audio": "audio/lo8/exercises/selectExercise1/003-tu-fais-de-laviron.mp3"
+              "audio": "audio/lo8/exercises/01-select/003-tu-fais-de-laviron.mp3"
             },
             {
               "text": "J'aime faire [*du|de la|de l'|des] lèche-vitrine.",
-              "audio": "audio/lo8/exercises/selectExercise1/004-jaime-faire-du-leche-vitrine.mp3"
+              "audio": "audio/lo8/exercises/01-select/004-jaime-faire-du-leche-vitrine.mp3"
             },
             {
               "text": "Ma sœur aime faire [du|*de la|de l'|des] peinture.",
-              "audio": "audio/lo8/exercises/selectExercise1/005-ma-soeur-aime-faire-de-la-peinture.mp3"
+              "audio": "audio/lo8/exercises/01-select/005-ma-soeur-aime-faire-de-la-peinture.mp3"
             },
             {
               "text": "Je fais [du|de la|*de l'|des] équitation pendant mon temps libre.",
-              "audio": "audio/lo8/exercises/selectExercise1/006-je-fais-de-lequitation-pendant-mon-temps-libre.mp3"
+              "audio": "audio/lo8/exercises/01-select/006-je-fais-de-lequitation-pendant-mon-temps-libre.mp3"
             },
             {
               "text": "Je joue [du|*de la|de l'|des] batterie.",
-              "audio": "audio/lo8/exercises/selectExercise1/007-je-joue-de-la-batterie.mp3"
+              "audio": "audio/lo8/exercises/01-select/007-je-joue-de-la-batterie.mp3"
             },
             {
               "text": "Tu joues [du|*de la|de l'|des] guitare ?",
-              "audio": "audio/lo8/exercises/selectExercise1/008-tu-joues-de-la-guitare.mp3"
+              "audio": "audio/lo8/exercises/01-select/008-tu-joues-de-la-guitare.mp3"
             },
             {
               "text": "Mes parents jouent [*du|de la|de l'|des] piano.",
-              "audio": "audio/lo8/exercises/selectExercise1/009-mes-parents-jouent-du-piano.mp3"
+              "audio": "audio/lo8/exercises/01-select/009-mes-parents-jouent-du-piano.mp3"
             },
             {
               "text": "Vous jouez [*du|de la|de l'|des] trombone ?",
-              "audio": "audio/lo8/exercises/selectExercise1/010-vous-jouez-du-trombone.mp3"
+              "audio": "audio/lo8/exercises/01-select/010-vous-jouez-du-trombone.mp3"
             }
           ],
           "titleText": "2. Talking about leisure activities"
@@ -451,31 +451,31 @@
           "items": [
             {
               "text": "Le lundi, il joue [*au|à la|à l'|aux] foot.",
-              "audio": "audio/lo8/exercises/selectExercise2/001-le-lundi-il-joue-au-foot.mp3"
+              "audio": "audio/lo8/exercises/02-select/001-le-lundi-il-joue-au-foot.mp3"
             },
             {
               "text": "Le mardi, il joue [*au|à la|à l'|aux] tennis.",
-              "audio": "audio/lo8/exercises/selectExercise2/002-le-mardi-il-joue-au-tennis.mp3"
+              "audio": "audio/lo8/exercises/02-select/002-le-mardi-il-joue-au-tennis.mp3"
             },
             {
               "text": "Le mercredi, il joue [*au|à la|à l'|aux] volley.",
-              "audio": "audio/lo8/exercises/selectExercise2/003-le-mercredi-il-joue-au-volley.mp3"
+              "audio": "audio/lo8/exercises/02-select/003-le-mercredi-il-joue-au-volley.mp3"
             },
             {
               "text": "Le jeudi, il joue [au|*à la|à l'|aux] pétanque.",
-              "audio": "audio/lo8/exercises/selectExercise2/004-le-jeudi-il-joue-a-la-petanque.mp3"
+              "audio": "audio/lo8/exercises/02-select/004-le-jeudi-il-joue-a-la-petanque.mp3"
             },
             {
               "text": "Le vendredi, il joue [au|à la|à l'|*aux] boules.",
-              "audio": "audio/lo8/exercises/selectExercise2/005-le-vendredi-il-joue-aux-boules.mp3"
+              "audio": "audio/lo8/exercises/02-select/005-le-vendredi-il-joue-aux-boules.mp3"
             },
             {
               "text": "Le samedi, il joue [*au|à la|à l'|aux] baseball. Le soir, il joue [*au|à la|à l'|aux] babyfoot avec ses amis.",
-              "audio": "audio/lo8/exercises/selectExercise2/006-le-samedi-il-joue-au-baseball-et-au-babyfoot.mp3"
+              "audio": "audio/lo8/exercises/02-select/006-le-samedi-il-joue-au-baseball-et-au-babyfoot.mp3"
             },
             {
               "text": "Le dimanche, il est un peu fatigué. Il reste à la maison. Quelquefois, il joue [au|à la|à l'|*aux] échecs avec son frère.",
-              "audio": "audio/lo8/exercises/selectExercise2/007-le-dimanche-il-joue-aux-echecs-avec-son-frere.mp3"
+              "audio": "audio/lo8/exercises/02-select/007-le-dimanche-il-joue-aux-echecs-avec-son-frere.mp3"
             }
           ],
           "titleText": "3. Julien est très sportif"
@@ -492,35 +492,35 @@
           "items": [
             {
               "text": "Je fais [de l'équitation|de la course d'orientation|*de la natation].",
-              "audio": "audio/lo8/exercises/selectExercise3/001-je-fais-de-la-natation.mp3"
+              "audio": "audio/lo8/exercises/03-select/001-je-fais-de-la-natation.mp3"
             },
             {
               "text": "Je fais [*de l'équitation|de la course d'orientation|de la natation].",
-              "audio": "audio/lo8/exercises/selectExercise3/002-je-fais-de-lequitation.mp3"
+              "audio": "audio/lo8/exercises/03-select/002-je-fais-de-lequitation.mp3"
             },
             {
               "text": "Je fais [du taekwondo|*du yoga|du jogging].",
-              "audio": "audio/lo8/exercises/selectExercise3/003-je-fais-du-yoga.mp3"
+              "audio": "audio/lo8/exercises/03-select/003-je-fais-du-yoga.mp3"
             },
             {
               "text": "Je fais [*de la randonnée|de la course à pied|de l'équitation].",
-              "audio": "audio/lo8/exercises/selectExercise3/004-je-fais-de-la-randonnee.mp3"
+              "audio": "audio/lo8/exercises/03-select/004-je-fais-de-la-randonnee.mp3"
             },
             {
               "text": "Je fais [de l'escalade|de la lecture|*du lèche-vitrine].",
-              "audio": "audio/lo8/exercises/selectExercise3/005-je-fais-du-leche-vitrine.mp3"
+              "audio": "audio/lo8/exercises/03-select/005-je-fais-du-leche-vitrine.mp3"
             },
             {
               "text": "Je fais [de la lecture|*de l'escalade|de la course d'orientation].",
-              "audio": "audio/lo8/exercises/selectExercise3/006-je-fais-de-lescalade.mp3"
+              "audio": "audio/lo8/exercises/03-select/006-je-fais-de-lescalade.mp3"
             },
             {
               "text": "Je fais [*des gâteaux|des crêpes|des pizzas].",
-              "audio": "audio/lo8/exercises/selectExercise3/007-je-fais-des-gateaux.mp3"
+              "audio": "audio/lo8/exercises/03-select/007-je-fais-des-gateaux.mp3"
             },
             {
               "text": "Je fais [de la lecture|*de la boxe|du jardinage].",
-              "audio": "audio/lo8/exercises/selectExercise3/008-je-fais-de-la-boxe.mp3"
+              "audio": "audio/lo8/exercises/03-select/008-je-fais-de-la-boxe.mp3"
             }
           ],
           "titleText": "4. Qu’est-ce que tu fais le dimanche ?"
@@ -537,15 +537,15 @@
           "items": [
             {
               "text": "Je ne fais pas [grand-chose]. Je fais la [grasse matinée]. Je vois mes [amis]. Quelquefois, je vais au [cinéma] ou je vais en [boîte]. Ça dépend !",
-              "audio": "audio/lo8/exercises/draggableFillGaps1/001-je-ne-fais-pas-grand-chose.mp3"
+              "audio": "audio/lo8/exercises/01-fill-gaps/001-je-ne-fais-pas-grand-chose.mp3"
             },
             {
               "text": "Le samedi, je fais de l'aviron. Je prends mon [déjeuner] au café avec mon copain. Je vais en ville pour faire du [shopping]. Le soir, je sors avec [mes] amies.",
-              "audio": "audio/lo8/exercises/draggableFillGaps1/002-le-samedi-je-fais-de-laviron.mp3"
+              "audio": "audio/lo8/exercises/01-fill-gaps/002-le-samedi-je-fais-de-laviron.mp3"
             },
             {
               "text": "Le dimanche, [je fais] de la natation. L'après-midi, s'il fait [beau], je fais [de la] randonnée avec ma sœur. S'il fait mauvais, je fais de la [peinture] ou je regarde la [télé].",
-              "audio": "audio/lo8/exercises/draggableFillGaps1/003-le-dimanche-je-fais-de-la-natation.mp3"
+              "audio": "audio/lo8/exercises/01-fill-gaps/003-le-dimanche-je-fais-de-la-natation.mp3"
             }
           ],
           "titleText": "5. Fill in the gaps: weekend activities"

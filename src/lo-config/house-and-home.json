@@ -282,73 +282,73 @@
 							"id": "salle-de-bains",
 							"image": "/img/lo5/exercises/rooms/bathroom.svg",
 							"label": "salle de bains",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/001-la-salle-de-bains.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/001-la-salle-de-bains.mp3"
 						},
 						{
 							"id": "chambre",
 							"image": "/img/lo5/exercises/rooms/bedroom.svg",
 							"label": "chambre",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/002-la-chambre.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/002-la-chambre.mp3"
 						},
 						{
 							"id": "cave",
 							"image": "/img/lo5/exercises/rooms/cellar.svg",
 							"label": "cave",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/003-la-cave.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/003-la-cave.mp3"
 						},
 						{
 							"id": "douche",
 							"image": "/img/lo5/exercises/rooms/shower-room.svg",
 							"label": "douche",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/004-la-douche.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/004-la-douche.mp3"
 						},
 						{
 							"id": "salle-a-manger",
 							"image": "/img/lo5/exercises/rooms/dining-room.svg",
 							"label": "salle à manger",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/005-la-salle-a-manger.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/005-la-salle-a-manger.mp3"
 						},
 						{
 							"id": "buanderie",
 							"image": "/img/lo5/exercises/rooms/utility-room.svg",
 							"label": "buanderie",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/006-la-buanderie.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/006-la-buanderie.mp3"
 						},
 						{
 							"id": "salon",
 							"image": "/img/lo5/exercises/rooms/lounge.svg",
 							"label": "salon",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/007-le-salon.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/007-le-salon.mp3"
 						},
 						{
 							"id": "toilettes",
 							"image": "/img/lo5/exercises/rooms/toilet.svg",
 							"label": "toilettes",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/008-les-toilettes.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/008-les-toilettes.mp3"
 						},
 						{
 							"id": "grenier",
 							"image": "/img/lo5/exercises/rooms/attic.svg",
 							"label": "grenier",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/009-le-grenier.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/009-le-grenier.mp3"
 						},
 						{
 							"id": "balcon",
 							"image": "/img/lo5/exercises/rooms/balcony.svg",
 							"label": "balcon",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/010-le-balcon.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/010-le-balcon.mp3"
 						},
 						{
 							"id": "cuisine",
 							"image": "/img/lo5/exercises/rooms/kitchen.svg",
 							"label": "cuisine",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/011-la-cuisine.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/011-la-cuisine.mp3"
 						},
 						{
 							"id": "bureau",
 							"image": "/img/lo5/exercises/rooms/study.svg",
 							"label": "bureau",
-							"audio": "audio/lo5/exercises/draggableFillGapsPictures1/012-le-bureau.mp3"
+							"audio": "audio/lo5/exercises/01-fill-gaps-pictures/012-le-bureau.mp3"
 						}
 					],
 					"titleText": "1. The Rooms of the House"
@@ -366,51 +366,51 @@
 					"items": [
 						{
 							"text": "[le|*la|les] salle de bains",
-							"audio": "audio/lo5/exercises/selectExercise1/001-la-salle-de-bains.mp3"
+							"audio": "audio/lo5/exercises/01-select/001-la-salle-de-bains.mp3"
 						},
 						{
 							"text": "[le|*la|les] chambre",
-							"audio": "audio/lo5/exercises/selectExercise1/002-la-chambre.mp3"
+							"audio": "audio/lo5/exercises/01-select/002-la-chambre.mp3"
 						},
 						{
 							"text": "[le|*la|les] cave",
-							"audio": "audio/lo5/exercises/selectExercise1/003-la-cave.mp3"
+							"audio": "audio/lo5/exercises/01-select/003-la-cave.mp3"
 						},
 						{
 							"text": "[le|*la|les] douche",
-							"audio": "audio/lo5/exercises/selectExercise1/004-la-douche.mp3"
+							"audio": "audio/lo5/exercises/01-select/004-la-douche.mp3"
 						},
 						{
 							"text": "[le|*la|les] salle à manger",
-							"audio": "audio/lo5/exercises/selectExercise1/005-la-salle-a-manger.mp3"
+							"audio": "audio/lo5/exercises/01-select/005-la-salle-a-manger.mp3"
 						},
 						{
 							"text": "[le|*la|les] buanderie",
-							"audio": "audio/lo5/exercises/selectExercise1/006-la-buanderie.mp3"
+							"audio": "audio/lo5/exercises/01-select/006-la-buanderie.mp3"
 						},
 						{
 							"text": "[*le|la|les] salon",
-							"audio": "audio/lo5/exercises/selectExercise1/007-le-salon.mp3"
+							"audio": "audio/lo5/exercises/01-select/007-le-salon.mp3"
 						},
 						{
 							"text": "[le|la|*les] toilettes",
-							"audio": "audio/lo5/exercises/selectExercise1/008-les-toilettes.mp3"
+							"audio": "audio/lo5/exercises/01-select/008-les-toilettes.mp3"
 						},
 						{
 							"text": "[*le|la|les] grenier",
-							"audio": "audio/lo5/exercises/selectExercise1/009-le-grenier.mp3"
+							"audio": "audio/lo5/exercises/01-select/009-le-grenier.mp3"
 						},
 						{
 							"text": "[*le|la|les] balcon",
-							"audio": "audio/lo5/exercises/selectExercise1/010-le-balcon.mp3"
+							"audio": "audio/lo5/exercises/01-select/010-le-balcon.mp3"
 						},
 						{
 							"text": "[le|*la|les] cuisine",
-							"audio": "audio/lo5/exercises/selectExercise1/011-la-cuisine.mp3"
+							"audio": "audio/lo5/exercises/01-select/011-la-cuisine.mp3"
 						},
 						{
 							"text": "[*le|la|les] bureau",
-							"audio": "audio/lo5/exercises/selectExercise1/012-le-bureau.mp3"
+							"audio": "audio/lo5/exercises/01-select/012-le-bureau.mp3"
 						}
 					],
 					"titleText": "2. Do you remember the gender?"
@@ -427,27 +427,27 @@
 					"items": [
 						{
 							"text": "Le bureau est [*lumineux|lumineuse|lumineuses]",
-							"audio": "audio/lo5/exercises/selectExercise2/001-le-bureau-est-lumineux.mp3"
+							"audio": "audio/lo5/exercises/02-select/001-le-bureau-est-lumineux.mp3"
 						},
 						{
 							"text": "La cave est [dangereux|*dangereuse|dangereuses]",
-							"audio": "audio/lo5/exercises/selectExercise2/002-la-cave-est-dangereuse.mp3"
+							"audio": "audio/lo5/exercises/02-select/002-la-cave-est-dangereuse.mp3"
 						},
 						{
 							"text": "Mme Leserre est très [curieux|*curieuse|curieuses]",
-							"audio": "audio/lo5/exercises/selectExercise2/003-mme-leserre-est-tres-curieuse.mp3"
+							"audio": "audio/lo5/exercises/02-select/003-mme-leserre-est-tres-curieuse.mp3"
 						},
 						{
 							"text": "Pauline, tu es très [courageux|*courageuse|courageuses]",
-							"audio": "audio/lo5/exercises/selectExercise2/004-pauline-tu-es-tres-courageuse.mp3"
+							"audio": "audio/lo5/exercises/02-select/004-pauline-tu-es-tres-courageuse.mp3"
 						},
 						{
 							"text": "Le Champagne est [*délicieux|délicieuse|délicieuses]",
-							"audio": "audio/lo5/exercises/selectExercise2/005-le-champagne-est-delicieux.mp3"
+							"audio": "audio/lo5/exercises/02-select/005-le-champagne-est-delicieux.mp3"
 						},
 						{
 							"text": "Les étudiantes sont [ambitieux|ambitieuse|*ambitieuses]",
-							"audio": "audio/lo5/exercises/selectExercise2/006-les-etudiantes-sont-ambitieuses.mp3"
+							"audio": "audio/lo5/exercises/02-select/006-les-etudiantes-sont-ambitieuses.mp3"
 						}
 					],
 					"commented-out": "test [a|*b|c|d|e] and [*a|b|c|d].",

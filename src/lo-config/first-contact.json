@@ -370,19 +370,19 @@
           "items": [
             {
               "text": "b[on]jou[r] m[on] ché[r]i",
-              "audio": "audio/lo1/exercises/wordparts1/001-bonjour-mon-cheri.mp3"
+              "audio": "audio/lo1/exercises/01-word-parts/001-bonjour-mon-cheri.mp3"
             },
             {
               "text": "b[on]s[oi][r] m[on] amou[r]",
-              "audio": "audio/lo1/exercises/wordparts1/002-bonsoir-mon-amour.mp3"
+              "audio": "audio/lo1/exercises/01-word-parts/002-bonsoir-mon-amour.mp3"
             },
             {
               "text": "au [r]ev[oi][r] ma ché[r]ie",
-              "audio": "audio/lo1/exercises/wordparts1/003-au-revoir-ma-cherie.mp3"
+              "audio": "audio/lo1/exercises/01-word-parts/003-au-revoir-ma-cherie.mp3"
             },
             {
               "text": "quelle [h]o[rr]eu[r] Valé[r]ie !",
-              "audio": "audio/lo1/exercises/wordparts1/004-quelle-horreur-valerie.mp3"
+              "audio": "audio/lo1/exercises/01-word-parts/004-quelle-horreur-valerie.mp3"
             }
           ],
           "titleText": "1. Identify pronunciation features"
@@ -398,15 +398,15 @@
           "items": [
             {
               "text": "Coucou [mon] amour ! Ça [va] aujourd'hui ?",
-              "audio": "audio/lo1/exercises/draggableFillGaps2/001-coucou-mon-amour-ca-va-aujourdhui.mp3"
+              "audio": "audio/lo1/exercises/02-fill-gaps/001-coucou-mon-amour-ca-va-aujourdhui.mp3"
             },
             {
               "text": "Oui, ma [chérie] ! Ça va [très] bien ! Et [toi] ?",
-              "audio": "audio/lo1/exercises/draggableFillGaps2/002-oui-ma-cherie-ca-va-tres-bien-et-toi.mp3"
+              "audio": "audio/lo1/exercises/02-fill-gaps/002-oui-ma-cherie-ca-va-tres-bien-et-toi.mp3"
             },
             {
               "text": "Ça va !",
-              "audio": "audio/lo1/exercises/draggableFillGaps2/003-ca-va.mp3"
+              "audio": "audio/lo1/exercises/02-fill-gaps/003-ca-va.mp3"
             }
           ],
           "titleText": "2. Fill in the gaps: greetings and introductions (part1)"
@@ -422,15 +422,15 @@
           "items": [
             {
               "text": "Bonsoir Monsieur Galipot ! [Comment] ça va ?",
-              "audio": "audio/lo1/exercises/draggableFillGaps3/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
+              "audio": "audio/lo1/exercises/03-fill-gaps/001-bonsoir-monsieur-galipot-comment-ca-va.mp3"
             },
             {
               "text": "Bonsoir Madame Bernard, ça va très bien, merci. Et [vous] ?",
-              "audio": "audio/lo1/exercises/draggableFillGaps3/002-bonsoir-madame-bernard-ca-va-tres-bien-merci-et-vous.mp3"
+              "audio": "audio/lo1/exercises/03-fill-gaps/002-bonsoir-madame-bernard-ca-va-tres-bien-merci-et-vous.mp3"
             },
             {
               "text": "Ah pas mal [merci] !",
-              "audio": "audio/lo1/exercises/draggableFillGaps3/003-ah-pas-mal-merci.mp3"
+              "audio": "audio/lo1/exercises/03-fill-gaps/003-ah-pas-mal-merci.mp3"
             }
           ],
           "titleText": "3. Fill in the gaps: greetings and introductions (part2)"
@@ -446,27 +446,27 @@
           "items": [
             {
               "text": "Bonjour les [enfants]. Comment vous [appelez]-vous ?",
-              "audio": "audio/lo1/exercises/draggableFillGaps4/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
+              "audio": "audio/lo1/exercises/04-fill-gaps/001-bonjour-les-enfants-comment-vous-appelez-vous.mp3"
             },
             {
               "text": "Bonjour Madame ! Je m' [appelle] Annie.",
-              "audio": "audio/lo1/exercises/draggableFillGaps4/002-bonjour-madame-je-mappelle-annie.mp3"
+              "audio": "audio/lo1/exercises/04-fill-gaps/002-bonjour-madame-je-mappelle-annie.mp3"
             },
             {
               "text": "Et [moi], je m'appelle David.",
-              "audio": "audio/lo1/exercises/draggableFillGaps4/003-et-moi-je-mappelle-david.mp3"
+              "audio": "audio/lo1/exercises/04-fill-gaps/003-et-moi-je-mappelle-david.mp3"
             },
             {
               "text": "D'accord. Très bien !",
-              "audio": "audio/lo1/exercises/draggableFillGaps4/004-daccord-tres-bien.mp3"
+              "audio": "audio/lo1/exercises/04-fill-gaps/004-daccord-tres-bien.mp3"
             },
             {
               "text": "Merci Madame ! Bonne journée !",
-              "audio": "audio/lo1/exercises/draggableFillGaps4/005-merci-madame-bonne-journee.mp3"
+              "audio": "audio/lo1/exercises/04-fill-gaps/005-merci-madame-bonne-journee.mp3"
             },
             {
               "text": "Au [revoir] les enfants !  Bonne journée !",
-              "audio": "audio/lo1/exercises/draggableFillGaps4/006-au-revoir-les-enfants-bonne-journee.mp3"
+              "audio": "audio/lo1/exercises/04-fill-gaps/006-au-revoir-les-enfants-bonne-journee.mp3"
             }
           ],
           "titleText": "4. Fill in the gaps: greetings and introductions (part3)"
@@ -489,7 +489,7 @@
             "prénom",
             "bonjour"
           ],
-          "soundFile": "audio/lo1/exercises/listeningOrder1/001-listening-order-1.mp3",
+          "soundFile": "audio/lo1/exercises/01-listening-order/001-listening-order-1.mp3",
           "titleText": "5. Listening comprehension (part1)"
         }
       },
@@ -510,7 +510,7 @@
             "quoi",
             "froid"
           ],
-          "soundFile": "audio/lo1/exercises/listeningOrder2/001-listening-order-2.mp3",
+          "soundFile": "audio/lo1/exercises/02-listening-order/001-listening-order-2.mp3",
           "titleText": "6. Listening comprehension (part2)"
         }
       },
@@ -524,22 +524,22 @@
             [
               "",
               "homme",
-              "audio/lo1/exercises/listeningOrder3/001-homme.mp3"
+              "audio/lo1/exercises/03-listening-order/001-homme.mp3"
             ],
             [
               "",
               "hôtel",
-              "audio/lo1/exercises/listeningOrder3/002-hotel.mp3"
+              "audio/lo1/exercises/03-listening-order/002-hotel.mp3"
             ],
             [
               "",
               "hôpital",
-              "audio/lo1/exercises/listeningOrder3/003-hopital.mp3"
+              "audio/lo1/exercises/03-listening-order/003-hopital.mp3"
             ],
             [
               "",
               "horrible",
-              "audio/lo1/exercises/listeningOrder3/004-horrible.mp3"
+              "audio/lo1/exercises/03-listening-order/004-horrible.mp3"
             ]
           ],
           "informationTextHTML": "Listen to each pronunciation clip, then drag the matching French word into the correct position. Focus on the silent <em>h</em> words from this section. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to confirm, <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the correct order, or <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again."

@@ -36,7 +36,7 @@ export class CurrentLocationNasalRhymeExercise extends PureComponent{
 				>
 					<div>
 						<div className="mb-3">
-							<SequenceAudioController sources={[resolveAsset(`/audio/lo4/exercises/lo4exercise1/001-nonsense-rhyme.mp3`)]} />
+							<SequenceAudioController sources={[resolveAsset(`/audio/lo4/exercises/01-nasal-rhyme/001-nonsense-rhyme.mp3`)]} />
 						</div>
 						{/* Use poem semantics so assistive tech gets title, lines, and attribution structure instead of a single paragraph with <br>. */}
 						<Card className="border-border/70 bg-[color-mix(in_oklab,var(--card)_86%,var(--muted)_14%)] shadow-sm">

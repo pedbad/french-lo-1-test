@@ -440,39 +440,39 @@
 					"items": [
 						{
 							"text": "Qu'est-ce que tu fais [*comme|en|de|pour|avec|sur] études ?",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/001-qu-est-ce-que-tu-fais-etudes.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/001-qu-est-ce-que-tu-fais-etudes.mp3"
 						},
 						{
 							"text": "Je suis étudiante [*en|de|dans|sur|avec|pour] politique.",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/002-je-suis-etudiante-politique.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/002-je-suis-etudiante-politique.mp3"
 						},
 						{
 							"text": "Tu fais une [*licence|master|thèse|bibliothèque|fac|copine] ?",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/003-tu-fais-une.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/003-tu-fais-une.mp3"
 						},
 						{
 							"text": "Non, je fais un [*master|licence|doctorat|tutorat|emploi|examen].",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/004-non-je-fais-un.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/004-non-je-fais-un.mp3"
 						},
 						{
 							"text": "Tu es en [*quelle|comme|première|troisième|deuxième|cette] année ?",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/005-tu-es-en-annee.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/005-tu-es-en-annee.mp3"
 						},
 						{
 							"text": "Je suis en première [*année|licence|fac|copine|bibliothèque|politique].",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/006-je-suis-en-premiere.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/006-je-suis-en-premiere.mp3"
 						},
 						{
 							"text": "Je fais une fac [*d'|de|en|à|sur|avec] anthropologie. Je suis en troisième année [*de|en|d'|à|pour|avec] licence.",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/007-je-fais-une-fac-anthropologie-je-suis-en-troisieme-annee-licence.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/007-je-fais-une-fac-anthropologie-je-suis-en-troisieme-annee-licence.mp3"
 						},
 						{
 							"text": "Et ta [*copine|doctorante|licence|thèse|bibliothèque|fac] ? Elle étudie l' [*anthropologie|politique|bibliothèque|année|histoire|licence] aussi ?",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/008-et-ta-elle-etudie-l-aussi.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/008-et-ta-elle-etudie-l-aussi.mp3"
 						},
 						{
 							"text": "Non, elle est [*doctorante|copine|licence|master|tutrice|étudiante]. Elle fait un doctorat en histoire [*médiévale|politique|anglaise|française|première|universitaire]. Elle écrit sa [*thèse|licence|année|fac|politique|histoire]. Elle est très [*occupée|médiévale|anthropologie|première|doctorante|universitaire]. Elle passe des heures à la [*bibliothèque|politique|copine|thèse|licence|fac] !",
-							"audio": "audio/lo14/exercises/draggableFillGaps1/009-non-elle-est-elle-fait-un-doctorat-en-histoire-elle-ecrit-sa-elle-est-tres-elle-passe-des-heures-a-la.mp3"
+							"audio": "audio/lo14/exercises/01-fill-gaps/009-non-elle-est-elle-fait-un-doctorat-en-histoire-elle-ecrit-sa-elle-est-tres-elle-passe-des-heures-a-la.mp3"
 						}
 					],
 					"titleText": "1. Chatting about your studies",
@@ -490,42 +490,42 @@
 						{
 							"prompt": "What (sort of) cheese do you like?",
 							"text": "Qu'est-ce que tu [aimes] comme [fromage] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/001-qu-est-ce-que-tu-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/001-qu-est-ce-que-tu-comme.mp3"
 						},
 						{
 							"prompt": "What (sort of) films do you like?",
 							"text": "Qu'est-ce que tu [aimes] comme [films] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/002-qu-est-ce-que-tu-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/002-qu-est-ce-que-tu-comme.mp3"
 						},
 						{
 							"prompt": "What (sort of) music do you like?",
 							"text": "Qu'est-ce que vous [aimez] comme [musique] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/003-qu-est-ce-que-vous-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/003-qu-est-ce-que-vous-comme.mp3"
 						},
 						{
 							"prompt": "What wine do you prefer?",
 							"text": "Qu'est-ce que vous [préférez] comme [vin] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/004-qu-est-ce-que-vous-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/004-qu-est-ce-que-vous-comme.mp3"
 						},
 						{
 							"prompt": "What sports do you do?",
 							"text": "Qu'est-ce que tu [fais] comme [sports] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/005-qu-est-ce-que-tu-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/005-qu-est-ce-que-tu-comme.mp3"
 						},
 						{
 							"prompt": "What activities do the children do?",
 							"text": "Qu'est-ce que les enfants [font] comme [activités] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/006-qu-est-ce-que-les-enfants-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/006-qu-est-ce-que-les-enfants-comme.mp3"
 						},
 						{
 							"prompt": "What is he studying?",
 							"text": "Qu'est-ce qu'il [fait] comme [études] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/007-qu-est-ce-qu-il-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/007-qu-est-ce-qu-il-comme.mp3"
 						},
 						{
 							"prompt": "What about you? What are you studying?",
 							"text": "Et toi ? Qu'est-ce que tu [fais] comme [études] ?",
-							"audio": "audio/lo14/exercises/typedTransformExercise1/008-et-toi-qu-est-ce-que-tu-comme.mp3"
+							"audio": "audio/lo14/exercises/01-transform/008-et-toi-qu-est-ce-que-tu-comme.mp3"
 						}
 					],
 					"titleText": "2. Ask it the French way"
@@ -542,39 +542,39 @@
 					"items": [
 						{
 							"text": "Je [*dois|doit|devons|devez|doivent] écrire une dissertation ce week-end.",
-							"audio": "audio/lo14/exercises/selectExercise1/001-je-ecrire-une-dissertation-ce-week-end.mp3"
+							"audio": "audio/lo14/exercises/01-select/001-je-ecrire-une-dissertation-ce-week-end.mp3"
 						},
 						{
 							"text": "Annie [dois|*doit|devons|devez|doivent] faire une présentation aujourd'hui.",
-							"audio": "audio/lo14/exercises/selectExercise1/002-annie-faire-une-presentation-aujourd-hui.mp3"
+							"audio": "audio/lo14/exercises/01-select/002-annie-faire-une-presentation-aujourd-hui.mp3"
 						},
 						{
 							"text": "Nous [dois|doit|*devons|devez|doivent] passer un examen demain.",
-							"audio": "audio/lo14/exercises/selectExercise1/003-nous-passer-un-examen-demain.mp3"
+							"audio": "audio/lo14/exercises/01-select/003-nous-passer-un-examen-demain.mp3"
 						},
 						{
 							"text": "Tu [*dois|doit|devons|devez|doivent] faire tes devoirs avant de sortir.",
-							"audio": "audio/lo14/exercises/selectExercise1/004-tu-faire-tes-devoirs-avant-de-sortir.mp3"
+							"audio": "audio/lo14/exercises/01-select/004-tu-faire-tes-devoirs-avant-de-sortir.mp3"
 						},
 						{
 							"text": "Marc [dois|*doit|devons|devez|doivent] terminer sa thèse.",
-							"audio": "audio/lo14/exercises/selectExercise1/005-marc-terminer-sa-these.mp3"
+							"audio": "audio/lo14/exercises/01-select/005-marc-terminer-sa-these.mp3"
 						},
 						{
 							"text": "Vous [dois|doit|devons|*devez|doivent] lire ce livre avant le tutorat.",
-							"audio": "audio/lo14/exercises/selectExercise1/006-vous-lire-ce-livre-avant-le-tutorat.mp3"
+							"audio": "audio/lo14/exercises/01-select/006-vous-lire-ce-livre-avant-le-tutorat.mp3"
 						},
 						{
 							"text": "Les étudiants [dois|doit|devons|devez|*doivent] étudier pendant les vacances.",
-							"audio": "audio/lo14/exercises/selectExercise1/007-les-etudiants-etudier-pendant-les-vacances.mp3"
+							"audio": "audio/lo14/exercises/01-select/007-les-etudiants-etudier-pendant-les-vacances.mp3"
 						},
 						{
 							"text": "On [dois|*doit|devons|devez|doivent] se concentrer pendant les cours.",
-							"audio": "audio/lo14/exercises/selectExercise1/008-on-se-concentrer-pendant-les-cours.mp3"
+							"audio": "audio/lo14/exercises/01-select/008-on-se-concentrer-pendant-les-cours.mp3"
 						},
 						{
 							"text": "Les étudiantes [dois|doit|devons|devez|*doivent] être fatiguées.",
-							"audio": "audio/lo14/exercises/selectExercise1/009-les-etudiantes-etre-fatiguees.mp3"
+							"audio": "audio/lo14/exercises/01-select/009-les-etudiantes-etre-fatiguees.mp3"
 						}
 					],
 					"titleText": "3. Practise using devoir",
@@ -592,39 +592,39 @@
 					"items": [
 						{
 							"text": "Je [*peux|peut|pouvons|pouvez|peuvent] ouvrir la fenêtre, s'il vous plaît ?",
-							"audio": "audio/lo14/exercises/selectExercise2/001-je-ouvrir-la-fenetre-s-il-vous-plait.mp3"
+							"audio": "audio/lo14/exercises/02-select/001-je-ouvrir-la-fenetre-s-il-vous-plait.mp3"
 						},
 						{
 							"text": "Max et moi [peux|peut|*pouvons|pouvez|peuvent] venir vous voir demain soir.",
-							"audio": "audio/lo14/exercises/selectExercise2/002-max-et-moi-venir-vous-voir-demain-soir.mp3"
+							"audio": "audio/lo14/exercises/02-select/002-max-et-moi-venir-vous-voir-demain-soir.mp3"
 						},
 						{
 							"text": "Tu [*peux|peut|pouvons|pouvez|peuvent] expliquer en anglais, si tu veux.",
-							"audio": "audio/lo14/exercises/selectExercise2/003-tu-expliquer-en-anglais-si-tu-veux.mp3"
+							"audio": "audio/lo14/exercises/02-select/003-tu-expliquer-en-anglais-si-tu-veux.mp3"
 						},
 						{
 							"text": "Mon copain [peux|*peut|pouvons|pouvez|peuvent] traduire le texte.",
-							"audio": "audio/lo14/exercises/selectExercise2/004-mon-copain-traduire-le-texte.mp3"
+							"audio": "audio/lo14/exercises/02-select/004-mon-copain-traduire-le-texte.mp3"
 						},
 						{
 							"text": "Nos amis [peux|peut|pouvons|pouvez|*peuvent] dormir chez nous.",
-							"audio": "audio/lo14/exercises/selectExercise2/005-nos-amis-dormir-chez-nous.mp3"
+							"audio": "audio/lo14/exercises/02-select/005-nos-amis-dormir-chez-nous.mp3"
 						},
 						{
 							"text": "On [peux|*peut|pouvons|pouvez|peuvent] réviser ensemble.",
-							"audio": "audio/lo14/exercises/selectExercise2/006-on-reviser-ensemble.mp3"
+							"audio": "audio/lo14/exercises/02-select/006-on-reviser-ensemble.mp3"
 						},
 						{
 							"text": "Amélie [peux|*peut|pouvons|pouvez|peuvent] se détendre dans le jardin.",
-							"audio": "audio/lo14/exercises/selectExercise2/007-amelie-se-detendre-dans-le-jardin.mp3"
+							"audio": "audio/lo14/exercises/02-select/007-amelie-se-detendre-dans-le-jardin.mp3"
 						},
 						{
 							"text": "Tes amies [peux|peut|pouvons|pouvez|*peuvent] travailler avec nous.",
-							"audio": "audio/lo14/exercises/selectExercise2/008-tes-amies-travailler-avec-nous.mp3"
+							"audio": "audio/lo14/exercises/02-select/008-tes-amies-travailler-avec-nous.mp3"
 						},
 						{
 							"text": "Vous [peux|peut|pouvons|*pouvez|peuvent] étudier à la bibliothèque.",
-							"audio": "audio/lo14/exercises/selectExercise2/009-vous-etudier-a-la-bibliotheque.mp3"
+							"audio": "audio/lo14/exercises/02-select/009-vous-etudier-a-la-bibliotheque.mp3"
 						}
 					],
 					"titleText": "4. Practise using pouvoir",

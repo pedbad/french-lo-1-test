@@ -39,7 +39,7 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Section: **Dialogues → Monologue 1**
   - The spoken adjectives may sound like masculine `grand` instead of feminine `grande` in `une grande maison` and `une grande cuisine`.
 
-- `public/audio/lo5/exercises/selectExercise2/003-mme-leserre-est-tres-curieuse.mp3`
+- `public/audio/lo5/exercises/02-select/003-mme-leserre-est-tres-curieuse.mp3`
   - Section: **Exercises → Exercise 2**
   - In `Leserre`, the `s` sounds like `z` and should sound like `s`.
 
@@ -73,17 +73,17 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Section: **Vocabulary**
   - `basket` is fine, but `basketball` sounds wrong; the first `a` is not pronounced correctly.
 
-- `public/audio/lo7/exercises/articles/011-vous-preferez-la-france-ou-la-suisse.mp3`
+- `public/audio/lo7/exercises/01-articles/011-vous-preferez-la-france-ou-la-suisse.mp3`
   - Section: **Exercises — articles**
   - The intonation is not right for a question where the speaker is choosing between two options.
 
-- `public/audio/lo7/exercises/listening/001-lo7-dialogue-1.mp3`
+- `public/audio/lo7/exercises/01-listening/001-lo7-dialogue-1.mp3`
   - Section: **Exercises — listening**
   - The speaker says `sportive`; it should be `sportif`. The final `t` in `cricket` is also missing.
 
 ### New recording
 
-- `public/audio/lo7/exercises/poem/sept-couleurs-magiques.mp3`
+- `public/audio/lo7/exercises/01-poem/sept-couleurs-magiques.mp3`
   - Section: **Exercises — poem**
   - Full poem audio for `Sept Couleurs Magiques`.
 
@@ -93,11 +93,11 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong content / quality)
 
-- `public/audio/lo8/dialogues/phraseTable2/001-quest-ce-que-tu-fais-le-weekend.mp3`
+- `public/audio/lo8/dialogues/02/001-quest-ce-que-tu-fais-le-weekend.mp3`
   - Section: **Dialogues 2**
   - The final `d` in `week-end` is not clear enough.
 
-- `public/audio/lo8/dialogues/phraseTable3/003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3`
+- `public/audio/lo8/dialogues/03/003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3`
   - Section: **Dialogues 3**
   - Audio should match the corrected displayed text: `Je joue de l'accordeon et je joue du piano aussi.`
 
@@ -110,12 +110,12 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong speaker — use male voice)
 
-- `public/audio/lo9/dialogues/phraseTable2/004-oh-excusez-moi-au-revoir-madame.mp3`
+- `public/audio/lo9/dialogues/02/004-oh-excusez-moi-au-revoir-madame.mp3`
   - Section: **Dialogues → A wrong number**, row 4
   - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
   - Currently female speaker. Should be male (the caller who dialled the wrong number).
 
-- `public/audio/lo9/exercises/selectExercise1/004-oh-excusez-moi-au-revoir-madame.mp3`
+- `public/audio/lo9/exercises/01-select/004-oh-excusez-moi-au-revoir-madame.mp3`
   - Section: **Exercises → 2. Talking on the phone**, dialogue 1, row 4
   - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
   - Currently female speaker. Should be male. Note: the same clip is reused for both dialogues in this exercise — separate recordings may be needed if the two instances must sound distinct.
@@ -133,16 +133,16 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### New recording
 
-- `public/audio/lo15/exercises/selectExercise1/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3`
+- `public/audio/lo15/exercises/01-select/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 10
   - Text to record: *Quand je suis en vacances, le soir mes amis ne cuisinent pas.*
   - Note: include a short natural pause after *Quand je suis en vacances* and **before** *le soir* (i.e. *Quand je suis en vacances, [pause] le soir mes amis ne cuisinent pas.*). Replaces the old `010` file which had wrong text and missing pauses.
 
-- `public/audio/lo15/exercises/selectExercise1/012-cest-moi-qui-cuisine.mp3`
+- `public/audio/lo15/exercises/01-select/012-cest-moi-qui-cuisine.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 11 (new)
   - Text to record: *C'est moi qui cuisine.*
 
-- `public/audio/lo15/exercises/selectExercise1/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3`
+- `public/audio/lo15/exercises/01-select/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 9
   - Text to record: *Quand je suis en vacances, mes amis et moi faisons des randonnées ensemble.*
   - Replaces the old `009` file which had *nous* instead of *mes amis et moi*.
@@ -153,7 +153,7 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong speaker — use female voice)
 
-- `public/audio/lo14/dialogues/phraseTable1/001-qu-est-ce-que-tu-fais-comme-etudes.mp3`
+- `public/audio/lo14/dialogues/01/001-qu-est-ce-que-tu-fais-comme-etudes.mp3`
   - Section: **Dialogues → Talking about your studies**, row 1
   - Text: `Qu'est-ce que tu fais comme études ?`
   - Currently male speaker. Should be female.
@@ -174,14 +174,14 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong speaker — use male voice)
 
-- `public/audio/lo10/dialogues/phraseTable2/004-oh-excusez-moi-au-revoir-madame.mp3`
+- `public/audio/lo10/dialogues/02/004-oh-excusez-moi-au-revoir-madame.mp3`
   - Section: **Dialogues → A wrong number**, row 4
   - Text: `Oh ! Excusez-moi ! Au revoir Madame !`
   - Currently female speaker. Should be male (the caller who dialled the wrong number).
 
 ### Re-record (wrong content)
 
-- `public/audio/lo10/exercises/dictationExercise4/009-d-accord-a-plus.mp3`
+- `public/audio/lo10/exercises/04-dictation/009-d-accord-a-plus.mp3`
   - Section: **Exercises → 4. Type what you hear**, last line
   - Displayed text: `D'accord. À plus`
   - Current audio says: *À plus tard. À plus* — does not match.
