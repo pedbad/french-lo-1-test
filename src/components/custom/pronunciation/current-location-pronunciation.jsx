@@ -73,8 +73,8 @@ export class CurrentLocationPronunciationFinalEnEns extends PureComponent {
 							<div>When the letters <strong>en</strong> or <strong>ens</strong> end a word, this is also pronounced (ain). Listen to these examples:</div>
 							<div className={`mb-0 ml-2 space-y-1`}>
 								<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/014-australien.mp3`}>australi<strong>en</strong></AudioClip></div>
-								<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/015-europ-eeneurop-en.mp3`}>europé<strong>en</strong></AudioClip></div>
-								<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/016-ghan-eensghan-ens.mp3`}>ghané<strong>ens</strong></AudioClip></div>
+								<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/015-europeen.mp3`}>europé<strong>en</strong></AudioClip></div>
+								<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/016-ghaneens.mp3`}>ghané<strong>ens</strong></AudioClip></div>
 								<div><AudioClip className={`link`} soundFile={`/audio/lo4/pronunciation/demystify/017-indiens.mp3`}>indi<strong>ens</strong></AudioClip></div>
 							</div>
 						</div>

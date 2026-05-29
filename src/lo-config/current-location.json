@@ -18,7 +18,7 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"/audio/lo4/dialogues/phraseTable1/001-o-u-habites-tuo-habites-tu.mp3",
+							"/audio/lo4/dialogues/phraseTable1/001-ou-habites-tu.mp3",
 							"Où habites-tu ?",
 							"Where do you live?"
 						],
@@ -28,7 +28,7 @@
 							"I live in Belgium."
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/003-o-u-exactemento-exactement.mp3",
+							"/audio/lo4/dialogues/phraseTable1/003-ou-exactement.mp3",
 							"Où exactement ?",
 							"Where exactly?"
 						],
@@ -38,7 +38,7 @@
 							"In Brussels. What about you?"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/005-j-habite-a-cardiff-au-pays-de-gallesj-habite-cardiff-au-pays-de-galles.mp3",
+							"/audio/lo4/dialogues/phraseTable1/005-j-habite-a-cardiff-au-pays-de-galles.mp3",
 							"J'habite à Cardiff au Pays de Galles.",
 							"I live in Cardiff in Wales"
 						]
@@ -53,7 +53,7 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"/audio/lo4/dialogues/phraseTable1/006-o-u-habitez-vouso-habitez-vous.mp3",
+							"/audio/lo4/dialogues/phraseTable1/006-ou-habitez-vous.mp3",
 							"Où habitez-vous ?",
 							"Where do you live?"
 						],
@@ -78,12 +78,12 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"/audio/lo4/dialogues/phraseTable1/009-o-u-se-trouve-la-cath-edrale-de-notre-dameo-se-trouve-la-cath-drale-de-notre-dame.mp3",
+							"/audio/lo4/dialogues/phraseTable1/009-ou-se-trouve-la-cathedrale-de-notre-dame.mp3",
 							"Où se trouve la cathédrale de Notre Dame ?",
 							"Where is Notre Dame Cathedral?"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/010-la-cath-edrale-de-notre-dame-se-trouve-a-parisla-cath-drale-de-notre-dame-se-trouve-paris.mp3",
+							"/audio/lo4/dialogues/phraseTable1/010-la-cathedrale-de-notre-dame-se-trouve-a-paris.mp3",
 							"La cathédrale de Notre Dame se trouve à Paris !",
 							"Notre Dame Cathedral is in Paris!"
 						]
@@ -103,7 +103,7 @@
 							"Do you live in the city centre? "
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/012-non-j-habite-dans-un-petit-village-a-une-heure-d-icinon-j-habite-dans-un-petit-village-une-heure-d-ici.mp3",
+							"/audio/lo4/dialogues/phraseTable1/012-non-j-habite-dans-un-petit-village-a-une-heure-d-ici.mp3",
 							"Non, j'habite dans un petit village à une heure d'ici.",
 							"No, I live in a small village an hour away from here."
 						]
@@ -128,32 +128,32 @@
 				"to live"
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/002-o-uo.mp3",
+				"/audio/lo4/vocabulary/vocabulary/002-ou.mp3",
 				"où",
 				"where"
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/003-o-u-habites-tu-tu-habites-o-uo-habites-tu-tu-habites-o.mp3",
+				"/audio/lo4/vocabulary/vocabulary/003-ou-habites-tu-tu-habites-ou.mp3",
 				"Où habites-tu ? Tu habites où ?",
 				"Where do you live?"
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/004-o-u-habitez-vous-vous-habitez-o-uo-habitez-vous-vous-habitez-o.mp3",
+				"/audio/lo4/vocabulary/vocabulary/004-ou-habitez-vous-vous-habitez-ou.mp3",
 				"Où habitez-vous ? Vous habitez où ?",
 				"Where do you live?"
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/005-o-u-se-trouve-lille-lille-se-trouve-en-franceo-se-trouve-lille-lille-se-trouve-en-france.mp3",
+				"/audio/lo4/vocabulary/vocabulary/005-ou-se-trouve-lille-lille-se-trouve-en-france.mp3",
 				"Où se trouve Lille ? Lille se trouve en France.",
 				"Where is Lille? Lille is in France."
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/006-o-u-es-tu-n-e-uo-e-tes-vous-n-eeo-es-tu-n-o-tes-vous-n-e.mp3",
+				"/audio/lo4/vocabulary/vocabulary/006-ou-es-tu-ne-ou-etes-vous-nee.mp3",
 				"Où es-tu né(e) ? Où êtes-vous né(e) ?",
 				"Where were you born?"
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/007-je-suis-n-eeje-suis-n-e.mp3",
+				"/audio/lo4/vocabulary/vocabulary/007-je-suis-nee.mp3",
 				"Je suis né(e) …",
 				"I was born …"
 			],
@@ -193,27 +193,27 @@
 				"In a small/ large town"
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/015-c-est-pr-es-d-icic-est-pr-s-d-ici.mp3",
+				"/audio/lo4/vocabulary/vocabulary/015-c-est-pres-d-ici.mp3",
 				"C'est près d'ici.",
 				"It's near here."
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/016-c-est-tr-es-loin-d-icic-est-tr-s-loin-d-ici.mp3",
+				"/audio/lo4/vocabulary/vocabulary/016-c-est-tres-loin-d-ici.mp3",
 				"C'est très loin d'ici.",
 				"It's a long way from here."
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/017-c-est-a-15-minutes-d-icic-est-15-minutes-d-ici.mp3",
+				"/audio/lo4/vocabulary/vocabulary/017-c-est-a-15-minutes-d-ici.mp3",
 				"C'est à 15 minutes d'ici.",
 				"It's 15 minutes away from here."
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/018-c-est-pr-es-de-cambridgec-est-pr-s-de-cambridge.mp3",
+				"/audio/lo4/vocabulary/vocabulary/018-c-est-pres-de-cambridge.mp3",
 				"C'est près de Cambridge.",
 				"It's near Cambridge."
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/019-c-est-a-20-kilom-etres-de-parisc-est-20-kilom-tres-de-paris.mp3",
+				"/audio/lo4/vocabulary/vocabulary/019-c-est-a-20-kilometres-de-paris.mp3",
 				"C'est à 20 kilomètres de Paris.",
 				"It's 20 km from Paris."
 			],
@@ -233,7 +233,7 @@
 				"in a flat"
 			],
 			[
-				"/audio/lo4/vocabulary/vocabulary/023-en-r-esidence-universitaireen-r-sidence-universitaire.mp3",
+				"/audio/lo4/vocabulary/vocabulary/023-en-residence-universitaire.mp3",
 				"en résidence universitaire",
 				"in university accommodation"
 			],
@@ -401,7 +401,7 @@
 					"items": [
 						{
 							"text": "Tu habites [*à la campagne | à la montagne | au bord de la mer] ?",
-							"audio": "/audio/lo4/exercises/dropdowns4/001-tu-habites-a-la-campagnetu-habites-la-campagne.mp3"
+							"audio": "/audio/lo4/exercises/dropdowns4/001-tu-habites-a-la-campagne.mp3"
 						},
 						{
 							"text": "Non, j'habite [au centre-ville |*dans une grande ville | pas loin de la ville].",
@@ -409,7 +409,7 @@
 						},
 						{
 							"text": "Nous habitons [en résidence universitaire | près de l'université | *à deux minutes de l'université].",
-							"audio": "/audio/lo4/exercises/dropdowns4/003-nous-habitons-a-deux-minutes-de-l-universit-enous-habitons-deux-minutes-de-l-universit.mp3"
+							"audio": "/audio/lo4/exercises/dropdowns4/003-nous-habitons-a-deux-minutes-de-l-universite.mp3"
 						},
 						{
 							"text": "Nous habitons dans [un grand immeuble | une grande maison | *un petit immeuble].",
