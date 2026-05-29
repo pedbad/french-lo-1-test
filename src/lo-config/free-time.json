@@ -19,12 +19,12 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo8/dialogues/phraseTable1/001-tu-aimes-lescalade.mp3",
+              "audio/lo8/dialogues/01/001-tu-aimes-lescalade.mp3",
               "Tu aimes l'escalade ?",
               "Do you like climbing?"
             ],
             [
-              "audio/lo8/dialogues/phraseTable1/002-je-naime-pas-du-tout-lescalade.mp3",
+              "audio/lo8/dialogues/01/002-je-naime-pas-du-tout-lescalade.mp3",
               "Je n'aime pas du tout l'escalade. C'est trop dangereux ! Je préfère l'équitation. J'adore les chevaux !",
               "I don't like climbing at all. It's too dangerous! I prefer horse riding. I love horses!"
             ]
@@ -39,27 +39,27 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo8/dialogues/phraseTable2/001-quest-ce-que-tu-fais-le-weekend.mp3",
+              "audio/lo8/dialogues/02/001-quest-ce-que-tu-fais-le-weekend.mp3",
               "Qu'est-ce que tu fais le weekend ?",
               "What do you do at the weekend?"
             ],
             [
-              "audio/lo8/dialogues/phraseTable2/002-le-samedi-je-fais-de-laviron.mp3",
+              "audio/lo8/dialogues/02/002-le-samedi-je-fais-de-laviron.mp3",
               "Le samedi, je fais de l'aviron. Je prends mon petit-déjeuner au café avec mes amis. Je vais en ville pour faire du shopping. Le soir, je sors avec ma copine.",
               "On Saturdays, I go rowing. I have my breakfast in a café with my friends. I go into town to do some shopping. In the evening, I go out with my girlfriend."
             ],
             [
-              "audio/lo8/dialogues/phraseTable2/003-et-le-dimanche.mp3",
+              "audio/lo8/dialogues/02/003-et-le-dimanche.mp3",
               "Et le dimanche?",
               "And on Sundays?"
             ],
             [
-              "audio/lo8/dialogues/phraseTable2/004-le-dimanche-je-fais-de-la-natation.mp3",
+              "audio/lo8/dialogues/02/004-le-dimanche-je-fais-de-la-natation.mp3",
               "Le dimanche, je fais de la natation. L'après-midi, s'il fait beau, je fais de la randonnée avec mon frère. S'il fait mauvais, je lis un peu ou je regarde la télé. Et toi ?",
               "On Sundays, I go swimming. In the afternoon, if the weather's good, I go hiking with my brother. If the weather's bad, I read a bit, or I watch television. What about you?"
             ],
             [
-              "audio/lo8/dialogues/phraseTable2/005-je-ne-fais-pas-grand-chose.mp3",
+              "audio/lo8/dialogues/02/005-je-ne-fais-pas-grand-chose.mp3",
               "Je ne fais pas grand-chose. Je fais la grasse matinée. Je vois mes amis. Quelquefois, je vais au cinéma ou je vais en boîte. Ça dépend !",
               "I don't do much. I have a lie-in. I see my friends. Sometimes I go to the cinema, or I go clubbing. It depends."
             ]
@@ -74,17 +74,17 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo8/dialogues/phraseTable3/001-vous-jouez-dun-instrument-de-musique.mp3",
+              "audio/lo8/dialogues/03/001-vous-jouez-dun-instrument-de-musique.mp3",
               "Vous jouez d'un instrument de musique ?",
               "Do you play a musical instrument?"
             ],
             [
-              "audio/lo8/dialogues/phraseTable3/002-oui-je-joue-du-piano-et-de-la-clarinette-aussi.mp3",
+              "audio/lo8/dialogues/03/002-oui-je-joue-du-piano-et-de-la-clarinette-aussi.mp3",
               "Oui, je joue du piano et de la clarinette aussi. Et vous ?",
               "Yes, I play the piano and the clarinet. What about you?"
             ],
             [
-              "audio/lo8/dialogues/phraseTable3/003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3",
+              "audio/lo8/dialogues/03/003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3",
               "Je joue de l'accordéon et je joue du piano aussi.",
               "I play the accordion, and I play the piano too."
             ]
@@ -99,12 +99,12 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo8/dialogues/phraseTable4/001-le-samedi-je-joue-au-basket.mp3",
+              "audio/lo8/dialogues/04/001-le-samedi-je-joue-au-basket.mp3",
               "Le samedi, je joue au basket. Ça te dit de jouer au basket avec nous ?",
               "On Saturdays, I play basketball. Do you fancy playing basketball with us?"
             ],
             [
-              "audio/lo8/dialogues/phraseTable4/002-le-samedi-je-ne-peux-pas-je-joue-au-volley.mp3",
+              "audio/lo8/dialogues/04/002-le-samedi-je-ne-peux-pas-je-joue-au-volley.mp3",
               "Le samedi, je ne peux pas - je joue au volley. C'est dommage !",
               "On Saturdays, I can't - I play volleyball. It's a pity!"
             ]

@@ -15,17 +15,17 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo1/dialogues/phraseTable1/001-salut-ca-va.mp3",
+              "audio/lo1/dialogues/01/001-salut-ca-va.mp3",
               "Salut, ça va ?",
               "Hi, are you well?"
             ],
             [
-              "audio/lo1/dialogues/phraseTable1/002-salut-ca-va-et-toi.mp3",
+              "audio/lo1/dialogues/01/002-salut-ca-va-et-toi.mp3",
               "Salut ! Ça va ! Et toi ?",
               "Hi, I'm fine and you?"
             ],
             [
-              "audio/lo1/dialogues/phraseTable1/003-tres-bien-merci.mp3",
+              "audio/lo1/dialogues/01/003-tres-bien-merci.mp3",
               "Très bien, merci !",
               "Very well, thank you!"
             ]
@@ -40,17 +40,17 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo1/dialogues/phraseTable2/001-bonjour-madame-foucher-comment-ca-va.mp3",
+              "audio/lo1/dialogues/02/001-bonjour-madame-foucher-comment-ca-va.mp3",
               "Bonjour, Madame Foucher ! Comment ça va ?",
               "Hello, Mme Foucher! How are you?"
             ],
             [
-              "audio/lo1/dialogues/phraseTable2/002-bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3",
+              "audio/lo1/dialogues/02/002-bonjour-monsieur-letort-ca-va-tres-bien-et-vous.mp3",
               "Bonjour Monsieur Letort ! Ça va très bien. Et <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> ?",
               "Hello M Letort, I'm very well, thank you. And you?"
             ],
             [
-              "audio/lo1/dialogues/phraseTable2/003-ca-va-merci.mp3",
+              "audio/lo1/dialogues/02/003-ca-va-merci.mp3",
               "Ça va, merci !",
               "I'm fine, thank you!"
             ]
@@ -65,17 +65,17 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
+              "audio/lo1/dialogues/03/001-comment-tappelles-tu.mp3",
               "Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
               "What's your name?"
             ],
             [
-              "audio/lo1/dialogues/phraseTable3/002-je-mappelle-max-et-toi.mp3",
+              "audio/lo1/dialogues/03/002-je-mappelle-max-et-toi.mp3",
               "Je m'appelle Max, et <a class='modal-link' href='#content' data-modal-target='toi'>toi</a> ?",
               "My name is Max. And you're….?"
             ],
             [
-              "audio/lo1/dialogues/phraseTable3/003-je-mappelle-camille.mp3",
+              "audio/lo1/dialogues/03/003-je-mappelle-camille.mp3",
               "Je m'appelle Camille.",
               "My name's Camille."
             ]
@@ -90,12 +90,12 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
+              "audio/lo1/dialogues/04/001-comment-vous-appelez-vous.mp3",
               "Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
               "What's your name?"
             ],
             [
-              "audio/lo1/dialogues/phraseTable4/002-je-mappelle-isabelle-martin.mp3",
+              "audio/lo1/dialogues/04/002-je-mappelle-isabelle-martin.mp3",
               "Je m'appelle Isabelle Martin.",
               "My name is Isabelle Martin."
             ]
@@ -219,12 +219,12 @@
         "Not bad"
       ],
       [
-        "audio/lo1/dialogues/phraseTable3/001-comment-tappelles-tu.mp3",
+        "audio/lo1/dialogues/03/001-comment-tappelles-tu.mp3",
         "Comment t'appelles-<a class='modal-link' href='#content' data-modal-target='tuvous'>tu</a> ?",
         "What's your name?"
       ],
       [
-        "audio/lo1/dialogues/phraseTable4/001-comment-vous-appelez-vous.mp3",
+        "audio/lo1/dialogues/04/001-comment-vous-appelez-vous.mp3",
         "Comment <a class='modal-link' href='#content' data-modal-target='tuvous'>vous</a> appelez-vous ?",
         "What's your name?"
       ],

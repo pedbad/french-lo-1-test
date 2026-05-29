@@ -16,22 +16,22 @@
           "id": "phraseTable1",
           "phrases": [
             [
-              "audio/lo15/dialogues/phraseTable1/001-ou-vas-tu-passer-tes-vacances.mp3",
+              "audio/lo15/dialogues/01/001-ou-vas-tu-passer-tes-vacances.mp3",
               "Où vas-tu passer tes vacances ?",
               "Where are you going to spend your holidays?"
             ],
             [
-              "audio/lo15/dialogues/phraseTable1/002-je-vais-passer-mes-vacances-en-france.mp3",
+              "audio/lo15/dialogues/01/002-je-vais-passer-mes-vacances-en-france.mp3",
               "Je vais passer mes vacances en France.",
               "I'm going to spend my holidays in France."
             ],
             [
-              "audio/lo15/dialogues/phraseTable1/003-ah-oui-ou-exactement.mp3",
+              "audio/lo15/dialogues/01/003-ah-oui-ou-exactement.mp3",
               "Ah oui, où exactement ?",
               "Oh yes, where exactly? "
             ],
             [
-              "audio/lo15/dialogues/phraseTable1/004-a-bordeaux-c-est-une-tres-belle-ville.mp3",
+              "audio/lo15/dialogues/01/004-a-bordeaux-c-est-une-tres-belle-ville.mp3",
               "À Bordeaux. C'est une très belle ville !",
               "In Bordeaux. It's a very beautiful town."
             ]
@@ -47,37 +47,37 @@
           "id": "phraseTable2",
           "phrases": [
             [
-              "audio/lo15/dialogues/phraseTable2/001-tu-vas-passer-tes-vacances-en-europe-cette-annee.mp3",
+              "audio/lo15/dialogues/02/001-tu-vas-passer-tes-vacances-en-europe-cette-annee.mp3",
               "Tu vas passer tes vacances en Europe cette année ?",
               "Are you going to spend your holidays in Europe this year?"
             ],
             [
-              "audio/lo15/dialogues/phraseTable2/002-non-je-vais-passer-mes-vacances-dans-les-caraibes-je-vais-aller-en-guadeloupe-j-ai-de-la.mp3",
+              "audio/lo15/dialogues/02/002-non-je-vais-passer-mes-vacances-dans-les-caraibes-je-vais-aller-en-guadeloupe-j-ai-de-la.mp3",
               "Non, je vais passer mes vacances dans les Caraïbes ! Je vais aller en Guadeloupe ! J'ai de la famille là-bas.",
               "No, I'm going to spend my holidays in the Caribbean. I'm going to go to Guadeloupe. I've got family there."
             ],
             [
-              "audio/lo15/dialogues/phraseTable2/003-et-qu-est-ce-que-tu-vas-faire-la-bas.mp3",
+              "audio/lo15/dialogues/02/003-et-qu-est-ce-que-tu-vas-faire-la-bas.mp3",
               "Et qu'est-ce que tu vas faire là-bas ?",
               "And what are you going to do there?"
             ],
             [
-              "audio/lo15/dialogues/phraseTable2/004-il-y-a-beaucoup-de-choses-a-faire-je-vais-faire-des-randonnees-je-vais-aller-au-jardin.mp3",
+              "audio/lo15/dialogues/02/004-il-y-a-beaucoup-de-choses-a-faire-je-vais-faire-des-randonnees-je-vais-aller-au-jardin.mp3",
               "Il y a beaucoup de choses à faire. Je vais faire des randonnées. Je vais aller au Jardin botanique. Je vais voir les Chutes du Carbet. Et je vais bronzer sur la plage. Il fait très beau en Guadeloupe !",
               "There's lots of things to do. I'm going to go hiking. I'm going to go the Botanic Garden. I'm going to see the Carbet Falls. And I'm going to sunbathe on the beach. The weather's very good in Guadeloupe! "
             ],
             [
-              "audio/lo15/dialogues/phraseTable2/005-c-est-super-quelles-vacances.mp3",
+              "audio/lo15/dialogues/02/005-c-est-super-quelles-vacances.mp3",
               "C'est super ! Quelles vacances !",
               "That's super! What a (great) holiday!"
             ],
             [
-              "audio/lo15/dialogues/phraseTable2/006-et-toi-tu-vas-aller-ou.mp3",
+              "audio/lo15/dialogues/02/006-et-toi-tu-vas-aller-ou.mp3",
               "Et toi, tu vas aller où ?",
               "What about you? Where are you going to go?"
             ],
             [
-              "audio/lo15/dialogues/phraseTable2/007-je-ne-vais-pas-partir-en-vacances-cet-ete-je-vais-rester-chez-moi-pour-ecrire-ma-these.mp3",
+              "audio/lo15/dialogues/02/007-je-ne-vais-pas-partir-en-vacances-cet-ete-je-vais-rester-chez-moi-pour-ecrire-ma-these.mp3",
               "Je ne vais pas partir en vacances cet été. Je vais rester chez moi pour écrire ma thèse !",
               "I'm not going away on holiday this summer, I'm going to stay at home to write my dissertation."
             ]

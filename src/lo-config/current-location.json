@@ -18,27 +18,27 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"/audio/lo4/dialogues/phraseTable1/001-ou-habites-tu.mp3",
+							"/audio/lo4/dialogues/01/001-ou-habites-tu.mp3",
 							"Où habites-tu ?",
 							"Where do you live?"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/002-j-habite-en-belgique.mp3",
+							"/audio/lo4/dialogues/01/002-j-habite-en-belgique.mp3",
 							"J'habite en Belgique.",
 							"I live in Belgium."
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/003-ou-exactement.mp3",
+							"/audio/lo4/dialogues/01/003-ou-exactement.mp3",
 							"Où exactement ?",
 							"Where exactly?"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/004-a-bruxelles-et-toi.mp3",
+							"/audio/lo4/dialogues/01/004-a-bruxelles-et-toi.mp3",
 							"A Bruxelles. Et toi?",
 							"In Brussels. What about you?"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/005-j-habite-a-cardiff-au-pays-de-galles.mp3",
+							"/audio/lo4/dialogues/01/005-j-habite-a-cardiff-au-pays-de-galles.mp3",
 							"J'habite à Cardiff au Pays de Galles.",
 							"I live in Cardiff in Wales"
 						]
@@ -53,17 +53,17 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"/audio/lo4/dialogues/phraseTable1/006-ou-habitez-vous.mp3",
+							"/audio/lo4/dialogues/01/006-ou-habitez-vous.mp3",
 							"Où habitez-vous ?",
 							"Where do you live?"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/007-j-habite-aux-etats-unis.mp3",
+							"/audio/lo4/dialogues/01/007-j-habite-aux-etats-unis.mp3",
 							"J'habite aux Etats Unis.",
 							"I live in the USA"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/008-et-moi-j-habite-au-maroc.mp3",
+							"/audio/lo4/dialogues/01/008-et-moi-j-habite-au-maroc.mp3",
 							"Et moi, j'habite au Maroc.",
 							"And I live in Morocco."
 						]
@@ -78,12 +78,12 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"/audio/lo4/dialogues/phraseTable1/009-ou-se-trouve-la-cathedrale-de-notre-dame.mp3",
+							"/audio/lo4/dialogues/01/009-ou-se-trouve-la-cathedrale-de-notre-dame.mp3",
 							"Où se trouve la cathédrale de Notre Dame ?",
 							"Where is Notre Dame Cathedral?"
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/010-la-cathedrale-de-notre-dame-se-trouve-a-paris.mp3",
+							"/audio/lo4/dialogues/01/010-la-cathedrale-de-notre-dame-se-trouve-a-paris.mp3",
 							"La cathédrale de Notre Dame se trouve à Paris !",
 							"Notre Dame Cathedral is in Paris!"
 						]
@@ -98,12 +98,12 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"/audio/lo4/dialogues/phraseTable1/011-tu-habites-au-centre-ville.mp3",
+							"/audio/lo4/dialogues/01/011-tu-habites-au-centre-ville.mp3",
 							"Tu habites au centre-ville ?",
 							"Do you live in the city centre? "
 						],
 						[
-							"/audio/lo4/dialogues/phraseTable1/012-non-j-habite-dans-un-petit-village-a-une-heure-d-ici.mp3",
+							"/audio/lo4/dialogues/01/012-non-j-habite-dans-un-petit-village-a-une-heure-d-ici.mp3",
 							"Non, j'habite dans un petit village à une heure d'ici.",
 							"No, I live in a small village an hour away from here."
 						]

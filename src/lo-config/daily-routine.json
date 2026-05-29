@@ -18,27 +18,27 @@
 					"informationTextHTML": "<p>Listen for the times people wake up and go to bed, and notice the expressions used for a morning person and a night owl.</p>",
 					"phrases": [
 						[
-							"audio/lo13/dialogues/phraseTable1/001-tu-te-leves-a-quelle-heure.mp3",
+							"audio/lo13/dialogues/01/001-tu-te-leves-a-quelle-heure.mp3",
 							"Tu te lèves à quelle heure ?",
 							"What time do you get up?"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable1/002-ca-depend-en-semaine-je-me-leve-a-sept-heures-mais-le-week-end-je-me-leve-vers-neuf-heures-et-demie-et-toi.mp3",
+							"audio/lo13/dialogues/01/002-ca-depend-en-semaine-je-me-leve-a-sept-heures-mais-le-week-end-je-me-leve-vers-neuf-heures-et-demie-et-toi.mp3",
 							"Ça dépend ! En semaine, je me lève à sept heures, mais le week-end, je me lève vers neuf heures et demie. Et toi ?",
 							"It depends. During the week I get up at seven o'clock, but at the weekend I get up at about half past nine. What about you?"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable1/003-je-me-leve-a-six-heures-le-week-end-je-me-reveille-vers-sept-heures-et-quart-et-je-me-leve-tout-de-suite-je-suis-matinal.mp3",
+							"audio/lo13/dialogues/01/003-je-me-leve-a-six-heures-le-week-end-je-me-reveille-vers-sept-heures-et-quart-et-je-me-leve-tout-de-suite-je-suis-matinal.mp3",
 							"Je me lève à six heures. Le week-end, je me réveille vers sept heures et quart et je me lève tout de suite. Je suis matinal.",
 							"I get up at 6 o'clock. At the weekend I wake up at about quarter past seven and I get up straight away. I'm a morning person."
 						],
 						[
-							"audio/lo13/dialogues/phraseTable1/004-je-suis-plutot-une-couche-tard-je-me-couche-vers-minuit-et-demi.mp3",
+							"audio/lo13/dialogues/01/004-je-suis-plutot-une-couche-tard-je-me-couche-vers-minuit-et-demi.mp3",
 							"Je suis plutôt une couche-tard. Je me couche vers minuit et demi.",
 							"Well, I'm more of a night owl. I go to bed at about half past midnight."
 						],
 						[
-							"audio/lo13/dialogues/phraseTable1/005-vers-minuit-et-demi-oh-la-la-je-me-couche-a-neuf-heures-et-demie-le-soir-je-suis-toujours-tres-fatigue.mp3",
+							"audio/lo13/dialogues/01/005-vers-minuit-et-demi-oh-la-la-je-me-couche-a-neuf-heures-et-demie-le-soir-je-suis-toujours-tres-fatigue.mp3",
 							"Vers minuit et demi ? Oh là là ! Je me couche à neuf heures et demie. Le soir, je suis toujours très fatigué.",
 							"At about half past midnight? Oh goodness! I go to bed at half past nine. In the evening I'm always very tired."
 						]
@@ -53,22 +53,22 @@
 					"informationTextHTML": "<p>Notice how the speakers describe being tired, waking up during the night, and trying to rest in the daytime.</p>",
 					"phrases": [
 						[
-							"audio/lo13/dialogues/phraseTable2/001-ca-va-les-amis.mp3",
+							"audio/lo13/dialogues/02/001-ca-va-les-amis.mp3",
 							"Ça va les amis ?",
 							"Are you alright guys?"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable2/002-ca-va-mais-nous-sommes-un-peu-fatigues-notre-fille-a-neuf-semaines-et-elle-se-reveille-trois-fois-la-nuit-nous-ne-dormons-pas-bien.mp3",
+							"audio/lo13/dialogues/02/002-ca-va-mais-nous-sommes-un-peu-fatigues-notre-fille-a-neuf-semaines-et-elle-se-reveille-trois-fois-la-nuit-nous-ne-dormons-pas-bien.mp3",
 							"Ça va mais nous sommes un peu fatigués. Notre fille a neuf semaines et elle se réveille trois fois la nuit. Nous ne dormons pas bien !",
 							"Yes, we're alright, but we're a bit tired. Our daughter is nine weeks old, and she wakes up three times a night. We aren't sleeping well!"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable2/003-quelle-horreur-mais-vous-vous-reposez-pendant-la-journee-jimagine.mp3",
+							"audio/lo13/dialogues/02/003-quelle-horreur-mais-vous-vous-reposez-pendant-la-journee-jimagine.mp3",
 							"Quelle horreur ! Mais vous vous reposez pendant la journée, j'imagine.",
 							"How awful! But you do rest during the day, I imagine."
 						],
 						[
-							"audio/lo13/dialogues/phraseTable2/004-un-peu-mais-ce-nest-pas-toujours-possible.mp3",
+							"audio/lo13/dialogues/02/004-un-peu-mais-ce-nest-pas-toujours-possible.mp3",
 							"Un peu, mais ce n'est pas toujours possible.",
 							"A bit, but it isn't always possible."
 						]
@@ -83,27 +83,27 @@
 					"informationTextHTML": "<p>Listen for the invitation to lunch, the use of <em>on</em> in everyday speech, and the short expressions used to agree a time.</p>",
 					"phrases": [
 						[
-							"audio/lo13/dialogues/phraseTable3/001-tu-dejeunes-a-la-cantine-aujourdhui.mp3",
+							"audio/lo13/dialogues/03/001-tu-dejeunes-a-la-cantine-aujourdhui.mp3",
 							"Tu déjeunes à la cantine aujourd'hui ?",
 							"Are you having lunch at the canteen today?"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable3/002-a-la-cantine-ah-non-on-ne-mange-pas-bien-a-la-cantine-je-dejeune-au-cafe-en-face-de-la-bibliotheque-tu-veux-dejeuner-avec-moi.mp3",
+							"audio/lo13/dialogues/03/002-a-la-cantine-ah-non-on-ne-mange-pas-bien-a-la-cantine-je-dejeune-au-cafe-en-face-de-la-bibliotheque-tu-veux-dejeuner-avec-moi.mp3",
 							"À la cantine ? Ah non, on ne mange pas bien à la cantine ! Je déjeune au café en face de la bibliothèque. Tu veux déjeuner avec moi ?",
 							"At the canteen? Oh no, the food isn't good at the canteen.<br /><small>(Literally: One doesn't eat well at the canteen.)</small><br />I have lunch at the cafe opposite the library. Do you want to have lunch with me?"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable3/003-a-quelle-heure.mp3",
+							"audio/lo13/dialogues/03/003-a-quelle-heure.mp3",
 							"À quelle heure ?",
 							"At what time?"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable3/004-a-une-heure.mp3",
+							"audio/lo13/dialogues/03/004-a-une-heure.mp3",
 							"À une heure ?",
 							"At one o'clock?"
 						],
 						[
-							"audio/lo13/dialogues/phraseTable3/005-oui-ca-va-tres-bien-a-tout-a-lheure.mp3",
+							"audio/lo13/dialogues/03/005-oui-ca-va-tres-bien-a-tout-a-lheure.mp3",
 							"Oui, ça va très bien ! À tout à l'heure !",
 							"Yes, that's fine. See you later!"
 						]
@@ -224,7 +224,7 @@
 				"What's the time?"
 			],
 			[
-				"audio/lo13/dialogues/phraseTable3/003-a-quelle-heure.mp3",
+				"audio/lo13/dialogues/03/003-a-quelle-heure.mp3",
 				"À quelle heure ?",
 				"At what time?"
 			],

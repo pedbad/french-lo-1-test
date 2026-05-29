@@ -607,11 +607,12 @@ These apply to every file and folder name in `public/` — audio, images, fonts,
 
 1. **Kebab-case always** — all lowercase, hyphens only. No PascalCase, no camelCase, no underscores, no spaces.
 2. **No file extension in the filename** — `cc-logo-black.svg` not `cc-logo-black-svg.svg`.
-3. **No abbreviations in folder names** — `images/` not `img/`, `scene-01/` not `s01/`.
+3. **No abbreviations in folder names** — `images/` not `img/`, `fill-gaps-01/` not `fg-01/`.
 4. **ASCII-safe** — no accented characters, no special characters (cross-platform reliability).
 5. **Zero-padding for sortability:**
    - LO folders: 2-digit zero-padded — `lo-01`, `lo-02` … `lo-15`
-   - Subsection folders: 2-digit zero-padded — `scene-01`, `fill-gaps-02`
+   - Dialogue subsection folders: 2-digit number only — `01`, `02` (parent folder provides the semantic context)
+   - Exercise subsection folders: task-name + number — `fill-gaps-02`, `select-01`
    - Individual files: 3-digit zero-padded — `001-`, `024-`, `135-`
 
 > **Note — this project:** Uses `lo1`–`lo15` (no zero-padding, no hyphen) and `img/` (abbreviated). These are known deviations — too large to migrate mid-project. Apply the rules above from day one on new projects.
@@ -637,8 +638,8 @@ These apply to every file and folder name in `public/` — audio, images, fonts,
 public/audio/
   lo-01/
     dialogues/
-      scene-01/              ← ordered + semantic; NOT phraseTable1/
-      scene-02/
+      01/                    ← number-first; parent folder provides semantic context; NOT phraseTable1/
+      02/                    ← reflects page scroll order top-to-bottom; sorts correctly in all file browsers
     vocabulary/              ← flat if < ~50 files; no subsections needed
     grammar/
       adjective-agreement/   ← semantic topic name, no number if unambiguous
@@ -685,7 +686,7 @@ UI sounds (`public/audio/ui/`) do not carry a numeric prefix — there is no ord
 
 | Old (component name) | New (task name) |
 |----------------------|-----------------|
-| `phraseTable1` | `scene-01` |
+| `phraseTable1` | `01` (inside `dialogues/`) |
 | `draggableFillGaps1` | `fill-gaps-01` |
 | `selectExercise1` | `select-01` |
 | `memoryMatchGame1` | `matching-01` |
@@ -750,7 +751,6 @@ public/images/
 |-----------|--------------------|----------------|
 | `lo1`–`lo15` (no zero-padding, no hyphen) | `lo-01`–`lo-15` | Very high — do on new project |
 | `img/` | `images/` | High — all config + JSX refs |
-| `phraseTable1/` in dialogues | `scene-01/` | Medium — ~15 LOs |
 | `draggableFillGaps1/` etc. in exercises | `fill-gaps-01/` etc. | High — ~50 folders, ~400 refs |
 | `CC_Logo_Black_SVG.svg` (PascalCase) | `cc-logo-black.svg` | Low — footer images only |
 | `grammar1/`, `pronunciation1/` (number without topic) | semantic topic name | Low — a handful of LOs |

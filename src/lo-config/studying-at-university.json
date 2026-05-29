@@ -16,47 +16,47 @@
 					"id": "phraseTable1",
 					"phrases": [
 						[
-							"audio/lo14/dialogues/phraseTable1/001-qu-est-ce-que-tu-fais-comme-etudes.mp3",
+							"audio/lo14/dialogues/01/001-qu-est-ce-que-tu-fais-comme-etudes.mp3",
 							"Qu'est-ce que tu fais comme études ?",
 							"What are you studying?"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/002-je-suis-etudiant-en-mathematiques.mp3",
+							"audio/lo14/dialogues/01/002-je-suis-etudiant-en-mathematiques.mp3",
 							"Je suis étudiant en mathématiques.",
 							"I'm a maths student."
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/003-tu-fais-un-master.mp3",
+							"audio/lo14/dialogues/01/003-tu-fais-un-master.mp3",
 							"Tu fais un master ?",
 							"Are you doing a masters?"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/004-non-je-fais-une-licence.mp3",
+							"audio/lo14/dialogues/01/004-non-je-fais-une-licence.mp3",
 							"Non, je fais une licence.",
 							"No, I'm doing a bachelor's degree / I'm an undergrad."
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/005-tu-es-en-premiere-annee.mp3",
+							"audio/lo14/dialogues/01/005-tu-es-en-premiere-annee.mp3",
 							"Tu es en première année ?",
 							"Are you in the first year?"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/006-non-je-suis-en-deuxieme-annee.mp3",
+							"audio/lo14/dialogues/01/006-non-je-suis-en-deuxieme-annee.mp3",
 							"Non, je suis en deuxième année.",
 							"No, I'm in the second year"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/007-moi-je-fais-une-fac-d-architecture-je-suis-en-premiere-annee-de-master.mp3",
+							"audio/lo14/dialogues/01/007-moi-je-fais-une-fac-d-architecture-je-suis-en-premiere-annee-de-master.mp3",
 							"Moi, je fais une fac d'architecture. Je suis en première année de master.",
 							"I'm studying architecture. I'm in the first year of a masters."
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/008-et-ton-copain-il-etudie-l-architecture-aussi.mp3",
+							"audio/lo14/dialogues/01/008-et-ton-copain-il-etudie-l-architecture-aussi.mp3",
 							"Et ton copain ? Il étudie l'architecture aussi ?",
 							"What about your boyfriend? Is he studying architecture too?"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable1/009-non-il-est-doctorant-il-fait-un-doctorat-en-langues-medievales-il-ecrit-sa-these-il-est-tres-occupe-il-passe-des-heures-a-la-bibliotheque.mp3",
+							"audio/lo14/dialogues/01/009-non-il-est-doctorant-il-fait-un-doctorat-en-langues-medievales-il-ecrit-sa-these-il-est-tres-occupe-il-passe-des-heures-a-la-bibliotheque.mp3",
 							"Non, il est doctorant. Il fait un doctorat en langues médiévales. Il écrit sa thèse. Il est très occupé. Il passe des heures à la bibliothèque !",
 							"No, he's a PhD student. He's doing a PhD in medieval languages. He's writing his dissertation. He's very busy. He's spending hours at the library!"
 						]
@@ -72,37 +72,37 @@
 					"id": "phraseTable2",
 					"phrases": [
 						[
-							"audio/lo14/dialogues/phraseTable2/001-alice-ca-va-tu-as-l-air-tres-fatigue-aujourd-hui.mp3",
+							"audio/lo14/dialogues/02/001-alice-ca-va-tu-as-l-air-tres-fatigue-aujourd-hui.mp3",
 							"Alice, ça va ? Tu as l'air très fatigué aujourd'hui !",
 							"Alice, are you alright? You look very tired today!"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable2/002-non-ca-ne-va-pas-aujourd-hui-je-suis-tres-fatiguee.mp3",
+							"audio/lo14/dialogues/02/002-non-ca-ne-va-pas-aujourd-hui-je-suis-tres-fatiguee.mp3",
 							"Non, ça ne va pas aujourd'hui ! Je suis très fatiguée.",
 							"No, I'm not alright today. I'm very tired."
 						],
 						[
-							"audio/lo14/dialogues/phraseTable2/003-pourquoi.mp3",
+							"audio/lo14/dialogues/02/003-pourquoi.mp3",
 							"Pourquoi ?",
 							"Why?"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable2/004-cette-semaine-j-ai-cinq-cours-magistraux-deux-seminaires-et-deux-tutorats-et-beaucoup-de-lecture.mp3",
+							"audio/lo14/dialogues/02/004-cette-semaine-j-ai-cinq-cours-magistraux-deux-seminaires-et-deux-tutorats-et-beaucoup-de-lecture.mp3",
 							"Cette semaine j'ai cinq cours magistraux, deux séminaires et deux tutorats ! Et beaucoup de lecture !",
 							"This week I've got five lectures, two seminars and two tutorials. And lots of reading!"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable2/005-c-est-vraiment-beaucoup-tu-as-un-emploi-du-temps-tres-charge-alice.mp3",
+							"audio/lo14/dialogues/02/005-c-est-vraiment-beaucoup-tu-as-un-emploi-du-temps-tres-charge-alice.mp3",
 							"C'est vraiment beaucoup ! Tu as un emploi du temps très chargé, Alice !",
 							"That really is a lot! You've got a very heavy timetable, Alice!"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable2/006-oui-et-je-dois-ecrire-deux-dissertations-aussi-c-est-trop-je-suis-tres-stressee.mp3",
+							"audio/lo14/dialogues/02/006-oui-et-je-dois-ecrire-deux-dissertations-aussi-c-est-trop-je-suis-tres-stressee.mp3",
 							"Oui, et je dois écrire deux dissertations aussi ! C'est trop ! Je suis très stressée !",
 							"Yes, and I have to write two essays as well. It's too much! I'm very stressed!"
 						],
 						[
-							"audio/lo14/dialogues/phraseTable2/007-mais-ca-va-aller-alice-c-est-bientot-les-vacances-et-tu-peux-te-reposer.mp3",
+							"audio/lo14/dialogues/02/007-mais-ca-va-aller-alice-c-est-bientot-les-vacances-et-tu-peux-te-reposer.mp3",
 							"Mais ça va aller, Alice ! C'est bientôt les vacances et tu peux te reposer !",
 							"But it'll be alright, Alice! It'll soon be the holidays, and you can have a rest!"
 						]
