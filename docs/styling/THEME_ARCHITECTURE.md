@@ -339,17 +339,22 @@ brand-neutral. Pinned to own fixed values — never references `--chart-*`.
 ```
 src/
   styles/
-    palette-lc.css          ← Layer 1: raw LC brand colour values
-    theme-lc-french.css     ← Layer 2: French brand tokens (swap for Spanish etc.)
+    palette-lc.css          ← Layer 1: empty placeholder — reserved for a future --palette-* system
+    theme-lc-french.css     ← Layer 2: brand tokens (--brand-*); the ONLY file swapped to re-skin
     tokens.css              ← Layer 3: UI role tokens (shared, never raw values)
     fonts.css               ← @font-face declarations
   index.css                 ← entry point: @import all above + Tailwind
 ```
 
-To re-skin for a new course:
-1. Designer provides new `palette-lc-spanish.css` + `theme-lc-spanish.css`
-2. Developer swaps those two files in
-3. Zero component changes required
+To re-skin for a new course (e.g. Spanish):
+1. Designer provides 4 brand colour oklch values (primary, secondary, tertiary, quaternary) + any new font files
+2. Developer creates `theme-lc-spanish.css` with those 4 `--brand-*` slots
+3. Developer updates the `@import` in `index.css` to point to the new theme file
+4. Zero component or token changes required
+
+> `palette-lc.css` is **not** where the developer puts values. It is an intentionally empty
+> placeholder reserved for a future `--palette-*` raw value system that has not yet been
+> implemented. All brand colour values live directly in `theme-lc-[language].css`.
 
 ---
 
