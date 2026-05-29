@@ -599,24 +599,76 @@ document.documentElement.dataset.theme = localeThemeMap[locale];
 document.documentElement.classList.toggle("dark", isDarkMode);
 ```
 
-## Asset Placement Rules
+## Asset Naming & Placement Convention (Carry Forward)
 
-- Use `public/media/audio` and `public/media/video` for large runtime files referenced by URL.
-- Use `src/assets/svg` for SVGs imported into React components.
-- Use `public/media/images` for CMS/config-driven image paths.
-- Use `src/assets/fonts` for app fonts that are versioned and tokenized.
-- Keep file names ASCII-safe (no accents/spaces) for cross-platform reliability.
+### Universal rules
 
-### Audio File & Folder Naming Convention (Carry Forward)
+These apply to every file and folder name in `public/` — audio, images, fonts, everything.
 
-#### File names
+1. **Kebab-case always** — all lowercase, hyphens only. No PascalCase, no camelCase, no underscores, no spaces.
+2. **No file extension in the filename** — `cc-logo-black.svg` not `cc-logo-black-svg.svg`.
+3. **No abbreviations in folder names** — `images/` not `img/`, `scene-01/` not `s01/`.
+4. **ASCII-safe** — no accented characters, no special characters (cross-platform reliability).
+5. **Zero-padding for sortability:**
+   - LO folders: 2-digit zero-padded — `lo-01`, `lo-02` … `lo-15`
+   - Subsection folders: 2-digit zero-padded — `scene-01`, `fill-gaps-02`
+   - Individual files: 3-digit zero-padded — `001-`, `024-`, `135-`
 
-Every audio file must follow: **`NNN-kebab-case-description.mp3`**
+> **Note — this project:** Uses `lo1`–`lo15` (no zero-padding, no hyphen) and `img/` (abbreviated). These are known deviations — too large to migrate mid-project. Apply the rules above from day one on new projects.
 
-- `NNN` — zero-padded 3-digit sequence, **per folder** (each folder restarts at `001`)
-- Kebab-case — all lowercase, hyphens only, no underscores or spaces
-- Description — romanised French content, ASCII-safe (no accents, no special characters)
-- Accented chars romanised with a single hyphen: `où` → `ou`, `résidence` → `residence`
+---
+
+### Asset placement
+
+| Asset type | Location | Notes |
+|------------|----------|-------|
+| Runtime audio (URL-referenced) | `public/audio/` | Never in `src/` |
+| Runtime images (URL-referenced) | `public/images/` | Never in `src/` |
+| SVGs imported into React components | `src/assets/svg/` | Vite import, not URL |
+| App fonts | `src/assets/fonts/` | Versioned and tokenised |
+| UI sound effects | `public/audio/ui/` | No LO subfolder, no numeric prefix |
+| Favicons / PWA icons | `public/` root | Browser convention |
+
+---
+
+### Audio — directory structure
+
+```
+public/audio/
+  lo-01/
+    dialogues/
+      scene-01/              ← ordered + semantic; NOT phraseTable1/
+      scene-02/
+    vocabulary/              ← flat if < ~50 files; no subsections needed
+    grammar/
+      adjective-agreement/   ← semantic topic name, no number if unambiguous
+      modal-verbs/
+    pronunciation/
+      nasal-vowels/          ← semantic topic name
+      silent-h/
+    exercises/
+      fill-gaps-01/          ← task name + number; NOT draggableFillGaps1/
+      fill-gaps-02/
+      matching-01/           ← NOT memoryMatchGame1/
+      select-01/             ← NOT selectExercise1/
+      dictation-01/          ← NOT dictationExercise1/
+      listening-order-01/    ← NOT listeningOrder1/
+      transform-01/          ← NOT typedTransformExercise1/
+      inline-choice-01/      ← NOT inlineChoiceGroup1/
+    shared/                  ← audio reused across multiple sections of the same LO
+  lo-02/
+    ...
+  ui/
+    click.mp3                ← UI feedback sounds: flat, no prefix, no LO folder
+    error.mp3
+```
+
+#### Audio file names
+
+Every content audio file: **`NNN-kebab-case-description.mp3`**
+
+- `NNN` — 3-digit zero-padded sequence, **resets to `001` in every folder**
+- Description — romanised content, ASCII-safe; accented chars romanised with a single hyphen (`où` → `ou`, `résidence` → `residence`)
 
 ```
 ✅  001-ou-habites-tu.mp3
@@ -627,34 +679,81 @@ Every audio file must follow: **`NNN-kebab-case-description.mp3`**
 ❌  lo12ex4.mp3                             — opaque internal reference, no prefix
 ```
 
-#### Folder structure
+UI sounds (`public/audio/ui/`) do not carry a numeric prefix — there is no ordering requirement.
 
-Folders must use **semantic or ordered names** — never React component names.
-Component names change; content categories don't.
+#### Exercise folder name map (component → task name)
+
+| Old (component name) | New (task name) |
+|----------------------|-----------------|
+| `phraseTable1` | `scene-01` |
+| `draggableFillGaps1` | `fill-gaps-01` |
+| `selectExercise1` | `select-01` |
+| `memoryMatchGame1` | `matching-01` |
+| `dictationExercise1` | `dictation-01` |
+| `typedTransformExercise1` | `transform-01` |
+| `inlineChoiceGroup1` | `inline-choice-01` |
+| `listeningOrder1` | `listening-order-01` |
+| `grammar1`, `pronunciation1` | semantic topic name (e.g. `nasal-vowels/`) |
+
+**Rule:** folder names describe what the *learner experiences*, not what *component renders it*. If a component is renamed or replaced the folder name must stay stable.
+
+---
+
+### Images — directory structure
 
 ```
-audio/
-  loN/
-    dialogues/
-      01/            ← preferred (ordered, neutral)
-      02/            ← current LOs use phraseTable1/ — acceptable, not ideal
+public/images/
+  lo-01/
+    lo-01-hero.svg             ← one cover image per LO; name: lo-NN-topic-slug.svg
     exercises/
-      listening/     ← semantic content label  ✅
-      vocabulary/    ← semantic content label  ✅
-      01/            ← neutral ordered          ✅
-      selectExercise1/   ← component name       ❌
-      draggableFillGaps2/ ← component name      ❌
-    grammar/
-    pronunciation/
-    vocabulary/
+      rooms/                   ← content topic group; no numeric prefix on folder
+        attic.svg              ← named after what it depicts; no numeric prefix on file
+        bathroom.svg
+      vocabulary/
+        athletics.svg
+        basketball.svg
+  common/
+    branding/
+      fr-banner.svg
+    custom-icons/
+      circle-check.svg         ← flat, semantic, no prefix
+      volume-1.svg
+    footer/
+      cc-logo-black.svg        ← kebab-case; no redundant format suffix
+      lc-logo-dark.svg
+  shared/
+    grammar.svg                ← cross-LO reusables
+    self-study.svg
 ```
 
-**Never** name folders after components (`phraseTable`, `draggableFillGaps`, `selectExercise`,
-`memoryMatchGame`, `dictationExercise`, `typedTransformExercise`, etc.).
+#### Image file names
 
-For new projects use neutral ordered names (`01/`, `02/`) or semantic content labels
-(`listening/`, `vocabulary/`, `fill-gaps/`). See item 24 in "What To Avoid" for the
-migration scope on existing LOs.
+- **No numeric prefix** — images are keyed by what they depict, not by sequence.
+- Exception: if multiple images serve the *same content slot*, use `NNN-` prefix.
+- Named after the depicted subject in English: `athletics.svg`, `underground-train.svg`.
+- No redundant format suffix in the name: `cc-logo-black.svg` not `cc-logo-black-svg.svg`.
+
+#### Image formats
+
+| Format | Use for |
+|--------|---------|
+| `.svg` | All illustrations, icons, logos — preferred (scalable, small) |
+| `.webp` | Photographs only |
+| `.png` | Favicons and PWA manifest icons only (browser requirement) |
+| `.jpg` | Avoid — use `.webp` instead |
+
+---
+
+### Summary: what this project deviates from (known tech debt)
+
+| Deviation | Correct convention | Migration cost |
+|-----------|--------------------|----------------|
+| `lo1`–`lo15` (no zero-padding, no hyphen) | `lo-01`–`lo-15` | Very high — do on new project |
+| `img/` | `images/` | High — all config + JSX refs |
+| `phraseTable1/` in dialogues | `scene-01/` | Medium — ~15 LOs |
+| `draggableFillGaps1/` etc. in exercises | `fill-gaps-01/` etc. | High — ~50 folders, ~400 refs |
+| `CC_Logo_Black_SVG.svg` (PascalCase) | `cc-logo-black.svg` | Low — footer images only |
+| `grammar1/`, `pronunciation1/` (number without topic) | semantic topic name | Low — a handful of LOs |
 
 ## Light/Dark Mode Rules
 
