@@ -19,27 +19,27 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 					In French, the gender of the noun has implications for the <strong>possessive
 					adjectives</strong>.{" "}
 					There are two ways of saying <strong>my</strong> for singular nouns in French:{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/022-mon.mp3`}>
 						<strong>mon</strong>
 					</AudioClip>
 					{" "}for masculine nouns, for example{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon-frere.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/020-mon-frere.mp3`}>
 						<strong>mon</strong> frère
 					</AudioClip>
 					{" "}and{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon-jardin.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/021-mon-jardin.mp3`}>
 						<strong>mon</strong> jardin
 					</AudioClip>
 					, and{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/016-ma.mp3`}>
 						<strong>ma</strong>
 					</AudioClip>
 					{" "}for feminine nouns, for example{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma-femme.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/014-ma-femme.mp3`}>
 						<strong>ma</strong> femme
 					</AudioClip>
 					{" "}and{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma-maison.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/015-ma-maison.mp3`}>
 						<strong>ma</strong> maison
 					</AudioClip>
 					.
@@ -48,11 +48,11 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 					It is important to remember that the gender of the noun itself is what matters
 					here, and not the gender of the owner. There is only one way of saying{" "}
 					<strong>my</strong> for plural nouns, for example{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes-oncles.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/017-mes-oncles.mp3`}>
 						<strong>mes</strong> oncles
 					</AudioClip>
 					{" "}and{" "}
-					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes-tantes.mp3`}>
+					<AudioClip className={`link`} soundFile={`audio/lo6/grammar/018-mes-tantes.mp3`}>
 						<strong>mes</strong> tantes
 					</AudioClip>
 					. Here is a complete list of the possessive adjectives:
@@ -67,47 +67,47 @@ export class FamilyFriendsAndNeighboursGrammarPossessives extends PureComponent 
 					<TableBody>
 						<TableRow>
 							<TableCell>
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mon.mp3`}>mon</AudioClip>,{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ma.mp3`}>ma</AudioClip>,{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/mes.mp3`}>mes</AudioClip>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/022-mon.mp3`}>mon</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/016-ma.mp3`}>ma</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/019-mes.mp3`}>mes</AudioClip>
 							</TableCell>
 							<TableCell>my</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ton.mp3`}>ton</AudioClip>,{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ta.mp3`}>ta</AudioClip>,{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/tes.mp3`}>tes</AudioClip>
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/031-ton.mp3`}>ton</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/029-ta.mp3`}>ta</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/030-tes.mp3`}>tes</AudioClip>
 							</TableCell>
 							<TableCell>your (sing)</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/son.mp3`}>son</AudioClip>,{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/sa.mp3`}>sa</AudioClip>,{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/ses.mp3`}>ses</AudioClip>{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/028-son.mp3`}>son</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/026-sa.mp3`}>sa</AudioClip>,{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/027-ses.mp3`}>ses</AudioClip>{" "}
 								<span className="edu-warn text-base font-bold leading-none">*</span>
 							</TableCell>
 							<TableCell>his / her</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/notre.mp3`}>notre</AudioClip> (sing),{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/nos.mp3`}>nos</AudioClip> (pl)
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/024-notre.mp3`}>notre</AudioClip> (sing),{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/023-nos.mp3`}>nos</AudioClip> (pl)
 							</TableCell>
 							<TableCell>our</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/votre.mp3`}>votre</AudioClip> (sing),{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/vos.mp3`}>vos</AudioClip> (pl)
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/035-votre.mp3`}>votre</AudioClip> (sing),{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/034-vos.mp3`}>vos</AudioClip> (pl)
 							</TableCell>
 							<TableCell>your (formal, pl)</TableCell>
 						</TableRow>
 						<TableRow>
 							<TableCell>
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/leur.mp3`}>leur</AudioClip> (sing),{" "}
-								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/leurs.mp3`}>leurs</AudioClip> (pl)
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/012-leur.mp3`}>leur</AudioClip> (sing),{" "}
+								<AudioClip className={`link`} soundFile={`audio/lo6/grammar/013-leurs.mp3`}>leurs</AudioClip> (pl)
 							</TableCell>
 							<TableCell>their</TableCell>
 						</TableRow>
@@ -151,42 +151,42 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 			{
 				english: "I have",
 				french: "j&apos;ai",
-				soundFile: "audio/lo6/grammar/j-ai.mp3",
+				soundFile: "audio/lo6/grammar/011-j-ai.mp3",
 			},
 			{
 				english: "you have",
 				french: "tu as",
-				soundFile: "audio/lo6/grammar/tu-as.mp3",
+				soundFile: "audio/lo6/grammar/033-tu-as.mp3",
 			},
 			{
 				english: "he has, it has",
 				french: "il a",
-				soundFile: "audio/lo6/grammar/il-a.mp3",
+				soundFile: "audio/lo6/grammar/006-il-a.mp3",
 			},
 			{
 				english: "she has, it has",
 				french: "elle a",
-				soundFile: "audio/lo6/grammar/elle-a.mp3",
+				soundFile: "audio/lo6/grammar/003-elle-a.mp3",
 			},
 			{
 				english: "we have",
 				french: "nous avons",
-				soundFile: "audio/lo6/grammar/nous-avons.mp3",
+				soundFile: "audio/lo6/grammar/025-nous-avons.mp3",
 			},
 			{
 				english: "you have",
 				french: "vous avez",
-				soundFile: "audio/lo6/grammar/vous-avez.mp3",
+				soundFile: "audio/lo6/grammar/037-vous-avez.mp3",
 			},
 			{
 				english: "they have",
 				french: "ils ont",
-				soundFile: "audio/lo6/grammar/ils-ont.mp3",
+				soundFile: "audio/lo6/grammar/007-ils-ont.mp3",
 			},
 			{
 				english: "they have",
 				french: "elles ont",
-				soundFile: "audio/lo6/grammar/elles-ont.mp3",
+				soundFile: "audio/lo6/grammar/004-elles-ont.mp3",
 			},
 		];
 		const expressionRows = [
@@ -195,42 +195,42 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 				example: <strong>J&apos;ai 25 ans.</strong>,
 				label: "avoir … ans",
 				meaning: "to be … years old",
-				soundFile: "audio/lo6/grammar/j-ai-25-ans.mp3",
+				soundFile: "audio/lo6/grammar/008-j-ai-25-ans.mp3",
 			},
 			{
 				english: "I&apos;m thirsty.",
 				example: <strong>J&apos;ai soif.</strong>,
 				label: "avoir soif",
 				meaning: "to be thirsty",
-				soundFile: "audio/lo6/grammar/j-ai-soif.mp3",
+				soundFile: "audio/lo6/grammar/009-j-ai-soif.mp3",
 			},
 			{
 				english: "She&apos;s hungry.",
 				example: <strong>Elle a faim.</strong>,
 				label: "avoir faim",
 				meaning: "to be hungry",
-				soundFile: "audio/lo6/grammar/elle-a-faim.mp3",
+				soundFile: "audio/lo6/grammar/002-elle-a-faim.mp3",
 			},
 			{
 				english: "He&apos;s frightened.",
 				example: <strong>Il a peur.</strong>,
 				label: "avoir peur",
 				meaning: "to be frightened",
-				soundFile: "audio/lo6/grammar/il-a-peur.mp3",
+				soundFile: "audio/lo6/grammar/005-il-a-peur.mp3",
 			},
 			{
 				english: "Are you / do you feel cold?",
 				example: <strong>Tu as froid ?</strong>,
 				label: "avoir froid",
 				meaning: "to be / feel cold",
-				soundFile: "audio/lo6/grammar/tu-as-froid.mp3",
+				soundFile: "audio/lo6/grammar/032-tu-as-froid.mp3",
 			},
 			{
 				english: "Are you hot / do you feel hot?",
 				example: <strong>Vous avez chaud ?</strong>,
 				label: "avoir chaud",
 				meaning: "to be / feel hot",
-				soundFile: "audio/lo6/grammar/vous-avez-chaud.mp3",
+				soundFile: "audio/lo6/grammar/036-vous-avez-chaud.mp3",
 			},
 		];
 
@@ -244,12 +244,12 @@ export class FamilyFriendsAndNeighboursGrammarAvoir extends PureComponent {
 				{/* h4→grammar-sub-heading: replaces old inline Tailwind style */}
 				<h4 className="grammar-sub-heading">Verbs in French continued</h4>
 				<p>
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/avoir.mp3`}>
+						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/001-avoir.mp3`}>
 							<strong>Avoir</strong>
 						</AudioClip>
 						{" "}is one of the many irregular verbs in French. It means <strong>to have</strong>,
 						for example{" "}
-						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/j-ai-une-soeur.mp3`}>
+						<AudioClip className={`link`} soundFile={`audio/lo6/grammar/010-j-ai-une-soeur.mp3`}>
 							J'ai une soeur
 						</AudioClip>
 						{" "}meaning I have a sister.

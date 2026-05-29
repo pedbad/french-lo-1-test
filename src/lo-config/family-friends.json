@@ -19,17 +19,17 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"audio/lo6/dialogues/tu-as-des-freres-et-des-s-urs.mp3",
+							"audio/lo6/dialogues/010-tu-as-des-freres-et-des-s-urs.mp3",
 							"Tu as des frères et des sœurs ?",
 							"Have you got brothers and sisters?"
 						],
 						[
-							"audio/lo6/dialogues/oui-j-ai-un-grand-frere-et-deux-petites-s-urs-et-toi.mp3",
+							"audio/lo6/dialogues/009-oui-j-ai-un-grand-frere-et-deux-petites-s-urs-et-toi.mp3",
 							"Oui, j'ai un grand frère et deux petites sœurs. Et toi ?",
 							"Yes, I have a big (older) brother and two little (younger) sisters. What about you?"
 						],
 						[
-							"audio/lo6/dialogues/je-n-ai-pas-de-freres-mais-j-ai-une-s-ur-jumelle.mp3",
+							"audio/lo6/dialogues/006-je-n-ai-pas-de-freres-mais-j-ai-une-s-ur-jumelle.mp3",
 							"Je n'ai pas de frères, mais j'ai une sœur-jumelle.",
 							"I haven't got any brothers, but I've got a twin sister."
 						]
@@ -44,17 +44,17 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"audio/lo6/dialogues/vous-avez-des-freres-et-des-s-urs.mp3",
+							"audio/lo6/dialogues/011-vous-avez-des-freres-et-des-s-urs.mp3",
 							"Vous avez des frères et des sœurs ?",
 							"Have you got brothers and sisters?"
 						],
 						[
-							"audio/lo6/dialogues/non-je-n-ai-ni-freres-ni-s-urs-je-suis-enfant-unique-et-vous.mp3",
+							"audio/lo6/dialogues/007-non-je-n-ai-ni-freres-ni-s-urs-je-suis-enfant-unique-et-vous.mp3",
 							"Non, je n'ai ni frères ni sœurs. Je suis enfant unique. Et vous ?",
 							"No, I've got neither brothers nor sisters. I'm an only child. What about you?"
 						],
 						[
-							"audio/lo6/dialogues/j-ai-un-demi-frere-et-une-demi-s-ur.mp3",
+							"audio/lo6/dialogues/005-j-ai-un-demi-frere-et-une-demi-s-ur.mp3",
 							"J'ai un demi-frère et une demi-sœur.",
 							"I've got a half-brother and a half-sister."
 						]
@@ -69,27 +69,27 @@
 					"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 					"phrases": [
 						[
-							"audio/lo6/dialogues/caroline-vous-avez-des-enfants.mp3",
+							"audio/lo6/dialogues/003-caroline-vous-avez-des-enfants.mp3",
 							"Caroline, vous avez des enfants ?",
 							"Caroline, do you have any children?"
 						],
 						[
-							"audio/lo6/dialogues/ah-non-nous-n-avons-pas-d-enfants-pas-encore-et-vous.mp3",
+							"audio/lo6/dialogues/001-ah-non-nous-n-avons-pas-d-enfants-pas-encore-et-vous.mp3",
 							"Ah non, nous n'avons pas d'enfants, pas encore ! Et vous ?",
 							"Oh no, we haven't got any children, not yet. What about you?"
 						],
 						[
-							"audio/lo6/dialogues/oui-j-ai-un-fils.mp3",
+							"audio/lo6/dialogues/008-oui-j-ai-un-fils.mp3",
 							"Oui, j'ai un fils.",
 							"Yes, I've got a son."
 						],
 						[
-							"audio/lo6/dialogues/il-a-quel-age.mp3",
+							"audio/lo6/dialogues/004-il-a-quel-age.mp3",
 							"Il a quel âge ?",
 							"How old is he?"
 						],
 						[
-							"audio/lo6/dialogues/c-est-un-bebe-il-a-cinq-mois.mp3",
+							"audio/lo6/dialogues/002-c-est-un-bebe-il-a-cinq-mois.mp3",
 							"C'est un bébé. Il a cinq mois.",
 							"He's a baby. He's five months old."
 						]
@@ -109,157 +109,157 @@
 		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core family vocabulary (for example <em>frère</em>, <em>sœur</em>, <em>grands-parents</em>).</li><li>Words for relationships and households (for example <em>mari</em>, <em>femme</em>, <em>compagnon</em>, <em>voisin</em>).</li><li>Useful ways to ask about age and family structure.</li><li>Vocabulary that supports the grammar, pronunciation, and exercise work in this unit.</li></ul>",
 		"phrases": [
 			[
-				"audio/lo6/shared/famille.mp3",
+				"audio/lo6/shared/001-famille.mp3",
 				"famille (f)",
 				"family"
 			],
 			[
-				"audio/lo6/vocabulary/pere-mere.mp3",
+				"audio/lo6/vocabulary/024-pere-mere.mp3",
 				"père (m) mère (f)",
 				"father, mother"
 			],
 			[
-				"audio/lo6/vocabulary/parent.mp3",
+				"audio/lo6/vocabulary/023-parent.mp3",
 				"parent (m)",
 				"parent / relative"
 			],
 			[
-				"audio/lo6/vocabulary/maman-papa.mp3",
+				"audio/lo6/vocabulary/020-maman-papa.mp3",
 				"maman, papa",
 				"mum, dad"
 			],
 			[
-				"audio/lo6/vocabulary/frere-s-ur.mp3",
+				"audio/lo6/vocabulary/014-frere-s-ur.mp3",
 				"frère (m) sœur (f)",
 				"brother, sister"
 			],
 			[
-				"audio/lo6/vocabulary/jumeau-jumelle.mp3",
+				"audio/lo6/vocabulary/019-jumeau-jumelle.mp3",
 				"jumeau (m) jumelle (f)",
 				"twin brother, twin sister"
 			],
 			[
-				"audio/lo6/vocabulary/fils-fille.mp3",
+				"audio/lo6/vocabulary/013-fils-fille.mp3",
 				"fils (m) fille (f)",
 				"son, daughter"
 			],
 			[
-				"audio/lo6/vocabulary/garcon-fille.mp3",
+				"audio/lo6/vocabulary/015-garcon-fille.mp3",
 				"garçon (m) fille (f)",
 				"boy, girl"
 			],
 			[
-				"audio/lo6/vocabulary/bebe.mp3",
+				"audio/lo6/vocabulary/004-bebe.mp3",
 				"bébé (m)",
 				"baby"
 			],
 			[
-				"audio/lo6/vocabulary/oncle-tante.mp3",
+				"audio/lo6/vocabulary/022-oncle-tante.mp3",
 				"oncle (m) tante (f)",
 				"uncle, aunt"
 			],
 			[
-				"audio/lo6/vocabulary/cousin-cousine.mp3",
+				"audio/lo6/vocabulary/010-cousin-cousine.mp3",
 				"cousin (m) cousine (f)",
 				"cousin"
 			],
 			[
-				"audio/lo6/vocabulary/grands-parents.mp3",
+				"audio/lo6/vocabulary/018-grands-parents.mp3",
 				"grands-parents (mpl)",
 				"grandparents"
 			],
 			[
-				"audio/lo6/vocabulary/grand-pere-grand-mere.mp3",
+				"audio/lo6/vocabulary/017-grand-pere-grand-mere.mp3",
 				"grand-père (m) grand-mère (f)",
 				"grandfather"
 			],
 			[
-				"audio/lo6/vocabulary/beau-pere.mp3",
+				"audio/lo6/vocabulary/003-beau-pere.mp3",
 				"beau-père (m)",
 				"father-in-law, stepfather"
 			],
 			[
-				"audio/lo6/vocabulary/belle-mere.mp3",
+				"audio/lo6/vocabulary/005-belle-mere.mp3",
 				"belle-mère (f)",
 				"mother-in-law, stepmother"
 			],
 			[
-				"audio/lo6/vocabulary/beau-frere.mp3",
+				"audio/lo6/vocabulary/002-beau-frere.mp3",
 				"beau-frère  (m)",
 				"brother-in-law, stepbrother"
 			],
 			[
-				"audio/lo6/vocabulary/belle-s-ur.mp3",
+				"audio/lo6/vocabulary/006-belle-s-ur.mp3",
 				"belle-sœur (f)",
 				"sister-in-law, stepsister"
 			],
 			[
-				"audio/lo6/vocabulary/enfant-unique.mp3",
+				"audio/lo6/vocabulary/012-enfant-unique.mp3",
 				"enfant unique",
 				"only child"
 			],
 			[
-				"audio/lo6/vocabulary/demi-frere-demi-s-ur.mp3",
+				"audio/lo6/vocabulary/011-demi-frere-demi-s-ur.mp3",
 				"demi-frère (m) demi-sœur (f)",
 				"half-brother, half-sister"
 			],
 			[
-				"audio/lo6/vocabulary/petits-enfants.mp3",
+				"audio/lo6/vocabulary/027-petits-enfants.mp3",
 				"petits-enfants (mpl)",
 				"grandchildren"
 			],
 			[
-				"audio/lo6/vocabulary/petit-fils-petite-fille.mp3",
+				"audio/lo6/vocabulary/026-petit-fils-petite-fille.mp3",
 				"petit-fils (m) petite-fille (f)",
 				"grandson, granddaughter"
 			],
 			[
-				"audio/lo6/vocabulary/mari-femme.mp3",
+				"audio/lo6/vocabulary/021-mari-femme.mp3",
 				"mari (m) femme (f)",
 				"husband, wife"
 			],
 			[
-				"audio/lo6/vocabulary/personne.mp3",
+				"audio/lo6/vocabulary/025-personne.mp3",
 				"personne (f)",
 				"person"
 			],
 			[
-				"audio/lo6/vocabulary/ami-amie.mp3",
+				"audio/lo6/vocabulary/001-ami-amie.mp3",
 				"ami (m) amie (f)",
 				"friend"
 			],
 			[
-				"audio/lo6/vocabulary/copain-copine.mp3",
+				"audio/lo6/vocabulary/009-copain-copine.mp3",
 				"copain (m) copine (f)",
 				"friend / boyfriend, girlfriend"
 			],
 			[
-				"audio/lo6/vocabulary/compagnon-compagne.mp3",
+				"audio/lo6/vocabulary/007-compagnon-compagne.mp3",
 				"compagnon (m) compagne (f)",
 				"partner"
 			],
 			[
-				"audio/lo6/vocabulary/conjoint-conjointe.mp3",
+				"audio/lo6/vocabulary/008-conjoint-conjointe.mp3",
 				"conjoint (m) conjointe (f)",
 				"spouse"
 			],
 			[
-				"audio/lo6/vocabulary/voisin-voisine.mp3",
+				"audio/lo6/vocabulary/030-voisin-voisine.mp3",
 				"voisin (m) voisine (f)",
 				"neighbour"
 			],
 			[
-				"audio/lo6/vocabulary/quel-age-as-tu-tu-as-quel-age.mp3",
+				"audio/lo6/vocabulary/028-quel-age-as-tu-tu-as-quel-age.mp3",
 				"Quel âge as-tu ? Tu as quel âge ?",
 				"How old are you?"
 			],
 			[
-				"audio/lo6/vocabulary/quel-age-avez-vous-vous-avez-quel-age.mp3",
+				"audio/lo6/vocabulary/029-quel-age-avez-vous-vous-avez-quel-age.mp3",
 				"Quel âge avez-vous ? Vous avez quel âge ?",
 				"How old are you?"
 			],
 			[
-				"audio/lo6/vocabulary/gentil-gentille.mp3",
+				"audio/lo6/vocabulary/016-gentil-gentille.mp3",
 				"gentil (m) gentille (f)",
 				"nice, kind"
 			]
@@ -347,23 +347,23 @@
 					"items": [
 						{
 							"text": "[J'ai des sœurs.|*J'ai deux sœurs.|Je n'ai pas de sœurs.]",
-							"audio": "audio/lo6/exercises/j-ai-deux-s-urs.mp3"
+							"audio": "audio/lo6/exercises/031-j-ai-deux-s-urs.mp3"
 						},
 						{
 							"text": "[Il a un frère.|*Elle a un frère.|Elles ont un frère.]",
-							"audio": "audio/lo6/exercises/elle-a-un-frere.mp3"
+							"audio": "audio/lo6/exercises/010-elle-a-un-frere.mp3"
 						},
 						{
 							"text": "[Mon copain s'appelle David.|Mon conjoint s'appelle David.|*Mon compagnon s'appelle David.]",
-							"audio": "audio/lo6/exercises/mon-compagnon-s-appelle-david.mp3"
+							"audio": "audio/lo6/exercises/046-mon-compagnon-s-appelle-david.mp3"
 						},
 						{
 							"text": "[*Ils ont un fils.|Ils ont deux fils.|Ils ont deux filles.]",
-							"audio": "audio/lo6/exercises/ils-ont-un-fils.mp3"
+							"audio": "audio/lo6/exercises/022-ils-ont-un-fils.mp3"
 						},
 						{
 							"text": "[Mon amie est allemande.|Mes amis sont allemands.|*Mes amies sont allemandes.]",
-							"audio": "audio/lo6/exercises/mes-amies-sont-allemandes.mp3"
+							"audio": "audio/lo6/exercises/043-mes-amies-sont-allemandes.mp3"
 						}
 					],
 					"titleText": "1. Practise your listening skills"
@@ -381,75 +381,75 @@
 					"items": [
 						{
 							"text": "famille [*y|l]",
-							"audio": "audio/lo6/shared/famille.mp3"
+							"audio": "audio/lo6/shared/001-famille.mp3"
 						},
 						{
 							"text": "Camille [*y|l]",
-							"audio": "audio/lo6/exercises/camille.mp3"
+							"audio": "audio/lo6/exercises/005-camille.mp3"
 						},
 						{
 							"text": "fille [*y|l]",
-							"audio": "audio/lo6/exercises/fille.mp3"
+							"audio": "audio/lo6/exercises/017-fille.mp3"
 						},
 						{
 							"text": "gentille [*y|l]",
-							"audio": "audio/lo6/exercises/gentille.mp3"
+							"audio": "audio/lo6/exercises/018-gentille.mp3"
 						},
 						{
 							"text": "s'appelle [y|*l]",
-							"audio": "audio/lo6/exercises/s-appelle.mp3"
+							"audio": "audio/lo6/exercises/057-s-appelle.mp3"
 						},
 						{
 							"text": "Myrtille [*y|l]",
-							"audio": "audio/lo6/exercises/myrtille.mp3"
+							"audio": "audio/lo6/exercises/048-myrtille.mp3"
 						},
 						{
 							"text": "tilleuls [*y|l]",
-							"audio": "audio/lo6/exercises/tilleuls.mp3"
+							"audio": "audio/lo6/exercises/060-tilleuls.mp3"
 						},
 						{
 							"text": "Versailles [*y|l]",
-							"audio": "audio/lo6/exercises/versailles.mp3"
+							"audio": "audio/lo6/exercises/062-versailles.mp3"
 						},
 						{
 							"text": "Annabelle [y|*l]",
-							"audio": "audio/lo6/exercises/annabelle.mp3"
+							"audio": "audio/lo6/exercises/002-annabelle.mp3"
 						},
 						{
 							"text": "elle [y|*l]",
-							"audio": "audio/lo6/exercises/elle.mp3"
+							"audio": "audio/lo6/exercises/014-elle.mp3"
 						},
 						{
 							"text": "petite-fille [*y|l]",
-							"audio": "audio/lo6/exercises/petite-fille.mp3"
+							"audio": "audio/lo6/exercises/055-petite-fille.mp3"
 						},
 						{
 							"text": "Isabelle [y|*l]",
-							"audio": "audio/lo6/exercises/isabelle.mp3"
+							"audio": "audio/lo6/exercises/028-isabelle.mp3"
 						},
 						{
 							"text": "Lille [y|*l]",
-							"audio": "audio/lo6/shared/lille.mp3"
+							"audio": "audio/lo6/shared/003-lille.mp3"
 						},
 						{
 							"text": "Gilles [y|*l]",
-							"audio": "audio/lo6/shared/gilles.mp3"
+							"audio": "audio/lo6/shared/002-gilles.mp3"
 						},
 						{
 							"text": "tranquille [y|*l]",
-							"audio": "audio/lo6/shared/tranquille.mp3"
+							"audio": "audio/lo6/shared/004-tranquille.mp3"
 						},
 						{
 							"text": "quelle [y|*l]",
-							"audio": "audio/lo6/exercises/quelle.mp3"
+							"audio": "audio/lo6/exercises/056-quelle.mp3"
 						},
 						{
 							"text": "belle [y|*l]",
-							"audio": "audio/lo6/exercises/belle.mp3"
+							"audio": "audio/lo6/exercises/003-belle.mp3"
 						},
 						{
 							"text": "ville [y|*l]",
-							"audio": "audio/lo6/exercises/ville.mp3"
+							"audio": "audio/lo6/exercises/063-ville.mp3"
 						}
 					],
 					"titleText": "2. Double ll: y or l?"
@@ -474,43 +474,43 @@
 					"items": [
 						{
 							"text": "J' [*ai|as|a|avons|avez|ont] 30 ans.",
-							"audio": "audio/lo6/exercises/j-ai-30-ans.mp3"
+							"audio": "audio/lo6/exercises/029-j-ai-30-ans.mp3"
 						},
 						{
 							"text": "Nous [ai|as|a|*avons|avez|ont] trois enfants.",
-							"audio": "audio/lo6/exercises/nous-avons-trois-enfants.mp3"
+							"audio": "audio/lo6/exercises/051-nous-avons-trois-enfants.mp3"
 						},
 						{
 							"text": "Vous [ai|as|a|avons|*avez|ont] soif ?",
-							"audio": "audio/lo6/exercises/vous-avez-soif.mp3"
+							"audio": "audio/lo6/exercises/065-vous-avez-soif.mp3"
 						},
 						{
 							"text": "Tu [ai|*as|a|avons|avez|ont] faim ?",
-							"audio": "audio/lo6/exercises/tu-as-faim.mp3"
+							"audio": "audio/lo6/exercises/061-tu-as-faim.mp3"
 						},
 						{
 							"text": "Elle [ai|as|*a|avons|avez|ont] un fils de deux ans.",
-							"audio": "audio/lo6/exercises/elle-a-un-fils-de-deux-ans.mp3"
+							"audio": "audio/lo6/exercises/009-elle-a-un-fils-de-deux-ans.mp3"
 						},
 						{
 							"text": "Ils [ai|as|a|avons|avez|*ont] un bébé de trois mois.",
-							"audio": "audio/lo6/exercises/ils-ont-un-bebe-de-trois-mois.mp3"
+							"audio": "audio/lo6/exercises/021-ils-ont-un-bebe-de-trois-mois.mp3"
 						},
 						{
 							"text": "Elles [ai|as|a|avons|avez|*ont] peur.",
-							"audio": "audio/lo6/exercises/elles-ont-peur.mp3"
+							"audio": "audio/lo6/exercises/015-elles-ont-peur.mp3"
 						},
 						{
 							"text": "Il [ai|as|*a|avons|avez|ont] un appartement en ville.",
-							"audio": "audio/lo6/exercises/il-a-un-appartement-en-ville.mp3"
+							"audio": "audio/lo6/exercises/019-il-a-un-appartement-en-ville.mp3"
 						},
 						{
 							"text": "J' [*ai|as|a|avons|avez|ont] froid.",
-							"audio": "audio/lo6/exercises/j-ai-froid.mp3"
+							"audio": "audio/lo6/exercises/032-j-ai-froid.mp3"
 						},
 						{
 							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge ?",
-							"audio": "audio/lo6/exercises/vous-avez-quel-age.mp3"
+							"audio": "audio/lo6/exercises/064-vous-avez-quel-age.mp3"
 						}
 					],
 					"titleTextHTML": "4. Practise the verb <strong>avoir</strong>"
@@ -528,59 +528,59 @@
 					"items": [
 						{
 							"text": "Louis n'est pas [*mon|ma|mes] frère. C'est [*mon|ma|mes] cousin.  ",
-							"audio": "audio/lo6/exercises/louis-n-est-pas-mon-frere-c-est-mon-cousin.mp3"
+							"audio": "audio/lo6/exercises/038-louis-n-est-pas-mon-frere-c-est-mon-cousin.mp3"
 						},
 						{
 							"text": "Je vous présente [mon|*ma|mes] tante, Géraldine et [*mon|ma|mes] oncle, Simon. ",
-							"audio": "audio/lo6/exercises/je-vous-presente-ma-tante-geraldine-et-mon-oncle-simon.mp3"
+							"audio": "audio/lo6/exercises/033-je-vous-presente-ma-tante-geraldine-et-mon-oncle-simon.mp3"
 						},
 						{
 							"text": "[Mon|Ma|*Mes] cousines habitent aux Etats-Unis.",
-							"audio": "audio/lo6/exercises/mes-cousines-habitent-aux-etats-unis.mp3"
+							"audio": "audio/lo6/exercises/044-mes-cousines-habitent-aux-etats-unis.mp3"
 						},
 						{
 							"text": "Où habite [ton|*ta|tes] famille ?",
-							"audio": "audio/lo6/exercises/ou-habite-ta-famille.mp3"
+							"audio": "audio/lo6/exercises/052-ou-habite-ta-famille.mp3"
 						},
 						{
 							"text": "Comment s'appelle [*ton|ta|tes] voisin ?",
-							"audio": "audio/lo6/exercises/comment-s-appelle-ton-voisin.mp3"
+							"audio": "audio/lo6/exercises/007-comment-s-appelle-ton-voisin.mp3"
 						},
 						{
 							"text": "[Ton|Ta|*Tes] amis habitent en banlieue ?",
-							"audio": "audio/lo6/exercises/tes-amis-habitent-en-banlieue.mp3"
+							"audio": "audio/lo6/exercises/059-tes-amis-habitent-en-banlieue.mp3"
 						},
 						{
 							"text": "Mélanie n'habite pas chez [*son|sa|ses] père, elle habite chez [son|*sa|ses] mère.",
-							"audio": "audio/lo6/exercises/melanie-n-habite-pas-chez-son-pere-elle-habite-chez-sa-mere.mp3"
+							"audio": "audio/lo6/exercises/042-melanie-n-habite-pas-chez-son-pere-elle-habite-chez-sa-mere.mp3"
 						},
 						{
 							"text": "[Son|Sa|*Ses] sœurs sont en Australie.",
-							"audio": "audio/lo6/exercises/ses-s-urs-sont-en-australie.mp3"
+							"audio": "audio/lo6/exercises/058-ses-s-urs-sont-en-australie.mp3"
 						},
 						{
 							"text": "[*Notre|Nos] maison se trouve à cinq kilomètres d'ici.",
-							"audio": "audio/lo6/exercises/notre-maison-se-trouve-a-cinq-kilometres-d-ici.mp3"
+							"audio": "audio/lo6/exercises/050-notre-maison-se-trouve-a-cinq-kilometres-d-ici.mp3"
 						},
 						{
 							"text": "[Notre|*Nos] petits-enfants sont bilingues.",
-							"audio": "audio/lo6/exercises/nos-petits-enfants-sont-bilingues.mp3"
+							"audio": "audio/lo6/exercises/049-nos-petits-enfants-sont-bilingues.mp3"
 						},
 						{
 							"text": "Où sont [votre|*vos] enfants ?",
-							"audio": "audio/lo6/exercises/ou-sont-vos-enfants.mp3"
+							"audio": "audio/lo6/exercises/054-ou-sont-vos-enfants.mp3"
 						},
 						{
 							"text": "Et [*votre|vos] mari ?",
-							"audio": "audio/lo6/exercises/et-votre-mari.mp3"
+							"audio": "audio/lo6/exercises/016-et-votre-mari.mp3"
 						},
 						{
 							"text": "Ils sont chez [leur|*leurs] grands-parents.",
-							"audio": "audio/lo6/exercises/ils-sont-chez-leurs-grands-parents.mp3"
+							"audio": "audio/lo6/exercises/023-ils-sont-chez-leurs-grands-parents.mp3"
 						},
 						{
 							"text": "Où se trouve [*leur|leurs] appartement ?",
-							"audio": "audio/lo6/exercises/ou-se-trouve-leur-appartement.mp3"
+							"audio": "audio/lo6/exercises/053-ou-se-trouve-leur-appartement.mp3"
 						}
 					],
 					"titleText": "5. Practise the possessives"
@@ -598,43 +598,43 @@
 					"items": [
 						{
 							"text": "Ma famille est [*une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/ma-famille-est-une-famille-nombreuse.mp3"
+							"audio": "audio/lo6/exercises/039-ma-famille-est-une-famille-nombreuse.mp3"
 						},
 						{
 							"text": "Il y a [une famille nombreuse.|*huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/il-y-a-huit-personnes-dans-ma-famille.mp3"
+							"audio": "audio/lo6/exercises/020-il-y-a-huit-personnes-dans-ma-famille.mp3"
 						},
 						{
 							"text": "La personne la plus âgée [une famille nombreuse.|huit personnes dans ma famille.|*est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/la-personne-la-plus-agee-est-ma-grand-mere.mp3"
+							"audio": "audio/lo6/exercises/037-la-personne-la-plus-agee-est-ma-grand-mere.mp3"
 						},
 						{
 							"text": "Elle a [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|*89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/elle-a-89-ans.mp3"
+							"audio": "audio/lo6/exercises/008-elle-a-89-ans.mp3"
 						},
 						{
 							"text": "Elle est [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|*veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/elle-est-veuve.mp3"
+							"audio": "audio/lo6/exercises/011-elle-est-veuve.mp3"
 						},
 						{
 							"text": "Mon grand-père est [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|*décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/mon-grand-pere-est-decede.mp3"
+							"audio": "audio/lo6/exercises/047-mon-grand-pere-est-decede.mp3"
 						},
 						{
 							"text": "Mes parents [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|*s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/mes-parents-s-appellent-julie-et-marc.mp3"
+							"audio": "audio/lo6/exercises/045-mes-parents-s-appellent-julie-et-marc.mp3"
 						},
 						{
 							"text": "Ils sont mariés [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|*depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/ils-sont-maries-depuis-26-ans.mp3"
+							"audio": "audio/lo6/exercises/024-ils-sont-maries-depuis-26-ans.mp3"
 						},
 						{
 							"text": "J'ai deux sœurs [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|*et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/j-ai-deux-s-urs-et-deux-freres.mp3"
+							"audio": "audio/lo6/exercises/030-j-ai-deux-s-urs-et-deux-freres.mp3"
 						},
 						{
 							"text": "Ils sont tous [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|*plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/ils-sont-tous-plus-ages-que-moi.mp3"
+							"audio": "audio/lo6/exercises/025-ils-sont-tous-plus-ages-que-moi.mp3"
 						}
 					],
 					"titleText": "6. Jeanne's Family"

@@ -19,17 +19,17 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo7/dialogues/vous-aimez-le-rugby-guillaume.mp3",
+              "audio/lo7/dialogues/013-vous-aimez-le-rugby-guillaume.mp3",
               "Vous aimez le rugby, Guillaume ?",
               "Do you like rugby, Guillaume?"
             ],
             [
-              "audio/lo7/dialogues/le-rugby-ah-non-je-deteste-le-rugby-et-vous-qu-est-ce-que-vous-aimez-comme-sports.mp3",
+              "audio/lo7/dialogues/006-le-rugby-ah-non-je-deteste-le-rugby-et-vous-qu-est-ce-que-vous-aimez-comme-sports.mp3",
               "Le rugby ? Ah non ! Je déteste le rugby ! Et vous, qu'est-ce que vous aimez comme sports ?",
               "Rugby? Oh no! I hate rugby! What about you, what sports do you like?"
             ],
             [
-              "audio/lo7/dialogues/je-suis-tres-sportif-j-aime-beaucoup-le-rugby-et-le-foot-j-aime-aussi-le-squash-et-le-badminton.mp3",
+              "audio/lo7/dialogues/005-je-suis-tres-sportif-j-aime-beaucoup-le-rugby-et-le-foot-j-aime-aussi-le-squash-et-le-badminton.mp3",
               "Je suis très sportif ! J'aime beaucoup le rugby et le foot. J'aime aussi le squash et le badminton.",
               "I like rugby and football very much. I also like squash and badminton."
             ]
@@ -44,12 +44,12 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo7/dialogues/tu-aimes-le-karate.mp3",
+              "audio/lo7/dialogues/012-tu-aimes-le-karate.mp3",
               "Tu aimes le karaté ?",
               "Do you like karate?"
             ],
             [
-              "audio/lo7/dialogues/je-n-aime-pas-du-tout-le-karate-c-est-dangereux-je-prefere-le-yoga-c-est-relaxant.mp3",
+              "audio/lo7/dialogues/003-je-n-aime-pas-du-tout-le-karate-c-est-dangereux-je-prefere-le-yoga-c-est-relaxant.mp3",
               "Je n'aime pas du tout le karaté.  C'est dangereux ! Je préfère le yoga. C'est relaxant.",
               "I don't like karate at all. It's dangerous! I prefer yoga. It's relaxing."
             ]
@@ -64,17 +64,17 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo7/dialogues/qu-est-ce-que-tu-aimes-faire-pendant-ton-temps-libre.mp3",
+              "audio/lo7/dialogues/009-qu-est-ce-que-tu-aimes-faire-pendant-ton-temps-libre.mp3",
               "Qu'est-ce que tu aimes faire pendant ton temps libre ?",
               "What do you like to do in your spare time?"
             ],
             [
-              "audio/lo7/dialogues/j-aime-danser-et-j-aime-voir-mes-amis-j-aime-regarder-la-tele-aussi-et-toi-tu-aimes-danser.mp3",
+              "audio/lo7/dialogues/001-j-aime-danser-et-j-aime-voir-mes-amis-j-aime-regarder-la-tele-aussi-et-toi-tu-aimes-danser.mp3",
               "J'aime danser et j'aime voir mes amis. J'aime regarder la télé aussi. Et toi, tu aimes danser ?",
               "I like to dance, and I like to see my friends. I like to watch the tv too. And what about you, do you like to dance?"
             ],
             [
-              "audio/lo7/dialogues/non-je-n-aime-pas-danser-je-prefere-chanter-je-chante-dans-une-chorale.mp3",
+              "audio/lo7/dialogues/008-non-je-n-aime-pas-danser-je-prefere-chanter-je-chante-dans-une-chorale.mp3",
               "Non, je n'aime pas danser. Je préfère chanter. Je chante dans une chorale.",
               "No, I don't like to dance. I prefer to sing. I sing in a choir."
             ]
@@ -89,12 +89,12 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo7/dialogues/quel-est-ton-pays-prefere.mp3",
+              "audio/lo7/dialogues/010-quel-est-ton-pays-prefere.mp3",
               "Quel est ton pays préféré ?",
               "Which is your favourite country?"
             ],
             [
-              "audio/lo7/dialogues/mon-pays-prefere-c-est-la-suisse-c-est-mon-pays-d-origine.mp3",
+              "audio/lo7/dialogues/007-mon-pays-prefere-c-est-la-suisse-c-est-mon-pays-d-origine.mp3",
               "Mon pays préféré, c'est la Suisse. C'est mon pays d'origine.",
               "My favourite country is Switzerland. It's my country of origin."
             ]
@@ -109,17 +109,17 @@
           "informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
           "phrases": [
             [
-              "audio/lo7/dialogues/quelle-est-ta-couleur-preferee.mp3",
+              "audio/lo7/dialogues/011-quelle-est-ta-couleur-preferee.mp3",
               "Quelle est ta couleur préférée ?",
               "Which is your favourite colour?"
             ],
             [
-              "audio/lo7/dialogues/j-aime-le-rose-et-le-violet-et-le-rouge-aussi-mais-je-n-ai-pas-de-couleur-preferee-et-toi.mp3",
+              "audio/lo7/dialogues/002-j-aime-le-rose-et-le-violet-et-le-rouge-aussi-mais-je-n-ai-pas-de-couleur-preferee-et-toi.mp3",
               "J'aime le rose et le violet et le rouge aussi, mais je n'ai pas de couleur préférée. Et toi ?",
               "I like pink and purple and red as well, but I don't have a favourite colour. What about you?"
             ],
             [
-              "audio/lo7/dialogues/je-ne-sais-pas-je-n-aime-pas-le-vert-je-n-aime-pas-le-jaune-ma-couleur-preferee-c-est-le-bleu.mp3",
+              "audio/lo7/dialogues/004-je-ne-sais-pas-je-n-aime-pas-le-vert-je-n-aime-pas-le-jaune-ma-couleur-preferee-c-est-le-bleu.mp3",
               "Je ne sais pas… Je n'aime pas le vert. Je n'aime pas le jaune… Ma couleur préférée, c'est le bleu.",
               "I don't know… I don't like green. I don't like yellow… My favourite colour is blue."
             ]
@@ -138,77 +138,77 @@
     "informationTextHTML": "<p>This section introduces key verbs, sports, activities, weather words, and descriptive adjectives used throughout the unit.</p>",
     "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core verbs for expressing likes and dislikes.</li><li>Vocabulary for sports, hobbies, and free-time activities.</li><li>Words for weather, places, and general preferences.</li><li>Useful adjectives for giving reasons and opinions.</li></ul>",
     "phrases": [
-      ["audio/lo7/vocabulary/adorer.mp3", "adorer", "to adore"],
-      ["audio/lo7/vocabulary/aimer.mp3", "aimer", "to like, to love"],
-      ["audio/lo7/vocabulary/detester.mp3", "détester", "to hate"],
-      ["audio/lo7/vocabulary/preferer.mp3", "préférer", "to prefer"],
-      ["audio/lo7/vocabulary/chanter.mp3", "chanter", "to sing"],
-      ["audio/lo7/vocabulary/danser.mp3", "danser", "to dance"],
-      ["audio/lo7/vocabulary/dormir.mp3", "dormir", "to sleep"],
-      ["audio/lo7/vocabulary/ecouter.mp3", "écouter", "to listen"],
-      ["audio/lo7/vocabulary/faire.mp3", "faire", "to make, to do"],
-      ["audio/lo7/vocabulary/regarder.mp3", "regarder", "to watch"],
-      ["audio/lo7/vocabulary/tricoter.mp3", "tricoter", "to knit"],
-      ["audio/lo7/vocabulary/athletisme.mp3", "athlétisme (m)", "athletics"],
-      ["audio/lo7/vocabulary/baby-foot.mp3", "baby-foot (m)", "table football"],
+      ["audio/lo7/vocabulary/001-adorer.mp3", "adorer", "to adore"],
+      ["audio/lo7/vocabulary/002-aimer.mp3", "aimer", "to like, to love"],
+      ["audio/lo7/vocabulary/014-detester.mp3", "détester", "to hate"],
+      ["audio/lo7/vocabulary/030-preferer.mp3", "préférer", "to prefer"],
+      ["audio/lo7/vocabulary/010-chanter.mp3", "chanter", "to sing"],
+      ["audio/lo7/vocabulary/013-danser.mp3", "danser", "to dance"],
+      ["audio/lo7/vocabulary/015-dormir.mp3", "dormir", "to sleep"],
+      ["audio/lo7/vocabulary/016-ecouter.mp3", "écouter", "to listen"],
+      ["audio/lo7/vocabulary/018-faire.mp3", "faire", "to make, to do"],
+      ["audio/lo7/vocabulary/031-regarder.mp3", "regarder", "to watch"],
+      ["audio/lo7/vocabulary/037-tricoter.mp3", "tricoter", "to knit"],
+      ["audio/lo7/vocabulary/005-athletisme.mp3", "athlétisme (m)", "athletics"],
+      ["audio/lo7/vocabulary/006-baby-foot.mp3", "baby-foot (m)", "table football"],
       [
-        "audio/lo7/vocabulary/basket-basketball.mp3",
+        "audio/lo7/vocabulary/007-basket-basketball.mp3",
         "basket, basketball (m)",
         "basketball"
       ],
-      ["audio/lo7/vocabulary/cricket.mp3", "cricket (m)", "cricket"],
+      ["audio/lo7/vocabulary/012-cricket.mp3", "cricket (m)", "cricket"],
       [
-        "audio/lo7/vocabulary/foot-football.mp3",
+        "audio/lo7/vocabulary/020-foot-football.mp3",
         "foot, football (m)",
         "football"
       ],
-      ["audio/lo7/vocabulary/karate.mp3", "karaté (m)", "karate"],
+      ["audio/lo7/vocabulary/024-karate.mp3", "karaté (m)", "karate"],
       [
-        "audio/lo7/vocabulary/musculation.mp3",
+        "audio/lo7/vocabulary/025-musculation.mp3",
         "musculation (f)",
         "weight training"
       ],
-      ["audio/lo7/vocabulary/tennis.mp3", "tennis (m)", "tennis"],
-      ["audio/lo7/vocabulary/tae-kwondo.mp3", "tae-kwondo (m)", "taekwondo"],
+      ["audio/lo7/vocabulary/034-tennis.mp3", "tennis (m)", "tennis"],
+      ["audio/lo7/vocabulary/033-tae-kwondo.mp3", "tae-kwondo (m)", "taekwondo"],
       [
-        "audio/lo7/vocabulary/volley-volleyball.mp3",
+        "audio/lo7/vocabulary/038-volley-volleyball.mp3",
         "volley, volleyball (m)",
         "volleyball"
       ],
-      ["audio/lo7/vocabulary/yoga.mp3", "yoga (m)", "yoga"],
+      ["audio/lo7/vocabulary/039-yoga.mp3", "yoga (m)", "yoga"],
       [
-        "audio/lo7/vocabulary/animal-animaux.mp3",
+        "audio/lo7/vocabulary/003-animal-animaux.mp3",
         "animal (m) animaux (mpl)",
         "animal(s)"
       ],
-      ["audio/lo7/vocabulary/arbre.mp3", "arbre (m)", "tree"],
-      ["audio/lo7/vocabulary/chaleur.mp3", "chaleur (f)", "heat"],
-      ["audio/lo7/vocabulary/cinema.mp3", "cinéma (m)", "cinema"],
-      ["audio/lo7/vocabulary/fleur.mp3", "fleur (f)", "flower"],
-      ["audio/lo7/vocabulary/foret.mp3", "forêt (f)", "forest"],
-      ["audio/lo7/vocabulary/froid.mp3", "froid (m)", "cold"],
-      ["audio/lo7/vocabulary/neige.mp3", "neige (f)", "snow"],
-      ["audio/lo7/vocabulary/pluie.mp3", "pluie (f)", "rain"],
-      ["audio/lo7/vocabulary/soleil.mp3", "soleil (m)", "sun"],
-      ["audio/lo7/vocabulary/theatre.mp3", "théâtre", "theatre"],
-      ["audio/lo7/vocabulary/pourquoi.mp3", "pourquoi ?", "why? "],
-      ["audio/lo7/vocabulary/parce-que.mp3", "parce que", "because"],
+      ["audio/lo7/vocabulary/004-arbre.mp3", "arbre (m)", "tree"],
+      ["audio/lo7/vocabulary/009-chaleur.mp3", "chaleur (f)", "heat"],
+      ["audio/lo7/vocabulary/011-cinema.mp3", "cinéma (m)", "cinema"],
+      ["audio/lo7/vocabulary/019-fleur.mp3", "fleur (f)", "flower"],
+      ["audio/lo7/vocabulary/021-foret.mp3", "forêt (f)", "forest"],
+      ["audio/lo7/vocabulary/022-froid.mp3", "froid (m)", "cold"],
+      ["audio/lo7/vocabulary/026-neige.mp3", "neige (f)", "snow"],
+      ["audio/lo7/vocabulary/028-pluie.mp3", "pluie (f)", "rain"],
+      ["audio/lo7/vocabulary/032-soleil.mp3", "soleil (m)", "sun"],
+      ["audio/lo7/vocabulary/035-theatre.mp3", "théâtre", "theatre"],
+      ["audio/lo7/vocabulary/029-pourquoi.mp3", "pourquoi ?", "why? "],
+      ["audio/lo7/vocabulary/027-parce-que.mp3", "parce que", "because"],
       [
-        "audio/lo7/vocabulary/bruyant-bruyante.mp3",
+        "audio/lo7/vocabulary/008-bruyant-bruyante.mp3",
         "bruyant (m) bruyante (f)",
         "noisy"
       ],
       [
-        "audio/lo7/vocabulary/ennuyeux-ennuyeuse.mp3",
+        "audio/lo7/vocabulary/017-ennuyeux-ennuyeuse.mp3",
         "ennuyeux (m) ennuyeuse (f)",
         "boring"
       ],
       [
-        "audio/lo7/vocabulary/interessant-interessante.mp3",
+        "audio/lo7/vocabulary/023-interessant-interessante.mp3",
         "intéressant (m) intéressante (f)",
         "interesting"
       ],
-      ["audio/lo7/vocabulary/tranquille.mp3", "tranquille", "quiet, peaceful"]
+      ["audio/lo7/vocabulary/036-tranquille.mp3", "tranquille", "quiet, peaceful"]
     ],
     "sortable": true,
     "titleText": "Vocabulary"
@@ -293,91 +293,91 @@
           "nPairsToPlay": 8,
           "cards": [
             {
-              "audio": "audio/lo7/exercises/memory/la-fleur.mp3",
+              "audio": "audio/lo7/exercises/memory/006-la-fleur.mp3",
               "foreignLanguage": "la fleur",
               "localLanguage": "flower",
               "image": "/img/lo7/exercises/vocabulary/flower.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/la-foret.mp3",
+              "audio": "audio/lo7/exercises/memory/007-la-foret.mp3",
               "foreignLanguage": "la forêt",
               "localLanguage": "forest",
               "image": "/img/lo7/exercises/vocabulary/forest.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/le-babyfoot.mp3",
+              "audio": "audio/lo7/exercises/memory/010-le-babyfoot.mp3",
               "foreignLanguage": "le babyfoot",
               "localLanguage": "table football",
               "image": "/img/lo7/exercises/vocabulary/table-football.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/l-arbre.mp3",
+              "audio": "audio/lo7/exercises/memory/004-l-arbre.mp3",
               "foreignLanguage": "l'arbre",
               "localLanguage": "tree",
               "image": "/img/lo7/exercises/vocabulary/tree.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/la-neige.mp3",
+              "audio": "audio/lo7/exercises/memory/008-la-neige.mp3",
               "foreignLanguage": "la neige",
               "localLanguage": "snow",
               "image": "/img/lo7/exercises/vocabulary/snow.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/danser.mp3",
+              "audio": "audio/lo7/exercises/memory/002-danser.mp3",
               "foreignLanguage": "danser",
               "localLanguage": "dancing",
               "image": "/img/lo7/exercises/vocabulary/dancing.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/la-pluie.mp3",
+              "audio": "audio/lo7/exercises/memory/009-la-pluie.mp3",
               "foreignLanguage": "la pluie",
               "localLanguage": "rain",
               "image": "/img/lo7/exercises/vocabulary/rain.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/le-foot.mp3",
+              "audio": "audio/lo7/exercises/memory/012-le-foot.mp3",
               "foreignLanguage": "le foot",
               "localLanguage": "football",
               "image": "/img/lo7/exercises/vocabulary/football.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/dormir.mp3",
+              "audio": "audio/lo7/exercises/memory/003-dormir.mp3",
               "foreignLanguage": "dormir",
               "localLanguage": "sleeping",
               "image": "/img/lo7/exercises/vocabulary/sleeping.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/l-athletisme.mp3",
+              "audio": "audio/lo7/exercises/memory/005-l-athletisme.mp3",
               "foreignLanguage": "l'athlétisme",
               "localLanguage": "athletics",
               "image": "/img/lo7/exercises/vocabulary/athletics.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/le-soleil.mp3",
+              "audio": "audio/lo7/exercises/memory/014-le-soleil.mp3",
               "foreignLanguage": "le soleil",
               "localLanguage": "sun",
               "image": "/img/lo7/exercises/vocabulary/sun.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/le-basket.mp3",
+              "audio": "audio/lo7/exercises/memory/011-le-basket.mp3",
               "foreignLanguage": "le basket",
               "localLanguage": "basketball",
               "image": "/img/lo7/exercises/vocabulary/basketball.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/tricoter.mp3",
+              "audio": "audio/lo7/exercises/memory/015-tricoter.mp3",
               "foreignLanguage": "tricoter",
               "localLanguage": "knitting",
               "image": "/img/lo7/exercises/vocabulary/knitting.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/chanter.mp3",
+              "audio": "audio/lo7/exercises/memory/001-chanter.mp3",
               "foreignLanguage": "chanter",
               "localLanguage": "singing",
               "image": "/img/lo7/exercises/vocabulary/singing.svg"
             },
             {
-              "audio": "audio/lo7/exercises/memory/le-shopping.mp3",
+              "audio": "audio/lo7/exercises/memory/013-le-shopping.mp3",
               "foreignLanguage": "le shopping",
               "localLanguage": "shopping",
               "image": "/img/lo7/exercises/vocabulary/shopping.svg"
@@ -396,47 +396,47 @@
           "items": [
             {
               "text": "Marc n'aime pas [le|la|*l'|les] athlétisme.",
-              "audio": "audio/lo7/exercises/articles/marc-n-aime-pas-l-athletisme.mp3"
+              "audio": "audio/lo7/exercises/articles/005-marc-n-aime-pas-l-athletisme.mp3"
             },
             {
               "text": "Serge déteste [*le|la|l'|les] foot.",
-              "audio": "audio/lo7/exercises/articles/serge-deteste-le-foot.mp3"
+              "audio": "audio/lo7/exercises/articles/007-serge-deteste-le-foot.mp3"
             },
             {
               "text": "Tu aimes [*le|la|l'|les] surf ?",
-              "audio": "audio/lo7/exercises/articles/tu-aimes-le-surf.mp3"
+              "audio": "audio/lo7/exercises/articles/008-tu-aimes-le-surf.mp3"
             },
             {
               "text": "Mon copain aime beaucoup [le|*la|l'|les] course.",
-              "audio": "audio/lo7/exercises/articles/mon-copain-aime-beaucoup-la-course.mp3"
+              "audio": "audio/lo7/exercises/articles/006-mon-copain-aime-beaucoup-la-course.mp3"
             },
             {
               "text": "Clément n'aime pas du tout [le|la|*l'|les] équitation.",
-              "audio": "audio/lo7/exercises/articles/clement-n-aime-pas-du-tout-l-equitation.mp3"
+              "audio": "audio/lo7/exercises/articles/001-clement-n-aime-pas-du-tout-l-equitation.mp3"
             },
             {
               "text": "Je préfère [le|*la|l'|les] musculation.",
-              "audio": "audio/lo7/exercises/articles/je-prefere-la-musculation.mp3"
+              "audio": "audio/lo7/exercises/articles/004-je-prefere-la-musculation.mp3"
             },
             {
               "text": "Vous aimez [*le|la|l'|les] basket ?",
-              "audio": "audio/lo7/exercises/articles/vous-aimez-le-basket.mp3"
+              "audio": "audio/lo7/exercises/articles/010-vous-aimez-le-basket.mp3"
             },
             {
               "text": "Vous préférez [le|*la|l'|les] France ou [le|*la|l'|les] Suisse ?",
-              "audio": "audio/lo7/exercises/articles/vous-preferez-la-france-ou-la-suisse.mp3"
+              "audio": "audio/lo7/exercises/articles/011-vous-preferez-la-france-ou-la-suisse.mp3"
             },
             {
               "text": "Je déteste [le|*la|l'|les] pluie !",
-              "audio": "audio/lo7/exercises/articles/je-deteste-la-pluie.mp3"
+              "audio": "audio/lo7/exercises/articles/003-je-deteste-la-pluie.mp3"
             },
             {
               "text": "J'adore [le|*la|l'|les] neige !",
-              "audio": "audio/lo7/exercises/articles/j-adore-la-neige.mp3"
+              "audio": "audio/lo7/exercises/articles/002-j-adore-la-neige.mp3"
             },
             {
               "text": "Tu aimes [le|la|l'|*les] animaux ?",
-              "audio": "audio/lo7/exercises/articles/tu-aimes-les-animaux.mp3"
+              "audio": "audio/lo7/exercises/articles/009-tu-aimes-les-animaux.mp3"
             }
           ],
           "titleText": "2. Talking about likes and dislikes"
@@ -454,7 +454,7 @@
           "items": [
             {
               "text": "Je suis très [sportif]. J'aime beaucoup [le foot]. J'aime aussi le tennis et [le cricket] mais je n'aime pas [du tout] le rugby. C'est [dangereux] ! Ma sœur est [active] mais elle n'est pas très sportive. Elle [préfère] le yoga. C'est [relaxant]. Mes parents [aiment] le ski ! Ils adorent [la neige] ! Moi, je n'aime pas [le froid] ! Je [déteste] le shopping ! Qu'est-ce que tu [aimes] faire pendant ton [temps] libre ?",
-              "audio": "audio/lo7/exercises/listening/lo7-dialogue-1.mp3"
+              "audio": "audio/lo7/exercises/listening/001-lo7-dialogue-1.mp3"
             }
           ],
           "titleText": "3. Fill in the gaps: likes and dislikes"

@@ -13,17 +13,17 @@ export class OpinionsMatterGrammarBorrowedNouns extends PureComponent {
 				</p>
 				<div className="mb-0 ml-2 space-y-1">
 					<div>
-						<AudioClip className="link" soundFile="audio/lo7/grammar/le-cricket.mp3">
+						<AudioClip className="link" soundFile="audio/lo7/grammar/006-le-cricket.mp3">
 							<strong>le cricket</strong>
 						</AudioClip>
 					</div>
 					<div>
-						<AudioClip className="link" soundFile="audio/lo7/grammar/le-judo.mp3">
+						<AudioClip className="link" soundFile="audio/lo7/grammar/007-le-judo.mp3">
 							<strong>le judo</strong>
 						</AudioClip>
 					</div>
 					<div>
-						<AudioClip className="link" soundFile="audio/lo7/grammar/le-shopping.mp3">
+						<AudioClip className="link" soundFile="audio/lo7/grammar/008-le-shopping.mp3">
 							<strong>le shopping</strong>
 						</AudioClip>
 					</div>
@@ -49,12 +49,12 @@ export class OpinionsMatterGrammarLikesAndInfinitives extends PureComponent {
 				</p>
 				<div className="mb-3 ml-2 space-y-1">
 					<div>
-						<AudioClip className="link" soundFile="audio/lo7/grammar/j-aime-le-football.mp3">
+						<AudioClip className="link" soundFile="audio/lo7/grammar/002-j-aime-le-football.mp3">
 							J&apos;aime <em>le</em> football
 						</AudioClip>
 					</div>
 					<div>
-						<AudioClip className="link" soundFile="audio/lo7/grammar/je-n-aime-pas-la-natation.mp3">
+						<AudioClip className="link" soundFile="audio/lo7/grammar/004-je-n-aime-pas-la-natation.mp3">
 							Je n&apos;aime pas <em>la</em> natation
 						</AudioClip>
 					</div>
@@ -64,20 +64,20 @@ export class OpinionsMatterGrammarLikesAndInfinitives extends PureComponent {
 				</p>
 				<p>
 					To say what you like/ dislike doing you use{" "}
-					<AudioClip className="link" soundFile="audio/lo7/grammar/j-aime.mp3">
+					<AudioClip className="link" soundFile="audio/lo7/grammar/003-j-aime.mp3">
 						J&apos;aime
 					</AudioClip>
 					{" "}plus an infinitive. e.g.
 				</p>
 				<div className="mb-0 ml-2 space-y-1">
 					<div>
-						<AudioClip className="link" soundFile="audio/lo7/grammar/j-aime-danser.mp3">
+						<AudioClip className="link" soundFile="audio/lo7/grammar/001-j-aime-danser.mp3">
 							J&apos;aime danser
 						</AudioClip>
 						{" "}: I like to dance / I like dancing
 					</div>
 					<div>
-						<AudioClip className="link" soundFile="audio/lo7/grammar/je-n-aime-pas-regarder-la-television.mp3">
+						<AudioClip className="link" soundFile="audio/lo7/grammar/005-je-n-aime-pas-regarder-la-television.mp3">
 							Je n&apos;aime pas regarder la télévision
 						</AudioClip>
 						{" "}: I don&apos;t like to watch the television / I don&apos;t like watching
@@ -96,19 +96,19 @@ export class OpinionsMatterGrammarInterrogatives extends PureComponent {
 			<div id={id || undefined}>
 				<h3>3. Quel, quelle, quels, quelles</h3>
 				<p>
-					<AudioClip className="link" soundFile="audio/lo7/grammar/quel.mp3">
+					<AudioClip className="link" soundFile="audio/lo7/grammar/009-quel.mp3">
 						Quel
 					</AudioClip>
 					,{" "}
-					<AudioClip className="link" soundFile="audio/lo7/grammar/quelle.mp3">
+					<AudioClip className="link" soundFile="audio/lo7/grammar/010-quelle.mp3">
 						quelle
 					</AudioClip>
 					,{" "}
-					<AudioClip className="link" soundFile="audio/lo7/grammar/quels.mp3">
+					<AudioClip className="link" soundFile="audio/lo7/grammar/014-quels.mp3">
 						quels
 					</AudioClip>
 					{" "}and{" "}
-					<AudioClip className="link" soundFile="audio/lo7/grammar/quelles.mp3">
+					<AudioClip className="link" soundFile="audio/lo7/grammar/012-quelles.mp3">
 						quelles
 					</AudioClip>
 					{" "}are known as interrogative adjectives and they mean &apos;which&apos;
@@ -118,13 +118,13 @@ export class OpinionsMatterGrammarInterrogatives extends PureComponent {
 				<ul className="list-none space-y-2 pl-0">
 					<li>
 						<div>
-							<AudioClip className="link" soundFile="audio/lo7/grammar/quel.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/grammar/009-quel.mp3">
 								Quel
 							</AudioClip>
 							{" "}is used for a masculine singular noun e.g.
 						</div>
 						<div className="ml-4">
-							<AudioClip className="link" soundFile="audio/lo7/dialogues/quel-est-ton-pays-prefere.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/dialogues/010-quel-est-ton-pays-prefere.mp3">
 								Quel est ton pays préféré ?
 							</AudioClip>
 							{" "}Which is your favourite country?
@@ -132,13 +132,13 @@ export class OpinionsMatterGrammarInterrogatives extends PureComponent {
 					</li>
 					<li>
 						<div>
-							<AudioClip className="link" soundFile="audio/lo7/grammar/quelle.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/grammar/010-quelle.mp3">
 								Quelle
 							</AudioClip>
 							{" "}is used for a feminine singular noun e.g.
 						</div>
 						<div className="ml-4">
-							<AudioClip className="link" soundFile="audio/lo7/dialogues/quelle-est-ta-couleur-preferee.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/dialogues/011-quelle-est-ta-couleur-preferee.mp3">
 								Quelle est ta couleur préférée ?
 							</AudioClip>
 							{" "}Which is your favourite colour?
@@ -146,13 +146,13 @@ export class OpinionsMatterGrammarInterrogatives extends PureComponent {
 					</li>
 					<li>
 						<div>
-							<AudioClip className="link" soundFile="audio/lo7/grammar/quels.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/grammar/014-quels.mp3">
 								Quels
 							</AudioClip>
 							{" "}is used for masculine plural noun e.g.
 						</div>
 						<div className="ml-4">
-							<AudioClip className="link" soundFile="audio/lo7/grammar/quels-sont-tes-passe-temps-preferes.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/grammar/013-quels-sont-tes-passe-temps-preferes.mp3">
 								Quels sont tes passe-temps préférés ?
 							</AudioClip>
 							{" "}Which are your favourite pastimes?
@@ -160,13 +160,13 @@ export class OpinionsMatterGrammarInterrogatives extends PureComponent {
 					</li>
 					<li>
 						<div>
-							<AudioClip className="link" soundFile="audio/lo7/grammar/quelles.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/grammar/012-quelles.mp3">
 								Quelles
 							</AudioClip>
 							{" "}is used for feminine plural nouns e.g.
 						</div>
 						<div className="ml-4">
-							<AudioClip className="link" soundFile="audio/lo7/grammar/quelles-langues-parlez-vous.mp3">
+							<AudioClip className="link" soundFile="audio/lo7/grammar/011-quelles-langues-parlez-vous.mp3">
 								Quelles langues parlez-vous ?
 							</AudioClip>
 							{" "}Which languages do you speak?

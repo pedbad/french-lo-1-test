@@ -17,32 +17,32 @@ export class OpinionsMatterPronunciationBorrowedWords extends PureComponent {
 							</p>
 							<div className="mb-0 ml-2 space-y-1">
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-cricket.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/002-le-cricket.mp3">
 										le cricket
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-tennis.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/005-le-tennis.mp3">
 										le tennis
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-foot.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/003-le-foot.mp3">
 										le foot
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-shopping.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/004-le-shopping.mp3">
 										le shopping
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-bowling.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/001-le-bowling.mp3">
 										le bowling
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-week-end.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/006-le-week-end.mp3">
 										le week-end
 									</AudioClip>
 								</div>
@@ -68,27 +68,27 @@ export class OpinionsMatterPronunciationFinalConsonants extends PureComponent {
 						<div>Listen again to these examples:</div>
 							<div className="mb-0 ml-2 space-y-1">
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-cricket.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/002-le-cricket.mp3">
 										le cricke<strong>t</strong>
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-foot.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/003-le-foot.mp3">
 										le foo<strong>t</strong>
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-shopping.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/004-le-shopping.mp3">
 										le shoppin<strong>g</strong>
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-bowling.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/001-le-bowling.mp3">
 										le bowlin<strong>g</strong>
 									</AudioClip>
 								</div>
 								<div>
-									<AudioClip className="link" soundFile="audio/lo7/pronunciation/le-week-end.mp3">
+									<AudioClip className="link" soundFile="audio/lo7/pronunciation/006-le-week-end.mp3">
 										le week-en<strong>d</strong>
 									</AudioClip>
 								</div>
