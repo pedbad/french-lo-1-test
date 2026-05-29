@@ -30,7 +30,7 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong content / quality)
 
-- `public/audio/lo6/grammar/elles-ont.mp3`
+- `public/audio/lo6/grammar/004-elles-ont.mp3`
   - Section: **Grammar and Usage**
   - `elles ont` does not sound naturally linked; liaison should run the words together more clearly.
 
@@ -50,15 +50,15 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong content / quality)
 
-- `public/audio/lo7/vocabulary/basket-basketball.mp3`
+- `public/audio/lo7/vocabulary/007-basket-basketball.mp3`
   - Section: **Vocabulary**
   - `basket` is fine, but `basketball` sounds wrong; the first `a` is not pronounced correctly.
 
-- `public/audio/lo7/exercises/articles/vous-preferez-la-france-ou-la-suisse.mp3`
+- `public/audio/lo7/exercises/articles/011-vous-preferez-la-france-ou-la-suisse.mp3`
   - Section: **Exercises — articles**
   - The intonation is not right for a question where the speaker is choosing between two options.
 
-- `public/audio/lo7/exercises/listening/lo7-dialogue-1.mp3`
+- `public/audio/lo7/exercises/listening/001-lo7-dialogue-1.mp3`
   - Section: **Exercises — listening**
   - The speaker says `sportive`; it should be `sportif`. The final `t` in `cricket` is also missing.
 
@@ -74,11 +74,11 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong content / quality)
 
-- `public/audio/lo8/dialogues/dialogues2/001-quest-ce-que-tu-fais-le-weekend.mp3`
+- `public/audio/lo8/dialogues/phraseTable2/001-quest-ce-que-tu-fais-le-weekend.mp3`
   - Section: **Dialogues 2**
   - The final `d` in `week-end` is not clear enough.
 
-- `public/audio/lo8/dialogues/dialogues3/003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3`
+- `public/audio/lo8/dialogues/phraseTable3/003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3`
   - Section: **Dialogues 3**
   - Audio should match the corrected displayed text: `Je joue de l'accordeon et je joue du piano aussi.`
 
@@ -297,22 +297,22 @@ public/audio/
 │   │   ├── double-ll-rhyme-annabelle-a-une-petite-fille.mp3
 │   │   └── double-ll-rhyme-la-famille-de-camille.mp3
 │   └── grammar/
-│       └── elles-ont.mp3
+│       └── 004-elles-ont.mp3
 ├── lo7/
 │   ├── exercises/
 │   │   ├── articles/
-│   │   │   └── vous-preferez-la-france-ou-la-suisse.mp3
+│   │   │   └── 011-vous-preferez-la-france-ou-la-suisse.mp3
 │   │   ├── listening/
-│   │   │   └── lo7-dialogue-1.mp3
+│   │   │   └── 001-lo7-dialogue-1.mp3
 │   │   └── poem/
 │   │       └── sept-couleurs-magiques.mp3
 │   └── vocabulary/
-│       └── basket-basketball.mp3
+│       └── 007-basket-basketball.mp3
 ├── lo8/
 │   └── dialogues/
-│       ├── dialogues2/
+│       ├── phraseTable2/
 │       │   └── 001-quest-ce-que-tu-fais-le-weekend.mp3
-│       └── dialogues3/
+│       └── phraseTable3/
 │           └── 003-je-joue-de-laccordeon-et-joue-du-piano-aussi.mp3
 ├── lo9/
 │   ├── dialogues/
