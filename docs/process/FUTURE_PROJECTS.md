@@ -178,8 +178,9 @@ Use this as a hard "do not repeat" list.
    - rewrite-capable SPA hosting, or
    - pre-rendered static routes (preferred when rewrite access is limited).
 21. Do not leave shadcn's default `--primary` (near-black) in tension with your brand primary colour without documenting the split. On new projects, override `--primary` in `tokens.css` to equal `var(--brand-primary)` from day one — unless there is a deliberate reason to keep them different (for example brand primary is a light tint that cannot serve as a button fill). See `tokens.css` Section A comment for the explanation used on this project.
-21. Do not default to bespoke CSS for card/tile interactions when Tailwind and shadcn primitives can express the layout cleanly. Drop to shared CSS only for the narrow pieces utilities do not cover well.
-22. Do not use `<h4>`, `<p>`, or bare `<div>` for short grammar section labels (e.g. "For example:", "Here are the conditional forms:"). Always use `<GrammarLabel>` — it enforces correct font size and prevents WAVE "possible heading" alerts. One component = one change site for all labels.
+22. Do not default to bespoke CSS for card/tile interactions when Tailwind and shadcn primitives can express the layout cleanly. Drop to shared CSS only for the narrow pieces utilities do not cover well.
+23. Do not use `<h4>`, `<p>`, or bare `<div>` for short grammar section labels (e.g. "For example:", "Here are the conditional forms:"). Always use `<GrammarLabel>` — it enforces correct font size and prevents WAVE "possible heading" alerts. One component = one change site for all labels.
+24. **[Tech debt — existing LOs]** Do not ship a new course without renaming all component-named audio exercise subfolders to semantic or ordered names. All current LOs (LO1–LO15) use folder names tied to React component names (`draggableFillGaps1`, `selectExercise2`, `memoryMatchGame1`, `dictationExercise4`, etc.). These are implementation details, not content descriptions — if a component is renamed or replaced, the folder name becomes misleading. Scope of the existing debt: ~50 folders across LO1–LO15, ~400+ source references. Migrate one LO at a time in dedicated commits. See the Audio File & Folder Naming Convention section for the target structure.
 
 ### Image Asset Structure Rule (Carry Forward)
 
@@ -606,23 +607,54 @@ document.documentElement.classList.toggle("dark", isDarkMode);
 - Use `src/assets/fonts` for app fonts that are versioned and tokenized.
 - Keep file names ASCII-safe (no accents/spaces) for cross-platform reliability.
 
-### Audio Folder Naming Rule (Carry Forward)
+### Audio File & Folder Naming Convention (Carry Forward)
 
-Audio subfolders must use **semantic, zero-padded names** — never component names.
+#### File names
+
+Every audio file must follow: **`NNN-kebab-case-description.mp3`**
+
+- `NNN` — zero-padded 3-digit sequence, **per folder** (each folder restarts at `001`)
+- Kebab-case — all lowercase, hyphens only, no underscores or spaces
+- Description — romanised French content, ASCII-safe (no accents, no special characters)
+- Accented chars romanised with a single hyphen: `où` → `ou`, `résidence` → `residence`
 
 ```
-audio/loX/dialogues/phraseTable1/   ← current LOs (acceptable)
-audio/loX/dialogues/01/             ← preferred for new projects
+✅  001-ou-habites-tu.mp3
+✅  024-je-voudrais-un-kilo-de-pommes-de-terre.mp3
+❌  ou habites tu.mp3                       — spaces
+❌  OuHabitesTu.mp3                         — camelCase
+❌  001-o-u-habites-tuo-habites-tu.mp3      — double romanisation concatenated
+❌  lo12ex4.mp3                             — opaque internal reference, no prefix
 ```
 
-**Never** name folders after components (`phraseTable`, `draggableFillGaps`, `selectExercise`).
-Component names change; content categories don't. If the PhraseTable component is
-ever renamed or replaced, folder names that match it become misleading.
+#### Folder structure
 
-For new projects use neutral ordered names: `01/`, `02/` or `part-1/`, `part-2/`.
+Folders must use **semantic or ordered names** — never React component names.
+Component names change; content categories don't.
 
-Individual audio files must always carry a zero-padded numeric prefix: `001-kebab-name.mp3`.
-Each subfolder gets its own independent sequence starting at `001`.
+```
+audio/
+  loN/
+    dialogues/
+      01/            ← preferred (ordered, neutral)
+      02/            ← current LOs use phraseTable1/ — acceptable, not ideal
+    exercises/
+      listening/     ← semantic content label  ✅
+      vocabulary/    ← semantic content label  ✅
+      01/            ← neutral ordered          ✅
+      selectExercise1/   ← component name       ❌
+      draggableFillGaps2/ ← component name      ❌
+    grammar/
+    pronunciation/
+    vocabulary/
+```
+
+**Never** name folders after components (`phraseTable`, `draggableFillGaps`, `selectExercise`,
+`memoryMatchGame`, `dictationExercise`, `typedTransformExercise`, etc.).
+
+For new projects use neutral ordered names (`01/`, `02/`) or semantic content labels
+(`listening/`, `vocabulary/`, `fill-gaps/`). See item 24 in "What To Avoid" for the
+migration scope on existing LOs.
 
 ## Light/Dark Mode Rules
 
