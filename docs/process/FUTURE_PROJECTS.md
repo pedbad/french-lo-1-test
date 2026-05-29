@@ -313,8 +313,8 @@ Use the `--edu-*` prefix for all colour tokens that describe a **role in learnin
 **Rules:**
 1. Always use `--edu-*` prefix — never `--ped-*` (ambiguous, could be read as a person's name).
 2. These tokens describe semantic role only. Never name them by colour (`--green`, `--amber`).
-3. In dark mode, re-pin `--edu-warn` explicitly if the underlying `--chart-*` token shifts hue (shadcn remaps `--chart-1` to blue in dark mode — always verify warn stays warm/amber).
-4. `--edu-*` tokens are course-neutral and brand-neutral. They must not contain brand colour values directly — they should reference shadcn tokens (`--chart-2`, `--destructive`, etc.) or dedicated palette tokens.
+3. `--edu-*` tokens own their values as **pinned oklch literals** — never alias `--chart-*`. shadcn remaps chart tokens in dark mode (e.g. chart-3 → amber-orange, chart-4 → vivid purple), which causes semantic drift. Pinned values stay correct regardless of shadcn updates.
+4. `--edu-*` tokens are course-neutral and brand-neutral. They must not contain brand colour values directly. Use dedicated oklch literals or, where truly appropriate, `--destructive` (never `--chart-*`).
 5. Document the full token set and utility classes with a block comment in the CSS file so any developer can understand the system without reading the docs.
 
 **Why not `--ped-*`:**

@@ -150,7 +150,7 @@ const badgeVariants = cva(
     variants: {
       tone: {
         neutral: "bg-muted text-muted-foreground",
-        success: "bg-[color-mix(in_oklab,var(--chart-2)_20%,transparent)] text-foreground",
+        success: "bg-[color-mix(in_oklab,var(--edu-affirm)_20%,transparent)] text-foreground",
       },
     },
     defaultVariants: { tone: "neutral" },

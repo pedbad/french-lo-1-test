@@ -77,12 +77,12 @@ Use this checklist for each new LO (LO4 onward) to avoid architecture and stylin
 
 #### Info boxes
 - [ ] Light mode: blue border/background (primary palette) — this is intentional, not an error.
-- [ ] Dark mode: muted teal ghost style — background via `color-mix(in oklab, var(--card) 88%, var(--chart-2) 12%)`, faint teal border, teal icon.
+- [ ] Dark mode: muted teal ghost style — background via `color-mix(in oklab, var(--card) 88%, var(--edu-affirm) 12%)`, faint teal border, teal icon.
 
 #### Exercise action buttons
-- [ ] Light mode: solid filled (colours: edu-warn = amber, chart-2 = teal, chart-3 = amber-gold).
+- [ ] Light mode: solid filled (colours: `--edu-warn` = amber, `--edu-affirm` = teal/green, `--ex-active` = amber-gold).
 - [ ] Dark mode: ghost/outline style — transparent fill, coloured border + text.
-- [ ] `--edu-warn` is pinned to `var(--chart-5)` inside `.dark` to prevent shadcn's dark-mode remap of `chart-1` to blue from bleeding into warn semantics.
+- [ ] `--edu-warn` is a pinned oklch value — do NOT alias `--chart-5`; shadcn remaps chart tokens in dark mode.
 
 #### Instruction / intro text
 - [ ] `InstructionCallout` uses `--font-size-lg` (1.35 rem), set via `INSTRUCTION_TEXT_CLASS` and `applyInstructionTypographyToHTML` in `src/components/Section/instructions-media.jsx`.

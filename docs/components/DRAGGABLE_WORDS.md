@@ -28,7 +28,7 @@ Please refactor the draggable word tiles in Blanks/Word to use shadcn Button var
 ## Tailwind-only animation proposal (optional)
 If we want to avoid custom SCSS for drag states, we can prototype a Tailwind-first approach:
 1. Add `animate-[drag-pulse_0.6s_ease-in-out_infinite]` or use Tailwind’s built-in `animate-pulse` for dragging state.
-2. Use conditional class names for `dragging`, `placed`, `returning`, `highlight` (e.g., `bg-[var(--chart-2)]/20`, `ring-2 ring-[var(--chart-2)]`).
+2. Use conditional class names for `dragging`, `placed`, `returning`, `highlight` (e.g., `bg-[var(--edu-affirm)]/20`, `ring-2 ring-[var(--edu-affirm)]`).
 3. For any missing animations, define a small `@keyframes` in `src/index.css` and reference it via Tailwind’s arbitrary `animate-[...]` syntax.
 4. Keep transforms in Tailwind (`translate-x`, `translate-y`) where possible, but allow inline style for absolute drag position.
 
@@ -38,8 +38,8 @@ Prototype example:
   variant="tile"
   className={cn(
     "transition-colors",
-    dragging && "animate-pulse ring-2 ring-[var(--chart-2)]",
-    placed && "bg-[var(--chart-2)] text-[var(--primary-foreground)]"
+    dragging && "animate-pulse ring-2 ring-[var(--edu-affirm)]",
+    placed && "bg-[var(--edu-affirm)] text-[var(--primary-foreground)]"
   )}
 >
   {children}

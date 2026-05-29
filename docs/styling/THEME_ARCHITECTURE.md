@@ -556,7 +556,8 @@ audio, and content accent colours.
       modal (`--modal-border`, `--modal-overlay`), audio (`--audio-track/fill/icon`),
       word typography (`--font-size-word-xs/sm/md/lg`).
 - [x] Add **Section F** (content accent): `--content-accent-red/orange/yellow/green/blue/indigo/violet`
-      replacing the old `--poem-accent-*` names. Backward-compat aliases kept.
+      replacing the old `--poem-accent-*` names. Backward-compat aliases removed once
+      `SelectExercise.jsx` was migrated (follow-up commit after Step 10).
 - [x] Rename CSS classes in `index.css`:
       `.btn-chart-2` → `.btn-ex-affirm` (green affirm; uses `--edu-affirm`),
       `.btn-hero-title` → `.btn-ex-action` (warm gold action; uses `--ex-active`),
