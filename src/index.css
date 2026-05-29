@@ -6,7 +6,15 @@
 @import "tw-animate-css";
 
 /* Design token layers — import order: palette → theme → tokens → fonts.
- * Swap only theme-lc-french.css + its dark overrides to re-skin a course. */
+ * Swap only theme-lc-french.css + its dark overrides to re-skin a course.
+ *
+ * ⚠  --primary ≠ --brand-primary (intentional on this project).
+ *    --primary       = shadcn system token (near-black); controls button fills,
+ *                      active controls, and all shadcn primitives.
+ *    --brand-primary = Language Centre teal; used in hero, nav, footer, and
+ *                      exercise highlights.
+ *    On new projects, consider overriding --primary in tokens.css to equal
+ *    --brand-primary so the two are aligned from day one. */
 @import "./styles/palette-lc.css";
 @import "./styles/theme-lc-french.css";
 @import "./styles/tokens.css";

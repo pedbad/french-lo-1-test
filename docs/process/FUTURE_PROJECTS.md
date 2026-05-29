@@ -177,6 +177,7 @@ Use this as a hard "do not repeat" list.
 20. Do not start multilingual LO programs (for example French + Spanish series) without deciding route serving strategy first:
    - rewrite-capable SPA hosting, or
    - pre-rendered static routes (preferred when rewrite access is limited).
+21. Do not leave shadcn's default `--primary` (near-black) in tension with your brand primary colour without documenting the split. On new projects, override `--primary` in `tokens.css` to equal `var(--brand-primary)` from day one — unless there is a deliberate reason to keep them different (for example brand primary is a light tint that cannot serve as a button fill). See `tokens.css` Section A comment for the explanation used on this project.
 21. Do not default to bespoke CSS for card/tile interactions when Tailwind and shadcn primitives can express the layout cleanly. Drop to shared CSS only for the narrow pieces utilities do not cover well.
 22. Do not use `<h4>`, `<p>`, or bare `<div>` for short grammar section labels (e.g. "For example:", "Here are the conditional forms:"). Always use `<GrammarLabel>` — it enforces correct font size and prevents WAVE "possible heading" alerts. One component = one change site for all labels.
 

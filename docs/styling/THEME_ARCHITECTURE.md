@@ -528,10 +528,12 @@ shadcn's `--primary` (near-black) and your `--brand-primary` (teal) coexist.
 Changing shadcn's `--primary` to match your brand teal is a large change
 that affects every shadcn component. For now, document the intentional split.
 
-- [ ] Add a comment block in `index.css` explaining the separation:
+- [x] Add a comment block in `index.css` (import-block header) explaining the separation:
       `--primary` = shadcn UI system (button fills, active controls)
       `--brand-primary` = Language Centre teal (hero, nav, footer accents)
-- [ ] Add to FUTURE_PROJECTS.md: on new projects, align these from day one
+- [x] Add item 21 to FUTURE_PROJECTS.md "What To Avoid": on new projects, override
+      `--primary` to equal `var(--brand-primary)` from day one unless there is a deliberate
+      reason to keep them different.
 
 ---
 
