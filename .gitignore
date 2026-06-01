@@ -34,3 +34,7 @@ Screenshot *.png
 *.bak
 public/images/table-top.png
 .vite-index-backup.html
+
+# AI agent skills (installed via npx skills add — not project code)
+.agents/
+skills-lock.json
