@@ -40,10 +40,11 @@ import DOMPurify from "dompurify";
 import React from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-// Exercises that render identically: an AccordionArticle wrapping
-// <Component config={value} />. To add another such exercise, register it
-// here instead of adding a new case to renderComponent's switch.
-const ACCORDION_EXERCISE_REGISTRY = {
+// Exercises rendered uniformly as <Component config={value} />.
+// Used by both render paths: renderComponent wraps each in an
+// AccordionArticle; renderComponentForTab returns it bare for tabs.
+// To add another such exercise, register it here — no new switch case.
+const EXERCISE_REGISTRY = {
 	ClozeTypingExercise,
 	TypedTransformExercise,
 	DictationExercise,
@@ -855,55 +856,14 @@ export default class App extends React.Component {
 
 		const { languageCode } = this.state;
 
+		// Registry dispatch: exercises rendered bare in a tab. Special cases
+		// (Explanation, PhraseTable, custom) fall through to the switch.
+		const RegisteredExercise = EXERCISE_REGISTRY[component];
+		if (RegisteredExercise) {
+			return <RegisteredExercise config={value} />;
+		}
+
 		switch (component) {
-			case "ClozeTypingExercise":
-				return (
-					<ClozeTypingExercise
-						config={value}
-					/>
-				);
-			case "TypedTransformExercise":
-				return (
-					<TypedTransformExercise
-						config={value}
-					/>
-				);
-			case "DictationExercise":
-				return (
-					<DictationExercise
-						config={value}
-					/>
-				);
-			case "DraggableFillGaps":
-				return (
-					<DraggableFillGaps
-						config={value}
-					/>
-				);
-			case "SelectExercise":
-				return (
-					<SelectExercise
-						config={value}
-					/>
-				);
-			case "InlineChoiceGroup":
-				return (
-					<InlineChoiceGroup
-						config={value}
-					/>
-				);
-			case "InlineTypedGapExercise":
-				return (
-					<InlineTypedGapExercise
-						config={value}
-					/>
-				);
-			case "LineMatch":
-				return (
-					<LineMatch
-						config={value}
-					/>
-				);
 			case "Explanation":
 				return (
 					<>
@@ -916,41 +876,11 @@ export default class App extends React.Component {
 						/>
 					</>
 				);
-			case "MemoryMatchGame":
-				return (
-					<MemoryMatchGame
-						config={value}
-					/>
-				);
 			case "PhraseTable":
 				return (
 					<PhraseTable
 						config={value}
 						languageCode={languageCode}
-					/>
-				);
-			case "RadioQuiz":
-				return (
-					<RadioQuiz
-						config={value}
-					/>
-				);
-			case "WordSpotExercise":
-				return (
-					<WordSpotExercise
-						config={value}
-					/>
-				);
-			case "PhraseReorderExercise":
-				return (
-					<PhraseReorderExercise
-						config={value}
-					/>
-				);
-			case "WordOrderExercise":
-				return (
-					<WordOrderExercise
-						config={value}
 					/>
 				);
 			default: {
@@ -1214,7 +1144,7 @@ export default class App extends React.Component {
 
 		// Registry dispatch for exercises that share the identical
 		// accordion-wrapped template. Special cases fall through to the switch.
-		const RegisteredExercise = ACCORDION_EXERCISE_REGISTRY[component];
+		const RegisteredExercise = EXERCISE_REGISTRY[component];
 		if (RegisteredExercise) {
 			articles.push(
 				<AccordionArticle
