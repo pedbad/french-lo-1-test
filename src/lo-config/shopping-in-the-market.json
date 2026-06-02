@@ -307,7 +307,6 @@
     ],
     "sortable": true,
     "titleText": "Vocabulary",
-    "informationTextHTML": "<p>This section introduces the key shop names, food words, quantity expressions, and useful market phrases used throughout the lesson.</p>",
     "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Places in the town such as <em>le marché</em>, <em>la boulangerie</em>, and <em>la poissonnerie</em>.</li><li>Useful shopping expressions such as <em>Donnez-moi...</em>, <em>Avec ça&nbsp;?</em>, and <em>Ça fait...</em>.</li><li>Quantities such as <em>un kilo</em>, <em>un demi-kilo</em>, <em>une barquette</em>, and <em>la pièce</em>.</li><li>Common fruit and vegetables needed for simple market transactions.</li></ul>"
   },
   "grammar": {

@@ -37,7 +37,6 @@
             ]
           ],
           "titleText": "Planning a holiday in Bordeaux",
-          "informationTextHTML": "<p>Read each line, then play the audio to hear how speakers ask where someone is going on holiday and name a destination in France.</p>",
           "informationTextHTML": "<p>Listen for the way the speakers ask about holiday plans, give a country, and then specify a French city.</p>"
         }
       },
@@ -83,7 +82,6 @@
             ]
           ],
           "titleText": "Planning a holiday in Guadeloupe",
-          "informationTextHTML": "<p>Read each line, then play the audio to hear how speakers describe holiday plans, activities, weather, and staying at home to work.</p>",
           "informationTextHTML": "<p>Notice how the speakers use the near future to describe travel plans, things to do in Guadeloupe, the weather, and staying at home to write.</p>"
         }
       }
@@ -236,7 +234,6 @@
     ],
     "sortable": true,
     "titleText": "Vocabulary",
-    "informationTextHTML": "<p>This section introduces the key holiday, transport, beach, weather, and season vocabulary used throughout the lesson.</p>",
     "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Holiday activities such as <em>loger</em>, <em>voyager</em>, <em>partir</em>, <em>bronzer</em>, and <em>faire du tourisme</em>.</li><li>Means of transport such as <em>en avion</em>, <em>en train</em>, <em>à vélo</em>, <em>à cheval</em>, and <em>à pied</em>.</li><li>Expressions to talk about the weather and the seasons such as <em>Quel temps fait-il&nbsp;?</em>, <em>Il fait beau</em>, <em>Il y a du soleil</em>, and <em>en été</em>.</li></ul>"
   },
   "grammar": {
@@ -402,7 +399,6 @@
             }
           ],
           "titleText": "2. Practise your weather vocabulary",
-          "informationTextHTML": "<p>Listen to each weather expression, then choose the correct English meaning.</p>",
           "informationTextHTML": "<p>Play each audio clip and choose the English meaning that matches the French weather expression. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.</p>"
         }
       },

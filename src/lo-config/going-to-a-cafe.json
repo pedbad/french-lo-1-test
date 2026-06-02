@@ -130,7 +130,6 @@
     "component": "PhraseTable",
     "expandable": false,
     "id": "vocabulary",
-    "informationTextHTML": "<p>This section introduces the key café expressions and menu vocabulary used throughout the lesson.</p>",
     "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Useful ordering expressions such as <em>Vous désirez&nbsp;?</em>, <em>Qu&apos;est-ce que vous prenez&nbsp;?</em>, and <em>Je voudrais</em>.</li><li>Drink vocabulary such as <em>café-crème</em>, <em>chocolat chaud</em>, <em>eau minérale</em>, and <em>bière pression</em>.</li><li>Food and snack items such as <em>crêpe</em>, <em>croque-monsieur</em>, and <em>omelette aux champignons</em>.</li><li>Words for flavours and portions such as <em>parfum</em> and <em>boule</em>.</li></ul>",
     "phrases": [
       ["audio/lo11/vocabulary/001-vous-desirez.mp3", "Vous désirez&nbsp;?", "What can I get you?"],

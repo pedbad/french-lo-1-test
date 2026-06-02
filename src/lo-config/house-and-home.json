@@ -45,7 +45,6 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"informationTextHTML": "<p>This section introduces the key housing, room, and descriptive vocabulary used in the unit.</p>",
 		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core housing and room vocabulary (for example <em>logement</em>, <em>chambre</em>, <em>cuisine</em>, <em>balcon</em>).</li><li>Useful location expressions within a home (for example <em>au rez-de-chaussée</em>, <em>à l'étage</em>, <em>au sous-sol</em>).</li><li>Adjectives used to describe homes and rooms (for example <em>confortable</em>, <em>spacieux / spacieuse</em>, <em>lumineux / lumineuse</em>).</li><li>Vocabulary that supports description, listening, and speaking tasks about home and accommodation.</li></ul>",
 		"phrases": [
 			[

@@ -120,7 +120,6 @@
     "component": "PhraseTable",
     "expandable": false,
     "id": "vocabulary",
-    "informationTextHTML": "<p>This section introduces key free-time vocabulary used throughout the unit.</p>",
     "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core vocabulary for hobbies and free time (for example <em>temps libre</em>, <em>loisirs</em>, <em>passe-temps</em>).</li><li>Useful verbs for activities and games (for example <em>faire</em>, <em>jouer à</em>, <em>jouer de</em>).</li><li>Sports and leisure nouns (for example <em>aviron</em>, <em>escalade</em>, <em>natation</em>, <em>pétanque</em>).</li><li>Useful adjectives for describing preferences and activities (for example <em>actif / active</em>, <em>dangereux / dangereuse</em>, <em>sportif / sportive</em>).</li></ul>",
     "phrases": [
       [

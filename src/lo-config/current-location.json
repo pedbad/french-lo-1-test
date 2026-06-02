@@ -119,7 +119,6 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"informationTextHTML": "<p>Read each phrase, then play its audio clip to check pronunciation and meaning.</p>",
 		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core location vocabulary for where people live and where places are found.</li><li>How to ask and answer location questions with <em>habiter</em> and <em>se trouver</em>.</li><li>How to describe surroundings and accommodation (for example <em>à la campagne</em>, <em>en banlieue</em>, <em>dans un appartement</em>).</li><li>How to use these forms more confidently in spoken and listening activities.</li></ul>",
 		"phrases": [
 			[

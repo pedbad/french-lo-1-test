@@ -105,7 +105,6 @@
 		"component": "PhraseTable",
 		"expandable": false,
 		"id": "vocabulary",
-		"informationTextHTML": "<p>This section introduces key family, relationship, and neighbour vocabulary used throughout the unit.</p>",
 		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core family vocabulary (for example <em>frère</em>, <em>sœur</em>, <em>grands-parents</em>).</li><li>Words for relationships and households (for example <em>mari</em>, <em>femme</em>, <em>compagnon</em>, <em>voisin</em>).</li><li>Useful ways to ask about age and family structure.</li><li>Vocabulary that supports the grammar, pronunciation, and exercise work in this unit.</li></ul>",
 		"phrases": [
 			[

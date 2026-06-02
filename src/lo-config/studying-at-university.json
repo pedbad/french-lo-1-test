@@ -62,7 +62,6 @@
 						]
 					],
 					"titleText": "Talking about your studies",
-					"informationTextHTML": "<p>Read each line, then play the audio to hear how speakers ask about degree subjects and levels of study.</p>",
 					"informationTextHTML": "<p>Listen for the way the speakers ask what someone is studying, describe degree level, and talk about doctoral work.</p>"
 				}
 			},
@@ -108,7 +107,6 @@
 						]
 					],
 					"titleText": "A busy week at university",
-					"informationTextHTML": "<p>Read each line, then play the audio to hear how speakers describe workload, pressure, and reassurance.</p>",
 					"informationTextHTML": "<p>Notice how the speakers describe a heavy timetable, essays, and feeling tired or stressed.</p>"
 				}
 			}
@@ -371,7 +369,6 @@
 		],
 		"sortable": true,
 		"titleText": "Vocabulary",
-		"informationTextHTML": "<p>This section introduces the core university words and useful expressions used throughout the lesson.</p>",
 		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Words for people and roles such as <em>étudiant(e)</em>, <em>doctorant(e)</em>, <em>chercheur / chercheuse</em>, and <em>professeur(e)</em>.</li><li>Useful expressions for studies and degrees such as <em>faire des études</em>, <em>licence</em>, <em>master</em>, and <em>doctorat</em>.</li><li>Names of academic subjects, years of study, and teaching formats such as <em>la biologie</em>, <em>en deuxième année</em>, <em>le cours magistral</em>, and <em>le séminaire</em>.</li><li>Adjectives and phrases used to describe workload and feelings, such as <em>fatigant</em>, <em>stressant</em>, and <em>avoir un emploi du temps chargé</em>.</li></ul>"
 	},
 	"grammar": {

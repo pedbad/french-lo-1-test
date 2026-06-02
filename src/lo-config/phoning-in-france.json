@@ -146,7 +146,6 @@
 		"expandable": false,
 		"id": "vocabulary",
 		"titleText": "Vocabulary",
-		"informationTextHTML": "<p>This section introduces the core vocabulary used for telephone calls, checking numbers, apologising, and ending a call politely.</p>",
 		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Key telephone nouns such as <em>numéro</em>, <em>portable</em>, and <em>téléphone fixe</em>.</li><li>Useful telephone expressions such as <em>allô</em>, <em>C&apos;est moi</em>, and <em>À plus tard</em>.</li><li>How to apologise and point out a mistake — such as <em>désolé(e)</em>, <em>erreur</em>, and <em>se tromper de</em>.</li></ul>",
 		"phrases": [
 			[
