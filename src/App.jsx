@@ -999,37 +999,46 @@ export default class App extends React.Component {
 
 						{languageCode !== undefined ? (
 							<>
-								<div id="hero" aria-hidden="true">
-									<img
-										alt=""
-										aria-hidden="true"
-										className="hero-image"
-										decoding="async"
-										fetchPriority="high"
-										loading="eager"
-										src={resolveAsset("/img/common/branding/fr-banner.svg")}
-									/>
-									<h2
-										aria-hidden="true"
-										className="hero-title text-stroke-neutral"
-									>
-										{siteTitle}
-									</h2>
-								</div>
+								{/* Big hero banner + page title: only when an LO is open.
+								    On the landing (currentLearningObject === -1) the
+								    LandingPage provides its own slim header + <h1>, so we
+								    skip the hero (no "big hero" on landing) and avoid an
+								    empty <h1>. */}
+								{currentLearningObject !== -1 ? (
+									<div id="hero" aria-hidden="true">
+										<img
+											alt=""
+											aria-hidden="true"
+											className="hero-image"
+											decoding="async"
+											fetchPriority="high"
+											loading="eager"
+											src={resolveAsset("/img/common/branding/fr-banner.svg")}
+										/>
+										<h2
+											aria-hidden="true"
+											className="hero-title text-stroke-neutral"
+										>
+											{siteTitle}
+										</h2>
+									</div>
+								) : null}
 								<main id="content" key="content" tabIndex="-1">
-									<h1>
-										{(() => {
-											const parts = splitDisplayTitle(title);
-											if (!parts) return title;
+									{currentLearningObject !== -1 ? (
+										<h1>
+											{(() => {
+												const parts = splitDisplayTitle(title);
+												if (!parts) return title;
 
-											return (
-												<>
-													<span className="title-main">{parts.main} —</span>
-													<span className="title-sub">{parts.sub}</span>
-												</>
-											);
-										})()}
-									</h1>
+												return (
+													<>
+														<span className="title-main">{parts.main} —</span>
+														<span className="title-sub">{parts.sub}</span>
+													</>
+												);
+											})()}
+										</h1>
+									) : null}
 									{(() => {
 										const introLayout = introHTML
 											? { paragraphHTML: introHTML }

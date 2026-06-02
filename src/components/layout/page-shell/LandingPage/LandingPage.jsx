@@ -1,45 +1,161 @@
-import React from 'react';
+import React from "react";
+import { ArrowRight, BookOpen, GraduationCap } from "lucide-react";
 
-export class LandingPage extends React.Component{
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+} from "@/components/ui/card";
+import {
+	Sidebar,
+	SidebarContent,
+	SidebarFooter,
+	SidebarGroup,
+	SidebarGroupLabel,
+	SidebarHeader,
+	SidebarMenu,
+	SidebarMenuButton,
+	SidebarMenuItem,
+	SidebarProvider,
+	SidebarTrigger,
+} from "@/components/ui/sidebar";
 
-	buildLearningObjectURL = (learningObject) => {
-		const slug = `${learningObject?.slug || learningObject?.file || ''}`.trim();
-		const basePath = new URL(import.meta.env.BASE_URL, window.location.origin).pathname;
-		return `${window.location.origin}${basePath}${encodeURIComponent(slug)}/`;
-	};
+const buildLearningObjectURL = (learningObject) => {
+	const slug = `${learningObject?.slug || learningObject?.file || ""}`.trim();
+	const basePath = new URL(import.meta.env.BASE_URL, window.location.origin).pathname;
+	return `${basePath}${encodeURIComponent(slug)}/`;
+};
 
-	render = () => {
-		const {
-			learningObjects = []
-		} = this.props;
-		// console.log("LandingPage learningObjects", learningObjects.length);
-		if (learningObjects.length > 0) {
-			const cards = []; // [];
-			learningObjects.forEach((learningObject, index) => {
-				cards.push(
-					<li
-						className="flex h-[300px] w-[300px] rounded-[20px] border border-[var(--border)] bg-[linear-gradient(180deg,var(--primary)_0%,var(--destructive)_100%)] hover:bg-[linear-gradient(180deg,var(--destructive)_0%,var(--primary)_100%)]"
-						key={`card-${index}`}>
-						<a
-							className="flex h-full w-full flex-col items-center justify-between p-5 text-center !no-underline"
-							href={this.buildLearningObjectURL(learningObject)}
-							target={`_blank`}
-						>
-							<h1 className="font-bold text-[var(--primary-foreground)]">{learningObject.title}</h1>
-						</a>
-					</li>
-				);
-			});
+const pad2 = (n) => String(n).padStart(2, "0");
 
-			return (
-				<>
-					<h1>Landing page!</h1>
-					<p>Yada yada yada.</p>
-					<ul className="landing-page flex flex-row flex-wrap justify-center gap-x-5 gap-y-5">
-						{cards}
+export function LandingPage({ learningObjects = [] }) {
+	if (learningObjects.length === 0) return null;
+
+	return (
+		<SidebarProvider className="min-h-[60vh] rounded-xl border border-border bg-background">
+			{/* Left: course navigation. Sidebar root renders a <nav> landmark. */}
+			<Sidebar collapsible="icon" className="border-r border-border">
+				<SidebarHeader className="gap-1 px-3 py-4">
+					<div className="flex items-center gap-2">
+						<span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[var(--brand-primary)] text-white">
+							<GraduationCap className="size-5" aria-hidden="true" />
+						</span>
+						<span className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
+							<span className="font-semibold">French Basic</span>
+							<span className="text-xs text-muted-foreground">Cambridge Language Centre</span>
+						</span>
+					</div>
+				</SidebarHeader>
+
+				<SidebarContent>
+					<nav aria-label="Learning objectives">
+						<SidebarGroup>
+							<SidebarGroupLabel>Learning objectives</SidebarGroupLabel>
+							<SidebarMenu>
+								{learningObjects.map((lo, i) => (
+									<SidebarMenuItem key={lo.slug || i}>
+										<SidebarMenuButton
+											asChild
+											tooltip={lo.titleShort || lo.title}
+										>
+											<a href={buildLearningObjectURL(lo)}>
+												<span
+													aria-hidden="true"
+													className="flex size-5 shrink-0 items-center justify-center rounded text-[0.625rem] font-semibold tabular-nums text-[var(--brand-primary)]"
+												>
+													{pad2(i + 1)}
+												</span>
+												<span className="truncate">{lo.titleShort || lo.title}</span>
+											</a>
+										</SidebarMenuButton>
+									</SidebarMenuItem>
+								))}
+							</SidebarMenu>
+						</SidebarGroup>
+					</nav>
+				</SidebarContent>
+
+				<SidebarFooter className="px-3 py-4 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
+					<div className="flex items-center gap-2">
+						<BookOpen className="size-4" aria-hidden="true" />
+						<span>{learningObjects.length} objectives</span>
+					</div>
+				</SidebarFooter>
+			</Sidebar>
+
+			{/* Right: header band + card grid. (Plain div, not <main>/SidebarInset —
+			    the app shell already provides the single <main> landmark.) */}
+			<div className="relative flex min-w-0 flex-1 flex-col bg-background">
+				{/* Slim decorative brand band — not a hero. */}
+				<div className="relative isolate overflow-hidden border-b border-border">
+					<img
+						src={`${import.meta.env.BASE_URL}img/common/branding/fr-banner.svg`}
+						alt=""
+						aria-hidden="true"
+						className="h-20 w-full object-cover object-[center_35%] sm:h-24"
+					/>
+					<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
+					<div className="absolute inset-0 flex items-center gap-3 px-4 sm:px-6">
+						<SidebarTrigger className="md:hidden" />
+						<div>
+							<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
+								French&nbsp;Basic
+							</h1>
+							<p className="text-sm text-muted-foreground">
+								Choose a learning objective to begin.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				{/* Card grid. */}
+				<div className="px-4 py-6 sm:px-6">
+					<ul className="grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+						{learningObjects.map((lo, i) => (
+							<li
+								key={lo.slug || i}
+								className="animate-in fade-in-0 slide-in-from-bottom-2 fill-mode-both duration-500 motion-reduce:animate-none"
+								style={{ animationDelay: `${Math.min(i * 60, 600)}ms` }}
+							>
+								<a
+									href={buildLearningObjectURL(lo)}
+									className="group block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+								>
+									<Card className="flex h-full flex-col overflow-hidden border-t-2 border-t-[var(--brand-primary)] pt-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+										<CardHeader>
+											<span
+												aria-hidden="true"
+												className="text-2xl font-bold tabular-nums text-[var(--brand-primary)]/80"
+											>
+												{pad2(i + 1)}
+											</span>
+											<h2 className="text-base font-semibold leading-snug tracking-tight text-card-foreground">
+												{lo.titleShort || lo.title}
+											</h2>
+										</CardHeader>
+										<CardContent className="flex-1">
+											<CardDescription className="line-clamp-3">
+												{lo.title}
+											</CardDescription>
+										</CardContent>
+										<CardFooter>
+											<span className="inline-flex items-center gap-1 text-sm font-medium text-[var(--brand-primary)]">
+												Start
+												<ArrowRight
+													className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+													aria-hidden="true"
+												/>
+											</span>
+										</CardFooter>
+									</Card>
+								</a>
+							</li>
+						))}
 					</ul>
-				</>
-			);
-		}
-	};
+				</div>
+			</div>
+		</SidebarProvider>
+	);
 }

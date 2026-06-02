@@ -38,3 +38,4 @@ public/images/table-top.png
 # AI agent skills (installed via npx skills add — not project code)
 .agents/
 skills-lock.json
+.playwright-mcp/
