@@ -181,6 +181,29 @@ Use this as a hard "do not repeat" list.
 22. Do not default to bespoke CSS for card/tile interactions when Tailwind and shadcn primitives can express the layout cleanly. Drop to shared CSS only for the narrow pieces utilities do not cover well.
 23. Do not use `<h4>`, `<p>`, or bare `<div>` for short grammar section labels (e.g. "For example:", "Here are the conditional forms:"). Always use `<GrammarLabel>` — it enforces correct font size and prevents WAVE "possible heading" alerts. One component = one change site for all labels.
 24. **[Tech debt — existing LOs]** Do not ship a new course without renaming all component-named audio exercise subfolders to semantic or ordered names. All current LOs (LO1–LO15) use folder names tied to React component names (`draggableFillGaps1`, `selectExercise2`, `memoryMatchGame1`, `dictationExercise4`, etc.). These are implementation details, not content descriptions — if a component is renamed or replaced, the folder name becomes misleading. Scope of the existing debt: ~50 folders across LO1–LO15, ~400+ source references. Migrate one LO at a time in dedicated commits. See the Audio File & Folder Naming Convention section for the target structure.
+25. **[Tech debt — `App.jsx`]** Do not render config-driven components through a giant `switch (component)` inside a god component. The current `App.jsx` is a single 1735-line class doing routing, config loading, schema normalization, modal-link handling, theme, and a ~550-line `renderComponent` switch with ~20 branches. Adding an exercise type means editing the switch — the file grows without bound. See the Component Rendering Architecture rule below for the target.
+
+### Component Rendering Architecture (Carry Forward)
+
+Config-driven content apps (a JSON schema naming components to render) must map type → component through a **registry**, never a switch, and must keep the app shell thin.
+
+**Rules:**
+1. **Registry, not switch.** Map component-type strings to components in a lookup object; dispatch by key.
+   ```js
+   // componentRegistry.js
+   export const COMPONENT_REGISTRY = { SelectExercise, RadioQuiz, DraggableFillGaps, /* … */ };
+   // render: const Cmp = COMPONENT_REGISTRY[type]; return Cmp ? <Cmp {...props} /> : null;
+   ```
+   Adding a component = one map entry, not a new `case`. No single file grows unbounded.
+2. **Function components + hooks from day one.** Class components block shared-logic extraction via hooks (and force `this`-bound handlers). Start functional.
+3. **Context for cross-cutting concerns.** Theme (dark mode), modal/dialog state, and similar app-wide state belong in React Context (`ThemeContext`, `ModalContext`) — not threaded through one component's state.
+4. **Routing is its own layer.** Slug/URL ↔ content resolution belongs in a `router/` module (or a router library), not as methods on the app component.
+5. **Config + schema work is a service.** Loading and normalizing JSON config is data work — put it in a `configService`/loader module, outside the view layer.
+6. **The app shell is a composition root.** Ideally ~100 lines: wire providers + router + registry, nothing else.
+
+**Defined prop contract for the registry:** decide up front — either (A) every registered component accepts a uniform `{ value, ...context }` shape and reads what it needs, or (B) the registry stores `{ Component, mapProps }` adapters per type. Prefer A where components already share a shape; B for outliers.
+
+**If refactoring an existing switch:** use the strangler pattern — add the registry alongside the switch, migrate one type per commit (registry entry + delete that `case`), verify each step against a visual baseline (Playwright screenshots, since there are no unit tests), then delete the empty switch last. App stays working after every commit.
 
 ### Image Asset Structure Rule (Carry Forward)
 
