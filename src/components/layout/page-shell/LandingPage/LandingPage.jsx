@@ -97,17 +97,17 @@ export function LandingPage({ learningObjects = [] }) {
 						className="h-20 w-full object-cover object-[center_35%] sm:h-24"
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
-					<div className="absolute inset-0 flex items-center gap-3 px-4 sm:px-6">
+					<header className="absolute inset-0 flex items-center gap-3 px-4 sm:px-6">
 						<SidebarTrigger className="md:hidden" />
 						<div>
 							<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
 								French&nbsp;Basic
 							</h1>
-							<p className="text-sm text-muted-foreground">
+							<p className="text-sm font-normal text-muted-foreground">
 								Choose a learning objective to begin.
 							</p>
 						</div>
-					</div>
+					</header>
 				</div>
 
 				{/* Card grid. */}
