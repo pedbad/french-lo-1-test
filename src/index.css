@@ -4102,31 +4102,33 @@ hr {
     margin-top: 0.25rem;
   }
 }
-#content {
-  width: 100vw;
-  max-width: 1400px;
-  color: var(--foreground);
-  text-align: left;
-  padding: 1rem 0;
-  margin: auto;
-  margin-bottom: 4rem;
-}
-#content ul {
-  margin: 2rem 0;
-  padding-left: 1.2rem;
-  list-style: disc;
-}
-#content #grammar ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-#content li .video {
-  margin-left: -40px;
-}
-#content .instructions ul,
-#content .intro ul {
-  list-style: disc;
+@layer base {
+	#content {
+		width: 100vw;
+		max-width: 1400px;
+		color: var(--foreground);
+		text-align: left;
+		padding: 1rem 0;
+		margin: auto;
+		margin-bottom: 4rem;
+	}
+	:where(#content) ul {
+		margin: 2rem 0;
+		padding-left: 1.2rem;
+		list-style: disc;
+	}
+	:where(#content) #grammar ul {
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+	}
+	#content li .video {
+		margin-left: -40px;
+	}
+	:where(#content) .instructions ul,
+	:where(#content) .intro ul {
+		list-style: disc;
+	}
 }
 :is(#content, #debug-sandbox-page) .instruction-callout {
   margin: 0.55rem 0 0;

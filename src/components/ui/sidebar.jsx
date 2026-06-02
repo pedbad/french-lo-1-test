@@ -25,9 +25,9 @@ import {
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-const SIDEBAR_WIDTH = "16rem"
+const SIDEBAR_WIDTH = "14rem"
 const SIDEBAR_WIDTH_MOBILE = "18rem"
-const SIDEBAR_WIDTH_ICON = "3rem"
+const SIDEBAR_WIDTH_ICON = "2.5rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
 const SidebarContext = React.createContext(null)
@@ -44,6 +44,7 @@ function useSidebar() {
 const SidebarProvider = React.forwardRef((
   {
     defaultOpen = true,
+    defaultOpenMobile = false,
     open: openProp,
     onOpenChange: setOpenProp,
     className,
@@ -54,7 +55,7 @@ const SidebarProvider = React.forwardRef((
   ref
 ) => {
   const isMobile = useIsMobile()
-  const [openMobile, setOpenMobile] = React.useState(false)
+  const [openMobile, setOpenMobile] = React.useState(defaultOpenMobile)
 
   // This is the internal state of the sidebar.
   // We use openProp and setOpenProp for control from outside the component.
@@ -141,6 +142,7 @@ const Sidebar = React.forwardRef((
     collapsible = "offcanvas",
     className,
     children,
+    absolute = false,
     ...props
   },
   ref
@@ -204,7 +206,8 @@ const Sidebar = React.forwardRef((
         )} />
       <div
         className={cn(
-          "fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",
+          "inset-y-0 z-10 hidden w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex",
+          absolute ? "absolute h-full" : "fixed h-svh",
           side === "left"
             ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
@@ -235,7 +238,7 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
       data-sidebar="trigger"
       variant="ghost"
       size="icon"
-      className={cn("h-7 w-7", className)}
+      className={cn("h-8 w-8 cursor-pointer transition-all duration-700 ease-in-out hover:bg-[var(--brand-primary)] hover:text-white", className)}
       onClick={(event) => {
         onClick?.(event)
         toggleSidebar()
@@ -408,7 +411,7 @@ const SidebarMenu = React.forwardRef(({ className, ...props }, ref) => (
   <ul
     ref={ref}
     data-sidebar="menu"
-    className={cn("flex w-full min-w-0 flex-col gap-1", className)}
+    className={cn("flex w-full min-w-0 list-none flex-col gap-1 p-0 m-0", className)}
     {...props} />
 ))
 SidebarMenu.displayName = "SidebarMenu"

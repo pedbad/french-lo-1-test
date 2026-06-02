@@ -34,14 +34,16 @@ export function LandingPage({ learningObjects = [] }) {
 	if (learningObjects.length === 0) return null;
 
 	return (
-		<SidebarProvider className="min-h-[60vh] rounded-xl border border-border bg-background">
+		<SidebarProvider
+			defaultOpen={false}
+			defaultOpenMobile={true}
+			className="min-h-screen w-full bg-background"
+		>
 			{/* Left: course navigation. Sidebar root renders a <nav> landmark. */}
 			<Sidebar collapsible="icon" className="border-r border-border">
-				<SidebarHeader className="gap-1 px-3 py-4">
+				<SidebarHeader className="gap-1 px-2 py-4">
 					<div className="flex items-center gap-2">
-						<span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[var(--brand-primary)] text-white">
-							<GraduationCap className="size-5" aria-hidden="true" />
-						</span>
+						<SidebarTrigger className="-ml-1" />
 						<span className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
 							<span className="font-semibold">French Basic</span>
 							<span className="text-xs text-muted-foreground">Cambridge Language Centre</span>
@@ -77,7 +79,7 @@ export function LandingPage({ learningObjects = [] }) {
 					</nav>
 				</SidebarContent>
 
-				<SidebarFooter className="px-3 py-4 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
+				<SidebarFooter className="px-2 py-4 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
 					<div className="flex items-center gap-2">
 						<BookOpen className="size-4" aria-hidden="true" />
 						<span>{learningObjects.length} objectives</span>
@@ -98,7 +100,6 @@ export function LandingPage({ learningObjects = [] }) {
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
 					<header className="absolute inset-0 flex items-center gap-3 px-4 sm:px-6">
-						<SidebarTrigger className="md:hidden" />
 						<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
 							French&nbsp;Basic
 						</h1>
@@ -107,12 +108,9 @@ export function LandingPage({ learningObjects = [] }) {
 
 				{/* Card grid. */}
 				<div className="px-4 py-6 sm:px-6">
-					<h2 className="text-lg font-semibold tracking-tight">
+					<h2 className="mb-5 text-lg font-semibold tracking-tight">
 						Learning objectives
 					</h2>
-					<p className="mb-5 mt-1 text-sm text-muted-foreground">
-						Choose a learning objective to begin.
-					</p>
 					<ul className="grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 						{learningObjects.map((lo, i) => (
 							<li
