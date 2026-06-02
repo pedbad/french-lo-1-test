@@ -40,6 +40,25 @@ import DOMPurify from "dompurify";
 import React from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+// Exercises that render identically: an AccordionArticle wrapping
+// <Component config={value} />. To add another such exercise, register it
+// here instead of adding a new case to renderComponent's switch.
+const ACCORDION_EXERCISE_REGISTRY = {
+	ClozeTypingExercise,
+	TypedTransformExercise,
+	DictationExercise,
+	DraggableFillGaps,
+	SelectExercise,
+	InlineChoiceGroup,
+	InlineTypedGapExercise,
+	LineMatch,
+	MemoryMatchGame,
+	RadioQuiz,
+	WordOrderExercise,
+	PhraseReorderExercise,
+	WordSpotExercise,
+};
+
 const splitDisplayTitle = (value) => {
 	if (typeof value !== "string") return null;
 
@@ -1193,152 +1212,28 @@ export default class App extends React.Component {
 		const topLevelSemanticAs = forcedTargetId ? "div" : "section";
 		const compoundID = `LO${currentLearningObject}-${id}`;
 
+		// Registry dispatch for exercises that share the identical
+		// accordion-wrapped template. Special cases fall through to the switch.
+		const RegisteredExercise = ACCORDION_EXERCISE_REGISTRY[component];
+		if (RegisteredExercise) {
+			articles.push(
+				<AccordionArticle
+					expandedByDefault={autoExpandSingleAccordion}
+					config={value}
+					id={`${compoundID}-Accordion`}
+					key={`${compoundID}-Accordion`}
+					target={targetId}
+					title={titleText}
+					titleHTML={titleTextHTML}
+				>
+					<RegisteredExercise config={value} />
+				</AccordionArticle>,
+			);
+			return;
+		}
+
 		switch (component) {
-			case "ClozeTypingExercise": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<ClozeTypingExercise
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "TypedTransformExercise": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<TypedTransformExercise
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "DictationExercise": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<DictationExercise
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "DraggableFillGaps": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<DraggableFillGaps
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "SelectExercise": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<SelectExercise
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-				case "InlineChoiceGroup": {
-					articles.push(
-						<AccordionArticle
-							expandedByDefault={autoExpandSingleAccordion}
-							config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<InlineChoiceGroup
-							config={value}
-						/>
-					</AccordionArticle>,
-					);
-					break;
-				}
-				case "InlineTypedGapExercise": {
-					articles.push(
-						<AccordionArticle
-							expandedByDefault={autoExpandSingleAccordion}
-							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							target={targetId}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<InlineTypedGapExercise
-								config={value}
-							/>
-						</AccordionArticle>,
-					);
-					break;
-				}
-				case "LineMatch": {
-					articles.push(
-						<AccordionArticle
-							expandedByDefault={autoExpandSingleAccordion}
-							config={value}
-							id={`${compoundID}-Accordion`}
-							key={`${compoundID}-Accordion`}
-							target={targetId}
-							title={titleText}
-							titleHTML={titleTextHTML}
-						>
-							<LineMatch
-								config={value}
-							/>
-						</AccordionArticle>,
-					);
-					break;
-				}
-				case "Explanation": {
+			case "Explanation": {
 					if (expandable) {
 						articles.push(
 						<AccordionArticle
@@ -1520,24 +1415,6 @@ export default class App extends React.Component {
 
 				break;
 			}
-			case "MemoryMatchGame": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<MemoryMatchGame
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
 			case "PhraseTable": {
 				if (expandable) {
 					articles.push(
@@ -1576,42 +1453,6 @@ export default class App extends React.Component {
 				}
 				break;
 			}
-			case "RadioQuiz": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<RadioQuiz
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "WordOrderExercise": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<WordOrderExercise
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
 			case "Section": {
 				const renderedSectionContent = [];
 				const { content: sectionContent = [] } = value;
@@ -1633,42 +1474,6 @@ export default class App extends React.Component {
 					>
 						{renderedSectionContent}
 					</SectionComponent>,
-				);
-				break;
-			}
-			case "PhraseReorderExercise": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<PhraseReorderExercise
-							config={value}
-						/>
-					</AccordionArticle>,
-				);
-				break;
-			}
-			case "WordSpotExercise": {
-				articles.push(
-					<AccordionArticle
-						expandedByDefault={autoExpandSingleAccordion}
-						config={value}
-						id={`${compoundID}-Accordion`}
-						key={`${compoundID}-Accordion`}
-						target={targetId}
-						title={titleText}
-						titleHTML={titleTextHTML}
-					>
-						<WordSpotExercise
-							config={value}
-						/>
-					</AccordionArticle>,
 				);
 				break;
 			}
