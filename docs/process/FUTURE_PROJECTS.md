@@ -185,6 +185,8 @@ Use this as a hard "do not repeat" list.
 
 ### Component Rendering Architecture (Carry Forward)
 
+> 📐 **Diagrams:** see [docs/ARCHITECTURE.md](../ARCHITECTURE.md) for Mermaid diagrams of the four layers, render flow, activity contract, theme cascade, and the new-course / new-activity workflows — the developer-facing version of these rules.
+
 Config-driven content apps (a JSON schema naming components to render) must map type → component through a **registry**, never a switch, and must keep the app shell thin.
 
 **Rules:**
