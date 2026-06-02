@@ -150,7 +150,7 @@ listed in `src/index-fr.json`.
 Deployment is handled by two scripts — `1.deploy-lcdev-local.sh` for staging and
 `2.deploy-lcitc-remote.sh` for production. Full instructions, verification commands,
 and troubleshooting are in:
-- `DEPLOYMENT_TODO.md`
+- `docs/deployment/DEPLOYMENT.md`
 
 ## Future Projects: Avoiding `.htaccess` for New Language Series
 
@@ -731,7 +731,7 @@ Typography is also normalized: root tokens (for example `--font-size-base`, `--l
 ### Instruction Schema Unification (in progress)
 
 - ✅ Config key migration complete. All LO JSON files now use canonical keys only.
-- Tracking doc: `INFORMATION_CONFIG_ISSUES.MD`
+- Tracking doc: `docs/process/INFORMATION_CONFIG_ISSUES.md`
 - Canonical contract (enforced):
   - boxed guidance/alert text: `informationTextHTML` (HTML) or `informationText` (plain text)
 - What was migrated:

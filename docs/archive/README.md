@@ -13,7 +13,7 @@ This folder contains documentation for work that has been **completed and closed
 ```
 docs/archive/
   audio/          Migration maps and blocker logs for the audio path migration (LO2–LO15).
-                  All open audio work is now tracked in AUDIO_SIGN_OFF.md at the repo root.
+                  All open audio work is now tracked in docs/audio/AUDIO_SIGN_OFF.md.
   components/     Completed component refactor plans — utility refactor, dropdowns-to-SelectExercise.
   navigation/     Original navigation refactor plan (executed May 2026).
   styling/        Completed SCSS-to-Tailwind migration plans and typography migration history.
@@ -39,6 +39,6 @@ For work in progress, see the parent `docs/` subfolders:
 | `docs/pronunciation/` | Pronunciation section architecture and task checklists |
 | `docs/styling/` | Tailwind reference, colour migration policy |
 | `docs/a11y/` | Accessibility audits, semantic DOM, table audits |
-| Root `AUDIO_SIGN_OFF.md` | Single source of truth for all outstanding audio work |
-| Root `INFORMATION_CONFIG_ISSUES.MD` | Config schema debt tracking |
-| Root `DEPLOYMENT_TODO.md` | Deployment instructions and checklist |
+| `docs/audio/AUDIO_SIGN_OFF.md` | Single source of truth for all outstanding audio work |
+| `docs/process/INFORMATION_CONFIG_ISSUES.md` | Config schema debt tracking |
+| `docs/deployment/DEPLOYMENT.md` | Deployment instructions and checklist |

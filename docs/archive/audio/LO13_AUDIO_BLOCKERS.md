@@ -2,7 +2,7 @@
 
 ## Status
 
-Outstanding audio items are tracked in the single source of truth: `/AUDIO_SIGN_OFF.md`
+Outstanding audio items are tracked in the single source of truth: `/docs/audio/AUDIO_SIGN_OFF.md`
 
 ## Resolved legacy filename drift
 
