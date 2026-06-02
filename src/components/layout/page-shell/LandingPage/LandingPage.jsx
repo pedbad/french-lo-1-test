@@ -99,19 +99,20 @@ export function LandingPage({ learningObjects = [] }) {
 					<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
 					<header className="absolute inset-0 flex items-center gap-3 px-4 sm:px-6">
 						<SidebarTrigger className="md:hidden" />
-						<div>
-							<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
-								French&nbsp;Basic
-							</h1>
-							<p className="text-sm font-normal text-muted-foreground">
-								Choose a learning objective to begin.
-							</p>
-						</div>
+						<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
+							French&nbsp;Basic
+						</h1>
 					</header>
 				</div>
 
 				{/* Card grid. */}
 				<div className="px-4 py-6 sm:px-6">
+					<h2 className="text-lg font-semibold tracking-tight">
+						Learning objectives
+					</h2>
+					<p className="mb-5 mt-1 text-sm text-muted-foreground">
+						Choose a learning objective to begin.
+					</p>
 					<ul className="grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 						{learningObjects.map((lo, i) => (
 							<li
@@ -131,9 +132,9 @@ export function LandingPage({ learningObjects = [] }) {
 											>
 												{pad2(i + 1)}
 											</span>
-											<h2 className="text-base font-semibold leading-snug tracking-tight text-card-foreground">
+											<h3 className="text-base font-semibold leading-snug tracking-tight text-card-foreground">
 												{lo.titleShort || lo.title}
-											</h2>
+											</h3>
 										</CardHeader>
 										<CardContent className="flex-1">
 											<CardDescription className="line-clamp-3">
