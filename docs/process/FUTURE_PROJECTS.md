@@ -182,6 +182,7 @@ Use this as a hard "do not repeat" list.
 23. Do not use `<h4>`, `<p>`, or bare `<div>` for short grammar section labels (e.g. "For example:", "Here are the conditional forms:"). Always use `<GrammarLabel>` — it enforces correct font size and prevents WAVE "possible heading" alerts. One component = one change site for all labels.
 24. **[Tech debt — existing LOs]** Do not ship a new course without renaming all component-named audio exercise subfolders to semantic or ordered names. All current LOs (LO1–LO15) use folder names tied to React component names (`draggableFillGaps1`, `selectExercise2`, `memoryMatchGame1`, `dictationExercise4`, etc.). These are implementation details, not content descriptions — if a component is renamed or replaced, the folder name becomes misleading. Scope of the existing debt: ~50 folders across LO1–LO15, ~400+ source references. Migrate one LO at a time in dedicated commits. See the Audio File & Folder Naming Convention section for the target structure.
 25. **[Tech debt — `App.jsx`]** Do not render config-driven components through a giant `switch (component)` inside a god component. The current `App.jsx` is a single 1735-line class doing routing, config loading, schema normalization, modal-link handling, theme, and a ~550-line `renderComponent` switch with ~20 branches. Adding an exercise type means editing the switch — the file grows without bound. See the Component Rendering Architecture rule below for the target.
+26. **[Tech debt — CSS layers]** Do not leave custom CSS **unlayered**. In Tailwind v4, cascade-layer order beats specificity: a rule in `@layer utilities` (where all Tailwind utilities live) beats `@layer base` *even for ID selectors* — but an **unlayered** rule beats *every* layer, so it silently overrides Tailwind utilities no matter how low its specificity. `src/index.css` still has ~321 ID-scoped, largely **unlayered** legacy rules (e.g. `#content :where(p,li,td…)`, `#content a`) that sit cascade-above utilities. Symptom: a `text-*`/`bg-*` utility "does nothing" and only `!important` fixes it (a band-aid that must be repeated forever). **Fix:** wrap the offending rule in `@layer base` — utilities then win cleanly with no `!important`. See the CSS Cascade Layers rule below. Migrating the remaining unlayered legacy rules into `@layer base` is an open phase.
 
 ### Component Rendering Architecture (Carry Forward)
 
@@ -206,6 +207,19 @@ Config-driven content apps (a JSON schema naming components to render) must map 
 **Defined prop contract for the registry:** decide up front — either (A) every registered component accepts a uniform `{ value, ...context }` shape and reads what it needs, or (B) the registry stores `{ Component, mapProps }` adapters per type. Prefer A where components already share a shape; B for outliers.
 
 **If refactoring an existing switch:** use the strangler pattern — add the registry alongside the switch, migrate one type per commit (registry entry + delete that `case`), verify each step against a visual baseline (Playwright screenshots, since there are no unit tests), then delete the empty switch last. App stays working after every commit.
+
+### CSS Cascade Layers (Carry Forward)
+
+Tailwind-first means utilities must always be able to win. The mechanism that guarantees this is **cascade layers**, not specificity.
+
+- Tailwind v4 declares `@layer theme, base, components, utilities;`. **Layer order beats specificity:** a `text-sm` utility (in `@layer utilities`) overrides `#content p { font-size }` *only if that rule is in an earlier layer* (`@layer base`). The ID's 1-0-0 specificity is irrelevant across layers.
+- **Unlayered CSS beats every layer.** A plain unlayered rule sits cascade-above `@layer utilities`, so it silently overrides Tailwind utilities regardless of specificity. This is the usual reason a utility "does nothing".
+- **Rule:** wrap *all* hand-written CSS in a layer — `@layer base` (element/content defaults), `@layer components` (reusable classes), or `@utility` (custom utilities). Never leave custom rules unlayered.
+- **Never reach for `!important` to beat a global rule** — that's a band-aid repeated forever. Instead move the offending rule into `@layer base`; utilities then win cleanly.
+- **Authored/prose content** that can't carry classes: style it via a layered, scoped rule (`@layer base { #content :where(p,li,td…) {…} }`). Authored content (no utilities) still gets the default; any component using utilities inside the same container still wins.
+- **Debugging:** if a utility loses, inspect the winning rule's **layer**, not just its specificity.
+
+> Existing debt: ~321 ID-scoped, largely unlayered rules in `src/index.css`. The font-size/link-colour ones under `#content` have been moved into `@layer base`; the rest are a pending migration. New CSS must be layered from the start.
 
 ### Image Asset Structure Rule (Carry Forward)
 
