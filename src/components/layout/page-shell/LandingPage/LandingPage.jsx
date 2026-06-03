@@ -109,12 +109,16 @@ export function LandingPage({ learningObjects = [] }) {
 					</nav>
 				</SidebarContent>
 
-				<SidebarFooter className="gap-1 px-3 py-4 text-xs text-white/70 group-data-[collapsible=icon]:hidden">
-					<div className="flex items-center gap-2">
+				<SidebarFooter className="gap-1 px-1 py-3">
+					{/* Expanded: objectives count */}
+					<div className="flex items-center gap-2 px-1 text-xs text-white/70 group-data-[collapsible=icon]:hidden">
 						<BookOpen className="size-4" aria-hidden="true" />
 						<span>{learningObjects.length} objectives</span>
 					</div>
-					<p className="text-white/50">© 2026</p>
+					{/* Collapsed rail: tiny copyright below the social icons */}
+					<p className="hidden text-center text-[7px] leading-tight text-white/50 group-data-[collapsible=icon]:block">
+						© 2026
+					</p>
 				</SidebarFooter>
 			</Sidebar>
 
