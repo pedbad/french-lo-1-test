@@ -46,7 +46,7 @@ export function LandingPage({ learningObjects = [] }) {
 						<SidebarTrigger className="-ml-1" />
 						<span className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
 							<span className="font-semibold">French Basic</span>
-							<span className="text-xs text-muted-foreground">Cambridge Language Centre</span>
+							<span className="text-xs text-white/70">Cambridge Language Centre</span>
 						</span>
 					</div>
 				</SidebarHeader>
@@ -62,10 +62,13 @@ export function LandingPage({ learningObjects = [] }) {
 											asChild
 											tooltip={lo.titleShort || lo.title}
 										>
-											<a href={buildLearningObjectURL(lo)}>
+											<a
+												href={buildLearningObjectURL(lo)}
+												className="text-sidebar-foreground! no-underline! hover:text-sidebar-foreground!"
+											>
 												<span
 													aria-hidden="true"
-													className="flex size-5 shrink-0 items-center justify-center rounded text-[0.625rem] font-semibold tabular-nums text-[var(--brand-primary)]"
+													className="flex size-5 shrink-0 items-center justify-center rounded text-[0.625rem] font-semibold tabular-nums text-white/85"
 												>
 													{pad2(i + 1)}
 												</span>
@@ -126,7 +129,7 @@ export function LandingPage({ learningObjects = [] }) {
 										<CardHeader>
 											<span
 												aria-hidden="true"
-												className="text-2xl font-bold tabular-nums text-[var(--brand-primary)]/80"
+												className="text-2xl font-bold tabular-nums text-(--brand-primary)/80"
 											>
 												{pad2(i + 1)}
 											</span>

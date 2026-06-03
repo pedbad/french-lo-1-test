@@ -238,7 +238,7 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
       data-sidebar="trigger"
       variant="ghost"
       size="icon"
-      className={cn("h-8 w-8 cursor-pointer transition-colors duration-200 hover:bg-transparent hover:text-(--brand-primary)", className)}
+      className={cn("h-8 w-8 cursor-pointer transition-colors duration-200 hover:bg-transparent hover:text-(--brand-tertiary)", className)}
       onClick={(event) => {
         onClick?.(event)
         toggleSidebar()
