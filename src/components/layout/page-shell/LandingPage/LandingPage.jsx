@@ -73,7 +73,7 @@ export function LandingPage({ learningObjects = [] }) {
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={label}
-								className="inline-flex size-6 items-center justify-center rounded-full border border-foreground bg-foreground text-(--footer-social-icon-fg)! no-underline! transition-all duration-200 hover:-translate-y-0.5 hover:border-(--footer-hover-color) hover:bg-(--footer-hover-color)"
+								className="inline-flex size-6 items-center justify-center rounded-full border border-foreground bg-foreground text-(--footer-social-icon-fg) no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-(--footer-hover-color) hover:bg-(--footer-hover-color)"
 							>
 								<Icon className="size-3.5" aria-hidden="true" strokeWidth={1.9} />
 							</a>
@@ -91,7 +91,7 @@ export function LandingPage({ learningObjects = [] }) {
 										>
 											<a
 												href={buildLearningObjectURL(lo)}
-												className="text-sidebar-foreground! no-underline! hover:text-sidebar-foreground!"
+												className="text-sidebar-foreground no-underline hover:text-sidebar-foreground"
 											>
 												<span
 													aria-hidden="true"
@@ -116,7 +116,7 @@ export function LandingPage({ learningObjects = [] }) {
 						<span>{learningObjects.length} objectives</span>
 					</div>
 					{/* Collapsed rail: tiny copyright below the social icons */}
-					<p className="hidden whitespace-nowrap text-center text-[0.5rem]! leading-none text-white/50 group-data-[collapsible=icon]:block">
+					<p className="hidden whitespace-nowrap text-center text-[0.5rem] leading-none text-white/50 group-data-[collapsible=icon]:block">
 						© 2026
 					</p>
 				</SidebarFooter>

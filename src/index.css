@@ -4237,9 +4237,14 @@ hr {
 #content .abbreviations dd {
   margin: 0;
 }
-#content :where(p, li, td, th, figcaption, caption) {
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-body);
+/* In @layer base so Tailwind utilities (later layer) win over it.
+   Authored LO content carries no utilities, so it still gets these
+   defaults; component UI using text-* utilities overrides cleanly. */
+@layer base {
+  #content :where(p, li, td, th, figcaption, caption) {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+  }
 }
 #content .inline-icon {
   display: inline-block;
@@ -4369,10 +4374,14 @@ hr {
   background: var(--muted);
   max-height: 40px;
 }
-#content a {
-  color: var(--primary);
-  cursor: pointer;
-  text-decoration: underline;
+/* In @layer base so Tailwind utilities win (e.g. component links that
+   set their own colour / no-underline). Authored links keep this default. */
+@layer base {
+  #content a {
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 #content a.modal-link-target {
   color: initial;
