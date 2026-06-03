@@ -51,7 +51,7 @@ export function LandingPage({ learningObjects = [] }) {
 					</div>
 				</SidebarHeader>
 
-				<SidebarContent>
+				<SidebarContent className="group-data-[collapsible=icon]:hidden">
 					<nav aria-label="Learning objectives">
 						<SidebarGroup>
 							<SidebarGroupLabel>Learning objectives</SidebarGroupLabel>
