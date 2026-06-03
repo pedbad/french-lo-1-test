@@ -116,7 +116,7 @@ export function LandingPage({ learningObjects = [] }) {
 						<span>{learningObjects.length} objectives</span>
 					</div>
 					{/* Collapsed rail: tiny copyright below the social icons */}
-					<p className="hidden text-center text-[7px] leading-tight text-white/50 group-data-[collapsible=icon]:block">
+					<p className="hidden whitespace-nowrap text-center text-[0.625rem] leading-none text-white/50 group-data-[collapsible=icon]:block">
 						© 2026
 					</p>
 				</SidebarFooter>
