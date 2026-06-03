@@ -45,10 +45,12 @@ export function LandingPage({ learningObjects = [] }) {
 		<SidebarProvider
 			defaultOpen={false}
 			defaultOpenMobile={true}
-			className="min-h-screen w-full bg-background"
+			className="relative min-h-screen w-full overflow-hidden bg-background"
 		>
-			{/* Left: course navigation. Sidebar root renders a <nav> landmark. */}
-			<Sidebar collapsible="icon" className="border-r border-border">
+			{/* Left: course navigation. Sidebar root renders a <nav> landmark.
+			    `absolute` keeps the rail contained in the landing area (not
+			    viewport-fixed), so it never overlaps the footer below. */}
+			<Sidebar collapsible="icon" absolute className="border-r border-border">
 				<SidebarHeader className="gap-1 px-2 py-4">
 					<div className="flex items-center gap-2">
 						<SidebarTrigger className="-ml-1" />
