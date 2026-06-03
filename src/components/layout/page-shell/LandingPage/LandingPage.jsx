@@ -1,5 +1,13 @@
 import React from "react";
-import { ArrowRight, BookOpen, GraduationCap } from "lucide-react";
+import { ArrowRight, BookOpen, Facebook, Instagram, Linkedin, X, Youtube } from "lucide-react";
+
+const SOCIAL_LINKS = [
+	{ href: "https://www.facebook.com/uclangcen/", icon: Facebook, label: "Facebook" },
+	{ href: "https://x.com/uclangcen", icon: X, label: "X (Twitter)" },
+	{ href: "https://www.youtube.com/cambridgeuniversity", icon: Youtube, label: "YouTube" },
+	{ href: "https://www.linkedin.com/company/university-of-cambridge-language-centre/posts/?feedView=all", icon: Linkedin, label: "LinkedIn" },
+	{ href: "https://www.instagram.com/cambridgeuniversity/", icon: Instagram, label: "Instagram" },
+];
 
 import {
 	Card,
@@ -51,8 +59,27 @@ export function LandingPage({ learningObjects = [] }) {
 					</div>
 				</SidebarHeader>
 
-				<SidebarContent className="group-data-[collapsible=icon]:hidden">
-					<nav aria-label="Learning objectives">
+				<SidebarContent>
+					{/* Collapsed rail: social links, stacked + vertically centered. */}
+					<div
+						role="group"
+						aria-label="Follow us"
+						className="hidden flex-1 flex-col items-center justify-center gap-4 group-data-[collapsible=icon]:flex"
+					>
+						{SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+							<a
+								key={label}
+								href={href}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={label}
+								className="text-sidebar-foreground! no-underline! transition-colors hover:text-(--brand-tertiary)!"
+							>
+								<Icon className="size-5" aria-hidden="true" strokeWidth={1.9} />
+							</a>
+						))}
+					</div>
+					<nav aria-label="Learning objectives" className="group-data-[collapsible=icon]:hidden">
 						<SidebarGroup>
 							<SidebarGroupLabel>Learning objectives</SidebarGroupLabel>
 							<SidebarMenu>
