@@ -42,15 +42,35 @@ export function LandingPage({ learningObjects = [] }) {
 	if (learningObjects.length === 0) return null;
 
 	return (
-		<SidebarProvider
-			defaultOpen={false}
-			defaultOpenMobile={true}
-			className="relative min-h-screen w-full overflow-hidden bg-background"
-		>
-			{/* Left: course navigation. Sidebar root renders a <nav> landmark.
-			    `absolute` keeps the rail contained in the landing area (not
-			    viewport-fixed), so it never overlaps the footer below. */}
-			<Sidebar collapsible="icon" absolute className="border-r border-border">
+		// Full-bleed breakout: the landing renders inside #content (a centered,
+		// max-width, padded column). This cancels that so the banner + sidebar
+		// span the whole browser width like the other pages' shell.
+		<div className="mx-[calc(50%-50vw)] w-screen">
+			{/* Full-width slim brand band — spans the whole width, above the
+			    sidebar row, so it reads like the banner on the other pages. */}
+			<div className="relative isolate overflow-hidden border-b border-border">
+				<img
+					src={`${import.meta.env.BASE_URL}img/common/branding/fr-banner.svg`}
+					alt=""
+					aria-hidden="true"
+					className="h-20 w-full object-cover object-[center_35%] sm:h-24"
+				/>
+				<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
+				<header className="absolute inset-0 flex items-center px-4 sm:px-6">
+					<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
+						French&nbsp;Basic
+					</h1>
+				</header>
+			</div>
+
+			<SidebarProvider
+				defaultOpen={false}
+				defaultOpenMobile={true}
+				className="relative w-full overflow-hidden bg-background"
+			>
+				{/* Sidebar: far-left of the content row. `absolute` keeps the rail
+				    contained in this row, so it never overlaps the banner or footer. */}
+				<Sidebar collapsible="icon" absolute className="border-r border-border">
 				<SidebarHeader className="gap-1 px-2 py-4">
 					<div className="flex items-center gap-2">
 						<SidebarTrigger className="-ml-1" />
@@ -124,26 +144,8 @@ export function LandingPage({ learningObjects = [] }) {
 				</SidebarFooter>
 			</Sidebar>
 
-			{/* Right: header band + card grid. (Plain div, not <main>/SidebarInset —
-			    the app shell already provides the single <main> landmark.) */}
+			{/* Right column: card grid. */}
 			<div className="relative flex min-w-0 flex-1 flex-col bg-background">
-				{/* Slim decorative brand band — not a hero. */}
-				<div className="relative isolate overflow-hidden border-b border-border">
-					<img
-						src={`${import.meta.env.BASE_URL}img/common/branding/fr-banner.svg`}
-						alt=""
-						aria-hidden="true"
-						className="h-20 w-full object-cover object-[center_35%] sm:h-24"
-					/>
-					<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
-					<header className="absolute inset-0 flex items-center gap-3 px-4 sm:px-6">
-						<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
-							French&nbsp;Basic
-						</h1>
-					</header>
-				</div>
-
-				{/* Card grid. */}
 				<div className="px-4 py-6 sm:px-6">
 					<h2 className="mb-5 text-lg font-semibold tracking-tight">
 						Learning objectives
@@ -192,6 +194,7 @@ export function LandingPage({ learningObjects = [] }) {
 					</ul>
 				</div>
 			</div>
-		</SidebarProvider>
+			</SidebarProvider>
+		</div>
 	);
 }
