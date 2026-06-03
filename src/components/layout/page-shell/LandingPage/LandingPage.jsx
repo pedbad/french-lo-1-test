@@ -73,7 +73,7 @@ export function LandingPage({ learningObjects = [] }) {
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={label}
-								className="text-sidebar-foreground! no-underline! transition-colors hover:text-(--brand-tertiary)!"
+								className="inline-flex size-[38px] items-center justify-center rounded-full border border-foreground bg-foreground text-(--footer-social-icon-fg) no-underline! transition-all duration-200 hover:-translate-y-0.5 hover:border-(--footer-hover-color) hover:bg-(--footer-hover-color)"
 							>
 								<Icon className="size-5" aria-hidden="true" strokeWidth={1.9} />
 							</a>
