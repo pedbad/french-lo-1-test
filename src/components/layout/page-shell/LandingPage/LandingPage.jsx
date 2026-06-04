@@ -1,19 +1,15 @@
 import React from "react";
-import { ArrowRight, BookOpen, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 
-// Official X (Twitter) brand mark — lucide's X icon is a generic close icon, not the brand.
-const XBrandIcon = ({ className, strokeWidth: _sw, ...props }) => (
-	<svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true" {...props}>
-		<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
-	</svg>
-);
-
+// Social icons stored as SVG files in public/img/common/social/.
+// Lucide omits brand logos for copyright/trademark reasons, so we serve
+// the official brand marks from disk instead.
 const SOCIAL_LINKS = [
-	{ href: "https://www.facebook.com/uclangcen/", icon: Facebook, label: "Facebook" },
-	{ href: "https://x.com/uclangcen", icon: XBrandIcon, label: "X (Twitter)" },
-	{ href: "https://www.youtube.com/cambridgeuniversity", icon: Youtube, label: "YouTube" },
-	{ href: "https://www.linkedin.com/company/university-of-cambridge-language-centre/posts/?feedView=all", icon: Linkedin, label: "LinkedIn" },
-	{ href: "https://www.instagram.com/cambridgeuniversity/", icon: Instagram, label: "Instagram" },
+	{ href: "https://www.facebook.com/uclangcen/", img: "img/common/social/facebook.svg", label: "Facebook" },
+	{ href: "https://x.com/uclangcen", img: "img/common/social/x.svg", label: "X (Twitter)" },
+	{ href: "https://www.youtube.com/cambridgeuniversity", img: "img/common/social/youtube.svg", label: "YouTube" },
+	{ href: "https://www.linkedin.com/company/university-of-cambridge-language-centre/posts/?feedView=all", img: "img/common/social/linkedin.svg", label: "LinkedIn" },
+	{ href: "https://www.instagram.com/cambridgeuniversity/", img: "img/common/social/instagram.svg", label: "Instagram" },
 ];
 
 import {
@@ -75,16 +71,21 @@ export function LandingPage({ learningObjects = [] }) {
 						aria-label="Follow us"
 						className="hidden flex-1 flex-col items-center justify-center gap-4 group-data-[collapsible=icon]:flex"
 					>
-						{SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+						{SOCIAL_LINKS.map(({ href, img, label }) => (
 							<a
 								key={label}
 								href={href}
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={label}
-								className="inline-flex size-6 items-center justify-center rounded-full border border-foreground bg-foreground text-(--footer-social-icon-fg) no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-(--footer-hover-color) hover:bg-(--footer-hover-color)"
+								className="inline-flex size-6 items-center justify-center rounded-full border border-foreground bg-foreground no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-(--footer-hover-color) hover:bg-(--footer-hover-color)"
 							>
-								<Icon className="size-3.5" aria-hidden="true" strokeWidth={1.9} />
+								<img
+									src={`${import.meta.env.BASE_URL}${img}`}
+									alt=""
+									aria-hidden="true"
+									className="size-3.5 invert"
+								/>
 							</a>
 						))}
 					</div>
