@@ -57,7 +57,7 @@ export function LandingPage({ learningObjects = [] }) {
 						<div
 							role="group"
 							aria-label="Follow us"
-							className="hidden flex-1 flex-col items-center justify-center gap-4 group-data-[collapsible=icon]:flex"
+							className="hidden flex-col items-center gap-4 pt-6 group-data-[collapsible=icon]:flex"
 						>
 							{SOCIAL_LINKS.map(({ href, img, label }) => (
 								<a
