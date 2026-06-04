@@ -116,16 +116,18 @@ export function LandingPage({ learningObjects = [] }) {
 									French&nbsp;Basic
 									</h1>
 									<div className="mt-4 border-l-2 border-[var(--brand-primary)]/30 pl-6">
-									<p className="text-[var(--font-size-base)] leading-[var(--line-height-body)] text-muted-foreground/90">
-									French learning objects are small, independent resources that can be used either as part of a course or for self-study.
-									<br />
-									The learning objects below are at basic level and concentrate on learning to speak, read and write French.
-									</p>
+										<h2 className="font-heading text-xl font-semibold text-(--brand-quaternary)! sm:text-2xl">
+											French Learning Objects
+										</h2>
+										<p className="mt-2 text-[var(--font-size-base)] leading-[var(--line-height-body)] text-muted-foreground/90">
+										French learning objects are small, independent resources that can be used either as part of a course or for self-study.
+										<br />
+										The learning objects below are at basic level and concentrate on learning to speak, read and write French.
+										</p>
 									</div>
 									</header>
 
 									<div className="px-4 py-6 sm:px-6">
-										<h2 className="sr-only">Course Modules</h2>
 										<ul className="grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
 									{learningObjects.map((lo, i) => (
 									<li
