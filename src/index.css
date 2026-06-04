@@ -5,6 +5,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Exclude docs from Tailwind's auto content scan. The Tailwind v4 migration
+ * notes intentionally print broken example classes (e.g. the ambiguous
+ * size-valued var utility) to document the trap; without this, the scanner
+ * tries to compile them and emits a harmless `Unexpected token Delim('*')`
+ * build warning. */
+@source not "../docs/**";
+
 /* Design token layers — import order: palette → theme → tokens → fonts.
  * Swap only theme-lc-french.css + its dark overrides to re-skin a course.
  *
