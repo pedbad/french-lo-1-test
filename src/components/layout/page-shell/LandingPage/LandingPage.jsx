@@ -100,12 +100,6 @@ export function LandingPage({ learningObjects = [] }) {
 									</nav>
 									</SidebarContent>
 
-									<SidebarFooter className="gap-1 px-1 py-3">
-									{/* Collapsed rail: tiny copyright below the social icons */}
-									<p className="hidden whitespace-nowrap text-center text-[0.5rem] leading-none text-white/50 group-data-[collapsible=icon]:block">
-									© 2026
-									</p>
-									</SidebarFooter>
 									</Sidebar>
 
 									{/* Right column: header + card grid */}
