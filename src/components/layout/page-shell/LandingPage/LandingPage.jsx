@@ -57,10 +57,7 @@ export function LandingPage({ learningObjects = [] }) {
 				<SidebarHeader className="gap-1 px-2 py-4">
 					<div className="flex items-center gap-2">
 						<SidebarTrigger className="-ml-1" />
-						<span className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
-							<span className="font-semibold">French Basic</span>
-							<span className="text-xs text-white/70">Cambridge Language Centre</span>
-						</span>
+						<span className="font-semibold leading-tight group-data-[collapsible=icon]:hidden">French Basic</span>
 					</div>
 				</SidebarHeader>
 
@@ -134,9 +131,6 @@ export function LandingPage({ learningObjects = [] }) {
 					<h1 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
 						French&nbsp;Basic
 					</h1>
-					<span className="ml-3 text-sm text-white/60">
-						Cambridge Language Centre
-					</span>
 				</header>
 
 				<div className="px-4 py-6 sm:px-6">
