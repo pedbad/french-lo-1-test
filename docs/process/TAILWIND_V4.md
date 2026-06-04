@@ -50,7 +50,8 @@ When a utility "doesn't work":
 | Unlayered bare-element rules | ✅ 0 | Fixed | `p/li/td`, `a`, `h1-h4` all layered |
 | Hardcoded `px`/`rem` values | ~116 | Low | Consider `@theme` tokens only where values are reused |
 | `!list-none !p-0` in grammar custom components | 3 | Low | Find + layer the `ul` rule when editing those components |
-| `text-[var(--font-size-*)]` arbitrary sizes (now `length:`-hinted) | 41 | Low (works) | Migrate type scale to `@theme` `text-fs-*`; needs per-usage audit vs raw `text-base` (collision) |
+| Raw `text-base`/`text-sm`/`text-lg` (TW defaults) not converged onto project scale | ~200 | Low | **Phase 2** — audit each usage, adopt project values, then claim default `--text-*` names and drop the `fs-` prefix |
+| Tailwind v4 auto-scans `docs/*.md` and tries to compile the documented-broken `text-[var(--font-size-base)]` example → build warning `Unexpected token Delim('*')` | 3 docs | Low (not emitted to dist) | Add `@source not "docs/**"` (or fence examples so the scanner skips them) |
 
 ### Why the 61 class-scoped rules are low risk
 
@@ -146,18 +147,19 @@ text-[length:var(--font-size-base)]     ✅ forced to font-size
 ```
 GOTCHA: the parens shorthand `text-(--font-size-base)` has the **same** ambiguity (also defaults to color). Any size-valued var needs the hint — `text-(length:--font-size-base)` or the bracket `length:` form. Rule #4 ("use `text-(--token)`") is for **color** tokens only.
 
-### Proper fix (PENDING — see Known Debt)
-Register the type scale in `@theme` and use named utilities — no brackets, no ambiguity:
+### Phase 1 fix (APPLIED 2026-06-04 — branch `refactor/type-scale-theme`)
+Registered the type scale in `@theme inline` (referencing the existing `tokens.css` vars, single source of truth) and swapped the 39 plain `text-[length:var(--font-size-*)]` sites across 13 files to named utilities — no brackets, no ambiguity:
 ```css
-@theme {
-  --text-fs-xs:   0.85rem;
-  --text-fs-sm:   1rem;
-  --text-fs-base: 1.15rem;
-  --text-fs-lg:   1.35rem;
-  --text-fs-xl:   1.6rem;
+@theme inline {
+  --text-fs-xs:   var(--font-size-xs);
+  --text-fs-sm:   var(--font-size-sm);
+  --text-fs-base: var(--font-size-base);
+  --text-fs-lg:   var(--font-size-lg);
+  --text-fs-xl:   var(--font-size-xl);
 }
-/* → text-fs-base, text-fs-lg, … */
+/* → text-fs-base, text-fs-lg, … resolve to identical computed values, zero visual change */
 ```
+The ~20 `text-[length:calc(var(--font-size-*) * N)]` arbitrary-multiplier sites stay as-is (already `length:`-hinted, no named equivalent). Phase 2 (Known Debt) converges the raw TW defaults and drops the `fs-` prefix.
 
 ### WHY IT IS NOT A MECHANICAL SWAP — name collision
 The project scale does **not** match Tailwind defaults:

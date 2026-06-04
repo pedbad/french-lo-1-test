@@ -46,7 +46,7 @@ export class CurrentLocationNasalRhymeExercise extends PureComponent{
 									className={showNasalHighlights ? "[&_strong]:font-semibold [&_strong]:text-[var(--modal-link-hover)]" : "[&_strong]:font-normal [&_strong]:text-inherit"}
 								>
 									<div className="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle/70 pb-2">
-										<h4 className="m-0 flex items-center gap-2 text-[length:var(--font-size-lg)]" id={id ? `${id}-poem-title` : undefined}>
+										<h4 className="m-0 flex items-center gap-2 text-fs-lg" id={id ? `${id}-poem-title` : undefined}>
 											<BookOpenText aria-hidden="true" className="h-5 w-5 text-[var(--ex-neutral)]" />
 											<span>Tu aimes… ?</span>
 										</h4>

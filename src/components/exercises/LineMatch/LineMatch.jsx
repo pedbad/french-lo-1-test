@@ -24,7 +24,7 @@ const LINE_MATCH_IMAGE_TILE_CLASS = [
 ].join(" ");
 const LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS = "min-h-[4.5rem] min-[1400px]:min-h-[5.5rem]";
 
-const LINE_MATCH_SELECT_TRIGGER_CLASS = "w-full min-h-10 text-[length:var(--font-size-sm)] md:text-base";
+const LINE_MATCH_SELECT_TRIGGER_CLASS = "w-full min-h-10 text-fs-sm md:text-base";
 
 const LINE_MATCH_CONNECTOR_STROKE = "var(--ex-active)";
 const LINE_MATCH_CONNECTOR_GLOW = "color-mix(in oklab, var(--ex-active) 26%, transparent)";

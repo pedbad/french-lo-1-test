@@ -176,7 +176,7 @@ export class RadioQuiz extends React.Component {
 					<div className="flex flex-col gap-3 xl:flex-row xl:items-start xl:justify-between">
 						<div className="min-w-0 flex-1 text-left">
 							{/* p→div: each quiz statement is a short <p> that WAVE flags as "possible heading" */}
-							<div className="m-0 text-[length:var(--font-size-base)] leading-[var(--line-height-body)] text-foreground">{phrase}</div>
+							<div className="m-0 text-fs-base leading-[var(--line-height-body)] text-foreground">{phrase}</div>
 							{showExplanation[rowIndex] && explanation ? (
 								<div className="mt-2 text-sm leading-[var(--line-height-body)] text-muted-foreground">{explanation}</div>
 							) : null}
@@ -192,7 +192,7 @@ export class RadioQuiz extends React.Component {
 									const isSelected = selectedOption === optionIndex;
 									const isCorrectSelection = rowHasResult && isSelected && optionIndex === answerIndex;
 									const isIncorrectSelection = rowHasResult && isSelected && optionIndex !== answerIndex;
-									const baseClasses = "inline-flex min-h-8 items-center rounded-lg border px-2.5 py-1 text-[length:var(--font-size-sm)] leading-[var(--line-height-app)] font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out select-none";
+									const baseClasses = "inline-flex min-h-8 items-center rounded-lg border px-2.5 py-1 text-fs-sm leading-[var(--line-height-app)] font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out select-none";
 									let stateClasses = "border-border/70 bg-background text-foreground hover:-translate-y-[1px] hover:border-[var(--ex-neutral)] hover:bg-[color-mix(in_oklab,var(--ex-neutral)_10%,transparent)] hover:shadow-[0_2px_8px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)]";
 
 									if (isCorrectSelection) {

@@ -8,7 +8,7 @@ import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 
-const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-[length:var(--font-size-sm)] md:text-base";
+const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-fs-sm md:text-base";
 
 export class InlineChoiceGroup extends React.PureComponent {
 	constructor(props) {
@@ -380,7 +380,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 				>
 					{meta.options.map((option, optionIndex) => {
 						const isSelected = selectedIndex === optionIndex;
-						const baseClasses = "inline-flex min-h-8 items-center rounded-lg border px-2.5 py-1 text-[length:var(--font-size-sm)] leading-[var(--line-height-app)] font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out select-none";
+						const baseClasses = "inline-flex min-h-8 items-center rounded-lg border px-2.5 py-1 text-fs-sm leading-[var(--line-height-app)] font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out select-none";
 						let stateClasses = "border-border/70 bg-background text-foreground hover:-translate-y-[1px] hover:border-[var(--ex-neutral)] hover:bg-[color-mix(in_oklab,var(--ex-neutral)_10%,transparent)] hover:shadow-[0_2px_8px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)]";
 
 						if (isSelected && isCorrectSelection) {

@@ -256,10 +256,12 @@ className="text-[calc(var(--font-size-sm)*1.2)]"
 
 ## Font sizes: `@theme` named utilities, not arbitrary vars
 
+The project type scale is registered in `@theme inline` (Phase 1, 2026-06-04) → use the named `text-fs-*` utilities. The `fs-` prefix is deliberate: it avoids clobbering raw Tailwind defaults (`text-base`/`text-sm`/`text-lg`) still used across exercises.
+
 | Don't | Do |
 |---|---|
-| `text-[var(--font-size-base)]` (parsed as **color** → silently broken) | register in `@theme`, use `text-fs-base` |
+| `text-[var(--font-size-base)]` (parsed as **color** → silently broken) | `text-fs-base` |
 | `text-(--font-size-base)` (same ambiguity) | `text-fs-base` |
-| inline size var when unavoidable | `text-[length:var(--font-size-base)]` (the `length:` hint) |
+| arbitrary computed size (no named token) | `text-[length:calc(var(--font-size-sm)*1.2)]` (keep the `length:` hint) |
 
 Color tokens are fine as `text-(--brand-quaternary)` — the color/size ambiguity only bites **size-valued** vars. Full writeup: `docs/process/TAILWIND_V4.md`.
