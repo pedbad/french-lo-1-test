@@ -57,7 +57,7 @@ export function LandingPage({ learningObjects = [] }) {
 						<div
 							role="group"
 							aria-label="Follow us"
-							className="hidden flex-col items-center gap-4 pt-6 group-data-[collapsible=icon]:flex"
+							className="hidden flex-col items-center gap-4 pt-32 group-data-[collapsible=icon]:flex"
 						>
 							{SOCIAL_LINKS.map(({ href, img, label }) => (
 								<a
@@ -77,7 +77,7 @@ export function LandingPage({ learningObjects = [] }) {
 								</a>
 							))}
 						</div>
-						<nav aria-label="Learning objectives" className="group-data-[collapsible=icon]:hidden">
+						<nav aria-label="Lessons" className="group-data-[collapsible=icon]:hidden">
 							<SidebarGroup>
 								<SidebarMenu>
 									{learningObjects.map((lo, i) => (
@@ -117,12 +117,12 @@ export function LandingPage({ learningObjects = [] }) {
 									</h1>
 									<div className="mt-4 border-l-2 border-[var(--brand-primary)]/30 pl-6">
 										<h2 className="font-heading text-xl font-semibold text-(--brand-quaternary) sm:text-2xl">
-											French Learning Objects
+											French Lessons
 										</h2>
 										<p className="mt-2 text-[var(--font-size-base)] leading-[var(--line-height-body)] text-muted-foreground/90">
-										French learning objects are small, independent resources that can be used either as part of a course or for self-study.
+										These lessons are small, independent resources that can be used either as part of a course or for self-study.
 										<br />
-										The learning objects below are at basic level and concentrate on learning to speak, read and write French.
+										The lessons below are at basic level and concentrate on learning to speak, read and write French.
 										</p>
 									</div>
 									</header>
