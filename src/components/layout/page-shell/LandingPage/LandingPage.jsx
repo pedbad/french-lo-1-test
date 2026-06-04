@@ -47,7 +47,7 @@ export function LandingPage({ learningObjects = [] }) {
 			>
 				{/* Sidebar: far-left of the content row. `absolute` keeps the rail
 				    contained in this row, so it never overlaps the banner or footer. */}
-				<Sidebar collapsible="icon" absolute className="border-r border-border">
+				<Sidebar collapsible="icon" absolute className="overflow-hidden rounded-br-2xl border-r border-border">
 					<SidebarHeader className="gap-1 px-2 py-4">
 						<SidebarTrigger className="-ml-1" />
 					</SidebarHeader>
@@ -98,7 +98,12 @@ export function LandingPage({ learningObjects = [] }) {
 									</SidebarMenu>
 									</SidebarGroup>
 									</nav>
-									</SidebarContent>
+								</SidebarContent>
+								{/* Gradient fade at sidebar bottom — softens the hard edge before the footer */}
+								<div
+									aria-hidden="true"
+									className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-(--brand-quaternary) to-transparent opacity-80"
+								/>
 
 									</Sidebar>
 
