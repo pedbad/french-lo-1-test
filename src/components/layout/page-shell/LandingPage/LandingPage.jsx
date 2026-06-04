@@ -110,9 +110,10 @@ export function LandingPage({ learningObjects = [] }) {
 
 									{/* Right column: header + card grid */}
 									<div className="relative flex min-w-0 flex-1 flex-col bg-(--page-background)">
-									{/* Minimal header that inherits hero title styling (size + shadow) without the banner image. */}
-									<header id="hero" className="!mt-0 !min-h-0 !aspect-auto !items-start !justify-center border-b border-border/50 !p-6 sm:!px-10 sm:!py-8">
-									<h1 className="hero-title !p-0 !text-left text-stroke-neutral">
+									{/* Landing header — uses its own classes, not #hero / .hero-title,
+									    to avoid fighting the LO-page hero CSS rules. */}
+									<header className="border-b border-border/50 px-6 py-6 sm:px-10 sm:py-8">
+									<h1 className="font-heading text-4xl font-bold tracking-tight text-stroke-neutral sm:text-5xl">
 									French&nbsp;Basic
 									</h1>
 									<div className="mt-4 border-l-2 border-[var(--brand-primary)]/30 pl-6">
@@ -157,7 +158,7 @@ export function LandingPage({ learningObjects = [] }) {
 											
 											{/* Title Overlay with Cream Glass Effect (fades to right) */}
 											<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-[var(--brand-secondary)]/95 via-[var(--brand-secondary)]/80 to-transparent px-4 py-2 backdrop-blur-[3px] border-t border-white/20">
-												<h3 className="font-heading text-base font-bold leading-tight !text-[var(--brand-quaternary)] sm:text-lg !m-0">
+												<h3 className="font-heading text-base font-bold leading-tight text-(--brand-quaternary) sm:text-lg m-0">
 													{lo.titleShort || lo.title}
 												</h3>
 											</div>
