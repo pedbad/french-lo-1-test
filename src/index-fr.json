@@ -4,82 +4,97 @@
 			"title": "First Contact: greetings, farewells and social niceties",
 			"titleShort": "First Contact",
 			"slug": "first-contact",
-			"introImage": "img/lo1/first-contact.svg"
+			"introImage": "img/lo1/first-contact.svg",
+			"description": "This learning object introduces you to the essentials of greeting and introducing yourself politely. You'll learn how to choose appropriate forms of address depending on the level of formality and use common expressions for everyday social interactions. The unit also helps you build confidence in pronunciation through focused practice on key sounds."
 		},
 		{
 			"title": "About me: marital status, occupation",
 			"titleShort": "About me",
 			"slug": "about-me",
-			"introImage": "img/lo2/about-me.svg"
+			"introImage": "img/lo2/about-me.svg",
+			"description": "This lesson helps you talk about who you are in French. You will practise introducing yourself, describing your personal situation and profession, and answering common personal questions politely. Through listening and speaking tasks, you will also improve key pronunciation patterns for clearer, more natural French."
 		},
 		{
 			"title": "Origins and Languages",
 			"slug": "origins-and-languages",
-			"introImage": "img/lo3/origins-and-languages.svg"
+			"introImage": "img/lo3/origins-and-languages.svg",
+			"description": "This lesson teaches how to use and understand French vocabulary, verb groups, and pronunciation while developing listening and speaking skills through contextual exercises that reinforce grammatical accuracy and gender agreement."
 		},
 		{
 			"title": "Current location",
 			"slug": "current-location",
-			"introImage": "img/lo4/current-location.svg"
+			"introImage": "img/lo4/current-location.svg",
+			"description": "This lesson teaches learners how to talk about where they live and where places are located in French. It introduces key questions and answers using habiter, prepositions for “in” (à, en, au, aux, dans le), and vocabulary for describing types of places and surroundings. It also develops pronunciation with the nasal vowel sound in (as in Singapour, jardin, indien), helping learners speak more naturally when discussing locations and geography."
 		},
 		{
 			"title": "House and Home",
 			"slug": "house-and-home",
-			"introImage": "img/lo5/house-and-home.svg"
+			"introImage": "img/lo5/house-and-home.svg",
+			"description": "This lesson teaches learners how to describe different types of housing and rooms in French, using vocabulary for household spaces and furnishings. It introduces the expression il y a (there is / are) and verbs used only in the third person (for example il pleut, il faut), while reinforcing adjectival agreement patterns such as spacieux / spacieuse. It also develops pronunciation through the nasal vowel sound an (as in blanc, chambre), helping learners speak more naturally when describing their home and surroundings."
 		},
 		{
 			"title": "Family & friends",
 			"titleShort": "Family & friends",
 			"slug": "family-friends",
-			"introImage": "img/lo6/family-friends-neighbours.svg"
+			"introImage": "img/lo6/family-friends-neighbours.svg",
+			"description": "This lesson teaches learners how to talk about family, friends, and relationships in French, describing relatives and using possessive adjectives correctly (for example mon frère, ma sœur, mes parents). It introduces the irregular verb avoir and common expressions that use it (for example j'ai faim, j'ai 25 ans). Learners also practise pronunciation of double ll (as in famille, fille, bouteille), developing accurate and natural speech when discussing family and personal relationships."
 		},
 		{
 			"title": "Opinions matter: Likes and dislikes",
 			"titleShort": "Opinions matter",
 			"slug": "opinions-matter",
-			"introImage": "img/lo7/opinions-matter.svg"
+			"introImage": "img/lo7/opinions-matter.svg",
+			"description": "This lesson teaches learners how to express likes, dislikes, and preferences in French using verbs such as aimer, adorer, détester, and préférer. It introduces sentence patterns for talking about activities, sports, and favourite things, and shows how to use definite articles with general nouns (for example j'aime le football, je n'aime pas la natation). Learners also practise interrogative adjectives (quel, quelle, quels, quelles) to ask questions, and work on pronunciation of words borrowed from English like le tennis, le foot, and le week-end."
 		},
 		{
 			"title": "Free Time",
 			"slug": "free-time",
-			"introImage": "img/lo8/free-time.svg"
+			"introImage": "img/lo8/free-time.svg",
+			"description": "This lesson teaches you how to talk about free-time activities in French. You will practise using verbs such as faire and jouer to describe hobbies, sports, music, and weekend routines, while learning how French uses partitive articles with these activities. The unit also helps you notice adjective agreement and improve pronunciation of common -tion words."
 		},
 		{
 			"title": "Phoning in France",
 			"slug": "phoning-in-france",
-			"introImage": "img/lo9/phoning-in-france.svg"
+			"introImage": "img/lo9/phoning-in-france.svg",
+			"description": "This lesson teaches you how to make and answer phone calls in French, including asking for and giving telephone and mobile numbers. You will practise typical telephone phrases such as allô, C'est bien le... ?, and Je me suis trompé(e) de numéro, while also learning how French phone numbers are organised and spoken in pairs."
 		},
 		{
 			"title": "Making Arrangements",
 			"slug": "making-arrangements",
-			"introImage": "img/lo10/making-arrangements.svg"
+			"introImage": "img/lo10/making-arrangements.svg",
+			"description": "This lesson teaches you how to make arrangements in French, whether you are phoning someone, suggesting an outing, or agreeing a time to meet. You will practise useful expressions such as Tu veux aller... ?, Je veux bien, À quelle heure ?, and C'est dommage ! while learning how to accept, refuse, and reorganise plans politely."
 		},
 		{
 			"title": "Out and about: going to a café",
 			"titleShort": "Going to a café",
 			"slug": "going-to-a-cafe",
-			"introImage": "img/lo11/out-and-about-cafe.svg"
+			"introImage": "img/lo11/out-and-about-cafe.svg",
+			"description": "This lesson teaches learners how to order food and drinks in a French café, using useful expressions such as Je voudrais…, Pour moi…, and Vous désirez ? It introduces common café vocabulary for drinks, snacks, ice creams, and flavours. It also practises key grammar points including the conditional of vouloir, the verb prendre for food and drink, the preposition à when talking about flavours, fillings and toppings, and disjunctive pronouns after prepositions such as pour and avec."
 		},
 		{
 			"title": "Out and about: Shopping in the market",
 			"titleShort": "Shopping in the market",
 			"slug": "shopping-in-the-market",
-			"introImage": "img/lo12/out-and-about-shopping.svg"
+			"introImage": "img/lo12/out-and-about-shopping.svg",
+			"description": "This lesson teaches how to shop at a French market and use polite exchanges with vendors. Learners practise asking for quantities such as Donnez-moi deux kilos de pommes de terre, s'il vous plaît, checking prices with C'est combien ? and responding to questions such as Avec ça ? and C'est tout ? It also introduces key vocabulary for shops, food items, quantities, and packaging, alongside useful grammar for aller, partitives and how to say of, and plural forms used when shopping."
 		},
 		{
 			"title": "Daily routine",
 			"slug": "daily-routine",
-			"introImage": "img/lo13/daily-routine.svg"
+			"introImage": "img/lo13/daily-routine.svg",
+			"description": "This lesson teaches you how to talk about your daily routine in French, including when you wake up, get dressed, eat, rest, and go to bed. You will practise useful expressions such as je me lève, je me couche, and à quelle heure ? It also introduces time phrases, everyday routine vocabulary, and the reflexive verb patterns needed to describe a typical day more naturally."
 		},
 		{
 			"title": "Studying at university",
 			"slug": "studying-at-university",
-			"introImage": "img/lo14/studying-at-university.svg"
+			"introImage": "img/lo14/studying-at-university.svg",
+			"description": "This lesson teaches learners how to talk about university studies in French, including degree programmes, years of study, lectures, seminars, tutorials, and academic workload. It introduces useful expressions such as faire des études, faire une licence, faire un master, and avoir un emploi du temps chargé. It also practises how to describe subjects, student life, essays, research, and the feelings that often go with study, such as being fatigué(e), occupé(e), or stressé(e)."
 		},
 		{
 			"title": "Planning a holiday",
 			"slug": "planning-a-holiday",
-			"introImage": "img/lo15/planning-a-holiday.svg"
+			"introImage": "img/lo15/planning-a-holiday.svg",
+			"description": "This lesson teaches you how to talk about holiday plans in French. You will practise saying where you are going, what you are going to do, how you will travel, and what the weather is like."
 		}
 	],
 	"title": "French Basic"

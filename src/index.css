@@ -4315,6 +4315,9 @@ hr {
 #content h4 {
   color: var(--foreground);
 }
+#content .landing-page-title {
+  color: var(--hero-title-color);
+}
 #content .intro h2 {
   margin-bottom: 2rem;
   font-size: var(--font-size-lg);

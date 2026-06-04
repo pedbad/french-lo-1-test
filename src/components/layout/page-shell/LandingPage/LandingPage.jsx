@@ -39,20 +39,17 @@ export function LandingPage({ learningObjects = [] }) {
 		// Full-bleed breakout: the landing renders inside #content (a centered,
 		// max-width, padded column). This cancels that so the banner + sidebar
 		// span the whole browser width like the other pages' shell.
-		<div className="-mt-4 mx-[calc(50%-50vw)] w-screen">
+		<div className="-mt-4 mx-[calc(50%-50vw)] w-screen bg-(--page-background)">
 			<SidebarProvider
 				defaultOpen={false}
 				defaultOpenMobile={true}
-				className="relative w-full overflow-hidden bg-background"
+				className="relative w-full overflow-hidden bg-(--page-background)"
 			>
 				{/* Sidebar: far-left of the content row. `absolute` keeps the rail
 				    contained in this row, so it never overlaps the banner or footer. */}
 				<Sidebar collapsible="icon" absolute className="border-r border-border">
 					<SidebarHeader className="gap-1 px-2 py-4">
-						<div className="flex items-center gap-2">
-							<SidebarTrigger className="-ml-1" />
-							<span className="font-semibold leading-tight group-data-[collapsible=icon]:hidden">French Basic</span>
-						</div>
+						<SidebarTrigger className="-ml-1" />
 					</SidebarHeader>
 
 					<SidebarContent>
@@ -82,7 +79,6 @@ export function LandingPage({ learningObjects = [] }) {
 						</div>
 						<nav aria-label="Learning objectives" className="group-data-[collapsible=icon]:hidden">
 							<SidebarGroup>
-								<SidebarGroupLabel>Learning objectives</SidebarGroupLabel>
 								<SidebarMenu>
 									{learningObjects.map((lo, i) => (
 										<SidebarMenuItem key={lo.slug || i}>
@@ -94,98 +90,93 @@ export function LandingPage({ learningObjects = [] }) {
 													href={buildLearningObjectURL(lo)}
 													className="text-sidebar-foreground no-underline hover:text-sidebar-foreground"
 												>
-													<span
-														aria-hidden="true"
-														className="flex size-5 shrink-0 items-center justify-center rounded text-[0.625rem] font-semibold tabular-nums text-white/85"
-													>
-														{pad2(i + 1)}
-													</span>
 													<span className="truncate">{lo.titleShort || lo.title}</span>
 												</a>
 											</SidebarMenuButton>
 										</SidebarMenuItem>
 									))}
-								</SidebarMenu>
-							</SidebarGroup>
-						</nav>
-					</SidebarContent>
+									</SidebarMenu>
+									</SidebarGroup>
+									</nav>
+									</SidebarContent>
 
-					<SidebarFooter className="gap-1 px-1 py-3">
-						{/* Expanded: objectives count */}
-						<div className="flex items-center gap-2 px-1 text-xs text-white/70 group-data-[collapsible=icon]:hidden">
-							<BookOpen className="size-4" aria-hidden="true" />
-							<span>{learningObjects.length} objectives</span>
-						</div>
-						{/* Collapsed rail: tiny copyright below the social icons */}
-						<p className="hidden whitespace-nowrap text-center text-[0.5rem] leading-none text-white/50 group-data-[collapsible=icon]:block">
-						© 2026
-						</p>
-					</SidebarFooter>
-				</Sidebar>
+									<SidebarFooter className="gap-1 px-1 py-3">
+									{/* Collapsed rail: tiny copyright below the social icons */}
+									<p className="hidden whitespace-nowrap text-center text-[0.5rem] leading-none text-white/50 group-data-[collapsible=icon]:block">
+									© 2026
+									</p>
+									</SidebarFooter>
+									</Sidebar>
 
-				{/* Right column: minimal teal header + card grid */}
-				<div className="relative flex min-w-0 flex-1 flex-col bg-background">
-					{/* Clean minimal header — brand teal, no illustration */}
-					<header className="flex items-center border-b border-white/10 bg-(--brand-primary) px-6 py-4">
-						<h1 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
-						French&nbsp;Basic
-						</h1>
-					</header>
+									{/* Right column: header + card grid */}
+									<div className="relative flex min-w-0 flex-1 flex-col bg-(--page-background)">
+									{/* Minimal header that inherits hero title styling (size + shadow) without the banner image. */}
+									<header id="hero" className="!mt-0 !min-h-0 !aspect-auto !items-start !justify-center border-b border-border/50 !p-6 sm:!px-10 sm:!py-8">
+									<h1 className="hero-title !p-0 !text-left text-stroke-neutral">
+									French&nbsp;Basic
+									</h1>
+									<div className="mt-4 border-l-2 border-[var(--brand-primary)]/30 pl-6">
+									<p className="text-[var(--font-size-base)] leading-[var(--line-height-body)] text-muted-foreground/90">
+									French learning objects are small, independent resources that can be used either as part of a course or for self-study.
+									<br />
+									The learning objects below are at basic level and concentrate on learning to speak, read and write French.
+									</p>
+									</div>
+									</header>
 
-					<div className="px-4 py-6 sm:px-6">
-						<h2 className="mb-5 text-lg font-semibold tracking-tight">
-						Learning objectives
-						</h2>
-						<ul className="grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-							{learningObjects.map((lo, i) => (
-								<li
+									<div className="px-4 py-6 sm:px-6">
+										<h2 className="sr-only">Course Modules</h2>
+										<ul className="grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
+									{learningObjects.map((lo, i) => (
+									<li
 									key={lo.slug || i}
 									className="animate-in fade-in-0 slide-in-from-bottom-2 fill-mode-both duration-500 motion-reduce:animate-none"
 									style={{ animationDelay: `${Math.min(i * 60, 600)}ms` }}
-								>
-									<a
-										href={buildLearningObjectURL(lo)}
-										className="group block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--brand-primary) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 									>
-										<Card className="flex h-full flex-col overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
-											{/* Square illustration */}
-											{lo.introImage && (
-												<div className="aspect-square w-full overflow-hidden bg-(--brand-secondary)">
-													<img
-														src={`${import.meta.env.BASE_URL}${lo.introImage}`}
-														alt=""
-														aria-hidden="true"
-														className="h-full w-full object-contain p-4"
-													/>
+								<a
+									href={buildLearningObjectURL(lo)}
+									className="group block h-full rounded-xl no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--brand-primary) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+								>
+									<Card className="flex h-full flex-col overflow-hidden border-2 border-transparent transition-all duration-300 group-hover:-translate-y-1 group-hover:border-(--brand-primary)/30 group-hover:shadow-lg motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+										{/* Top Section: Image + Title Overlay */}
+										<div className="relative aspect-[3/2] w-full overflow-hidden bg-(--brand-secondary)/50">
+											{lo.introImage ? (
+												<img
+													src={`${import.meta.env.BASE_URL}${lo.introImage}`}
+													alt=""
+													aria-hidden="true"
+													className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+												/>
+											) : (
+												<div className="flex h-full w-full items-center justify-center">
+													<BookOpen className="size-10 text-(--brand-primary)/20" />
 												</div>
 											)}
-											<CardHeader className="pt-4">
-												<span
-													aria-hidden="true"
-													className="text-xs font-semibold tabular-nums text-(--brand-primary)/70"
-												>
-													{pad2(i + 1)}
-												</span>
-												<h3 className="text-base font-semibold leading-snug tracking-tight text-card-foreground">
+											
+											{/* Title Overlay with Cream Glass Effect (fades to right) */}
+											<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-[var(--brand-secondary)]/95 via-[var(--brand-secondary)]/80 to-transparent px-4 py-2 backdrop-blur-[3px] border-t border-white/20">
+												<h3 className="font-heading text-base font-bold leading-tight !text-[var(--brand-quaternary)] sm:text-lg !m-0">
 													{lo.titleShort || lo.title}
 												</h3>
-											</CardHeader>
-											<CardContent className="flex-1 pt-0">
-												<CardDescription className="line-clamp-2">
-													{lo.title}
-												</CardDescription>
-											</CardContent>
-											<CardFooter>
-												<span className="inline-flex items-center gap-1 text-sm font-medium text-(--brand-primary)">
-												Start
-													<ArrowRight
-														className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
-														aria-hidden="true"
-													/>
-												</span>
-											</CardFooter>
-										</Card>
-									</a>
+											</div>
+										</div>
+
+										<CardContent className="flex-1 pt-6">
+											<CardDescription className="text-[var(--font-size-sm)] font-normal leading-[var(--line-height-body-tight)] text-muted-foreground/90">
+												{lo.description}
+											</CardDescription>
+										</CardContent>
+										<CardFooter className="pt-0">
+											<span className="inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wider text-(--brand-primary)">
+												Start Learning
+												<ArrowRight
+													className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+													aria-hidden="true"
+												/>
+											</span>
+										</CardFooter>
+									</Card>
+								</a>
 								</li>
 							))}
 						</ul>
