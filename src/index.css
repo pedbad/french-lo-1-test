@@ -4309,11 +4309,14 @@ hr {
   font-size: calc(var(--font-size-base) * 1.5);
   line-height: var(--line-height-wordparts);
 }
-#content h1,
-#content h2,
-#content h3,
-#content h4 {
-  color: var(--foreground);
+/* In @layer base so Tailwind text-* utilities win over this default. */
+@layer base {
+  #content h1,
+  #content h2,
+  #content h3,
+  #content h4 {
+    color: var(--foreground);
+  }
 }
 #content .landing-page-title {
   color: var(--hero-title-color);

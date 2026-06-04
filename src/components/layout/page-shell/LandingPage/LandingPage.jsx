@@ -116,7 +116,7 @@ export function LandingPage({ learningObjects = [] }) {
 									French&nbsp;Basic
 									</h1>
 									<div className="mt-4 border-l-2 border-[var(--brand-primary)]/30 pl-6">
-										<h2 className="font-heading text-xl font-semibold text-(--brand-quaternary)! sm:text-2xl">
+										<h2 className="font-heading text-xl font-semibold text-(--brand-quaternary) sm:text-2xl">
 											French Learning Objects
 										</h2>
 										<p className="mt-2 text-[var(--font-size-base)] leading-[var(--line-height-body)] text-muted-foreground/90">
