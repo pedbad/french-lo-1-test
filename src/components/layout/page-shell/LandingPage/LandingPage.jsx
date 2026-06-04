@@ -46,23 +46,6 @@ export function LandingPage({ learningObjects = [] }) {
 		// max-width, padded column). This cancels that so the banner + sidebar
 		// span the whole browser width like the other pages' shell.
 		<div className="mx-[calc(50%-50vw)] w-screen">
-			{/* Full-width slim brand band — spans the whole width, above the
-			    sidebar row, so it reads like the banner on the other pages. */}
-			<div className="relative isolate overflow-hidden border-b border-border">
-				<img
-					src={`${import.meta.env.BASE_URL}img/common/branding/fr-banner.svg`}
-					alt=""
-					aria-hidden="true"
-					className="h-20 w-full object-cover object-[center_35%] sm:h-24"
-				/>
-				<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
-				<header className="absolute inset-0 flex items-center px-4 sm:px-6">
-					<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
-						French&nbsp;Basic
-					</h1>
-				</header>
-			</div>
-
 			<SidebarProvider
 				defaultOpen={false}
 				defaultOpenMobile={true}
@@ -144,8 +127,23 @@ export function LandingPage({ learningObjects = [] }) {
 				</SidebarFooter>
 			</Sidebar>
 
-			{/* Right column: card grid. */}
+			{/* Right column: brand band (top) + card grid — sits beside the
+			    full-height sidebar, so the sidebar runs from the very top. */}
 			<div className="relative flex min-w-0 flex-1 flex-col bg-background">
+				<div className="relative isolate overflow-hidden border-b border-border">
+					<img
+						src={`${import.meta.env.BASE_URL}img/common/branding/fr-banner.svg`}
+						alt=""
+						aria-hidden="true"
+						className="h-20 w-full object-cover object-[center_35%] sm:h-24"
+					/>
+					<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
+					<header className="absolute inset-0 flex items-center px-4 sm:px-6">
+						<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
+							French&nbsp;Basic
+						</h1>
+					</header>
+				</div>
 				<div className="px-4 py-6 sm:px-6">
 					<h2 className="mb-5 text-lg font-semibold tracking-tight">
 						Learning objectives
