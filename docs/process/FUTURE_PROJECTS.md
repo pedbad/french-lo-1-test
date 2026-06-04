@@ -210,6 +210,8 @@ Config-driven content apps (a JSON schema naming components to render) must map 
 
 ### CSS Cascade Layers (Carry Forward)
 
+> 📐 **Project-specific detail:** see [docs/process/TAILWIND_V4.md](./TAILWIND_V4.md) for the French LO debt table, all fixes applied, and the future-project checklist.
+
 Tailwind-first means utilities must always be able to win. The mechanism that guarantees this is **cascade layers**, not specificity.
 
 - Tailwind v4 declares `@layer theme, base, components, utilities;`. **Layer order beats specificity:** a `text-sm` utility (in `@layer utilities`) overrides `#content p { font-size }` *only if that rule is in an earlier layer* (`@layer base`). The ID's 1-0-0 specificity is irrelevant across layers.
