@@ -5,7 +5,7 @@ import React from "react";
 
 import { Info } from "..";
 
-const ACCORDION_TITLE_TEXT_CLASS = "text-[var(--font-size-base)]";
+const ACCORDION_TITLE_TEXT_CLASS = "text-[length:var(--font-size-base)]";
 const ACCORDION_TITLE_STYLE = {
 	fontSize: "calc(var(--font-size-lg) * 1.215)",
 	lineHeight: "var(--line-height-2xl)",

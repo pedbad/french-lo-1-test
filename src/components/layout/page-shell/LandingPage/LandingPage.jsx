@@ -119,7 +119,7 @@ export function LandingPage({ learningObjects = [] }) {
 										<h2 className="font-heading text-xl font-semibold text-(--brand-quaternary) sm:text-2xl">
 											French Lessons
 										</h2>
-										<p className="mt-2 text-[var(--font-size-base)] leading-[var(--line-height-body)] text-muted-foreground/90">
+										<p className="mt-2 text-[length:var(--font-size-base)] leading-[var(--line-height-body)] text-(--brand-quaternary)">
 										These lessons are small, independent resources that can be used either as part of a course or for self-study.
 										<br />
 										The lessons below are at basic level and concentrate on learning to speak, read and write French.
@@ -164,7 +164,7 @@ export function LandingPage({ learningObjects = [] }) {
 										</div>
 
 										<CardContent className="flex-1 pt-6">
-											<CardDescription className="text-[var(--font-size-sm)] font-normal leading-[var(--line-height-body-tight)] text-muted-foreground/90">
+											<CardDescription className="text-[length:var(--font-size-sm)] font-normal leading-[var(--line-height-body-tight)] text-muted-foreground/90">
 												{lo.description}
 											</CardDescription>
 										</CardContent>

@@ -3,7 +3,7 @@ import { injectAudioCueIntoHTML } from "../instructionCues";
 import { resolveAsset } from "../../utils/assets";
 import { InstructionCallout } from "../InstructionCallout";
 
-export const INSTRUCTION_TEXT_CLASS = "text-[var(--font-size-lg)] leading-[var(--line-height-body)] [&_p]:!text-[var(--font-size-lg)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[var(--font-size-lg)] [&_li]:!leading-[var(--line-height-body)]";
+export const INSTRUCTION_TEXT_CLASS = "text-[length:var(--font-size-lg)] leading-[var(--line-height-body)] [&_p]:!text-[length:var(--font-size-lg)] [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-[length:var(--font-size-lg)] [&_li]:!leading-[var(--line-height-body)]";
 export const applyInstructionTypographyToHTML = (html) => {
 	if (typeof DOMParser === "undefined") {
 		return html;

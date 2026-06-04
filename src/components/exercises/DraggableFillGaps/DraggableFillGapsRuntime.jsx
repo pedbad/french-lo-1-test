@@ -26,7 +26,7 @@ import { CircleAlert } from "lucide-react";
 import React from 'react';
 import { Switch } from "@/components/ui/switch";
 
-const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[calc(var(--font-size-sm)*1.2)] font-bold";
+const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[length:calc(var(--font-size-sm)*1.2)] font-bold";
 const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
 const BLANKS_CONTENT_FLOW_CLASS = "leading-[var(--line-height-app)]";
 const BLANKS_WORDS_CONTAINER_FLOW_CLASS = "leading-[calc(var(--font-size-sm)*0.5)] sm:leading-[calc(var(--font-size-sm)*3.5)]";

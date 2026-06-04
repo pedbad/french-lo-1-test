@@ -86,7 +86,7 @@ export class Card extends React.PureComponent {
 						<div className="absolute inset-0 flex h-full w-full rounded-[inherit] bg-[linear-gradient(180deg,var(--background),color-mix(in_oklab,var(--brand-primary)_12%,var(--background)))] p-2 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)]">
 							<div className="flex h-full w-full flex-col items-center justify-center gap-1 rounded-[calc(var(--radius)-0.15rem)] bg-card/92 px-1 shadow-[inset_0_1px_0_oklch(from_var(--brand-primary)_l_c_h_/_0.7)]">
 								{card.type === 'text' ? (
-									<AudioClip className="link memory-card-audio-link inline-flex items-center justify-center gap-2 rounded-lg px-2 py-1.5 text-[calc(var(--font-size-sm)*0.92)] font-semibold leading-none" soundFile={`${card.audio}`} title={`Listen to ${card.content}`}>
+									<AudioClip className="link memory-card-audio-link inline-flex items-center justify-center gap-2 rounded-lg px-2 py-1.5 text-[length:calc(var(--font-size-sm)*0.92)] font-semibold leading-none" soundFile={`${card.audio}`} title={`Listen to ${card.content}`}>
 										<span>{card.content}</span>
 									</AudioClip>
 								) : (

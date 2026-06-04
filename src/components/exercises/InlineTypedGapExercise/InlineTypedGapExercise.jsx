@@ -11,7 +11,7 @@ import { stopAllAudioPlayback } from "@/utils/audioPlayback";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
 const INLINE_TYPED_INPUT_BASE_CLASS =
-	"mx-1 inline-flex h-9 min-h-9 rounded-lg border bg-background px-2.5 py-1 align-middle text-[var(--font-size-sm)] font-medium leading-[var(--line-height-app)] shadow-sm transition-[border-color,background-color,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:h-10 md:min-h-10 md:text-base";
+	"mx-1 inline-flex h-9 min-h-9 rounded-lg border bg-background px-2.5 py-1 align-middle text-[length:var(--font-size-sm)] font-medium leading-[var(--line-height-app)] shadow-sm transition-[border-color,background-color,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:h-10 md:min-h-10 md:text-base";
 
 export class InlineTypedGapExercise extends React.PureComponent {
 	constructor(props) {
@@ -481,7 +481,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
 							{promptText ? (
 								item?.audio ? (
 									<button
-										className={`m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${
+										className={`m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-[length:var(--font-size-sm)] leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${
 											isActive || rowAudioStatus[i] === "playing"
 												? "text-[var(--edu-affirm)]"
 												: "text-foreground hover:text-[var(--edu-affirm)]"
@@ -492,14 +492,14 @@ export class InlineTypedGapExercise extends React.PureComponent {
 										{promptText}
 									</button>
 								) : (
-									<p className="m-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] text-foreground md:text-base">
+									<p className="m-0 text-[length:var(--font-size-sm)] leading-[var(--line-height-app)] text-foreground md:text-base">
 										{promptText}
 									</p>
 								)
 							) : null}
 
 							<div className="mt-2 grid grid-cols-[minmax(0,1fr)_2.75rem] items-start gap-x-3">
-								<div className="min-w-0 text-[var(--font-size-sm)] leading-[var(--line-height-app)] text-foreground md:text-base">
+								<div className="min-w-0 text-[length:var(--font-size-sm)] leading-[var(--line-height-app)] text-foreground md:text-base">
 									{this.renderSentence(segments)}
 								</div>
 								<span

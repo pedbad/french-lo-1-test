@@ -41,12 +41,12 @@ export const SortableWordCard = React.forwardRef(function SortableWordCard(props
 				: "h-4 w-4";
 
 	const textClass = stacked
-		? "text-[calc(var(--font-size-sm)*0.92)] min-[1400px]:text-[calc(var(--font-size-sm)*1.08)]"
+		? "text-[length:calc(var(--font-size-sm)*0.92)] min-[1400px]:text-[length:calc(var(--font-size-sm)*1.08)]"
 		: isVertical
-			? "text-[calc(var(--font-size-sm)*0.98)]"
+			? "text-[length:calc(var(--font-size-sm)*0.98)]"
 			: isCompact
-				? "text-[calc(var(--font-size-sm)*0.78)] min-[1400px]:text-[calc(var(--font-size-sm)*0.98)]"
-				: "text-[calc(var(--font-size-sm)*0.98)]";
+				? "text-[length:calc(var(--font-size-sm)*0.78)] min-[1400px]:text-[length:calc(var(--font-size-sm)*0.98)]"
+				: "text-[length:calc(var(--font-size-sm)*0.98)]";
 
 	const stateClass = isDragging
 		? "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_55%,var(--card))] opacity-95"
@@ -75,7 +75,7 @@ export const SortableWordCard = React.forwardRef(function SortableWordCard(props
 			{...rest}
 		>
 			{showIndex ? (
-				<span className={`inline-flex items-center justify-center rounded-full border border-[oklch(from_var(--brand-primary)_l_c_h_/_0.45)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] font-semibold text-[var(--muted-foreground)] ${stacked ? "absolute left-1.5 top-1.5 h-5 min-w-5 px-1 text-[calc(var(--font-size-sm)*0.68)] min-[1400px]:h-6 min-[1400px]:min-w-6 min-[1400px]:text-[calc(var(--font-size-sm)*0.72)]" : "h-7 min-w-7 px-2 text-xs"}`}>
+				<span className={`inline-flex items-center justify-center rounded-full border border-[oklch(from_var(--brand-primary)_l_c_h_/_0.45)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] font-semibold text-[var(--muted-foreground)] ${stacked ? "absolute left-1.5 top-1.5 h-5 min-w-5 px-1 text-[length:calc(var(--font-size-sm)*0.68)] min-[1400px]:h-6 min-[1400px]:min-w-6 min-[1400px]:text-[length:calc(var(--font-size-sm)*0.72)]" : "h-7 min-w-7 px-2 text-xs"}`}>
 					{slotLabel}
 				</span>
 			) : null}
