@@ -45,7 +45,7 @@ export function LandingPage({ learningObjects = [] }) {
 		// Full-bleed breakout: the landing renders inside #content (a centered,
 		// max-width, padded column). This cancels that so the banner + sidebar
 		// span the whole browser width like the other pages' shell.
-		<div className="mx-[calc(50%-50vw)] w-screen">
+		<div className="-mt-4 mx-[calc(50%-50vw)] w-screen">
 			<SidebarProvider
 				defaultOpen={false}
 				defaultOpenMobile={true}
