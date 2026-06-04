@@ -127,23 +127,18 @@ export function LandingPage({ learningObjects = [] }) {
 				</SidebarFooter>
 			</Sidebar>
 
-			{/* Right column: brand band (top) + card grid — sits beside the
-			    full-height sidebar, so the sidebar runs from the very top. */}
+			{/* Right column: minimal teal header + card grid */}
 			<div className="relative flex min-w-0 flex-1 flex-col bg-background">
-				<div className="relative isolate overflow-hidden border-b border-border">
-					<img
-						src={`${import.meta.env.BASE_URL}img/common/branding/fr-banner.svg`}
-						alt=""
-						aria-hidden="true"
-						className="h-20 w-full object-cover object-[center_35%] sm:h-24"
-					/>
-					<div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
-					<header className="absolute inset-0 flex items-center px-4 sm:px-6">
-						<h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
-							French&nbsp;Basic
-						</h1>
-					</header>
-				</div>
+				{/* Clean minimal header — brand teal, no illustration */}
+				<header className="flex items-center border-b border-white/10 bg-(--brand-primary) px-6 py-4">
+					<h1 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+						French&nbsp;Basic
+					</h1>
+					<span className="ml-3 text-sm text-white/60">
+						Cambridge Language Centre
+					</span>
+				</header>
+
 				<div className="px-4 py-6 sm:px-6">
 					<h2 className="mb-5 text-lg font-semibold tracking-tight">
 						Learning objectives
@@ -157,13 +152,24 @@ export function LandingPage({ learningObjects = [] }) {
 							>
 								<a
 									href={buildLearningObjectURL(lo)}
-									className="group block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+									className="group block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--brand-primary) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 								>
-									<Card className="flex h-full flex-col overflow-hidden border-t-2 border-t-[var(--brand-primary)] pt-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
-										<CardHeader>
+									<Card className="flex h-full flex-col overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+										{/* Square illustration */}
+										{lo.introImage && (
+											<div className="aspect-square w-full overflow-hidden bg-(--brand-secondary)">
+												<img
+													src={`${import.meta.env.BASE_URL}${lo.introImage}`}
+													alt=""
+													aria-hidden="true"
+													className="h-full w-full object-contain p-4"
+												/>
+											</div>
+										)}
+										<CardHeader className="pt-4">
 											<span
 												aria-hidden="true"
-												className="text-2xl font-bold tabular-nums text-(--brand-primary)/80"
+												className="text-xs font-semibold tabular-nums text-(--brand-primary)/70"
 											>
 												{pad2(i + 1)}
 											</span>
@@ -171,16 +177,16 @@ export function LandingPage({ learningObjects = [] }) {
 												{lo.titleShort || lo.title}
 											</h3>
 										</CardHeader>
-										<CardContent className="flex-1">
-											<CardDescription className="line-clamp-3">
+										<CardContent className="flex-1 pt-0">
+											<CardDescription className="line-clamp-2">
 												{lo.title}
 											</CardDescription>
 										</CardContent>
 										<CardFooter>
-											<span className="inline-flex items-center gap-1 text-sm font-medium text-[var(--brand-primary)]">
+											<span className="inline-flex items-center gap-1 text-sm font-medium text-(--brand-primary)">
 												Start
 												<ArrowRight
-													className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+													className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
 													aria-hidden="true"
 												/>
 											</span>

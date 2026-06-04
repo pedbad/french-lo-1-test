@@ -3,68 +3,83 @@
 		{
 			"title": "First Contact: greetings, farewells and social niceties",
 			"titleShort": "First Contact",
-			"slug": "first-contact"
+			"slug": "first-contact",
+			"introImage": "img/lo1/first-contact.svg"
 		},
 		{
 			"title": "About me: marital status, occupation",
 			"titleShort": "About me",
-			"slug": "about-me"
+			"slug": "about-me",
+			"introImage": "img/lo2/about-me.svg"
 		},
 		{
 			"title": "Origins and Languages",
-			"slug": "origins-and-languages"
+			"slug": "origins-and-languages",
+			"introImage": "img/lo3/origins-and-languages.svg"
 		},
 		{
 			"title": "Current location",
-			"slug": "current-location"
+			"slug": "current-location",
+			"introImage": "img/lo4/current-location.svg"
 		},
 		{
 			"title": "House and Home",
-			"slug": "house-and-home"
+			"slug": "house-and-home",
+			"introImage": "img/lo5/house-and-home.svg"
 		},
 		{
 			"title": "Family & friends",
 			"titleShort": "Family & friends",
-			"slug": "family-friends"
+			"slug": "family-friends",
+			"introImage": "img/lo6/family-friends-neighbours.svg"
 		},
 		{
 			"title": "Opinions matter: Likes and dislikes",
 			"titleShort": "Opinions matter",
-			"slug": "opinions-matter"
+			"slug": "opinions-matter",
+			"introImage": "img/lo7/opinions-matter.svg"
 		},
 		{
 			"title": "Free Time",
-			"slug": "free-time"
+			"slug": "free-time",
+			"introImage": "img/lo8/free-time.svg"
 		},
 		{
 			"title": "Phoning in France",
-			"slug": "phoning-in-france"
+			"slug": "phoning-in-france",
+			"introImage": "img/lo9/phoning-in-france.svg"
 		},
 		{
 			"title": "Making Arrangements",
-			"slug": "making-arrangements"
+			"slug": "making-arrangements",
+			"introImage": "img/lo10/making-arrangements.svg"
 		},
 		{
 			"title": "Out and about: going to a café",
 			"titleShort": "Going to a café",
-			"slug": "going-to-a-cafe"
+			"slug": "going-to-a-cafe",
+			"introImage": "img/lo11/out-and-about-cafe.svg"
 		},
 		{
 			"title": "Out and about: Shopping in the market",
 			"titleShort": "Shopping in the market",
-			"slug": "shopping-in-the-market"
+			"slug": "shopping-in-the-market",
+			"introImage": "img/lo12/out-and-about-shopping.svg"
 		},
 		{
 			"title": "Daily routine",
-			"slug": "daily-routine"
+			"slug": "daily-routine",
+			"introImage": "img/lo13/daily-routine.svg"
 		},
 		{
 			"title": "Studying at university",
-			"slug": "studying-at-university"
+			"slug": "studying-at-university",
+			"introImage": "img/lo14/studying-at-university.svg"
 		},
 		{
 			"title": "Planning a holiday",
-			"slug": "planning-a-holiday"
+			"slug": "planning-a-holiday",
+			"introImage": "img/lo15/planning-a-holiday.svg"
 		}
 	],
 	"title": "French Basic"
