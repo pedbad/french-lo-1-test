@@ -44,11 +44,46 @@ When a utility "doesn't work":
 
 ## Known Debt (not yet fixed)
 
-| Issue | Scale | Notes |
-|---|---|---|
-| Unlayered `#content *` rules | ~61 remaining | Should be migrated to `@layer base` incrementally |
-| Hardcoded `px`/`rem` values | ~116 | Most are intentional design values; consider `@theme` tokens where reused |
-| `!list-none !p-0` in grammar custom components | 3 instances | Need to find and layer the conflicting `ul`/`li` rules |
+| Issue | Scale | Risk | Action |
+|---|---|---|---|
+| Unlayered `#content .<class>` rules | ~61 | **Low** — class-scoped, won't hijack arbitrary utilities | Layer on demand (only when you add a utility to that specific class and it loses) |
+| Unlayered bare-element rules | ✅ 0 | Fixed | `p/li/td`, `a`, `h1-h4` all layered |
+| Hardcoded `px`/`rem` values | ~116 | Low | Consider `@theme` tokens only where values are reused |
+| `!list-none !p-0` in grammar custom components | 3 | Low | Find + layer the `ul` rule when editing those components |
+
+### Why the 61 class-scoped rules are low risk
+
+The 3 rules we fixed (`#content :where(p,li,td)`, `#content a`, `#content h1-h4`) were dangerous because they targeted **bare HTML elements** — any utility on any `<p>` or `<h2>` anywhere inside `#content` silently lost.
+
+The remaining 61 target **specific component classes** (`.information`, `.inline-icon-*`, `.word-spot-container`, `.intro`, etc.). A utility on `<div className="text-brand">` won't match `#content .information` unless it also carries that class. So there's no silent utility loss unless you're adding utilities *to those specific classes* — in which case just layer that one rule at that moment.
+
+**The fix-on-demand rule:** if `yarn dev` + DevTools shows a utility losing, check if the winning rule is unlayered, wrap it. Don't pre-emptively layer all 61.
+
+### Future projects: how to avoid this debt entirely
+
+In new projects — no layering debt from day one:
+
+```css
+/* ✅ Everything in a layer from the start */
+@import "tailwindcss";
+
+@layer base {
+  /* Element defaults that authored content (no classes) should inherit */
+  #content :where(p, li, td, th) { font-size: var(--font-size-base); }
+  #content a { color: var(--primary); text-decoration: underline; }
+  #content :where(h1,h2,h3,h4) { color: var(--foreground); }
+}
+
+@layer components {
+  /* Component classes */
+  .information { ... }
+  .inline-icon { ... }
+}
+
+@utility skip-link { ... }   /* Custom utilities */
+```
+
+Result: utilities always win, zero `!` needed anywhere.
 
 ---
 
