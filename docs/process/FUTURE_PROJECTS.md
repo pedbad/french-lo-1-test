@@ -897,3 +897,23 @@ Deliverables:
 6) starter token-driven components (Button, Card, Input, Badge, Alert, Dialog)
 7) short checklist for adding new components safely.
 ```
+
+---
+
+## Tailwind v4 — register the type scale in `@theme` (don't use arbitrary font-size vars)
+
+**Rule for new projects:** define font sizes (and other reused scales) in `@theme` and use the generated named utilities. Never put size-valued CSS vars in arbitrary brackets.
+
+```css
+@theme {
+  --text-fs-base: 1.15rem;
+  --text-fs-lg:   1.35rem;
+}
+/* → text-fs-base, text-fs-lg */
+```
+
+**Why (the trap this avoids):** `text-[var(--font-size-base)]` is type-ambiguous in v4 — Tailwind guesses **color**, emits `color: var(--font-size-base)`, the browser drops the invalid value, and text falls back to `--foreground` (near-black). Invisible on any default-colored text; only breaks where a custom color shares the element. No build error, no warning. The parens shorthand `text-(--font-size-base)` has the same bug. If you must use a size var inline, add the hint: `text-[length:var(--…)]`.
+
+**Naming caution:** do not name `@theme` size tokens `--text-base`/`--text-sm`/`--text-lg` unless your scale equals Tailwind's defaults — otherwise you silently resize every plain `text-base` in the app. Use a distinct prefix (`--text-fs-*`) or converge all default usages first.
+
+See `docs/process/TAILWIND_V4.md` → "Arbitrary font-size vars silently parsed as color".

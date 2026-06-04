@@ -50,6 +50,7 @@ When a utility "doesn't work":
 | Unlayered bare-element rules | ✅ 0 | Fixed | `p/li/td`, `a`, `h1-h4` all layered |
 | Hardcoded `px`/`rem` values | ~116 | Low | Consider `@theme` tokens only where values are reused |
 | `!list-none !p-0` in grammar custom components | 3 | Low | Find + layer the `ul` rule when editing those components |
+| `text-[var(--font-size-*)]` arbitrary sizes (now `length:`-hinted) | 41 | Low (works) | Migrate type scale to `@theme` `text-fs-*`; needs per-usage audit vs raw `text-base` (collision) |
 
 ### Why the 61 class-scoped rules are low risk
 
@@ -121,5 +122,54 @@ Before writing any CSS for a new React + Tailwind v4 + shadcn project:
 - [ ] All custom CSS goes in `@layer base`, `@layer components`, or `@utility` — never unlayered
 - [ ] No `!` utilities anywhere in JSX
 - [ ] CSS variable tokens: `text-(--token)` syntax
+- [ ] Register the type scale (font sizes) in `@theme` as named `text-fs-*` utilities — NEVER `text-[var(--font-size-*)]` (size-valued vars parse as color)
 - [ ] Never reuse a heavily-styled ID/class outside its intended context
 - [ ] Run a quick grep before PRs: `grep -r "className.*!"` should return zero
+
+---
+
+## Arbitrary font-size vars silently parsed as `color` (fixed 2026-06-04)
+
+### Symptom
+Landing intro `<p>` ignored `text-(--brand-quaternary)` and rendered near-black, while the sibling `<h2>` with the **same** color class rendered teal.
+
+### Root cause
+The `<p>` also carried `text-[var(--font-size-base)]`. In Tailwind v4 a bracket utility holding a **bare `var()`** is type-ambiguous — `text-[…]` can mean font-size OR color. Tailwind guessed **color** and emitted `color: var(--font-size-base)`. A length is an invalid color → the browser drops the declaration → the text falls back to inherited `--foreground` (near-black).
+
+Wherever the intended color *was* foreground/black, the bug was **invisible**. It only surfaced where a custom color (brand teal, `--edu-affirm` hover green) shared the element. That is why it survived the "extensive" refactor: no build error, no console warning, no lint failure, visually identical on all default-colored text. A Tailwind-version check confirms v4 but cannot catch a semantic mis-parse.
+
+### Stopgap fix (APPLIED — 41 sites, 19 files)
+Add the `length:` data-type hint so Tailwind stops guessing:
+```
+text-[var(--font-size-base)]            ❌ ambiguous → parsed as color
+text-[length:var(--font-size-base)]     ✅ forced to font-size
+```
+GOTCHA: the parens shorthand `text-(--font-size-base)` has the **same** ambiguity (also defaults to color). Any size-valued var needs the hint — `text-(length:--font-size-base)` or the bracket `length:` form. Rule #4 ("use `text-(--token)`") is for **color** tokens only.
+
+### Proper fix (PENDING — see Known Debt)
+Register the type scale in `@theme` and use named utilities — no brackets, no ambiguity:
+```css
+@theme {
+  --text-fs-xs:   0.85rem;
+  --text-fs-sm:   1rem;
+  --text-fs-base: 1.15rem;
+  --text-fs-lg:   1.35rem;
+  --text-fs-xl:   1.6rem;
+}
+/* → text-fs-base, text-fs-lg, … */
+```
+
+### WHY IT IS NOT A MECHANICAL SWAP — name collision
+The project scale does **not** match Tailwind defaults:
+
+| token | project value | TW default same name |
+|---|---|---|
+| `--font-size-sm`   | **1rem**   | 0.875rem |
+| `--font-size-base` | **1.15rem**| 1rem |
+| `--font-size-lg`   | **1.35rem**| 1.125rem |
+
+The codebase ALSO uses raw `text-base` / `md:text-base` (TW defaults) in many exercises. So you **cannot** name the tokens `--text-base`/`--text-sm`/`--text-lg` in `@theme` — that would silently resize every existing default `text-base` (1rem → 1.15rem) and regress dozens of components. Either:
+- use a **distinct prefix** (`--text-fs-*`), OR
+- first **audit and converge** every raw `text-base`/`text-sm`/`text-lg` usage onto the project scale, then claim the default names.
+
+This audit is what makes it a planned, branch-based migration with in-browser verification — not a perl pass.
