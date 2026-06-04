@@ -1,9 +1,16 @@
 import React from "react";
-import { ArrowRight, BookOpen, Facebook, Instagram, Linkedin, X, Youtube } from "lucide-react";
+import { ArrowRight, BookOpen, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+
+// Official X (Twitter) brand mark — lucide's X icon is a generic close icon, not the brand.
+const XBrandIcon = ({ className, strokeWidth: _sw, ...props }) => (
+	<svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true" {...props}>
+		<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+	</svg>
+);
 
 const SOCIAL_LINKS = [
 	{ href: "https://www.facebook.com/uclangcen/", icon: Facebook, label: "Facebook" },
-	{ href: "https://x.com/uclangcen", icon: X, label: "X (Twitter)" },
+	{ href: "https://x.com/uclangcen", icon: XBrandIcon, label: "X (Twitter)" },
 	{ href: "https://www.youtube.com/cambridgeuniversity", icon: Youtube, label: "YouTube" },
 	{ href: "https://www.linkedin.com/company/university-of-cambridge-language-centre/posts/?feedView=all", icon: Linkedin, label: "LinkedIn" },
 	{ href: "https://www.instagram.com/cambridgeuniversity/", icon: Instagram, label: "Instagram" },
