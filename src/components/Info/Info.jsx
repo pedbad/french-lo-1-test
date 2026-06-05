@@ -6,10 +6,10 @@ import { injectAudioCueIntoHTML, splitTextByAudioCueKeyword } from "../instructi
 import { AudioCueIcon } from "../AudioCueIcon";
 
 const INFO_CONTAINER_CLASS = "information mt-1 flex max-w-full min-w-0 items-start gap-[0.45rem]";
-const INFO_CONTENT_TEXT_CLASS = "info-content min-w-0 flex-1 text-fs-base leading-[var(--line-height-body)] [overflow-wrap:anywhere] [&_div]:!text-fs-base [&_div]:!leading-[var(--line-height-body)] [&_p]:!m-0 [&_p]:!text-fs-base [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-fs-base [&_li]:!leading-[var(--line-height-body)] [&_h3]:!m-0 [&_h3]:!mb-[0.35rem] [&_h3]:!text-fs-base [&_h3]:!leading-[var(--line-height-app)] [&_h3]:!font-semibold [&_h4]:!m-0 [&_h4]:!mb-[0.3rem] [&_h4]:!text-fs-base [&_h4]:!leading-[var(--line-height-app)]";
+const INFO_CONTENT_TEXT_CLASS = "info-content min-w-0 flex-1 text-base leading-[var(--line-height-body)] [overflow-wrap:anywhere] [&_div]:!text-base [&_div]:!leading-[var(--line-height-body)] [&_p]:!m-0 [&_p]:!text-base [&_p]:!leading-[var(--line-height-body)] [&_li]:!text-base [&_li]:!leading-[var(--line-height-body)] [&_h3]:!m-0 [&_h3]:!mb-[0.35rem] [&_h3]:!text-base [&_h3]:!leading-[var(--line-height-app)] [&_h3]:!font-semibold [&_h4]:!m-0 [&_h4]:!mb-[0.3rem] [&_h4]:!text-base [&_h4]:!leading-[var(--line-height-app)]";
 const INFO_CONTENT_SPACING_CLASS = "[&_li]:mt-[0.3rem]";
-const INFO_TITLE_CLASS = "mb-1 text-fs-base leading-[var(--line-height-app)] font-semibold";
-const INFO_ICON_CLASS = "info-icon self-start mt-[0.16em] inline-flex h-[1.55em] w-[1.55em] shrink-0 items-center justify-center rounded-full bg-[var(--foreground)] text-fs-base leading-none";
+const INFO_TITLE_CLASS = "mb-1 text-base leading-[var(--line-height-app)] font-semibold";
+const INFO_ICON_CLASS = "info-icon self-start mt-[0.16em] inline-flex h-[1.55em] w-[1.55em] shrink-0 items-center justify-center rounded-full bg-[var(--foreground)] text-base leading-none";
 const INFO_ICON_SVG_CLASS = "info-icon__svg h-[1.4em] w-[1.4em] text-[var(--background)] [stroke-width:3.4] [&_circle]:hidden";
 
 const INFO_VARIANTS = new Set(["default", "info", "warning", "success", "danger"]);

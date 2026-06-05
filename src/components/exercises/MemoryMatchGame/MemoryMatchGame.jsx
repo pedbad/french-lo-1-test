@@ -253,7 +253,7 @@ export class MemoryMatchGame extends React.PureComponent {
 
 				<div className={`memory-match-game flex flex-col items-center ${hasInstructionContent ? "pt-8" : ""}`}>
 					<div className={`memory-map-container num${cards.length}cards w-full`}>
-						<div className="cards mx-auto grid w-full max-w-[30.24rem] grid-cols-2 gap-3 text-[length:calc(var(--font-size-sm)*0.8)] md:max-w-[31.68rem] md:grid-cols-4 xl:max-w-[37.44rem] xl:text-[length:calc(var(--font-size-sm)*0.9)] 2xl:text-fs-sm">
+						<div className="cards mx-auto grid w-full max-w-[30.24rem] grid-cols-2 gap-3 text-[length:calc(var(--font-size-sm)*0.8)] md:max-w-[31.68rem] md:grid-cols-4 xl:max-w-[37.44rem] xl:text-[length:calc(var(--font-size-sm)*0.9)] 2xl:text-sm">
 							{cards.map(card => (
 								<Card
 									card={card}

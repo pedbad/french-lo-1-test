@@ -233,7 +233,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 		return (
 			<button
 				type="button"
-				className="m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-fs-sm leading-[var(--line-height-app)] text-foreground transition-colors duration-150 hover:text-[var(--edu-affirm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base"
+				className="m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-sm leading-[var(--line-height-app)] text-foreground transition-colors duration-150 hover:text-[var(--edu-affirm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base"
 				onClick={(event) => this.handlePromptAudioClick(rowIndex, soundFile, event)}
 			>
 				{promptText}
@@ -408,7 +408,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 							<div className="grid w-full grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-2">
 								<Input
 									aria-label={`Item ${i + 1}: type your answer`}
-									className={`min-h-10 text-fs-sm md:text-base ${inputToneClass}`}
+									className={`min-h-10 text-sm md:text-base ${inputToneClass}`}
 									onChange={(event) => this.handleInputChange(i, event.target.value)}
 									onKeyDown={(event) => this.handleInputKeyDown(i, event)}
 									placeholder="Type your answer"

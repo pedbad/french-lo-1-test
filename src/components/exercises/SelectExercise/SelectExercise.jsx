@@ -15,9 +15,9 @@ import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 
-const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-fs-sm md:text-base";
-const SELECT_EXERCISE_INLINE_TRIGGER_CLASS = "inline-flex min-h-9 w-auto max-w-full align-middle text-fs-sm md:text-base";
-const SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS = "inline-flex h-8 w-auto max-w-full px-2 align-middle text-fs-sm leading-[var(--line-height-app)]";
+const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-sm md:text-base";
+const SELECT_EXERCISE_INLINE_TRIGGER_CLASS = "inline-flex min-h-9 w-auto max-w-full align-middle text-sm md:text-base";
+const SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS = "inline-flex h-8 w-auto max-w-full px-2 align-middle text-sm leading-[var(--line-height-app)]";
 const SELECT_EXERCISE_PLACEHOLDER_TEXT = "Select answer";
 const SELECT_EXERCISE_PASSAGE_ACCENTS = {
 	blue: "var(--content-accent-blue)",
@@ -405,7 +405,7 @@ export class SelectExercise extends React.PureComponent {
 					<SelectContent>
 						{meta.options.map((option, optionIndex) => (
 							<SelectItem
-								className="text-fs-sm md:text-base"
+								className="text-sm md:text-base"
 								key={`${selectId}-option-${optionIndex}`}
 								value={String(optionIndex)}
 							>
@@ -504,7 +504,7 @@ export class SelectExercise extends React.PureComponent {
 					passageLines.push(
 						/* <p>→<div>: short poem lines trigger WAVE "possible heading" alert */
 						<div
-							className={`relative m-0 overflow-hidden text-fs-sm leading-[var(--line-height-app)] md:text-base ${
+							className={`relative m-0 overflow-hidden text-sm leading-[var(--line-height-app)] md:text-base ${
 								isPassageMeta
 									? "pt-1 text-right text-muted-foreground"
 									: `rounded-lg border border-border/70 bg-background/80 px-3 py-2 shadow-sm ${
@@ -671,7 +671,7 @@ export class SelectExercise extends React.PureComponent {
 						) : null}
 
 						{renderInlineChoices ? (
-							<div className="col-start-2 min-w-0 text-fs-sm leading-[var(--line-height-app)] md:text-base">
+							<div className="col-start-2 min-w-0 text-sm leading-[var(--line-height-app)] md:text-base">
 								{segments.map((segment, segmentIndex) => {
 									if (segment.type !== "choice") {
 										return (
@@ -696,7 +696,7 @@ export class SelectExercise extends React.PureComponent {
 								{item.audio ? (
 									<button
 										aria-label={`Play audio for row ${i + 1}`}
-										className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-fs-sm leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--edu-affirm)]" : "text-foreground hover:text-[var(--edu-affirm)]"}`}
+										className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-sm leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--edu-affirm)]" : "text-foreground hover:text-[var(--edu-affirm)]"}`}
 										onClick={() => this.triggerRowAudio(i)}
 										type="button"
 									>
@@ -704,7 +704,7 @@ export class SelectExercise extends React.PureComponent {
 									</button>
 								) : (
 									/* p→div: short item text triggers WAVE "possible heading" */
-									<div className="col-start-2 row-start-1 m-0 min-w-0 text-fs-sm leading-[var(--line-height-app)] md:text-base">
+									<div className="col-start-2 row-start-1 m-0 min-w-0 text-sm leading-[var(--line-height-app)] md:text-base">
 										{this.renderSentenceWithoutChoices(segments)}
 									</div>
 								)}
@@ -731,7 +731,7 @@ export class SelectExercise extends React.PureComponent {
 														<SelectContent>
 															{meta.options.map((option, optionIndex) => (
 																<SelectItem
-																	className="text-fs-sm md:text-base"
+																	className="text-sm md:text-base"
 																	key={`${selectId}-option-${optionIndex}`}
 																	value={String(optionIndex)}
 																>

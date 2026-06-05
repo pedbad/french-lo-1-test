@@ -51,15 +51,8 @@ export default {
 				// shadcn expects a sensible `sans` base it can use
 				sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
 			},
-			fontSize: {
-				'2xl': ['var(--font-size-2xl)', { lineHeight: 'var(--line-height-2xl)' }],
-				'3xl': ['var(--font-size-3xl)', { lineHeight: 'var(--line-height-3xl)' }],
-				base: ['var(--font-size-base)', { lineHeight: 'var(--line-height-body)' }],
-				lg: ['var(--font-size-lg)', { lineHeight: 'var(--line-height-lg)' }],
-				sm: ['var(--font-size-sm)', { lineHeight: 'var(--line-height-sm)' }],
-				xl: ['var(--font-size-xl)', { lineHeight: 'var(--line-height-xl)' }],
-				xs: ['var(--font-size-xs)', { lineHeight: 'var(--line-height-xs)' }],
-			},
+			// fontSize migrated to CSS-first @theme in src/index.css (v4 idiomatic;
+			// each size paired with its line-height via --text-{n}--line-height).
 			keyframes: {
 				"highlight-flash": {
 					"0%, 100%": {

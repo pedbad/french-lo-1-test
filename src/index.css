@@ -3687,19 +3687,29 @@
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
 
-	/* Project type scale — named font-size utilities (the fs- prefixed set).
-	 * Phase 1 of the type-scale migration: replaces ambiguous arbitrary
-	 * font-size utilities (size-valued vars that v4 mis-parses as color) with
-	 * collision-free named ones. The distinct fs- prefix avoids clobbering the
-	 * raw Tailwind default sizes still used across exercises.
+	/* Project type scale — overrides Tailwind's default text-* sizes with the
+	 * project font-size tokens, each paired with its line-height via the v4
+	 * `--text-{n}--line-height` companion key. This is the single source of the
+	 * type scale; it replaces the equivalent `theme.fontSize` block that used to
+	 * live in tailwind.config.js (migrated to CSS-first @theme).
+	 * Use the plain utilities everywhere: text-xs … text-3xl. No custom prefix,
+	 * no arbitrary `text-[length:var(--font-size-*)]` (which v4 mis-parses as color).
 	 * See docs/process/TAILWIND_V4.md.
-	 * Phase 2 (future) converges raw defaults onto this scale and drops the prefix.
 	 */
-	--text-fs-xs:   var(--font-size-xs);
-	--text-fs-sm:   var(--font-size-sm);
-	--text-fs-base: var(--font-size-base);
-	--text-fs-lg:   var(--font-size-lg);
-	--text-fs-xl:   var(--font-size-xl);
+	--text-xs:                var(--font-size-xs);
+	--text-xs--line-height:   var(--line-height-xs);
+	--text-sm:                var(--font-size-sm);
+	--text-sm--line-height:   var(--line-height-sm);
+	--text-base:              var(--font-size-base);
+	--text-base--line-height: var(--line-height-body);
+	--text-lg:                var(--font-size-lg);
+	--text-lg--line-height:   var(--line-height-lg);
+	--text-xl:                var(--font-size-xl);
+	--text-xl--line-height:   var(--line-height-xl);
+	--text-2xl:               var(--font-size-2xl);
+	--text-2xl--line-height:  var(--line-height-2xl);
+	--text-3xl:               var(--font-size-3xl);
+	--text-3xl--line-height:  var(--line-height-3xl);
 }
 
 /* Legacy app-level styles migrated from src/App.scss (compiled to CSS to preserve behavior while we finish utility refactors).
