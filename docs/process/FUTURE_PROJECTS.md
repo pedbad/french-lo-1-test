@@ -906,14 +906,17 @@ Deliverables:
 
 ```css
 @theme {
-  --text-fs-base: 1.15rem;
-  --text-fs-lg:   1.35rem;
+  --text-base:              1.15rem;
+  --text-base--line-height: 1.7;
+  --text-lg:                1.35rem;
+  --text-lg--line-height:   1.8;
 }
-/* → text-fs-base, text-fs-lg */
+/* → plain text-base, text-lg (override TW defaults; pair line-height via the
+   --text-{n}--line-height companion key) */
 ```
 
 **Why (the trap this avoids):** `text-[var(--font-size-base)]` is type-ambiguous in v4 — Tailwind guesses **color**, emits `color: var(--font-size-base)`, the browser drops the invalid value, and text falls back to `--foreground` (near-black). Invisible on any default-colored text; only breaks where a custom color shares the element. No build error, no warning. The parens shorthand `text-(--font-size-base)` has the same bug. If you must use a size var inline, add the hint: `text-[length:var(--…)]`.
 
-**Naming caution:** do not name `@theme` size tokens `--text-base`/`--text-sm`/`--text-lg` unless your scale equals Tailwind's defaults — otherwise you silently resize every plain `text-base` in the app. Use a distinct prefix (`--text-fs-*`) or converge all default usages first.
+**Naming:** overriding `--text-base`/`--text-sm`/`--text-lg` in `@theme` is the intended v4 way to set your scale — it remaps the plain `text-*` utilities. Do **not** invent a prefixed parallel scale (`text-fs-*`/`text-content-*`) to "avoid collision"; there is no collision, you simply own the scale. (If the project still carries a `@config "…/tailwind.config.js"` with a `theme.fontSize` map, that already owns `text-*` — fold it into `@theme`, don't duplicate it.)
 
 See `docs/process/TAILWIND_V4.md` → "Arbitrary font-size vars silently parsed as color".

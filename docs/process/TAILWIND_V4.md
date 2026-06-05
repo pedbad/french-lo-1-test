@@ -50,7 +50,7 @@ When a utility "doesn't work":
 | Unlayered bare-element rules | ✅ 0 | Fixed | `p/li/td`, `a`, `h1-h4` all layered |
 | Hardcoded `px`/`rem` values | ~116 | Low | Consider `@theme` tokens only where values are reused |
 | `!list-none !p-0` in grammar custom components | 3 | Low | Find + layer the `ul` rule when editing those components |
-| Raw `text-base`/`text-sm`/`text-lg` (TW defaults) not converged onto project scale | ~200 | Low | **Phase 2** — audit each usage, adopt project values, then claim default `--text-*` names and drop the `fs-` prefix |
+| ~~Type scale split between config and prefixed `@theme`~~ | — | — | ✅ **RESOLVED** — scale unified in CSS `@theme` (`--text-*` + line-height companions); `text-*` already mapped to project tokens via `@config`, so no prefix needed |
 | Tailwind v4 auto-scans `docs/*.md` and tries to compile the documented-broken `text-[var(--font-size-base)]` example → build warning `Unexpected token Delim('*')` | 3 docs | Low (not emitted to dist) | Add `@source not "docs/**"` (or fence examples so the scanner skips them) |
 
 ### Why the 61 class-scoped rules are low risk
@@ -123,7 +123,7 @@ Before writing any CSS for a new React + Tailwind v4 + shadcn project:
 - [ ] All custom CSS goes in `@layer base`, `@layer components`, or `@utility` — never unlayered
 - [ ] No `!` utilities anywhere in JSX
 - [ ] CSS variable tokens: `text-(--token)` syntax
-- [ ] Register the type scale (font sizes) in `@theme` as named `text-fs-*` utilities — NEVER `text-[var(--font-size-*)]` (size-valued vars parse as color)
+- [ ] Type scale lives in `@theme` as `--text-{n}` + `--text-{n}--line-height`; use plain `text-*`. NEVER `text-[var(--font-size-*)]` (size-valued vars parse as color). If a `@config` tailwind.config.js already maps `theme.fontSize`, THAT is the scale — don't add a parallel prefixed one
 - [ ] Never reuse a heavily-styled ID/class outside its intended context
 - [ ] Run a quick grep before PRs: `grep -r "className.*!"` should return zero
 
@@ -147,31 +147,32 @@ text-[length:var(--font-size-base)]     ✅ forced to font-size
 ```
 GOTCHA: the parens shorthand `text-(--font-size-base)` has the **same** ambiguity (also defaults to color). Any size-valued var needs the hint — `text-(length:--font-size-base)` or the bracket `length:` form. Rule #4 ("use `text-(--token)`") is for **color** tokens only.
 
-### Phase 1 fix (APPLIED 2026-06-04 — branch `refactor/type-scale-theme`)
-Registered the type scale in `@theme inline` (referencing the existing `tokens.css` vars, single source of truth) and swapped the 39 plain `text-[length:var(--font-size-*)]` sites across 13 files to named utilities — no brackets, no ambiguity:
+### Final fix (APPLIED 2026-06-04 — branch `refactor/type-scale-collapse`)
+Earlier passes introduced a *prefixed* scale (`text-fs-*`, then renamed `text-content-*`) to dodge a feared collision with Tailwind's default `text-*` sizes. **That collision never existed.** `tailwind.config.js` (loaded via `@config` at the top of `index.css`) already remapped `theme.fontSize` so `text-xs … text-3xl` resolved to the project `--font-size-*` tokens. So `text-base` was already **1.15rem (project)**, never the 0.875/1rem TW default. The prefix was guarding a non-problem — the result of grepping only `.css` and missing the JS config.
+
+Final design — **one scale, no prefix, CSS-first**:
+- Moved the `fontSize` map out of `tailwind.config.js` into CSS `@theme`, pairing each size with its line-height via the v4 `--text-{n}--line-height` companion key.
+- Collapsed all 39 prefixed utilities (13 files) back to plain `text-*`.
+- The ~20 `text-[length:calc(var(--font-size-*) * N)]` multiplier sites stay as-is (already `length:`-hinted, no named equivalent).
+
 ```css
-@theme inline {
-  --text-fs-xs:   var(--font-size-xs);
-  --text-fs-sm:   var(--font-size-sm);
-  --text-fs-base: var(--font-size-base);
-  --text-fs-lg:   var(--font-size-lg);
-  --text-fs-xl:   var(--font-size-xl);
+@theme {
+  --text-xs:                var(--font-size-xs);
+  --text-xs--line-height:   var(--line-height-xs);
+  --text-sm:                var(--font-size-sm);
+  --text-sm--line-height:   var(--line-height-sm);
+  --text-base:              var(--font-size-base);
+  --text-base--line-height: var(--line-height-body);
+  --text-lg:                var(--font-size-lg);
+  --text-lg--line-height:   var(--line-height-lg);
+  --text-xl:                var(--font-size-xl);
+  --text-xl--line-height:   var(--line-height-xl);
+  --text-2xl:               var(--font-size-2xl);
+  --text-2xl--line-height:  var(--line-height-2xl);
+  --text-3xl:               var(--font-size-3xl);
+  --text-3xl--line-height:  var(--line-height-3xl);
 }
-/* → text-fs-base, text-fs-lg, … resolve to identical computed values, zero visual change */
+/* Use plain text-xs … text-3xl everywhere. */
 ```
-The ~20 `text-[length:calc(var(--font-size-*) * N)]` arbitrary-multiplier sites stay as-is (already `length:`-hinted, no named equivalent). Phase 2 (Known Debt) converges the raw TW defaults and drops the `fs-` prefix.
 
-### WHY IT IS NOT A MECHANICAL SWAP — name collision
-The project scale does **not** match Tailwind defaults:
-
-| token | project value | TW default same name |
-|---|---|---|
-| `--font-size-sm`   | **1rem**   | 0.875rem |
-| `--font-size-base` | **1.15rem**| 1rem |
-| `--font-size-lg`   | **1.35rem**| 1.125rem |
-
-The codebase ALSO uses raw `text-base` / `md:text-base` (TW defaults) in many exercises. So you **cannot** name the tokens `--text-base`/`--text-sm`/`--text-lg` in `@theme` — that would silently resize every existing default `text-base` (1rem → 1.15rem) and regress dozens of components. Either:
-- use a **distinct prefix** (`--text-fs-*`), OR
-- first **audit and converge** every raw `text-base`/`text-sm`/`text-lg` usage onto the project scale, then claim the default names.
-
-This audit is what makes it a planned, branch-based migration with in-browser verification — not a perl pass.
+**LESSON:** before assuming a `@theme` name would collide with a Tailwind default, check whether a `@config "…/tailwind.config.js"` is already remapping that name. Missing the JS config produced two superseded refactors (`fs-` and `content-` prefixes) before this single-scale collapse.
