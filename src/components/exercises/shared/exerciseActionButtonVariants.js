@@ -17,37 +17,37 @@ import { cva } from "class-variance-authority";
  * - Improves onboarding: developers read one API instead of reverse-engineering many class strings.
  */
 export const exerciseActionButtonVariants = cva("exercise-icon-button", {
-	variants: {
-		tone: {
-			// Keep "none" as default to avoid unintentional color changes in legacy callsites.
-			none: "",
-			neutral: "btn-ex-affirm",
-			primary: "btn-ex-action",
-			warn: "btn-edu-warn",
-		},
-		progressive: {
-			false: "",
-			true: "hidden-help",
-		},
-		visible: {
-			false: "",
-			true: "show",
-		},
-		align: {
-			default: "",
-			right: "btn-check-right",
-		},
-		role: {
-			default: "",
-			reset: "wordparts-reset",
-			reveal: "wordparts-reveal",
-		},
-	},
-	defaultVariants: {
-		align: "default",
-		progressive: false,
-		role: "default",
-		tone: "none",
-		visible: false,
-	},
+  variants: {
+    tone: {
+      // Keep "none" as default to avoid unintentional color changes in legacy callsites.
+      none: "",
+      neutral: "btn-ex-affirm",
+      primary: "btn-ex-action",
+      warn: "btn-edu-warn",
+    },
+    progressive: {
+      false: "",
+      true: "hidden-help",
+    },
+    visible: {
+      false: "",
+      true: "show",
+    },
+    align: {
+      default: "",
+      right: "btn-check-right",
+    },
+    role: {
+      default: "",
+      reset: "wordparts-reset",
+      reveal: "wordparts-reveal",
+    },
+  },
+  defaultVariants: {
+    align: "default",
+    progressive: false,
+    role: "default",
+    tone: "none",
+    visible: false,
+  },
 });

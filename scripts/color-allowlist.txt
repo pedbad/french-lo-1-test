@@ -3,3 +3,8 @@
 # Canonical token source only; avoid component-level allowlisting.
 
 src/index.css
+
+# Debug tooling intentionally renders raw token values (oklch swatches) for inspection.
+src/debug/DebugSandbox.jsx
+# Keyframe animation colors (highlight-flash) — literal by nature, not themeable tokens.
+tailwind.config.js

@@ -14,14 +14,14 @@ import React from "react";
 // passed to TextEntryExerciseRuntime, without touching DictationExercise
 // or TypedTransformExercise.
 export class ClozeTypingExercise extends React.PureComponent {
-	// TODO(component-split): add cloze-specific features here:
-	// - per-gap partial scoring
-	// - context hints / reveal policy
-	// without changing DictationExercise or TypedTransformExercise.
-	render = () => (
-		<TextEntryExerciseRuntime
-			{...this.props}
-			useGlobalActions={false}
-		/>
-	);
+  // TODO(component-split): add cloze-specific features here:
+  // - per-gap partial scoring
+  // - context hints / reveal policy
+  // without changing DictationExercise or TypedTransformExercise.
+  render = () => (
+    <TextEntryExerciseRuntime
+      {...this.props}
+      useGlobalActions={false}
+    />
+  );
 }

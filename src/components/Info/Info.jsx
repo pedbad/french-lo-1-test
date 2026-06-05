@@ -16,125 +16,125 @@ const INFO_VARIANTS = new Set(["default", "info", "warning", "success", "danger"
 const PARAGRAPH_OPEN_TAG_PATTERN = /<p(\s[^>]*)?>/gi;
 const PARAGRAPH_CLOSE_TAG_PATTERN = /<\/p>/gi;
 const INFO_INLINE_TEXT_STYLE = {
-	fontSize: "var(--font-size-base)",
-	lineHeight: "var(--line-height-body)",
+  fontSize: "var(--font-size-base)",
+  lineHeight: "var(--line-height-body)",
 };
 
 const normalizeAlertHtml = (rawHtml) =>
-	rawHtml
-		.replace(PARAGRAPH_OPEN_TAG_PATTERN, "<div$1>")
-		.replace(PARAGRAPH_CLOSE_TAG_PATTERN, "</div>");
+  rawHtml
+    .replace(PARAGRAPH_OPEN_TAG_PATTERN, "<div$1>")
+    .replace(PARAGRAPH_CLOSE_TAG_PATTERN, "</div>");
 
 const applyInfoTypographyToHTML = (rawHtml = "") => {
-	const normalizedHtml = normalizeAlertHtml(rawHtml);
-	if (typeof DOMParser === "undefined") return normalizedHtml;
-	const doc = new DOMParser().parseFromString(normalizedHtml, "text/html");
-	doc.querySelectorAll("div, p, li, h3, h4").forEach((node) => {
-		node.style.fontSize = "var(--font-size-base)";
-		node.style.lineHeight = "var(--line-height-body)";
-	});
-	doc.querySelectorAll("h3, h4").forEach((node) => {
-		node.style.marginTop = "0";
-		node.style.marginBottom = "0.35rem";
-		node.style.fontWeight = "600";
-	});
-	return doc.body.innerHTML;
+  const normalizedHtml = normalizeAlertHtml(rawHtml);
+  if (typeof DOMParser === "undefined") return normalizedHtml;
+  const doc = new DOMParser().parseFromString(normalizedHtml, "text/html");
+  doc.querySelectorAll("div, p, li, h3, h4").forEach((node) => {
+    node.style.fontSize = "var(--font-size-base)";
+    node.style.lineHeight = "var(--line-height-body)";
+  });
+  doc.querySelectorAll("h3, h4").forEach((node) => {
+    node.style.marginTop = "0";
+    node.style.marginBottom = "0.35rem";
+    node.style.fontWeight = "600";
+  });
+  return doc.body.innerHTML;
 };
 
 export class Info extends React.PureComponent {
-	// constructor(props) {
-	// 	super(props);
+  // constructor(props) {
+  // 	super(props);
 
-	// 	this.state = ({
-	// 		showInfo: false,
-	// 	});
+  // 	this.state = ({
+  // 		showInfo: false,
+  // 	});
 
-	// }
+  // }
 
-	render = () => {
+  render = () => {
 
-		const {
-			alertType,
-			children,
-			id,
-			infoMessage,
-			infoTitle,
-			informationText,
-			informationTextHTML,
-			type,
-			variant,
-		} = this.props;
-		const infoId = id ? `${id}-Info` : undefined;
+    const {
+      alertType,
+      children,
+      id,
+      infoMessage,
+      infoTitle,
+      informationText,
+      informationTextHTML,
+      type,
+      variant,
+    } = this.props;
+    const infoId = id ? `${id}-Info` : undefined;
 
-		const requestedVariant = alertType || type || variant || "info";
-		const resolvedVariant = INFO_VARIANTS.has(requestedVariant) ? requestedVariant : "info";
-		const Icon = resolvedVariant === "danger"
-			? CircleX
-			: resolvedVariant === "warning"
-				? CircleAlert
-				: resolvedVariant === "success"
-					? CircleCheck
-					: InfoIcon;
+    const requestedVariant = alertType || type || variant || "info";
+    const resolvedVariant = INFO_VARIANTS.has(requestedVariant) ? requestedVariant : "info";
+    const Icon = resolvedVariant === "danger"
+      ? CircleX
+      : resolvedVariant === "warning"
+        ? CircleAlert
+        : resolvedVariant === "success"
+          ? CircleCheck
+          : InfoIcon;
 
-		const infoIcon = (
-			<span aria-hidden="true" className={INFO_ICON_CLASS}>
-				<Icon className={INFO_ICON_SVG_CLASS} />
-			</span>
-		);
+    const infoIcon = (
+      <span aria-hidden="true" className={INFO_ICON_CLASS}>
+        <Icon className={INFO_ICON_SVG_CLASS} />
+      </span>
+    );
 
-		let content = null;
-		const renderTextWithAudioCue = (value) => {
-			const split = splitTextByAudioCueKeyword(value);
-			if (!split) return value;
-			return (
-				<>
-					{split.before}
-					{split.keyword}
-					{" "}
-					<AudioCueIcon />
-					{split.after}
-				</>
-			);
-		};
-		if (informationTextHTML) {
-			const sanitizedHtml = DOMPurify.sanitize(informationTextHTML);
-			const htmlWithAudioCue = injectAudioCueIntoHTML(sanitizedHtml);
-			const normalizedHtml = applyInfoTypographyToHTML(htmlWithAudioCue);
-			content = (
-				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE} dangerouslySetInnerHTML={{ __html: normalizedHtml }}/>
-			);
-		} else if (informationText) {
-			content = (
-				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
-					{renderTextWithAudioCue(informationText)}
-				</AlertDescription>
-			);
-		} else if (infoTitle || infoMessage) {
-			content = (
-				<div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
-					{infoTitle ? <AlertTitle className={INFO_TITLE_CLASS}>{infoTitle}</AlertTitle> : null}
-					{infoMessage ? (
-						<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
-							{renderTextWithAudioCue(infoMessage)}
-						</AlertDescription>
-					) : null}
-				</div>
-			);
-		} else if (children) {
-			content = (
-				<AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
-					{children}
-				</AlertDescription>
-			);
-		}
+    let content = null;
+    const renderTextWithAudioCue = (value) => {
+      const split = splitTextByAudioCueKeyword(value);
+      if (!split) return value;
+      return (
+        <>
+          {split.before}
+          {split.keyword}
+          {" "}
+          <AudioCueIcon />
+          {split.after}
+        </>
+      );
+    };
+    if (informationTextHTML) {
+      const sanitizedHtml = DOMPurify.sanitize(informationTextHTML);
+      const htmlWithAudioCue = injectAudioCueIntoHTML(sanitizedHtml);
+      const normalizedHtml = applyInfoTypographyToHTML(htmlWithAudioCue);
+      content = (
+        <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE} dangerouslySetInnerHTML={{ __html: normalizedHtml }}/>
+      );
+    } else if (informationText) {
+      content = (
+        <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
+          {renderTextWithAudioCue(informationText)}
+        </AlertDescription>
+      );
+    } else if (infoTitle || infoMessage) {
+      content = (
+        <div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
+          {infoTitle ? <AlertTitle className={INFO_TITLE_CLASS}>{infoTitle}</AlertTitle> : null}
+          {infoMessage ? (
+            <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
+              {renderTextWithAudioCue(infoMessage)}
+            </AlertDescription>
+          ) : null}
+        </div>
+      );
+    } else if (children) {
+      content = (
+        <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
+          {children}
+        </AlertDescription>
+      );
+    }
 
-		if (!content) return null;
+    if (!content) return null;
 
-		return (
-			<Alert className={INFO_CONTAINER_CLASS} id={infoId} variant={resolvedVariant}>
-				{infoIcon}
-				{content}
-			</Alert>
-		);
-	};
+    return (
+      <Alert className={INFO_CONTAINER_CLASS} id={infoId} variant={resolvedVariant}>
+        {infoIcon}
+        {content}
+      </Alert>
+    );
+  };
 }

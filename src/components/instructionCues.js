@@ -4,58 +4,58 @@ const INLINE_AUDIO_CUE_HTML = '<svg class="inline-audio-svg" aria-hidden="true" 
 const stripTags = (value = "") => value.replace(/<[^>]*>/g, " ");
 
 export const instructionMentionsAudio = (value = "") => {
-	if (typeof value !== "string") return false;
-	return AUDIO_CUE_PATTERN.test(stripTags(value));
+  if (typeof value !== "string") return false;
+  return AUDIO_CUE_PATTERN.test(stripTags(value));
 };
 
 export const splitTextByAudioCueKeyword = (value = "") => {
-	if (typeof value !== "string") return null;
-	const match = value.match(AUDIO_CUE_PATTERN);
-	if (!match || typeof match.index !== "number") return null;
-	const keyword = match[0];
-	const keywordStart = match.index;
-	const keywordEnd = keywordStart + keyword.length;
-	return {
-		before: value.slice(0, keywordStart),
-		keyword,
-		after: value.slice(keywordEnd),
-	};
+  if (typeof value !== "string") return null;
+  const match = value.match(AUDIO_CUE_PATTERN);
+  if (!match || typeof match.index !== "number") return null;
+  const keyword = match[0];
+  const keywordStart = match.index;
+  const keywordEnd = keywordStart + keyword.length;
+  return {
+    before: value.slice(0, keywordStart),
+    keyword,
+    after: value.slice(keywordEnd),
+  };
 };
 
 export const injectAudioCueIntoHTML = (rawHtml = "") => {
-	if (typeof rawHtml !== "string" || !rawHtml.trim()) return rawHtml;
-	if (rawHtml.includes("inline-audio-svg")) return rawHtml;
-	if (!instructionMentionsAudio(rawHtml)) return rawHtml;
+  if (typeof rawHtml !== "string" || !rawHtml.trim()) return rawHtml;
+  if (rawHtml.includes("inline-audio-svg")) return rawHtml;
+  if (!instructionMentionsAudio(rawHtml)) return rawHtml;
 
-	if (typeof DOMParser === "undefined") {
-		return rawHtml.replace(AUDIO_CUE_PATTERN, `$& ${INLINE_AUDIO_CUE_HTML}`);
-	}
+  if (typeof DOMParser === "undefined") {
+    return rawHtml.replace(AUDIO_CUE_PATTERN, `$& ${INLINE_AUDIO_CUE_HTML}`);
+  }
 
-	const doc = new DOMParser().parseFromString(rawHtml, "text/html");
-	if (doc.querySelector(".inline-audio-svg")) return rawHtml;
+  const doc = new DOMParser().parseFromString(rawHtml, "text/html");
+  if (doc.querySelector(".inline-audio-svg")) return rawHtml;
 
-	const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT);
-	let node = walker.nextNode();
-	while (node) {
-		const text = node.nodeValue || "";
-		const split = splitTextByAudioCueKeyword(text);
-		if (split) {
-			const parent = node.parentNode;
-			if (!parent) return rawHtml;
+  const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT);
+  let node = walker.nextNode();
+  while (node) {
+    const text = node.nodeValue || "";
+    const split = splitTextByAudioCueKeyword(text);
+    if (split) {
+      const parent = node.parentNode;
+      if (!parent) return rawHtml;
 
-			if (split.before) parent.insertBefore(doc.createTextNode(split.before), node);
-			const cueContainer = doc.createElement("span");
-			cueContainer.innerHTML = INLINE_AUDIO_CUE_HTML.trim();
-			const cue = cueContainer.firstElementChild;
-			if (!cue) return rawHtml;
-			parent.insertBefore(doc.createTextNode(`${split.keyword} `), node);
-			parent.insertBefore(cue, node);
-			if (split.after) parent.insertBefore(doc.createTextNode(split.after), node);
-			parent.removeChild(node);
-			return doc.body.innerHTML;
-		}
-		node = walker.nextNode();
-	}
+      if (split.before) parent.insertBefore(doc.createTextNode(split.before), node);
+      const cueContainer = doc.createElement("span");
+      cueContainer.innerHTML = INLINE_AUDIO_CUE_HTML.trim();
+      const cue = cueContainer.firstElementChild;
+      if (!cue) return rawHtml;
+      parent.insertBefore(doc.createTextNode(`${split.keyword} `), node);
+      parent.insertBefore(cue, node);
+      if (split.after) parent.insertBefore(doc.createTextNode(split.after), node);
+      parent.removeChild(node);
+      return doc.body.innerHTML;
+    }
+    node = walker.nextNode();
+  }
 
-	return rawHtml;
+  return rawHtml;
 };

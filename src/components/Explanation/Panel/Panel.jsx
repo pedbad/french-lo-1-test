@@ -3,23 +3,23 @@ import { resolveAssetHTML } from '../../../utils/assets.js';
 
 export class Panel extends React.PureComponent {
 
-	render = () => {
+  render = () => {
 
-		const {
-			className,
-			content,
-			id,
-		} = this.props;
+    const {
+      className,
+      content,
+      id,
+    } = this.props;
 
 
-		return (
-			<div
-				className={`panel mt-4 w-[calc(100%-2rem)] p-4 ${className || ""}`}
-				dangerouslySetInnerHTML={{ __html: resolveAssetHTML(content) }}
-				id={id ? `${id}Panel` : undefined}
-				key={`${id}PhraseTable`}
-			>
-			</div>
-		);
-	};
+    return (
+      <div
+        className={`panel mt-4 w-[calc(100%-2rem)] p-4 ${className || ""}`}
+        dangerouslySetInnerHTML={{ __html: resolveAssetHTML(content) }}
+        id={id ? `${id}Panel` : undefined}
+        key={`${id}PhraseTable`}
+      >
+      </div>
+    );
+  };
 }

@@ -20,7 +20,7 @@
  * must import and use this component for these labels.
  */
 export const GrammarLabel = ({ children, className }) => (
-	<div style={{ fontSize: "var(--font-size-base)" }} className={className || undefined}>
-		{children}
-	</div>
+  <div style={{ fontSize: "var(--font-size-base)" }} className={className || undefined}>
+    {children}
+  </div>
 );

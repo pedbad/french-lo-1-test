@@ -1,418 +1,418 @@
 import { AudioClip } from "@/components/AudioClip";
 import { GrammarLabel } from "@/components/custom/grammar/GrammarLabel";
 import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
 } from "@/components/ui/table";
 import { playAudioLink } from "@/utils/audioPlayback";
 import { PureComponent } from "react";
 
 const handleAudioRowClick = (soundFile, event) => {
-	if (!soundFile) return;
-	if (event?.defaultPrevented) return;
+  if (!soundFile) return;
+  if (event?.defaultPrevented) return;
 
-	const targetNode = event?.target;
-	if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
-		return;
-	}
+  const targetNode = event?.target;
+  if (targetNode instanceof Element && targetNode.closest(".audio-link, .audio-container")) {
+    return;
+  }
 
-	const rowEl = event?.currentTarget;
-	const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
-	if (audioTrigger) {
-		audioTrigger.click();
-		return;
-	}
+  const rowEl = event?.currentTarget;
+  const audioTrigger = rowEl?.querySelector("button.audio-link, .audio-container");
+  if (audioTrigger) {
+    audioTrigger.click();
+    return;
+  }
 
-	playAudioLink(soundFile);
+  playAudioLink(soundFile);
 };
 
 const AudioTable = ({ rows, tableId, headers, swapColumns }) => (
-	<Table aria-label={headers ? undefined : "French and English"} className="grammar-audio-table" variant="learning">
-		{headers ? (
-			<TableHeader>
-				<TableRow>
-					{headers.map((header) => (
-						<TableHead key={`${tableId}-${header}`} scope="col">
-							{header}
-						</TableHead>
-					))}
-				</TableRow>
-			</TableHeader>
-		) : (
-			<TableHeader className="sr-table-head">
-				<TableRow>
-					<TableHead scope="col">French</TableHead>
-					<TableHead scope="col">English</TableHead>
-				</TableRow>
-			</TableHeader>
-		)}
-		<TableBody>
-			{rows.map((row, index) => (
-				<TableRow
-					className="cursor-pointer has-audio-row"
-					key={`${tableId}-row-${index}`}
-					onClick={(event) => handleAudioRowClick(row.soundFile, event)}
-				>
-					{swapColumns ? (
-						<>
-							<TableCell>{row.english}</TableCell>
-							<TableCell>
-								<AudioClip className="link" soundFile={row.soundFile}>
-									{row.french}
-								</AudioClip>
-							</TableCell>
-						</>
-					) : (
-						<>
-							<TableCell>
-								<AudioClip className="link" soundFile={row.soundFile}>
-									{row.french}
-								</AudioClip>
-							</TableCell>
-							<TableCell>{row.english}</TableCell>
-						</>
-					)}
-				</TableRow>
-			))}
-		</TableBody>
-	</Table>
+  <Table aria-label={headers ? undefined : "French and English"} className="grammar-audio-table" variant="learning">
+    {headers ? (
+      <TableHeader>
+        <TableRow>
+          {headers.map((header) => (
+            <TableHead key={`${tableId}-${header}`} scope="col">
+              {header}
+            </TableHead>
+          ))}
+        </TableRow>
+      </TableHeader>
+    ) : (
+      <TableHeader className="sr-table-head">
+        <TableRow>
+          <TableHead scope="col">French</TableHead>
+          <TableHead scope="col">English</TableHead>
+        </TableRow>
+      </TableHeader>
+    )}
+    <TableBody>
+      {rows.map((row, index) => (
+        <TableRow
+          className="cursor-pointer has-audio-row"
+          key={`${tableId}-row-${index}`}
+          onClick={(event) => handleAudioRowClick(row.soundFile, event)}
+        >
+          {swapColumns ? (
+            <>
+              <TableCell>{row.english}</TableCell>
+              <TableCell>
+                <AudioClip className="link" soundFile={row.soundFile}>
+                  {row.french}
+                </AudioClip>
+              </TableCell>
+            </>
+          ) : (
+            <>
+              <TableCell>
+                <AudioClip className="link" soundFile={row.soundFile}>
+                  {row.french}
+                </AudioClip>
+              </TableCell>
+              <TableCell>{row.english}</TableCell>
+            </>
+          )}
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
 );
 
 export class GoingToACafeGrammarConditionalVouloir extends PureComponent {
-	render = () => {
-		const { id } = this.props;
-		const vouloirRows = [
-			{
-				english: "I would like",
-				french: <>je voudrais</>,
-				soundFile: "audio/lo11/grammar/conditional-vouloir/005-je-voudrais.mp3",
-			},
-			{
-				english: "you would like",
-				french: <>tu voudrais</>,
-				soundFile: "audio/lo11/grammar/conditional-vouloir/006-tu-voudrais.mp3",
-			},
-			{
-				english: "he / she would like",
-				french: <>il / elle voudrait</>,
-				soundFile: "audio/lo11/grammar/conditional-vouloir/007-il-elle-voudrait.mp3",
-			},
-			{
-				english: "we would like",
-				french: <>nous voudrions</>,
-				soundFile: "audio/lo11/grammar/conditional-vouloir/008-nous-voudrions.mp3",
-			},
-			{
-				english: "you would like",
-				french: <>vous voudriez</>,
-				soundFile: "audio/lo11/grammar/conditional-vouloir/009-vous-voudriez.mp3",
-			},
-			{
-				english: "they would like",
-				french: <>ils / elles voudraient</>,
-				soundFile: "audio/lo11/grammar/conditional-vouloir/010-ils-elles-voudraient.mp3",
-			},
-		];
+  render = () => {
+    const { id } = this.props;
+    const vouloirRows = [
+      {
+        english: "I would like",
+        french: <>je voudrais</>,
+        soundFile: "audio/lo11/grammar/conditional-vouloir/005-je-voudrais.mp3",
+      },
+      {
+        english: "you would like",
+        french: <>tu voudrais</>,
+        soundFile: "audio/lo11/grammar/conditional-vouloir/006-tu-voudrais.mp3",
+      },
+      {
+        english: "he / she would like",
+        french: <>il / elle voudrait</>,
+        soundFile: "audio/lo11/grammar/conditional-vouloir/007-il-elle-voudrait.mp3",
+      },
+      {
+        english: "we would like",
+        french: <>nous voudrions</>,
+        soundFile: "audio/lo11/grammar/conditional-vouloir/008-nous-voudrions.mp3",
+      },
+      {
+        english: "you would like",
+        french: <>vous voudriez</>,
+        soundFile: "audio/lo11/grammar/conditional-vouloir/009-vous-voudriez.mp3",
+      },
+      {
+        english: "they would like",
+        french: <>ils / elles voudraient</>,
+        soundFile: "audio/lo11/grammar/conditional-vouloir/010-ils-elles-voudraient.mp3",
+      },
+    ];
 
-		return (
-			<div id={id || undefined}>
-				<h3>1. Using <em>je voudrais</em> for polite requests</h3>
-				<p>
+    return (
+      <div id={id || undefined}>
+        <h3>1. Using <em>je voudrais</em> for polite requests</h3>
+        <p>
 					To express what you would like, use{" "}
-					<AudioClip
-						className="link"
-						soundFile="audio/lo11/grammar/conditional-vouloir/001-je-voudrais.mp3"
-					>
-						<strong>Je voudrais</strong>
-					</AudioClip>
+          <AudioClip
+            className="link"
+            soundFile="audio/lo11/grammar/conditional-vouloir/001-je-voudrais.mp3"
+          >
+            <strong>Je voudrais</strong>
+          </AudioClip>
 					. For example:
-				</p>
-				<div className="ml-2" style={{ fontSize: "var(--font-size-base)" }}>
-					<AudioClip
-						className="link"
-						soundFile="audio/lo11/grammar/conditional-vouloir/002-je-voudrais-une-glace.mp3"
-					>
-						<strong>Je voudrais une glace</strong>
-					</AudioClip>{" "}
+        </p>
+        <div className="ml-2" style={{ fontSize: "var(--font-size-base)" }}>
+          <AudioClip
+            className="link"
+            soundFile="audio/lo11/grammar/conditional-vouloir/002-je-voudrais-une-glace.mp3"
+          >
+            <strong>Je voudrais une glace</strong>
+          </AudioClip>{" "}
 					means "I&apos;d like an ice-cream."
-				</div>
-				<p>
+        </div>
+        <p>
 					This is the present conditional of{" "}
-					<AudioClip
-						className="link"
-						soundFile="audio/lo11/grammar/conditional-vouloir/003-vouloir.mp3"
-					>
-						<strong>vouloir</strong>
-					</AudioClip>
+          <AudioClip
+            className="link"
+            soundFile="audio/lo11/grammar/conditional-vouloir/003-vouloir.mp3"
+          >
+            <strong>vouloir</strong>
+          </AudioClip>
 					. To say what you would like to do, add an infinitive afterwards, as in{" "}
-					<AudioClip
-						className="link"
-						soundFile="audio/lo11/grammar/conditional-vouloir/004-je-voudrais-aller-au-marche-demain.mp3"
-					>
-						<strong>Je voudrais aller au marché demain</strong>
-					</AudioClip>
+          <AudioClip
+            className="link"
+            soundFile="audio/lo11/grammar/conditional-vouloir/004-je-voudrais-aller-au-marche-demain.mp3"
+          >
+            <strong>Je voudrais aller au marché demain</strong>
+          </AudioClip>
 					.
-				</p>
-				{/* p→div: short label triggers WAVE "possible heading" */}
-				<GrammarLabel>Here are the conditional forms:</GrammarLabel>
-				<AudioTable rows={vouloirRows} tableId={id || "lo11-grammar1"} />
-			</div>
-		);
-	};
+        </p>
+        {/* p→div: short label triggers WAVE "possible heading" */}
+        <GrammarLabel>Here are the conditional forms:</GrammarLabel>
+        <AudioTable rows={vouloirRows} tableId={id || "lo11-grammar1"} />
+      </div>
+    );
+  };
 }
 
 export class GoingToACafeGrammarPrendre extends PureComponent {
-	render = () => {
-		const { id } = this.props;
-		const prendreRows = [
-			{
-				english: "to take / have",
-				french: <>prendre</>,
-				soundFile: "audio/lo11/grammar/prendre/001-prendre.mp3",
-			},
-			{
-				english: "I take / have",
-				french: <>je prends</>,
-				soundFile: "audio/lo11/grammar/prendre/008-je-prends.mp3",
-			},
-			{
-				english: "you take / have",
-				french: <>tu prends</>,
-				soundFile: "audio/lo11/grammar/prendre/009-tu-prends.mp3",
-			},
-			{
-				english: "he / she takes / has",
-				french: <>il / elle prend</>,
-				soundFile: "audio/lo11/grammar/prendre/010-il-elle-prend.mp3",
-			},
-			{
-				english: "we take / have",
-				french: <>nous prenons</>,
-				soundFile: "audio/lo11/grammar/prendre/011-nous-prenons.mp3",
-			},
-			{
-				english: "you take / have",
-				french: <>vous prenez</>,
-				soundFile: "audio/lo11/grammar/prendre/012-vous-prenez.mp3",
-			},
-			{
-				english: "they take / have",
-				french: <>ils / elles prennent</>,
-				soundFile: "audio/lo11/grammar/prendre/013-ils-elles-prennent.mp3",
-			},
-		];
+  render = () => {
+    const { id } = this.props;
+    const prendreRows = [
+      {
+        english: "to take / have",
+        french: <>prendre</>,
+        soundFile: "audio/lo11/grammar/prendre/001-prendre.mp3",
+      },
+      {
+        english: "I take / have",
+        french: <>je prends</>,
+        soundFile: "audio/lo11/grammar/prendre/008-je-prends.mp3",
+      },
+      {
+        english: "you take / have",
+        french: <>tu prends</>,
+        soundFile: "audio/lo11/grammar/prendre/009-tu-prends.mp3",
+      },
+      {
+        english: "he / she takes / has",
+        french: <>il / elle prend</>,
+        soundFile: "audio/lo11/grammar/prendre/010-il-elle-prend.mp3",
+      },
+      {
+        english: "we take / have",
+        french: <>nous prenons</>,
+        soundFile: "audio/lo11/grammar/prendre/011-nous-prenons.mp3",
+      },
+      {
+        english: "you take / have",
+        french: <>vous prenez</>,
+        soundFile: "audio/lo11/grammar/prendre/012-vous-prenez.mp3",
+      },
+      {
+        english: "they take / have",
+        french: <>ils / elles prennent</>,
+        soundFile: "audio/lo11/grammar/prendre/013-ils-elles-prennent.mp3",
+      },
+    ];
 
-		return (
-			<div id={id || undefined}>
-				<h3>2. Using <em>prendre</em> for food and drink</h3>
-				<p>
+    return (
+      <div id={id || undefined}>
+        <h3>2. Using <em>prendre</em> for food and drink</h3>
+        <p>
 					The verb{" "}
-					<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
-						<strong>prendre</strong>
-					</AudioClip>{" "}
+          <AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
+            <strong>prendre</strong>
+          </AudioClip>{" "}
 					is very common. It often means <strong>to take</strong>, for example:
-				</p>
-				<div className="mb-0 ml-2 space-y-1">
-					<div>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/002-je-prends-le-bus-pour-aller-au-centre-ville.mp3"
-						>
-							<strong>Je prends le bus pour aller au centre-ville</strong>
-						</AudioClip>
-					</div>
-					<div>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/003-prenez-la-premiere-rue-a-droite.mp3"
-						>
-							<strong>Prenez la première rue à droite&nbsp;!</strong>
-						</AudioClip>
-					</div>
-					<div>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/004-il-prend-une-douche.mp3"
-						>
-							<strong>Il prend une douche</strong>
-						</AudioClip>
-					</div>
-				</div>
-				<p>
+        </p>
+        <div className="mb-0 ml-2 space-y-1">
+          <div>
+            <AudioClip
+              className="link"
+              soundFile="audio/lo11/grammar/prendre/002-je-prends-le-bus-pour-aller-au-centre-ville.mp3"
+            >
+              <strong>Je prends le bus pour aller au centre-ville</strong>
+            </AudioClip>
+          </div>
+          <div>
+            <AudioClip
+              className="link"
+              soundFile="audio/lo11/grammar/prendre/003-prenez-la-premiere-rue-a-droite.mp3"
+            >
+              <strong>Prenez la première rue à droite&nbsp;!</strong>
+            </AudioClip>
+          </div>
+          <div>
+            <AudioClip
+              className="link"
+              soundFile="audio/lo11/grammar/prendre/004-il-prend-une-douche.mp3"
+            >
+              <strong>Il prend une douche</strong>
+            </AudioClip>
+          </div>
+        </div>
+        <p>
 					In French, do <strong>not</strong> use <strong>avoir</strong> for
 					food and drink. Use{" "}
-					<AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
-						<strong>prendre</strong>
-					</AudioClip>{" "}
+          <AudioClip className="link" soundFile="audio/lo11/grammar/prendre/001-prendre.mp3">
+            <strong>prendre</strong>
+          </AudioClip>{" "}
 					instead, as in:
-				</p>
-				<div className="mb-0 ml-2 space-y-1">
-					<div>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/006-je-prends-un-cafe.mp3"
-						>
-							<strong>Je prends un café</strong>
-						</AudioClip>
-					</div>
-					<div>
-						<AudioClip
-							className="link"
-							soundFile="audio/lo11/grammar/prendre/007-je-prends-mon-petit-dejeuner-a-huit-heures.mp3"
-						>
-							<strong>Je prends mon petit déjeuner à huit heures</strong>
-						</AudioClip>
-					</div>
-				</div>
-					<AudioTable rows={prendreRows} tableId={id || "lo11-grammar2"} />
-			</div>
-		);
-	};
+        </p>
+        <div className="mb-0 ml-2 space-y-1">
+          <div>
+            <AudioClip
+              className="link"
+              soundFile="audio/lo11/grammar/prendre/006-je-prends-un-cafe.mp3"
+            >
+              <strong>Je prends un café</strong>
+            </AudioClip>
+          </div>
+          <div>
+            <AudioClip
+              className="link"
+              soundFile="audio/lo11/grammar/prendre/007-je-prends-mon-petit-dejeuner-a-huit-heures.mp3"
+            >
+              <strong>Je prends mon petit déjeuner à huit heures</strong>
+            </AudioClip>
+          </div>
+        </div>
+        <AudioTable rows={prendreRows} tableId={id || "lo11-grammar2"} />
+      </div>
+    );
+  };
 }
 
 export class GoingToACafeGrammarFlavoursWithA extends PureComponent {
-	render = () => {
-		const { id } = this.props;
-		const flavourRows = [
-			{
-				english: "A cheese sandwich for me.",
-				french: <>Pour moi un sandwich au fromage.</>,
-				soundFile: "audio/lo11/grammar/flavours-with-a/001-pour-moi-un-sandwich-au-fromage.mp3",
-			},
-			{
-				english: "I'd like a vanilla ice-cream.",
-				french: <>Je voudrais une glace à la vanille.</>,
-				soundFile: "audio/lo11/grammar/flavours-with-a/002-je-voudrais-une-glace-a-la-vanille.mp3",
-			},
-			{
-				english: "I like the orange sauce.",
-				french: <>J&apos;aime la sauce à l&apos;orange.</>,
-				soundFile: "audio/lo11/grammar/flavours-with-a/003-j-aime-la-sauce-a-l-orange.mp3",
-			},
-			{
-				english: "Are you having a mushroom omelette?",
-				french: <>Vous prenez une omelette aux champignons&nbsp;?</>,
-				soundFile: "audio/lo11/grammar/flavours-with-a/004-vous-prenez-une-omelette-aux-champignons.mp3",
-			},
-		];
+  render = () => {
+    const { id } = this.props;
+    const flavourRows = [
+      {
+        english: "A cheese sandwich for me.",
+        french: <>Pour moi un sandwich au fromage.</>,
+        soundFile: "audio/lo11/grammar/flavours-with-a/001-pour-moi-un-sandwich-au-fromage.mp3",
+      },
+      {
+        english: "I'd like a vanilla ice-cream.",
+        french: <>Je voudrais une glace à la vanille.</>,
+        soundFile: "audio/lo11/grammar/flavours-with-a/002-je-voudrais-une-glace-a-la-vanille.mp3",
+      },
+      {
+        english: "I like the orange sauce.",
+        french: <>J&apos;aime la sauce à l&apos;orange.</>,
+        soundFile: "audio/lo11/grammar/flavours-with-a/003-j-aime-la-sauce-a-l-orange.mp3",
+      },
+      {
+        english: "Are you having a mushroom omelette?",
+        french: <>Vous prenez une omelette aux champignons&nbsp;?</>,
+        soundFile: "audio/lo11/grammar/flavours-with-a/004-vous-prenez-une-omelette-aux-champignons.mp3",
+      },
+    ];
 
-		return (
-			<div id={id || undefined}>
-				<h3>3. Using <em>à</em> with flavours and fillings</h3>
-				<p>
+    return (
+      <div id={id || undefined}>
+        <h3>3. Using <em>à</em> with flavours and fillings</h3>
+        <p>
 					To describe flavours, fillings, and toppings, French often uses the
 					preposition <strong>à</strong> with the article:
-					{" "}<strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>,
+          {" "}<strong>au</strong>, <strong>à la</strong>, <strong>à l&apos;</strong>,
 					and <strong>aux</strong>.
-				</p>
-				{/* p→div: short label triggers WAVE "possible heading" */}
-				<GrammarLabel>Compare these examples:</GrammarLabel>
-				<AudioTable rows={flavourRows} tableId={id || "lo11-grammar3"} />
-			</div>
-		);
-	};
+        </p>
+        {/* p→div: short label triggers WAVE "possible heading" */}
+        <GrammarLabel>Compare these examples:</GrammarLabel>
+        <AudioTable rows={flavourRows} tableId={id || "lo11-grammar3"} />
+      </div>
+    );
+  };
 }
 
 export class GoingToACafeGrammarDisjunctivePronouns extends PureComponent {
-	render = () => {
-		const { id } = this.props;
-		const exampleRows = [
-			{
-				english: "A coffee for me please.",
-				french: <>Pour moi un café, s'il vous plaît.</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/004-pour-moi-un-cafe-s-il-vous-plait.mp3",
-			},
-			{
-				english: "The children don't want to play football without him.",
-				french: <>Les enfants ne veulent pas jouer au football sans lui.</>,
-				soundFile:
+  render = () => {
+    const { id } = this.props;
+    const exampleRows = [
+      {
+        english: "A coffee for me please.",
+        french: <>Pour moi un café, s'il vous plaît.</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/004-pour-moi-un-cafe-s-il-vous-plait.mp3",
+      },
+      {
+        english: "The children don't want to play football without him.",
+        french: <>Les enfants ne veulent pas jouer au football sans lui.</>,
+        soundFile:
 					"audio/lo11/grammar/disjunctive-pronouns/005-les-enfants-ne-veulent-pas-jouer-au-football-sans-lui.mp3",
-			},
-			{
-				english: "I work with them.",
-				french: <>Je travaille avec eux.</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/006-je-travaille-avec-eux.mp3",
-			},
-		];
+      },
+      {
+        english: "I work with them.",
+        french: <>Je travaille avec eux.</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/006-je-travaille-avec-eux.mp3",
+      },
+    ];
 
-		const pronounRows = [
-			{
-				english: "je",
-				french: <>moi</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/007-moi.mp3",
-			},
-			{
-				english: "tu",
-				french: <>toi</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/008-toi.mp3",
-			},
-			{
-				english: "il",
-				french: <>lui</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/009-lui.mp3",
-			},
-			{
-				english: "elle",
-				french: <>elle</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/010-elle.mp3",
-			},
-			{
-				english: "nous",
-				french: <>nous</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/011-nous.mp3",
-			},
-			{
-				english: "vous",
-				french: <>vous</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/012-vous.mp3",
-			},
-			{
-				english: "ils",
-				french: <>eux</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/013-eux.mp3",
-			},
-			{
-				english: "elles",
-				french: <>elles</>,
-				soundFile: "audio/lo11/grammar/disjunctive-pronouns/014-elles.mp3",
-			},
-		];
+    const pronounRows = [
+      {
+        english: "je",
+        french: <>moi</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/007-moi.mp3",
+      },
+      {
+        english: "tu",
+        french: <>toi</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/008-toi.mp3",
+      },
+      {
+        english: "il",
+        french: <>lui</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/009-lui.mp3",
+      },
+      {
+        english: "elle",
+        french: <>elle</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/010-elle.mp3",
+      },
+      {
+        english: "nous",
+        french: <>nous</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/011-nous.mp3",
+      },
+      {
+        english: "vous",
+        french: <>vous</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/012-vous.mp3",
+      },
+      {
+        english: "ils",
+        french: <>eux</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/013-eux.mp3",
+      },
+      {
+        english: "elles",
+        french: <>elles</>,
+        soundFile: "audio/lo11/grammar/disjunctive-pronouns/014-elles.mp3",
+      },
+    ];
 
-		return (
-			<div id={id || undefined}>
-				<h3>4. Using disjunctive pronouns after prepositions</h3>
-				<p>
+    return (
+      <div id={id || undefined}>
+        <h3>4. Using disjunctive pronouns after prepositions</h3>
+        <p>
 					French has <strong>disjunctive</strong> or <strong>stressed</strong>
-					{" "}pronouns. They are used after prepositions such as{" "}
-					<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/001-pour.mp3">
-						<strong>pour</strong>
-					</AudioClip>
+          {" "}pronouns. They are used after prepositions such as{" "}
+          <AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/001-pour.mp3">
+            <strong>pour</strong>
+          </AudioClip>
 					,{" "}
-					<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/002-avec.mp3">
-						<strong>avec</strong>
-					</AudioClip>
+          <AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/002-avec.mp3">
+            <strong>avec</strong>
+          </AudioClip>
 					, and{" "}
-					<AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/003-sans.mp3">
-						<strong>sans</strong>
-					</AudioClip>
+          <AudioClip className="link" soundFile="audio/lo11/grammar/disjunctive-pronouns/003-sans.mp3">
+            <strong>sans</strong>
+          </AudioClip>
 					.
-				</p>
-				{/* p→div: short label triggers WAVE "possible heading" */}
-				<GrammarLabel>Look at these examples:</GrammarLabel>
-				<AudioTable rows={exampleRows} tableId={`${id || "lo11-grammar4"}-examples`} />
-				{/* <p>→<div>: short label triggers WAVE "possible heading" */}
-				<GrammarLabel className="mt-4">Here is the full list of pronouns:</GrammarLabel>
-				<AudioTable
-					rows={pronounRows}
-					tableId={`${id || "lo11-grammar4"}-pronouns`}
-					headers={["Subject pronouns", "Disjunctive (or stressed) pronouns"]}
-					swapColumns={true}
-				/>
-			</div>
-		);
-	};
+        </p>
+        {/* p→div: short label triggers WAVE "possible heading" */}
+        <GrammarLabel>Look at these examples:</GrammarLabel>
+        <AudioTable rows={exampleRows} tableId={`${id || "lo11-grammar4"}-examples`} />
+        {/* <p>→<div>: short label triggers WAVE "possible heading" */}
+        <GrammarLabel className="mt-4">Here is the full list of pronouns:</GrammarLabel>
+        <AudioTable
+          rows={pronounRows}
+          tableId={`${id || "lo11-grammar4"}-pronouns`}
+          headers={["Subject pronouns", "Disjunctive (or stressed) pronouns"]}
+          swapColumns={true}
+        />
+      </div>
+    );
+  };
 }

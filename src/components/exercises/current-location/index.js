@@ -1,3 +1,3 @@
 export {
-	CurrentLocationNasalRhymeExercise,
+  CurrentLocationNasalRhymeExercise,
 } from './nasal-rhyme-exercise';

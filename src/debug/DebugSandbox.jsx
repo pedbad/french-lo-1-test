@@ -10,10 +10,10 @@ import { exerciseActionButtonVariants } from "@/components/exercises/shared/exer
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
-	NavigationMenu,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 
 /*
@@ -22,92 +22,92 @@ Using an in-file list avoids additional module resolution edge cases for this
 standalone debug entry while still rendering all LO links for navigation checks.
 */
 const DEBUG_LEARNING_OBJECTS = [
-	{ slug: 'first-contact', titleShort: 'First Contact' },
-	{ slug: 'about-me', titleShort: 'About me' },
-	{ slug: 'origins-and-languages', titleShort: 'Origins and Languages' },
-	{ slug: 'current-location', titleShort: 'Current location' },
-	{ slug: 'house-and-home', titleShort: 'House and Home' },
-	{ slug: 'family-friends', titleShort: 'Family & friends' },
-	{ slug: 'opinions-matter', titleShort: 'Opinions matter' },
-	{ slug: 'free-time', titleShort: 'Free Time' },
-	{ slug: 'phoning-in-france', titleShort: 'Phoning in France' },
-	{ slug: 'making-arrangements', titleShort: 'Making Arrangements' },
-	{ slug: 'going-to-a-cafe', titleShort: 'Going to a cafe' },
-	{ slug: 'shopping-in-the-market', titleShort: 'Shopping in the market' },
-	{ slug: 'daily-routine', titleShort: 'Daily routine' },
-	{ slug: 'studying-at-university', titleShort: 'Studying at university' },
-	{ slug: 'planning-a-holiday', titleShort: 'Planning a holiday' },
+  { slug: 'first-contact', titleShort: 'First Contact' },
+  { slug: 'about-me', titleShort: 'About me' },
+  { slug: 'origins-and-languages', titleShort: 'Origins and Languages' },
+  { slug: 'current-location', titleShort: 'Current location' },
+  { slug: 'house-and-home', titleShort: 'House and Home' },
+  { slug: 'family-friends', titleShort: 'Family & friends' },
+  { slug: 'opinions-matter', titleShort: 'Opinions matter' },
+  { slug: 'free-time', titleShort: 'Free Time' },
+  { slug: 'phoning-in-france', titleShort: 'Phoning in France' },
+  { slug: 'making-arrangements', titleShort: 'Making Arrangements' },
+  { slug: 'going-to-a-cafe', titleShort: 'Going to a cafe' },
+  { slug: 'shopping-in-the-market', titleShort: 'Shopping in the market' },
+  { slug: 'daily-routine', titleShort: 'Daily routine' },
+  { slug: 'studying-at-university', titleShort: 'Studying at university' },
+  { slug: 'planning-a-holiday', titleShort: 'Planning a holiday' },
 ];
 
 const DEBUG_MENU_ITEMS = [
-	{ href: "#sandbox-validation-quickstart", label: "Quickstart" },
-	{ href: "#sandbox-typography", label: "Typography" },
-	{ href: "#sandbox-instruction-callout", label: "Instruction" },
-	{ href: "#sandbox-nav-tokens", label: "Nav" },
-	{ href: "#sandbox-link-tokens", label: "Links" },
-	{ href: "#sandbox-info", label: "Info" },
-	{ href: "#sandbox-buttons", label: "Buttons" },
-	{ href: "#sandbox-color-tokens", label: "Colors" },
-	{ href: "#sandbox-font-tokens", label: "Fonts" },
-	{ href: "#sandbox-svg-assets-anchor", label: "SVG Assets" },
-	{ href: "#sandbox-lo-structure", label: "LO Structure" },
-	{ href: "#sandbox-designer-handoff", label: "Handoff ↗" },
+  { href: "#sandbox-validation-quickstart", label: "Quickstart" },
+  { href: "#sandbox-typography", label: "Typography" },
+  { href: "#sandbox-instruction-callout", label: "Instruction" },
+  { href: "#sandbox-nav-tokens", label: "Nav" },
+  { href: "#sandbox-link-tokens", label: "Links" },
+  { href: "#sandbox-info", label: "Info" },
+  { href: "#sandbox-buttons", label: "Buttons" },
+  { href: "#sandbox-color-tokens", label: "Colors" },
+  { href: "#sandbox-font-tokens", label: "Fonts" },
+  { href: "#sandbox-svg-assets-anchor", label: "SVG Assets" },
+  { href: "#sandbox-lo-structure", label: "LO Structure" },
+  { href: "#sandbox-designer-handoff", label: "Handoff ↗" },
 ];
 
 export function DebugSandbox() {
-	const [DebugSvgAssetsComponent, setDebugSvgAssetsComponent] = React.useState(null);
-	const [svgAssetsLoadError, setSvgAssetsLoadError] = React.useState('');
-	const [isDarkMode, setIsDarkMode] = React.useState(() => {
-		if (typeof document === "undefined") return false;
-		return document.documentElement.classList.contains("dark");
-	});
-	const previewUrl = `${window.location.origin}${import.meta.env.BASE_URL}first-contact/`;
-	const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
-	const chromeIncognitoCommandPowerShell = 'Start-Process "chrome.exe" "--incognito --disable-extensions `"' + previewUrl + '`"""';
+  const [DebugSvgAssetsComponent, setDebugSvgAssetsComponent] = React.useState(null);
+  const [svgAssetsLoadError, setSvgAssetsLoadError] = React.useState('');
+  const [isDarkMode, setIsDarkMode] = React.useState(() => {
+    if (typeof document === "undefined") return false;
+    return document.documentElement.classList.contains("dark");
+  });
+  const previewUrl = `${window.location.origin}${import.meta.env.BASE_URL}first-contact/`;
+  const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
+  const chromeIncognitoCommandPowerShell = `Start-Process "chrome.exe" "--incognito --disable-extensions \`"${ previewUrl }\`"""`;
 
-	React.useEffect(() => {
-		let mounted = true;
-		import('./components/DebugSvgAssets')
-			.then((module) => {
-				if (!mounted) return;
-				setDebugSvgAssetsComponent(() => module.DebugSvgAssets);
-				setSvgAssetsLoadError('');
-			})
-			.catch((error) => {
-				if (!mounted) return;
-				setSvgAssetsLoadError(error?.message || String(error));
-			});
+  React.useEffect(() => {
+    let mounted = true;
+    import('./components/DebugSvgAssets')
+      .then((module) => {
+        if (!mounted) return;
+        setDebugSvgAssetsComponent(() => module.DebugSvgAssets);
+        setSvgAssetsLoadError('');
+      })
+      .catch((error) => {
+        if (!mounted) return;
+        setSvgAssetsLoadError(error?.message || String(error));
+      });
 
-		return () => {
-			mounted = false;
-		};
-	}, []);
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
-	React.useEffect(() => {
-		if (typeof document === "undefined") return;
-		const storedDark = sessionStorage.getItem("dark");
-		const darkFromStorage = storedDark ? JSON.parse(storedDark) : null;
-		const initialDark = typeof darkFromStorage === "boolean"
-			? darkFromStorage
-			: document.documentElement.classList.contains("dark");
+  React.useEffect(() => {
+    if (typeof document === "undefined") return;
+    const storedDark = sessionStorage.getItem("dark");
+    const darkFromStorage = storedDark ? JSON.parse(storedDark) : null;
+    const initialDark = typeof darkFromStorage === "boolean"
+      ? darkFromStorage
+      : document.documentElement.classList.contains("dark");
 
-		document.documentElement.classList.toggle("dark", initialDark);
-		setIsDarkMode(initialDark);
-	}, []);
+    document.documentElement.classList.toggle("dark", initialDark);
+    setIsDarkMode(initialDark);
+  }, []);
 
-	const handleThemeToggle = (checked) => {
-		if (typeof document === "undefined") return;
-		document.documentElement.classList.add("no-theme-transition");
-		window.setTimeout(() => {
-			document.documentElement.classList.remove("no-theme-transition");
-		}, 200);
+  const handleThemeToggle = (checked) => {
+    if (typeof document === "undefined") return;
+    document.documentElement.classList.add("no-theme-transition");
+    window.setTimeout(() => {
+      document.documentElement.classList.remove("no-theme-transition");
+    }, 200);
 
-		document.documentElement.classList.toggle("dark", checked);
-		sessionStorage.setItem("dark", JSON.stringify(checked));
-		setIsDarkMode(checked);
-	};
+    document.documentElement.classList.toggle("dark", checked);
+    sessionStorage.setItem("dark", JSON.stringify(checked));
+    setIsDarkMode(checked);
+  };
 
-	/*
+  /*
 	Why this file exists:
 	- Debug/sample UI used to be rendered inside App.jsx and only hidden with CSS.
 	- Hidden debug DOM still ships in the main app output, pollutes HTML validation,
@@ -121,471 +121,471 @@ export function DebugSandbox() {
 	  and keep them out of app-wide component barrels/exports.
 	- Production app trees (`App.jsx`, route pages) must not import sandbox-only components.
 	*/
-	return (
-		<main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 p-6" id="debug-sandbox-page">
-			<header className="space-y-2">
-				<div className="flex flex-wrap items-center justify-between gap-3">
-					<h1 className="m-0">Debug Sandbox (Development Only)</h1>
-					<div className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/70 px-3 py-2">
-						<span className="text-sm text-muted-foreground">Light</span>
-						<Switch
-							aria-label="Toggle dark mode"
-							checked={isDarkMode}
-							onCheckedChange={handleThemeToggle}
-						/>
-						<span className="text-sm text-muted-foreground">Dark</span>
-					</div>
-				</div>
-				<p>
+  return (
+    <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 p-6" id="debug-sandbox-page">
+      <header className="space-y-2">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h1 className="m-0">Debug Sandbox (Development Only)</h1>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/70 px-3 py-2">
+            <span className="text-sm text-muted-foreground">Light</span>
+            <Switch
+              aria-label="Toggle dark mode"
+              checked={isDarkMode}
+              onCheckedChange={handleThemeToggle}
+            />
+            <span className="text-sm text-muted-foreground">Dark</span>
+          </div>
+        </div>
+        <p>
 					This page is intentionally separated from the production app tree. Use it for
 					typography and component visual checks only.
-				</p>
-			</header>
+        </p>
+      </header>
 
-			<div className="sticky top-3 z-40 rounded-xl border border-border bg-card/95 p-2 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-card/85">
-				<NavigationMenu className="w-full max-w-full justify-start">
-					<NavigationMenuList className="w-full justify-start gap-1 overflow-x-auto whitespace-nowrap px-1 py-0">
-						{DEBUG_MENU_ITEMS.map((item) => (
-							<NavigationMenuItem key={item.href}>
-								<NavigationMenuLink asChild>
-									<a
-										className="inline-flex h-9 items-center rounded-md px-3 text-sm font-medium text-foreground/90 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-										href={item.href}
-									>
-										{item.label}
-									</a>
-								</NavigationMenuLink>
-							</NavigationMenuItem>
-						))}
-					</NavigationMenuList>
-				</NavigationMenu>
-			</div>
+      <div className="sticky top-3 z-40 rounded-xl border border-border bg-card/95 p-2 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-card/85">
+        <NavigationMenu className="w-full max-w-full justify-start">
+          <NavigationMenuList className="w-full justify-start gap-1 overflow-x-auto whitespace-nowrap px-1 py-0">
+            {DEBUG_MENU_ITEMS.map((item) => (
+              <NavigationMenuItem key={item.href}>
+                <NavigationMenuLink asChild>
+                  <a
+                    className="inline-flex h-9 items-center rounded-md px-3 text-sm font-medium text-foreground/90 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </a>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
 
-			<section aria-labelledby="sandbox-validation-quickstart">
-				<h2 id="sandbox-validation-quickstart">Validation Quickstart</h2>
-				<div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-					<p className="m-0 text-sm text-muted-foreground">
+      <section aria-labelledby="sandbox-validation-quickstart">
+        <h2 id="sandbox-validation-quickstart">Validation Quickstart</h2>
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <p className="m-0 text-sm text-muted-foreground">
 						Use this flow before W3C validation to avoid stale cache/extension noise.
-					</p>
-					<div className="mt-4 grid gap-4">
-						<div className="rounded-xl border border-border/70 bg-muted/20 p-4">
-							<h3 className="m-0 text-base">1) Clean build + preview</h3>
-							<pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
-								<code>{`rm -rf dist
+          </p>
+          <div className="mt-4 grid gap-4">
+            <div className="rounded-xl border border-border/70 bg-muted/20 p-4">
+              <h3 className="m-0 text-base">1) Clean build + preview</h3>
+              <pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+                <code>{`rm -rf dist
 bun run build
 bun run preview`}</code>
-							</pre>
-							<p className="mb-0 mt-3 text-sm text-muted-foreground">One-line command:</p>
-							<pre className="mt-2 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
-								<code>{`rm -rf dist && bun run build && bun run preview`}</code>
-							</pre>
-						</div>
-						<div className="rounded-xl border border-border/70 bg-muted/20 p-4">
-							<h3 className="m-0 text-base">2) Incognito without extensions</h3>
-							<pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
-								<code>{chromeIncognitoCommand}</code>
-							</pre>
-							<p className="mb-0 mt-3 text-sm text-muted-foreground">PowerShell:</p>
-							<pre className="mt-2 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
-								<code>{chromeIncognitoCommandPowerShell}</code>
-							</pre>
-							<p className="mb-0 mt-3 text-sm text-muted-foreground">
+              </pre>
+              <p className="mb-0 mt-3 text-sm text-muted-foreground">One-line command:</p>
+              <pre className="mt-2 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+                <code>{`rm -rf dist && bun run build && bun run preview`}</code>
+              </pre>
+            </div>
+            <div className="rounded-xl border border-border/70 bg-muted/20 p-4">
+              <h3 className="m-0 text-base">2) Incognito without extensions</h3>
+              <pre className="mt-3 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+                <code>{chromeIncognitoCommand}</code>
+              </pre>
+              <p className="mb-0 mt-3 text-sm text-muted-foreground">PowerShell:</p>
+              <pre className="mt-2 overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+                <code>{chromeIncognitoCommandPowerShell}</code>
+              </pre>
+              <p className="mb-0 mt-3 text-sm text-muted-foreground">
 								If results still look old, hard refresh in Chrome: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>.
-							</p>
-						</div>
-					</div>
-					<div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
-						<h3 className="m-0 text-base">3) Validate output</h3>
-						<p className="mb-0 mt-2 text-sm">
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
+            <h3 className="m-0 text-base">3) Validate output</h3>
+            <p className="mb-0 mt-2 text-sm">
 							Open the preview page, copy page source/outer HTML, then validate at{' '}
-							<a
-								className="font-semibold text-[var(--ex-neutral)] underline underline-offset-4"
-								href="https://validator.w3.org/nu/#textarea"
-								rel="noreferrer"
-								target="_blank"
-							>
+              <a
+                className="font-semibold text-[var(--ex-neutral)] underline underline-offset-4"
+                href="https://validator.w3.org/nu/#textarea"
+                rel="noreferrer"
+                target="_blank"
+              >
 								W3C Validator (textarea mode)
-							</a>
+              </a>
 							.
-						</p>
-					</div>
-					<div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
-						<h3 className="m-0 text-base">4) Run WAVE extension checks</h3>
-						<p className="mb-0 mt-2 text-sm">
+            </p>
+          </div>
+          <div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
+            <h3 className="m-0 text-base">4) Run WAVE extension checks</h3>
+            <p className="mb-0 mt-2 text-sm">
 							Use the browser extension on the same preview page (incognito with extensions disabled is preferred for cleaner results), and review errors/alerts with source context at{' '}
-							<a
-								className="font-semibold text-[var(--ex-neutral)] underline underline-offset-4"
-								href="https://wave.webaim.org/"
-								rel="noreferrer"
-								target="_blank"
-							>
+              <a
+                className="font-semibold text-[var(--ex-neutral)] underline underline-offset-4"
+                href="https://wave.webaim.org/"
+                rel="noreferrer"
+                target="_blank"
+              >
 								WAVE Web Accessibility Evaluation Tool
-							</a>
+              </a>
 							.
-						</p>
-					</div>
-					<div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
-						<h3 className="m-0 text-base">5) Viewing hidden WAVE alerts (disable CSS)</h3>
-						<p className="mt-2 mb-0 text-sm">
+            </p>
+          </div>
+          <div className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
+            <h3 className="m-0 text-base">5) Viewing hidden WAVE alerts (disable CSS)</h3>
+            <p className="mt-2 mb-0 text-sm">
 							WAVE sometimes flags elements that are visually hidden (e.g. inactive tab panels). To reveal them, disable all CSS via the browser console — no extension needed.
-						</p>
-						<p className="mt-3 mb-1 text-sm text-muted-foreground">
-							<strong>Mac</strong> — open console: <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>J</kbd>
+            </p>
+            <p className="mt-3 mb-1 text-sm text-muted-foreground">
+              <strong>Mac</strong> — open console: <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>J</kbd>
 							&nbsp;&nbsp;|&nbsp;&nbsp;
-							<strong>Windows</strong> — open console: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>
-						</p>
-						<p className="mt-2 mb-1 text-sm text-muted-foreground">Paste to disable styles:</p>
-						<pre className="overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
-							<code>{`Array.from(document.styleSheets).forEach(s => { try { s.disabled = true; } catch(e){} })`}</code>
-						</pre>
-						<p className="mt-3 mb-1 text-sm text-muted-foreground">Paste to restore styles (or just reload the page):</p>
-						<pre className="overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
-							<code>{`Array.from(document.styleSheets).forEach(s => { try { s.disabled = false; } catch(e){} })`}</code>
-						</pre>
-					</div>
-				</div>
-			</section>
+              <strong>Windows</strong> — open console: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>
+            </p>
+            <p className="mt-2 mb-1 text-sm text-muted-foreground">Paste to disable styles:</p>
+            <pre className="overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+              <code>{`Array.from(document.styleSheets).forEach(s => { try { s.disabled = true; } catch(e){} })`}</code>
+            </pre>
+            <p className="mt-3 mb-1 text-sm text-muted-foreground">Paste to restore styles (or just reload the page):</p>
+            <pre className="overflow-x-auto rounded-lg border border-border/70 bg-background p-3 text-sm">
+              <code>{`Array.from(document.styleSheets).forEach(s => { try { s.disabled = false; } catch(e){} })`}</code>
+            </pre>
+          </div>
+        </div>
+      </section>
 
-			<section aria-labelledby="sandbox-typography">
-				<h2 id="sandbox-typography">Typography Samples</h2>
-				<div className="rounded-xl border border-border bg-card p-4">
-					<h1>Heading 1 Feijoa Bold</h1>
-					<h2>Heading 2 Feijoa Medium</h2>
-					<h3>Heading 3 Feijoa Medium</h3>
-					<h4>Heading 4 Feijoa Medium</h4>
-					<h5>Heading 5 OpenSans SemiBold</h5>
-					<h6>Heading 6 OpenSans SemiBold</h6>
-					<p>Bodycopy, Hyperlinks Opensans Regular</p>
-					<figure className="mt-4">
-						<img
-							alt="eLearning logo"
-							src="favicon.svg"
-							style={{ width: '60px' }}
-						/>
-						<figcaption>Captions Opensans Regular</figcaption>
-					</figure>
-				</div>
-			</section>
+      <section aria-labelledby="sandbox-typography">
+        <h2 id="sandbox-typography">Typography Samples</h2>
+        <div className="rounded-xl border border-border bg-card p-4">
+          <h1>Heading 1 Feijoa Bold</h1>
+          <h2>Heading 2 Feijoa Medium</h2>
+          <h3>Heading 3 Feijoa Medium</h3>
+          <h4>Heading 4 Feijoa Medium</h4>
+          <h5>Heading 5 OpenSans SemiBold</h5>
+          <h6>Heading 6 OpenSans SemiBold</h6>
+          <p>Bodycopy, Hyperlinks Opensans Regular</p>
+          <figure className="mt-4">
+            <img
+              alt="eLearning logo"
+              src="favicon.svg"
+              style={{ width: '60px' }}
+            />
+            <figcaption>Captions Opensans Regular</figcaption>
+          </figure>
+        </div>
+      </section>
 
-			<section aria-labelledby="sandbox-instruction-callout">
-				<h2 id="sandbox-instruction-callout">Instruction Callout</h2>
-				<div className="rounded-xl border border-border bg-card p-4">
-					<InstructionCallout>
-						<div className={`text section mt-0 ${INSTRUCTION_TEXT_CLASS}`}>
+      <section aria-labelledby="sandbox-instruction-callout">
+        <h2 id="sandbox-instruction-callout">Instruction Callout</h2>
+        <div className="rounded-xl border border-border bg-card p-4">
+          <InstructionCallout>
+            <div className={`text section mt-0 ${INSTRUCTION_TEXT_CLASS}`}>
 							This is the shared instructional text container used in the app. Its thick
 							left border is tokenized as{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-sm">
+              <code className="rounded bg-muted px-1 py-0.5 text-sm">
 								--instruction-callout-accent
-							</code>
+              </code>
 							, so the accent can be changed centrally without touching component markup.
 							The token currently maps to a semantic warning accent mix in{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-sm">:root</code> and has
+              <code className="rounded bg-muted px-1 py-0.5 text-sm">:root</code> and has
 							a dark-mode override.
-						</div>
-					</InstructionCallout>
-				</div>
-			</section>
+            </div>
+          </InstructionCallout>
+        </div>
+      </section>
 
-			<section aria-labelledby="sandbox-nav-tokens">
-				<h2 id="sandbox-nav-tokens">Nav Tokens</h2>
-				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
-					<p className="m-0 text-sm text-muted-foreground">
+      <section aria-labelledby="sandbox-nav-tokens">
+        <h2 id="sandbox-nav-tokens">Nav Tokens</h2>
+        <div className="space-y-4 rounded-xl border border-border bg-card p-4">
+          <p className="m-0 text-sm text-muted-foreground">
 						Active and hover nav states are driven by{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--nav-active-color</code>,
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">--nav-active-color</code>,
 						which points to{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--brand-primary</code>{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">--brand-primary</code>{" "}
 						(LC teal — <code className="rounded bg-muted px-1 py-0.5 text-xs">oklch(0.612 0.130 160.6)</code>). Note: the real <code className="rounded bg-muted px-1 py-0.5 text-xs">.main-menu</code> class
 						has <code className="rounded bg-muted px-1 py-0.5 text-xs">position: fixed</code> so cannot be
 						used here — these previews reference the token directly.
-					</p>
-					{/* Desktop nav states */}
-					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
-						<p className="mb-3 text-sm font-medium text-muted-foreground">Desktop — link states</p>
-						<ul className="flex flex-wrap items-end gap-6 list-none m-0 p-0">
-							<li className="flex flex-col items-start gap-1">
-								<span className="text-xs text-muted-foreground">Default</span>
-								<a
-									className="inline-flex items-center border-b-[3px] border-b-transparent px-2 py-1 font-medium text-foreground/80 no-underline"
-									href="#sandbox-nav-tokens"
-								>
+          </p>
+          {/* Desktop nav states */}
+          <div className="rounded-lg border border-border/70 bg-muted/20 p-3">
+            <p className="mb-3 text-sm font-medium text-muted-foreground">Desktop — link states</p>
+            <ul className="flex flex-wrap items-end gap-6 list-none m-0 p-0">
+              <li className="flex flex-col items-start gap-1">
+                <span className="text-xs text-muted-foreground">Default</span>
+                <a
+                  className="inline-flex items-center border-b-[3px] border-b-transparent px-2 py-1 font-medium text-foreground/80 no-underline"
+                  href="#sandbox-nav-tokens"
+                >
 									Planning a holiday
-								</a>
-							</li>
-							<li className="flex flex-col items-start gap-1">
-								<span className="text-xs text-muted-foreground">Hover / active</span>
-								<a
-									className="inline-flex items-center px-2 py-1 font-semibold no-underline"
-									href="#sandbox-nav-tokens"
-									style={{ color: "var(--nav-active-color)", borderBottom: "3px solid var(--nav-active-color)" }}
-								>
+                </a>
+              </li>
+              <li className="flex flex-col items-start gap-1">
+                <span className="text-xs text-muted-foreground">Hover / active</span>
+                <a
+                  className="inline-flex items-center px-2 py-1 font-semibold no-underline"
+                  href="#sandbox-nav-tokens"
+                  style={{ color: "var(--nav-active-color)", borderBottom: "3px solid var(--nav-active-color)" }}
+                >
 									Planning a holiday
-								</a>
-							</li>
-						</ul>
-					</div>
-					{/* Mobile nav states */}
-					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
-						<p className="mb-3 text-sm font-medium text-muted-foreground">Mobile — active state (left border + colour)</p>
-						<ul className="list-none m-0 p-0 divide-y divide-[color-mix(in_oklab,var(--foreground)_6%,transparent)]">
-							<li className="py-2 px-3 text-muted-foreground text-sm">
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* Mobile nav states */}
+          <div className="rounded-lg border border-border/70 bg-muted/20 p-3">
+            <p className="mb-3 text-sm font-medium text-muted-foreground">Mobile — active state (left border + colour)</p>
+            <ul className="list-none m-0 p-0 divide-y divide-[color-mix(in_oklab,var(--foreground)_6%,transparent)]">
+              <li className="py-2 px-3 text-muted-foreground text-sm">
 								Default link
-							</li>
-							<li
-								className="py-2 text-sm font-semibold"
-								style={{ borderLeft: "5px solid var(--nav-active-color)", paddingLeft: "12px", color: "var(--nav-active-color)" }}
-							>
+              </li>
+              <li
+                className="py-2 text-sm font-semibold"
+                style={{ borderLeft: "5px solid var(--nav-active-color)", paddingLeft: "12px", color: "var(--nav-active-color)" }}
+              >
 								Active / current
-							</li>
-						</ul>
-					</div>
-					{/* Token swatch */}
-					<div className="flex items-center gap-3">
-						<span
-							aria-hidden="true"
-							className="h-9 w-9 shrink-0 rounded border border-border/70 shadow-sm"
-							style={{ background: "var(--nav-active-color)" }}
-						/>
-						<code className="text-sm">--nav-active-color → --brand-primary → oklch(0.612 0.130 160.6)</code>
-					</div>
-				</div>
-			</section>
+              </li>
+            </ul>
+          </div>
+          {/* Token swatch */}
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="h-9 w-9 shrink-0 rounded border border-border/70 shadow-sm"
+              style={{ background: "var(--nav-active-color)" }}
+            />
+            <code className="text-sm">--nav-active-color → --brand-primary → oklch(0.612 0.130 160.6)</code>
+          </div>
+        </div>
+      </section>
 
-			<section aria-labelledby="sandbox-link-tokens">
-				<h2 id="sandbox-link-tokens">Modal Link Tokens</h2>
-				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
-					<p className="m-0 text-sm text-muted-foreground">
+      <section aria-labelledby="sandbox-link-tokens">
+        <h2 id="sandbox-link-tokens">Modal Link Tokens</h2>
+        <div className="space-y-4 rounded-xl border border-border bg-card p-4">
+          <p className="m-0 text-sm text-muted-foreground">
 						Popup links use semantic tokens so state colors stay consistent in light and dark mode.
 						Tokens:{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-accent</code>,{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-hover</code>,{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-visited</code>,{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-underline</code>,{" "}
-						<code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-underline-hover</code>.
-					</p>
-					<div className="flex flex-wrap items-center gap-5">
-						<a className="token-link-preview" href="#sandbox-link-tokens">
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-accent</code>,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-hover</code>,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-visited</code>,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-underline</code>,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">--modal-link-underline-hover</code>.
+          </p>
+          <div className="flex flex-wrap items-center gap-5">
+            <a className="token-link-preview" href="#sandbox-link-tokens">
 							Default link (hover me)
-						</a>
-						<span className="token-link-preview token-link-preview--hover">Hover preview</span>
-						<span className="token-link-preview token-link-preview--visited">Visited preview</span>
-					</div>
-					<div className="rounded-lg border border-border/70 bg-muted/20 p-3">
-						<p className="m-0 text-sm text-muted-foreground">
+            </a>
+            <span className="token-link-preview token-link-preview--hover">Hover preview</span>
+            <span className="token-link-preview token-link-preview--visited">Visited preview</span>
+          </div>
+          <div className="rounded-lg border border-border/70 bg-muted/20 p-3">
+            <p className="m-0 text-sm text-muted-foreground">
 							Semantic emphasis tokens:{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-xs">--emphasis-strong-color</code>,{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-xs">--emphasis-em-color</code>.
-						</p>
-						<p className="mt-2 mb-0 text-base">
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">--emphasis-strong-color</code>,{" "}
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">--emphasis-em-color</code>.
+            </p>
+            <p className="mt-2 mb-0 text-base">
 							Sample: Use <strong>strong importance</strong> for key terms and <em>stress emphasis</em> for nuanced phrasing.
-						</p>
-					</div>
-				</div>
-			</section>
+            </p>
+          </div>
+        </div>
+      </section>
 
-			<section aria-labelledby="sandbox-info">
-				<h2 id="sandbox-info">Info Variants</h2>
-				<div className="space-y-4 rounded-xl border border-border bg-card p-4">
-					<Info
-						informationText="Info alert: use this for neutral guidance and learning instructions."
-						variant="info"
-					/>
-					<Info
-						informationText="Success alert: action completed successfully and the learner can proceed."
-						variant="success"
-					/>
-					<Info
-						informationText="Warning alert: something needs attention before continuing."
-						variant="warning"
-					/>
-					<Info
-						informationText="Danger alert: an error occurred and requires correction."
-						variant="danger"
-					/>
-				</div>
-			</section>
+      <section aria-labelledby="sandbox-info">
+        <h2 id="sandbox-info">Info Variants</h2>
+        <div className="space-y-4 rounded-xl border border-border bg-card p-4">
+          <Info
+            informationText="Info alert: use this for neutral guidance and learning instructions."
+            variant="info"
+          />
+          <Info
+            informationText="Success alert: action completed successfully and the learner can proceed."
+            variant="success"
+          />
+          <Info
+            informationText="Warning alert: something needs attention before continuing."
+            variant="warning"
+          />
+          <Info
+            informationText="Danger alert: an error occurred and requires correction."
+            variant="danger"
+          />
+        </div>
+      </section>
 
-			<section aria-labelledby="sandbox-buttons">
-				<h2 id="sandbox-buttons">Buttons (Current App Types)</h2>
-				<div className="space-y-6 rounded-xl border border-border bg-card p-4">
-					<div className="space-y-3">
-						<h3 className="m-0 text-base">shadcn Button variants (app-facing set)</h3>
-						<div className="flex flex-wrap items-center gap-2">
-							<Button type="button" variant="secondary">Secondary</Button>
-							<Button type="button" variant="outline">Outline</Button>
-							<Button type="button" variant="ghost">Ghost</Button>
-							<Button type="button" variant="destructive">Destructive</Button>
-							<Button type="button" variant="link">Link</Button>
-						</div>
-					</div>
+      <section aria-labelledby="sandbox-buttons">
+        <h2 id="sandbox-buttons">Buttons (Current App Types)</h2>
+        <div className="space-y-6 rounded-xl border border-border bg-card p-4">
+          <div className="space-y-3">
+            <h3 className="m-0 text-base">shadcn Button variants (app-facing set)</h3>
+            <div className="flex flex-wrap items-center gap-2">
+              <Button type="button" variant="secondary">Secondary</Button>
+              <Button type="button" variant="outline">Outline</Button>
+              <Button type="button" variant="ghost">Ghost</Button>
+              <Button type="button" variant="destructive">Destructive</Button>
+              <Button type="button" variant="link">Link</Button>
+            </div>
+          </div>
 
-					<div className="space-y-3">
-						<h3 className="m-0 text-base">shadcn Button sizes</h3>
-						<div className="flex flex-wrap items-center gap-2">
-							<Button size="sm" type="button">Small</Button>
-							<Button size="default" type="button">Default</Button>
-							<Button size="lg" type="button">Large</Button>
-							<Button aria-label="Icon size sample" size="icon" type="button">
+          <div className="space-y-3">
+            <h3 className="m-0 text-base">shadcn Button sizes</h3>
+            <div className="flex flex-wrap items-center gap-2">
+              <Button size="sm" type="button">Small</Button>
+              <Button size="default" type="button">Default</Button>
+              <Button size="lg" type="button">Large</Button>
+              <Button aria-label="Icon size sample" size="icon" type="button">
 								☆
-							</Button>
-						</div>
-					</div>
+              </Button>
+            </div>
+          </div>
 
-					<div className="space-y-3">
-						<h3 className="m-0 text-base">IconButton themes used in app</h3>
-						<div className="flex flex-wrap items-center gap-2">
-							<IconButton theme="check" title="Check" variant="outline">Check</IconButton>
-							<IconButton theme="reset" title="Reset" variant="outline">Reset</IconButton>
-							<IconButton theme="eye" title="Show answer" variant="outline">Show answer</IconButton>
-							<IconButton theme="shuffle" title="Shuffle" variant="outline">Shuffle</IconButton>
-							<IconButton theme="natural" title="Semantic sort" variant="outline">Semantic</IconButton>
-							<IconButton theme="alphabetic" title="Alphabetic sort" variant="outline">Alphabetic</IconButton>
-							<IconButton theme="moon" title="Theme" variant="outline">Theme</IconButton>
-							<IconButton theme="back" title="Back to top" variant="outline" />
-						</div>
-					</div>
+          <div className="space-y-3">
+            <h3 className="m-0 text-base">IconButton themes used in app</h3>
+            <div className="flex flex-wrap items-center gap-2">
+              <IconButton theme="check" title="Check" variant="outline">Check</IconButton>
+              <IconButton theme="reset" title="Reset" variant="outline">Reset</IconButton>
+              <IconButton theme="eye" title="Show answer" variant="outline">Show answer</IconButton>
+              <IconButton theme="shuffle" title="Shuffle" variant="outline">Shuffle</IconButton>
+              <IconButton theme="natural" title="Semantic sort" variant="outline">Semantic</IconButton>
+              <IconButton theme="alphabetic" title="Alphabetic sort" variant="outline">Alphabetic</IconButton>
+              <IconButton theme="moon" title="Theme" variant="outline">Theme</IconButton>
+              <IconButton theme="back" title="Back to top" variant="outline" />
+            </div>
+          </div>
 
-					<div className="space-y-3">
-						<h3 className="m-0 text-base">Vocabulary sort buttons (exact live style)</h3>
-						<div className="flex flex-wrap items-center gap-2">
-							<IconButton
-								className="vocab-sort-button btn-hero-title vocab-sort-button-active"
-								theme="natural"
-								size="lg"
-								title="Vocabulary organised semantically"
-								variant="default"
-							>
+          <div className="space-y-3">
+            <h3 className="m-0 text-base">Vocabulary sort buttons (exact live style)</h3>
+            <div className="flex flex-wrap items-center gap-2">
+              <IconButton
+                className="vocab-sort-button btn-hero-title vocab-sort-button-active"
+                theme="natural"
+                size="lg"
+                title="Vocabulary organised semantically"
+                variant="default"
+              >
 								Semantic
-							</IconButton>
-							<IconButton
-								className="vocab-sort-button btn-ex-affirm"
-								theme="alphabetic"
-								size="lg"
-								title="Vocabulary organised alphabetically"
-								variant="default"
-							>
+              </IconButton>
+              <IconButton
+                className="vocab-sort-button btn-ex-affirm"
+                theme="alphabetic"
+                size="lg"
+                title="Vocabulary organised alphabetically"
+                variant="default"
+              >
 								Alphabetical
-							</IconButton>
-						</div>
-					</div>
+              </IconButton>
+            </div>
+          </div>
 
-					<div className="space-y-3">
-						<h3 className="m-0 text-base">Exercise action tones (cva contract)</h3>
-						<p className="m-0 text-sm text-muted-foreground">
+          <div className="space-y-3">
+            <h3 className="m-0 text-base">Exercise action tones (cva contract)</h3>
+            <p className="m-0 text-sm text-muted-foreground">
 							The exercise action button contract is defined with{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-xs">cva</code> in{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-xs">
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">cva</code> in{" "}
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">
 								src/components/exercises/shared/exerciseActionButtonVariants.js
-							</code>
+              </code>
 							. Components choose semantic variants (for example{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "warn"</code>,{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "neutral"</code>,{" "}
-							<code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "primary"</code>)
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "warn"</code>,{" "}
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "neutral"</code>,{" "}
+              <code className="rounded bg-muted px-1 py-0.5 text-xs">tone: "primary"</code>)
 							instead of hardcoding long class strings in each exercise. This keeps styling
 							consistent and makes future updates safer.
-						</p>
-						<div className="flex flex-wrap items-center gap-2">
-							<IconButton
-								className={exerciseActionButtonVariants({ tone: "warn", visible: true })}
-								theme="eye"
-								title="Warn tone"
-							>
+            </p>
+            <div className="flex flex-wrap items-center gap-2">
+              <IconButton
+                className={exerciseActionButtonVariants({ tone: "warn", visible: true })}
+                theme="eye"
+                title="Warn tone"
+              >
 								Show
-							</IconButton>
-							<IconButton
-								className={exerciseActionButtonVariants({ tone: "neutral", visible: true })}
-								theme="reset"
-								title="Neutral tone"
-							>
+              </IconButton>
+              <IconButton
+                className={exerciseActionButtonVariants({ tone: "neutral", visible: true })}
+                theme="reset"
+                title="Neutral tone"
+              >
 								Reset
-							</IconButton>
-							<IconButton
-								className={exerciseActionButtonVariants({ tone: "primary", visible: true })}
-								theme="check"
-								title="Primary tone"
-							>
+              </IconButton>
+              <IconButton
+                className={exerciseActionButtonVariants({ tone: "primary", visible: true })}
+                theme="check"
+                title="Primary tone"
+              >
 								Check
-							</IconButton>
-						</div>
-					</div>
-				</div>
-			</section>
+              </IconButton>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<DebugColorTokens />
-			<DebugFontTokens />
-			<div id="sandbox-svg-assets-anchor">
-				{DebugSvgAssetsComponent ? (
-					<DebugSvgAssetsComponent />
-				) : svgAssetsLoadError ? (
-					<section aria-labelledby="sandbox-svg-assets-error">
-						<h2 id="sandbox-svg-assets-error">SVG Assets Referenced in App Source</h2>
-						<p className="rounded-xl border border-[var(--destructive)]/40 bg-card p-4 text-[var(--destructive)]">
-							{`SVG inventory failed to load: ${svgAssetsLoadError}`}
-						</p>
-					</section>
-				) : (
-					<section aria-labelledby="sandbox-svg-assets-loading">
-						<h2 id="sandbox-svg-assets-loading">SVG Assets Referenced in App Source</h2>
-						<p className="rounded-xl border border-border bg-card p-4 text-[var(--muted-foreground)]">
+      <DebugColorTokens />
+      <DebugFontTokens />
+      <div id="sandbox-svg-assets-anchor">
+        {DebugSvgAssetsComponent ? (
+          <DebugSvgAssetsComponent />
+        ) : svgAssetsLoadError ? (
+          <section aria-labelledby="sandbox-svg-assets-error">
+            <h2 id="sandbox-svg-assets-error">SVG Assets Referenced in App Source</h2>
+            <p className="rounded-xl border border-[var(--destructive)]/40 bg-card p-4 text-[var(--destructive)]">
+              {`SVG inventory failed to load: ${svgAssetsLoadError}`}
+            </p>
+          </section>
+        ) : (
+          <section aria-labelledby="sandbox-svg-assets-loading">
+            <h2 id="sandbox-svg-assets-loading">SVG Assets Referenced in App Source</h2>
+            <p className="rounded-xl border border-border bg-card p-4 text-[var(--muted-foreground)]">
 							Loading SVG inventory...
-						</p>
-					</section>
-				)}
-			</div>
+            </p>
+          </section>
+        )}
+      </div>
 
-			<section aria-labelledby="sandbox-designer-handoff" id="sandbox-designer-handoff">
-				<h2 id="sandbox-designer-handoff-heading">Designer Brand Handoff Sheet</h2>
-				<div className="rounded-xl border border-border bg-card p-5 shadow-sm">
-					<p className="mb-4 text-sm text-[var(--muted-foreground)]">
+      <section aria-labelledby="sandbox-designer-handoff" id="sandbox-designer-handoff">
+        <h2 id="sandbox-designer-handoff-heading">Designer Brand Handoff Sheet</h2>
+        <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+          <p className="mb-4 text-sm text-[var(--muted-foreground)]">
 						A two-page printable reference for the designer handing brand colours and
 						fonts to the developer. Contains colour slots with swatches, dark-mode
 						overrides, an app layout diagram, typography fields, and rendered component
 						previews (nav, accordion, buttons, modal, exercise states, footer).
-					</p>
+          </p>
 
-					{/* Colour slot preview */}
-					<div className="mb-5 flex gap-2">
-						{[
-							{ label: 'Primary',     color: 'oklch(0.612 0.130 160.6)' },
-							{ label: 'Secondary',   color: 'oklch(0.976 0.023  90.7)', border: true },
-							{ label: 'Tertiary',    color: 'oklch(0.851 0.089 178.8)' },
-							{ label: 'Quaternary',  color: 'oklch(0.44  0.10  165.0)' },
-						].map(({ label, color, border }) => (
-							<div className="flex flex-col items-center gap-1" key={label}>
-								<span
-									aria-hidden="true"
-									className={`h-10 w-16 rounded-md shadow-sm ${border ? 'border border-border' : ''}`}
-									style={{ background: color }}
-								/>
-								<span className="text-xs text-[var(--muted-foreground)]">{label}</span>
-							</div>
-						))}
-						<div className="ml-2 flex items-center">
-							<span className="text-xs text-[var(--muted-foreground)]">← French course example values</span>
-						</div>
-					</div>
+          {/* Colour slot preview */}
+          <div className="mb-5 flex gap-2">
+            {[
+              { label: 'Primary', color: 'oklch(0.612 0.130 160.6)' },
+              { label: 'Secondary', color: 'oklch(0.976 0.023  90.7)', border: true },
+              { label: 'Tertiary', color: 'oklch(0.851 0.089 178.8)' },
+              { label: 'Quaternary', color: 'oklch(0.44  0.10  165.0)' },
+            ].map(({ label, color, border }) => (
+              <div className="flex flex-col items-center gap-1" key={label}>
+                <span
+                  aria-hidden="true"
+                  className={`h-10 w-16 rounded-md shadow-sm ${border ? 'border border-border' : ''}`}
+                  style={{ background: color }}
+                />
+                <span className="text-xs text-[var(--muted-foreground)]">{label}</span>
+              </div>
+            ))}
+            <div className="ml-2 flex items-center">
+              <span className="text-xs text-[var(--muted-foreground)]">← French course example values</span>
+            </div>
+          </div>
 
-					<div className="flex flex-wrap items-center gap-4">
-						<a
-							className="inline-flex items-center gap-2 rounded-lg border border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_10%,var(--card))] px-4 py-2 text-sm font-semibold text-[var(--brand-primary)] no-underline transition-colors hover:bg-[color-mix(in_oklab,var(--brand-primary)_18%,var(--card))]"
-							href={`${import.meta.env.BASE_URL}designer-handoff-template.html`}
-							rel="noreferrer"
-							target="_blank"
-						>
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              className="inline-flex items-center gap-2 rounded-lg border border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_10%,var(--card))] px-4 py-2 text-sm font-semibold text-[var(--brand-primary)] no-underline transition-colors hover:bg-[color-mix(in_oklab,var(--brand-primary)_18%,var(--card))]"
+              href={`${import.meta.env.BASE_URL}designer-handoff-template.html`}
+              rel="noreferrer"
+              target="_blank"
+            >
 							Open handoff sheet
-							<span aria-hidden="true">↗</span>
-						</a>
-						<p className="m-0 text-xs text-[var(--muted-foreground)]">
+              <span aria-hidden="true">↗</span>
+            </a>
+            <p className="m-0 text-xs text-[var(--muted-foreground)]">
 							To export as PDF: <strong>File → Print → Save as PDF</strong> in Chrome — enable <em>Background graphics</em>.
 							Source file: <code className="rounded bg-muted px-1 py-0.5">public/designer-handoff-template.html</code>
-						</p>
-					</div>
-				</div>
-			</section>
+            </p>
+          </div>
+        </div>
+      </section>
 
-			<LearningObjectStructureSummary
-				appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
-				learningObjects={DEBUG_LEARNING_OBJECTS}
-			/>
-		</main>
-	);
+      <LearningObjectStructureSummary
+        appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
+        learningObjects={DEBUG_LEARNING_OBJECTS}
+      />
+    </main>
+  );
 }

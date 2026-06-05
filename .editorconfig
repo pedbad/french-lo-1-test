@@ -1,0 +1,16 @@
+# EditorConfig — https://editorconfig.org
+# Project indent style: 2 spaces everywhere (matches shadcn/ui + Prettier defaults).
+# Source indentation is dev-facing only; it never ships to the browser, so this
+# choice has no impact on end-user accessibility.
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
