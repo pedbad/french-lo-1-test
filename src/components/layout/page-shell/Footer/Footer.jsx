@@ -27,37 +27,39 @@ export class Footer extends React.PureComponent{
             </a>
           </div>
 
-          {/* Square logos */}
-          <div className={`square-logos`}>
-            <div className="square-logos-row">
-              {/* Logo LC */}
-              <div className={`lclogo square-logo`}>
-                <a href="https://www.langcen.cam.ac.uk/culp/culp-index.html" target="_blank" rel="noopener noreferrer">
-                  <img src={resolveAsset('/img/common/footer/lc-logo-black.svg')} className="logo theme-light" alt={lcLogoAlt} />
-                  <img src={resolveAsset('/img/common/footer/lc-logo-white.svg')} className="logo theme-dark" alt={lcLogoAlt} />
-                </a>
-              </div>
+          {/* Square logos + social icons — grouped as one visual cluster */}
+          <div className="logos-social">
+            <div className={`square-logos`}>
+              <div className="square-logos-row">
+                {/* Logo LC */}
+                <div className={`lclogo square-logo`}>
+                  <a href="https://www.langcen.cam.ac.uk/culp/culp-index.html" target="_blank" rel="noopener noreferrer">
+                    <img src={resolveAsset('/img/common/footer/lc-logo-black.svg')} className="logo theme-light" alt={lcLogoAlt} />
+                    <img src={resolveAsset('/img/common/footer/lc-logo-white.svg')} className="logo theme-dark" alt={lcLogoAlt} />
+                  </a>
+                </div>
 
-              {/* Logo CC */}
-              <div className={`cclogo square-logo`}>
-                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">
-                  <img src={resolveAsset('/img/common/footer/cc-logo-black.svg')} className="logo theme-light" alt={ccLogoAlt} />
-                  <img src={resolveAsset('/img/common/footer/cc-logo-white.svg')} className="logo theme-dark" alt={ccLogoAlt} />
-                </a>
-              </div>
+                {/* Logo CC */}
+                <div className={`cclogo square-logo`}>
+                  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">
+                    <img src={resolveAsset('/img/common/footer/cc-logo-black.svg')} className="logo theme-light" alt={ccLogoAlt} />
+                    <img src={resolveAsset('/img/common/footer/cc-logo-white.svg')} className="logo theme-dark" alt={ccLogoAlt} />
+                  </a>
+                </div>
 
-              {/* Logo elearning */}
-              <div className={`elearninglogo square-logo`}>
-                <a href="https://www.langcen.cam.ac.uk/opencourseware" target="_blank" rel="noopener noreferrer">
-                  <img src={resolveAsset('/img/common/footer/elearning-logo-black.svg')} className="logo theme-light" alt="eLearning" />
-                  <img src={resolveAsset('/img/common/footer/elearning-logo-white.svg')} className="logo theme-dark" alt="eLearning" />
-                </a>
+                {/* Logo elearning */}
+                <div className={`elearninglogo square-logo`}>
+                  <a href="https://www.langcen.cam.ac.uk/opencourseware" target="_blank" rel="noopener noreferrer">
+                    <img src={resolveAsset('/img/common/footer/elearning-logo-black.svg')} className="logo theme-light" alt="eLearning" />
+                    <img src={resolveAsset('/img/common/footer/elearning-logo-white.svg')} className="logo theme-dark" alt="eLearning" />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className={`footer-links`}>
-            <FooterSocialLinks />
+            <div className={`footer-links`}>
+              <FooterSocialLinks />
+            </div>
           </div>
 
           {/* Copyright Info */}
@@ -70,7 +72,7 @@ export class Footer extends React.PureComponent{
 
           {/* License */}
           <div className={`license`}>
-            <p className="license text-footerText text-base leading-[calc(var(--font-size-base)*1.413)] font-normal">
+            <p className="license text-footerText text-xs leading-[calc(var(--font-size-xs)*1.6)] font-normal">
 							This work is licensed under the Creative Commons
 							Attribution-NonCommercial-NoDerivs 4.0 International Licence.<br/>
 							To view a copy of this licence, visit: <a className="hover:text-primary font-semibold"

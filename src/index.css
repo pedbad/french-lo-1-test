@@ -3108,13 +3108,12 @@
 		padding: 40px 36px 60px;
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto auto auto;
+		grid-template-rows: auto auto auto auto;
 		grid-column-gap: 20px;
-		grid-row-gap: 40px;
+		grid-row-gap: 24px;
 		grid-template-areas:
 			"uclogo"
-			"square-logos"
-			"footer-links"
+			"logos-social"
 			"license"
 			"copyright";
 	}
@@ -3123,6 +3122,14 @@
 		display: flex;
 		justify-content: center;
 		grid-area: uclogo;
+	}
+
+	footer .footer-container .logos-social {
+		grid-area: logos-social;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
 	}
 
 	footer .footer-container .uclogo a {
@@ -3155,7 +3162,6 @@
 	footer .footer-container .square-logos {
 		display: flex;
 		flex-direction: column;
-		grid-area: square-logos;
 		align-items: center;
 		gap: 18px;
 		width: var(--footer-common-width);
@@ -3183,7 +3189,6 @@
 
 	footer .footer-container .footer-links {
 		display: flex;
-		grid-area: footer-links;
 		align-items: center;
 		justify-content: center;
 		width: var(--footer-common-width);
@@ -3250,7 +3255,6 @@
 	}
 
 	footer .footer-container .square-logo {
-		grid-area: square-logos;
 		display: flex;
 		height: 50px;
 		align-items: flex-end;
@@ -3298,6 +3302,7 @@
 		grid-area: license;
 		font-style: normal;
 		color: color-mix(in oklab, var(--foreground) 85%, transparent);
+		margin-top: 16px;
 	}
 
 	footer .footer-container .license a:hover {
@@ -3465,17 +3470,21 @@
 			grid-template-columns: 3fr 2fr;
 			grid-template-rows: auto auto auto;
 			grid-template-areas:
-				"uclogo square-logos"
+				"uclogo logos-social"
 				"license license"
-				"copyright footer-links";
+				"copyright copyright";
 		}
 
 		footer .footer-container .uclogo {
 			justify-content: start;
 		}
 
+		footer .footer-container .logos-social {
+			align-items: flex-end;
+		}
+
 		footer .footer-container .square-logos {
-			justify-content: flex-start;
+			justify-content: flex-end;
 			align-items: flex-end;
 			gap: 16px;
 			width: auto;
@@ -4179,7 +4188,7 @@ hr {
 		text-align: left;
 		padding: 1rem 0;
 		margin: auto;
-		margin-bottom: 4rem;
+		margin-bottom: 8rem;
 	}
 	:where(#content) ul {
 		margin: 2rem 0;
