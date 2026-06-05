@@ -25,6 +25,9 @@ export class Footer extends React.PureComponent{
               <img src={resolveAsset('/img/common/footer/ucam-language-centre-horizontal-dark.png')} className={`logo theme-dark horizontal`} alt={ucLogoAlt} />
               <img src={resolveAsset('/img/common/footer/ucam-language-centre-vertical-dark.png')} className={`logo theme-dark vertical`} alt={ucLogoAlt} />
             </a>
+            <div className="copyright">
+              <small className="copy text-xs block">© {strYear} University of Cambridge</small>
+            </div>
           </div>
 
           {/* Square logos + social icons — grouped as one visual cluster */}
@@ -62,14 +65,6 @@ export class Footer extends React.PureComponent{
             </div>
           </div>
 
-          {/* Copyright Info */}
-          <div className={`copyright`}>
-            <small className="copy text-base block">© {strYear} University of Cambridge</small>
-            <p className="developed text-xs font-normal">
-							Developed by <span className="font-semibold">The Language Centre</span>
-            </p>
-          </div>
-
           {/* License */}
           <div className={`license`}>
             <p className="license text-footerText text-xs leading-[calc(var(--font-size-xs)*1.6)] font-normal">
@@ -80,6 +75,7 @@ export class Footer extends React.PureComponent{
                 target="_blank"
                 rel="noopener noreferrer"
               >creativecommons.org</a>
+              {' · '}Developed by <span className="font-semibold">The Language Centre</span>
             </p>
           </div>
         </div>
