@@ -1,9 +1,12 @@
 /* Tailwind v4 entrypoint */
 
 @plugin "tailwindcss-animate";
-@config "../tailwind.config.js";
 @import "tailwindcss";
 @import "tw-animate-css";
+
+/* Dynamically-applied classes Tailwind can't see in source (was
+ * tailwind.config.js `safelist`). */
+@source inline("rounded-md px-1 text-lg font-semibold ring-2");
 
 /* Exclude docs from Tailwind's auto content scan. The Tailwind v4 migration
  * notes intentionally print broken example classes (e.g. the ambiguous
@@ -3686,6 +3689,32 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+
+	/* Border color variants — migrated from tailwind.config.js colors.border.
+	 * Generates border-{default,strong,subtle} (14 usages). */
+	--color-border-default: var(--border);
+	--color-border-strong:  var(--ring);
+	--color-border-subtle:  var(--border);
+
+	/* Surface + text color variants — migrated from tailwind.config.js.
+	 * NOTE: matching .bg-surface-* / .text-text-* shim classes live in
+	 * @layer base (top of file). These generated utilities sit in the
+	 * utilities layer and win, preserving exact pre-migration rendering.
+	 * (Reconciling the shim/utility overlap is a separate cleanup.) */
+	--color-surface-base:     var(--background);
+	--color-surface-elevated: var(--card);
+	--color-surface-overlay:  var(--foreground);
+	--color-text-primary:     var(--foreground);
+	--color-text-secondary:   var(--muted-foreground);
+	--color-text-tertiary:    oklch(from var(--muted-foreground) l c h / 0.8);
+	--color-text-disabled:    oklch(from var(--muted-foreground) l c h / 0.55);
+
+	/* Font families — migrated from tailwind.config.js fontFamily.
+	 * `@theme inline` means var(--font-*) resolves against tokens.css at
+	 * runtime (not a theme var), so there is no self-reference. */
+	--font-sans:    var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-heading: var(--font-heading), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-mono:    var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
 	/* Project type scale — overrides Tailwind's default text-* sizes with the
 	 * project font-size tokens, each paired with its line-height via the v4
