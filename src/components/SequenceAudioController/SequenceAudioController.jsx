@@ -1,5 +1,5 @@
 import React from "react";
-import { stopAllAudioPlayback } from "../../utils/audioPlayback";
+import AudioManager from "../../audio/AudioManager";
 
 export class SequenceAudioController extends React.Component {
   constructor(props) {
@@ -34,6 +34,9 @@ export class SequenceAudioController extends React.Component {
     audio.addEventListener("ended", this.handleEnded);
     audio.addEventListener("loadedmetadata", this.handleLoadedMetadata);
 
+    // Register so AudioManager.stopAll() can reach this off-DOM audio element.
+    AudioManager.registerElement(audio);
+
     this.preloadDurations();
   }
 
@@ -42,6 +45,7 @@ export class SequenceAudioController extends React.Component {
     audio.removeEventListener("timeupdate", this.handleTimeUpdate);
     audio.removeEventListener("ended", this.handleEnded);
     audio.removeEventListener("loadedmetadata", this.handleLoadedMetadata);
+    AudioManager.unregisterElement(audio);
     audio.pause();
     audio.src = "";
   }
@@ -159,7 +163,7 @@ export class SequenceAudioController extends React.Component {
     const { playState } = this.state;
 
     if (playState === "paused") {
-      stopAllAudioPlayback(audio);
+      AudioManager.stopAll({ except: audio });
       audio.play();
       this.setState(
         {
@@ -188,7 +192,7 @@ export class SequenceAudioController extends React.Component {
       audio.pause();
       this.setState({ playState: "paused" }, this.emitPlayState);
     } else if (playState === "paused") {
-      stopAllAudioPlayback(audio);
+      AudioManager.stopAll({ except: audio });
       audio.play();
       this.setState({ playState: "playing" }, this.emitPlayState);
     } else {
@@ -219,7 +223,7 @@ export class SequenceAudioController extends React.Component {
 
       const shouldPlay = opts.autoplay !== false;
       if (shouldPlay) {
-        stopAllAudioPlayback(audio);
+        AudioManager.stopAll({ except: audio });
 				audio.play().catch(console.error); // eslint-disable-line
       }
 

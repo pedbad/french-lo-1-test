@@ -3,18 +3,12 @@ import React from 'react';
 import {
   resolveAsset,
 } from '../../utils/assets';
-import {
-  stopAllAudioPlayback,
-  trackFloatingAudio,
-} from '../../utils/audioPlayback';
+import AudioManager from '../../audio/AudioManager';
 
 
 export class AudioClip extends React.PureComponent {
   constructor(props) {
     super(props);
-    // this.initialiseProgress = this.initialiseProgress.bind(this);
-    // this.notePlaying = this.notePlaying.bind(this);
-    // this.playSound = this.playSound.bind(this);
     this.state = ({
       status: 'stopped',
     });
@@ -34,42 +28,38 @@ export class AudioClip extends React.PureComponent {
   };
 
   notePlaying = (e, useRef) => {
-    // console.log("notePlaying");
     e.preventDefault();
     e.stopPropagation();
-    // useRef is true when the player is an audio control
     if (useRef) {
-      stopAllAudioPlayback(this.audioRef.current);
+      // Stop all other audio but leave the compact DOM <audio> element playing.
+      AudioManager.stopAll({ except: this.audioRef.current });
       this.initialiseProgress(this.audioRef.current);
     }
     this.setPlaybackStatus('playing');
   };
 
   handleClick = (e) => {
-    // console.log("handleClick (only for super-compact and link)");
     e.preventDefault();
     e.stopPropagation();
     const {
       soundFileAudio,
       status = 'stopped',
     } = this.state;
-    // console.log("soundFileAudio", soundFileAudio);
     switch (status) {
       case 'stopped':
         this.playSound(e);
-        // soundFileAudio.play();
         break;
-      case 'paused':
+      case 'paused': {
         this.setPlaybackStatus('playing');
-        if (!soundFileAudio) {
+        const { soundFile, id: propId } = this.props;
+        const clipId = propId || soundFile;
+        if (!soundFileAudio || !AudioManager.getActiveId()) {
           this.playSound(e);
           break;
         }
-        stopAllAudioPlayback(soundFileAudio);
-        soundFileAudio.play().catch(() => {
-          this.setPlaybackStatus('stopped');
-        });
+        AudioManager.resume(clipId);
         break;
+      }
       case 'playing':
         this.pause(e);
         break;
@@ -77,11 +67,9 @@ export class AudioClip extends React.PureComponent {
   };
 
   initialiseProgress = (audio) => {
-    // console.log("initialiseProgress", audio);
     if (!audio.setup) {
       audio.addEventListener('timeupdate', () => {
         const progress = (audio.currentTime / audio.duration) * 100;
-        // console.log(`Playback progress: ${progress.toFixed(1)}%`);
         this.setState({progress:  `${progress.toFixed(1)}%`});
       });
     }
@@ -90,37 +78,25 @@ export class AudioClip extends React.PureComponent {
   playSound = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const { soundFile } = this.props;
+    const { soundFile, id: propId } = this.props;
+    const clipId = propId || soundFile;
     this.notePlaying(e, false);
-    const soundFileAudio = new Audio(resolveAsset(soundFile));
-    trackFloatingAudio(soundFileAudio);
-    stopAllAudioPlayback(soundFileAudio);
+    const soundFileAudio = AudioManager.play(resolveAsset(soundFile), {
+      id: clipId,
+      onEnded: () => this.setPlaybackStatus('stopped', { progress: 0 }),
+    });
     this.initialiseProgress(soundFileAudio);
-    soundFileAudio.onended = () => {
-      this.setPlaybackStatus('stopped', {
-        progress: 0,
-      });
-    };
-    soundFileAudio.onpause = () => {
-      this.setPlaybackStatus('stopped');
-    };
-    soundFileAudio.play().catch(() => {
-      this.setPlaybackStatus('stopped', {
-        progress: 0,
-      });
-    });
-    this.setState({
-      soundFileAudio: soundFileAudio,
-    });
+    this.setState({ soundFileAudio });
     this.setPlaybackStatus('playing');
   };
 
   pause = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const { soundFileAudio } = this.state;
+    const { soundFile, id: propId } = this.props;
+    const clipId = propId || soundFile;
     this.setPlaybackStatus('paused');
-    soundFileAudio.pause();
+    AudioManager.pause(clipId);
   };
 
   render = () => {
@@ -225,8 +201,6 @@ class CircularAudioProgress extends AudioClip {
       duration: 0,
       progress: 0,
     });
-
-    // this.pause = this.pause.bind(this);
   }
 
   componentDidMount = () => {
@@ -260,16 +234,12 @@ class CircularAudioProgress extends AudioClip {
   }
 
   handleMetadataLoaded = () => {
-    const {
-      soundFileAudio,
-    } = this.state;
+    const { soundFileAudio } = this.state;
     this.setState({ duration: soundFileAudio.duration });
   };
 
   handleTimeUpdate = () => {
-    const {
-      soundFileAudio,
-    } = this.state;
+    const { soundFileAudio } = this.state;
     this.setState({ progress: soundFileAudio.currentTime });
   };
 
@@ -287,7 +257,7 @@ class CircularAudioProgress extends AudioClip {
 
   render = () => {
     const strokeWidth = 2;
-    const bgColour = 'var(--border)'; // Keep ring subtle in both light and dark themes.
+    const bgColour = 'var(--border)';
 
     const {
       className = '',
@@ -320,7 +290,6 @@ class CircularAudioProgress extends AudioClip {
             width={controlSize}
             height={controlSize}
             className="pointer-events-none">
-            {/* Background ring */}
             <circle
               cx={controlSize / 2}
               cy={controlSize / 2}
@@ -329,7 +298,6 @@ class CircularAudioProgress extends AudioClip {
               strokeWidth={strokeWidth}
               fill="none"
             />
-            {/* Progress ring */}
             <circle
               ref={this.circleRef}
               cx={controlSize / 2}
@@ -344,7 +312,6 @@ class CircularAudioProgress extends AudioClip {
               style={{ transition: 'stroke-dashoffset 0.2s linear' }}
             />
             <path fill="currentColor" d="m18.64 13.5-5.14 3.448-5.14 3.447V6.604l5.14 3.447z" className="play" />
-
             <path fill="currentColor" className="pause" d="M6.501 6.617h4.611v13.765H6.501zM14.966 6.617h4.611v13.765h-4.611z"/>
           </svg>
         </button>
@@ -360,8 +327,6 @@ class CircularAudioProgressAnimatedSpeaker extends CircularAudioProgress {
 
     return (
       <span
-        // Keep these wrappers if you still rely on ref/onPlay here.
-        // If you don't need them, you can drop the wrapper and pass everything straight through.
         onPlay={(e) => this.notePlaying(e, false)}
         ref={this.audioRef}
       >
@@ -389,7 +354,6 @@ class LinkAudioProgress extends CircularAudioProgress {
       duration: 0,
       progress: 0,
     });
-
   }
 
   componentDidUpdate() {
@@ -423,16 +387,6 @@ class LinkAudioProgress extends CircularAudioProgress {
           size={size}
           title={tooltipText}
         />
-        {/* Simple compact link SVG speaker icon <svg xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					strokeWidth="2"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-				><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /></svg> */}
         <span className="audio-link-text">{children}</span>
       </button>
     );
