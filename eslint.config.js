@@ -147,8 +147,10 @@ export default [
           "ignoreDeclarationSort": true
         }
       ],
+      // Disabled: ~134 warnings, low defect-prevention value, high churn.
+      // Alphabetical key order is cosmetic and not worth the noise.
       "sort-keys": [
-        "warn"
+        "off"
       ],
       "space-in-parens": [
         "warn"
