@@ -693,7 +693,7 @@ The app uses shadcn tokens for the base palette plus custom theme tokens in `src
 
 Typography is also normalized: root tokens (for example `--font-size-base`, `--line-height-body`, and semantic variants like `--line-height-app`) feed into shared selectors in `src/index.css` (`@layer base`), so production pages and the dev debug sandbox inherit the same heading/body scale from one source of truth.
 - Section imagery (e.g., Grammar intro) is rendered via React components + Tailwind utilities, so JSON configs only describe content, not layout/styling.
-- A shared type scale lives in `src/index.css` + `tailwind.config.js`, so font sizes/line heights can be tuned once and applied everywhere through Tailwind utilities instead of hardcoded pixels.
+- A shared type scale lives in `src/index.css` via Tailwind v4 `@theme` blocks, so font sizes/line heights can be tuned once and applied everywhere through Tailwind utilities instead of hardcoded pixels.
 - Typography migration is now complete for the current scope: runtime usage is tokenized, Tailwind size mappings are token-backed, and legacy `--body-line-height` usage has been removed in favor of semantic `--line-height-*` tokens.
 - Remaining design-system work is now focused on color consolidation and accessibility/HTML validity phases.
 - Introduction + Grammar now use a dedicated hero-style Section so instruction text and imagery share the same baseline and card framing as the rest of the UI.
@@ -808,7 +808,7 @@ What this means:
 Why it is feasible here:
 
 - Tokens already exist in `src/index.css`.
-- Tailwind is configured to map those tokens in `tailwind.config.js`.
+- Tailwind v4 maps those tokens via `@theme` blocks directly in `src/index.css` — no separate config file.
 
 ### Proposed migration path
 
@@ -831,10 +831,10 @@ Why it is feasible here:
 
 ### Additional guidance (agreed)
 
-Yes, this is correct with one nuance: keep design tokens in `src/index.css` as CSS variables, and map them into Tailwind via `tailwind.config.js` so Tailwind remains the primary interface for consumption.
+Yes, this is correct: keep design tokens in `src/index.css` as CSS variables inside `@theme` blocks — Tailwind v4 uses CSS-first configuration with no separate `tailwind.config.js`.
 
 1. Tailwind for all new development: New UI components and features should be styled with Tailwind utilities.
-2. Consolidate design tokens: Centralize colors, spacing, typography, and breakpoints in `tailwind.config.js` and CSS variables in `src/index.css`.
+2. Consolidate design tokens: Centralize colors, spacing, typography, and breakpoints as CSS variables in `@theme` blocks in `src/index.css`.
 3. ✅ Phased migration of existing SCSS: complete — all component styles migrated to Tailwind utilities in JSX.
 4. Deprecate custom SCSS: Gradually shrink SCSS to only rare, complex cases that can’t be expressed with utilities.
 5. Use `@apply` strategically: Acceptable during transition, but the long-term goal is co-located Tailwind classes in markup.
@@ -844,7 +844,7 @@ The SCSS removal migration is complete: app styling is now CSS + Tailwind only, 
 
 Proposed approach:
 1. Inventory SCSS usage by component and tag each as migrate-now vs. legacy-keep.
-2. For each migrate-now component, move layout/typography/spacing to Tailwind utilities and map any remaining values to tokens in `tailwind.config.js` or `src/index.css`.
+2. For each migrate-now component, move layout/typography/spacing to Tailwind utilities and map any remaining values to tokens in `src/index.css` `@theme` blocks.
 3. Replace SCSS selectors with co-located Tailwind classes or shared `@apply` utilities (sparingly).
 4. Remove the component’s SCSS once parity is reached and UI is visually verified.
 5. Repeat in batches (start with high-traffic components: Accordion, PhraseTable, WordParts, Info).
