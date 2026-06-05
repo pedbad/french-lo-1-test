@@ -1,5 +1,7 @@
 # AudioManager Refactor Plan
 
+> **Status:** Phases 1–3 complete (`cc70f0f`). Phases 4–5 (tests + QA) pending.
+
 ## Current State
 
 Audio playback is split across three independent paths:
@@ -216,29 +218,29 @@ Add ~1 day if converting AudioClip + SequenceAudioController to functional compo
 ## Checklist
 
 ### Phase 1 — AudioManager Core
-- [ ] Create `src/audio/AudioManager.js`
-- [ ] Implement `play(source, opts)` with exclusive mode default
-- [ ] Implement `pause`, `stop`, `stopAll`
-- [ ] Implement `registerElement` / `unregisterElement`
-- [ ] Implement `setVolume` / `getVolume`
-- [ ] Implement `subscribe` / unsubscribe pattern
-- [ ] Port logic from `trackFloatingAudio` + `stopAllAudioPlayback`
-- [ ] Export singleton instance
+- [x] Create `src/audio/AudioManager.js`
+- [x] Implement `play(source, opts)` with exclusive mode default
+- [x] Implement `pause`, `stop`, `stopAll`
+- [x] Implement `registerElement` / `unregisterElement`
+- [x] Implement `setVolume` / `getVolume`
+- [x] Implement `subscribe` / unsubscribe pattern
+- [x] Port logic from `trackFloatingAudio` + `stopAllAudioPlayback`
+- [x] Export singleton instance
 
 ### Phase 2 — useAudio Hook
-- [ ] Create `src/audio/useAudio.js`
-- [ ] Subscribe to manager on mount, unsubscribe on unmount
-- [ ] Expose `isPlaying`, `activeId`, `volume` reactive state
-- [ ] Expose `play`, `pause`, `stop` controls scoped to clip id
+- [x] Create `src/audio/useAudio.js`
+- [x] Subscribe to manager on mount, unsubscribe on unmount
+- [x] Expose `isPlaying`, `activeId`, `volume` reactive state
+- [x] Expose `play`, `pause`, `stop` controls scoped to clip id
 
 ### Phase 3 — Migrate Callers
-- [ ] `audioPlayback.js`: replace `new Audio` + helpers with `AudioManager.play()`
-- [ ] Mark `trackFloatingAudio` / `stopAllAudioPlayback` as deprecated shims
-- [ ] `AudioClip.jsx`: replace direct playback with AudioManager
-- [ ] `AudioClip.jsx`: convert class → functional component (recommended)
-- [ ] `SequenceAudioController.jsx`: replace self-managed `<audio>` with AudioManager
-- [ ] `SequenceAudioController.jsx`: convert class → functional component (recommended)
-- [ ] Verify no `new Audio(...).play()` calls remain outside AudioManager
+- [x] `audioPlayback.js`: replace `new Audio` + helpers with `AudioManager.play()`
+- [x] Mark `trackFloatingAudio` / `stopAllAudioPlayback` as deprecated shims
+- [x] `AudioClip.jsx`: replace direct playback with AudioManager
+- [ ] `AudioClip.jsx`: convert class → functional component (deferred)
+- [x] `SequenceAudioController.jsx`: replace self-managed `<audio>` with AudioManager
+- [ ] `SequenceAudioController.jsx`: convert class → functional component (deferred)
+- [x] Verify no `new Audio(...).play()` calls remain outside AudioManager
 
 ### Phase 4 — Tests
 - [ ] Exclusive mode test (new play stops previous)
@@ -262,4 +264,4 @@ Add ~1 day if converting AudioClip + SequenceAudioController to functional compo
 ### Final
 - [ ] Remove deprecated shims (`trackFloatingAudio`, `stopAllAudioPlayback`) once all callers confirmed migrated
 - [ ] Update `AUDIO_TODO.md` to mark refactor complete
-- [ ] Commit with conventional commit message `refactor: introduce AudioManager for centralised playback`
+- [x] Commit `cc70f0f` — refactor: introduce AudioManager for centralised playback
