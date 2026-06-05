@@ -39,7 +39,7 @@ export function BackToTopButton() {
         <TooltipTrigger asChild>
           <Button
             aria-label="Back to top"
-            className={`cursor-pointer rounded-full border border-[rgb(var(--color-border-subtle)_/_0.9)] bg-[var(--footer-background)] text-[var(--foreground)] shadow-sm transition-[background-color,color,box-shadow,transform,opacity] ease-out hover:-translate-y-0.5 hover:bg-[var(--edu-warn)] hover:text-[var(--primary-foreground)] ${showButton ? "pointer-events-auto opacity-100 translate-y-0 duration-[3600ms]" : "pointer-events-none opacity-0 translate-y-1 duration-300"}`}
+            className={`cursor-pointer rounded-full border border-border-subtle/90 bg-[var(--footer-background)] text-[var(--foreground)] shadow-sm transition-[background-color,color,box-shadow,transform,opacity] ease-out hover:-translate-y-0.5 hover:bg-[var(--edu-warn)] hover:text-[var(--primary-foreground)] ${showButton ? "pointer-events-auto opacity-100 translate-y-0 duration-[3600ms]" : "pointer-events-none opacity-0 translate-y-1 duration-300"}`}
             size="icon"
             tabIndex={showButton ? 0 : -1}
             onClick={() => {
