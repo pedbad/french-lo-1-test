@@ -98,10 +98,18 @@ export class InlineTypedGapExercise extends React.PureComponent {
     });
   };
 
-  handleInputKeyDown = (event) => {
+  handleInputKeyDown = (event, blankIndex) => {
     if (event.key !== "Enter" && event.key !== "NumpadEnter") return;
+    // Enter advances to the next blank instead of submitting the whole exercise.
+    // (Submitting on Enter caused accidental early reveal of all answers.)
     event.preventDefault();
-    this.handleCheckAnswers();
+    const { id = "" } = this.state;
+    const nextInput = document.getElementById(`${id}-inline-typed-gap-${blankIndex + 1}`);
+    if (nextInput) {
+      nextInput.focus();
+    } else {
+      event.target.blur();
+    }
   };
 
   handleCheckAnswers = () => {
@@ -274,7 +282,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
           className={`${INLINE_TYPED_INPUT_BASE_CLASS} ${stateClassName}`}
           id={`${id}-inline-typed-gap-${blankIndex}`}
           onChange={(event) => this.handleInputChange(blankIndex, event.target.value)}
-          onKeyDown={this.handleInputKeyDown}
+          onKeyDown={(event) => this.handleInputKeyDown(event, blankIndex)}
           placeholder="Type your answer"
           style={{ width: `${meta.widthCh}ch`, maxWidth: "100%" }}
           type="text"

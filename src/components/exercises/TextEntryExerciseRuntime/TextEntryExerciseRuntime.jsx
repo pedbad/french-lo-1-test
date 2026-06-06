@@ -1,4 +1,3 @@
-import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { TypedAnswerField } from "@/components/content";
@@ -146,6 +145,8 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
 
   handleInputKeyDown = (index, event) => {
     if (event.key !== "Enter" && event.key !== "NumpadEnter") return;
+    // Enter advances to the next answer field instead of submitting the whole
+    // exercise. (Submitting on Enter caused accidental early reveal of all answers.)
     event.preventDefault();
     const latestValue = event.currentTarget?.value ?? "";
     this.setState((prevState) => ({
@@ -153,7 +154,14 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
         ...prevState.values,
         [index]: latestValue,
       },
-    }), this.handleCheckAnswers);
+    }));
+    const { compoundID = "" } = this.state;
+    const nextInput = document.getElementById(`${compoundID}-answer-${index + 1}`);
+    if (nextInput) {
+      nextInput.focus();
+    } else {
+      event.currentTarget.blur();
+    }
   };
 
   handleShowAnswers = () => {
@@ -410,6 +418,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
                 <Input
                   aria-label={`Item ${i + 1}: type your answer`}
                   className={`min-h-10 text-sm md:text-base ${inputToneClass}`}
+                  id={`${compoundID}-answer-${i}`}
                   onChange={(event) => this.handleInputChange(i, event.target.value)}
                   onKeyDown={(event) => this.handleInputKeyDown(i, event)}
                   placeholder="Type your answer"
