@@ -37,9 +37,11 @@ class AudioManager {
 
     this._activeAudio = audio;
     this._activeId = id;
-    this._notify();
 
+    // Start playback BEFORE notifying: HTMLMediaElement.play() sets .paused
+    // synchronously, so subscribers see isPlaying: true at the moment a clip starts.
     audio.play().catch(() => {});
+    this._notify();
     return audio;
   }
 

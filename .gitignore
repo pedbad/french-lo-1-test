@@ -39,3 +39,4 @@ public/images/table-top.png
 .agents/
 skills-lock.json
 .playwright-mcp/
+/coverage
