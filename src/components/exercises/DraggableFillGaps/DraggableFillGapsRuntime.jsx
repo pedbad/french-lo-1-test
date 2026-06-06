@@ -5,8 +5,8 @@ import {
   IconButton,
   SequenceAudioController,
 } from "@/components/media";
+import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { DraggableWordTile } from './DraggableWordTile';
-import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { Info } from "@/components/content";
 import { resolveAsset } from '@/utils/assets';
@@ -1118,76 +1118,39 @@ export class DraggableFillGapsRuntime extends React.Component {
         <ProgressDots correct={nPlaced} total={nToPlace} />
         <div className="exercise-divider" role="none" data-orientation="horizontal" />
 
-        <div className="exercise-help exercise-help-wrap">
-          <div className="exercise-help-hints">
-            <Switch
-              aria-label="Show hints"
-              id={id ? `showHintsId-${id}` : undefined}
-              aria-labelledby={id ? `showHintsLabel-${id}` : undefined}
-              checked={showHints}
-              onCheckedChange={this.handleToggle}
-            />
-            <span id={id ? `showHintsLabel-${id}` : undefined} className="text-sm font-medium leading-none cursor-pointer">
-              {showHintsText}
-            </span>
-            {/* Keep this as a polite inline hint (not shadcn <Alert role="alert">):
+        <ExerciseFooter
+          hints={
+            <div className="exercise-help-hints">
+              <Switch
+                aria-label="Show hints"
+                id={id ? `showHintsId-${id}` : undefined}
+                aria-labelledby={id ? `showHintsLabel-${id}` : undefined}
+                checked={showHints}
+                onCheckedChange={this.handleToggle}
+              />
+              <span id={id ? `showHintsLabel-${id}` : undefined} className="text-sm font-medium leading-none cursor-pointer">
+                {showHintsText}
+              </span>
+              {/* Keep this as a polite inline hint (not shadcn <Alert role="alert">):
 							    wrong-drop feedback can fire repeatedly during drag practice, and assertive
 							    announcements would be overly interruptive for screen-reader users. */}
-            <span
-              className={`invalid-drop-hint border border-[color-mix(in_oklab,var(--destructive)_72%,var(--foreground))] bg-[color-mix(in_oklab,var(--destructive)_14%,var(--card))] text-[var(--destructive)] ${showInvalidDropHint ? 'show' : ''}`}
-              aria-live="polite"
-            >
-              <CircleAlert aria-hidden="true" className="h-[1em] w-[1em]" />
-								Try another slot
-            </span>
-          </div>
-
-          <div className="exercise-help-actions">
-            <IconButton
-              ariaLabel={cheatText}
-              className={exerciseActionButtonVariants({
-                progressive: true,
-                tone: "warn",
-                visible: failCount >= 2,
-              })}
-              onClick={this.autoSolve}
-              theme={`eye`}
-              variant="default"
-            >
-              <span className="exercise-icon-button-label">{cheatText}</span>
-            </IconButton>
-
-            <IconButton
-              ariaLabel="Reset"
-              className={exerciseActionButtonVariants({
-                progressive: true,
-                tone: "neutral",
-                visible: nPlaced >= 1 || failCount >= 2 || complete,
-              })}
-              onClick={this.handleReset}
-              theme={`reset`}
-              variant="default"
-            >
-              <span className="exercise-icon-button-label">Reset</span>
-            </IconButton>
-
-            <IconButton
-              ariaLabel="Check answers"
-              className={exerciseActionButtonVariants({
-                align: "right",
-                progressive: false,
-                tone: "primary",
-                visible: true,
-              })}
-              disabled={assignedCount < 1}
-              onClick={this.handleCheckAnswers}
-              theme={`check`}
-              variant="default"
-            >
-              <span className="exercise-icon-button-label">Check answers</span>
-            </IconButton>
-          </div>
-        </div>
+              <span
+                className={`invalid-drop-hint border border-[color-mix(in_oklab,var(--destructive)_72%,var(--foreground))] bg-[color-mix(in_oklab,var(--destructive)_14%,var(--card))] text-[var(--destructive)] ${showInvalidDropHint ? 'show' : ''}`}
+                aria-live="polite"
+              >
+                <CircleAlert aria-hidden="true" className="h-[1em] w-[1em]" />
+                Try another slot
+              </span>
+            </div>
+          }
+          onShowAnswers={this.autoSolve}
+          showAnswers={failCount >= 2}
+          showAnswersLabel={cheatText}
+          onReset={this.handleReset}
+          showReset={nPlaced >= 1 || failCount >= 2 || complete}
+          onCheck={this.handleCheckAnswers}
+          checkDisabled={assignedCount < 1}
+        />
       </div>
     );
   };
