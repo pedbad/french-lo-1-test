@@ -18,7 +18,7 @@ import React from "react";
 import {
   resolveAsset,
 } from "@/utils/assets";
-import { stopAllAudioPlayback } from "@/utils/audioPlayback";
+import AudioManager from "@/audio/AudioManager";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
 // Shared runtime for typed-response table exercises.
@@ -188,7 +188,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
   };
 
   handleReset = () => {
-    stopAllAudioPlayback();
+    AudioManager.stopAll();
     this.setState({
       checkedResults: {},
       diffResults: {},

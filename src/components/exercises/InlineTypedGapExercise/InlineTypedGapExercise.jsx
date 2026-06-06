@@ -9,7 +9,7 @@ import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
-import { stopAllAudioPlayback } from "@/utils/audioPlayback";
+import AudioManager from "@/audio/AudioManager";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
 const INLINE_TYPED_INPUT_BASE_CLASS =
@@ -201,7 +201,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
   };
 
   handleReset = () => {
-    stopAllAudioPlayback();
+    AudioManager.stopAll();
     this.setState({
       activeRowIndex: -1,
       checkedResults: {},

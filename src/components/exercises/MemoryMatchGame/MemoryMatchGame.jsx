@@ -9,6 +9,7 @@ import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimatio
 import DOMPurify from "dompurify";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
+import AudioManager from "@/audio/AudioManager";
 import { MEMORY_CARD_TRANSITION_TIME_MS } from "@/constants/layout";
 
 const toMemoryCardSlug = (value = "") =>
@@ -141,7 +142,6 @@ export class MemoryMatchGame extends React.PureComponent {
 
         if (firstCard.match === secondCard.content) {
           const { audio: soundFile } = { ...firstCard, ...secondCard };
-          const sound = new Audio(resolveAsset(`${soundFile}`));
           nPairs++;
           let timeReport = '';
           let finishedUp = false;
@@ -165,11 +165,8 @@ export class MemoryMatchGame extends React.PureComponent {
               });
             }
           };
-          sound.onended = () => finishUp();
+          AudioManager.play(resolveAsset(`${soundFile}`), { onEnded: finishUp });
           setTimeout(finishUp, 2000); // Fallback as Chrome doesn't fire onended event :-()
-
-          // console.log("soundFile", soundFile);
-          sound.play();
           matched.push(firstCard.id, secondCard.id);
           this.setState({
             matched: matched,

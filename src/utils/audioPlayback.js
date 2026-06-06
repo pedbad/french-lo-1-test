@@ -1,20 +1,15 @@
 import { resolveAsset } from './assets';
 import AudioManager from '../audio/AudioManager';
 
+/**
+ * Play a one-off audio link (row/vocabulary clicks).
+ *
+ * Routes through the AudioManager singleton so it participates in the global
+ * single-active-audio policy: starting this clip pauses any other playing
+ * audio (other clips, sequence controller, registered <audio> elements).
+ *
+ * @param {string} soundFile - asset path resolved via resolveAsset()
+ */
 export const playAudioLink = (soundFile) => {
   AudioManager.play(resolveAsset(soundFile));
-};
-
-// ---------------------------------------------------------------------------
-// Deprecated shims — kept so any missed callers surface via console.warn.
-// Remove once AudioClip and SequenceAudioController migrations are confirmed.
-// ---------------------------------------------------------------------------
-
-export const trackFloatingAudio = (_audio) => {
-  console.warn('trackFloatingAudio is deprecated — use AudioManager directly');
-};
-
-export const stopAllAudioPlayback = () => {
-  console.warn('stopAllAudioPlayback is deprecated — use AudioManager.stopAll()');
-  AudioManager.stopAll();
 };

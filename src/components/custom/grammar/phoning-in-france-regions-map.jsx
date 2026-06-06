@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioClip";
 import franceTelephoneMapSvg from "@/assets/lo9/france-telephone-area-codes.svg?raw";
 import { resolveAsset } from "@/utils/assets";
-import { stopAllAudioPlayback, trackFloatingAudio } from "@/utils/audioPlayback";
+import AudioManager from "@/audio/AudioManager";
 
 const REGION_DETAILS = {
   "01": {
@@ -199,10 +199,7 @@ function applyRegionHighlight(svgRoot, activeCode) {
 }
 
 function playRegionAudio(soundFile) {
-  const audio = new Audio(resolveAsset(soundFile));
-  trackFloatingAudio(audio);
-  stopAllAudioPlayback(audio);
-  audio.play().catch(() => {});
+  AudioManager.play(resolveAsset(soundFile));
 }
 
 export function PhoningInFranceRegionsMap() {
