@@ -4386,7 +4386,15 @@ hr {
   }
 }
 #content .landing-page-title {
+  margin: 0;
+  font-family: var(--font-heading-bold);
+  font-weight: 700;
+  line-height: var(--line-height-2xl);
   color: var(--hero-title-color);
+  /* Match the LO-page .hero-title size so the landing header reads identically.
+     Banner-only props (text-shadow, right align, padding) intentionally omitted —
+     the landing header is a flat left-aligned slim bar, not an over-image banner. */
+  font-size: clamp(var(--font-size-3xl), 7.25vw, var(--font-size-3xl) * 1.4375);
 }
 #content .intro h2 {
   margin-bottom: 2rem;

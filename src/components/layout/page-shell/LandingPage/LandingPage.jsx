@@ -111,7 +111,7 @@ export function LandingPage({ learningObjects = [] }) {
           {/* Landing header — uses its own classes, not #hero / .hero-title,
 									    to avoid fighting the LO-page hero CSS rules. */}
           <header className="border-b border-border/50 px-6 py-6 sm:px-10 sm:py-8">
-            <h1 className="font-heading text-4xl font-bold tracking-tight text-stroke-neutral sm:text-5xl">
+            <h1 className="landing-page-title">
 									French&nbsp;Basic
             </h1>
             <div className="mt-4 border-l-2 border-[var(--brand-primary)]/30 pl-6">
