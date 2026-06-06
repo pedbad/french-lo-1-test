@@ -4,7 +4,7 @@ import { AudioClip, IconButton } from "@/components/media";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { resolveAsset } from "@/utils/assets";
 import DOMPurify from "dompurify";
-import { CircleCheck, CircleX } from "lucide-react";
+import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import React from "react";
 
 export class RadioQuiz extends React.Component {
@@ -228,7 +228,7 @@ export class RadioQuiz extends React.Component {
                 className={`inline-flex h-10 w-10 shrink-0 items-center justify-center ${rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]"}`}
                 style={{ visibility: rowHasResult ? "visible" : "hidden" }}
               >
-                {rowIsCorrect ? <CircleCheck className="h-10 w-10" /> : <CircleX className="h-10 w-10" />}
+                {<ResultIcon isCorrect={rowIsCorrect} />}
               </span>
             </div>
           </div>

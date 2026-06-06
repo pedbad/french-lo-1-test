@@ -4,7 +4,7 @@ import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { AudioClip, IconButton } from "@/components/media";
 import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioClip";
 import DOMPurify from "dompurify";
-import { CircleCheck, CircleX } from "lucide-react";
+import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
@@ -480,11 +480,7 @@ export class InlineChoiceGroup extends React.PureComponent {
                 aria-hidden="true"
                 className={`inline-flex shrink-0 items-center justify-center pt-0.5 ${rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]"}`}
               >
-                {rowIsCorrect ? (
-                  <CircleCheck className="h-10 w-10" />
-                ) : (
-                  <CircleX className="h-10 w-10" />
-                )}
+                {<ResultIcon isCorrect={rowIsCorrect} />}
               </span>
             ) : null}
           </div>

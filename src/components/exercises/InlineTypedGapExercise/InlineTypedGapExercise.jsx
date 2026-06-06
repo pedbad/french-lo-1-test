@@ -4,7 +4,7 @@ import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { AudioClip, CircularAudioProgressAnimatedSpeakerDisplay, IconButton } from "@/components/media";
 import { Input } from "@/components/ui/input";
 import DOMPurify from "dompurify";
-import { CircleCheck, CircleX } from "lucide-react";
+import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
@@ -454,7 +454,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
                     rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"
                   }`}
                 >
-                  {rowIsCorrect ? <CircleCheck className="h-10 w-10" /> : <CircleX className="h-10 w-10" />}
+                  {<ResultIcon isCorrect={rowIsCorrect} />}
                 </span>
               </div>
             </div>

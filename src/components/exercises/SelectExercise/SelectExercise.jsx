@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import DOMPurify from "dompurify";
-import { CircleCheck, CircleX } from "lucide-react";
+import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import React from "react";
 import { shuffleArray } from "@/utils/collections";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
@@ -526,11 +526,7 @@ export class SelectExercise extends React.PureComponent {
                   className={`col-start-3 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
                 >
                   {rowBlankIndices.length > 0 ? (
-                    rowIsCorrect ? (
-                      <CircleCheck className="h-10 w-10" />
-                    ) : (
-                      <CircleX className="h-10 w-10" />
-                    )
+                    <ResultIcon isCorrect={rowIsCorrect} />
                   ) : null}
                 </span>
               )}
@@ -689,11 +685,7 @@ export class SelectExercise extends React.PureComponent {
                 aria-hidden="true"
                 className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
               >
-                {rowIsCorrect ? (
-                  <CircleCheck className="h-10 w-10" />
-                ) : (
-                  <CircleX className="h-10 w-10" />
-                )}
+                {<ResultIcon isCorrect={rowIsCorrect} />}
               </span>
             ) : null}
           </div>

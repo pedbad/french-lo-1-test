@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
-import { CircleCheck, CircleX } from "lucide-react";
+import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import React from "react";
 
 const LINE_MATCH_IMAGE_TILE_CLASS = [
@@ -665,11 +665,7 @@ export class LineMatch extends React.PureComponent {
                           aria-hidden="true"
                           className={`inline-flex min-h-10 w-10 shrink-0 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
                         >
-                          {rowIsCorrect ? (
-                            <CircleCheck className="h-8 w-8" />
-                          ) : (
-                            <CircleX className="h-8 w-8" />
-                          )}
+                          {<ResultIcon isCorrect={rowIsCorrect} size="sm" />}
                         </span>
                       </div>
                     </li>

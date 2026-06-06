@@ -12,7 +12,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import DOMPurify from "dompurify";
-import { CircleCheck, CircleX, Mars, Venus } from "lucide-react";
+import { Mars, Venus } from "lucide-react";
+import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import React from "react";
 import {
   resolveAsset,
@@ -420,7 +421,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
                   aria-hidden="true"
                   className={`inline-flex h-10 w-10 shrink-0 items-center justify-center transition-opacity duration-200 ${rowHasResult ? "opacity-100" : "opacity-0"} ${rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]"}`}
                 >
-                  {rowIsCorrect ? <CircleCheck className="h-9 w-9" /> : <CircleX className="h-9 w-9" />}
+                  {<ResultIcon isCorrect={rowIsCorrect} size="md" />}
                 </span>
               </div>
               <div className="min-h-8">
