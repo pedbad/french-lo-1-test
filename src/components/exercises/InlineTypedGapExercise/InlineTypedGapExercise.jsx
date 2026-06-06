@@ -7,6 +7,7 @@ import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
+import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { stopAllAudioPlayback } from "@/utils/audioPlayback";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
@@ -55,20 +56,6 @@ export class InlineTypedGapExercise extends React.PureComponent {
     }
   }
 
-  decodeHtmlEntities = (value = "") => {
-    const text = `${value}`;
-    if (!text.includes("&")) {
-      return text;
-    }
-
-    if (typeof document === "undefined") {
-      return text.replaceAll("&apos;", "'");
-    }
-
-    const textarea = document.createElement("textarea");
-    textarea.innerHTML = text;
-    return textarea.value;
-  };
 
   normalizeAnswer = (value = "") => {
     return `${value}`
@@ -94,11 +81,11 @@ export class InlineTypedGapExercise extends React.PureComponent {
         segments.push({
           key: `text-${blankIndex}-${lastIndex}`,
           type: "text",
-          value: this.decodeHtmlEntities(text.slice(lastIndex, match.index)),
+          value: decodeHtmlEntities(text.slice(lastIndex, match.index)),
         });
       }
 
-      const rawToken = this.decodeHtmlEntities(match[1].trim());
+      const rawToken = decodeHtmlEntities(match[1].trim());
       const [rawExpected, rawPlaceholder] = rawToken.split("::");
       const expected = (rawExpected || "").trim();
       const placeholder = (rawPlaceholder || "").trim();
@@ -122,7 +109,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
       segments.push({
         key: `tail-${blankIndex}-${lastIndex}`,
         type: "text",
-        value: this.decodeHtmlEntities(text.slice(lastIndex)),
+        value: decodeHtmlEntities(text.slice(lastIndex)),
       });
     }
 
@@ -441,7 +428,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
         ? (this.state.masterPlayState === "playing" ? "playing" : "stopped")
         : "stopped";
       const prog = this.state.rowProgress[i] || { currentTime: 0, duration: 0 };
-      const promptText = this.decodeHtmlEntities(item?.prompt || "");
+      const promptText = decodeHtmlEntities(item?.prompt || "");
 
       rows.push(
         <div

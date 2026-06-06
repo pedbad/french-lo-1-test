@@ -14,6 +14,7 @@ import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { shuffleArray } from "@/utils/collections";
+import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { resolveAsset } from "@/utils/assets";
 
 const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-sm md:text-base";
@@ -76,23 +77,9 @@ export class SelectExercise extends React.PureComponent {
     }
   }
 
-  decodeHtmlEntities = (value = "") => {
-    const text = `${value}`;
-    if (!text.includes("&")) {
-      return text;
-    }
-
-    if (typeof document === "undefined") {
-      return text.replaceAll("&apos;", "'");
-    }
-
-    const textarea = document.createElement("textarea");
-    textarea.innerHTML = text;
-    return textarea.value;
-  };
 
   getSelectOptionTextLength = (value = "") => {
-    const normalized = this.decodeHtmlEntities(`${value}`)
+    const normalized = decodeHtmlEntities(`${value}`)
       .replace(/<[^>]+>/g, " ")
       .replace(/\s+/g, " ")
       .trim();
@@ -173,14 +160,14 @@ export class SelectExercise extends React.PureComponent {
         segments.push({
           key: `text-${blankIndex}-${lastIndex}`,
           type: "text",
-          value: this.decodeHtmlEntities(text.slice(lastIndex, match.index)),
+          value: decodeHtmlEntities(text.slice(lastIndex, match.index)),
         });
       }
 
       const options = match[1].split("|").map((opt) => opt.trim());
       const winner = options.findIndex((opt) => opt.startsWith("*"));
       const cleanOptions = options.map((opt) =>
-        this.decodeHtmlEntities(opt.startsWith("*") ? opt.substring(1) : opt)
+        decodeHtmlEntities(opt.startsWith("*") ? opt.substring(1) : opt)
       );
 
       this.blanksMeta[blankIndex] = {
@@ -202,7 +189,7 @@ export class SelectExercise extends React.PureComponent {
       segments.push({
         key: `tail-${blankIndex}-${lastIndex}`,
         type: "text",
-        value: this.decodeHtmlEntities(text.slice(lastIndex)),
+        value: decodeHtmlEntities(text.slice(lastIndex)),
       });
     }
 

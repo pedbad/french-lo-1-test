@@ -8,6 +8,7 @@ import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
+import { decodeHtmlEntities } from "@/utils/htmlUtils";
 
 const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-sm md:text-base";
 
@@ -35,20 +36,6 @@ export class InlineChoiceGroup extends React.PureComponent {
     this.sequenceRef = React.createRef();
   }
 
-  decodeHtmlEntities = (value = "") => {
-    const text = `${value}`;
-    if (!text.includes("&")) {
-      return text;
-    }
-
-    if (typeof document === "undefined") {
-      return text.replaceAll("&apos;", "'");
-    }
-
-    const textarea = document.createElement("textarea");
-    textarea.innerHTML = text;
-    return textarea.value;
-  };
 
   componentDidUpdate(prevProps) {
     if (prevProps.config !== this.props.config) {
@@ -107,14 +94,14 @@ export class InlineChoiceGroup extends React.PureComponent {
         segments.push({
           key: `text-${blankIndex}-${lastIndex}`,
           type: "text",
-          value: this.decodeHtmlEntities(text.slice(lastIndex, match.index)),
+          value: decodeHtmlEntities(text.slice(lastIndex, match.index)),
         });
       }
 
       const options = match[1].split("|").map((opt) => opt.trim());
       const winner = options.findIndex((opt) => opt.startsWith("*"));
       const cleanOptions = options.map((opt) =>
-        this.decodeHtmlEntities(opt.startsWith("*") ? opt.substring(1) : opt)
+        decodeHtmlEntities(opt.startsWith("*") ? opt.substring(1) : opt)
       );
 
       this.blanksMeta[blankIndex] = {
@@ -136,7 +123,7 @@ export class InlineChoiceGroup extends React.PureComponent {
       segments.push({
         key: `tail-${blankIndex}-${lastIndex}`,
         type: "text",
-        value: this.decodeHtmlEntities(text.slice(lastIndex)),
+        value: decodeHtmlEntities(text.slice(lastIndex)),
       });
     }
 
