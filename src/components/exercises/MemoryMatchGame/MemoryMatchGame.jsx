@@ -275,7 +275,7 @@ export class MemoryMatchGame extends React.PureComponent {
             <IconButton
               ariaLabel="Show answer"
               className={exerciseActionButtonVariants({
-                progressive: false,
+                progressive: true,
                 tone: "warn",
                 visible: (nTries - nPairs) >= 2,
               })}
