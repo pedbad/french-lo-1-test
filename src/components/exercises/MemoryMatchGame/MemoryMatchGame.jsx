@@ -270,35 +270,13 @@ export class MemoryMatchGame extends React.PureComponent {
         <div className="exercise-divider mt-6" data-orientation="horizontal" role="none" />
         <ProgressDots correct={nPairs} total={cards.length / 2} />
         <div className="exercise-divider mt-4" data-orientation="horizontal" role="none" />
-        <div className="exercise-help exercise-help-wrap">
-          <div className="exercise-help-actions">
-            <IconButton
-              ariaLabel="Show answer"
-              className={exerciseActionButtonVariants({
-                progressive: true,
-                tone: "warn",
-                visible: (nTries - nPairs) >= 2,
-              })}
-              onClick={this.handleShowAnswers}
-              theme={`eye`}
-            >
-              <span className="exercise-icon-button-label">Show answer</span>
-            </IconButton>
-
-            <IconButton
-              ariaLabel="Reset"
-              className={exerciseActionButtonVariants({
-                progressive: false,
-                tone: "neutral",
-                visible: nTries >= 1,
-              })}
-              onClick={this.handleReset}
-              theme={`reset`}
-            >
-              <span className="exercise-icon-button-label">Reset</span>
-            </IconButton>
-          </div>
-        </div>
+        <ExerciseFooter
+          onReset={this.handleReset}
+          onShowAnswers={this.handleShowAnswers}
+          showAnswers={(nTries - nPairs) >= 2}
+          showAnswersLabel="Show answer"
+          showReset={nTries >= 1}
+        />
       </div>
     );
   };

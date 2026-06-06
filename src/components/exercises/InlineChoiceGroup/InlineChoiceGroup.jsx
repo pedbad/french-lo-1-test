@@ -588,49 +588,14 @@ export class InlineChoiceGroup extends React.PureComponent {
         <ProgressDots correct={nCorrect} total={this.nToSolve} />
         <div className="exercise-divider" data-orientation="horizontal" role="none" />
 
-        <div className="exercise-help exercise-help-wrap">
-          <div className="exercise-help-actions">
-            <IconButton
-              ariaLabel={cheatText}
-              className={exerciseActionButtonVariants({
-                progressive: true,
-                tone: "warn",
-                visible: hasAnyIncorrect,
-              })}
-              onClick={this.handleShowAnswers}
-              theme="eye"
-            >
-              <span className="exercise-icon-button-label">{cheatText}</span>
-            </IconButton>
-
-            <IconButton
-              ariaLabel="Reset"
-              className={exerciseActionButtonVariants({
-                progressive: true,
-                tone: "neutral",
-                visible: hasSelections || this.state.hasChecked,
-              })}
-              onClick={this.handleReset}
-              theme="reset"
-            >
-              <span className="exercise-icon-button-label">Reset</span>
-            </IconButton>
-
-            <IconButton
-              ariaLabel="Check answers"
-              className={exerciseActionButtonVariants({
-                align: "right",
-                progressive: false,
-                tone: "primary",
-                visible: true,
-              })}
-              onClick={this.handleCheckAnswers}
-              theme="check"
-            >
-              <span className="exercise-icon-button-label">Check answers</span>
-            </IconButton>
-          </div>
-        </div>
+        <ExerciseFooter
+          onCheck={this.handleCheckAnswers}
+          onReset={this.handleReset}
+          onShowAnswers={this.handleShowAnswers}
+          showAnswers={hasAnyIncorrect}
+          showAnswersLabel={cheatText}
+          showReset={hasSelections || this.state.hasChecked}
+        />
 
         {footnote ? <p className="footnote">{footnote}</p> : null}
         {footnoteHTML ? (

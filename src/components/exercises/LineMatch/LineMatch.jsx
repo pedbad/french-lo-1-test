@@ -801,50 +801,15 @@ export class LineMatch extends React.PureComponent {
           <ProgressDots correct={nCorrect} total={totalItems} />
           <div className="exercise-divider" data-orientation="horizontal" role="none" />
 
-          <div className="exercise-help exercise-help-wrap">
-            <div className="exercise-help-actions">
-              <IconButton
-                ariaLabel={cheatText}
-                className={exerciseActionButtonVariants({
-                  progressive: true,
-                  tone: "warn",
-                  visible: hasAnyIncorrect,
-                })}
-                onClick={this.handleShowAnswers}
-                theme="eye"
-              >
-                <span className="exercise-icon-button-label">{cheatText}</span>
-              </IconButton>
-
-              <IconButton
-                ariaLabel="Reset"
-                className={exerciseActionButtonVariants({
-                  progressive: true,
-                  tone: "neutral",
-                  visible: showReset,
-                })}
-                onClick={this.handleReset}
-                theme="reset"
-              >
-                <span className="exercise-icon-button-label">Reset</span>
-              </IconButton>
-
-              <IconButton
-                ariaLabel="Check answers"
-                className={exerciseActionButtonVariants({
-                  align: "right",
-                  progressive: false,
-                  tone: "primary",
-                  visible: true,
-                })}
-                disabled={!canCheck}
-                onClick={this.handleCheckAnswers}
-                theme="check"
-              >
-                <span className="exercise-icon-button-label">Check answers</span>
-              </IconButton>
-            </div>
-          </div>
+          <ExerciseFooter
+            checkDisabled={!canCheck}
+            onCheck={this.handleCheckAnswers}
+            onReset={this.handleReset}
+            onShowAnswers={this.handleShowAnswers}
+            showAnswers={hasAnyIncorrect}
+            showAnswersLabel={cheatText}
+            showReset={showReset}
+          />
         </div>
       </div>
     );
