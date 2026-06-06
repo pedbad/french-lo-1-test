@@ -6,6 +6,7 @@ import { AudioClip, IconButton } from "@/components/media";
 import React from "react";
 import { SortableWordCard } from "@/components/exercises/SortableWordCard/SortableWordCard";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
+import { shuffleArray } from "@/utils/collections";
 
 
 export class PhraseReorderExercise extends React.Component {
@@ -147,17 +148,12 @@ export class PhraseReorderExercise extends React.Component {
 			config.shuffleOnLoad === undefined ? true : !!config.shuffleOnLoad;
 
     if (shouldShuffle) {
-      this.shuffleArrayInPlace(lang2Items);
+      shuffleArray(lang2Items);
     }
 
     return lang2Items;
   }
 
-  shuffleArrayInPlace(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
   }
 
   /* ----------------------------- Drag & drop (lang2 only) ----------------------------- */
@@ -259,7 +255,7 @@ export class PhraseReorderExercise extends React.Component {
       };
     });
 
-    this.shuffleArrayInPlace(lang2Items);
+    shuffleArray(lang2Items);
 
     this.setState({
       checkedCorrectCount: 0,

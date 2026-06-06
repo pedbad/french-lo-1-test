@@ -13,6 +13,7 @@ import {
 import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
+import { shuffleArray } from "@/utils/collections";
 import { resolveAsset } from "@/utils/assets";
 
 const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-sm md:text-base";
@@ -123,23 +124,13 @@ export class SelectExercise extends React.PureComponent {
     };
   };
 
-  shuffleArray = (values) => {
-    const shuffled = [...values];
-    for (let i = shuffled.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = shuffled[i];
-      shuffled[i] = shuffled[j];
-      shuffled[j] = temp;
-    }
-    return shuffled;
-  };
 
   shuffleItemText = (text = "") => {
     if (!text.includes("[")) return text;
 
     return text.replace(/\[([^\]]+)\]/g, (_match, group) => {
       const options = group.split("|").map((option) => option.trim());
-      const shuffled = this.shuffleArray(options);
+      const shuffled = shuffleArray(options);
       return `[${shuffled.join("|")}]`;
     });
   };
@@ -160,7 +151,7 @@ export class SelectExercise extends React.PureComponent {
     const shouldShuffleItems = Boolean(config?.shuffleItems);
     const sampleSize = Number.isInteger(config?.sampleSize) ? config.sampleSize : null;
     const orderedItems = shouldShuffleItems
-      ? this.shuffleArray(withShuffledChoices)
+      ? shuffleArray(withShuffledChoices)
       : withShuffledChoices;
 
     if (sampleSize && sampleSize > 0) {

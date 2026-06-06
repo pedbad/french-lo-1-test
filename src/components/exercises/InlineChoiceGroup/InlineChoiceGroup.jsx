@@ -7,6 +7,7 @@ import DOMPurify from "dompurify";
 import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
+import { shuffleArray } from "@/utils/collections";
 
 const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-sm md:text-base";
 
@@ -70,16 +71,6 @@ export class InlineChoiceGroup extends React.PureComponent {
     }
   }
 
-  shuffleArray = (items = []) => {
-    const shuffled = [...items];
-    for (let i = shuffled.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = shuffled[i];
-      shuffled[i] = shuffled[j];
-      shuffled[j] = temp;
-    }
-    return shuffled;
-  };
 
   prepareExerciseItems = (items = [], options = {}) => {
     const {
@@ -89,7 +80,7 @@ export class InlineChoiceGroup extends React.PureComponent {
 
     let prepared = [...items];
     if (shuffleItems) {
-      prepared = this.shuffleArray(prepared);
+      prepared = shuffleArray(prepared);
     }
 
     const parsedSampleSize = Number.parseInt(sampleSize, 10);
