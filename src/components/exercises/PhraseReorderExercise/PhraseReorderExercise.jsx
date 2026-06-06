@@ -154,7 +154,6 @@ export class PhraseReorderExercise extends React.Component {
     return lang2Items;
   }
 
-  }
 
   /* ----------------------------- Drag & drop (lang2 only) ----------------------------- */
 
