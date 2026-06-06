@@ -1,4 +1,3 @@
-import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
@@ -9,6 +8,7 @@ import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
+import { parseInputBlank, parseSentence } from "@/utils/exerciseParsing";
 import AudioManager from "@/audio/AudioManager";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
@@ -70,52 +70,6 @@ export class InlineTypedGapExercise extends React.PureComponent {
     return this.normalizeAnswer(userValue) === this.normalizeAnswer(expected);
   };
 
-  parseSentence = (text, startBlankIndex) => {
-    const segments = [];
-    const regex = /\[([^\]]+)\]/g;
-    let blankIndex = startBlankIndex;
-    let lastIndex = 0;
-    let match;
-
-    while ((match = regex.exec(text)) !== null) {
-      if (match.index > lastIndex) {
-        segments.push({
-          key: `text-${blankIndex}-${lastIndex}`,
-          type: "text",
-          value: decodeHtmlEntities(text.slice(lastIndex, match.index)),
-        });
-      }
-
-      const rawToken = decodeHtmlEntities(match[1].trim());
-      const [rawExpected, rawPlaceholder] = rawToken.split("::");
-      const expected = (rawExpected || "").trim();
-      const placeholder = (rawPlaceholder || "").trim();
-      this.blanksMeta[blankIndex] = {
-        expected,
-        placeholder,
-        widthCh: Math.max(expected.length, 6) + 2,
-      };
-
-      segments.push({
-        blankIndex,
-        key: `input-${blankIndex}`,
-        type: "input",
-      });
-
-      blankIndex += 1;
-      lastIndex = regex.lastIndex;
-    }
-
-    if (lastIndex < text.length) {
-      segments.push({
-        key: `tail-${blankIndex}-${lastIndex}`,
-        type: "text",
-        value: decodeHtmlEntities(text.slice(lastIndex)),
-      });
-    }
-
-    return { nextBlankIndex: blankIndex, segments };
-  };
 
   handleInputChange = (blankIndex, userValue) => {
     this.setState((prevState) => {
@@ -402,7 +356,11 @@ export class InlineTypedGapExercise extends React.PureComponent {
       const phraseText = item?.text || "";
       if (!phraseText) continue;
 
-      const { nextBlankIndex, segments } = this.parseSentence(phraseText, blankCursor);
+      const { nextBlankIndex, segments } = parseSentence(phraseText, {
+        startBlankIndex: blankCursor,
+        blanksMeta: this.blanksMeta,
+        parseBlank: parseInputBlank,
+      });
       const rowBlankIndices = segments
         .filter((segment) => segment.type === "input")
         .map((segment) => segment.blankIndex);

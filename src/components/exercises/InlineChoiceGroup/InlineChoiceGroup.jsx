@@ -1,4 +1,3 @@
-import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
@@ -9,7 +8,7 @@ import { CircleCheck, CircleX } from "lucide-react";
 import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
-import { decodeHtmlEntities } from "@/utils/htmlUtils";
+import { parseChoiceBlank, parseSentence } from "@/utils/exerciseParsing";
 
 const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-sm md:text-base";
 
@@ -83,53 +82,6 @@ export class InlineChoiceGroup extends React.PureComponent {
     return prepared;
   };
 
-  parseSentence = (text, startBlankIndex) => {
-    const segments = [];
-    const regex = /\[([^\]]+)\]/g;
-    let blankIndex = startBlankIndex;
-    let lastIndex = 0;
-    let match;
-
-    while ((match = regex.exec(text)) !== null) {
-      if (match.index > lastIndex) {
-        segments.push({
-          key: `text-${blankIndex}-${lastIndex}`,
-          type: "text",
-          value: decodeHtmlEntities(text.slice(lastIndex, match.index)),
-        });
-      }
-
-      const options = match[1].split("|").map((opt) => opt.trim());
-      const winner = options.findIndex((opt) => opt.startsWith("*"));
-      const cleanOptions = options.map((opt) =>
-        decodeHtmlEntities(opt.startsWith("*") ? opt.substring(1) : opt)
-      );
-
-      this.blanksMeta[blankIndex] = {
-        options: cleanOptions,
-        winner,
-      };
-
-      segments.push({
-        blankIndex,
-        key: `choice-${blankIndex}`,
-        type: "choice",
-      });
-
-      blankIndex += 1;
-      lastIndex = regex.lastIndex;
-    }
-
-    if (lastIndex < text.length) {
-      segments.push({
-        key: `tail-${blankIndex}-${lastIndex}`,
-        type: "text",
-        value: decodeHtmlEntities(text.slice(lastIndex)),
-      });
-    }
-
-    return { nextBlankIndex: blankIndex, segments };
-  };
 
   getCorrectCountFromValues = (values) => {
     let correct = 0;
@@ -452,7 +404,11 @@ export class InlineChoiceGroup extends React.PureComponent {
         continue;
       }
 
-      const { nextBlankIndex, segments } = this.parseSentence(phraseText, blankCursor);
+      const { nextBlankIndex, segments } = parseSentence(phraseText, {
+        startBlankIndex: blankCursor,
+        blanksMeta: this.blanksMeta,
+        parseBlank: parseChoiceBlank,
+      });
       blankCursor = nextBlankIndex;
       const rowBlankIndices = segments
         .filter((segment) => segment.type === "choice")
