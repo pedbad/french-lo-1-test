@@ -112,6 +112,8 @@ export class InlineTypedGapExercise extends React.PureComponent {
 
     for (let i = 0; i < this.nToSolve; i += 1) {
       const userValue = values[i] || "";
+      // Only assess blanks the student actually filled in; leave empties unmarked.
+      if (userValue.trim() === "") continue;
       const expected = this.blanksMeta[i]?.expected || "";
       checkedResults[i] = this.isAnswerCorrect(userValue, expected);
       diffResults[i] = highlightTextDiff(
