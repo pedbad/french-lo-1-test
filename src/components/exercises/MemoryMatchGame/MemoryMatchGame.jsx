@@ -233,6 +233,7 @@ export class MemoryMatchGame extends React.PureComponent {
       // instructionsTextHTML,
       matched,
       nPairs,
+      nTries,
     } = this.state;
     const {
       informationText,
@@ -276,7 +277,7 @@ export class MemoryMatchGame extends React.PureComponent {
               className={exerciseActionButtonVariants({
                 progressive: false,
                 tone: "warn",
-                visible: true,
+                visible: (nTries - nPairs) >= 2,
               })}
               onClick={this.handleShowAnswers}
               theme={`eye`}
@@ -289,7 +290,7 @@ export class MemoryMatchGame extends React.PureComponent {
               className={exerciseActionButtonVariants({
                 progressive: false,
                 tone: "neutral",
-                visible: true,
+                visible: nTries >= 1,
               })}
               onClick={this.handleReset}
               theme={`reset`}
