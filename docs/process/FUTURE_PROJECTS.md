@@ -206,7 +206,7 @@ Config-driven content apps (a JSON schema naming components to render) must map 
 
 **Defined prop contract for the registry:** decide up front — either (A) every registered component accepts a uniform `{ value, ...context }` shape and reads what it needs, or (B) the registry stores `{ Component, mapProps }` adapters per type. Prefer A where components already share a shape; B for outliers.
 
-**If refactoring an existing switch:** use the strangler pattern — add the registry alongside the switch, migrate one type per commit (registry entry + delete that `case`), verify each step against a visual baseline (Playwright screenshots, since there are no unit tests), then delete the empty switch last. App stays working after every commit.
+**If refactoring an existing switch:** use the strangler pattern — add the registry alongside the switch, migrate one type per commit (registry entry + delete that `case`), verify each step against a visual baseline (Playwright screenshots) and unit tests where logic is extractable, then delete the empty switch last. App stays working after every commit.
 
 ### CSS Cascade Layers (Carry Forward)
 

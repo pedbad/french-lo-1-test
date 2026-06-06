@@ -1,6 +1,7 @@
 # AudioManager Refactor Plan
 
-> **Status:** Phases 1–3 complete (`cc70f0f`). Phases 4–5 (tests + QA) pending.
+> **Status:** Phases 1–4 complete (extraction `cc70f0f`, tests `cc0674a`, all callers
+> migrated + deprecated shims deleted `dee1696`). Phase 5 (manual QA pass) pending.
 
 ## Current State
 
@@ -243,13 +244,13 @@ Add ~1 day if converting AudioClip + SequenceAudioController to functional compo
 - [x] Verify no `new Audio(...).play()` calls remain outside AudioManager
 
 ### Phase 4 — Tests
-- [ ] Exclusive mode test (new play stops previous)
-- [ ] `stopAll` test (DOM + floating)
-- [ ] `registerElement` / `unregisterElement` tests
-- [ ] `subscribe` / unsubscribe lifecycle test
-- [ ] Rapid play spam test (no orphans)
-- [ ] Unmount cleanup test
-- [ ] Sequence `onEnded` handoff test
+- [x] Exclusive mode test (new play stops previous)
+- [x] `stopAll` test (DOM + floating)
+- [x] `registerElement` / `unregisterElement` tests
+- [x] `subscribe` / unsubscribe lifecycle test
+- [x] Rapid play spam test (no orphans)
+- [x] Unmount cleanup test
+- [x] Sequence `onEnded` handoff test
 
 ### Phase 5 — QA
 - [ ] LO1 pronunciation clips work
@@ -262,6 +263,6 @@ Add ~1 day if converting AudioClip + SequenceAudioController to functional compo
 - [ ] `yarn prepush:local` green
 
 ### Final
-- [ ] Remove deprecated shims (`trackFloatingAudio`, `stopAllAudioPlayback`) once all callers confirmed migrated
+- [x] Remove deprecated shims (`trackFloatingAudio`, `stopAllAudioPlayback`) — done `dee1696`, zero callers remained
 - [ ] Update `AUDIO_TODO.md` to mark refactor complete
 - [x] Commit `cc70f0f` — refactor: introduce AudioManager for centralised playback

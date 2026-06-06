@@ -84,9 +84,10 @@ stabilisation:
 - `trackFloatingAudio(audio)` — tracked non-DOM `new Audio(...)` instances via `window.__floatingAudios`.
 - `stopAllAudioPlayback(exceptAudio)` — paused all active audio, except the one about to play.
 
-**This approach has been superseded by `AudioManager` (see below).** The helpers remain as
-deprecated shims that emit `console.warn` so any missed call sites surface at runtime. They will
-be deleted once QA confirms no remaining callers.
+**This approach has been fully superseded by `AudioManager`.** The deprecated shims
+(`trackFloatingAudio`, `stopAllAudioPlayback`) have been **removed** (`dee1696`) — every
+playback path now routes through `AudioManager`. `audioPlayback.js` now exports only
+`playAudioLink`, which delegates to `AudioManager.play`.
 
 ## AudioManager Refactor — COMPLETE ✓
 
@@ -104,9 +105,9 @@ and remaining QA checklist (Phases 4–5).
 
 ### Remaining work
 
-- [ ] Phase 4: Unit tests (`src/audio/AudioManager.test.js`) — see refactor doc checklist.
+- [x] Phase 4: Unit tests (`src/audio/AudioManager.test.js`) — 15 tests, `cc0674a`.
 - [ ] Phase 5: Manual QA pass across LO1, LO6 — see refactor doc checklist.
-- [ ] Remove deprecated shims (`trackFloatingAudio`, `stopAllAudioPlayback`) after QA sign-off.
+- [x] Remove deprecated shims (`trackFloatingAudio`, `stopAllAudioPlayback`) — done `dee1696`.
 
 ## Data Contract Note: Phrase Rows With Audio Prefix
 
