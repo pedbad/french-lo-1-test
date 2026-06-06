@@ -9,6 +9,7 @@ import React from "react";
 import { resolveAsset } from "@/utils/assets";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { parseInputBlank, parseSentence } from "@/utils/exerciseParsing";
+import { normalizeAnswer } from "@/utils/answerNormalize";
 import AudioManager from "@/audio/AudioManager";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
@@ -58,16 +59,8 @@ export class InlineTypedGapExercise extends React.PureComponent {
   }
 
 
-  normalizeAnswer = (value = "") => {
-    return `${value}`
-      .normalize("NFC")
-      .replace(/[’`´ʻʼ]/g, "'")
-      .replace(/\s+/g, " ")
-      .trim();
-  };
-
   isAnswerCorrect = (userValue = "", expected = "") => {
-    return this.normalizeAnswer(userValue) === this.normalizeAnswer(expected);
+    return normalizeAnswer(userValue) === normalizeAnswer(expected);
   };
 
 
@@ -122,8 +115,8 @@ export class InlineTypedGapExercise extends React.PureComponent {
       const expected = this.blanksMeta[i]?.expected || "";
       checkedResults[i] = this.isAnswerCorrect(userValue, expected);
       diffResults[i] = highlightTextDiff(
-        this.normalizeAnswer(userValue),
-        this.normalizeAnswer(expected),
+        normalizeAnswer(userValue),
+        normalizeAnswer(expected),
         () => {},
         false,
       );

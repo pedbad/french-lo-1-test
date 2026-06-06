@@ -18,6 +18,7 @@ import {
   resolveAsset,
 } from "@/utils/assets";
 import AudioManager from "@/audio/AudioManager";
+import { normalizeForDictation } from "@/utils/answerNormalize";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
 // Shared runtime for typed-response table exercises.
@@ -61,22 +62,12 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
     return match[1].trim();
   };
 
-  normalizeForDictationCompare = (text = "") => {
-    return `${text}`
-      .normalize("NFC")
-      .replace(/[’`´ʻʼ]/g, "'")
-      .replace(/[.,!?;:…]/g, " ")
-      .replace(/[«»“”„"]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  };
-
   isAnswerCorrect = (userValue = "", expected = "") => {
     const { comparisonOptions = {} } = this.props;
     const { comparisonMode = "strict" } = comparisonOptions;
 
     if (comparisonMode === "dictation") {
-      return this.normalizeForDictationCompare(userValue) === this.normalizeForDictationCompare(expected);
+      return normalizeForDictation(userValue) === normalizeForDictation(expected);
     }
 
     return `${userValue}`.trim() === `${expected}`.trim();

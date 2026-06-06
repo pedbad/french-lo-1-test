@@ -1,20 +1,8 @@
 import { resolveAsset } from './assets';
+import { normalizeForDictation } from './answerNormalize';
 
 const renderTextAsPlainSpans = (text = '') =>
   `${text}`.split('').map((char) => `<span>${char}</span>`).join('');
-
-const normalizeForDictationCompare = (text = '') => {
-  return `${text}`
-    .normalize('NFC')
-  // Normalize apostrophe variants to straight apostrophe.
-    .replace(/[’`´ʻʼ]/g, "'")
-  // Ignore trivial punctuation differences.
-    .replace(/[.,!?;:…]/g, ' ')
-    .replace(/[«»“”„"]/g, ' ')
-  // Ignore duplicate/extra whitespace.
-    .replace(/\s+/g, ' ')
-    .trim();
-};
 
 export const highlightTextDiff = (a, b, countCorrect, sounds = false, options = {}) => {
   const m = a.length;
@@ -27,8 +15,8 @@ export const highlightTextDiff = (a, b, countCorrect, sounds = false, options = 
   // Dictation mode: accept answers that only differ by punctuation/apostrophe/spacing.
   // Accents remain strict by design (no accent stripping).
   if (comparisonMode === 'dictation') {
-    const normalizedA = normalizeForDictationCompare(a);
-    const normalizedB = normalizeForDictationCompare(b);
+    const normalizedA = normalizeForDictation(a);
+    const normalizedB = normalizeForDictation(b);
     if (normalizedA === normalizedB) {
       if (sounds) correctAudio.play();
       countCorrect();
