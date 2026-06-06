@@ -2,6 +2,7 @@
 import { Card } from "@/components/exercises/MemoryMatchGame/Card";
 import { ProgressDots } from "@/components/exercises/ProgressDots/ProgressDots";
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
+import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { Info } from "@/components/content";
 import { IconButton } from "@/components/media";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";

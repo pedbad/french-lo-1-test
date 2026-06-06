@@ -1,4 +1,5 @@
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
+import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { AudioClip, CircularAudioProgressAnimatedSpeakerDisplay, IconButton } from "@/components/media";
