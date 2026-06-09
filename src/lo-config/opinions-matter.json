@@ -148,8 +148,16 @@
       ["audio/lo7/vocabulary/018-faire.mp3", "faire", "to make, to do"],
       ["audio/lo7/vocabulary/031-regarder.mp3", "regarder", "to watch"],
       ["audio/lo7/vocabulary/037-tricoter.mp3", "tricoter", "to knit"],
-      ["audio/lo7/vocabulary/005-athletisme.mp3", "athlétisme (m)", "athletics"],
-      ["audio/lo7/vocabulary/006-baby-foot.mp3", "baby-foot (m)", "table football"],
+      [
+        "audio/lo7/vocabulary/005-athletisme.mp3",
+        "athlétisme (m)",
+        "athletics"
+      ],
+      [
+        "audio/lo7/vocabulary/006-baby-foot.mp3",
+        "baby-foot (m)",
+        "table football"
+      ],
       [
         "audio/lo7/vocabulary/007-basket-basketball.mp3",
         "basket, basketball (m)",
@@ -168,7 +176,11 @@
         "weight training"
       ],
       ["audio/lo7/vocabulary/034-tennis.mp3", "tennis (m)", "tennis"],
-      ["audio/lo7/vocabulary/033-tae-kwondo.mp3", "tae-kwondo (m)", "taekwondo"],
+      [
+        "audio/lo7/vocabulary/033-tae-kwondo.mp3",
+        "tae-kwondo (m)",
+        "taekwondo"
+      ],
       [
         "audio/lo7/vocabulary/038-volley-volleyball.mp3",
         "volley, volleyball (m)",
@@ -207,7 +219,11 @@
         "intéressant (m) intéressante (f)",
         "interesting"
       ],
-      ["audio/lo7/vocabulary/036-tranquille.mp3", "tranquille", "quiet, peaceful"]
+      [
+        "audio/lo7/vocabulary/036-tranquille.mp3",
+        "tranquille",
+        "quiet, peaceful"
+      ]
     ],
     "sortable": true,
     "titleText": "Vocabulary"
@@ -467,7 +483,6 @@
           "layoutMode": "inline-passage",
           "showHintsText": "Show hints when moving",
           "cheatText": "Show answer",
-          "soundFile": "audio/lo7/exercises/poem/sept-couleurs-magiques.mp3",
           "useSequenceAudioController": true,
           "items": [
             {

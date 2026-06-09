@@ -80,3 +80,7 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
   - `LineMatch` is used for connector-style picture/word matching with a desktop connector UI and a mobile select fallback.
   - `SortableWordCard` provides shared draggable card visuals across both.
   - `ProgressDots` is the shared circle-based progress indicator for exercise components.
+
+## Imported Claude Cowork project instructions
+
+Please examine this fo;der, its a REact taulwing application i am working with, please do NOT amend any files, I just want you to check the MD files and familiarise yourself with the the code right now, do you understand?

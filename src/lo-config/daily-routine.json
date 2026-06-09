@@ -1,600 +1,543 @@
 {
-	"settings": {
-		"introImage": {
-			"src": "img/lo13/daily-routine.svg",
-			"alt": "Daily routine illustration"
-		},
-		"introHTML": "<p>This lesson teaches you how to talk about your daily routine in French, including when you wake up, get dressed, eat, rest, and go to bed. You will practise useful expressions such as <em>je me lève</em>, <em>je me couche</em>, and <em>à quelle heure&nbsp;?</em></p><p>It also introduces time phrases, everyday routine vocabulary, and the reflexive verb patterns needed to describe a typical day more naturally.</p>",
-		"informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Describe a typical day using common daily-routine verbs.</li><li>Use reflexive verbs such as <em>se lever</em> and <em>se coucher</em> more accurately.</li><li>Ask and answer questions about time and daily habits.</li><li>Recognise useful expressions for meals, rest, and times of day.</li></ul>"
-	},
-	"dialogues": {
-		"component": "Section",
-		"informationTextHTML": "<p>This section introduces short conversations about getting up, coping with tiredness, and arranging lunch during the day.</p>",
-		"content": [
-			{
-				"phraseTable1": {
-					"component": "PhraseTable",
-					"id": "phraseTable1",
-					"informationTextHTML": "<p>Listen for the times people wake up and go to bed, and notice the expressions used for a morning person and a night owl.</p>",
-					"phrases": [
-						[
-							"audio/lo13/dialogues/01/001-tu-te-leves-a-quelle-heure.mp3",
-							"Tu te lèves à quelle heure ?",
-							"What time do you get up?"
-						],
-						[
-							"audio/lo13/dialogues/01/002-ca-depend-en-semaine-je-me-leve-a-sept-heures-mais-le-week-end-je-me-leve-vers-neuf-heures-et-demie-et-toi.mp3",
-							"Ça dépend ! En semaine, je me lève à sept heures, mais le week-end, je me lève vers neuf heures et demie. Et toi ?",
-							"It depends. During the week I get up at seven o'clock, but at the weekend I get up at about half past nine. What about you?"
-						],
-						[
-							"audio/lo13/dialogues/01/003-je-me-leve-a-six-heures-le-week-end-je-me-reveille-vers-sept-heures-et-quart-et-je-me-leve-tout-de-suite-je-suis-matinal.mp3",
-							"Je me lève à six heures. Le week-end, je me réveille vers sept heures et quart et je me lève tout de suite. Je suis matinal.",
-							"I get up at 6 o'clock. At the weekend I wake up at about quarter past seven and I get up straight away. I'm a morning person."
-						],
-						[
-							"audio/lo13/dialogues/01/004-je-suis-plutot-une-couche-tard-je-me-couche-vers-minuit-et-demi.mp3",
-							"Je suis plutôt une couche-tard. Je me couche vers minuit et demi.",
-							"Well, I'm more of a night owl. I go to bed at about half past midnight."
-						],
-						[
-							"audio/lo13/dialogues/01/005-vers-minuit-et-demi-oh-la-la-je-me-couche-a-neuf-heures-et-demie-le-soir-je-suis-toujours-tres-fatigue.mp3",
-							"Vers minuit et demi ? Oh là là ! Je me couche à neuf heures et demie. Le soir, je suis toujours très fatigué.",
-							"At about half past midnight? Oh goodness! I go to bed at half past nine. In the evening I'm always very tired."
-						]
-					],
-					"titleText": "Talking about when you get up"
-				}
-			},
-			{
-				"phraseTable2": {
-					"component": "PhraseTable",
-					"id": "phraseTable2",
-					"informationTextHTML": "<p>Notice how the speakers describe being tired, waking up during the night, and trying to rest in the daytime.</p>",
-					"phrases": [
-						[
-							"audio/lo13/dialogues/02/001-ca-va-les-amis.mp3",
-							"Ça va les amis ?",
-							"Are you alright guys?"
-						],
-						[
-							"audio/lo13/dialogues/02/002-ca-va-mais-nous-sommes-un-peu-fatigues-notre-fille-a-neuf-semaines-et-elle-se-reveille-trois-fois-la-nuit-nous-ne-dormons-pas-bien.mp3",
-							"Ça va mais nous sommes un peu fatigués. Notre fille a neuf semaines et elle se réveille trois fois la nuit. Nous ne dormons pas bien !",
-							"Yes, we're alright, but we're a bit tired. Our daughter is nine weeks old, and she wakes up three times a night. We aren't sleeping well!"
-						],
-						[
-							"audio/lo13/dialogues/02/003-quelle-horreur-mais-vous-vous-reposez-pendant-la-journee-jimagine.mp3",
-							"Quelle horreur ! Mais vous vous reposez pendant la journée, j'imagine.",
-							"How awful! But you do rest during the day, I imagine."
-						],
-						[
-							"audio/lo13/dialogues/02/004-un-peu-mais-ce-nest-pas-toujours-possible.mp3",
-							"Un peu, mais ce n'est pas toujours possible.",
-							"A bit, but it isn't always possible."
-						]
-					],
-					"titleText": "A tired young family"
-				}
-			},
-			{
-				"phraseTable3": {
-					"component": "PhraseTable",
-					"id": "phraseTable3",
-					"informationTextHTML": "<p>Listen for the invitation to lunch, the use of <em>on</em> in everyday speech, and the short expressions used to agree a time.</p>",
-					"phrases": [
-						[
-							"audio/lo13/dialogues/03/001-tu-dejeunes-a-la-cantine-aujourdhui.mp3",
-							"Tu déjeunes à la cantine aujourd'hui ?",
-							"Are you having lunch at the canteen today?"
-						],
-						[
-							"audio/lo13/dialogues/03/002-a-la-cantine-ah-non-on-ne-mange-pas-bien-a-la-cantine-je-dejeune-au-cafe-en-face-de-la-bibliotheque-tu-veux-dejeuner-avec-moi.mp3",
-							"À la cantine ? Ah non, on ne mange pas bien à la cantine ! Je déjeune au café en face de la bibliothèque. Tu veux déjeuner avec moi ?",
-							"At the canteen? Oh no, the food isn't good at the canteen.<br /><small>(Literally: One doesn't eat well at the canteen.)</small><br />I have lunch at the cafe opposite the library. Do you want to have lunch with me?"
-						],
-						[
-							"audio/lo13/dialogues/03/003-a-quelle-heure.mp3",
-							"À quelle heure ?",
-							"At what time?"
-						],
-						[
-							"audio/lo13/dialogues/03/004-a-une-heure.mp3",
-							"À une heure ?",
-							"At one o'clock?"
-						],
-						[
-							"audio/lo13/dialogues/03/005-oui-ca-va-tres-bien-a-tout-a-lheure.mp3",
-							"Oui, ça va très bien ! À tout à l'heure !",
-							"Yes, that's fine. See you later!"
-						]
-					],
-					"titleText": "Arranging lunch"
-				}
-			}
-		],
-		"expandable": false,
-		"id": "dialogues",
-		"titleText": "Dialogues"
-	},
-	"vocabulary": {
-		"component": "PhraseTable",
-		"expandable": false,
-		"id": "vocabulary",
-		"informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core routine vocabulary such as <em>la routine quotidienne</em>, <em>le petit déjeuner</em>, and <em>le dîner</em>.</li><li>Common reflexive verbs such as <em>se lever</em>, <em>se coucher</em>, and <em>se réveiller</em>.</li><li>Useful time questions and clock expressions such as <em>À quelle heure&nbsp;?</em>, <em>à midi</em>, and <em>vers trois heures et demie</em>.</li><li>Useful descriptive expressions such as <em>Je suis matinal(e)</em> and <em>Je suis un / une couche-tard</em>.</li></ul>",
-		"phrases": [
-			[
-				"audio/lo13/vocabulary/001-routine-f-matinale.mp3",
-				"routine (f) matinale",
-				"morning routine"
-			],
-			[
-				"audio/lo13/vocabulary/002-routine-f-quotidienne.mp3",
-				"routine (f) quotidienne",
-				"daily routine"
-			],
-			[
-				"audio/lo13/vocabulary/003-petit-dejeuner-m.mp3",
-				"petit déjeuner (m)",
-				"breakfast"
-			],
-			[
-				"audio/lo13/vocabulary/004-dejeuner-m.mp3",
-				"déjeuner (m)",
-				"lunch"
-			],
-			[
-				"audio/lo13/vocabulary/005-diner-m.mp3",
-				"dîner (m)",
-				"dinner"
-			],
-			[
-				"audio/lo13/vocabulary/006-aller.mp3",
-				"aller",
-				"to go"
-			],
-			[
-				"audio/lo13/vocabulary/005-diner-m.mp3",
-				"dîner",
-				"to have dinner*"
-			],
-			[
-				"audio/lo13/vocabulary/007-dormir.mp3",
-				"dormir",
-				"to sleep"
-			],
-			[
-				"audio/lo13/vocabulary/008-prendre.mp3",
-				"prendre",
-				"to take, to have<br /><small>(something to eat or drink)</small>"
-			],
-			[
-				"audio/lo13/vocabulary/009-se-brosser-les-dents.mp3",
-				"se brosser les dents",
-				"to brush one's teeth"
-			],
-			[
-				"audio/lo13/vocabulary/010-se-coiffer.mp3",
-				"se coiffer",
-				"to do one's hair"
-			],
-			[
-				"audio/lo13/vocabulary/011-se-coucher.mp3",
-				"se coucher",
-				"to go to bed"
-			],
-			[
-				"audio/lo13/vocabulary/012-sendormir.mp3",
-				"s'endormir",
-				"to fall asleep"
-			],
-			[
-				"audio/lo13/vocabulary/013-shabiller-se-deshabiller.mp3",
-				"s'habiller, se déshabiller",
-				"to get dressed, to get undressed"
-			],
-			[
-				"audio/lo13/vocabulary/014-se-lever.mp3",
-				"se lever",
-				"to get up, to stand up"
-			],
-			[
-				"audio/lo13/vocabulary/015-se-maquiller.mp3",
-				"se maquiller",
-				"to put on one's make-up"
-			],
-			[
-				"audio/lo13/vocabulary/016-se-raser.mp3",
-				"se raser",
-				"to shave"
-			],
-			[
-				"audio/lo13/vocabulary/017-se-reposer.mp3",
-				"se reposer",
-				"to have a rest"
-			],
-			[
-				"audio/lo13/vocabulary/018-se-reveiller.mp3",
-				"se réveiller",
-				"to wake up"
-			],
-			[
-				"audio/lo13/vocabulary/019-quelle-heure-est-il-il-est-quelle-heure.mp3",
-				"Quelle heure est-il ? Il est quelle heure ?",
-				"What's the time?"
-			],
-			[
-				"audio/lo13/dialogues/03/003-a-quelle-heure.mp3",
-				"À quelle heure ?",
-				"At what time?"
-			],
-			[
-				"audio/lo13/vocabulary/020-a-une-heure-et-demie-a-deux-heures-et-demie.mp3",
-				"À une heure et demie, à deux heures et demie",
-				"At half past one, at half past two"
-			],
-			[
-				"audio/lo13/vocabulary/021-a-cinq-heures-et-quart.mp3",
-				"À cinq heures et quart",
-				"At quarter past five"
-			],
-			[
-				"audio/lo13/vocabulary/022-a-six-heures-moins-le-quart.mp3",
-				"À six heures moins le quart",
-				"At quarter to six"
-			],
-			[
-				"audio/lo13/vocabulary/023-a-deux-heures-cinq.mp3",
-				"À deux heures cinq",
-				"At five past two"
-			],
-			[
-				"audio/lo13/vocabulary/024-a-trois-heures-moins-dix.mp3",
-				"À trois heures moins dix",
-				"At ten to three"
-			],
-			[
-				"audio/lo13/vocabulary/025-a-midi.mp3",
-				"À midi",
-				"At noon "
-			],
-			[
-				"audio/lo13/vocabulary/026-a-minuit.mp3",
-				"À minuit",
-				"At midnight"
-			],
-			[
-				"audio/lo13/vocabulary/027-vers-trois-heures-et-demie.mp3",
-				"Vers trois heures et demie",
-				"At about half past three"
-			],
-			[
-				"audio/lo13/vocabulary/028-je-suis-matinal-e.mp3",
-				"Je suis matinal(e)",
-				"I'm a morning person"
-			],
-			[
-				"audio/lo13/vocabulary/029-je-suis-un-couche-tard-je-suis-une-couche-tard.mp3",
-				"Je suis un couche-tard. / Je suis une couche-tard",
-				"I'm a night owl"
-			]
-		],
-		"footnote": "*In France le dîner is the evening meal. In some French speaking countries such as Canada, Belgium and Switzerland le dîner is the lunchtime meal and the evening meal is referred to as le souper.",
-		"sortable": true,
-		"titleText": "Vocabulary"
-	},
-	"grammar": {
-		"component": "Group",
-		"expandable": false,
-		"id": "grammar",
-		"menuText": "Grammar",
-		"titleText": "Grammar and Usage",
-		"instructionsLayout": {
-			"paragraphHTML": "<p>This section explains how <em class='grammar-term-em'>on</em> works in everyday French, how reflexive verbs are formed in the present tense, and how reflexive pronouns change before vowels.</p>",
-			"image": {
-				"src": "img/shared/grammar.svg",
-				"alt": "Grammar illustration"
-			}
-		},
-		"heroSection": true,
-		"content": [
-			{
-				"grammar1": {
-					"component": "DailyRoutineGrammarOn",
-					"id": "grammar1",
-					"menuText": "1. on",
-					"titleTextHTML": "1. Using <em class='grammar-term-em'>on</em> in everyday French",
-					"informationTextHTML": "<p>In this part, focus on how <em>on</em> is often used instead of <em>nous</em> in spoken French, even though it still takes a singular verb form.</p>"
-				}
-			},
-			{
-				"grammar2": {
-					"component": "DailyRoutineGrammarReflexiveVerbs",
-					"id": "grammar2",
-					"menuText": "2. reflexive verbs",
-					"titleTextHTML": "2. Forming reflexive verbs in the present tense",
-					"informationTextHTML": "<p>Here, practise how reflexive pronouns fit between the subject and the verb in everyday routine expressions such as <em>je me lève</em> and <em>nous nous reposons</em>.</p>"
-				}
-			},
-			{
-				"grammar3": {
-					"component": "DailyRoutineGrammarReflexiveBeforeVowel",
-					"id": "grammar3",
-					"menuText": "3. m' / t' / s'",
-					"titleTextHTML": "3. Reflexive forms before a vowel",
-					"informationTextHTML": "<p>This part shows how reflexive pronouns shorten before a vowel, using <em>s'appeler</em> as the main model.</p>"
-				}
-			}
-		]
-	},
-	"exercises": {
-		"component": "Group",
-		"content": [
-			{
-				"selectExercise1": {
-					"component": "SelectExercise",
-					"id": "selectExercise1",
-					"informationText": "Listen to the full audio or each sentence, then choose the correct reflexive pronoun.",
-					"informationTextHTML": "Play the full audio first, then fill each gap with the correct reflexive pronoun. You can replay each sentence individually as needed. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
-					"renderInlineChoices": true,
-					"shuffleItems": true,
-					"sampleSize": 8,
-					"soundFile": "audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3",
-					"useSequenceAudioController": true,
-					"items": [
-						{
-							"text": "Je [m'|*me|t'|te|s'|se|nous|vous] réveille à huit heures. (se réveiller)",
-							"audio": "audio/lo13/exercises/017-je-me-reveille-a-huit-heures.mp3"
-						},
-						{
-							"text": "Je [*m'|me|t'|te|s'|se|nous|vous] habille avant de prendre mon petit déjeuner. (s'habiller)",
-							"audio": "audio/lo13/exercises/018-je-mhabille-avant-de-prendre-mon-petit-dejeuner.mp3"
-						},
-						{
-							"text": "Adèle [m'|me|t'|te|s'|*se|nous|vous] lève vers dix heures. (se lever)",
-							"audio": "audio/lo13/exercises/019-adele-se-leve-vers-dix-heures.mp3"
-						},
-						{
-							"text": "Vous [m'|me|t'|te|s'|se|nous|*vous] levez à quelle heure ? (se lever)",
-							"audio": "audio/lo13/exercises/020-vous-vous-levez-a-quelle-heure.mp3"
-						},
-						{
-							"text": "Nous [m'|me|t'|te|s'|se|*nous|vous] reposons pendant le week-end. (se reposer)",
-							"audio": "audio/lo13/exercises/021-nous-nous-reposons-pendant-le-week-end.mp3"
-						},
-						{
-							"text": "Je [m'|*me|t'|te|s'|se|nous|vous] détends pendant les vacances. (se détendre) ",
-							"audio": "audio/lo13/exercises/022-je-me-detends-pendant-les-vacances.mp3"
-						},
-						{
-							"text": "Les enfants [m'|me|t'|te|s'|*se|nous|vous] couchent… vers neuf heures. (se coucher)",
-							"audio": "audio/lo13/exercises/023-les-enfants-se-couchent-vers-neuf-heures.mp3"
-						},
-						{
-							"text": "Patrick [m'|me|t'|te|s'|*se|nous|vous] couche à minuit. (se coucher)",
-							"audio": "audio/lo13/exercises/024-patrick-se-couche-a-minuit.mp3"
-						},
-						{
-							"text": "Tu [m'|me|t'|*te|s'|se|nous|vous] maquilles aujourd'hui ? (se maquiller) ",
-							"audio": "audio/lo13/exercises/025-tu-te-maquilles-aujourdhui.mp3"
-						},
-						{
-							"text": "Tu [m'|me|*t'|te|s'|se|nous|vous] appelles comment ? (s'appeler) ",
-							"audio": "audio/lo13/exercises/026-tu-tappelles-comment.mp3"
-						},
-						{
-							"text": "Et ta sœur, elle [m'|me|t'|te|*s'|se|nous|vous] appelle comment ? (s'appeler)",
-							"audio": "audio/lo13/exercises/027-et-ta-soeur-elle-sappelle-comment.mp3"
-						},
-						{
-							"text": "La Tour Eiffel [m'|me|t'|te|s'|*se|nous|vous] trouve à Paris (se trouver).",
-							"audio": "audio/lo13/exercises/028-la-tour-eiffel-se-trouve-a-paris.mp3"
-						}
-					],
-					"titleText": "1. Practise the reflexive verbs"
-				}
-			},
-			{
-				"draggableFillGaps1": {
-					"blanksType": "phrases",
-					"cheatText": "Show answer",
-					"component": "DraggableFillGaps",
-					"id": "draggableFillGaps1",
-					"informationText": "Complete the description by dragging each word into the correct gap.",
-					"informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the solution, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
-					"items": [
-						{
-							"text": "Je me réveille tous les matins à six heures et demie et je [me lève] tout de suite."
-						},
-						{
-							"text": "Je [prends] une douche et je [m'habille], puis je [descends] à la cuisine pour prendre mon petit déjeuner."
-						},
-						{
-							"text": "Vers sept heures et demie, je [quitte] la maison. [J'arrive] au travail à huit heures."
-						},
-						{
-							"text": "À midi, je [fais ]une pause-déjeuner. Je [reprends] le travail à une heure et quart, et je [travaille] jusqu'à cinq heures."
-						},
-						{
-							"text": "Je [n'habite] pas très loin de mon travail, donc une demi-heure plus tard, je [suis] chez moi."
-						},
-						{
-							"text": "Je [me détends] un peu avant de préparer le dîner. Je [dîne] avec mon colocataire vers sept heures."
-						},
-						{
-							"text": "Et ensuite, je [regarde] la télé. Je [me couche] vers onze heures."
-						}
-					],
-					"titleText": "2. Fill in the gaps: a typical day"
-				}
-			},
-			{
-				"inlineChoiceGroup2": {
-					"component": "InlineChoiceGroup",
-					"id": "inlineChoiceGroup2",
-					"informationText": "Listen to each audio clip and choose the time you hear.",
-					"informationTextHTML": "Listen to each audio clip and choose the matching time. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
-					"shuffleItems": true,
-					"sampleSize": 8,
-					"items": [
-						{
-							"text": "[*6h00|7h00|8h00]",
-							"audio": "audio/lo13/exercises/001-6h00-7h00-8h00.mp3"
-						},
-						{
-							"text": "[2h00|6h00|*10h00]",
-							"audio": "audio/lo13/exercises/002-2h00-6h00-10h00.mp3"
-						},
-						{
-							"text": "[*2h30|6h30|10h30]",
-							"audio": "audio/lo13/exercises/003-2h30-6h30-10h30.mp3"
-						},
-						{
-							"text": "[1h30|0h30|*11h30]",
-							"audio": "audio/lo13/exercises/004-1h30-0h30-11h30.mp3"
-						},
-						{
-							"text": "[4h15|4h30|*5h15]",
-							"audio": "audio/lo13/exercises/005-4h15-4h30-5h15.mp3"
-						},
-						{
-							"text": "[*6h45|7h15|7h30]",
-							"audio": "audio/lo13/exercises/006-6h45-7h15-7h30.mp3"
-						},
-						{
-							"text": "[2h15|*2h45|3h15]",
-							"audio": "audio/lo13/exercises/007-2h15-2h45-3h15.mp3"
-						},
-						{
-							"text": "[*1h15|1h30|1h45]",
-							"audio": "audio/lo13/exercises/008-1h15-1h30-1h45.mp3"
-						},
-						{
-							"text": "[*midday|midnight]",
-							"audio": "audio/lo13/exercises/009-midday-midnight.mp3"
-						},
-						{
-							"text": "[midday|*midnight]",
-							"audio": "audio/lo13/exercises/010-midday-midnight.mp3"
-						},
-						{
-							"text": "[*1h10|10h10|11h10]",
-							"audio": "audio/lo13/exercises/011-1h10-10h10-11h10.mp3"
-						},
-						{
-							"text": "[4h10|*4h20|4h40]",
-							"audio": "audio/lo13/exercises/012-4h10-4h20-4h40.mp3"
-						},
-						{
-							"text": "[5h08|*7h55|8h05]",
-							"audio": "audio/lo13/exercises/013-5h08-7h55-8h05.mp3"
-						},
-						{
-							"text": "[*8h35|8h45|9h25]",
-							"audio": "audio/lo13/exercises/014-8h35-8h45-9h25.mp3"
-						}
-					],
-					"titleText": "3. What's the time? Practising the 12 hour clock"
-				}
-			},
-			{
-				"radioQuiz1": {
-					"component": "RadioQuiz",
-					"id": "dailyRoutineASummersDay",
-					"informationTextHTML": "Listen to Véronique describing a typical summer&apos;s day, then decide whether each statement is true (<em>vrai</em>) or false (<em>faux</em>). Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
-					"informationText": "Listen to the full audio, then decide whether each statement is true or false.",
-					"options": [
-						"Vrai",
-						"Faux"
-					],
-					"phrases": [
-						[
-							"Véronique se lève vers 7 heures le week-end.",
-							1,
-							"Véronique se lève vers 6 heures le week-end.",
-							""
-						],
-						[
-							"Elle se promène en ville.",
-							1,
-							"Elle se promène dans le village.",
-							""
-						],
-						[
-							"Elle aime être dehors quand il fait beau.",
-							0,
-							"",
-							""
-						],
-						[
-							"Après sa promenade, Véronique prend un bain.",
-							1,
-							"Elle prend une douche rapide.",
-							""
-						],
-						[
-							"Elle prend un bol de yaourt.",
-							1,
-							"Elle prend un bol de céréales.",
-							""
-						],
-						[
-							"Elle boit du café-crème.",
-							0,
-							"",
-							""
-						],
-						[
-							"Dans le jardin il y a deux arbres.",
-							1,
-							"Dans le jardin il y a trois arbres.",
-							""
-						],
-						[
-							"Véronique passe une heure dans le jardin.",
-							1,
-							"Véronique passe la matinée entière dans le jardin.",
-							""
-						],
-						[
-							"Elle passe l'après-midi avec ses parents.",
-							1,
-							"Elle passe l'après-midi avec ses amis.",
-							""
-						],
-						[
-							"Parfois, ils vont en ville.",
-							0,
-							"",
-							""
-						],
-						[
-							"Elle dîne dans la salle à manger.",
-							1,
-							"Elle dîne dans le jardin ou sur le balcon.",
-							""
-						],
-						[
-							"Le soir, elle se détend.",
-							0,
-							"",
-							""
-						]
-					],
-					"soundFile": "audio/lo13/exercises/015-a-summers-day.mp3",
-					"useSequenceAudioController": true,
-					"titleText": "4. A summer's day"
-				}
-			}
-		],
-		"expandable": false,
-		"id": "exercises",
-		"titleText": "Exercises",
-		"instructionsLayout": {
-			"paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your reflexive verbs such as <em class='grammar-term-em'>se lever</em> and <em class='grammar-term-em'>se coucher</em>, ask and answer about time on the 12-hour clock, and complete short tasks describing a typical day in French.</p>",
-			"image": {
-				"src": "img/shared/self-study.svg",
-				"alt": "Interactive exercises"
-			}
-		}
-	}
+  "settings": {
+    "introImage": {
+      "src": "img/lo13/daily-routine.svg",
+      "alt": "Daily routine illustration"
+    },
+    "introHTML": "<p>This lesson teaches you how to talk about your daily routine in French, including when you wake up, get dressed, eat, rest, and go to bed. You will practise useful expressions such as <em>je me lève</em>, <em>je me couche</em>, and <em>à quelle heure&nbsp;?</em></p><p>It also introduces time phrases, everyday routine vocabulary, and the reflexive verb patterns needed to describe a typical day more naturally.</p>",
+    "informationHTML": "<p><strong>After completing this unit, you will be able to:</strong></p><ul><li>Describe a typical day using common daily-routine verbs.</li><li>Use reflexive verbs such as <em>se lever</em> and <em>se coucher</em> more accurately.</li><li>Ask and answer questions about time and daily habits.</li><li>Recognise useful expressions for meals, rest, and times of day.</li></ul>"
+  },
+  "dialogues": {
+    "component": "Section",
+    "informationTextHTML": "<p>This section introduces short conversations about getting up, coping with tiredness, and arranging lunch during the day.</p>",
+    "content": [
+      {
+        "phraseTable1": {
+          "component": "PhraseTable",
+          "id": "phraseTable1",
+          "informationTextHTML": "<p>Listen for the times people wake up and go to bed, and notice the expressions used for a morning person and a night owl.</p>",
+          "phrases": [
+            [
+              "audio/lo13/dialogues/01/001-tu-te-leves-a-quelle-heure.mp3",
+              "Tu te lèves à quelle heure ?",
+              "What time do you get up?"
+            ],
+            [
+              "audio/lo13/dialogues/01/002-ca-depend-en-semaine-je-me-leve-a-sept-heures-mais-le-week-end-je-me-leve-vers-neuf-heures-et-demie-et-toi.mp3",
+              "Ça dépend ! En semaine, je me lève à sept heures, mais le week-end, je me lève vers neuf heures et demie. Et toi ?",
+              "It depends. During the week I get up at seven o'clock, but at the weekend I get up at about half past nine. What about you?"
+            ],
+            [
+              "audio/lo13/dialogues/01/003-je-me-leve-a-six-heures-le-week-end-je-me-reveille-vers-sept-heures-et-quart-et-je-me-leve-tout-de-suite-je-suis-matinal.mp3",
+              "Je me lève à six heures. Le week-end, je me réveille vers sept heures et quart et je me lève tout de suite. Je suis matinal.",
+              "I get up at 6 o'clock. At the weekend I wake up at about quarter past seven and I get up straight away. I'm a morning person."
+            ],
+            [
+              "audio/lo13/dialogues/01/004-je-suis-plutot-une-couche-tard-je-me-couche-vers-minuit-et-demi.mp3",
+              "Je suis plutôt une couche-tard. Je me couche vers minuit et demi.",
+              "Well, I'm more of a night owl. I go to bed at about half past midnight."
+            ],
+            [
+              "audio/lo13/dialogues/01/005-vers-minuit-et-demi-oh-la-la-je-me-couche-a-neuf-heures-et-demie-le-soir-je-suis-toujours-tres-fatigue.mp3",
+              "Vers minuit et demi ? Oh là là ! Je me couche à neuf heures et demie. Le soir, je suis toujours très fatigué.",
+              "At about half past midnight? Oh goodness! I go to bed at half past nine. In the evening I'm always very tired."
+            ]
+          ],
+          "titleText": "Talking about when you get up"
+        }
+      },
+      {
+        "phraseTable2": {
+          "component": "PhraseTable",
+          "id": "phraseTable2",
+          "informationTextHTML": "<p>Notice how the speakers describe being tired, waking up during the night, and trying to rest in the daytime.</p>",
+          "phrases": [
+            [
+              "audio/lo13/dialogues/02/001-ca-va-les-amis.mp3",
+              "Ça va les amis ?",
+              "Are you alright guys?"
+            ],
+            [
+              "audio/lo13/dialogues/02/002-ca-va-mais-nous-sommes-un-peu-fatigues-notre-fille-a-neuf-semaines-et-elle-se-reveille-trois-fois-la-nuit-nous-ne-dormons-pas-bien.mp3",
+              "Ça va mais nous sommes un peu fatigués. Notre fille a neuf semaines et elle se réveille trois fois la nuit. Nous ne dormons pas bien !",
+              "Yes, we're alright, but we're a bit tired. Our daughter is nine weeks old, and she wakes up three times a night. We aren't sleeping well!"
+            ],
+            [
+              "audio/lo13/dialogues/02/003-quelle-horreur-mais-vous-vous-reposez-pendant-la-journee-jimagine.mp3",
+              "Quelle horreur ! Mais vous vous reposez pendant la journée, j'imagine.",
+              "How awful! But you do rest during the day, I imagine."
+            ],
+            [
+              "audio/lo13/dialogues/02/004-un-peu-mais-ce-nest-pas-toujours-possible.mp3",
+              "Un peu, mais ce n'est pas toujours possible.",
+              "A bit, but it isn't always possible."
+            ]
+          ],
+          "titleText": "A tired young family"
+        }
+      },
+      {
+        "phraseTable3": {
+          "component": "PhraseTable",
+          "id": "phraseTable3",
+          "informationTextHTML": "<p>Listen for the invitation to lunch, the use of <em>on</em> in everyday speech, and the short expressions used to agree a time.</p>",
+          "phrases": [
+            [
+              "audio/lo13/dialogues/03/001-tu-dejeunes-a-la-cantine-aujourdhui.mp3",
+              "Tu déjeunes à la cantine aujourd'hui ?",
+              "Are you having lunch at the canteen today?"
+            ],
+            [
+              "audio/lo13/dialogues/03/002-a-la-cantine-ah-non-on-ne-mange-pas-bien-a-la-cantine-je-dejeune-au-cafe-en-face-de-la-bibliotheque-tu-veux-dejeuner-avec-moi.mp3",
+              "À la cantine ? Ah non, on ne mange pas bien à la cantine ! Je déjeune au café en face de la bibliothèque. Tu veux déjeuner avec moi ?",
+              "At the canteen? Oh no, the food isn't good at the canteen.<br /><small>(Literally: One doesn't eat well at the canteen.)</small><br />I have lunch at the cafe opposite the library. Do you want to have lunch with me?"
+            ],
+            [
+              "audio/lo13/dialogues/03/003-a-quelle-heure.mp3",
+              "À quelle heure ?",
+              "At what time?"
+            ],
+            [
+              "audio/lo13/dialogues/03/004-a-une-heure.mp3",
+              "À une heure ?",
+              "At one o'clock?"
+            ],
+            [
+              "audio/lo13/dialogues/03/005-oui-ca-va-tres-bien-a-tout-a-lheure.mp3",
+              "Oui, ça va très bien ! À tout à l'heure !",
+              "Yes, that's fine. See you later!"
+            ]
+          ],
+          "titleText": "Arranging lunch"
+        }
+      }
+    ],
+    "expandable": false,
+    "id": "dialogues",
+    "titleText": "Dialogues"
+  },
+  "vocabulary": {
+    "component": "PhraseTable",
+    "expandable": false,
+    "id": "vocabulary",
+    "informationTextHTML": "<p><strong>You will learn:</strong></p><ul><li>Core routine vocabulary such as <em>la routine quotidienne</em>, <em>le petit déjeuner</em>, and <em>le dîner</em>.</li><li>Common reflexive verbs such as <em>se lever</em>, <em>se coucher</em>, and <em>se réveiller</em>.</li><li>Useful time questions and clock expressions such as <em>À quelle heure&nbsp;?</em>, <em>à midi</em>, and <em>vers trois heures et demie</em>.</li><li>Useful descriptive expressions such as <em>Je suis matinal(e)</em> and <em>Je suis un / une couche-tard</em>.</li></ul>",
+    "phrases": [
+      [
+        "audio/lo13/vocabulary/001-routine-f-matinale.mp3",
+        "routine (f) matinale",
+        "morning routine"
+      ],
+      [
+        "audio/lo13/vocabulary/002-routine-f-quotidienne.mp3",
+        "routine (f) quotidienne",
+        "daily routine"
+      ],
+      [
+        "audio/lo13/vocabulary/003-petit-dejeuner-m.mp3",
+        "petit déjeuner (m)",
+        "breakfast"
+      ],
+      ["audio/lo13/vocabulary/004-dejeuner-m.mp3", "déjeuner (m)", "lunch"],
+      ["audio/lo13/vocabulary/005-diner-m.mp3", "dîner (m)", "dinner"],
+      ["audio/lo13/vocabulary/006-aller.mp3", "aller", "to go"],
+      ["audio/lo13/vocabulary/005-diner-m.mp3", "dîner", "to have dinner*"],
+      ["audio/lo13/vocabulary/007-dormir.mp3", "dormir", "to sleep"],
+      [
+        "audio/lo13/vocabulary/008-prendre.mp3",
+        "prendre",
+        "to take, to have<br /><small>(something to eat or drink)</small>"
+      ],
+      [
+        "audio/lo13/vocabulary/009-se-brosser-les-dents.mp3",
+        "se brosser les dents",
+        "to brush one's teeth"
+      ],
+      [
+        "audio/lo13/vocabulary/010-se-coiffer.mp3",
+        "se coiffer",
+        "to do one's hair"
+      ],
+      [
+        "audio/lo13/vocabulary/011-se-coucher.mp3",
+        "se coucher",
+        "to go to bed"
+      ],
+      [
+        "audio/lo13/vocabulary/012-sendormir.mp3",
+        "s'endormir",
+        "to fall asleep"
+      ],
+      [
+        "audio/lo13/vocabulary/013-shabiller-se-deshabiller.mp3",
+        "s'habiller, se déshabiller",
+        "to get dressed, to get undressed"
+      ],
+      [
+        "audio/lo13/vocabulary/014-se-lever.mp3",
+        "se lever",
+        "to get up, to stand up"
+      ],
+      [
+        "audio/lo13/vocabulary/015-se-maquiller.mp3",
+        "se maquiller",
+        "to put on one's make-up"
+      ],
+      ["audio/lo13/vocabulary/016-se-raser.mp3", "se raser", "to shave"],
+      [
+        "audio/lo13/vocabulary/017-se-reposer.mp3",
+        "se reposer",
+        "to have a rest"
+      ],
+      [
+        "audio/lo13/vocabulary/018-se-reveiller.mp3",
+        "se réveiller",
+        "to wake up"
+      ],
+      [
+        "audio/lo13/vocabulary/019-quelle-heure-est-il-il-est-quelle-heure.mp3",
+        "Quelle heure est-il ? Il est quelle heure ?",
+        "What's the time?"
+      ],
+      [
+        "audio/lo13/dialogues/03/003-a-quelle-heure.mp3",
+        "À quelle heure ?",
+        "At what time?"
+      ],
+      [
+        "audio/lo13/vocabulary/020-a-une-heure-et-demie-a-deux-heures-et-demie.mp3",
+        "À une heure et demie, à deux heures et demie",
+        "At half past one, at half past two"
+      ],
+      [
+        "audio/lo13/vocabulary/021-a-cinq-heures-et-quart.mp3",
+        "À cinq heures et quart",
+        "At quarter past five"
+      ],
+      [
+        "audio/lo13/vocabulary/022-a-six-heures-moins-le-quart.mp3",
+        "À six heures moins le quart",
+        "At quarter to six"
+      ],
+      [
+        "audio/lo13/vocabulary/023-a-deux-heures-cinq.mp3",
+        "À deux heures cinq",
+        "At five past two"
+      ],
+      [
+        "audio/lo13/vocabulary/024-a-trois-heures-moins-dix.mp3",
+        "À trois heures moins dix",
+        "At ten to three"
+      ],
+      ["audio/lo13/vocabulary/025-a-midi.mp3", "À midi", "At noon "],
+      ["audio/lo13/vocabulary/026-a-minuit.mp3", "À minuit", "At midnight"],
+      [
+        "audio/lo13/vocabulary/027-vers-trois-heures-et-demie.mp3",
+        "Vers trois heures et demie",
+        "At about half past three"
+      ],
+      [
+        "audio/lo13/vocabulary/028-je-suis-matinal-e.mp3",
+        "Je suis matinal(e)",
+        "I'm a morning person"
+      ],
+      [
+        "audio/lo13/vocabulary/029-je-suis-un-couche-tard-je-suis-une-couche-tard.mp3",
+        "Je suis un couche-tard. / Je suis une couche-tard",
+        "I'm a night owl"
+      ]
+    ],
+    "footnote": "*In France le dîner is the evening meal. In some French speaking countries such as Canada, Belgium and Switzerland le dîner is the lunchtime meal and the evening meal is referred to as le souper.",
+    "sortable": true,
+    "titleText": "Vocabulary"
+  },
+  "grammar": {
+    "component": "Group",
+    "expandable": false,
+    "id": "grammar",
+    "menuText": "Grammar",
+    "titleText": "Grammar and Usage",
+    "instructionsLayout": {
+      "paragraphHTML": "<p>This section explains how <em class='grammar-term-em'>on</em> works in everyday French, how reflexive verbs are formed in the present tense, and how reflexive pronouns change before vowels.</p>",
+      "image": {
+        "src": "img/shared/grammar.svg",
+        "alt": "Grammar illustration"
+      }
+    },
+    "heroSection": true,
+    "content": [
+      {
+        "grammar1": {
+          "component": "DailyRoutineGrammarOn",
+          "id": "grammar1",
+          "menuText": "1. on",
+          "titleTextHTML": "1. Using <em class='grammar-term-em'>on</em> in everyday French",
+          "informationTextHTML": "<p>In this part, focus on how <em>on</em> is often used instead of <em>nous</em> in spoken French, even though it still takes a singular verb form.</p>"
+        }
+      },
+      {
+        "grammar2": {
+          "component": "DailyRoutineGrammarReflexiveVerbs",
+          "id": "grammar2",
+          "menuText": "2. reflexive verbs",
+          "titleTextHTML": "2. Forming reflexive verbs in the present tense",
+          "informationTextHTML": "<p>Here, practise how reflexive pronouns fit between the subject and the verb in everyday routine expressions such as <em>je me lève</em> and <em>nous nous reposons</em>.</p>"
+        }
+      },
+      {
+        "grammar3": {
+          "component": "DailyRoutineGrammarReflexiveBeforeVowel",
+          "id": "grammar3",
+          "menuText": "3. m' / t' / s'",
+          "titleTextHTML": "3. Reflexive forms before a vowel",
+          "informationTextHTML": "<p>This part shows how reflexive pronouns shorten before a vowel, using <em>s'appeler</em> as the main model.</p>"
+        }
+      }
+    ]
+  },
+  "exercises": {
+    "component": "Group",
+    "content": [
+      {
+        "selectExercise1": {
+          "component": "SelectExercise",
+          "id": "selectExercise1",
+          "informationText": "Listen to the full audio or each sentence, then choose the correct reflexive pronoun.",
+          "informationTextHTML": "Play the full audio first, then fill each gap with the correct reflexive pronoun. You can replay each sentence individually as needed. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
+          "renderInlineChoices": true,
+          "shuffleItems": true,
+          "sampleSize": 8,
+          "useSequenceAudioController": true,
+          "items": [
+            {
+              "text": "Je [m'|*me|t'|te|s'|se|nous|vous] réveille à huit heures. (se réveiller)",
+              "audio": "audio/lo13/exercises/01-select/017-je-me-reveille-a-huit-heures.mp3"
+            },
+            {
+              "text": "Je [*m'|me|t'|te|s'|se|nous|vous] habille avant de prendre mon petit déjeuner. (s'habiller)",
+              "audio": "audio/lo13/exercises/01-select/018-je-mhabille-avant-de-prendre-mon-petit-dejeuner.mp3"
+            },
+            {
+              "text": "Adèle [m'|me|t'|te|s'|*se|nous|vous] lève vers dix heures. (se lever)",
+              "audio": "audio/lo13/exercises/01-select/019-adele-se-leve-vers-dix-heures.mp3"
+            },
+            {
+              "text": "Vous [m'|me|t'|te|s'|se|nous|*vous] levez à quelle heure ? (se lever)",
+              "audio": "audio/lo13/exercises/01-select/020-vous-vous-levez-a-quelle-heure.mp3"
+            },
+            {
+              "text": "Nous [m'|me|t'|te|s'|se|*nous|vous] reposons pendant le week-end. (se reposer)",
+              "audio": "audio/lo13/exercises/01-select/021-nous-nous-reposons-pendant-le-week-end.mp3"
+            },
+            {
+              "text": "Je [m'|*me|t'|te|s'|se|nous|vous] détends pendant les vacances. (se détendre) ",
+              "audio": "audio/lo13/exercises/01-select/022-je-me-detends-pendant-les-vacances.mp3"
+            },
+            {
+              "text": "Les enfants [m'|me|t'|te|s'|*se|nous|vous] couchent… vers neuf heures. (se coucher)",
+              "audio": "audio/lo13/exercises/01-select/023-les-enfants-se-couchent-vers-neuf-heures.mp3"
+            },
+            {
+              "text": "Patrick [m'|me|t'|te|s'|*se|nous|vous] couche à minuit. (se coucher)",
+              "audio": "audio/lo13/exercises/01-select/024-patrick-se-couche-a-minuit.mp3"
+            },
+            {
+              "text": "Tu [m'|me|t'|*te|s'|se|nous|vous] maquilles aujourd'hui ? (se maquiller) ",
+              "audio": "audio/lo13/exercises/01-select/025-tu-te-maquilles-aujourdhui.mp3"
+            },
+            {
+              "text": "Tu [m'|me|*t'|te|s'|se|nous|vous] appelles comment ? (s'appeler) ",
+              "audio": "audio/lo13/exercises/01-select/026-tu-tappelles-comment.mp3"
+            },
+            {
+              "text": "Et ta sœur, elle [m'|me|t'|te|*s'|se|nous|vous] appelle comment ? (s'appeler)",
+              "audio": "audio/lo13/exercises/01-select/027-et-ta-soeur-elle-sappelle-comment.mp3"
+            },
+            {
+              "text": "La Tour Eiffel [m'|me|t'|te|s'|*se|nous|vous] trouve à Paris (se trouver).",
+              "audio": "audio/lo13/exercises/01-select/028-la-tour-eiffel-se-trouve-a-paris.mp3"
+            }
+          ],
+          "titleText": "1. Practise the reflexive verbs"
+        }
+      },
+      {
+        "draggableFillGaps1": {
+          "blanksType": "phrases",
+          "cheatText": "Show answer",
+          "component": "DraggableFillGaps",
+          "id": "draggableFillGaps1",
+          "informationText": "Complete the description by dragging each word into the correct gap.",
+          "informationTextHTML": "Complete the description by dragging each word into the correct gap, then use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices. If needed, use <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> to reveal the solution, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
+          "items": [
+            {
+              "text": "Je me réveille tous les matins à six heures et demie et je [me lève] tout de suite."
+            },
+            {
+              "text": "Je [prends] une douche et je [m'habille], puis je [descends] à la cuisine pour prendre mon petit déjeuner."
+            },
+            {
+              "text": "Vers sept heures et demie, je [quitte] la maison. [J'arrive] au travail à huit heures."
+            },
+            {
+              "text": "À midi, je [fais ]une pause-déjeuner. Je [reprends] le travail à une heure et quart, et je [travaille] jusqu'à cinq heures."
+            },
+            {
+              "text": "Je [n'habite] pas très loin de mon travail, donc une demi-heure plus tard, je [suis] chez moi."
+            },
+            {
+              "text": "Je [me détends] un peu avant de préparer le dîner. Je [dîne] avec mon colocataire vers sept heures."
+            },
+            {
+              "text": "Et ensuite, je [regarde] la télé. Je [me couche] vers onze heures."
+            }
+          ],
+          "titleText": "2. Fill in the gaps: a typical day"
+        }
+      },
+      {
+        "inlineChoiceGroup2": {
+          "component": "InlineChoiceGroup",
+          "id": "inlineChoiceGroup2",
+          "informationText": "Listen to each audio clip and choose the time you hear.",
+          "informationTextHTML": "Listen to each audio clip and choose the matching time. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
+          "shuffleItems": true,
+          "sampleSize": 8,
+          "items": [
+            {
+              "text": "[*6h00|7h00|8h00]",
+              "audio": "audio/lo13/exercises/03-inline-choice/001-6h00-7h00-8h00.mp3"
+            },
+            {
+              "text": "[2h00|6h00|*10h00]",
+              "audio": "audio/lo13/exercises/03-inline-choice/002-2h00-6h00-10h00.mp3"
+            },
+            {
+              "text": "[*2h30|6h30|10h30]",
+              "audio": "audio/lo13/exercises/03-inline-choice/003-2h30-6h30-10h30.mp3"
+            },
+            {
+              "text": "[1h30|0h30|*11h30]",
+              "audio": "audio/lo13/exercises/03-inline-choice/004-1h30-0h30-11h30.mp3"
+            },
+            {
+              "text": "[4h15|4h30|*5h15]",
+              "audio": "audio/lo13/exercises/03-inline-choice/005-4h15-4h30-5h15.mp3"
+            },
+            {
+              "text": "[*6h45|7h15|7h30]",
+              "audio": "audio/lo13/exercises/03-inline-choice/006-6h45-7h15-7h30.mp3"
+            },
+            {
+              "text": "[2h15|*2h45|3h15]",
+              "audio": "audio/lo13/exercises/03-inline-choice/007-2h15-2h45-3h15.mp3"
+            },
+            {
+              "text": "[*1h15|1h30|1h45]",
+              "audio": "audio/lo13/exercises/03-inline-choice/008-1h15-1h30-1h45.mp3"
+            },
+            {
+              "text": "[*midday|midnight]",
+              "audio": "audio/lo13/exercises/03-inline-choice/009-midday-midnight.mp3"
+            },
+            {
+              "text": "[midday|*midnight]",
+              "audio": "audio/lo13/exercises/03-inline-choice/010-midday-midnight.mp3"
+            },
+            {
+              "text": "[*1h10|10h10|11h10]",
+              "audio": "audio/lo13/exercises/03-inline-choice/011-1h10-10h10-11h10.mp3"
+            },
+            {
+              "text": "[4h10|*4h20|4h40]",
+              "audio": "audio/lo13/exercises/03-inline-choice/012-4h10-4h20-4h40.mp3"
+            },
+            {
+              "text": "[5h08|*7h55|8h05]",
+              "audio": "audio/lo13/exercises/03-inline-choice/013-5h08-7h55-8h05.mp3"
+            },
+            {
+              "text": "[*8h35|8h45|9h25]",
+              "audio": "audio/lo13/exercises/03-inline-choice/014-8h35-8h45-9h25.mp3"
+            }
+          ],
+          "titleText": "3. What's the time? Practising the 12 hour clock"
+        }
+      },
+      {
+        "radioQuiz1": {
+          "component": "RadioQuiz",
+          "id": "dailyRoutineASummersDay",
+          "informationTextHTML": "Listen to Véronique describing a typical summer&apos;s day, then decide whether each statement is true (<em>vrai</em>) or false (<em>faux</em>). Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span>s</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
+          "informationText": "Listen to the full audio, then decide whether each statement is true or false.",
+          "options": ["Vrai", "Faux"],
+          "phrases": [
+            [
+              "Véronique se lève vers 7 heures le week-end.",
+              1,
+              "Véronique se lève vers 6 heures le week-end.",
+              ""
+            ],
+            [
+              "Elle se promène en ville.",
+              1,
+              "Elle se promène dans le village.",
+              ""
+            ],
+            ["Elle aime être dehors quand il fait beau.", 0, "", ""],
+            [
+              "Après sa promenade, Véronique prend un bain.",
+              1,
+              "Elle prend une douche rapide.",
+              ""
+            ],
+            [
+              "Elle prend un bol de yaourt.",
+              1,
+              "Elle prend un bol de céréales.",
+              ""
+            ],
+            ["Elle boit du café-crème.", 0, "", ""],
+            [
+              "Dans le jardin il y a deux arbres.",
+              1,
+              "Dans le jardin il y a trois arbres.",
+              ""
+            ],
+            [
+              "Véronique passe une heure dans le jardin.",
+              1,
+              "Véronique passe la matinée entière dans le jardin.",
+              ""
+            ],
+            [
+              "Elle passe l'après-midi avec ses parents.",
+              1,
+              "Elle passe l'après-midi avec ses amis.",
+              ""
+            ],
+            ["Parfois, ils vont en ville.", 0, "", ""],
+            [
+              "Elle dîne dans la salle à manger.",
+              1,
+              "Elle dîne dans le jardin ou sur le balcon.",
+              ""
+            ],
+            ["Le soir, elle se détend.", 0, "", ""]
+          ],
+          "useSequenceAudioController": true,
+          "titleText": "4. A summer's day"
+        }
+      }
+    ],
+    "expandable": false,
+    "id": "exercises",
+    "titleText": "Exercises",
+    "instructionsLayout": {
+      "paragraphHTML": "<p>This section gives you a chance to practise the key points from this unit. You will check your reflexive verbs such as <em class='grammar-term-em'>se lever</em> and <em class='grammar-term-em'>se coucher</em>, ask and answer about time on the 12-hour clock, and complete short tasks describing a typical day in French.</p>",
+      "image": {
+        "src": "img/shared/self-study.svg",
+        "alt": "Interactive exercises"
+      }
+    }
+  }
 }
