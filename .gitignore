@@ -40,3 +40,4 @@ public/images/table-top.png
 skills-lock.json
 .playwright-mcp/
 /coverage
+.codex/
