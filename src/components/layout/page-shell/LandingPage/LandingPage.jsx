@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, ExternalLink } from "lucide-react";
 import { resolveAsset } from "@/utils/assets";
 import { SOCIAL_LINKS } from "../socialLinks";
 
@@ -174,8 +174,8 @@ export function LandingPage({ learningObjects = [] }) {
                       <CardFooter className="pt-0">
                         <span className="inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wider text-(--brand-primary)">
 												Start Learning
-                          <ArrowRight
-                            className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+                          <ExternalLink
+                            className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
                             aria-hidden="true"
                           />
                         </span>
