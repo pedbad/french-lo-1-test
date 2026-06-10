@@ -87,6 +87,8 @@ export function LandingPage({ learningObjects = [] }) {
                       >
                         <a
                           href={buildLearningObjectURL(lo)}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-sidebar-foreground no-underline hover:text-sidebar-foreground"
                         >
                           <span className="truncate">{lo.titleShort || lo.title}</span>
@@ -136,6 +138,8 @@ export function LandingPage({ learningObjects = [] }) {
                 >
                   <a
                     href={buildLearningObjectURL(lo)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group block h-full rounded-xl no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--brand-primary) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     <Card className="flex h-full flex-col overflow-hidden border-2 border-transparent transition-all duration-300 group-hover:-translate-y-1 group-hover:border-(--brand-primary)/30 group-hover:shadow-lg motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
