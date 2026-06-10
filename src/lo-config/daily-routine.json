@@ -525,7 +525,7 @@
             ["Le soir, elle se détend.", 0, "", ""]
           ],
           "listenDescriptionText": "Listen to Véronique",
-          "soundFile": "audio/lo13/exercises/015-a-summers-day.mp3",
+          "soundFile": "audio/lo13/exercises/04-radio-quiz/015-a-summers-day.mp3",
           "useSequenceAudioController": true,
           "titleText": "4. A summer's day"
         }
