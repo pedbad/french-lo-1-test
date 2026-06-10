@@ -351,7 +351,7 @@ export class FamilyFriendsAndNeighboursDoubleLlPractice extends PureComponent {
     const { id } = this.props;
     const practiceBlocks = [
       {
-        audioFile: "audio/lo6/exercises/double-ll-rhyme-la-famille-de-camille.mp3",
+        audioFile: "audio/lo6/exercises/03-double-ll/double-ll-rhyme-la-famille-de-camille.mp3",
         audioLabel: "La famille de Camille",
         lines: [
           <>La <strong>famille</strong> de <strong>Camille</strong> habite à Paris.</>,
@@ -362,7 +362,7 @@ export class FamilyFriendsAndNeighboursDoubleLlPractice extends PureComponent {
         note: "les tilleuls - lime trees",
       },
       {
-        audioFile: "audio/lo6/exercises/double-ll-rhyme-annabelle-a-une-petite-fille.mp3",
+        audioFile: "audio/lo6/exercises/03-double-ll/double-ll-rhyme-annabelle-a-une-petite-fille.mp3",
         audioLabel: "Annabelle a une petite-fille",
         lines: [
           <><strong>Annabelle</strong> a une <strong>petite-fille</strong>.</>,

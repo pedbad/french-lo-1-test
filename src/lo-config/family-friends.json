@@ -346,23 +346,23 @@
 					"items": [
 						{
 							"text": "[J'ai des sœurs.|*J'ai deux sœurs.|Je n'ai pas de sœurs.]",
-							"audio": "audio/lo6/exercises/031-j-ai-deux-s-urs.mp3"
+							"audio": "audio/lo6/exercises/01-select/031-j-ai-deux-s-urs.mp3"
 						},
 						{
 							"text": "[Il a un frère.|*Elle a un frère.|Elles ont un frère.]",
-							"audio": "audio/lo6/exercises/010-elle-a-un-frere.mp3"
+							"audio": "audio/lo6/exercises/01-select/010-elle-a-un-frere.mp3"
 						},
 						{
 							"text": "[Mon copain s'appelle David.|Mon conjoint s'appelle David.|*Mon compagnon s'appelle David.]",
-							"audio": "audio/lo6/exercises/046-mon-compagnon-s-appelle-david.mp3"
+							"audio": "audio/lo6/exercises/01-select/046-mon-compagnon-s-appelle-david.mp3"
 						},
 						{
 							"text": "[*Ils ont un fils.|Ils ont deux fils.|Ils ont deux filles.]",
-							"audio": "audio/lo6/exercises/022-ils-ont-un-fils.mp3"
+							"audio": "audio/lo6/exercises/01-select/022-ils-ont-un-fils.mp3"
 						},
 						{
 							"text": "[Mon amie est allemande.|Mes amis sont allemands.|*Mes amies sont allemandes.]",
-							"audio": "audio/lo6/exercises/043-mes-amies-sont-allemandes.mp3"
+							"audio": "audio/lo6/exercises/01-select/043-mes-amies-sont-allemandes.mp3"
 						}
 					],
 					"titleText": "1. Practise your listening skills"
@@ -384,47 +384,47 @@
 						},
 						{
 							"text": "Camille [*y|l]",
-							"audio": "audio/lo6/exercises/005-camille.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/005-camille.mp3"
 						},
 						{
 							"text": "fille [*y|l]",
-							"audio": "audio/lo6/exercises/017-fille.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/017-fille.mp3"
 						},
 						{
 							"text": "gentille [*y|l]",
-							"audio": "audio/lo6/exercises/018-gentille.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/018-gentille.mp3"
 						},
 						{
 							"text": "s'appelle [y|*l]",
-							"audio": "audio/lo6/exercises/057-s-appelle.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/057-s-appelle.mp3"
 						},
 						{
 							"text": "Myrtille [*y|l]",
-							"audio": "audio/lo6/exercises/048-myrtille.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/048-myrtille.mp3"
 						},
 						{
 							"text": "tilleuls [*y|l]",
-							"audio": "audio/lo6/exercises/060-tilleuls.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/060-tilleuls.mp3"
 						},
 						{
 							"text": "Versailles [*y|l]",
-							"audio": "audio/lo6/exercises/062-versailles.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/062-versailles.mp3"
 						},
 						{
 							"text": "Annabelle [y|*l]",
-							"audio": "audio/lo6/exercises/002-annabelle.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/002-annabelle.mp3"
 						},
 						{
 							"text": "elle [y|*l]",
-							"audio": "audio/lo6/exercises/014-elle.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/014-elle.mp3"
 						},
 						{
 							"text": "petite-fille [*y|l]",
-							"audio": "audio/lo6/exercises/055-petite-fille.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/055-petite-fille.mp3"
 						},
 						{
 							"text": "Isabelle [y|*l]",
-							"audio": "audio/lo6/exercises/028-isabelle.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/028-isabelle.mp3"
 						},
 						{
 							"text": "Lille [y|*l]",
@@ -440,15 +440,15 @@
 						},
 						{
 							"text": "quelle [y|*l]",
-							"audio": "audio/lo6/exercises/056-quelle.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/056-quelle.mp3"
 						},
 						{
 							"text": "belle [y|*l]",
-							"audio": "audio/lo6/exercises/003-belle.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/003-belle.mp3"
 						},
 						{
 							"text": "ville [y|*l]",
-							"audio": "audio/lo6/exercises/063-ville.mp3"
+							"audio": "audio/lo6/exercises/02-inline-choice/063-ville.mp3"
 						}
 					],
 					"titleText": "2. Double ll: y or l?"
@@ -473,43 +473,43 @@
 					"items": [
 						{
 							"text": "J' [*ai|as|a|avons|avez|ont] 30 ans.",
-							"audio": "audio/lo6/exercises/029-j-ai-30-ans.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/029-j-ai-30-ans.mp3"
 						},
 						{
 							"text": "Nous [ai|as|a|*avons|avez|ont] trois enfants.",
-							"audio": "audio/lo6/exercises/051-nous-avons-trois-enfants.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/051-nous-avons-trois-enfants.mp3"
 						},
 						{
 							"text": "Vous [ai|as|a|avons|*avez|ont] soif ?",
-							"audio": "audio/lo6/exercises/065-vous-avez-soif.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/065-vous-avez-soif.mp3"
 						},
 						{
 							"text": "Tu [ai|*as|a|avons|avez|ont] faim ?",
-							"audio": "audio/lo6/exercises/061-tu-as-faim.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/061-tu-as-faim.mp3"
 						},
 						{
 							"text": "Elle [ai|as|*a|avons|avez|ont] un fils de deux ans.",
-							"audio": "audio/lo6/exercises/009-elle-a-un-fils-de-deux-ans.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/009-elle-a-un-fils-de-deux-ans.mp3"
 						},
 						{
 							"text": "Ils [ai|as|a|avons|avez|*ont] un bébé de trois mois.",
-							"audio": "audio/lo6/exercises/021-ils-ont-un-bebe-de-trois-mois.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/021-ils-ont-un-bebe-de-trois-mois.mp3"
 						},
 						{
 							"text": "Elles [ai|as|a|avons|avez|*ont] peur.",
-							"audio": "audio/lo6/exercises/015-elles-ont-peur.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/015-elles-ont-peur.mp3"
 						},
 						{
 							"text": "Il [ai|as|*a|avons|avez|ont] un appartement en ville.",
-							"audio": "audio/lo6/exercises/019-il-a-un-appartement-en-ville.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/019-il-a-un-appartement-en-ville.mp3"
 						},
 						{
 							"text": "J' [*ai|as|a|avons|avez|ont] froid.",
-							"audio": "audio/lo6/exercises/032-j-ai-froid.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/032-j-ai-froid.mp3"
 						},
 						{
 							"text": "Vous [ai|as|a|avons|*avez|ont] quel âge ?",
-							"audio": "audio/lo6/exercises/064-vous-avez-quel-age.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/064-vous-avez-quel-age.mp3"
 						}
 					],
 					"titleTextHTML": "4. Practise the verb <strong>avoir</strong>"
@@ -527,59 +527,59 @@
 					"items": [
 						{
 							"text": "Louis n'est pas [*mon|ma|mes] frère. C'est [*mon|ma|mes] cousin.  ",
-							"audio": "audio/lo6/exercises/038-louis-n-est-pas-mon-frere-c-est-mon-cousin.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/038-louis-n-est-pas-mon-frere-c-est-mon-cousin.mp3"
 						},
 						{
 							"text": "Je vous présente [mon|*ma|mes] tante, Géraldine et [*mon|ma|mes] oncle, Simon. ",
-							"audio": "audio/lo6/exercises/033-je-vous-presente-ma-tante-geraldine-et-mon-oncle-simon.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/033-je-vous-presente-ma-tante-geraldine-et-mon-oncle-simon.mp3"
 						},
 						{
 							"text": "[Mon|Ma|*Mes] cousines habitent aux Etats-Unis.",
-							"audio": "audio/lo6/exercises/044-mes-cousines-habitent-aux-etats-unis.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/044-mes-cousines-habitent-aux-etats-unis.mp3"
 						},
 						{
 							"text": "Où habite [ton|*ta|tes] famille ?",
-							"audio": "audio/lo6/exercises/052-ou-habite-ta-famille.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/052-ou-habite-ta-famille.mp3"
 						},
 						{
 							"text": "Comment s'appelle [*ton|ta|tes] voisin ?",
-							"audio": "audio/lo6/exercises/007-comment-s-appelle-ton-voisin.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/007-comment-s-appelle-ton-voisin.mp3"
 						},
 						{
 							"text": "[Ton|Ta|*Tes] amis habitent en banlieue ?",
-							"audio": "audio/lo6/exercises/059-tes-amis-habitent-en-banlieue.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/059-tes-amis-habitent-en-banlieue.mp3"
 						},
 						{
 							"text": "Mélanie n'habite pas chez [*son|sa|ses] père, elle habite chez [son|*sa|ses] mère.",
-							"audio": "audio/lo6/exercises/042-melanie-n-habite-pas-chez-son-pere-elle-habite-chez-sa-mere.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/042-melanie-n-habite-pas-chez-son-pere-elle-habite-chez-sa-mere.mp3"
 						},
 						{
 							"text": "[Son|Sa|*Ses] sœurs sont en Australie.",
-							"audio": "audio/lo6/exercises/058-ses-s-urs-sont-en-australie.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/058-ses-s-urs-sont-en-australie.mp3"
 						},
 						{
 							"text": "[*Notre|Nos] maison se trouve à cinq kilomètres d'ici.",
-							"audio": "audio/lo6/exercises/050-notre-maison-se-trouve-a-cinq-kilometres-d-ici.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/050-notre-maison-se-trouve-a-cinq-kilometres-d-ici.mp3"
 						},
 						{
 							"text": "[Notre|*Nos] petits-enfants sont bilingues.",
-							"audio": "audio/lo6/exercises/049-nos-petits-enfants-sont-bilingues.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/049-nos-petits-enfants-sont-bilingues.mp3"
 						},
 						{
 							"text": "Où sont [votre|*vos] enfants ?",
-							"audio": "audio/lo6/exercises/054-ou-sont-vos-enfants.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/054-ou-sont-vos-enfants.mp3"
 						},
 						{
 							"text": "Et [*votre|vos] mari ?",
-							"audio": "audio/lo6/exercises/016-et-votre-mari.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/016-et-votre-mari.mp3"
 						},
 						{
 							"text": "Ils sont chez [leur|*leurs] grands-parents.",
-							"audio": "audio/lo6/exercises/023-ils-sont-chez-leurs-grands-parents.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/023-ils-sont-chez-leurs-grands-parents.mp3"
 						},
 						{
 							"text": "Où se trouve [*leur|leurs] appartement ?",
-							"audio": "audio/lo6/exercises/053-ou-se-trouve-leur-appartement.mp3"
+							"audio": "audio/lo6/exercises/03-double-ll/053-ou-se-trouve-leur-appartement.mp3"
 						}
 					],
 					"titleText": "5. Practise the possessives"
@@ -597,43 +597,43 @@
 					"items": [
 						{
 							"text": "Ma famille est [*une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/039-ma-famille-est-une-famille-nombreuse.mp3"
+							"audio": "audio/lo6/exercises/04-select/039-ma-famille-est-une-famille-nombreuse.mp3"
 						},
 						{
 							"text": "Il y a [une famille nombreuse.|*huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/020-il-y-a-huit-personnes-dans-ma-famille.mp3"
+							"audio": "audio/lo6/exercises/04-select/020-il-y-a-huit-personnes-dans-ma-famille.mp3"
 						},
 						{
 							"text": "La personne la plus âgée [une famille nombreuse.|huit personnes dans ma famille.|*est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/037-la-personne-la-plus-agee-est-ma-grand-mere.mp3"
+							"audio": "audio/lo6/exercises/04-select/037-la-personne-la-plus-agee-est-ma-grand-mere.mp3"
 						},
 						{
 							"text": "Elle a [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|*89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/008-elle-a-89-ans.mp3"
+							"audio": "audio/lo6/exercises/04-select/008-elle-a-89-ans.mp3"
 						},
 						{
 							"text": "Elle est [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|*veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/011-elle-est-veuve.mp3"
+							"audio": "audio/lo6/exercises/04-select/011-elle-est-veuve.mp3"
 						},
 						{
 							"text": "Mon grand-père est [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|*décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/047-mon-grand-pere-est-decede.mp3"
+							"audio": "audio/lo6/exercises/04-select/047-mon-grand-pere-est-decede.mp3"
 						},
 						{
 							"text": "Mes parents [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|*s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/045-mes-parents-s-appellent-julie-et-marc.mp3"
+							"audio": "audio/lo6/exercises/04-select/045-mes-parents-s-appellent-julie-et-marc.mp3"
 						},
 						{
 							"text": "Ils sont mariés [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|*depuis 26 ans.|et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/024-ils-sont-maries-depuis-26-ans.mp3"
+							"audio": "audio/lo6/exercises/04-select/024-ils-sont-maries-depuis-26-ans.mp3"
 						},
 						{
 							"text": "J'ai deux sœurs [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|*et deux frères.|plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/030-j-ai-deux-s-urs-et-deux-freres.mp3"
+							"audio": "audio/lo6/exercises/04-select/030-j-ai-deux-s-urs-et-deux-freres.mp3"
 						},
 						{
 							"text": "Ils sont tous [une famille nombreuse.|huit personnes dans ma famille.|est ma grand-mère.|89 ans.|veuve.|décédé.|s'appellent Julie et Marc.|depuis 26 ans.|et deux frères.|*plus âgés que moi.]",
-							"audio": "audio/lo6/exercises/025-ils-sont-tous-plus-ages-que-moi.mp3"
+							"audio": "audio/lo6/exercises/04-select/025-ils-sont-tous-plus-ages-que-moi.mp3"
 						}
 					],
 					"titleText": "6. Jeanne's Family"
