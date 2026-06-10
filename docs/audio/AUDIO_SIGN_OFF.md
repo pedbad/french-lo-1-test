@@ -144,8 +144,8 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ## Orphaned files (no code reference — review before deleting)
 
-- `public/audio/lo13/exercises/015-a-summers-day.mp3`
-  - Was wired via `soundFile` in the RadioQuiz config, but that field was removed (RadioQuiz has no `listenDescriptionText` so it never rendered). No other reference found. Delete or repurpose.
+- `public/audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3`
+  - Was wired via `soundFile` in SelectExercise config, removed (SelectExercise never rendered it without `listenDescriptionText`). Delete or repurpose.
 
 - `public/audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3`
   - Was wired via `soundFile` in SelectExercise config, removed for same reason. Delete or repurpose.
