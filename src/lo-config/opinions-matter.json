@@ -480,6 +480,7 @@
           "component": "SelectExercise",
           "id": "selectExercise2",
           "informationTextHTML": "Read this poem by Mymi Doinet about the rainbow and choose the correct colour for each line. The coloured strips on the left are shown as hints. Use <span style='white-space: nowrap'><span style='white-space: nowrap'><span class='inline-icon inline-icon-check' aria-hidden='true'></span> Check answer</span>s</span> to review your choices, <span style='white-space: nowrap'><span class='inline-icon inline-icon-eye' aria-hidden='true'></span> Show answer</span> for support, and <span style='white-space: nowrap'><span class='inline-icon inline-icon-reset' aria-hidden='true'></span> Reset</span> to try again.",
+          "renderInlineChoices": true,
           "layoutMode": "inline-passage",
           "showHintsText": "Show hints when moving",
           "cheatText": "Show answer",
