@@ -15,6 +15,37 @@ export class AudioClip extends React.PureComponent {
     this.audioRef = React.createRef();
   }
 
+  // Subscribe to AudioManager so external stop (another clip starting) resets
+  // local status. Without this, status stays 'playing' after an external stop
+  // and handleClick calls pause() instead of playSound() on the next click.
+  _setupExternalStopListener() {
+    const { soundFile, id: propId } = this.props;
+    const clipId = propId || soundFile;
+    this._unsubscribeAudioManager = AudioManager.subscribe((managerState) => {
+      if (
+        managerState.activeId !== clipId &&
+        (this.state.status === 'playing' || this.state.status === 'paused')
+      ) {
+        this.setPlaybackStatus('stopped', { progress: 0 });
+      }
+    });
+  }
+
+  _teardownExternalStopListener() {
+    if (this._unsubscribeAudioManager) {
+      this._unsubscribeAudioManager();
+      this._unsubscribeAudioManager = null;
+    }
+  }
+
+  componentDidMount() {
+    this._setupExternalStopListener();
+  }
+
+  componentWillUnmount() {
+    this._teardownExternalStopListener();
+  }
+
   setPlaybackStatus = (nextStatus, extraState = {}) => {
     this.setState({
       ...extraState,
@@ -204,6 +235,7 @@ class CircularAudioProgress extends AudioClip {
   }
 
   componentDidMount = () => {
+    this._setupExternalStopListener();
     const { soundFileAudio } = this.state;
     if (soundFileAudio !== undefined && soundFileAudio.setup !== true) {
       soundFileAudio.addEventListener('loadedmetadata', this.handleMetadataLoaded);
@@ -213,6 +245,7 @@ class CircularAudioProgress extends AudioClip {
   };
 
   componentWillUnmount = () => {
+    this._teardownExternalStopListener();
     const { soundFileAudio } = this.state;
     if (soundFileAudio !== undefined && soundFileAudio.setup !== true) {
       soundFileAudio.removeEventListener('loadedmetadata', this.handleMetadataLoaded);

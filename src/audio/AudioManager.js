@@ -40,7 +40,16 @@ class AudioManager {
 
     // Start playback BEFORE notifying: HTMLMediaElement.play() sets .paused
     // synchronously, so subscribers see isPlaying: true at the moment a clip starts.
-    audio.play().catch(() => {});
+    audio.play().catch(() => {
+      // Only clear state if this audio is still the active one.
+      // If stopAll() was called first (rapid switching), _activeAudio has
+      // already been replaced — don't clobber the new clip's state.
+      if (this._activeAudio === audio) {
+        this._activeAudio = null;
+        this._activeId = null;
+        this._notify();
+      }
+    });
     this._notify();
     return audio;
   }

@@ -373,51 +373,51 @@
           "items": [
             {
               "text": "Amel [vais|vas|*va|allons|allez|vont] à la piscine.",
-              "audio": "audio/lo12/exercises/001-amel-va-a-la-piscine.mp3"
+              "audio": "audio/lo12/exercises/01-select/001-amel-va-a-la-piscine.mp3"
             },
             {
               "text": "Mes voisins [vais|vas|va|allons|allez|*vont] au supermarché.",
-              "audio": "audio/lo12/exercises/002-mes-voisins-vont-au-supermarche.mp3"
+              "audio": "audio/lo12/exercises/01-select/002-mes-voisins-vont-au-supermarche.mp3"
             },
             {
               "text": "Tu [vais|*vas|va|allons|allez|vont] à la boulangerie ?",
-              "audio": "audio/lo12/exercises/003-tu-vas-a-la-boulangerie.mp3"
+              "audio": "audio/lo12/exercises/01-select/003-tu-vas-a-la-boulangerie.mp3"
             },
             {
               "text": "Ma mère et moi [vais|vas|va|*allons|allez|vont] au marché.",
-              "audio": "audio/lo12/exercises/004-ma-mere-et-moi-allons-au-marche.mp3"
+              "audio": "audio/lo12/exercises/01-select/004-ma-mere-et-moi-allons-au-marche.mp3"
             },
             {
               "text": "Mon frère et son fils [vais|vas|va|allons|allez|*vont] à la bibliothèque.",
-              "audio": "audio/lo12/exercises/005-mon-frere-et-son-fils-vont-a-la-bibliotheque.mp3"
+              "audio": "audio/lo12/exercises/01-select/005-mon-frere-et-son-fils-vont-a-la-bibliotheque.mp3"
             },
             {
               "text": "Je [*vais|vas|va|allons|allez|vont] au centre sportif.",
-              "audio": "audio/lo12/exercises/006-je-vais-au-centre-sportif.mp3"
+              "audio": "audio/lo12/exercises/01-select/006-je-vais-au-centre-sportif.mp3"
             },
             {
               "text": "Thomas et Louise, vous [vais|vas|va|allons|*allez|vont] au centre-ville ?",
-              "audio": "audio/lo12/exercises/007-thomas-et-louise-vous-allez-au-centre-ville.mp3"
+              "audio": "audio/lo12/exercises/01-select/007-thomas-et-louise-vous-allez-au-centre-ville.mp3"
             },
             {
               "text": "[Je|Tu|Elle|Nous|Vous|*Elles] vont à l'épicerie. ",
-              "audio": "audio/lo12/exercises/008-elles-vont-a-lepicerie.mp3"
+              "audio": "audio/lo12/exercises/01-select/008-elles-vont-a-lepicerie.mp3"
             },
             {
               "text": "[*Je|Tu|Elle|Nous|Vous|Elles] vais à la boucherie.",
-              "audio": "audio/lo12/exercises/009-je-vais-a-la-boucherie.mp3"
+              "audio": "audio/lo12/exercises/01-select/009-je-vais-a-la-boucherie.mp3"
             },
             {
               "text": "[Je|Tu|*Elle|Nous|Vous|Elles] va chez le marchand de fruits et légumes.",
-              "audio": "audio/lo12/exercises/010-elle-va-chez-le-marchand-de-fruits-et-legumes.mp3"
+              "audio": "audio/lo12/exercises/01-select/010-elle-va-chez-le-marchand-de-fruits-et-legumes.mp3"
             },
             {
               "text": "[Je|Tu|Il|Nous|vous|*Ils] vont à la poissonnerie.",
-              "audio": "audio/lo12/exercises/011-ils-vont-a-la-poissonnerie.mp3"
+              "audio": "audio/lo12/exercises/01-select/011-ils-vont-a-la-poissonnerie.mp3"
             },
             {
               "text": "[Je|Tu|*Il|Nous|Vous|Ils] va chez la fleuriste.",
-              "audio": "audio/lo12/exercises/012-il-va-chez-la-fleuriste.mp3"
+              "audio": "audio/lo12/exercises/01-select/012-il-va-chez-la-fleuriste.mp3"
             }
           ],
           "titleText": "1. Talking about where people go shopping",
@@ -434,27 +434,27 @@
           "items": [
             {
               "text": "trois bouteilles [*de|d'|du|de la|de l'|des] vin rouge",
-              "audio": "audio/lo12/exercises/013-trois-bouteilles-de-vin-rouge.mp3"
+              "audio": "audio/lo12/exercises/01-select/013-trois-bouteilles-de-vin-rouge.mp3"
             },
             {
               "text": "cinq bouteilles [de|*d'|du|de la|de l'|des] eau minérale",
-              "audio": "audio/lo12/exercises/014-cinq-bouteilles-deau-minerale.mp3"
+              "audio": "audio/lo12/exercises/01-select/014-cinq-bouteilles-deau-minerale.mp3"
             },
             {
               "text": "300 grammes [*de|d'|du|de la|de l'|des] fromage",
-              "audio": "audio/lo12/exercises/015-300-grammes-de-fromage.mp3"
+              "audio": "audio/lo12/exercises/01-select/015-300-grammes-de-fromage.mp3"
             },
             {
               "text": "200 grammes [*de|d'|du|de la|de l'|des] jambon",
-              "audio": "audio/lo12/exercises/016-200-grammes-de-jambon.mp3"
+              "audio": "audio/lo12/exercises/01-select/016-200-grammes-de-jambon.mp3"
             },
             {
               "text": "une barquette [*de|d'|du|de la|de l'|des] framboises",
-              "audio": "audio/lo12/exercises/017-une-barquette-de-framboises.mp3"
+              "audio": "audio/lo12/exercises/01-select/017-une-barquette-de-framboises.mp3"
             },
             {
               "text": "une bouteille [de|*d'|du|de la|de l'|des] huile [de|*d'|du|de la|de l'|des] olives",
-              "audio": "audio/lo12/exercises/018-une-bouteille-dhuile-dolives.mp3"
+              "audio": "audio/lo12/exercises/01-select/018-une-bouteille-dhuile-dolives.mp3"
             }
           ],
           "titleText": "2. Marion's shopping list",
@@ -471,23 +471,23 @@
           "items": [
             {
               "text": "[de|d'|du|*de la|de l'|des] salade",
-              "audio": "audio/lo12/exercises/019-de-la-salade.mp3"
+              "audio": "audio/lo12/exercises/01-select/019-de-la-salade.mp3"
             },
             {
               "text": "[de|d'|du|de la|de l'|*des] oignons",
-              "audio": "audio/lo12/exercises/020-des-oignons.mp3"
+              "audio": "audio/lo12/exercises/01-select/020-des-oignons.mp3"
             },
             {
               "text": "[de|d'|*du|de la|de l'|des] lait",
-              "audio": "audio/lo12/exercises/021-du-lait.mp3"
+              "audio": "audio/lo12/exercises/01-select/021-du-lait.mp3"
             },
             {
               "text": "[de|d'|*du|de la|de l'|des] café",
-              "audio": "audio/lo12/exercises/022-du-cafe.mp3"
+              "audio": "audio/lo12/exercises/01-select/022-du-cafe.mp3"
             },
             {
               "text": "[de|d'|*du|de la|de l'|des] jus [de|*d'|du|de la|de l'|des] orange",
-              "audio": "audio/lo12/exercises/023-du-jus-dorange.mp3"
+              "audio": "audio/lo12/exercises/01-select/023-du-jus-dorange.mp3"
             }
           ],
           "titleText": "3. Yves' shopping list",
@@ -503,7 +503,7 @@
             [
               "",
               "[Je voudrais un kilo de pommes de terre et un demi-kilo de carottes.]",
-              "audio/lo12/exercises/024-je-voudrais-un-kilo-de-pommes-de-terre-et-un-demi-kilo-de-carottes.mp3"
+              "audio/lo12/exercises/02-dictation/024-je-voudrais-un-kilo-de-pommes-de-terre-et-un-demi-kilo-de-carottes.mp3"
             ],
             [
               "",
@@ -513,47 +513,47 @@
             [
               "",
               "[200 grammes d'abricots, s'il vous plaît.]",
-              "audio/lo12/exercises/025-200-grammes-dabricots-sil-vous-plait.mp3"
+              "audio/lo12/exercises/02-dictation/025-200-grammes-dabricots-sil-vous-plait.mp3"
             ],
             [
               "",
               "[D'accord.]",
-              "audio/lo12/exercises/026-daccord.mp3"
+              "audio/lo12/exercises/02-dictation/026-daccord.mp3"
             ],
             [
               "",
               "[Et une barquette de cerises.]",
-              "audio/lo12/exercises/027-et-une-barquette-de-cerises.mp3"
+              "audio/lo12/exercises/02-dictation/027-et-une-barquette-de-cerises.mp3"
             ],
             [
               "",
               "[C'est tout ?]",
-              "audio/lo12/exercises/028-cest-tout.mp3"
+              "audio/lo12/exercises/02-dictation/028-cest-tout.mp3"
             ],
             [
               "",
               "[Non, donnez-moi trois poireaux et un poivron rouge.]",
-              "audio/lo12/exercises/029-non-donnez-moi-trois-poireaux-et-un-poivron-rouge.mp3"
+              "audio/lo12/exercises/02-dictation/029-non-donnez-moi-trois-poireaux-et-un-poivron-rouge.mp3"
             ],
             [
               "",
               "[Voilà !]",
-              "audio/lo12/exercises/030-voila-male.mp3"
+              "audio/lo12/exercises/02-dictation/030-voila-male.mp3"
             ],
             [
               "",
               "[Les melons, c'est combien la pièce ?]",
-              "audio/lo12/exercises/031-les-melons-cest-combien-la-piece.mp3"
+              "audio/lo12/exercises/02-dictation/031-les-melons-cest-combien-la-piece.mp3"
             ],
             [
               "",
               "[2€50 la pièce Madame.]",
-              "audio/lo12/exercises/032-2euros50-la-piece-madame.mp3"
+              "audio/lo12/exercises/02-dictation/032-2euros50-la-piece-madame.mp3"
             ],
             [
               "",
               "[Un melon, s'il vous plaît.]",
-              "audio/lo12/exercises/033-un-melon-sil-vous-plait.mp3"
+              "audio/lo12/exercises/02-dictation/033-un-melon-sil-vous-plait.mp3"
             ],
             [
               "",
@@ -563,7 +563,7 @@
             [
               "",
               "[C'est tout merci !]",
-              "audio/lo12/exercises/034-cest-tout-merci.mp3"
+              "audio/lo12/exercises/02-dictation/034-cest-tout-merci.mp3"
             ]
           ],
           "titleText": "4. Type what you hear",
