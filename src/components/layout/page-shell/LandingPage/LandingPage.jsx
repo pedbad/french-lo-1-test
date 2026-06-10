@@ -172,7 +172,7 @@ export function LandingPage({ learningObjects = [] }) {
                         </CardDescription>
                       </CardContent>
                       <CardFooter className="pt-0">
-                        <span className="inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wider text-(--brand-primary) opacity-75 transition-opacity duration-300 group-hover:opacity-100 motion-reduce:transition-none">
+                        <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-(--brand-primary)/50 transition-[color,gap] duration-300 group-hover:gap-3 group-hover:text-(--brand-primary) motion-reduce:transition-none">
 												Start Learning
                           <ExternalLink
                             className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
