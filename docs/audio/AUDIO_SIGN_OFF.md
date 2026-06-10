@@ -138,14 +138,6 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ---
 
-## Orphaned files (no code reference — review before deleting)
-
-- `public/audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3`
-  - Was wired via `soundFile` in SelectExercise config, removed (SelectExercise never rendered it without `listenDescriptionText`). Delete or repurpose.
-
-- `public/audio/lo13/exercises/016-reflexive-verbs-full-audio.mp3`
-  - Was wired via `soundFile` in SelectExercise config, removed for same reason. Delete or repurpose.
-
 ---
 
 ## File Tree — All Outstanding Recordings
