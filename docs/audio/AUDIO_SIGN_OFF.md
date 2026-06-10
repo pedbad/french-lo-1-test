@@ -85,18 +85,14 @@ Single reference for all outstanding audio work — missing files, wrong-content
   - Section: **Pronunciation Focus** (the _u_ sound)
   - Extra "la" sound audible before _rue_; vowel sounds like _ou_ rather than the French _u_.
 
-- `public/audio/lo12/exercises/037-bu.mp3`
-  - Section: **Exercises — 5. Which word do you hear?** (the _bu_ option)
-  - Sounds like _bout_ rather than _bu_. Re-record as a clean single _bu_.
-
 ### New recording (files do not exist)
 
-- `public/audio/lo12/exercises/041-bout.mp3`
+- `public/audio/lo12/exercises/03-inline-choice/041-bout.mp3`
   - Section: **Exercises — 5. Which word do you hear?**
   - The exercise plays this clip; student selects between _bu_ and _bout_.
   - Record: _bout_. LC confirmed previous draft was completely wrong (sounded like English "about").
 
-- `public/audio/lo12/exercises/043-roue.mp3`
+- `public/audio/lo12/exercises/03-inline-choice/043-roue.mp3`
   - Section: **Exercises — 5. Which word do you hear?**
   - The exercise plays this clip; student selects between _rue_ and _roue_.
   - Record: _roue_. The final _e_ must be silent. LC confirmed previous draft had wrong pronunciation.
@@ -184,9 +180,9 @@ public/audio/
 │   │   ├── 005-rue.mp3                                  ← RE-RECORD (wrong vowel)
 │   │   └── 016-ou.mp3                                   ← RE-RECORD (wrong vowel)
 │   └── exercises/
-│       ├── 037-bu.mp3                                   ← RE-RECORD (sounds like bout)
-│       ├── 041-bout.mp3                                 ← NEW
-│       └── 043-roue.mp3                                 ← NEW
+│       └── 03-inline-choice/
+│           ├── 041-bout.mp3                             ← NEW
+│           └── 043-roue.mp3                             ← NEW
 ├── lo13/
 │   └── exercises/01-select/
 │       └── 025-tu-te-maquilles-aujourdhui.mp3           ← RE-RECORD (liaison error)
