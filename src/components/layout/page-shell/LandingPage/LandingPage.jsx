@@ -167,7 +167,7 @@ export function LandingPage({ learningObjects = [] }) {
                       </div>
 
                       <CardContent className="flex-1 pt-6">
-                        <CardDescription className="text-sm font-normal leading-[var(--line-height-body-tight)] text-muted-foreground/90">
+                        <CardDescription className="max-h-[4.5rem] overflow-hidden text-sm font-normal leading-[var(--line-height-body-tight)] text-muted-foreground/90 transition-[max-height] duration-300 ease-in-out group-hover:max-h-40 motion-reduce:transition-none">
                           {lo.description}
                         </CardDescription>
                       </CardContent>
