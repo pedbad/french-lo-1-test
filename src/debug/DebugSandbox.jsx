@@ -61,6 +61,7 @@ export function DebugSandbox() {
     if (typeof document === "undefined") return false;
     return document.documentElement.classList.contains("dark");
   });
+  const exerciseShowcaseUrl = `${window.location.origin}${import.meta.env.BASE_URL}exercise-showcase.html`;
   const previewUrl = `${window.location.origin}${import.meta.env.BASE_URL}first-contact/`;
   const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
   const chromeIncognitoCommandPowerShell = `Start-Process "chrome.exe" "--incognito --disable-extensions \`"${ previewUrl }\`"""`;
@@ -126,6 +127,14 @@ export function DebugSandbox() {
       <header className="space-y-2">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="m-0">Debug Sandbox (Development Only)</h1>
+          <a
+            href={exerciseShowcaseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 items-center gap-2 rounded-lg border border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_10%,var(--card))] px-4 text-sm font-semibold text-[var(--brand-primary)] no-underline transition-colors hover:bg-[color-mix(in_oklab,var(--brand-primary)_18%,var(--card))]"
+          >
+            Exercise Showcase ↗
+          </a>
           <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/70 px-3 py-2">
             <span className="text-sm text-muted-foreground">Light</span>
             <Switch

@@ -38,7 +38,10 @@ export default defineConfig(() => {
   const includeDebug = process.env.VITE_INCLUDE_DEBUG === 'true';
   const htmlInputs = {
     main: path.resolve(projectRoot, 'index.html'),
-    ...(includeDebug ? { debugSandbox: path.resolve(projectRoot, 'debug-sandbox.html') } : {}),
+    ...(includeDebug ? {
+      debugSandbox: path.resolve(projectRoot, 'debug-sandbox.html'),
+      exerciseShowcase: path.resolve(projectRoot, 'exercise-showcase.html'),
+    } : {}),
   };
 
   return ({
