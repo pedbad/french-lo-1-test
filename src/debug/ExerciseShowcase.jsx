@@ -2,14 +2,15 @@
  * ExerciseShowcase — dev-only page listing every exercise type with a minimal
  * French fixture so new contributors can see each component at a glance.
  *
- * Audio: isolated copies in public/audio/showcase/ — not shared with lesson audio.
- * See public/audio/showcase/ for the full list (19 clips, sourced from LO1/LO7).
+ * Audio: 4 generic clips in public/audio/showcase/ — not shared with lesson audio.
+ * long.mp3 (single-audio exercises), short-a/b/c.mp3 (per-item audio, rotated).
  *
  * Route: /exercise-showcase.html  (VITE_INCLUDE_DEBUG=true or DEV mode)
  */
 import React from 'react';
 import { Switch } from '@/components/ui/switch';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { BackToTopButton } from '@/components/layout/page-shell/BackToTopButton';
 import {
   SelectExercise,
   WordOrderExercise,
@@ -31,6 +32,7 @@ import {
 // ---------------------------------------------------------------------------
 
 const A = (name) => `audio/showcase/${name}`;
+const IMG = 'favicon.svg';
 
 const SELECT_CONFIG = {
   id: 'showcase-select',
@@ -38,9 +40,9 @@ const SELECT_CONFIG = {
   renderInlineChoices: false,
   shuffleItems: false,
   items: [
-    { text: 'Je [*vais|vas|va|allons] à Paris.',         audio: A('007-bonjour-mon-cheri.mp3') },
-    { text: 'Tu [vais|*vas|va|allons] au cinéma ?',      audio: A('008-bonsoir-mon-amour.mp3') },
-    { text: "Elle [vais|vas|*va|allons] à l'école.",     audio: A('009-au-revoir-ma-cherie.mp3') },
+    { text: 'Je [*vais|vas|va|allons] à Paris.',         audio: A('short-b.mp3') },
+    { text: 'Tu [vais|*vas|va|allons] au cinéma ?',      audio: A('short-a.mp3') },
+    { text: "Elle [vais|vas|*va|allons] à l'école.",     audio: A('short-c.mp3') },
   ],
   titleText: 'SelectExercise',
 };
@@ -64,7 +66,7 @@ const WORD_ORDER_CONFIG = {
   cheatText: 'Show answer',
   blanksType: 'table',
   words: ['bonjour', 'mon', 'prénom', 'non', 'bon', 'son'],
-  soundFile: A('011-listening-order.mp3'),
+  soundFile: A('long.mp3'),
   titleText: 'WordOrderExercise',
 };
 
@@ -85,7 +87,7 @@ const RADIO_QUIZ_CONFIG = {
   id: 'showcase-radioquiz',
   informationText: 'Listen to the audio, then decide whether each statement is true or false.',
   options: ['Vrai', 'Faux'],
-  soundFile: A('012-homme.mp3'),
+  soundFile: A('long.mp3'),
   phrases: [
     ['Marie se lève à 7 heures.', 1, 'Marie se lève à 6 heures.', ''],
     ['Elle aime le café le matin.', 0, '', ''],
@@ -100,12 +102,12 @@ const LINE_MATCH_CONFIG = {
   cheatText: 'Show answer',
   sampleSize: 4,
   items: [
-    { id: 'bonjour',        label: 'bonjour',        audio: A('001-salut-ca-va.mp3') },
-    { id: 'merci',          label: 'merci',          audio: A('003-ca-va-merci.mp3') },
-    { id: 'au-revoir',      label: 'au revoir',      audio: A('009-au-revoir-ma-cherie.mp3') },
-    { id: 'sil-vous-plait', label: "s'il vous plaît", audio: A('007-bonjour-mon-cheri.mp3') },
-    { id: 'excusez-moi',    label: 'excusez-moi',    audio: A('008-bonsoir-mon-amour.mp3') },
-    { id: 'oui',            label: 'oui',            audio: A('010-quelle-horreur-valerie.mp3') },
+    { id: 'bonjour',        label: 'bonjour',         image: IMG, audio: A('short-a.mp3') },
+    { id: 'merci',          label: 'merci',           image: IMG, audio: A('short-b.mp3') },
+    { id: 'au-revoir',      label: 'au revoir',       image: IMG, audio: A('short-c.mp3') },
+    { id: 'sil-vous-plait', label: "s'il vous plaît", image: IMG, audio: A('short-a.mp3') },
+    { id: 'excusez-moi',    label: 'excusez-moi',     image: IMG, audio: A('short-b.mp3') },
+    { id: 'oui',            label: 'oui',             image: IMG, audio: A('short-c.mp3') },
   ],
   titleText: 'LineMatch',
 };
@@ -115,10 +117,10 @@ const MEMORY_MATCH_CONFIG = {
   informationTextHTML: 'Match each French word to the correct English translation.',
   nPairsToPlay: 4,
   cards: [
-    { foreignLanguage: 'la fleur',  localLanguage: 'flower',         audio: A('017-la-fleur.mp3') },
-    { foreignLanguage: 'la forêt',  localLanguage: 'forest',         audio: A('018-la-foret.mp3') },
-    { foreignLanguage: "l'arbre",   localLanguage: 'tree',           audio: A('016-l-arbre.mp3') },
-    { foreignLanguage: 'le babyfoot', localLanguage: 'table football', audio: A('019-le-babyfoot.mp3') },
+    { foreignLanguage: 'la fleur',    localLanguage: 'flower',         image: IMG, audio: A('short-a.mp3') },
+    { foreignLanguage: 'la forêt',    localLanguage: 'forest',         image: IMG, audio: A('short-b.mp3') },
+    { foreignLanguage: "l'arbre",     localLanguage: 'tree',           image: IMG, audio: A('short-c.mp3') },
+    { foreignLanguage: 'le babyfoot', localLanguage: 'table football', image: IMG, audio: A('short-a.mp3') },
   ],
   titleText: 'MemoryMatchGame',
 };
@@ -127,9 +129,9 @@ const DICTATION_CONFIG = {
   id: 'showcase-dictation',
   informationText: 'Listen and type what you hear.',
   phrases: [
-    ['', '[Salut, ça va ?]',      A('001-salut-ca-va.mp3')],
-    ['', '[Ça va, merci !]',      A('003-ca-va-merci.mp3')],
-    ['', '[Je m\'appelle Camille.]', A('006-je-mappelle-camille.mp3')],
+    ['', '[Salut, ça va ?]',      A('short-a.mp3')],
+    ['', '[Ça va, merci !]',      A('short-b.mp3')],
+    ['', '[Je m\'appelle Camille.]', A('short-c.mp3')],
   ],
   titleText: 'DictationExercise',
 };
@@ -139,9 +141,9 @@ const INLINE_CHOICE_CONFIG = {
   informationText: 'Listen and select the word you hear.',
   shuffleItems: false,
   items: [
-    { text: '[*bonjour|bonsoir]', audio: A('007-bonjour-mon-cheri.mp3') },
-    { text: '[bonsoir|*bonjour]', audio: A('008-bonsoir-mon-amour.mp3') },
-    { text: '[salut|*au revoir]', audio: A('009-au-revoir-ma-cherie.mp3') },
+    { text: '[*bonjour|bonsoir]', audio: A('short-a.mp3') },
+    { text: '[bonsoir|*bonjour]', audio: A('short-b.mp3') },
+    { text: '[salut|*au revoir]', audio: A('short-c.mp3') },
   ],
   titleText: 'InlineChoiceGroup',
 };
@@ -154,12 +156,12 @@ const INLINE_TYPED_GAP_CONFIG = {
     {
       prompt: 'How are you?',
       text: "Comment [t'appelles]-[tu] ?",
-      audio: A('004-comment-tappelles-tu.mp3'),
+      audio: A('short-a.mp3'),
     },
     {
       prompt: 'What is your name?',
       text: 'Je [m\'appelle] [Max].',
-      audio: A('005-je-mappelle-max.mp3'),
+      audio: A('short-b.mp3'),
     },
   ],
   titleText: 'InlineTypedGapExercise',
@@ -170,10 +172,10 @@ const PHRASE_REORDER_CONFIG = {
   shuffleOnLoad: true,
   informationText: 'Listen to each audio clip, then drag the matching word into the correct position.',
   phrases: [
-    ['', 'homme',   A('012-homme.mp3')],
-    ['', 'hôtel',   A('013-hotel.mp3')],
-    ['', 'hôpital', A('014-hopital.mp3')],
-    ['', 'horrible', A('015-horrible.mp3')],
+    ['', 'homme',    A('short-a.mp3')],
+    ['', 'hôtel',    A('short-b.mp3')],
+    ['', 'hôpital',  A('short-c.mp3')],
+    ['', 'horrible', A('short-a.mp3')],
   ],
   titleText: 'PhraseReorderExercise',
 };
@@ -182,8 +184,8 @@ const TYPED_TRANSFORM_CONFIG = {
   id: 'showcase-typedtransform',
   informationText: 'Listen and write what you hear.',
   phrases: [
-    ['', '[Salut, ça va ?]',          A('001-salut-ca-va.mp3')],
-    ['', '[Salut ! Ça va ! Et toi ?]', A('002-salut-ca-va-et-toi.mp3')],
+    ['', '[Salut, ça va ?]',          A('short-a.mp3')],
+    ['', '[Salut ! Ça va ! Et toi ?]', A('short-b.mp3')],
   ],
   titleText: 'TypedTransformExercise',
 };
@@ -192,9 +194,9 @@ const WORD_SPOT_CONFIG = {
   id: 'showcase-wordspot',
   informationText: 'Select the part of each word that contains the target sound.',
   items: [
-    { text: 'b[on]j[ou][r] m[on] ché[r]i',    audio: A('007-bonjour-mon-cheri.mp3') },
-    { text: 'b[on]s[oi][r] m[on] am[ou][r]',   audio: A('008-bonsoir-mon-amour.mp3') },
-    { text: 'au [r]ev[oi][r] ma ché[r]ie',      audio: A('009-au-revoir-ma-cherie.mp3') },
+    { text: 'b[on]j[ou][r] m[on] ché[r]i',    audio: A('short-a.mp3') },
+    { text: 'b[on]s[oi][r] m[on] am[ou][r]',   audio: A('short-b.mp3') },
+    { text: 'au [r]ev[oi][r] ma ché[r]ie',      audio: A('short-c.mp3') },
   ],
   titleText: 'WordSpotExercise',
 };
@@ -305,6 +307,13 @@ export function ExerciseShowcase() {
     setIsDarkMode(initial);
   }, []);
 
+  React.useEffect(() => {
+    const { hash } = window.location;
+    if (!hash) return;
+    const el = document.getElementById(hash.slice(1));
+    if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }, []);
+
   const handleThemeToggle = (checked) => {
     if (typeof document === 'undefined') return;
     document.documentElement.classList.add('no-theme-transition');
@@ -377,6 +386,7 @@ export function ExerciseShowcase() {
                   {ex.render()}
                 </ExerciseErrorBoundary>
               </div>
+              <BackToTopButton />
             </section>
           );
         })}

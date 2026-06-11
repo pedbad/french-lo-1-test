@@ -112,6 +112,10 @@ function countExerciseItems(node) {
   return selfCount + childrenCount;
 }
 
+function showcaseAnchor(componentName) {
+  return `showcase-${componentName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+}
+
 function toUnique(values) {
   const seen = new Set();
   const ordered = [];
@@ -159,7 +163,7 @@ function getLearningObjectBadge(slug, index) {
   return `LO ${String(index + 1).padStart(2, '0')}`;
 }
 
-export function LearningObjectStructureSummary({ appHrefBase, learningObjects = [] }) {
+export function LearningObjectStructureSummary({ appHrefBase, learningObjects = [], showcaseUrl = '' }) {
   const [configBySlug, setConfigBySlug] = React.useState(() => new Map());
   const [loadError, setLoadError] = React.useState('');
   const [loading, setLoading] = React.useState(false);
@@ -287,7 +291,18 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
                                 {section.contentTypes.length > 0 ? (
                                   <ol className="mt-1 list-decimal space-y-1 pl-6">
                                     {section.contentTypes.map((componentType) => (
-                                      <li key={`${summary.slug}-${section.key}-content-type-${componentType}`}>{componentType}</li>
+                                      <li key={`${summary.slug}-${section.key}-content-type-${componentType}`}>
+                                        {showcaseUrl && EXERCISE_COMPONENTS.has(componentType) ? (
+                                          <a
+                                            className="inline-flex h-8 items-center rounded-md bg-muted px-3 text-xs font-medium text-foreground/80 no-underline transition-colors hover:bg-accent hover:text-accent-foreground"
+                                            href={`${showcaseUrl}#${showcaseAnchor(componentType)}`}
+                                            rel="noopener noreferrer"
+                                            target="_blank"
+                                          >
+                                            {componentType}
+                                          </a>
+                                        ) : componentType}
+                                      </li>
                                     ))}
                                   </ol>
                                 ) : (
@@ -300,7 +315,19 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
                                   <ol className="mt-1 list-decimal space-y-1 pl-6">
                                     {section.topLevelContent.map((item, contentIndex) => (
                                       <li key={`${summary.slug}-${section.key}-top-content-${contentIndex}`}>
-                                        {`${item.title} (${item.component})`}
+                                        {showcaseUrl && EXERCISE_COMPONENTS.has(item.component) ? (
+                                          <>
+                                            {item.title}{' '}
+                                            <a
+                                              className="inline-flex h-8 items-center rounded-md bg-muted px-3 text-xs font-medium text-foreground/80 no-underline transition-colors hover:bg-accent hover:text-accent-foreground"
+                                              href={`${showcaseUrl}#${showcaseAnchor(item.component)}`}
+                                              rel="noopener noreferrer"
+                                              target="_blank"
+                                            >
+                                              {item.component}
+                                            </a>
+                                          </>
+                                        ) : `${item.title} (${item.component})`}
                                       </li>
                                     ))}
                                   </ol>
@@ -331,7 +358,18 @@ export function LearningObjectStructureSummary({ appHrefBase, learningObjects = 
                                   <span className="font-semibold">Exercise component types ({section.exerciseTypes.length}):</span>
                                   <ol className="mt-1 list-decimal space-y-1 pl-6">
                                     {section.exerciseTypes.map((exerciseType) => (
-                                      <li key={`${summary.slug}-${section.key}-exercise-type-${exerciseType}`}>{exerciseType}</li>
+                                      <li key={`${summary.slug}-${section.key}-exercise-type-${exerciseType}`}>
+                                        {showcaseUrl ? (
+                                          <a
+                                            className="inline-flex h-8 items-center rounded-md bg-muted px-3 text-xs font-medium text-foreground/80 no-underline transition-colors hover:bg-accent hover:text-accent-foreground"
+                                            href={`${showcaseUrl}#${showcaseAnchor(exerciseType)}`}
+                                            rel="noopener noreferrer"
+                                            target="_blank"
+                                          >
+                                            {exerciseType}
+                                          </a>
+                                        ) : exerciseType}
+                                      </li>
                                     ))}
                                   </ol>
                                 </li>

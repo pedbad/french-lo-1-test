@@ -594,6 +594,7 @@ bun run preview`}</code>
       <LearningObjectStructureSummary
         appHrefBase={`${window.location.origin}${import.meta.env.BASE_URL}`}
         learningObjects={DEBUG_LEARNING_OBJECTS}
+        showcaseUrl={exerciseShowcaseUrl}
       />
     </main>
   );

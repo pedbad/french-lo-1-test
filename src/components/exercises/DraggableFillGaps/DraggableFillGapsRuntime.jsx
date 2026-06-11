@@ -501,6 +501,7 @@ export class DraggableFillGapsRuntime extends React.Component {
         this.movingPiece.style.left = `${left}px`;
         this.movingPiece.style.top = `${top}px`;
         this.movingPiece.classList.add("dragging");
+        this.movingPiece.style.zIndex = '9999';
       }
     }
   };
@@ -558,6 +559,7 @@ export class DraggableFillGapsRuntime extends React.Component {
     if (this.movingPiece !== undefined) {
       const inLimitsResult = this.inLimits();
       this.movingPiece.classList.remove('highlight');
+      this.movingPiece.style.zIndex = '';
 
       if (inLimitsResult.overTarget) {
         const { targetLeft, targetTop, targetWord, success } = inLimitsResult;
