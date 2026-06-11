@@ -109,8 +109,17 @@ Pure display or simple-state; convert first to build confidence + patterns.
 Mostly render config + audio links (`playAudioLink`). Repetitive but low-state.
 Convert in batches by LO; verify each LO page renders.
 
-- [ ] `custom/grammar/*-grammar.jsx` (15 files)
-- [ ] `custom/pronunciation/*-pronunciation.jsx` (11 files)
+- [x] `custom/grammar/*-grammar.jsx` (15 files)
+- [x] `custom/pronunciation/*-pronunciation.jsx` (11 files)
+
+> **Phase 2 done** (branch `refactor/phase2-content-components`): all 26 converted
+> `PureComponent` → `memo(function …)`, behavior-preserving. 3 grammar files
+> (`family-friends`, `free-time`, `phoning-in-france`) had stateless `handleRowClick`/
+> `handleCardClick`/`handleCardKeyDown` class fields → moved to in-body `const`.
+> No state/lifecycle existed. `eslint --fix` reindented bodies (class→top-level dedent).
+> Gates: `yarn lint` 0 errors, `yarn test:run` 39 green, all 15 LO pages render clean
+> (phoning-in-france map SVG + 113 audio links verified post-accordion-expand).
+> One commit per LO batch.
 
 ### Phase 3 — Audio infrastructure (medium risk)
 Already route through AudioManager; covered by `AudioManager.test.js`. Convert and
