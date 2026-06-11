@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import DOMPurify from "dompurify";
 import { CircleAlert, CircleCheck, CircleX, Info as InfoIcon } from "lucide-react";
-import React from 'react';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { injectAudioCueIntoHTML, splitTextByAudioCueKeyword } from "../instructionCues";
 import { AudioCueIcon } from "../AudioCueIcon";
@@ -41,100 +41,90 @@ const applyInfoTypographyToHTML = (rawHtml = "") => {
   return doc.body.innerHTML;
 };
 
-export class Info extends React.PureComponent {
-  // constructor(props) {
-  // 	super(props);
+const renderTextWithAudioCue = (value) => {
+  const split = splitTextByAudioCueKeyword(value);
+  if (!split) return value;
+  return (
+    <>
+      {split.before}
+      {split.keyword}
+      {" "}
+      <AudioCueIcon />
+      {split.after}
+    </>
+  );
+};
 
-  // 	this.state = ({
-  // 		showInfo: false,
-  // 	});
+function InfoComponent({
+  alertType,
+  children,
+  id,
+  infoMessage,
+  infoTitle,
+  informationText,
+  informationTextHTML,
+  type,
+  variant,
+}) {
+  const infoId = id ? `${id}-Info` : undefined;
 
-  // }
+  const requestedVariant = alertType || type || variant || "info";
+  const resolvedVariant = INFO_VARIANTS.has(requestedVariant) ? requestedVariant : "info";
+  const Icon = resolvedVariant === "danger"
+    ? CircleX
+    : resolvedVariant === "warning"
+      ? CircleAlert
+      : resolvedVariant === "success"
+        ? CircleCheck
+        : InfoIcon;
 
-  render = () => {
+  const infoIcon = (
+    <span aria-hidden="true" className={INFO_ICON_CLASS}>
+      <Icon className={INFO_ICON_SVG_CLASS} />
+    </span>
+  );
 
-    const {
-      alertType,
-      children,
-      id,
-      infoMessage,
-      infoTitle,
-      informationText,
-      informationTextHTML,
-      type,
-      variant,
-    } = this.props;
-    const infoId = id ? `${id}-Info` : undefined;
-
-    const requestedVariant = alertType || type || variant || "info";
-    const resolvedVariant = INFO_VARIANTS.has(requestedVariant) ? requestedVariant : "info";
-    const Icon = resolvedVariant === "danger"
-      ? CircleX
-      : resolvedVariant === "warning"
-        ? CircleAlert
-        : resolvedVariant === "success"
-          ? CircleCheck
-          : InfoIcon;
-
-    const infoIcon = (
-      <span aria-hidden="true" className={INFO_ICON_CLASS}>
-        <Icon className={INFO_ICON_SVG_CLASS} />
-      </span>
+  let content = null;
+  if (informationTextHTML) {
+    const sanitizedHtml = DOMPurify.sanitize(informationTextHTML);
+    const htmlWithAudioCue = injectAudioCueIntoHTML(sanitizedHtml);
+    const normalizedHtml = applyInfoTypographyToHTML(htmlWithAudioCue);
+    content = (
+      <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE} dangerouslySetInnerHTML={{ __html: normalizedHtml }}/>
     );
-
-    let content = null;
-    const renderTextWithAudioCue = (value) => {
-      const split = splitTextByAudioCueKeyword(value);
-      if (!split) return value;
-      return (
-        <>
-          {split.before}
-          {split.keyword}
-          {" "}
-          <AudioCueIcon />
-          {split.after}
-        </>
-      );
-    };
-    if (informationTextHTML) {
-      const sanitizedHtml = DOMPurify.sanitize(informationTextHTML);
-      const htmlWithAudioCue = injectAudioCueIntoHTML(sanitizedHtml);
-      const normalizedHtml = applyInfoTypographyToHTML(htmlWithAudioCue);
-      content = (
-        <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE} dangerouslySetInnerHTML={{ __html: normalizedHtml }}/>
-      );
-    } else if (informationText) {
-      content = (
-        <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
-          {renderTextWithAudioCue(informationText)}
-        </AlertDescription>
-      );
-    } else if (infoTitle || infoMessage) {
-      content = (
-        <div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
-          {infoTitle ? <AlertTitle className={INFO_TITLE_CLASS}>{infoTitle}</AlertTitle> : null}
-          {infoMessage ? (
-            <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
-              {renderTextWithAudioCue(infoMessage)}
-            </AlertDescription>
-          ) : null}
-        </div>
-      );
-    } else if (children) {
-      content = (
-        <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
-          {children}
-        </AlertDescription>
-      );
-    }
-
-    if (!content) return null;
-
-    return (
-      <Alert className={INFO_CONTAINER_CLASS} id={infoId} variant={resolvedVariant}>
-        {infoIcon}
-        {content}
-      </Alert>
+  } else if (informationText) {
+    content = (
+      <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
+        {renderTextWithAudioCue(informationText)}
+      </AlertDescription>
     );
-  };
+  } else if (infoTitle || infoMessage) {
+    content = (
+      <div className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`}>
+        {infoTitle ? <AlertTitle className={INFO_TITLE_CLASS}>{infoTitle}</AlertTitle> : null}
+        {infoMessage ? (
+          <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
+            {renderTextWithAudioCue(infoMessage)}
+          </AlertDescription>
+        ) : null}
+      </div>
+    );
+  } else if (children) {
+    content = (
+      <AlertDescription className={`${INFO_CONTENT_TEXT_CLASS} ${INFO_CONTENT_SPACING_CLASS}`} style={INFO_INLINE_TEXT_STYLE}>
+        {children}
+      </AlertDescription>
+    );
+  }
+
+  if (!content) return null;
+
+  return (
+    <Alert className={INFO_CONTAINER_CLASS} id={infoId} variant={resolvedVariant}>
+      {infoIcon}
+      {content}
+    </Alert>
+  );
 }
+
+export const Info = memo(InfoComponent);
