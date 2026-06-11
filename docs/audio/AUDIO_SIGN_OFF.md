@@ -136,7 +136,18 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ## LO15 — Planning a Holiday
 
-### Re-record (wrong content)
+### Re-record / New recording
+
+- `public/audio/lo15/exercises/03-select/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3`
+  - Section: **Exercises → 3. Adèle's holiday activities**, item 9
+  - Teacher (Jackie) confirmed this recording is still required.
+  - Record as: _Quand je suis en vacances, mes amis et moi faisons des randonnées ensemble._
+
+- `public/audio/lo15/exercises/03-select/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3`
+  - Section: **Exercises → 3. Adèle's holiday activities**, item 10
+  - Teacher (Jackie) flagged wrong pause placement in existing recording.
+  - Record as: _Quand je suis en vacances, **[pause here]** le soir mes amis ne cuisinent pas._
+  - ⚠️ The pause must come **before** _le soir_, not after it. "Le soir" belongs with the main clause. A pause after "le soir" changes the meaning and sounds unnatural.
 
 - `public/audio/lo15/exercises/03-select/012-cest-moi-qui-cuisine.mp3`
   - Section: **Exercises → 3. Adèle's holiday activities**, item 12
@@ -187,11 +198,16 @@ public/audio/
 ├── lo13/
 │   └── exercises/01-select/
 │       └── 025-tu-te-maquilles-aujourdhui.mp3           ← RE-RECORD (liaison error)
-└── lo14/
-    ├── dialogues/01/
-    │   └── 001-qu-est-ce-que-tu-fais-comme-etudes.mp3  ← RE-RECORD (pron + speaker)
-    └── grammar/pouvoir/
-        └── 011-vous-pouvez-ouvrir-la-fenetre-sil-vous-plait.mp3  ← NEW
+├── lo14/
+│   ├── dialogues/01/
+│   │   └── 001-qu-est-ce-que-tu-fais-comme-etudes.mp3  ← RE-RECORD (pron + speaker)
+│   └── grammar/pouvoir/
+│       └── 011-vous-pouvez-ouvrir-la-fenetre-sil-vous-plait.mp3  ← NEW
+└── lo15/
+    └── exercises/03-select/
+        ├── 009-…randonnees-ensemble.mp3                 ← NEW (teacher confirmed needed)
+        ├── 010-…le-soir-mes-amis-ne-pas.mp3             ← RE-RECORD (pause before "le soir" not after)
+        └── 012-cest-moi-qui-cuisine.mp3                 ← RE-RECORD (add "Quand je suis en vacances,")
 ```
 
 ---
@@ -235,6 +251,5 @@ public/audio/
 
 - **LO14 pouvoir** `public/audio/lo14/grammar/pouvoir/010-je-peux-repondre-a-votre-question-tout-de-suite.mp3` — added ✓
 
-- **LO15** `public/audio/lo15/exercises/03-select/009-quand-je-suis-en-vacances-mes-amis-et-moi-des-randonnees-ensemble.mp3` — added ✓
-
-- **LO15** `public/audio/lo15/exercises/03-select/010-quand-je-suis-en-vacances-le-soir-mes-amis-ne-pas.mp3` — added ✓
+- **LO15** `public/audio/lo15/exercises/03-select/009-…randonnees-ensemble.mp3` — moved back to active; teacher confirmed new recording still required
+- **LO15** `public/audio/lo15/exercises/03-select/010-…le-soir-mes-amis-ne-pas.mp3` — moved back to active; pause placement wrong in existing file
