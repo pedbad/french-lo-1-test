@@ -45,6 +45,13 @@ Single reference for all outstanding audio work — missing files, wrong-content
 
 ### Re-record (wrong content / quality)
 
+- `public/audio/lo7/exercises/03-listening/001-lo7-dialogue-1.mp3`
+  - Section: **Exercises → Fill in the gaps (likes and dislikes)** (`LO7-draggableFillGaps1`)
+  - Full passage audio. Two errors confirmed by teacher:
+    1. Speaker says _sportive_ — should be _sportif_ (masculine form, matching the gap text)
+    2. Speaker says _cricke_ — final _t_ of _cricket_ is missing
+  - Re-record or edit the full passage to correct both in the same take.
+
 - `public/audio/lo7/vocabulary/007-basket-basketball.mp3`
   - Section: **Vocabulary**
   - `basket` is fine, but `basketball` sounds wrong; the first `a` is not pronounced correctly.
@@ -154,6 +161,8 @@ public/audio/
 │   └── grammar/
 │       └── 004-elles-ont.mp3                            ← RE-RECORD (liaison)
 ├── lo7/
+│   ├── exercises/03-listening/
+│   │   └── 001-lo7-dialogue-1.mp3                       ← RE-RECORD (sportive→sportif; cricket missing t)
 │   └── vocabulary/
 │       └── 007-basket-basketball.mp3                    ← RE-RECORD (basketball)
 ├── lo9/

@@ -205,9 +205,9 @@ const CLOZE_CONFIG = {
   id: 'showcase-cloze',
   informationText: 'Type the missing word(s) to complete each sentence.',
   phrases: [
-    ["Je [m'appelle] Marie.", '', ''],
-    ['Tu [vas] à Paris ?',    '', ''],
-    ['Il [fait] beau.',       '', ''],
+    ["Je [m'appelle] Marie.", "[m'appelle]", A('short-a.mp3')],
+    ['Tu [vas] à Paris ?',    '[vas]',       A('short-b.mp3')],
+    ['Il [fait] beau.',       '[fait]',      A('short-c.mp3')],
   ],
   titleText: 'ClozeTypingExercise',
 };

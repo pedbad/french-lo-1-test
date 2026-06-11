@@ -335,7 +335,7 @@ export class TextEntryExerciseRuntime extends React.PureComponent {
         const promptContent = this.renderPromptText(phrase[0], soundFile, i);
         cells.push(
           <TableCell className={promptCellClassName} key={`row${i}cell0`}>
-            {shouldInlineAudioWithPrompt && soundFile ? (
+            {(shouldInlineAudioWithPrompt || (!useGlobalActions && soundFile)) && soundFile ? (
               <div className="inline-flex items-center gap-2">
                 <span ref={(node) => this.setAudioTriggerRef(i, node)}>
                   <AudioClip className={audioClipClassName} label="" soundFile={soundFile} />

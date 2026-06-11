@@ -131,12 +131,12 @@ export class TypedAnswerField extends React.PureComponent {
                       value={userInput}
                     ></Textarea>
                   }
-                  <Button
+                  <IconButton
                     className={`${compact ? 'sm' : null}`}
-                    htmlFor={`typed-answer-field-${id}-text`}
                     onClick={this.handleValidation}
-                    type={`submit`}
-                  >Check</Button>
+                    theme="check"
+                    type="submit"
+                  >Check</IconButton>
                 </form>
               )
             }
