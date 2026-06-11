@@ -1,182 +1,125 @@
+import { useRef, useState } from 'react';
 import {
   AudioClip,
   IconButton,
 } from '../';
 import { resolveAsset } from '../../utils/assets';
 import { highlightTextDiff } from '../../utils/exerciseDiff';
-import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import { Input } from "@/components/ui/input";
-import React from 'react';
 import { Textarea } from "@/components/ui/textarea";
-export class TypedAnswerField extends React.PureComponent {
-  constructor(props) {
-    super(props);
 
-    const {
-      compact = false,
-      content,
-      soundFile,
-      config
-    } = this.props;
-    if (config) {
-      this.state = ({
-        ...props.config,
-        compact: compact,
-        showResult: false,
-      });
-    } else {
-      this.state = ({
-        compact: compact,
-        content: content,
-        showResult: false,
-        soundFile: soundFile,
-      });
-    }
+export function TypedAnswerField(props) {
+  const {
+    compact = false,
+    config,
+    comparisonOptions,
+  } = props;
 
-    // this.countCorrect = this.countCorrect.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleValidation = this.handleValidation.bind(this);
-    // this.handleReset = this.handleReset.bind(this);
-    // this.highlightTextDiff = this.highlightTextDiff.bind(this);
+  // Source of display fields: spread from config when present, else the
+  // individual props (mirrors the original constructor seeding).
+  const source = config
+    ? { ...config, compact }
+    : { compact, content: props.content, soundFile: props.soundFile };
 
-  }
+  const [userInput, setUserInput] = useState("");
+  const [showResult, setShowResult] = useState(false);
+  const nCorrectRef = useRef(0);
 
-  handleChange = (e) => {
-    // console.log("handleChange");
-    this.setState({userInput: e.target.value});
+  const handleChange = (e) => {
+    setUserInput(e.target.value);
   };
 
-  handleReset = () => {
-    // console.log("handleReset");
-    this.setState({
-      showResult: false,
-      userInput: "",
-    });
+  const handleReset = () => {
+    setShowResult(false);
+    setUserInput("");
   };
 
-  handleValidation = () => {
-    // console.log("handleValidation");
-    this.setState({
-      showResult: true,
-    });
+  const handleValidation = () => {
+    setShowResult(true);
   };
 
-  handleKeyPress = (e) => {
-    // console.log("handleKeyPress");
+  const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      this.handleValidation;
     }
   };
 
-  countCorrect = () => {
-    let {
-      nCorrect,
-    } = this.state;
-    nCorrect++;
-    this.setState({
-      nCorrect: nCorrect,
-    });
+  const countCorrect = () => {
+    nCorrectRef.current += 1;
   };
 
-  render = () => {
-    const {
-      compact,
-      content,
-      htmlContent,
-      id,
-      // instructionsText,
-      // instructionsTextHTML,
-      showResult = false,
-      soundFile,
-      userInput = ``,
-    } = this.state;
-    // const {
-    // 	countCorrect
-    // } = this.props;
+  const {
+    content,
+    htmlContent,
+    id,
+    soundFile,
+  } = source;
 
+  let text = userInput;
+  if (showResult) text = highlightTextDiff(userInput, content, countCorrect, false, comparisonOptions);
 
-    let text = userInput;
-    const { comparisonOptions } = this.props;
-    if (showResult) text = highlightTextDiff(userInput, content, this.countCorrect, false, comparisonOptions);
+  if (compact) {
+    const compactId = props.id;
+    return (
+      <>
+        <div className={`typed-answer-field-container compact`} id={`typed-answer-field-${compactId}`}>
+          {showResult ?
+            (<div className={`comparison-result compact`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}></div>)
+            :
+            (
+              <form onKeyPress={handleKeyPress}>
+                <Input
+                  id={`typed-answer-field-${compactId}-text`}
+                  name={`typed-answer-field-${compactId}-text`}
+                  onChange={handleChange}
+                  placeholder={`type your answer`}
+                  type='text'
+                  value={userInput}
+                />
+                <IconButton
+                  className={`sm`}
+                  onClick={handleValidation}
+                  theme="check"
+                  type="submit"
+                >Check</IconButton>
+              </form>
+            )
+          }
+        </div>
+      </>
+    );
+  }
 
-    if (compact) {
-      const {
-        id,
-      } = this.props;
+  return (
+    <>
+      <div className={`typed-answer-field-container`} id={`${id}`}>
+        {htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-      return (
-        <>
-
-          <div className={`typed-answer-field-container compact` } id={`typed-answer-field-${id}`} >
-            {showResult ?
-              (<div className={`comparison-result compact`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}></div>)
-              :
-              (
-                <form onKeyPress={this.handleKeyPress}>
-                  {compact ?
-                    <Input
-                      id={`typed-answer-field-${id}-text`}
-                      name={`typed-answer-field-${id}-text`}
-                      onChange={this.handleChange}
-                      placeholder={`type your answer`}
-                      type='text'
-                      value={userInput}
-                    />
-                    :
-                    <Textarea
-                      onChange={this.handleChange}
-                      placeholder={`type your answer`}
-                      value={userInput}
-                    ></Textarea>
-                  }
-                  <IconButton
-                    className={`${compact ? 'sm' : null}`}
-                    onClick={this.handleValidation}
-                    theme="check"
-                    type="submit"
-                  >Check</IconButton>
-                </form>
-              )
-            }
-          </div>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <div className={`typed-answer-field-container`} id={`${id}`} key={`${id}`} >
-            {/* <Button className={`reset btn`} onClick={this.handleReset}>Reset</Button> */}
-            {htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
-
-            <AudioClip soundFile={resolveAsset(soundFile)} label={``} />
-            {showResult ?
-              (<div className={`result comparison-result`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}></div>)
-              :
-              (
-                <>
-                  <Textarea
-                    onChange={this.handleChange}
-                    placeholder={`type your answer`}
-                    value={userInput}
-                  ></Textarea>
-                </>
-              )
-            }
-          </div>
-          <div className={`help`}>
-            {!compact ? <IconButton className={`hidden-help`} onClick={this.handleReset} theme={`reset`} >Reset</IconButton> : null}
-            <IconButton
-              className={`${compact ? 'sm' : null}`}
-              onClick={this.handleValidation}
-              type={`submit`}
-              theme={`check`}
-            >Check</IconButton>
-          </div>
-        </>
-      );
-
-    }
-  };
+        <AudioClip soundFile={resolveAsset(soundFile)} label={``} />
+        {showResult ?
+          (<div className={`result comparison-result`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}></div>)
+          :
+          (
+            <>
+              <Textarea
+                onChange={handleChange}
+                placeholder={`type your answer`}
+                value={userInput}
+              ></Textarea>
+            </>
+          )
+        }
+      </div>
+      <div className={`help`}>
+        <IconButton className={`hidden-help`} onClick={handleReset} theme={`reset`} >Reset</IconButton>
+        <IconButton
+          className={null}
+          onClick={handleValidation}
+          type={`submit`}
+          theme={`check`}
+        >Check</IconButton>
+      </div>
+    </>
+  );
 }

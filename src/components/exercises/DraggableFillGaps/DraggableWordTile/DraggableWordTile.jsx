@@ -1,5 +1,5 @@
+import { memo } from 'react';
 import { SquareDashedMousePointer } from "lucide-react";
-import React from 'react';
 
 const BLANK_WORD_TEXT_CLASS = "text-[length:calc(var(--font-size-sm)*1.05)] leading-[1.2] min-[420px]:text-[length:calc(var(--font-size-sm)*1.15)] sm:text-[length:calc(var(--font-size-sm)*1.2)]";
 const DROP_TARGET_ICON_CLASS = "blanks-slot-icon pointer-events-none absolute inset-0 m-auto h-[1.05rem] w-[1.05rem] min-[420px]:h-[1.15rem] min-[420px]:w-[1.15rem] text-[color-mix(in_oklab,var(--ex-neutral)_54%,var(--muted-foreground))] opacity-70 z-0 transition-all duration-200";
@@ -35,41 +35,37 @@ const DRAGGABLE_WORD_TILE_CLASS = [
   "[&.draggable>span:active]:shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_24%,transparent)]",
 ].join(" ");
 
-export class DraggableWordTile extends React.PureComponent {
+function DraggableWordTileComponent({
+  children,
+  className,
+  handleMouseDown,
+  handleMouseMove,
+  handleMouseUp,
+  index,
+  x,
+  y,
+}) {
+  const styles = {};
+  if (x !== undefined) styles.left = `${x}px`;
+  if (y !== undefined) styles.top = `${y}px`;
+  const isTarget = typeof className === "string" && className.split(/\s+/).includes("target");
 
-  render = () => {
-
-    const {
-      children,
-      className,
-      handleMouseDown,
-      handleMouseMove,
-      handleMouseUp,
-      index,
-      x,
-      y,
-    } = this.props;
-
-    const styles = {};
-    if (x !== undefined)styles.left = `${x}px`;
-    if (y !== undefined)styles.top = `${y}px`;
-    const isTarget = typeof className === "string" && className.split(/\s+/).includes("target");
-
-    // word${index} must be the first class
-    return (
-      <div
-        className={`word${index} word ${DRAGGABLE_WORD_TILE_CLASS} ${className ? className : ''} `}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onTouchStart={handleMouseDown}
-        onTouchMove={handleMouseMove}
-        onTouchEnd={handleMouseUp}
-        style={styles}
-      >
-        {isTarget ? <SquareDashedMousePointer aria-hidden="true" className={DROP_TARGET_ICON_CLASS} /> : null}
-        <span className={BLANK_WORD_TEXT_CLASS}>{children}</span>
-      </div>
-    );
-  };
+  // word${index} must be the first class
+  return (
+    <div
+      className={`word${index} word ${DRAGGABLE_WORD_TILE_CLASS} ${className ? className : ''} `}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onTouchStart={handleMouseDown}
+      onTouchMove={handleMouseMove}
+      onTouchEnd={handleMouseUp}
+      style={styles}
+    >
+      {isTarget ? <SquareDashedMousePointer aria-hidden="true" className={DROP_TARGET_ICON_CLASS} /> : null}
+      <span className={BLANK_WORD_TEXT_CLASS}>{children}</span>
+    </div>
+  );
 }
+
+export const DraggableWordTile = memo(DraggableWordTileComponent);

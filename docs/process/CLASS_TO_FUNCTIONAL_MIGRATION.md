@@ -92,18 +92,18 @@ For each class component:
 ### Phase 1 — Leaf / presentational (safest, no scoring)
 Pure display or simple-state; convert first to build confidence + patterns.
 
-- [ ] `IconButton/IconButton.jsx`
-- [ ] `Info/Info.jsx`
-- [ ] `Section/Section.jsx`
-- [ ] `Explanation/Explanation.jsx`
-- [ ] `Explanation/Panel/Panel.jsx`
-- [ ] `AudioClip/CircularAudioProgressAnimatedSpeakerDisplay.jsx`
-- [ ] `MemoryMatchGame/Card/Card.jsx`
-- [ ] `DraggableFillGaps/DraggableWordTile/DraggableWordTile.jsx`
-- [ ] `TypedAnswerField/TypedAnswerField.jsx`
-- [ ] `layout/page-shell/Footer/Footer.jsx`
-- [ ] `layout/page-shell/MainMenu/MainMenu.jsx`
-- [ ] `debug/components/LearningObjectMenu.jsx`
+- [x] `IconButton/IconButton.jsx`
+- [x] `Info/Info.jsx`
+- [x] `Section/Section.jsx`
+- [x] `Explanation/Explanation.jsx`
+- [x] `Explanation/Panel/Panel.jsx`
+- [x] `AudioClip/CircularAudioProgressAnimatedSpeakerDisplay.jsx`
+- [x] `MemoryMatchGame/Card/Card.jsx`
+- [x] `DraggableFillGaps/DraggableWordTile/DraggableWordTile.jsx`
+- [x] `TypedAnswerField/TypedAnswerField.jsx`
+- [x] `layout/page-shell/Footer/Footer.jsx`
+- [x] `layout/page-shell/MainMenu/MainMenu.jsx`
+- [x] `debug/components/LearningObjectMenu.jsx`
 
 ### Phase 2 — Content components (LO grammar / pronunciation)
 Mostly render config + audio links (`playAudioLink`). Repetitive but low-state.
