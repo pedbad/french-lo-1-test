@@ -12,12 +12,13 @@
 
 - **Phases 1–4** merged to `main`: 12 leaf (PR #3), 26 content (PR #4), audio infra +
   `App.jsx` (PR #5, #6), 2 non-scoring exercises WordSpot + MemoryMatch (PR #7, `6d92367`).
-- **Phase 5 progress: 2/12 done** — RadioQuiz (PR #8, `aec43a7`) and
-  SelectExercise (PR #9, `abc4abe`) converted + squash-merged. Conversion
-  notes in the migration tracker checkboxes.
+- **Phase 5 progress: 3/12 done** — RadioQuiz (PR #8, `aec43a7`),
+  SelectExercise (PR #9, `abc4abe`) and InlineChoiceGroup (PR #10)
+  converted + squash-merged. Conversion notes in the migration tracker
+  checkboxes.
 - `main` clean + green: `yarn lint` 0 errors, `yarn test:run` 39/39.
-- **11 class components remain** (`grep -rln "extends React" src/`):
-  - **10 scoring exercises** = remaining Phase 5 scope (below).
+- **10 class components remain** (`grep -rln "extends React" src/`):
+  - **9 scoring exercises** = remaining Phase 5 scope (below).
   - **`src/debug/ExerciseShowcase.jsx`** — debug-only, NOT part of Phase 5 scoring
     scope. Convert opportunistically.
 - `exercises/current-location/nasal-rhyme-exercise.jsx` is **already functional** —
@@ -34,8 +35,9 @@ pattern, then the parse-heavy ones):
 2. ~~`SelectExercise/SelectExercise.jsx`~~ — **DONE** (PR #9). Adds to the pattern:
    function patches in the merge reducer for audio progress handlers; render-time
    `blanksMeta`/`nToSolve` refs.
-3. `InlineChoiceGroup/InlineChoiceGroup.jsx` — inline multiple-choice. **← NEXT**
-4. `LineMatch/LineMatch.jsx` — match pairs (drag/line); has refs + geometry.
+3. ~~`InlineChoiceGroup/InlineChoiceGroup.jsx`~~ — **DONE** (PR #10). Same
+   pattern as SelectExercise; dead `getCorrectCountFromValues` removed.
+4. `LineMatch/LineMatch.jsx` — match pairs (drag/line); has refs + geometry. **← NEXT**
 5. `WordOrderExercise/WordOrderExercise.jsx` — reorder; DnD + sequence check.
 6. `PhraseReorderExercise/PhraseReorderExercise.jsx` — reorder; shares FLIP anim
    (`reorderAnimation.js`) with MemoryMatch — reuse the `useLayoutEffect`+`pendingFlipRef`

@@ -188,7 +188,17 @@ patterns; converting them unlocks `useExerciseAudio()`.
       and rows-block+shuffle, daily-routine sampleSize): correct ✓ / wrong ✗ /
       re-choose clears row result / reset / show-answers — all match class
       baseline, zero console errors. PR #9.
-- [ ] `InlineChoiceGroup/InlineChoiceGroup.jsx`
+- [x] `InlineChoiceGroup/InlineChoiceGroup.jsx` — useReducer merge + lazy init
+      (function patches for choice edits / reset / row audio status / master
+      audio progress); config read from props, not spread into state;
+      config-reset via prev-config ref effect (also clears
+      `blanksMeta`/`nToSolve`/`rowAudioRefs`); `blanksMeta`/`nToSolve` rebuilt
+      during render via refs; `prepareExerciseItems` hoisted to module scope;
+      dead `getCorrectCountFromValues` removed. Grade-verified in browser
+      (family-friends ×3 instances incl. multi-blank rows, sampleSize +
+      shuffleItems): correct ✓ / wrong ✗ / show-answers / reset re-samples /
+      re-choose-after-check invalidates only edited blank / keyboard nav /
+      row audio — all match class baseline, zero console errors. PR #10.
 - [ ] `InlineTypedGapExercise/InlineTypedGapExercise.jsx`
 - [ ] `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
 - [ ] `LineMatch/LineMatch.jsx`
