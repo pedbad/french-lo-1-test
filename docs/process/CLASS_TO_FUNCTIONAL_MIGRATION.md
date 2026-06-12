@@ -1,9 +1,10 @@
 # Class → Functional Component Migration
 
-> **Status:** Phases 1–3 done (merged to `main`). All leaf/presentational + content
-> components, the audio infrastructure, and the root `App.jsx` are now functional.
-> **16 class components remain** — Phase 4 (non-scoring exercises), Phase 5 (scoring
-> exercises), and Phase 6 (consolidate). This is a standalone initiative, not part of
+> **Status:** Phases 1–4 done (Phases 1–3 merged to `main`; Phase 4 on
+> `refactor/phase4-nonscoring-exercises`). All leaf/presentational + content
+> components, the audio infrastructure, the root `App.jsx`, and the two non-scoring
+> exercises are now functional. **14 class components remain** — Phase 5 (13 scoring
+> exercises) + `debug/ExerciseShowcase.jsx`, and Phase 6 (consolidate). This is a standalone initiative, not part of
 > the DRY pass that produced AudioManager, `parseSentence`, `answerNormalize`,
 > `ExerciseFooter`, and `ResultIcon` (those were done earlier).
 
@@ -144,8 +145,26 @@ re-run the audio suite + manual playback check.
 > remain in the audio infra or root — the 16 left are all Phase 4/5/6 exercises + debug.
 
 ### Phase 4 — Exercises WITHOUT scoring (medium risk)
-- [ ] `WordSpotExercise/WordSpotExercise.jsx` (reveal-only)
-- [ ] `MemoryMatchGame/MemoryMatchGame.jsx` (self-marking)
+- [x] `WordSpotExercise/WordSpotExercise.jsx` (reveal-only)
+- [x] `MemoryMatchGame/MemoryMatchGame.jsx` (self-marking)
+
+> **Phase 4 done** (branch `refactor/phase4-nonscoring-exercises`). Both
+> `PureComponent` → function, behavior-preserving.
+> **WordSpot:** config is read-only (no `componentDidUpdate` existed) so
+> `id`/`items`/`cheatText`/`htmlContent` derive from props; only
+> `complete`/`failCount`/`nPlaced` are `useState`. Render-time `this.nToSolve` →
+> `useRef`, assigned during render. Handlers → in-body `const`.
+> **MemoryMatch:** 8-field state → `useReducer` (merge reducer) with a lazy
+> initializer so `getShuffledDeck` runs once per mount. `this.cardRefs` →
+> `useRef(Map)`. Timers tracked in a ref + cleared on unmount via `useEffect`
+> cleanup, with a `mountedRef` guard on the deferred `setState`s (StrictMode-safe).
+> `setState(callback)` show-answers FLIP → `useLayoutEffect` keyed on `cards` via
+> a `pendingFlipRef`. Methods → in-body `const`; pure `getSolvedCards` hoisted to
+> module scope.
+> Gates: `yarn lint` 0 errors, `yarn test:run` 39/39. Browser-verified:
+> WordSpot (`first-contact`) click-to-spot + error + reset; MemoryMatch
+> (`free-time`) flip → match → mismatch flip-back (1250ms) → show-answers (FLIP) →
+> reset. Zero console errors.
 
 ### Phase 5 — Scoring exercises (HIGH risk — one per PR, browser-verify grades)
 Each must be grade-verified before/after. These share the config-reset + audio-state
