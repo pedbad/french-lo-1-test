@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/select";
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
-import React from "react";
+import { Fragment, useEffect, useReducer, useRef } from "react";
 import { shuffleArray } from "@/utils/collections";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { parseChoiceBlank, parseSentence } from "@/utils/exerciseParsing";
@@ -32,68 +32,135 @@ const SELECT_EXERCISE_PASSAGE_ACCENTS = {
   yellow: "var(--content-accent-yellow)",
 };
 
-export class SelectExercise extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const getSelectOptionTextLength = (value = "") => {
+  const normalized = decodeHtmlEntities(`${value}`)
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
-    const initialItems = props?.config?.items || [];
+  return normalized.length;
+};
 
-    this.state = {
-      ...props.config,
-      activeRowIndex: -1,
-      checkedResults: {},
-      hasChecked: false,
-      masterPlayState: "stopped",
-      nCorrect: 0,
-      rowAudioStatus: {},
-      rowProgress: {},
-      shuffledItems: this.buildPreparedItems(initialItems, props?.config),
-      values: {},
+const shuffleItemText = (text = "") => {
+  if (!text.includes("[")) return text;
+
+  return text.replace(/\[([^\]]+)\]/g, (_match, group) => {
+    const options = group.split("|").map((option) => option.trim());
+    const shuffled = shuffleArray(options);
+    return `[${shuffled.join("|")}]`;
+  });
+};
+
+const buildShuffledItems = (items = []) => {
+  return items.map((item) => {
+    if (!item || typeof item !== "object") return item;
+    if (!item.text || typeof item.text !== "string") return item;
+    return {
+      ...item,
+      text: shuffleItemText(item.text),
     };
+  });
+};
 
-    this.blanksMeta = [];
-    this.nToSolve = 0;
-    this.rowAudioRefs = {};
-    this.sequenceRef = React.createRef();
+const buildPreparedItems = (items = [], config = {}) => {
+  const withShuffledChoices = buildShuffledItems(items);
+  const shouldShuffleItems = Boolean(config?.shuffleItems);
+  const sampleSize = Number.isInteger(config?.sampleSize) ? config.sampleSize : null;
+  const orderedItems = shouldShuffleItems
+    ? shuffleArray(withShuffledChoices)
+    : withShuffledChoices;
+
+  if (sampleSize && sampleSize > 0) {
+    return orderedItems.slice(0, sampleSize);
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.config !== this.props.config) {
-      const nextItems = this.props?.config?.items || [];
-      this.setState({
-        ...this.props.config,
-        activeRowIndex: -1,
-        checkedResults: {},
-        hasChecked: false,
-        masterPlayState: "stopped",
-        nCorrect: 0,
-        rowAudioStatus: {},
-        rowProgress: {},
-        shuffledItems: this.buildPreparedItems(nextItems, this.props?.config),
-        values: {},
-      });
-      this.blanksMeta = [];
-      this.nToSolve = 0;
-      this.rowAudioRefs = {};
-    }
-  }
+  return orderedItems;
+};
 
+const renderSentenceWithoutChoices = (segments) => {
+  return segments
+    .filter((segment) => segment.type === "text")
+    .map((segment) => segment.value)
+    .join("")
+    .replace(/\s+/g, " ")
+    .trim();
+};
 
-  getSelectOptionTextLength = (value = "") => {
-    const normalized = decodeHtmlEntities(`${value}`)
-      .replace(/<[^>]+>/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
+const getInlinePassageLineStyle = (accentKey) => {
+  const accentColor = accentKey ? SELECT_EXERCISE_PASSAGE_ACCENTS[accentKey] : null;
+  if (!accentColor) return {};
 
-    return normalized.length;
+  return {
+    accentColor,
+    lineStyle: {
+      boxShadow: `inset 0 1px 0 color-mix(in oklab, ${accentColor} 10%, transparent)`,
+    },
   };
+};
 
-  getInlineSelectTriggerStyle = (blankIndex, { passage = false } = {}) => {
-    const meta = this.blanksMeta[blankIndex];
+const getResetState = (config = {}) => ({
+  activeRowIndex: -1,
+  checkedResults: {},
+  hasChecked: false,
+  masterPlayState: "stopped",
+  nCorrect: 0,
+  rowAudioStatus: {},
+  rowProgress: {},
+  shuffledItems: buildPreparedItems(config?.items || [], config),
+  values: {},
+});
+
+// Merge reducer: each dispatch is a partial state patch (9 interdependent
+// fields, so useReducer over many useState calls per the migration plan).
+// A function patch receives the latest state — used by the audio progress
+// handlers, which can fire faster than renders flush.
+const reducer = (state, patch) => ({
+  ...state,
+  ...(typeof patch === "function" ? patch(state) : patch),
+});
+
+export function SelectExercise({ config = {} }) {
+  const {
+    cheatText = "Show answers",
+    footnote,
+    footnoteHTML,
+    htmlContent = "",
+    id = "",
+    items = [],
+    layoutMode = "rows",
+    listenDescriptionText,
+    renderInlineChoices = false,
+    soundFile,
+    useSequenceAudioController = false,
+  } = config;
+
+  const [state, dispatch] = useReducer(reducer, config, getResetState);
+  const { hasChecked, rowAudioStatus, shuffledItems, values } = state;
+
+  const blanksMetaRef = useRef([]);
+  const nToSolveRef = useRef(0);
+  const rowAudioRefs = useRef({});
+  const sequenceRef = useRef(null);
+
+  // Config-identity reset (was componentDidUpdate). Key-based remount is the
+  // Phase 6 consolidation; the ref compare keeps the mount-time effect a no-op.
+  const prevConfigRef = useRef(config);
+  useEffect(() => {
+    if (prevConfigRef.current !== config) {
+      prevConfigRef.current = config;
+      blanksMetaRef.current = [];
+      nToSolveRef.current = 0;
+      rowAudioRefs.current = {};
+      dispatch(getResetState(config));
+    }
+  }, [config]);
+
+  const getInlineSelectTriggerStyle = (blankIndex, { passage = false } = {}) => {
+    const meta = blanksMetaRef.current[blankIndex];
     const optionLengths = (meta?.options || []).map((option) =>
-      this.getSelectOptionTextLength(option)
+      getSelectOptionTextLength(option)
     );
-    const placeholderLength = this.getSelectOptionTextLength(SELECT_EXERCISE_PLACEHOLDER_TEXT);
+    const placeholderLength = getSelectOptionTextLength(SELECT_EXERCISE_PLACEHOLDER_TEXT);
     const fallbackLength = passage ? 10 : 12;
     const longestOptionLength = optionLengths.length > 0
       ? Math.max(...optionLengths)
@@ -112,53 +179,15 @@ export class SelectExercise extends React.PureComponent {
     };
   };
 
-
-  shuffleItemText = (text = "") => {
-    if (!text.includes("[")) return text;
-
-    return text.replace(/\[([^\]]+)\]/g, (_match, group) => {
-      const options = group.split("|").map((option) => option.trim());
-      const shuffled = shuffleArray(options);
-      return `[${shuffled.join("|")}]`;
-    });
-  };
-
-  buildShuffledItems = (items = []) => {
-    return items.map((item) => {
-      if (!item || typeof item !== "object") return item;
-      if (!item.text || typeof item.text !== "string") return item;
-      return {
-        ...item,
-        text: this.shuffleItemText(item.text),
-      };
-    });
-  };
-
-  buildPreparedItems = (items = [], config = this.props?.config || {}) => {
-    const withShuffledChoices = this.buildShuffledItems(items);
-    const shouldShuffleItems = Boolean(config?.shuffleItems);
-    const sampleSize = Number.isInteger(config?.sampleSize) ? config.sampleSize : null;
-    const orderedItems = shouldShuffleItems
-      ? shuffleArray(withShuffledChoices)
-      : withShuffledChoices;
-
-    if (sampleSize && sampleSize > 0) {
-      return orderedItems.slice(0, sampleSize);
-    }
-
-    return orderedItems;
-  };
-
-
-  handleSelectChange = (blankIndex, value) => {
-    this.setState((prevState) => {
-      const values = {
+  const handleSelectChange = (blankIndex, value) => {
+    dispatch((prevState) => {
+      const nextValues = {
         ...prevState.values,
         [blankIndex]: value,
       };
 
       if (!prevState.hasChecked) {
-        return { values };
+        return { values: nextValues };
       }
 
       const checkedResults = {
@@ -167,7 +196,7 @@ export class SelectExercise extends React.PureComponent {
       delete checkedResults[blankIndex];
 
       return {
-        values,
+        values: nextValues,
         checkedResults,
         hasChecked: true,
         nCorrect: Object.values(checkedResults).filter(Boolean).length,
@@ -175,36 +204,35 @@ export class SelectExercise extends React.PureComponent {
     });
   };
 
-  handleCheckAnswers = () => {
+  const handleCheckAnswers = () => {
     const checkedResults = {};
-    for (let i = 0; i < this.nToSolve; i += 1) {
-      const value = this.state.values[i];
+    for (let i = 0; i < nToSolveRef.current; i += 1) {
+      const value = values[i];
       if (value === undefined || value === null || value === "") continue;
-      const winner = this.blanksMeta[i]?.winner;
+      const winner = blanksMetaRef.current[i]?.winner;
       checkedResults[i] = parseInt(value, 10) === winner;
     }
 
-    this.setState({
+    dispatch({
       checkedResults,
       hasChecked: true,
       nCorrect: Object.values(checkedResults).filter(Boolean).length,
     });
   };
 
-  handleReset = () => {
-    const sourceItems = this.props?.config?.items || [];
-    this.setState({
+  const handleReset = () => {
+    dispatch({
       checkedResults: {},
       hasChecked: false,
       nCorrect: 0,
       rowAudioStatus: {},
-      shuffledItems: this.buildPreparedItems(sourceItems, this.props?.config),
+      shuffledItems: buildPreparedItems(config?.items || [], config),
       values: {},
     });
   };
 
-  handleRowAudioStatusChange = (rowIndex, status) => {
-    this.setState((prevState) => {
+  const handleRowAudioStatusChange = (rowIndex, status) => {
+    dispatch((prevState) => {
       const nextRowAudioStatus = {
         ...prevState.rowAudioStatus,
       };
@@ -225,49 +253,49 @@ export class SelectExercise extends React.PureComponent {
     });
   };
 
-  triggerRowAudio = (rowIndex) => {
-    const rowAudioHost = this.rowAudioRefs[rowIndex];
+  const triggerRowAudio = (rowIndex) => {
+    const rowAudioHost = rowAudioRefs.current[rowIndex];
     if (!rowAudioHost) return;
     const buttonEl = rowAudioHost.querySelector("button.audio-container");
     if (!buttonEl) return;
     buttonEl.click();
   };
 
-  handleSentenceClick = (rowIndex, event) => {
+  const handleSentenceClick = (rowIndex, event) => {
     const targetNode = event?.target;
     if (
       targetNode instanceof Element &&
-			targetNode.closest(
-			  "button, input, textarea, select, a, [role='combobox'], [role='listbox'], [role='option'], .audio-container, .audio-link"
-			)
+      targetNode.closest(
+        "button, input, textarea, select, a, [role='combobox'], [role='listbox'], [role='option'], .audio-container, .audio-link"
+      )
     ) {
       return;
     }
 
-    this.triggerRowAudio(rowIndex);
+    triggerRowAudio(rowIndex);
   };
 
-  handleShowAnswers = () => {
-    const values = {};
+  const handleShowAnswers = () => {
+    const nextValues = {};
     const checkedResults = {};
 
-    for (let i = 0; i < this.nToSolve; i += 1) {
-      const winner = this.blanksMeta[i]?.winner;
-      values[i] = String(winner);
+    for (let i = 0; i < nToSolveRef.current; i += 1) {
+      const winner = blanksMetaRef.current[i]?.winner;
+      nextValues[i] = String(winner);
       checkedResults[i] = true;
     }
 
-    this.setState({
+    dispatch({
       checkedResults,
       hasChecked: true,
-      nCorrect: this.nToSolve,
-      values,
+      nCorrect: nToSolveRef.current,
+      values: nextValues,
     });
   };
 
-  handleMasterStopped = (playlistIndex, playlist) => {
+  const handleMasterStopped = (playlistIndex, playlist) => {
     const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    this.setState((prev) => ({
+    dispatch((prev) => ({
       activeRowIndex: -1,
       masterPlayState: "stopped",
       rowProgress: rowIndex >= 0 ? {
@@ -280,19 +308,19 @@ export class SelectExercise extends React.PureComponent {
     }));
   };
 
-  handleMasterPlayStateChange = (playState) => {
-    this.setState({ masterPlayState: playState });
+  const handleMasterPlayStateChange = (playState) => {
+    dispatch({ masterPlayState: playState });
   };
 
-  handleMasterTrackChange = (playlistIndex, playlist) => {
+  const handleMasterTrackChange = (playlistIndex, playlist) => {
     const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    this.setState({ activeRowIndex: rowIndex });
+    dispatch({ activeRowIndex: rowIndex });
   };
 
-  handleMasterTime = (playlistIndex, currentTime, duration, playlist) => {
+  const handleMasterTime = (playlistIndex, currentTime, duration, playlist) => {
     const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
     if (rowIndex < 0) return;
-    this.setState((prev) => ({
+    dispatch((prev) => ({
       rowProgress: {
         ...prev.rowProgress,
         [rowIndex]: {
@@ -303,22 +331,12 @@ export class SelectExercise extends React.PureComponent {
     }));
   };
 
-  renderSentenceWithoutChoices = (segments) => {
-    return segments
-      .filter((segment) => segment.type === "text")
-      .map((segment) => segment.value)
-      .join("")
-      .replace(/\s+/g, " ")
-      .trim();
-  };
-
-  renderInlineSelect = (blankIndex, localIndex, rowBlankIndices, triggerClassName = SELECT_EXERCISE_INLINE_TRIGGER_CLASS) => {
-    const { id = "", values = {} } = this.state;
+  const renderInlineSelect = (blankIndex, localIndex, rowBlankIndices, triggerClassName = SELECT_EXERCISE_INLINE_TRIGGER_CLASS) => {
     const selectId = `${id}-select-${blankIndex}`;
-    const meta = this.blanksMeta[blankIndex];
+    const meta = blanksMetaRef.current[blankIndex];
     const currentValue = values[blankIndex] ?? "";
     const isPassageTrigger = triggerClassName === SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS;
-    const triggerStyle = this.getInlineSelectTriggerStyle(blankIndex, {
+    const triggerStyle = getInlineSelectTriggerStyle(blankIndex, {
       passage: isPassageTrigger,
     });
 
@@ -329,7 +347,7 @@ export class SelectExercise extends React.PureComponent {
         </label>
         <Select
           value={currentValue}
-          onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
+          onValueChange={(value) => handleSelectChange(blankIndex, value)}
         >
           <SelectTrigger className={triggerClassName} id={selectId} style={triggerStyle}>
             <SelectValue placeholder="Select answer" />
@@ -350,438 +368,409 @@ export class SelectExercise extends React.PureComponent {
     );
   };
 
-  getInlinePassageLineStyle = (accentKey) => {
-    const accentColor = accentKey ? SELECT_EXERCISE_PASSAGE_ACCENTS[accentKey] : null;
-    if (!accentColor) return {};
+  // blanksMeta / nToSolve are rebuilt on every render while the rows are
+  // walked, exactly as the class version did via instance fields.
+  blanksMetaRef.current = [];
 
-    return {
-      accentColor,
-      lineStyle: {
-        boxShadow: `inset 0 1px 0 color-mix(in oklab, ${accentColor} 10%, transparent)`,
-      },
-    };
-  };
+  const rows = [];
+  const passageLines = [];
+  let blankCursor = 0;
 
-  render = () => {
-    const {
-      cheatText = "Show answers",
-      footnote,
-      footnoteHTML,
-      htmlContent = "",
-      id = "",
-      items = [],
-      layoutMode = "rows",
-      listenDescriptionText,
-      renderInlineChoices = false,
-      rowAudioStatus = {},
-      shuffledItems = [],
-      soundFile,
-      useSequenceAudioController = false,
-      values = {},
-    } = this.state;
+  const renderedItems = shuffledItems.length > 0 ? shuffledItems : items;
+  const playlist = renderedItems
+    .map((item, index) => ({
+      rowIndex: index,
+      src: item?.audio ? resolveAsset(item.audio) : null,
+    }))
+    .filter((entry) => Boolean(entry.src));
+  const rowToPlaylistIndex = {};
+  playlist.forEach((entry, index) => {
+    rowToPlaylistIndex[entry.rowIndex] = index;
+  });
 
-    this.blanksMeta = [];
-    this.nToSolve = 0;
+  for (let i = 0; i < renderedItems.length; i += 1) {
+    const item = renderedItems[i];
+    const phraseText = item?.text || "";
+    if (!phraseText) continue;
+    const playlistIndex = rowToPlaylistIndex[i];
+    const useMasterRowAudio = useSequenceAudioController && playlistIndex !== undefined;
+    const isActive = state.activeRowIndex === i;
+    const status = isActive
+      ? (state.masterPlayState === "playing" ? "playing" : "stopped")
+      : "stopped";
+    const prog = state.rowProgress[i] || { currentTime: 0, duration: 0 };
 
-    const rows = [];
-    const passageLines = [];
-    let blankCursor = 0;
-
-    const renderedItems = shuffledItems.length > 0 ? shuffledItems : items;
-    const playlist = renderedItems
-      .map((item, index) => ({
-        rowIndex: index,
-        src: item?.audio ? resolveAsset(item.audio) : null,
-      }))
-      .filter((entry) => Boolean(entry.src));
-    const rowToPlaylistIndex = {};
-    playlist.forEach((entry, index) => {
-      rowToPlaylistIndex[entry.rowIndex] = index;
+    const { nextBlankIndex, segments } = parseSentence(phraseText, {
+      startBlankIndex: blankCursor,
+      blanksMeta: blanksMetaRef.current,
+      parseBlank: parseChoiceBlank,
     });
+    const rowBlankIndices = segments
+      .filter((segment) => segment.type === "choice")
+      .map((segment) => segment.blankIndex);
+    blankCursor = nextBlankIndex;
 
-    for (let i = 0; i < renderedItems.length; i += 1) {
-      const item = renderedItems[i];
-      const phraseText = item?.text || "";
-      if (!phraseText) continue;
-      const playlistIndex = rowToPlaylistIndex[i];
-      const useMasterRowAudio = useSequenceAudioController && playlistIndex !== undefined;
-      const isActive = this.state.activeRowIndex === i;
-      const status = isActive
-        ? (this.state.masterPlayState === "playing" ? "playing" : "stopped")
-        : "stopped";
-      const prog = this.state.rowProgress[i] || { currentTime: 0, duration: 0 };
+    const rowAttempted = rowBlankIndices.some((idx) => {
+      const rawValue = state.values[idx];
+      return rawValue !== undefined && rawValue !== null && rawValue !== "";
+    });
+    const rowResults = rowBlankIndices.map((idx) => state.checkedResults[idx]);
+    const rowFullyChecked =
+      rowBlankIndices.length > 0 &&
+      rowResults.every((result) => typeof result === "boolean");
+    const rowHasResult = state.hasChecked && rowAttempted && rowFullyChecked;
+    const rowIsCorrect = rowHasResult && rowResults.every((result) => result === true);
+    const rowHasChoices = rowBlankIndices.length > 0;
 
-      const { nextBlankIndex, segments } = parseSentence(phraseText, {
-        startBlankIndex: blankCursor,
-        blanksMeta: this.blanksMeta,
-        parseBlank: parseChoiceBlank,
-      });
-      const rowBlankIndices = segments
-        .filter((segment) => segment.type === "choice")
-        .map((segment) => segment.blankIndex);
-      blankCursor = nextBlankIndex;
+    if (layoutMode === "inline-passage") {
+      const { accentColor, lineStyle } = getInlinePassageLineStyle(item?.passageAccent);
+      const isPassageMeta = Boolean(item?.passageMeta);
 
-      const rowAttempted = rowBlankIndices.some((idx) => {
-        const rawValue = this.state.values[idx];
-        return rawValue !== undefined && rawValue !== null && rawValue !== "";
-      });
-      const rowResults = rowBlankIndices.map((idx) => this.state.checkedResults[idx]);
-      const rowFullyChecked =
-				rowBlankIndices.length > 0 &&
-				rowResults.every((result) => typeof result === "boolean");
-      const rowHasResult = this.state.hasChecked && rowAttempted && rowFullyChecked;
-      const rowIsCorrect = rowHasResult && rowResults.every((result) => result === true);
-      const rowHasChoices = rowBlankIndices.length > 0;
-
-      if (layoutMode === "inline-passage") {
-        const { accentColor, lineStyle } = this.getInlinePassageLineStyle(item?.passageAccent);
-        const isPassageMeta = Boolean(item?.passageMeta);
-
-        passageLines.push(
-          /* <p>→<div>: short poem lines trigger WAVE "possible heading" alert */
-          <div
-            className={`relative m-0 overflow-hidden text-sm leading-[var(--line-height-app)] md:text-base ${
-              isPassageMeta
-                ? "pt-1 text-right text-muted-foreground"
-                : `rounded-lg border border-border/70 bg-background/80 px-3 py-2 shadow-sm ${
-                  item?.audio ? "cursor-pointer" : ""
-                } ${
-                  isActive ? "text-[var(--edu-affirm)]" : rowBlankIndices.length === 0 ? "text-foreground/90" : ""
-                }`
-            }`}
-            key={`select-passage-line-${id}-${i}`}
-            onClick={item?.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
-            style={isPassageMeta ? undefined : lineStyle}
-          >
-            {accentColor && !isPassageMeta ? (
-              <span
-                aria-hidden="true"
-                className="absolute inset-y-0 left-0 w-3"
-                style={{ backgroundColor: accentColor }}
-              />
-            ) : null}
-            <span
-              className={`relative z-10 ${
-                isPassageMeta
-                  ? "block"
-                  : "grid grid-cols-[auto_minmax(0,1fr)_2.75rem] items-center gap-x-3 pl-2"
-              }`}
-            >
-              {!isPassageMeta && item?.audio ? (
-                <span
-                  className="inline-flex"
-                  ref={(el) => {
-                    if (el) this.rowAudioRefs[i] = el;
-                  }}
-                >
-                  <CircularAudioProgressAnimatedSpeakerDisplay
-                    className="super-compact-speaker"
-                    duration={prog.duration}
-                    handleClick={(event) => {
-                      event.preventDefault();
-                      event.stopPropagation();
-
-                      const playlistIndex = rowToPlaylistIndex[i];
-                      if (playlistIndex === undefined) return;
-
-                      if (isActive) {
-                        this.sequenceRef.current?.toggle();
-                        return;
-                      }
-
-                      this.sequenceRef.current?.playItem(playlistIndex, {
-                        playSequence: false,
-                      });
-                    }}
-                    progress={prog.currentTime}
-                    status={status}
-                    title={isActive ? "Click to pause" : "Click to play"}
-                  />
-                </span>
-              ) : null}
-              <span className={`block min-w-0 ${isPassageMeta ? "" : "col-start-2"}`}>
-                {segments.map((segment, segmentIndex) => {
-                  if (segment.type !== "choice") {
-                    return (
-                      <React.Fragment key={segment.key || `seg-${segmentIndex}`}>
-                        {segment.value}
-                      </React.Fragment>
-                    );
-                  }
-
-                  const {blankIndex} = segment;
-                  const localIndex = rowBlankIndices.indexOf(blankIndex);
-
-                  return this.renderInlineSelect(
-                    blankIndex,
-                    localIndex,
-                    rowBlankIndices,
-                    SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS
-                  );
-                })}
-              </span>
-              {isPassageMeta ? null : (
-                <span
-                  aria-hidden="true"
-                  className={`col-start-3 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
-                >
-                  {rowBlankIndices.length > 0 ? (
-                    <ResultIcon isCorrect={rowIsCorrect} />
-                  ) : null}
-                </span>
-              )}
-            </span>
-          </div>
-        );
-        continue;
-      }
-
-      rows.push(
+      passageLines.push(
+        /* <p>→<div>: short poem lines trigger WAVE "possible heading" alert */
         <div
-          className={`rounded-xl border border-border/70 bg-card/60 ${
-            rowHasChoices ? "p-3 md:p-4" : "px-3 py-2.5 md:px-4 md:py-3"
-          } ${item.audio ? "cursor-pointer" : ""} ${
-            item.audio && (useMasterRowAudio ? isActive : rowAudioStatus[i] === "playing")
-              ? "text-[var(--edu-affirm)]"
-              : ""
+          className={`relative m-0 overflow-hidden text-sm leading-[var(--line-height-app)] md:text-base ${
+            isPassageMeta
+              ? "pt-1 text-right text-muted-foreground"
+              : `rounded-lg border border-border/70 bg-background/80 px-3 py-2 shadow-sm ${
+                item?.audio ? "cursor-pointer" : ""
+              } ${
+                isActive ? "text-[var(--edu-affirm)]" : rowBlankIndices.length === 0 ? "text-foreground/90" : ""
+              }`
           }`}
-          key={`select-row-${id}-${i}`}
-          onClick={item.audio ? (event) => this.handleSentenceClick(i, event) : undefined}
+          key={`select-passage-line-${id}-${i}`}
+          onClick={item?.audio ? (event) => handleSentenceClick(i, event) : undefined}
+          style={isPassageMeta ? undefined : lineStyle}
         >
-          <div
-            className={`grid grid-cols-[auto_minmax(0,1fr)_2.75rem] ${
-              renderInlineChoices
-                ? "items-center gap-x-3"
-                : rowHasChoices
-                  ? "grid-rows-[auto_auto] items-start gap-x-3 gap-y-2"
-                  : "items-start gap-x-3"
+          {accentColor && !isPassageMeta ? (
+            <span
+              aria-hidden="true"
+              className="absolute inset-y-0 left-0 w-3"
+              style={{ backgroundColor: accentColor }}
+            />
+          ) : null}
+          <span
+            className={`relative z-10 ${
+              isPassageMeta
+                ? "block"
+                : "grid grid-cols-[auto_minmax(0,1fr)_2.75rem] items-center gap-x-3 pl-2"
             }`}
           >
-            {item.audio ? (
+            {!isPassageMeta && item?.audio ? (
               <span
-                className={
-                  renderInlineChoices
-                    ? "self-start pt-1"
-                    : rowHasChoices
-                      ? "row-span-2 self-start pt-0.5"
-                      : "self-start pt-0.5"
-                }
+                className="inline-flex"
                 ref={(el) => {
-                  if (el) this.rowAudioRefs[i] = el;
+                  if (el) rowAudioRefs.current[i] = el;
                 }}
               >
-                {useMasterRowAudio ? (
-                  <CircularAudioProgressAnimatedSpeakerDisplay
-                    className="super-compact-speaker shrink-0"
-                    duration={prog.duration}
-                    handleClick={(event) => {
-                      event.preventDefault();
-                      event.stopPropagation();
+                <CircularAudioProgressAnimatedSpeakerDisplay
+                  className="super-compact-speaker"
+                  duration={prog.duration}
+                  handleClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
 
-                      if (isActive) {
-                        this.sequenceRef.current?.toggle();
-                        return;
-                      }
+                    const targetPlaylistIndex = rowToPlaylistIndex[i];
+                    if (targetPlaylistIndex === undefined) return;
 
-                      this.sequenceRef.current?.playItem(playlistIndex, {
-                        playSequence: false,
-                      });
-                    }}
-                    progress={prog.currentTime}
-                    status={status}
-                    title={isActive ? "Click to pause" : "Click to play"}
-                  />
-                ) : (
-                  <AudioClip
-                    className="super-compact-speaker shrink-0"
-                    id={`selectExerciseRowAudio-${i}`}
-                    onStatusChange={(nextStatus) => this.handleRowAudioStatusChange(i, nextStatus)}
-                    soundFile={resolveAsset(item.audio)}
-                  />
-                )}
+                    if (isActive) {
+                      sequenceRef.current?.toggle();
+                      return;
+                    }
+
+                    sequenceRef.current?.playItem(targetPlaylistIndex, {
+                      playSequence: false,
+                    });
+                  }}
+                  progress={prog.currentTime}
+                  status={status}
+                  title={isActive ? "Click to pause" : "Click to play"}
+                />
               </span>
             ) : null}
-
-            {renderInlineChoices ? (
-              <div className="col-start-2 min-w-0 text-sm leading-[var(--line-height-app)] md:text-base">
-                {segments.map((segment, segmentIndex) => {
-                  if (segment.type !== "choice") {
-                    return (
-                      <React.Fragment key={segment.key || `seg-${segmentIndex}`}>
-                        {segment.value}
-                      </React.Fragment>
-                    );
-                  }
-
-                  const {blankIndex} = segment;
-                  const localIndex = rowBlankIndices.indexOf(blankIndex);
-
-                  return this.renderInlineSelect(
-                    blankIndex,
-                    localIndex,
-                    rowBlankIndices
+            <span className={`block min-w-0 ${isPassageMeta ? "" : "col-start-2"}`}>
+              {segments.map((segment, segmentIndex) => {
+                if (segment.type !== "choice") {
+                  return (
+                    <Fragment key={segment.key || `seg-${segmentIndex}`}>
+                      {segment.value}
+                    </Fragment>
                   );
-                })}
-              </div>
-            ) : (
-              <>
-                {item.audio ? (
-                  <button
-                    aria-label={`Play audio for row ${i + 1}`}
-                    className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-sm leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--edu-affirm)]" : "text-foreground hover:text-[var(--edu-affirm)]"}`}
-                    onClick={() => this.triggerRowAudio(i)}
-                    type="button"
-                  >
-                    {this.renderSentenceWithoutChoices(segments)}
-                  </button>
-                ) : (
-                /* p→div: short item text triggers WAVE "possible heading" */
-                  <div className="col-start-2 row-start-1 m-0 min-w-0 text-sm leading-[var(--line-height-app)] md:text-base">
-                    {this.renderSentenceWithoutChoices(segments)}
-                  </div>
-                )}
+                }
 
-                {rowHasChoices ? (
-                  <div className="col-start-2 row-start-2 min-w-0 space-y-2">
-                    {rowBlankIndices.map((blankIndex) => {
-                      const selectId = `${id}-select-${blankIndex}`;
-                      const meta = this.blanksMeta[blankIndex];
-                      const currentValue = values[blankIndex] ?? "";
+                const {blankIndex} = segment;
+                const localIndex = rowBlankIndices.indexOf(blankIndex);
 
-                      return (
-                        <div className="w-full" key={selectId}>
-                          <label className="sr-only" htmlFor={selectId}>
-                            {`Select answer for blank ${blankIndex + 1}`}
-                          </label>
-                          <Select
-                            value={currentValue}
-                            onValueChange={(value) => this.handleSelectChange(blankIndex, value)}
-                          >
-                            <SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
-                              <SelectValue placeholder="Select answer" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {meta.options.map((option, optionIndex) => (
-                                <SelectItem
-                                  className="text-sm md:text-base"
-                                  key={`${selectId}-option-${optionIndex}`}
-                                  value={String(optionIndex)}
-                                >
-                                  {option}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : null}
-              </>
-            )}
-
-            {rowHasChoices ? (
+                return renderInlineSelect(
+                  blankIndex,
+                  localIndex,
+                  rowBlankIndices,
+                  SELECT_EXERCISE_INLINE_PASSAGE_TRIGGER_CLASS
+                );
+              })}
+            </span>
+            {isPassageMeta ? null : (
               <span
                 aria-hidden="true"
-                className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
+                className={`col-start-3 inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
               >
-                {<ResultIcon isCorrect={rowIsCorrect} />}
+                {rowBlankIndices.length > 0 ? (
+                  <ResultIcon isCorrect={rowIsCorrect} />
+                ) : null}
               </span>
-            ) : null}
-          </div>
+            )}
+          </span>
         </div>
       );
+      continue;
     }
 
-    this.nToSolve = blankCursor;
-    const nCorrect = this.state.nCorrect || 0;
-    const hasSelections = Object.keys(values).length > 0;
-    const hasAnyIncorrect = this.state.hasChecked && nCorrect < this.nToSolve;
-
-    return (
+    rows.push(
       <div
-        className="select-exercise-container container"
-        id={`${id || ""}`}
-        key={`${id}SelectExercise`}
+        className={`rounded-xl border border-border/70 bg-card/60 ${
+          rowHasChoices ? "p-3 md:p-4" : "px-3 py-2.5 md:px-4 md:py-3"
+        } ${item.audio ? "cursor-pointer" : ""} ${
+          item.audio && (useMasterRowAudio ? isActive : rowAudioStatus[i] === "playing")
+            ? "text-[var(--edu-affirm)]"
+            : ""
+        }`}
+        key={`select-row-${id}-${i}`}
+        onClick={item.audio ? (event) => handleSentenceClick(i, event) : undefined}
       >
-        {htmlContent ? (
-          <div
-            className="html-content"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
-          />
-        ) : null}
+        <div
+          className={`grid grid-cols-[auto_minmax(0,1fr)_2.75rem] ${
+            renderInlineChoices
+              ? "items-center gap-x-3"
+              : rowHasChoices
+                ? "grid-rows-[auto_auto] items-start gap-x-3 gap-y-2"
+                : "items-start gap-x-3"
+          }`}
+        >
+          {item.audio ? (
+            <span
+              className={
+                renderInlineChoices
+                  ? "self-start pt-1"
+                  : rowHasChoices
+                    ? "row-span-2 self-start pt-0.5"
+                    : "self-start pt-0.5"
+              }
+              ref={(el) => {
+                if (el) rowAudioRefs.current[i] = el;
+              }}
+            >
+              {useMasterRowAudio ? (
+                <CircularAudioProgressAnimatedSpeakerDisplay
+                  className="super-compact-speaker shrink-0"
+                  duration={prog.duration}
+                  handleClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
 
-        {useSequenceAudioController && layoutMode !== "inline-passage" && playlist.length > 0 ? (
-          <SequenceAudioController
-            ref={this.sequenceRef}
-            onPlayStateChange={this.handleMasterPlayStateChange}
-            onStopped={(playlistIndex) => this.handleMasterStopped(playlistIndex, playlist)}
-            onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
-              this.handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
-            }
-            onTrackChange={(playlistIndex) => this.handleMasterTrackChange(playlistIndex, playlist)}
-            pauseSeconds={0.5}
-            sources={playlist.map((entry) => entry.src)}
-          />
-        ) : null}
+                    if (isActive) {
+                      sequenceRef.current?.toggle();
+                      return;
+                    }
 
-        {listenDescriptionText && soundFile && !(useSequenceAudioController && playlist.length > 0) ? (
-          useSequenceAudioController ? (
-            <div className="space-y-1">
-              <SequenceAudioController sources={[resolveAsset(soundFile)]} />
+                    sequenceRef.current?.playItem(playlistIndex, {
+                      playSequence: false,
+                    });
+                  }}
+                  progress={prog.currentTime}
+                  status={status}
+                  title={isActive ? "Click to pause" : "Click to play"}
+                />
+              ) : (
+                <AudioClip
+                  className="super-compact-speaker shrink-0"
+                  id={`selectExerciseRowAudio-${i}`}
+                  onStatusChange={(nextStatus) => handleRowAudioStatusChange(i, nextStatus)}
+                  soundFile={resolveAsset(item.audio)}
+                />
+              )}
+            </span>
+          ) : null}
+
+          {renderInlineChoices ? (
+            <div className="col-start-2 min-w-0 text-sm leading-[var(--line-height-app)] md:text-base">
+              {segments.map((segment, segmentIndex) => {
+                if (segment.type !== "choice") {
+                  return (
+                    <Fragment key={segment.key || `seg-${segmentIndex}`}>
+                      {segment.value}
+                    </Fragment>
+                  );
+                }
+
+                const {blankIndex} = segment;
+                const localIndex = rowBlankIndices.indexOf(blankIndex);
+
+                return renderInlineSelect(
+                  blankIndex,
+                  localIndex,
+                  rowBlankIndices
+                );
+              })}
             </div>
           ) : (
-            <AudioClip
-              id={`listen-${id}`}
-              listenText={listenDescriptionText}
-              soundFile={soundFile}
-            />
-          )
-        ) : null}
+            <>
+              {item.audio ? (
+                <button
+                  aria-label={`Play audio for row ${i + 1}`}
+                  className={`col-start-2 row-start-1 m-0 min-w-0 cursor-pointer border-0 bg-transparent p-0 text-left text-sm leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${rowAudioStatus[i] === "playing" ? "text-[var(--edu-affirm)]" : "text-foreground hover:text-[var(--edu-affirm)]"}`}
+                  onClick={() => triggerRowAudio(i)}
+                  type="button"
+                >
+                  {renderSentenceWithoutChoices(segments)}
+                </button>
+              ) : (
+              /* p→div: short item text triggers WAVE "possible heading" */
+                <div className="col-start-2 row-start-1 m-0 min-w-0 text-sm leading-[var(--line-height-app)] md:text-base">
+                  {renderSentenceWithoutChoices(segments)}
+                </div>
+              )}
 
-        {layoutMode === "inline-passage" && useSequenceAudioController && playlist.length > 0 ? (
-          <SequenceAudioController
-            ref={this.sequenceRef}
-            onPlayStateChange={this.handleMasterPlayStateChange}
-            onStopped={(playlistIndex) => this.handleMasterStopped(playlistIndex, playlist)}
-            onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
-              this.handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
-            }
-            onTrackChange={(playlistIndex) => this.handleMasterTrackChange(playlistIndex, playlist)}
-            pauseSeconds={0.5}
-            sources={playlist.map((entry) => entry.src)}
-          />
-        ) : null}
+              {rowHasChoices ? (
+                <div className="col-start-2 row-start-2 min-w-0 space-y-2">
+                  {rowBlankIndices.map((blankIndex) => {
+                    const selectId = `${id}-select-${blankIndex}`;
+                    const meta = blanksMetaRef.current[blankIndex];
+                    const currentValue = values[blankIndex] ?? "";
 
-        {layoutMode === "inline-passage" ? (
-          <div className="rounded-xl border border-border/70 bg-card/60 p-4 text-left shadow-sm md:p-5">
-            <div className="space-y-3">{passageLines}</div>
-          </div>
-        ) : (
-          <div className="space-y-3">{rows}</div>
-        )}
+                    return (
+                      <div className="w-full" key={selectId}>
+                        <label className="sr-only" htmlFor={selectId}>
+                          {`Select answer for blank ${blankIndex + 1}`}
+                        </label>
+                        <Select
+                          value={currentValue}
+                          onValueChange={(value) => handleSelectChange(blankIndex, value)}
+                        >
+                          <SelectTrigger className={SELECT_EXERCISE_TRIGGER_CLASS} id={selectId}>
+                            <SelectValue placeholder="Select answer" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {meta.options.map((option, optionIndex) => (
+                              <SelectItem
+                                className="text-sm md:text-base"
+                                key={`${selectId}-option-${optionIndex}`}
+                                value={String(optionIndex)}
+                              >
+                                {option}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : null}
+            </>
+          )}
 
-        <div className="exercise-divider" data-orientation="horizontal" role="none" />
-        <ProgressDots correct={nCorrect} total={this.nToSolve} />
-        <div className="exercise-divider" data-orientation="horizontal" role="none" />
-
-        <ExerciseFooter
-          onCheck={this.handleCheckAnswers}
-          onReset={this.handleReset}
-          onShowAnswers={this.handleShowAnswers}
-          showAnswers={hasAnyIncorrect}
-          showAnswersLabel={cheatText}
-          showReset={hasSelections || this.state.hasChecked}
-        />
-
-        {footnote ? <p className="footnote">{footnote}</p> : null}
-        {footnoteHTML ? (
-          <p
-            className="footNote"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(footnoteHTML) }}
-          />
-        ) : null}
+          {rowHasChoices ? (
+            <span
+              aria-hidden="true"
+              className={`col-start-3 ${renderInlineChoices ? "" : "row-start-2"} inline-flex min-h-10 w-11 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
+            >
+              {<ResultIcon isCorrect={rowIsCorrect} />}
+            </span>
+          ) : null}
+        </div>
       </div>
     );
-  };
+  }
+
+  nToSolveRef.current = blankCursor;
+  const nToSolve = blankCursor;
+  const nCorrect = state.nCorrect || 0;
+  const hasSelections = Object.keys(values).length > 0;
+  const hasAnyIncorrect = state.hasChecked && nCorrect < nToSolve;
+
+  return (
+    <div
+      className="select-exercise-container container"
+      id={`${id || ""}`}
+      key={`${id}SelectExercise`}
+    >
+      {htmlContent ? (
+        <div
+          className="html-content"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
+        />
+      ) : null}
+
+      {useSequenceAudioController && layoutMode !== "inline-passage" && playlist.length > 0 ? (
+        <SequenceAudioController
+          ref={sequenceRef}
+          onPlayStateChange={handleMasterPlayStateChange}
+          onStopped={(playlistIndex) => handleMasterStopped(playlistIndex, playlist)}
+          onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
+            handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
+          }
+          onTrackChange={(playlistIndex) => handleMasterTrackChange(playlistIndex, playlist)}
+          pauseSeconds={0.5}
+          sources={playlist.map((entry) => entry.src)}
+        />
+      ) : null}
+
+      {listenDescriptionText && soundFile && !(useSequenceAudioController && playlist.length > 0) ? (
+        useSequenceAudioController ? (
+          <div className="space-y-1">
+            <SequenceAudioController sources={[resolveAsset(soundFile)]} />
+          </div>
+        ) : (
+          <AudioClip
+            id={`listen-${id}`}
+            listenText={listenDescriptionText}
+            soundFile={soundFile}
+          />
+        )
+      ) : null}
+
+      {layoutMode === "inline-passage" && useSequenceAudioController && playlist.length > 0 ? (
+        <SequenceAudioController
+          ref={sequenceRef}
+          onPlayStateChange={handleMasterPlayStateChange}
+          onStopped={(playlistIndex) => handleMasterStopped(playlistIndex, playlist)}
+          onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
+            handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
+          }
+          onTrackChange={(playlistIndex) => handleMasterTrackChange(playlistIndex, playlist)}
+          pauseSeconds={0.5}
+          sources={playlist.map((entry) => entry.src)}
+        />
+      ) : null}
+
+      {layoutMode === "inline-passage" ? (
+        <div className="rounded-xl border border-border/70 bg-card/60 p-4 text-left shadow-sm md:p-5">
+          <div className="space-y-3">{passageLines}</div>
+        </div>
+      ) : (
+        <div className="space-y-3">{rows}</div>
+      )}
+
+      <div className="exercise-divider" data-orientation="horizontal" role="none" />
+      <ProgressDots correct={nCorrect} total={nToSolve} />
+      <div className="exercise-divider" data-orientation="horizontal" role="none" />
+
+      <ExerciseFooter
+        onCheck={handleCheckAnswers}
+        onReset={handleReset}
+        onShowAnswers={handleShowAnswers}
+        showAnswers={hasAnyIncorrect}
+        showAnswersLabel={cheatText}
+        showReset={hasSelections || hasChecked}
+      />
+
+      {footnote ? <p className="footnote">{footnote}</p> : null}
+      {footnoteHTML ? (
+        <p
+          className="footNote"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(footnoteHTML) }}
+        />
+      ) : null}
+    </div>
+  );
 }
