@@ -3,115 +3,178 @@ import { exerciseActionButtonVariants } from "@/components/exercises/shared/exer
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { Info } from "@/components/content";
 import { AudioClip, IconButton } from "@/components/media";
-import React from "react";
 import { SortableWordCard } from "@/components/exercises/SortableWordCard/SortableWordCard";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
 import { shuffleArray } from "@/utils/collections";
+import { useEffect, useLayoutEffect, useReducer, useRef } from "react";
 
+// Map config.phrases -> [{ lang2, id }], shuffled unless shuffleOnLoad === false.
+// Pure module fn (was the getInitialLang2 instance method). Used by the lazy
+// init seed, reset, AND the config-identity reset effect.
+const getInitialLang2 = (config) => {
+  if (!config || !config.phrases) return [];
 
-export class PhraseReorderExercise extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      checkedCorrectCount: 0,
-      draggingId: null,
-      dropTargetId: null,
-      failCount: 0,
-      hasReordered: false,
-      hasSubmittedCheck: false,
-      lang2Items: this.getInitialLang2(props.config),
-      lastResult: null,
-      usedShowAnswer: false,
-      rowStatuses: new Array(
-        props.config && props.config.phrases
-          ? props.config.phrases.length
-          : 0
-      ).fill(null) // "correct" | "incorrect" | null
-    };
-
-    this.cardRefs = new Map();
-  }
-
-  componentDidUpdate(prevProps) {
-    // If a different config is passed in, reset the state
-    if (prevProps.config !== this.props.config) {
-      const phrasesLen =
-				this.props.config && this.props.config.phrases
-				  ? this.props.config.phrases.length
-				  : 0;
-
-      this.setState({
-        checkedCorrectCount: 0,
-        draggingId: null,
-        dropTargetId: null,
-        failCount: 0,
-        hasReordered: false,
-        hasSubmittedCheck: false,
-        lang2Items: this.getInitialLang2(this.props.config),
-        lastResult: null,
-        rowStatuses: new Array(phrasesLen).fill(null),
-        usedShowAnswer: false,
-      });
+  // phrases: [ [foreignLanguage, lang2, audio], ... ]
+  const lang2Items = config.phrases.map((phrase, index) => {
+    if (Array.isArray(phrase)) {
+      return {
+        lang2: phrase[1],
+        id: String(index), // used for correctness
+      };
     }
+    // fallback if you move to object form
+    return {
+      lang2: phrase.lang2,
+      id: String(index),
+    };
+  });
+
+  // Default: shuffle unless explicitly disabled
+  const shouldShuffle =
+    config.shuffleOnLoad === undefined ? true : !!config.shuffleOnLoad;
+
+  if (shouldShuffle) {
+    shuffleArray(lang2Items);
   }
-  // inside class PhraseReorderExercise
-  pointerId = null;
 
-  setCardRef = (itemId, element) => {
+  return lang2Items;
+};
+
+// Swap two items by id. Returns null on a no-op (was the swapById instance
+// method); handlers treat null as "no reorder".
+const swapById = (items, draggingId, targetId) => {
+  const fromIndex = items.findIndex((item) => item.id === draggingId);
+  const toIndex = items.findIndex((item) => item.id === targetId);
+  if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) return null;
+  const next = [...items];
+  [next[fromIndex], next[toIndex]] = [next[toIndex], next[fromIndex]];
+  return next;
+};
+
+// Lazy-init seed for useReducer + the config-identity reset effect (was the
+// constructor state and the componentDidUpdate config-reset branch — identical
+// shape, all 10 fields).
+const getInitialState = (config = {}) => ({
+  checkedCorrectCount: 0,
+  draggingId: null,
+  dropTargetId: null,
+  failCount: 0,
+  hasReordered: false,
+  hasSubmittedCheck: false,
+  lang2Items: getInitialLang2(config),
+  lastResult: null,
+  rowStatuses: new Array(
+    config && config.phrases ? config.phrases.length : 0
+  ).fill(null), // "correct" | "incorrect" | null
+  usedShowAnswer: false,
+});
+
+// Merge reducer: each dispatch is a partial state patch. A function patch
+// receives the latest state (prev-state handlers). A patch resolving to
+// null/undefined is a no-op: the reducer returns the SAME state reference so
+// useReducer bails out of the re-render.
+const reducer = (state, patch) => {
+  const update = typeof patch === "function" ? patch(state) : patch;
+  return update ? { ...state, ...update } : state;
+};
+
+export function PhraseReorderExercise({ config = {}, suppressInfo = false }) {
+  const [state, dispatch] = useReducer(reducer, config, getInitialState);
+  const {
+    checkedCorrectCount,
+    draggingId,
+    dropTargetId,
+    failCount,
+    hasReordered,
+    hasSubmittedCheck,
+    lang2Items,
+    usedShowAnswer,
+  } = state;
+
+  // DOM refs for FLIP geometry (was this.cardRefs = new Map()).
+  const cardRefs = useRef(null);
+  if (cardRefs.current === null) cardRefs.current = new Map();
+
+  // Touch-pointer drag tracking (was this.pointerId).
+  const pointerId = useRef(null);
+
+  // FLIP positions + per-handler options captured in a handler, played after
+  // the lang2Items reorder commits — equivalent to the old setState(callback)
+  // timing. ONLY reset + autoSolve stash here; drop/pointerUp reorder without
+  // stashing, so the effect sees null and bails (no FLIP), matching the class
+  // (those handlers had no setState callback).
+  const pendingFlipRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (!pendingFlipRef.current) return;
+    const { before, options } = pendingFlipRef.current;
+    pendingFlipRef.current = null;
+    playFlipAnimation({
+      before,
+      getElement: (id) => cardRefs.current.get(id),
+      ids: lang2Items.map((item) => item.id),
+      ...options,
+    });
+  }, [lang2Items]);
+
+  // Config-identity reset (was the componentDidUpdate config branch). The ref
+  // compare keeps this a no-op on first render; key-based remount is the
+  // Phase 6 consolidation.
+  const prevConfigRef = useRef(config);
+  useEffect(() => {
+    if (prevConfigRef.current !== config) {
+      prevConfigRef.current = config;
+      dispatch(getInitialState(config));
+    }
+  }, [config]);
+
+  const setCardRef = (itemId, element) => {
     if (itemId === undefined || itemId === null) return;
-    if (element) this.cardRefs.set(itemId, element);
-    else this.cardRefs.delete(itemId);
+    if (element) cardRefs.current.set(itemId, element);
+    else cardRefs.current.delete(itemId);
   };
 
-  swapById = (items, draggingId, targetId) => {
-    const fromIndex = items.findIndex((item) => item.id === draggingId);
-    const toIndex = items.findIndex((item) => item.id === targetId);
-    if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) return null;
-    const next = [...items];
-    [next[fromIndex], next[toIndex]] = [next[toIndex], next[fromIndex]];
-    return next;
-  };
+  /* ----------------------------- Touch / pointer reorder ----------------------------- */
 
-  handlePointerDown = (index) => (e) => {
+  const handlePointerDown = (index) => (e) => {
     // Only activate for touch/pen (leave mouse to native DnD)
     if (e.pointerType === "mouse") return;
 
     e.preventDefault();
     e.currentTarget.setPointerCapture(e.pointerId);
 
-    this.pointerId = e.pointerId;
+    pointerId.current = e.pointerId;
 
-    const draggingId = this.state.lang2Items[index]?.id ?? null;
-    this.setState({
-      draggingId,
+    const nextDraggingId = lang2Items[index]?.id ?? null;
+    dispatch({
+      draggingId: nextDraggingId,
       dropTargetId: null,
       lastResult: null,
       hasSubmittedCheck: false,
-      rowStatuses: this.state.rowStatuses.map(() => null)
+      rowStatuses: state.rowStatuses.map(() => null),
     });
   };
 
-  handlePointerMove = (e) => {
-    if (this.pointerId !== e.pointerId) return;
-    if (!this.state.draggingId) return;
+  const handlePointerMove = (e) => {
+    if (pointerId.current !== e.pointerId) return;
+    if (!draggingId) return;
 
     // Find which sortable tile we're currently over
     const el = document.elementFromPoint(e.clientX, e.clientY);
     const tile = el?.closest?.("[data-sortable-tile='1']");
     const targetId = tile?.getAttribute?.("data-item-id") ?? null;
-    this.setState((prev) => ({
+    dispatch((prev) => ({
       dropTargetId: targetId && targetId !== prev.draggingId ? targetId : null,
     }));
   };
 
-  handlePointerUp = (e) => {
-    if (this.pointerId !== e.pointerId) return;
+  const handlePointerUp = (e) => {
+    if (pointerId.current !== e.pointerId) return;
 
-    this.pointerId = null;
-    this.setState((prev) => {
+    pointerId.current = null;
+    dispatch((prev) => {
       const next = prev.draggingId && prev.dropTargetId
-        ? this.swapById(prev.lang2Items, prev.draggingId, prev.dropTargetId)
+        ? swapById(prev.lang2Items, prev.draggingId, prev.dropTargetId)
         : null;
       if (!next) return { draggingId: null, dropTargetId: null };
       return {
@@ -125,68 +188,38 @@ export class PhraseReorderExercise extends React.Component {
     });
   };
 
-  getInitialLang2(config) {
-    if (!config || !config.phrases) return [];
-
-    // phrases: [ [foreignLanguage, lang2, audio], ... ]
-    const lang2Items = config.phrases.map((phrase, index) => {
-      if (Array.isArray(phrase)) {
-        return {
-          lang2: phrase[1],
-          id: String(index), // used for correctness
-        };
-      }
-      // fallback if you move to object form
-      return {
-        lang2: phrase.lang2,
-        id: String(index),
-      };
-    });
-
-    // Default: shuffle unless explicitly disabled
-    const shouldShuffle =
-			config.shuffleOnLoad === undefined ? true : !!config.shuffleOnLoad;
-
-    if (shouldShuffle) {
-      shuffleArray(lang2Items);
-    }
-
-    return lang2Items;
-  }
-
-
   /* ----------------------------- Drag & drop (lang2 only) ----------------------------- */
 
-  handleDragStart = (id) => (event) => {
+  const handleDragStart = (id) => (event) => {
     event.dataTransfer.effectAllowed = "move";
     event.dataTransfer.setData("text/plain", id);
 
-    this.setState({
+    dispatch({
       draggingId: id,
       dropTargetId: null,
       lastResult: null,
       hasSubmittedCheck: false,
-      rowStatuses: this.state.rowStatuses.map(() => null)
+      rowStatuses: state.rowStatuses.map(() => null),
     });
   };
 
-  handleDragEnter = (targetId) => (event) => {
+  const handleDragEnter = (targetId) => (event) => {
     event.preventDefault();
-    this.setState((prev) => ({
+    dispatch((prev) => ({
       dropTargetId: prev.draggingId && prev.draggingId !== targetId ? targetId : null,
     }));
   };
 
-  handleDragOver = (event) => {
+  const handleDragOver = (event) => {
     // Required so that drop/enter events behave as expected
     event.preventDefault();
   };
 
-  handleDrop = (targetId) => (event) => {
+  const handleDrop = (targetId) => (event) => {
     event.preventDefault();
-    this.setState((prev) => {
+    dispatch((prev) => {
       const next = prev.draggingId && targetId
-        ? this.swapById(prev.lang2Items, prev.draggingId, targetId)
+        ? swapById(prev.lang2Items, prev.draggingId, targetId)
         : null;
       if (!next) return { draggingId: null, dropTargetId: null };
       return {
@@ -200,105 +233,62 @@ export class PhraseReorderExercise extends React.Component {
     });
   };
 
-  handleDragEnd = () => {
-    this.setState({ draggingId: null, dropTargetId: null });
+  const handleDragEnd = () => {
+    dispatch({ draggingId: null, dropTargetId: null });
   };
 
   /* -------------------------------- Controls -------------------------------- */
 
-  reset = () => {
-    const { config } = this.props;
+  const reset = () => {
     const phrasesLen =
-			config && config.phrases ? config.phrases.length : 0;
-    const idsBefore = this.state.lang2Items.map((item) => item.id);
-    const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
+      config && config.phrases ? config.phrases.length : 0;
+    const idsBefore = lang2Items.map((item) => item.id);
+    const before = captureFlipPositions(idsBefore, (id) => cardRefs.current.get(id));
 
-    this.setState({
+    pendingFlipRef.current = {
+      before,
+      options: { duration: 460, fromOpacity: 0.96, stagger: 22, toOpacity: 1 },
+    };
+    dispatch({
       checkedCorrectCount: 0,
       draggingId: null,
       dropTargetId: null,
       failCount: 0,
       hasReordered: false,
       hasSubmittedCheck: false,
-      lang2Items: this.getInitialLang2(config),
+      lang2Items: getInitialLang2(config),
       lastResult: null,
       rowStatuses: new Array(phrasesLen).fill(null),
       usedShowAnswer: false,
-    }, () => {
-      playFlipAnimation({
-        before,
-        duration: 460,
-        fromOpacity: 0.96,
-        getElement: (id) => this.cardRefs.get(id),
-        ids: this.state.lang2Items.map((item) => item.id),
-        stagger: 22,
-        toOpacity: 1,
-      });
     });
   };
 
-  shuffleLang2 = () => {
-    const { config } = this.props;
+  const checkAnswer = () => {
     if (!config || !config.phrases) return;
 
-    const lang2Items = config.phrases.map((phrase, index) => {
-      if (Array.isArray(phrase)) {
-        return {
-          lang2: phrase[1],
-          id: String(index),
-        };
-      }
-      return {
-        lang2: phrase.lang2,
-        id: String(index),
-      };
-    });
-
-    shuffleArray(lang2Items);
-
-    this.setState({
-      checkedCorrectCount: 0,
-      draggingId: null,
-      dropTargetId: null,
-      hasReordered: true,
-      hasSubmittedCheck: false,
-      lang2Items,
-      lastResult: null,
-      rowStatuses: new Array(config.phrases.length).fill(null)
-    });
-  };
-
-  checkAnswer = () => {
-    const { config } = this.props;
-    if (!config || !config.phrases) return;
-
-    const { lang2Items } = this.state;
     const expectedIds = config.phrases.map((_, index) => String(index));
 
     const rowStatuses = lang2Items.map((item, index) =>
       item.id === expectedIds[index] ? "correct" : "incorrect"
     );
 
-    const isAllCorrect = rowStatuses.every(
-      (status) => status === "correct"
-    );
-    const checkedCorrectCount = rowStatuses.filter((status) => status === "correct").length;
+    const isAllCorrect = rowStatuses.every((status) => status === "correct");
+    const correctCount = rowStatuses.filter((status) => status === "correct").length;
 
-    this.setState({
-      checkedCorrectCount,
-      failCount: isAllCorrect ? this.state.failCount : this.state.failCount + 1,
+    dispatch((prev) => ({
+      checkedCorrectCount: correctCount,
+      failCount: isAllCorrect ? prev.failCount : prev.failCount + 1,
       hasSubmittedCheck: true,
       lastResult: isAllCorrect ? "correct" : "incorrect",
-      rowStatuses
-    });
+      rowStatuses,
+    }));
   };
 
-  autoSolve = () => {
-    const { config } = this.props;
+  const autoSolve = () => {
     if (!config || !config.phrases) return;
-    const idsBefore = this.state.lang2Items.map((item) => item.id);
-    const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
-    const lang2Items = config.phrases.map((phrase, index) => {
+    const idsBefore = lang2Items.map((item) => item.id);
+    const before = captureFlipPositions(idsBefore, (id) => cardRefs.current.get(id));
+    const nextItems = config.phrases.map((phrase, index) => {
       if (Array.isArray(phrase)) {
         return {
           id: String(index),
@@ -310,203 +300,175 @@ export class PhraseReorderExercise extends React.Component {
         lang2: phrase.lang2,
       };
     });
-    this.setState({
+    pendingFlipRef.current = { before, options: { duration: 460 } };
+    dispatch({
       checkedCorrectCount: config.phrases.length,
       draggingId: null,
       dropTargetId: null,
       hasReordered: true,
       hasSubmittedCheck: true,
-      lang2Items,
+      lang2Items: nextItems,
       lastResult: "correct",
       rowStatuses: new Array(config.phrases.length).fill("correct"),
       usedShowAnswer: true,
-    }, () => {
-      playFlipAnimation({
-        before,
-        duration: 460,
-        getElement: (id) => this.cardRefs.get(id),
-        ids: this.state.lang2Items.map((item) => item.id),
-      });
     });
   };
 
   /* ---------------------------------- Render ---------------------------------- */
 
-  render() {
-    const { config } = this.props;
-    const { cheatText = "Show answer" } = config;
-    const {
-      checkedCorrectCount,
-      lang2Items,
-      draggingId,
-      dropTargetId,
-      failCount,
-      hasReordered,
-      hasSubmittedCheck,
-      usedShowAnswer,
-    } = this.state;
+  const { cheatText = "Show answer" } = config;
 
-    if (!config || !config.phrases) {
-      return <div>No configuration provided for PhraseReorderExercise.</div>;
-    }
+  if (!config || !config.phrases) {
+    return <div>No configuration provided for PhraseReorderExercise.</div>;
+  }
 
-    // const title =
-    // 	config.titleText ||
-    // 	config.title ||
-    // 	"Sortable activity";
+  const prompt = config.informationText || "";
 
-    const prompt =
-			config.informationText ||	"";
+  const {
+    phrases, id,
+    informationText,
+    informationTextHTML
+  } = config;
 
-    const {
-      phrases, id,
-      informationText,
-      informationTextHTML
-    } = config;
-    const { suppressInfo = false } = this.props;
+  let allLang1Blank = true;
+  phrases.forEach((phrase) => {
+    if (phrase[0] !== "") allLang1Blank = false;
+  });
 
-    let allLang1Blank = true;
-    phrases.forEach((phrase) => {
-      // console.log("phrase[0]", phrase[0], phrase[0] === "");
-      if (phrase[0] !== "") allLang1Blank = false;
-    });
+  const expectedIds = phrases.map((_, index) => String(index));
+  const liveCorrectCount = lang2Items.reduce((count, item, index) => (
+    item.id === expectedIds[index] ? count + 1 : count
+  ), 0);
+  const correctCount = hasSubmittedCheck ? checkedCorrectCount : 0;
+  const total = phrases.length;
+  const isComplete = total > 0 && liveCorrectCount === total;
+  const showReveal = failCount >= 2 || usedShowAnswer;
+  const showReset = hasReordered || failCount >= 1 || isComplete || usedShowAnswer;
 
-    // console.log("allLang1Blank", allLang1Blank);
-    const expectedIds = phrases.map((_, index) => String(index));
-    const liveCorrectCount = lang2Items.reduce((count, item, index) => (
-      item.id === expectedIds[index] ? count + 1 : count
-    ), 0);
-    const correctCount = hasSubmittedCheck ? checkedCorrectCount : 0;
-    const total = phrases.length;
-    const isComplete = total > 0 && liveCorrectCount === total;
-    const showReveal = failCount >= 2 || usedShowAnswer;
-    const showReset = hasReordered || failCount >= 1 || isComplete || usedShowAnswer;
+  return (
+    <div className="w-full sortable space-y-4 [&>svg]:h-6 [&>svg]:w-6">
+      {prompt ? <p className="text-sm">{prompt}</p> : null}
 
-    return (
-      <div className="w-full sortable space-y-4 [&>svg]:h-6 [&>svg]:w-6">
-        {prompt ? <p className="text-sm">{prompt}</p> : null}
+      <div className="space-y-3">
+        {!suppressInfo && (informationText || informationTextHTML) ? (
+          <Info className={`text`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML} />
+        ) : null}
+        <div className="mx-auto mt-2 w-[80%]">
+          {phrases.map((phrase, index) => {
+            let foreignLanguage = "";
+            let audio = null;
 
-        <div className="space-y-3">
-          {!suppressInfo && (informationText || informationTextHTML) ? (
-            <Info className={`text`} id={`info-${id}`} informationText={informationText} informationTextHTML={informationTextHTML} />
-          ) : null}
-          <div className="mx-auto mt-2 w-[80%]">
-            {phrases.map((phrase, index) => {
-              let foreignLanguage = "";
-              let audio = null;
+            if (Array.isArray(phrase)) {
+              // [foreignLanguage, lang2, audio]
+              [foreignLanguage, , audio] = phrase;
+            } else {
+              foreignLanguage = phrase.original;
+              ({ audio } = phrase);
+            }
 
-              if (Array.isArray(phrase)) {
-                // [foreignLanguage, lang2, audio]
-                [foreignLanguage, , audio] = phrase;
-              } else {
-                foreignLanguage = phrase.original;
-                ({ audio } = phrase);
-              }
+            const lang2Item = lang2Items[index];
+            const isDragging =
+              lang2Item &&
+              lang2Item.id === draggingId;
 
-              const lang2Item = lang2Items[index];
-              const isDragging =
-								lang2Item &&
-								lang2Item.id === draggingId;
-
-              return (
-                <div
-                  key={index}
-                  className={`grid ${allLang1Blank ? "grid-cols-[auto_minmax(0,1fr)]" : "grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)]" } gap-3 items-center py-1`}
-                >
-                  {/* LEFT: Audio */}
-                  <div className="flex items-center justify-center pr-2">
-                    {audio && (
-                      <AudioClip className={`super-compact-speaker`} soundFile={audio} />
-                    )}
-                  </div>
-
-                  {/* MIDDLE: lang1 phrase */}
-                  {allLang1Blank ? null : <div className="flex items-center text-sm">
-                    <span>{foreignLanguage}</span>
-                  </div>}
-
-                  {/* RIGHT: Sortable lang2 phrase + tick/cross */}
-                  <SortableWordCard
-                    className="cursor-ns-resize touch-none"
-                    data-sortable-tile="1"
-                    data-index={index}
-                    data-item-id={lang2Item?.id || ""}
-                    data-dragging={isDragging ? "true" : undefined}
-                    direction="vertical"
-                    /* Desktop HTML5 drag */
-                    draggable
-                    isDragging={isDragging}
-                    isDropTarget={dropTargetId === lang2Item?.id && !isDragging}
-                    label={lang2Item ? lang2Item.lang2 : ""}
-                    ref={(element) => this.setCardRef(lang2Item?.id, element)}
-                    onDragStart={
-                      lang2Item
-                        ? this.handleDragStart(lang2Item.id)
-                        : undefined
-                    }
-                    onDragEnter={
-                      lang2Item
-                        ? this.handleDragEnter(lang2Item.id)
-                        : undefined
-                    }
-                    onDragOver={this.handleDragOver}
-                    onDrop={this.handleDrop(lang2Item?.id)}
-                    onDragEnd={this.handleDragEnd}
-
-                    /* Mobile / touch: pointer-driven reorder */
-                    onPointerDown={this.handlePointerDown(index)}
-                    onPointerMove={this.handlePointerMove}
-                    onPointerUp={this.handlePointerUp}
-                    onPointerCancel={this.handlePointerUp}
-                    showIndex
-                    slotLabel={index + 1}
-                  />
+            return (
+              <div
+                key={index}
+                className={`grid ${allLang1Blank ? "grid-cols-[auto_minmax(0,1fr)]" : "grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)]" } gap-3 items-center py-1`}
+              >
+                {/* LEFT: Audio */}
+                <div className="flex items-center justify-center pr-2">
+                  {audio && (
+                    <AudioClip className={`super-compact-speaker`} soundFile={audio} />
+                  )}
                 </div>
-              );
-            })}
-          </div>
-        </div>
 
-        <div className="flex flex-wrap gap-2">
-          <div className="exercise-divider" role="none" data-orientation="horizontal" />
-          <ProgressDots correct={correctCount} total={total} />
-          <div className="exercise-divider" role="none" data-orientation="horizontal" />
-        </div>
+                {/* MIDDLE: lang1 phrase */}
+                {allLang1Blank ? null : <div className="flex items-center text-sm">
+                  <span>{foreignLanguage}</span>
+                </div>}
 
-        <div className="exercise-actions-row">
-          {showReveal ? (
-            <IconButton
-              ariaLabel={cheatText}
-              className={exerciseActionButtonVariants({ tone: "warn" })}
-              onClick={this.autoSolve}
-              theme="eye"
-              variant="default"
-            >
-              <span className="exercise-icon-button-label">{cheatText}</span>
-            </IconButton>
-          ) : null}
-          {showReset ? (
-            <IconButton
-              ariaLabel="Reset"
-              className={exerciseActionButtonVariants({ tone: "neutral" })}
-              onClick={this.reset}
-              theme="reset"
-              variant="default"
-            >
-              <span className="exercise-icon-button-label">Reset</span>
-            </IconButton>
-          ) : null}
-          <IconButton
-            ariaLabel="Check answers"
-            className={exerciseActionButtonVariants({ tone: "primary" })}
-            theme="check"
-            onClick={this.checkAnswer}
-            variant="default"
-          >
-            <span className="exercise-icon-button-label">Check answers</span>
-          </IconButton>
+                {/* RIGHT: Sortable lang2 phrase + tick/cross */}
+                <SortableWordCard
+                  className="cursor-ns-resize touch-none"
+                  data-sortable-tile="1"
+                  data-index={index}
+                  data-item-id={lang2Item?.id || ""}
+                  data-dragging={isDragging ? "true" : undefined}
+                  direction="vertical"
+                  /* Desktop HTML5 drag */
+                  draggable
+                  isDragging={isDragging}
+                  isDropTarget={dropTargetId === lang2Item?.id && !isDragging}
+                  label={lang2Item ? lang2Item.lang2 : ""}
+                  ref={(element) => setCardRef(lang2Item?.id, element)}
+                  onDragStart={
+                    lang2Item
+                      ? handleDragStart(lang2Item.id)
+                      : undefined
+                  }
+                  onDragEnter={
+                    lang2Item
+                      ? handleDragEnter(lang2Item.id)
+                      : undefined
+                  }
+                  onDragOver={handleDragOver}
+                  onDrop={handleDrop(lang2Item?.id)}
+                  onDragEnd={handleDragEnd}
+
+                  /* Mobile / touch: pointer-driven reorder */
+                  onPointerDown={handlePointerDown(index)}
+                  onPointerMove={handlePointerMove}
+                  onPointerUp={handlePointerUp}
+                  onPointerCancel={handlePointerUp}
+                  showIndex
+                  slotLabel={index + 1}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
-    );
-  }
+
+      <div className="flex flex-wrap gap-2">
+        <div className="exercise-divider" role="none" data-orientation="horizontal" />
+        <ProgressDots correct={correctCount} total={total} />
+        <div className="exercise-divider" role="none" data-orientation="horizontal" />
+      </div>
+
+      <div className="exercise-actions-row">
+        {showReveal ? (
+          <IconButton
+            ariaLabel={cheatText}
+            className={exerciseActionButtonVariants({ tone: "warn" })}
+            onClick={autoSolve}
+            theme="eye"
+            variant="default"
+          >
+            <span className="exercise-icon-button-label">{cheatText}</span>
+          </IconButton>
+        ) : null}
+        {showReset ? (
+          <IconButton
+            ariaLabel="Reset"
+            className={exerciseActionButtonVariants({ tone: "neutral" })}
+            onClick={reset}
+            theme="reset"
+            variant="default"
+          >
+            <span className="exercise-icon-button-label">Reset</span>
+          </IconButton>
+        ) : null}
+        <IconButton
+          ariaLabel="Check answers"
+          className={exerciseActionButtonVariants({ tone: "primary" })}
+          theme="check"
+          onClick={checkAnswer}
+          variant="default"
+        >
+          <span className="exercise-icon-button-label">Check answers</span>
+        </IconButton>
+      </div>
+    </div>
+  );
 }
