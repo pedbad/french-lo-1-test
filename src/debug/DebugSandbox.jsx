@@ -54,6 +54,8 @@ const DEBUG_MENU_ITEMS = [
   { href: "#sandbox-designer-handoff", label: "Handoff ↗" },
 ];
 
+const resolveDebugUrl = (path) => new URL(path, window.location.href).href;
+
 export function DebugSandbox() {
   const [DebugSvgAssetsComponent, setDebugSvgAssetsComponent] = React.useState(null);
   const [svgAssetsLoadError, setSvgAssetsLoadError] = React.useState('');
@@ -61,8 +63,9 @@ export function DebugSandbox() {
     if (typeof document === "undefined") return false;
     return document.documentElement.classList.contains("dark");
   });
-  const exerciseShowcaseUrl = `${window.location.origin}${import.meta.env.BASE_URL}exercise-showcase.html`;
-  const previewUrl = `${window.location.origin}${import.meta.env.BASE_URL}first-contact/`;
+  const exerciseShowcaseUrl = resolveDebugUrl('exercise-showcase.html');
+  const engineeringRationaleUrl = resolveDebugUrl('engineering-rationale.html');
+  const previewUrl = resolveDebugUrl('first-contact/');
   const chromeIncognitoCommand = `open -na "Google Chrome" --args --incognito --disable-extensions "${previewUrl}"`;
   const chromeIncognitoCommandPowerShell = `Start-Process "chrome.exe" "--incognito --disable-extensions \`"${ previewUrl }\`"""`;
 
@@ -134,6 +137,14 @@ export function DebugSandbox() {
             className="inline-flex h-9 items-center gap-2 rounded-lg border border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_10%,var(--card))] px-4 text-sm font-semibold text-[var(--brand-primary)] no-underline transition-colors hover:bg-[color-mix(in_oklab,var(--brand-primary)_18%,var(--card))]"
           >
             Exercise Showcase ↗
+          </a>
+          <a
+            href={engineeringRationaleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 items-center gap-2 rounded-lg border border-[var(--ex-neutral)] bg-[color-mix(in_oklab,var(--ex-neutral)_10%,var(--card))] px-4 text-sm font-semibold text-[var(--ex-neutral)] no-underline transition-colors hover:bg-[color-mix(in_oklab,var(--ex-neutral)_18%,var(--card))]"
+          >
+            Engineering Rationale ↗
           </a>
           <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/70 px-3 py-2">
             <span className="text-sm text-muted-foreground">Light</span>

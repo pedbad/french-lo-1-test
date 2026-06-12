@@ -40,6 +40,7 @@ export default defineConfig(() => {
     main: path.resolve(projectRoot, 'index.html'),
     ...(includeDebug ? {
       debugSandbox: path.resolve(projectRoot, 'debug-sandbox.html'),
+      engineeringRationale: path.resolve(projectRoot, 'engineering-rationale.html'),
       exerciseShowcase: path.resolve(projectRoot, 'exercise-showcase.html'),
     } : {}),
   };
