@@ -12,9 +12,11 @@
 
 - **Phases 1–4** merged to `main`: 12 leaf (PR #3), 26 content (PR #4), audio infra +
   `App.jsx` (PR #5, #6), 2 non-scoring exercises WordSpot + MemoryMatch (PR #7, `6d92367`).
+- **Phase 5 progress: 1/12 done** — RadioQuiz converted + squash-merged (PR #8,
+  `aec43a7`). Conversion notes in the migration tracker checkbox.
 - `main` clean + green: `yarn lint` 0 errors, `yarn test:run` 39/39.
-- **13 class components remain** (`grep -rln "extends React" src/`):
-  - **12 scoring exercises** = Phase 5 scope (below).
+- **12 class components remain** (`grep -rln "extends React" src/`):
+  - **11 scoring exercises** = remaining Phase 5 scope (below).
   - **`src/debug/ExerciseShowcase.jsx`** — debug-only, NOT part of Phase 5 scoring
     scope. Convert opportunistically.
 - `exercises/current-location/nasal-rhyme-exercise.jsx` is **already functional** —
@@ -26,8 +28,9 @@ Branch per component, e.g. `refactor/phase5-radioquiz` off `main`. Suggested ord
 **low → high grading complexity** (convert simple-scoring first to re-establish the
 pattern, then the parse-heavy ones):
 
-1. `RadioQuiz/RadioQuiz.jsx` — single-select; simplest scoring.
-2. `SelectExercise/SelectExercise.jsx` — dropdown select.
+1. ~~`RadioQuiz/RadioQuiz.jsx`~~ — **DONE** (PR #8). Pattern reference for the rest:
+   useReducer merge + lazy init, prev-config ref reset effect, direct callback calls.
+2. `SelectExercise/SelectExercise.jsx` — dropdown select. **← NEXT**
 3. `InlineChoiceGroup/InlineChoiceGroup.jsx` — inline multiple-choice.
 4. `LineMatch/LineMatch.jsx` — match pairs (drag/line); has refs + geometry.
 5. `WordOrderExercise/WordOrderExercise.jsx` — reorder; DnD + sequence check.
