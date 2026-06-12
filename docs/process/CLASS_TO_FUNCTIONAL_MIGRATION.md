@@ -254,7 +254,25 @@ patterns; converting them unlocks `useExerciseAudio()`.
       + `failCount` increments / 2 fails → Show answers / autoSolve snaps +
       FLIP (no leftover transforms) / reset reshuffles — zero console errors.
       PR #13.
-- [ ] `DraggableFillGaps/DraggableFillGapsRuntime.jsx`
+- [x] `DraggableFillGaps/DraggableFillGapsRuntime.jsx` — **DONE** (functional).
+      Heaviest Phase 5 file (1159 lines). Constructor + 4 `blanksType` branches →
+      module `getInitialState(config)` lazy seed; `useReducer` merge reducer
+      (function-patch + null bail-out) seeding `...config` + audio fields;
+      `assignedCount` mirrors the `tileAssignments` ref. Non-render instance
+      fields → refs (geometry cache, answer map, drag scratch, DOM refs, rAF +
+      timeout ids). Audio state (`activeRowIndex`/`masterPlayState`/`rowProgress`
+      via `SequenceAudioController`) as function-patches (SelectExercise-style).
+      Mount effect cleans up BOTH listeners (the class's anonymous `touchmove`
+      listener was never removed — latent leak fixed, still behaviour-preserving);
+      StrictMode-safe via re-armed `mountedRef`. `componentDidUpdate` config-reset
+      → `prevConfigRef` compare effect clearing geometry + re-measure only (does
+      NOT reset answer state — matches class). Pointer drag stays imperative
+      (DOM transforms + refs); positional `tileKey===targetKey` scoring unchanged
+      (self-contained, no util extracted). Grade-verified in browser
+      (`first-contact`, 3 phrases instances): correct drops → 5/5 complete /
+      hint-mode wrong drop → rejected + invalid-drop hint / 2 fails → Show answer →
+      autoSolve snaps tiles to targets + complete / reset returns tiles home +
+      clears assignments / hints toggle — zero console errors. PR #14.
 - [ ] `DictationExercise/DictationExercise.jsx`
 - [ ] `ClozeTypingExercise/ClozeTypingExercise.jsx`
 - [ ] `TypedTransformExercise/TypedTransformExercise.jsx`

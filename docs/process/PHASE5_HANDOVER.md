@@ -12,11 +12,11 @@
 
 - **Phases 1–4** merged to `main`: 12 leaf (PR #3), 26 content (PR #4), audio infra +
   `App.jsx` (PR #5, #6), 2 non-scoring exercises WordSpot + MemoryMatch (PR #7, `6d92367`).
-- **Phase 5 progress: 6/12 done** — RadioQuiz (PR #8, `aec43a7`),
+- **Phase 5 progress: 7/12 done** — RadioQuiz (PR #8, `aec43a7`),
   SelectExercise (PR #9, `abc4abe`), InlineChoiceGroup (PR #10),
-  LineMatch (PR #11, `4dc2382`), WordOrderExercise (PR #12, `a3033a5`) and
-  PhraseReorderExercise (PR #13) converted + squash-merged. Conversion notes in
-  the migration tracker checkboxes.
+  LineMatch (PR #11, `4dc2382`), WordOrderExercise (PR #12, `a3033a5`),
+  PhraseReorderExercise (PR #13) and DraggableFillGaps (PR #14) converted +
+  squash-merged. Conversion notes in the migration tracker checkboxes.
 - `main` clean + green: `yarn lint` 0 errors, `yarn test:run` 39/39.
 - **9 class components remain** (`grep -rln "extends React" src/`):
   - **8 scoring exercises** = remaining Phase 5 scope (below).
@@ -57,10 +57,14 @@ pattern, then the parse-heavy ones):
    `componentDidUpdate` config-reset → `prevConfigRef` compare effect (the
    WordOrder exception reversed). `getInitialLang2` / `swapById` hoisted to pure
    module helpers.
-7. `DraggableFillGaps/DraggableFillGapsRuntime.jsx` — DnD into gaps; `blanksMeta`
-   instance field → `useRef`. **← NEXT**
+7. ~~`DraggableFillGaps/DraggableFillGapsRuntime.jsx`~~ — **DONE** (PR #14). DnD
+   into gaps; imperative absolute-position pointer drag. Constructor → module
+   `getInitialState`; instance fields (geometry cache, answer map, drag scratch,
+   rAF/timeout ids) → refs; audio state as reducer function-patches;
+   `componentDidUpdate` config-reset → `prevConfigRef` compare effect (geometry
+   clear + re-measure only). Anonymous `touchmove` leak fixed in mount cleanup.
 8. `InlineTypedGapExercise/InlineTypedGapExercise.jsx` — typed gaps; routes through
-   `answerNormalize` + `exerciseParsing` (verify it does, before converting).
+   `answerNormalize` + `exerciseParsing` (verify it does, before converting). **← NEXT**
 9. `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx` — free text entry.
 10. `ClozeTypingExercise/ClozeTypingExercise.jsx` — cloze typing.
 11. `TypedTransformExercise/TypedTransformExercise.jsx` — typed transform.
