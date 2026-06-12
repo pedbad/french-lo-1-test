@@ -34,9 +34,8 @@ import {
   Grammar1Body,
   Grammar2Body,
 } from "@/components/custom";
-import DOMPurify from "dompurify";
 
-import React from "react";
+import { useCallback, useEffect, useReducer, useRef } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Exercises rendered uniformly as <Component config={value} />.
@@ -91,183 +90,340 @@ const splitDisplayTitle = (value) => {
   return null;
 };
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+const hasNonEmptyInstructionValue = (value) =>
+  typeof value === "string" && value.trim() !== "";
 
-    this.state = {
-      dark: false,
-      languageCode: "fr",
-      showModalLinkDialog: false,
-      modalLinkDialogTitle: "",
-      modalLinkDialogContentHTML: "",
-      modalLinkDialogContent: null,
-    };
+const normalizeSlug = (value = "") =>
+  `${value}`
+    .trim()
+    .toLowerCase()
+    .replace(/[_\s]+/g, "-");
 
-    // this.loadConfig = this.loadConfig.bind(this);
-    // this.loadIndex = this.loadIndex.bind(this);
-    // this.hideDialog = this.hideDialog.bind(this);
-    // this.hideSpeechError = this.hideSpeechError.bind(this);
-    // this.initialiseSpeeches = this.initialiseSpeeches.bind(this);
-    // this.initialiseSynth = this.initialiseSynth.bind(this);
-    // this.renderComponent = this.renderComponent.bind(this);
-    // this.selectLearningObject = this.selectLearningObject.bind(this);
-    // this.toggleDark = this.toggleDark.bind(this);
+const normaliseContentItems = (content = []) => {
+  // Supports BOTH:
+  // 1) New format: [{ id, component, ... }, ...]
+  // 2) Old format: [{ someKey: { id, component, ... } }, ...]
+  // Also tolerates accidental nulls.
+  return (content || [])
+    .map((item) => {
+      if (!item) return null;
 
-    this.autoComponentIdCounter = 0;
-    this.modalLinkDelegationSetup = false;
-    this.handleDelegatedModalLinkClick = null;
-    this.handleDelegatedModalTargetClick = null;
-    this.sharedSettings = {};
+      // New format: looks like a config object already
+      if (item.component) return item;
+
+      // Old format wrapper: { "item1": { component:"SomeComponent", ... } }
+      const keys = Object.keys(item);
+      const values = Object.values(item);
+      if (keys.length === 1 && values.length === 1 && values[0]?.component) {
+        const cfg = values[0];
+        if (!cfg.id) cfg.id = keys[0];
+        return cfg;
+      }
+
+      return null;
+    })
+    .filter(Boolean);
+};
+
+const normalizeInstructionSchemaNode = (node) => {
+  if (Array.isArray(node)) {
+    return node.map((item) => normalizeInstructionSchemaNode(item));
   }
 
-  componentDidMount = () => {
-    if (typeof window !== "undefined") {
-      const { hash, pathname, search } = window.location;
-      const looksLikeFilePath = /\/[^/]+\.[^/]+$/.test(pathname);
-      if (!looksLikeFilePath && pathname !== "/" && !pathname.endsWith("/")) {
-        // Normalize trailing slash without forcing a full page reload.
-        // This avoids reload loops when server canonicalization differs.
-        window.history.replaceState({}, "", `${pathname}/${search}${hash}`);
+  if (!node || typeof node !== "object") return node;
+
+  const normalized = { ...node };
+
+  // Legacy alias compatibility: infoText* -> informationText* (kept defensively;
+  // no infoText* keys remain in config but guard against hand-authored files).
+  if (
+    !hasNonEmptyInstructionValue(normalized.informationTextHTML) &&
+    hasNonEmptyInstructionValue(normalized.infoTextHTML)
+  ) {
+    normalized.informationTextHTML = normalized.infoTextHTML;
+  }
+  if (
+    !hasNonEmptyInstructionValue(normalized.informationText) &&
+    hasNonEmptyInstructionValue(normalized.infoText)
+  ) {
+    normalized.informationText = normalized.infoText;
+  }
+
+  Object.keys(normalized).forEach((key) => {
+    const value = normalized[key];
+    if (value && typeof value === "object") {
+      normalized[key] = normalizeInstructionSchemaNode(value);
+    }
+  });
+
+  return normalized;
+};
+
+const injectSharedExerciseDefaults = (node, sharedSettings = {}) => {
+  if (Array.isArray(node)) {
+    return node.map((item) => injectSharedExerciseDefaults(item, sharedSettings));
+  }
+  if (!node || typeof node !== "object") return node;
+
+  const result = { ...node };
+
+  if (result.component) {
+    const EXERCISE_KEYS = ["cheatText", "showHintsText", "listenDescriptionText"];
+    for (const key of EXERCISE_KEYS) {
+      if (!(key in result) && key in sharedSettings) {
+        result[key] = sharedSettings[key];
       }
     }
+  }
 
-    // Always start at the top on hard refresh/navigation load.
-    // Skip scroll-to-top when a hash is present — AccordionArticle handles
-    // opening and scrolling to the target section instead.
-    // We intentionally persist accordion open/closed state only, not page scroll position.
-    if (typeof window !== "undefined") {
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
-      if (!window.location.hash) {
-        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-        window.requestAnimationFrame(() => {
-          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-        });
-      }
+  Object.keys(result).forEach((key) => {
+    if (result[key] && typeof result[key] === "object") {
+      result[key] = injectSharedExerciseDefaults(result[key], sharedSettings);
     }
+  });
 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
+  return result;
+};
 
-    const loParamRaw = (urlParams.get("lo") || "").trim();
+const resolveLearningObjectParam = (loParamRaw, learningObjects = []) => {
+  if (!loParamRaw) return null;
 
-    // Always load the index so the menu/landing page can render.
-    // Then resolve ?lo by numeric id OR slug, while keeping backward compatibility.
-    const sharedPromise = fetch("/shared-settings.json")
-      .then((r) => r.json())
-      .catch(() => ({}));
+  const numericLoId = parseInt(loParamRaw, 10);
+  if (Number.isInteger(numericLoId) && numericLoId >= 1) {
+    const entry = learningObjects[numericLoId - 1];
+    if (!entry) return null;
+    const entrySlug = entry.slug ? normalizeSlug(entry.slug) : "";
+    if (!entrySlug) return null;
+    return {
+      configKey: entrySlug,
+      loId: numericLoId,
+      slug: entry.slug || entrySlug,
+      title: entry.title,
+      titleShort: entry.titleShort || "",
+    };
+  }
 
-    Promise.all([this.loadIndex(-1), sharedPromise]).then(([{ learningObjects = [] }, shared]) => {
-      this.sharedSettings = shared;
-      const loPathRaw = this.getLearningObjectPathParam(learningObjects);
-      const loSelectorRaw = loPathRaw || loParamRaw;
-      const resolvedLo = this.resolveLearningObjectParam(
-        loSelectorRaw,
-        learningObjects,
-      );
-      if (!resolvedLo) {
-        this.setState({ currentLearningObject: -1, config: null });
-        return;
-      }
+  const normalizedTarget = normalizeSlug(loParamRaw);
+  const index = learningObjects.findIndex((entry) => {
+    const entrySlug = entry?.slug ? normalizeSlug(entry.slug) : "";
+    return entrySlug !== "" && entrySlug === normalizedTarget;
+  });
+  if (index < 0) return null;
 
-      const { configKey, loId, slug, title, titleShort } = resolvedLo;
-      this.setState({
-        currentLearningObject: loId,
-        title,
-        titleShort: titleShort || "",
-      });
-
-      this.normalizeLearningObjectUrl({
-        currentLoPathRaw: loPathRaw,
-        learningObjects,
-        resolvedSlug: slug,
-      });
-
-      this.loadConfig(
-        `/src/lo-config/${configKey}.json`,
-        loId,
-      );
-      this.initialiseModalLinks();
-    });
-
-    if (sessionStorage.getItem(`dark`)) {
-      const dark = JSON.parse(sessionStorage.getItem(`dark`));
-      if (dark) this.setDark(true);
-    }
+  const entry = learningObjects[index];
+  const entrySlug = entry.slug ? normalizeSlug(entry.slug) : normalizedTarget;
+  return {
+    configKey: entrySlug,
+    loId: index + 1,
+    slug: entry.slug || normalizedTarget,
+    title: entry.title,
+    titleShort: entry.titleShort || "",
   };
+};
 
-  componentDidUpdate = (prevProps, prevState) => {
-    this.initialiseModalLinks();
+const getLearningObjectPathParam = (learningObjects = []) => {
+  if (typeof window === "undefined") return "";
+  const pathSegments = window.location.pathname
+    .split("/")
+    .filter(Boolean);
+  if (!pathSegments.length) return "";
 
-    // When the LO config first loads, handle a hash deep link by opening
-    // the matching accordion section and scrolling to it.
-    if (!prevState.config && this.state.config) {
-      this._handleHashDeepLink();
+  const lastSegment = decodeURIComponent(pathSegments[pathSegments.length - 1]);
+  const target = normalizeSlug(lastSegment);
+  const slugSet = new Set(
+    (learningObjects || [])
+      .map((entry) => normalizeSlug(entry?.slug || ""))
+      .filter(Boolean),
+  );
+  return slugSet.has(target) ? lastSegment : "";
+};
+
+const normalizeLearningObjectUrl = ({
+  currentLoPathRaw = "",
+  learningObjects = [],
+  resolvedSlug = "",
+}) => {
+  if (typeof window === "undefined" || !resolvedSlug) return;
+
+  const targetSlug = normalizeSlug(resolvedSlug);
+  if (!targetSlug) return;
+
+  const url = new URL(window.location.href);
+  const pathSegments = url.pathname.split("/").filter(Boolean);
+  const slugSet = new Set(
+    (learningObjects || [])
+      .map((entry) => normalizeSlug(entry?.slug || ""))
+      .filter(Boolean),
+  );
+
+  if (currentLoPathRaw && pathSegments.length > 0) {
+    pathSegments[pathSegments.length - 1] = resolvedSlug;
+  } else {
+    pathSegments.push(resolvedSlug);
+  }
+
+  if (url.searchParams.has("lo")) {
+    url.searchParams.delete("lo");
+  }
+
+  // If current path already contains an LO slug, ensure we keep only the
+  // resolved slug segment instead of accumulating nested /slug/slug/ paths.
+  if (!currentLoPathRaw && pathSegments.length > 1) {
+    const penultimateIndex = pathSegments.length - 2;
+    const penultimateIsSlug = slugSet.has(
+      normalizeSlug(pathSegments[penultimateIndex]),
+    );
+    if (penultimateIsSlug) {
+      pathSegments.splice(penultimateIndex, 1);
     }
-  };
+  }
 
-  _handleHashDeepLink = () => {
-    if (typeof window === "undefined") return;
-    const {hash} = window.location;
-    if (!hash) return;
-    const id = hash.slice(1);
+  const targetPathname = `/${pathSegments.join("/")}/`;
+  const targetSearch = url.search;
+  const targetHash = url.hash;
 
-    // Small delay to let React finish painting the newly loaded config.
+  if (
+    targetPathname === window.location.pathname &&
+    targetSearch === window.location.search &&
+    targetHash === window.location.hash
+  ) {
+    return;
+  }
+
+  window.history.replaceState(
+    {},
+    "",
+    `${targetPathname}${targetSearch}${targetHash}`,
+  );
+};
+
+const countAccordionsInComponent = (value) => {
+  if (!value || typeof value !== "object") return 0;
+
+  const { component, expandable = true } = value;
+  if (typeof component !== "string" || component.trim() === "") return 0;
+  if (component.startsWith("HIDE")) return 0;
+
+  // Count expandable nodes exactly as the renderer creates accordion wrappers.
+  // We use this to auto-open section content only when there is a single
+  // accordion in the whole top-level section.
+  switch (component) {
+    case "Group": {
+      const { content: groupContent = [], displayAsTabs = false } = value;
+      const groupItems = normaliseContentItems(groupContent);
+      if (displayAsTabs) {
+        // Tab children render as bare content; only group wrapper can be accordion.
+        return expandable ? 1 : 0;
+      }
+      const childCount = groupItems.reduce(
+        (sum, item) => sum + countAccordionsInComponent(item),
+        0,
+      );
+      return (expandable ? 1 : 0) + childCount;
+    }
+    case "Section": {
+      const { content: sectionContent = [] } = value;
+      const sectionItems = normaliseContentItems(sectionContent);
+      return sectionItems.reduce(
+        (sum, item) => sum + countAccordionsInComponent(item),
+        0,
+      );
+    }
+    case "Explanation":
+    case "PhraseTable":
+      return expandable ? 1 : 0;
+    default:
+      return expandable ? 1 : 0;
+  }
+};
+
+const setDark = (dark) => {
+  if (typeof document === "undefined") return;
+  document.documentElement.classList.toggle("dark", dark);
+};
+
+const handleHashDeepLink = () => {
+  if (typeof window === "undefined") return;
+  const { hash } = window.location;
+  if (!hash) return;
+  const id = hash.slice(1);
+
+  // Small delay to let React finish painting the newly loaded config.
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // Open the accordion if it is currently closed.
+    if (el.getAttribute("data-state") === "closed") {
+      const trigger = el.querySelector(".accordion-trigger");
+      if (trigger) trigger.click();
+    }
+
+    // Scroll after the open animation has had time to settle.
     setTimeout(() => {
-      const el = document.getElementById(id);
-      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 350);
+  }, 100);
+};
 
-      // Open the accordion if it is currently closed.
-      if (el.getAttribute("data-state") === "closed") {
-        const trigger = el.querySelector(".accordion-trigger");
-        if (trigger) trigger.click();
-      }
+// setState merge reducer: mirrors the partial-merge semantics of the legacy
+// class component's this.setState({ ... }) calls.
+const mergeState = (prev, next) => ({ ...prev, ...next });
 
-      // Scroll after the open animation has had time to settle.
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 350);
-    }, 100);
-  };
+const INITIAL_STATE = {
+  dark: false,
+  languageCode: "fr",
+  showModalLinkDialog: false,
+  modalLinkDialogTitle: "",
+  modalLinkDialogContentHTML: "",
+  modalLinkDialogContent: null,
+};
 
-  componentWillUnmount = () => {
-    if (this.modalLinkDelegationSetup) {
-      document.removeEventListener(
-        "click",
-        this.handleDelegatedModalLinkClick,
-        true,
-      );
-      document.removeEventListener(
-        "click",
-        this.handleDelegatedModalTargetClick,
-        true,
-      );
-      this.modalLinkDelegationSetup = false;
-    }
-  };
+export default function App() {
+  const [state, setState] = useReducer(mergeState, INITIAL_STATE);
 
-  showModalLinkDialog = (title, contentHTML, content) => {
-    this.setState({
+  // Render-pass id generator (reset to 0 at the top of each render below).
+  const autoComponentIdCounterRef = useRef(0);
+
+  // Doc-level modal-link delegation: attach once on mount, remove on unmount.
+  const modalLinkDelegationSetupRef = useRef(false);
+  const handleDelegatedModalLinkClickRef = useRef(null);
+  const handleDelegatedModalTargetClickRef = useRef(null);
+
+  // Settings shared across all learning objects (fetched once on mount).
+  const sharedSettingsRef = useRef({});
+
+  // Guards async setState against unmount (StrictMode double-mount in dev).
+  const mountedRef = useRef(false);
+
+  // Tracks previous config so the deep-link effect fires only on falsy→truthy.
+  const prevConfigRef = useRef(null);
+
+  // Live mirror of config for the once-attached delegated click handler, which
+  // would otherwise close over a stale config captured at mount.
+  const configRef = useRef(null);
+  configRef.current = state.config;
+
+  const showModalLinkDialog = useCallback((title, contentHTML, content) => {
+    setState({
       showModalLinkDialog: true,
       modalLinkDialogTitle: title || "",
       modalLinkDialogContentHTML: contentHTML || "",
       modalLinkDialogContent: content || null,
     });
-  };
+  }, []);
 
-  hideModalLinkDialog = () => {
-    this.setState({
+  const hideModalLinkDialog = useCallback(() => {
+    setState({
       showModalLinkDialog: false,
       modalLinkDialogTitle: "",
       modalLinkDialogContentHTML: "",
       modalLinkDialogContent: null,
     });
-  };
+  }, []);
 
-  findModalLinkContent = (targetId) => {
-    const { config } = this.state;
+  const findModalLinkContent = useCallback((targetId) => {
+    const config = configRef.current;
     const modalContentMap = {
       madame: {
         title: "1. Forms of address and politeness",
@@ -372,7 +528,7 @@ export default class App extends React.Component {
     const targetEl =
       document.getElementById(targetId) ||
       document.querySelector(
-      	`.modal-link-target[data-modal-target="${targetId}"]`,
+        `.modal-link-target[data-modal-target="${targetId}"]`,
       );
     if (targetEl) {
       const container =
@@ -387,12 +543,13 @@ export default class App extends React.Component {
       title: "Not found",
       contentHTML: `<p>Explanation for "${targetId}" not found.</p>`,
     };
-  };
+  }, []);
 
-  initialiseModalLinks = () => {
-    // Normalize hash modal links so accessibility tooling does not flag them
-    // as broken same-page anchors. We keep the semantic target in
-    // `data-modal-target` and use `#content` as safe fallback href.
+  // Idempotent re-scan: normalize hash modal links so accessibility tooling does
+  // not flag them as broken same-page anchors. We keep the semantic target in
+  // `data-modal-target` and use `#content` as safe fallback href. Runs after
+  // every render so links created by child re-renders are always normalized.
+  const normalizeModalLinkAnchors = useCallback(() => {
     document.querySelectorAll("a.modal-link").forEach((anchor) => {
       const href = anchor.getAttribute("href") || "";
       const explicitTarget = (
@@ -408,88 +565,9 @@ export default class App extends React.Component {
         anchor.setAttribute("href", "#content");
       }
     });
+  }, []);
 
-    // `modal-link` is reserved for content links that open the modal dialog.
-    // Main navigation uses `nav-scroll-link` and handles scroll behavior in MainMenu.
-    // Use delegated listeners so links created by child re-renders are always wired.
-    if (this.modalLinkDelegationSetup) return;
-
-    this.handleDelegatedModalLinkClick = (e) => {
-      const targetElement =
-        e.target instanceof Element
-        	? e.target
-        	: e.target && e.target.parentElement instanceof Element
-        		? e.target.parentElement
-        		: null;
-      const anchor = targetElement
-        ? targetElement.closest("a.modal-link")
-        : null;
-      if (!anchor) return;
-
-      handleModalLinkClick(e, {
-        mode: "modal",
-        findModalLinkContent: this.findModalLinkContent,
-        linkEl: anchor,
-        showModalLinkDialog: this.showModalLinkDialog,
-      });
-    };
-
-    this.handleDelegatedModalTargetClick = (e) => {
-      const targetElement =
-        e.target instanceof Element
-        	? e.target
-        	: e.target && e.target.parentElement instanceof Element
-        		? e.target.parentElement
-        		: null;
-      const targetAnchor = targetElement
-        ? targetElement.closest("a.modal-link-target")
-        : null;
-      if (!targetAnchor) return;
-      e.preventDefault();
-    };
-
-    // Use capture phase so modal links still work when nested components stop
-    // propagation during bubble phase (for example Section content wrappers).
-    document.addEventListener(
-      "click",
-      this.handleDelegatedModalLinkClick,
-      true,
-    );
-    document.addEventListener(
-      "click",
-      this.handleDelegatedModalTargetClick,
-      true,
-    );
-    this.modalLinkDelegationSetup = true;
-  };
-
-  injectSharedExerciseDefaults = (node) => {
-    if (Array.isArray(node)) {
-      return node.map((item) => this.injectSharedExerciseDefaults(item));
-    }
-    if (!node || typeof node !== "object") return node;
-
-    const result = { ...node };
-
-    if (result.component) {
-      const EXERCISE_KEYS = ["cheatText", "showHintsText", "listenDescriptionText"];
-      for (const key of EXERCISE_KEYS) {
-        if (!(key in result) && key in this.sharedSettings) {
-          result[key] = this.sharedSettings[key];
-        }
-      }
-    }
-
-    Object.keys(result).forEach((key) => {
-      if (result[key] && typeof result[key] === "object") {
-        result[key] = this.injectSharedExerciseDefaults(result[key]);
-      }
-    });
-
-    return result;
-  };
-
-  loadConfig = (configFile, learningObjectConfigFile) => {
+  const loadConfig = (configFile, learningObjectConfigFile) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
 
@@ -505,12 +583,13 @@ export default class App extends React.Component {
         .then((res) => {
           const { settings } = res;
           delete res["settings"];
-          const normalizedConfig = this.injectSharedExerciseDefaults(
-            this.normalizeInstructionSchemaNode(res),
+          const normalizedConfig = injectSharedExerciseDefaults(
+            normalizeInstructionSchemaNode(res),
+            sharedSettingsRef.current,
           );
           const normalizedSettings =
-            this.normalizeInstructionSchemaNode(settings);
-          const mergedSettings = { ...this.sharedSettings, ...normalizedSettings };
+            normalizeInstructionSchemaNode(settings);
+          const mergedSettings = { ...sharedSettingsRef.current, ...normalizedSettings };
           const { class: configClass, targetLanguageCode, textDirection = "ltr" } = mergedSettings;
           if (configClass)
             document.getElementsByTagName("html")[0].classList.add(configClass);
@@ -518,15 +597,15 @@ export default class App extends React.Component {
 
           const currentLearningObject = learningObjectConfigFile;
 
-          this.setState(
-            {
+          if (mountedRef.current) {
+            setState({
               config: { ...normalizedConfig },
               currentLearningObject: currentLearningObject,
               settings: { ...mergedSettings },
               targetLanguageCode,
-            },
-            () => resolve({ targetLanguageCode }),
-          );
+            });
+          }
+          resolve({ targetLanguageCode });
         })
         .catch((error) => {
           console.error("Loading configuration", error);
@@ -535,162 +614,7 @@ export default class App extends React.Component {
     });
   };
 
-  hasNonEmptyInstructionValue = (value) =>
-    typeof value === "string" && value.trim() !== "";
-
-  normalizeSlug = (value = "") =>
-    `${value}`
-      .trim()
-      .toLowerCase()
-      .replace(/[_\s]+/g, "-");
-
-  resolveLearningObjectParam = (loParamRaw, learningObjects = []) => {
-    if (!loParamRaw) return null;
-
-    const numericLoId = parseInt(loParamRaw, 10);
-    if (Number.isInteger(numericLoId) && numericLoId >= 1) {
-      const entry = learningObjects[numericLoId - 1];
-      if (!entry) return null;
-      const entrySlug = entry.slug ? this.normalizeSlug(entry.slug) : "";
-      if (!entrySlug) return null;
-      return {
-        configKey: entrySlug,
-        loId: numericLoId,
-        slug: entry.slug || entrySlug,
-        title: entry.title,
-        titleShort: entry.titleShort || "",
-      };
-    }
-
-    const normalizedTarget = this.normalizeSlug(loParamRaw);
-    const index = learningObjects.findIndex((entry) => {
-      const entrySlug = entry?.slug ? this.normalizeSlug(entry.slug) : "";
-      return entrySlug !== "" && entrySlug === normalizedTarget;
-    });
-    if (index < 0) return null;
-
-    const entry = learningObjects[index];
-    const entrySlug = entry.slug ? this.normalizeSlug(entry.slug) : normalizedTarget;
-    return {
-      configKey: entrySlug,
-      loId: index + 1,
-      slug: entry.slug || normalizedTarget,
-      title: entry.title,
-      titleShort: entry.titleShort || "",
-    };
-  };
-
-  getLearningObjectPathParam = (learningObjects = []) => {
-    if (typeof window === "undefined") return "";
-    const pathSegments = window.location.pathname
-      .split("/")
-      .filter(Boolean);
-    if (!pathSegments.length) return "";
-
-    const lastSegment = decodeURIComponent(pathSegments[pathSegments.length - 1]);
-    const target = this.normalizeSlug(lastSegment);
-    const slugSet = new Set(
-      (learningObjects || [])
-        .map((entry) => this.normalizeSlug(entry?.slug || ""))
-        .filter(Boolean),
-    );
-    return slugSet.has(target) ? lastSegment : "";
-  };
-
-  normalizeLearningObjectUrl = ({
-    currentLoPathRaw = "",
-    learningObjects = [],
-    resolvedSlug = "",
-  }) => {
-    if (typeof window === "undefined" || !resolvedSlug) return;
-
-    const targetSlug = this.normalizeSlug(resolvedSlug);
-    if (!targetSlug) return;
-
-    const url = new URL(window.location.href);
-    const pathSegments = url.pathname.split("/").filter(Boolean);
-    const slugSet = new Set(
-      (learningObjects || [])
-        .map((entry) => this.normalizeSlug(entry?.slug || ""))
-        .filter(Boolean),
-    );
-
-    if (currentLoPathRaw && pathSegments.length > 0) {
-      pathSegments[pathSegments.length - 1] = resolvedSlug;
-    } else {
-      pathSegments.push(resolvedSlug);
-    }
-
-    if (url.searchParams.has("lo")) {
-      url.searchParams.delete("lo");
-    }
-
-    // If current path already contains an LO slug, ensure we keep only the
-    // resolved slug segment instead of accumulating nested /slug/slug/ paths.
-    if (!currentLoPathRaw && pathSegments.length > 1) {
-      const penultimateIndex = pathSegments.length - 2;
-      const penultimateIsSlug = slugSet.has(
-        this.normalizeSlug(pathSegments[penultimateIndex]),
-      );
-      if (penultimateIsSlug) {
-        pathSegments.splice(penultimateIndex, 1);
-      }
-    }
-
-    const targetPathname = `/${pathSegments.join("/")}/`;
-    const targetSearch = url.search;
-    const targetHash = url.hash;
-
-    if (
-      targetPathname === window.location.pathname &&
-      targetSearch === window.location.search &&
-      targetHash === window.location.hash
-    ) {
-      return;
-    }
-
-    window.history.replaceState(
-      {},
-      "",
-      `${targetPathname}${targetSearch}${targetHash}`,
-    );
-  };
-
-  normalizeInstructionSchemaNode = (node) => {
-    if (Array.isArray(node)) {
-      return node.map((item) => this.normalizeInstructionSchemaNode(item));
-    }
-
-    if (!node || typeof node !== "object") return node;
-
-    const normalized = { ...node };
-
-    // Legacy alias compatibility: infoText* -> informationText* (kept defensively;
-    // no infoText* keys remain in config but guard against hand-authored files).
-    if (
-      !this.hasNonEmptyInstructionValue(normalized.informationTextHTML) &&
-			this.hasNonEmptyInstructionValue(normalized.infoTextHTML)
-    ) {
-      normalized.informationTextHTML = normalized.infoTextHTML;
-    }
-    if (
-      !this.hasNonEmptyInstructionValue(normalized.informationText) &&
-			this.hasNonEmptyInstructionValue(normalized.infoText)
-    ) {
-      normalized.informationText = normalized.infoText;
-    }
-
-    Object.keys(normalized).forEach((key) => {
-      const value = normalized[key];
-      if (value && typeof value === "object") {
-        normalized[key] = this.normalizeInstructionSchemaNode(value);
-      }
-    });
-
-    return normalized;
-  };
-
-  loadIndex = (currentLearningObject) => {
+  const loadIndex = (currentLearningObject) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
 
@@ -715,13 +639,15 @@ export default class App extends React.Component {
           document.title = title;
         }
 
-        this.setState({
-          currentLearningObject: currentLearningObject, // store ID or -1
-          learningObjects: learningObjects,
-          siteTitle: siteTitle,
-          title: title,
-          titleShort: titleShort,
-        });
+        if (mountedRef.current) {
+          setState({
+            currentLearningObject: currentLearningObject, // store ID or -1
+            learningObjects: learningObjects,
+            siteTitle: siteTitle,
+            title: title,
+            titleShort: titleShort,
+          });
+        }
         return { learningObjects, siteTitle };
       })
       .catch((error) => {
@@ -730,12 +656,7 @@ export default class App extends React.Component {
       });
   };
 
-  setDark = (dark) => {
-    if (typeof document === "undefined") return;
-    document.documentElement.classList.toggle("dark", dark);
-  };
-
-  toggleDark = () => {
+  const toggleDark = () => {
     let dark = false;
 
     if (sessionStorage.getItem(`dark`))
@@ -748,91 +669,187 @@ export default class App extends React.Component {
       }, 200);
     }
 
-    this.setDark(!dark);
-    // const html = document.getElementsByName('html');
-    // const cl = html.classList;
-
-    // console.log("html", html, cl);
-    this.setState({ dark: !dark }, sessionStorage.setItem("dark", !dark));
+    setDark(!dark);
+    sessionStorage.setItem("dark", !dark);
+    setState({ dark: !dark });
   };
 
-  normaliseContentItems = (content = []) => {
-    // Supports BOTH:
-    // 1) New format: [{ id, component, ... }, ...]
-    // 2) Old format: [{ someKey: { id, component, ... } }, ...]
-    // Also tolerates accidental nulls.
-    return (content || [])
-      .map((item) => {
-        if (!item) return null;
+  // Mount: route normalization, scroll restoration, index + shared-settings
+  // load, LO resolution + config load, dark preference, and one-time doc-level
+  // modal-link delegation. Cleanup removes the delegated listeners on unmount.
+  useEffect(() => {
+    mountedRef.current = true;
 
-        // New format: looks like a config object already
-        if (item.component) return item;
+    if (typeof window !== "undefined") {
+      const { hash, pathname, search } = window.location;
+      const looksLikeFilePath = /\/[^/]+\.[^/]+$/.test(pathname);
+      if (!looksLikeFilePath && pathname !== "/" && !pathname.endsWith("/")) {
+        // Normalize trailing slash without forcing a full page reload.
+        // This avoids reload loops when server canonicalization differs.
+        window.history.replaceState({}, "", `${pathname}/${search}${hash}`);
+      }
+    }
 
-        // Old format wrapper: { "item1": { component:"SomeComponent", ... } }
-        const keys = Object.keys(item);
-        const values = Object.values(item);
-        if (keys.length === 1 && values.length === 1 && values[0]?.component) {
-          const cfg = values[0];
-          if (!cfg.id) cfg.id = keys[0];
-          return cfg;
-        }
+    // Always start at the top on hard refresh/navigation load.
+    // Skip scroll-to-top when a hash is present — AccordionArticle handles
+    // opening and scrolling to the target section instead.
+    // We intentionally persist accordion open/closed state only, not page scroll position.
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      if (!window.location.hash) {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        window.requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        });
+      }
+    }
 
-        return null;
-      })
-      .filter(Boolean);
-  };
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
 
-  getResolvedComponentId = (id, component) => {
+    const loParamRaw = (urlParams.get("lo") || "").trim();
+
+    // Always load the index so the menu/landing page can render.
+    // Then resolve ?lo by numeric id OR slug, while keeping backward compatibility.
+    const sharedPromise = fetch("/shared-settings.json")
+      .then((r) => r.json())
+      .catch(() => ({}));
+
+    Promise.all([loadIndex(-1), sharedPromise]).then(([{ learningObjects = [] }, shared]) => {
+      if (!mountedRef.current) return;
+      sharedSettingsRef.current = shared;
+      const loPathRaw = getLearningObjectPathParam(learningObjects);
+      const loSelectorRaw = loPathRaw || loParamRaw;
+      const resolvedLo = resolveLearningObjectParam(
+        loSelectorRaw,
+        learningObjects,
+      );
+      if (!resolvedLo) {
+        setState({ currentLearningObject: -1, config: null });
+        return;
+      }
+
+      const { configKey, loId, slug, title, titleShort } = resolvedLo;
+      setState({
+        currentLearningObject: loId,
+        title,
+        titleShort: titleShort || "",
+      });
+
+      normalizeLearningObjectUrl({
+        currentLoPathRaw: loPathRaw,
+        learningObjects,
+        resolvedSlug: slug,
+      });
+
+      loadConfig(
+        `/src/lo-config/${configKey}.json`,
+        loId,
+      );
+    });
+
+    if (sessionStorage.getItem(`dark`)) {
+      const dark = JSON.parse(sessionStorage.getItem(`dark`));
+      if (dark) setDark(true);
+    }
+
+    // `modal-link` is reserved for content links that open the modal dialog.
+    // Main navigation uses `nav-scroll-link` and handles scroll behavior in MainMenu.
+    // Use delegated listeners so links created by child re-renders are always wired.
+    if (!modalLinkDelegationSetupRef.current) {
+      const onModalLinkClick = (e) => {
+        const targetElement =
+          e.target instanceof Element
+            ? e.target
+            : e.target && e.target.parentElement instanceof Element
+              ? e.target.parentElement
+              : null;
+        const anchor = targetElement
+          ? targetElement.closest("a.modal-link")
+          : null;
+        if (!anchor) return;
+
+        handleModalLinkClick(e, {
+          mode: "modal",
+          findModalLinkContent: findModalLinkContent,
+          linkEl: anchor,
+          showModalLinkDialog: showModalLinkDialog,
+        });
+      };
+
+      const onModalTargetClick = (e) => {
+        const targetElement =
+          e.target instanceof Element
+            ? e.target
+            : e.target && e.target.parentElement instanceof Element
+              ? e.target.parentElement
+              : null;
+        const targetAnchor = targetElement
+          ? targetElement.closest("a.modal-link-target")
+          : null;
+        if (!targetAnchor) return;
+        e.preventDefault();
+      };
+
+      handleDelegatedModalLinkClickRef.current = onModalLinkClick;
+      handleDelegatedModalTargetClickRef.current = onModalTargetClick;
+
+      // Use capture phase so modal links still work when nested components stop
+      // propagation during bubble phase (for example Section content wrappers).
+      document.addEventListener("click", onModalLinkClick, true);
+      document.addEventListener("click", onModalTargetClick, true);
+      modalLinkDelegationSetupRef.current = true;
+    }
+
+    return () => {
+      mountedRef.current = false;
+      if (modalLinkDelegationSetupRef.current) {
+        document.removeEventListener(
+          "click",
+          handleDelegatedModalLinkClickRef.current,
+          true,
+        );
+        document.removeEventListener(
+          "click",
+          handleDelegatedModalTargetClickRef.current,
+          true,
+        );
+        modalLinkDelegationSetupRef.current = false;
+      }
+    };
+    // Mount-only effect: the data-loading closures and stable callbacks it uses
+    // are intentionally captured once. Re-running would re-fetch and re-route.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Re-scan modal-link anchors after every render so links produced by child
+  // re-renders stay normalized (matches the legacy componentDidUpdate call).
+  useEffect(() => {
+    normalizeModalLinkAnchors();
+  });
+
+  // When the LO config first loads, handle a hash deep link by opening the
+  // matching accordion section and scrolling to it. Fire only on falsy→truthy.
+  useEffect(() => {
+    if (!prevConfigRef.current && state.config) {
+      handleHashDeepLink();
+    }
+    prevConfigRef.current = state.config;
+  }, [state.config]);
+
+  const getResolvedComponentId = (id, component) => {
     if (typeof id === "string" && id.trim() !== "") {
       return id.trim();
     }
 
     const safeComponent =
       typeof component === "string" && component.trim() !== ""
-      	? component.trim()
-      	: "component";
-    this.autoComponentIdCounter += 1;
-    return `auto-${safeComponent}-${this.autoComponentIdCounter}`;
-  };
-
-  countAccordionsInComponent = (value) => {
-    if (!value || typeof value !== "object") return 0;
-
-    const { component, expandable = true } = value;
-    if (typeof component !== "string" || component.trim() === "") return 0;
-    if (component.startsWith("HIDE")) return 0;
-
-    // Count expandable nodes exactly as the renderer creates accordion wrappers.
-    // We use this to auto-open section content only when there is a single
-    // accordion in the whole top-level section.
-    switch (component) {
-      case "Group": {
-        const { content: groupContent = [], displayAsTabs = false } = value;
-        const groupItems = this.normaliseContentItems(groupContent);
-        if (displayAsTabs) {
-          // Tab children render as bare content; only group wrapper can be accordion.
-          return expandable ? 1 : 0;
-        }
-        const childCount = groupItems.reduce(
-          (sum, item) => sum + this.countAccordionsInComponent(item),
-          0,
-        );
-        return (expandable ? 1 : 0) + childCount;
-      }
-      case "Section": {
-        const { content: sectionContent = [] } = value;
-        const sectionItems = this.normaliseContentItems(sectionContent);
-        return sectionItems.reduce(
-          (sum, item) => sum + this.countAccordionsInComponent(item),
-          0,
-        );
-      }
-      case "Explanation":
-      case "PhraseTable":
-        return expandable ? 1 : 0;
-      default:
-        return expandable ? 1 : 0;
-    }
+        ? component.trim()
+        : "component";
+    autoComponentIdCounterRef.current += 1;
+    return `auto-${safeComponent}-${autoComponentIdCounterRef.current}`;
   };
 
   /**
@@ -840,7 +857,7 @@ export default class App extends React.Component {
    * Returns "bare" content for a component (no AccordionArticle / Section wrapper)
    * so that we can render it as a tab panel inside a Group.
    */
-  renderComponentForTab = (value) => {
+  const renderComponentForTab = (value) => {
     const {
       component,
       id: valueId,
@@ -851,9 +868,9 @@ export default class App extends React.Component {
     } = value;
     const tabInformationText = value.informationText || infoText;
     const tabInformationTextHTML = value.informationTextHTML || infoTextHTML;
-    const id = this.getResolvedComponentId(valueId, component);
+    const id = getResolvedComponentId(valueId, component);
 
-    const { languageCode } = this.state;
+    const { languageCode } = state;
 
     // Registry dispatch: exercises rendered bare in a tab. Special cases
     // (Explanation, PhraseTable, custom) fall through to the switch.
@@ -908,228 +925,7 @@ export default class App extends React.Component {
     }
   };
 
-  render = () => {
-    const {
-      config,
-      currentLearningObject,
-      languageCode,
-      learningObjects = [],
-      showModalLinkDialog = false,
-      modalLinkDialogTitle = "",
-      modalLinkDialogContentHTML = "",
-      settings,
-      siteTitle,
-    } = this.state;
-    const topLevelSections = [];
-    this.autoComponentIdCounter = 0;
-    let intro, introHTML, informationHTML, introImage;
-    if (settings) {
-      ({ intro, introHTML, informationHTML, introImage } = settings);
-    }
-
-    if (config) {
-      for (const [sectionKey, value] of Object.entries(config)) {
-        const { component } = value;
-        if (component) {
-          const semanticSectionId = value.id || sectionKey;
-          const renderedTopLevelContent = [];
-          const sectionAccordionCount = this.countAccordionsInComponent(value);
-          // UX rule: if a section has exactly one accordion, show its content by default.
-          // Existing sessionStorage state still has priority in AccordionArticle.
-          const autoExpandSingleAccordion = sectionAccordionCount === 1;
-          this.renderComponent(
-            value,
-            renderedTopLevelContent,
-            semanticSectionId,
-            { autoExpandSingleAccordion },
-          );
-          const headingId = `${semanticSectionId}-heading`;
-          topLevelSections.push(
-            <section
-              aria-labelledby={headingId}
-              className="lo-top-section"
-              id={semanticSectionId}
-              key={`top-section-${semanticSectionId}`}
-            >
-              {renderedTopLevelContent}
-            </section>,
-          );
-        }
-      }
-    }
-
-    let title, titleShort;
-    const loIndex = currentLearningObject >= 1 ? currentLearningObject - 1 : -1;
-    if (loIndex >= 0 && learningObjects[loIndex]) {
-      ({ title = "", titleShort = "" } = learningObjects[loIndex] || {});
-    }
-
-    let targetLanguageCode = "";
-    if (settings) {
-      ({ targetLanguageCode } = settings);
-      this.targetLanguageCode = targetLanguageCode;
-    }
-
-    return (
-      <>
-        {/* Provide Radix tooltips once at the app root for consistent behavior. */}
-        <TooltipProvider delayDuration={300}>
-          <div
-            className={`app ${this.targetLanguageCode ? this.targetLanguageCode : ""}`}
-            key={`languageDiv`}
-          >
-            <a className="skip-link" href="#content">
-              Skip to main content
-            </a>
-
-            <ModalLinkDialog
-              open={showModalLinkDialog}
-              title={modalLinkDialogTitle}
-              contentHTML={modalLinkDialogContentHTML}
-              content={this.state.modalLinkDialogContent}
-              onClose={this.hideModalLinkDialog}
-            />
-
-            <MainMenu
-              config={config}
-              title={titleShort !== "" ? titleShort : title}
-              toggleDark={this.toggleDark}
-            />
-
-            {languageCode !== undefined ? (
-              <>
-                {/* Big hero banner + page title: only when an LO is open.
-								    On the landing (currentLearningObject === -1) the
-								    LandingPage provides its own slim header + <h1>, so we
-								    skip the hero (no "big hero" on landing) and avoid an
-								    empty <h1>. */}
-                {currentLearningObject !== -1 ? (
-                  <div id="hero" aria-hidden="true">
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      className="hero-image"
-                      decoding="async"
-                      fetchPriority="high"
-                      loading="eager"
-                      src={resolveAsset("/img/common/branding/fr-banner.svg")}
-                    />
-                    <h2
-                      aria-hidden="true"
-                      className="hero-title text-stroke-neutral"
-                    >
-                      {siteTitle}
-                    </h2>
-                  </div>
-                ) : null}
-                <main id="content" key="content" tabIndex="-1">
-                  {currentLearningObject !== -1 ? (
-                    <h1>
-                      {(() => {
-                        const parts = splitDisplayTitle(title);
-                        if (!parts) return title;
-
-                        return (
-                          <>
-                            <span className="title-main">{parts.main} —</span>
-                            <span className="title-sub">{parts.sub}</span>
-                          </>
-                        );
-                      })()}
-                    </h1>
-                  ) : null}
-                  {(() => {
-                    const introLayout = introHTML
-                      ? { paragraphHTML: introHTML }
-                      : intro
-                        ? { paragraph: intro }
-                        : null;
-                    if (introLayout) {
-                      const resolvedIntroImage = (() => {
-                        // Config-first intro image contract:
-                        // - use settings.introImage when provided (string or {src, alt, caption})
-                        // - otherwise fall back to LO1 default artwork
-                        if (introImage && typeof introImage === "string") {
-                          return {
-                            src: introImage,
-                            alt: "Learning object introduction illustration",
-                          };
-                        }
-                        if (
-                          introImage &&
-                          typeof introImage === "object" &&
-                          introImage.src
-                        ) {
-                          return {
-                            src: introImage.src,
-                            alt:
-                              introImage.alt ||
-                              "Learning object introduction illustration",
-                            caption: introImage.caption,
-                          };
-                        }
-                        return {
-                          src: "img/lo1/first-contact.svg",
-                          alt: "Learners greeting illustration",
-                        };
-                      })();
-                      introLayout.image = {
-                        src: resolvedIntroImage.src,
-                        alt: resolvedIntroImage.alt,
-                        caption: resolvedIntroImage.caption,
-                      };
-                      introLayout.stackOnDesktop = true;
-                    }
-                    return introLayout || informationHTML ? (
-                      <section
-                        aria-labelledby="introduction-heading"
-                        className="lo-top-section"
-                        id="introduction"
-                      >
-                        <HeroSection
-                          config={{
-                            id: "intro-section",
-                            expandable: false,
-                            heroSection: true,
-                            transparentCard: true,
-                            instructionsLayout: introLayout || undefined,
-                            informationTextHTML: informationHTML,
-                            stackInfo: true,
-                          }}
-                          id="LO-intro-section"
-                          target="introduction"
-                          title="Introduction"
-                          semanticAs="div"
-                        />
-                      </section>
-                    ) : null;
-                  })()}
-
-                  {currentLearningObject !== -1 ? topLevelSections : null}
-                  {learningObjects.length > 0 &&
-                  currentLearningObject === -1 ? (
-                      <LandingPage learningObjects={learningObjects} />
-                    ) : null}
-                </main>
-              </>
-            ) : (
-              <div className={`no-config`}>
-                <h1>No learning object selected</h1>
-                <h2>{`${window.location.host}${window.location.pathname}first-contact/`}</h2>
-                <p>
-                  Open a learning object by slug path. If absent, the landing
-                  page is shown.
-                </p>
-              </div>
-            )}
-            <Footer />
-          </div>
-        </TooltipProvider>
-      </>
-    );
-  };
-
-  renderComponent = (
+  const renderComponent = (
     value,
     articles,
     forcedTargetId = null,
@@ -1144,8 +940,8 @@ export default class App extends React.Component {
     const { expandable = true } = value;
     const { autoExpandSingleAccordion = false } = renderContext;
 
-    const { currentLearningObject, languageCode } = this.state;
-    const id = this.getResolvedComponentId(valueId, component);
+    const { currentLearningObject, languageCode } = state;
+    const id = getResolvedComponentId(valueId, component);
     const targetId = forcedTargetId || id;
     const topLevelSemanticAs = forcedTargetId ? "div" : "section";
     const compoundID = `LO${currentLearningObject}-${id}`;
@@ -1214,8 +1010,8 @@ export default class App extends React.Component {
 
         if (!displayAsTabs) {
           // Children as sub-accordions/sections
-          this.normaliseContentItems(groupContent).forEach((v) => {
-            this.renderComponent(v, renderedGroupContent, null, renderContext);
+          normaliseContentItems(groupContent).forEach((v) => {
+            renderComponent(v, renderedGroupContent, null, renderContext);
           });
 
           if (expandable) {
@@ -1258,7 +1054,7 @@ export default class App extends React.Component {
           const tabItems = [];
           let defaultTabValue = null;
 
-          this.normaliseContentItems(groupContent).forEach((v, index) => {
+          normaliseContentItems(groupContent).forEach((v, index) => {
             const childId = v.id || `child-${index}`;
             const tabValue = childId;
             if (defaultTabValue === null) defaultTabValue = tabValue;
@@ -1267,11 +1063,11 @@ export default class App extends React.Component {
               v.menuText ||
               v.titleText ||
               (typeof v.titleTextHTML === "string"
-              	? v.titleTextHTML.replace(/<[^>]+>/g, "")
-              	: "") ||
+                ? v.titleTextHTML.replace(/<[^>]+>/g, "")
+                : "") ||
               childId;
 
-            const contentNode = this.renderComponentForTab(v);
+            const contentNode = renderComponentForTab(v);
 
             tabItems.push({
               content: contentNode,
@@ -1395,8 +1191,8 @@ export default class App extends React.Component {
         const renderedSectionContent = [];
         const { content: sectionContent = [] } = value;
 
-        this.normaliseContentItems(sectionContent).forEach((v) => {
-          this.renderComponent(v, renderedSectionContent, null, renderContext);
+        normaliseContentItems(sectionContent).forEach((v) => {
+          renderComponent(v, renderedSectionContent, null, renderContext);
         });
 
         const SectionComponent = value.heroSection ? HeroSection : Section;
@@ -1468,11 +1264,223 @@ export default class App extends React.Component {
     }
   };
 
-  selectLearningObject = (index) => {
-    this.setState({
-      currentLearningObject: index,
-    });
-    sessionStorage.setItem("currentLearningObject", index);
-  };
+  // --- Render ---
+  const {
+    config,
+    currentLearningObject,
+    languageCode,
+    learningObjects = [],
+    showModalLinkDialog: showModalLinkDialogOpen = false,
+    modalLinkDialogTitle = "",
+    modalLinkDialogContentHTML = "",
+    settings,
+    siteTitle,
+  } = state;
 
+  const topLevelSections = [];
+  // Reset the per-render id generator before building the render tree.
+  autoComponentIdCounterRef.current = 0;
+  let intro, introHTML, informationHTML, introImage;
+  if (settings) {
+    ({ intro, introHTML, informationHTML, introImage } = settings);
+  }
+
+  if (config) {
+    for (const [sectionKey, value] of Object.entries(config)) {
+      const { component } = value;
+      if (component) {
+        const semanticSectionId = value.id || sectionKey;
+        const renderedTopLevelContent = [];
+        const sectionAccordionCount = countAccordionsInComponent(value);
+        // UX rule: if a section has exactly one accordion, show its content by default.
+        // Existing sessionStorage state still has priority in AccordionArticle.
+        const autoExpandSingleAccordion = sectionAccordionCount === 1;
+        renderComponent(
+          value,
+          renderedTopLevelContent,
+          semanticSectionId,
+          { autoExpandSingleAccordion },
+        );
+        const headingId = `${semanticSectionId}-heading`;
+        topLevelSections.push(
+          <section
+            aria-labelledby={headingId}
+            className="lo-top-section"
+            id={semanticSectionId}
+            key={`top-section-${semanticSectionId}`}
+          >
+            {renderedTopLevelContent}
+          </section>,
+        );
+      }
+    }
+  }
+
+  let title, titleShort;
+  const loIndex = currentLearningObject >= 1 ? currentLearningObject - 1 : -1;
+  if (loIndex >= 0 && learningObjects[loIndex]) {
+    ({ title = "", titleShort = "" } = learningObjects[loIndex] || {});
+  }
+
+  // Once an LO config is loaded, settings.targetLanguageCode drives the root
+  // language class. Before config loads it stays "" (no LO open / landing).
+  const appLang = settings ? settings.targetLanguageCode || "" : "";
+
+  return (
+    <>
+      {/* Provide Radix tooltips once at the app root for consistent behavior. */}
+      <TooltipProvider delayDuration={300}>
+        <div
+          className={`app ${appLang}`}
+          key={`languageDiv`}
+        >
+          <a className="skip-link" href="#content">
+            Skip to main content
+          </a>
+
+          <ModalLinkDialog
+            open={showModalLinkDialogOpen}
+            title={modalLinkDialogTitle}
+            contentHTML={modalLinkDialogContentHTML}
+            content={state.modalLinkDialogContent}
+            onClose={hideModalLinkDialog}
+          />
+
+          <MainMenu
+            config={config}
+            title={titleShort !== "" ? titleShort : title}
+            toggleDark={toggleDark}
+          />
+
+          {languageCode !== undefined ? (
+            <>
+              {/* Big hero banner + page title: only when an LO is open.
+                  On the landing (currentLearningObject === -1) the
+                  LandingPage provides its own slim header + <h1>, so we
+                  skip the hero (no "big hero" on landing) and avoid an
+                  empty <h1>. */}
+              {currentLearningObject !== -1 ? (
+                <div id="hero" aria-hidden="true">
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    className="hero-image"
+                    decoding="async"
+                    fetchPriority="high"
+                    loading="eager"
+                    src={resolveAsset("/img/common/branding/fr-banner.svg")}
+                  />
+                  <h2
+                    aria-hidden="true"
+                    className="hero-title text-stroke-neutral"
+                  >
+                    {siteTitle}
+                  </h2>
+                </div>
+              ) : null}
+              <main id="content" key="content" tabIndex="-1">
+                {currentLearningObject !== -1 ? (
+                  <h1>
+                    {(() => {
+                      const parts = splitDisplayTitle(title);
+                      if (!parts) return title;
+
+                      return (
+                        <>
+                          <span className="title-main">{parts.main} —</span>
+                          <span className="title-sub">{parts.sub}</span>
+                        </>
+                      );
+                    })()}
+                  </h1>
+                ) : null}
+                {(() => {
+                  const introLayout = introHTML
+                    ? { paragraphHTML: introHTML }
+                    : intro
+                      ? { paragraph: intro }
+                      : null;
+                  if (introLayout) {
+                    const resolvedIntroImage = (() => {
+                      // Config-first intro image contract:
+                      // - use settings.introImage when provided (string or {src, alt, caption})
+                      // - otherwise fall back to LO1 default artwork
+                      if (introImage && typeof introImage === "string") {
+                        return {
+                          src: introImage,
+                          alt: "Learning object introduction illustration",
+                        };
+                      }
+                      if (
+                        introImage &&
+                        typeof introImage === "object" &&
+                        introImage.src
+                      ) {
+                        return {
+                          src: introImage.src,
+                          alt:
+                            introImage.alt ||
+                            "Learning object introduction illustration",
+                          caption: introImage.caption,
+                        };
+                      }
+                      return {
+                        src: "img/lo1/first-contact.svg",
+                        alt: "Learners greeting illustration",
+                      };
+                    })();
+                    introLayout.image = {
+                      src: resolvedIntroImage.src,
+                      alt: resolvedIntroImage.alt,
+                      caption: resolvedIntroImage.caption,
+                    };
+                    introLayout.stackOnDesktop = true;
+                  }
+                  return introLayout || informationHTML ? (
+                    <section
+                      aria-labelledby="introduction-heading"
+                      className="lo-top-section"
+                      id="introduction"
+                    >
+                      <HeroSection
+                        config={{
+                          id: "intro-section",
+                          expandable: false,
+                          heroSection: true,
+                          transparentCard: true,
+                          instructionsLayout: introLayout || undefined,
+                          informationTextHTML: informationHTML,
+                          stackInfo: true,
+                        }}
+                        id="LO-intro-section"
+                        target="introduction"
+                        title="Introduction"
+                        semanticAs="div"
+                      />
+                    </section>
+                  ) : null;
+                })()}
+
+                {currentLearningObject !== -1 ? topLevelSections : null}
+                {learningObjects.length > 0 &&
+                currentLearningObject === -1 ? (
+                    <LandingPage learningObjects={learningObjects} />
+                  ) : null}
+              </main>
+            </>
+          ) : (
+            <div className={`no-config`}>
+              <h1>No learning object selected</h1>
+              <h2>{`${window.location.host}${window.location.pathname}first-contact/`}</h2>
+              <p>
+                Open a learning object by slug path. If absent, the landing
+                page is shown.
+              </p>
+            </div>
+          )}
+          <Footer />
+        </div>
+      </TooltipProvider>
+    </>
+  );
 }
