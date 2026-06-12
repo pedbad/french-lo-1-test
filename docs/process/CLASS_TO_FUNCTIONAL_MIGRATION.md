@@ -178,7 +178,16 @@ patterns; converting them unlocks `useExerciseAudio()`.
       callbacks → direct `onComplete`/`onReset` calls (no DOM dependency).
       Grade-verified in browser (LO13 daily-routine): correct ✓ / wrong ✗ +
       explanation / re-choose clears row result / reset / show-answers 12/12.
-- [ ] `SelectExercise/SelectExercise.jsx`
+- [x] `SelectExercise/SelectExercise.jsx` — useReducer merge + lazy init
+      (reducer also takes function patches for the audio progress handlers);
+      config read from props, not spread into state; config-reset via
+      prev-config ref effect (also clears `blanksMeta`/`nToSolve`/`rowAudioRefs`);
+      `blanksMeta`/`nToSolve` rebuilt during render via refs (class parity);
+      pure helpers hoisted to module scope. Grade-verified in browser
+      (house-and-home rows+inline, making-arrangements inline-passage+seqAudio
+      and rows-block+shuffle, daily-routine sampleSize): correct ✓ / wrong ✗ /
+      re-choose clears row result / reset / show-answers — all match class
+      baseline, zero console errors. PR #9.
 - [ ] `InlineChoiceGroup/InlineChoiceGroup.jsx`
 - [ ] `InlineTypedGapExercise/InlineTypedGapExercise.jsx`
 - [ ] `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
