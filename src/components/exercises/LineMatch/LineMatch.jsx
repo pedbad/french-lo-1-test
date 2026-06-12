@@ -1,7 +1,7 @@
 import { Info } from "@/components/content";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
-import { AudioClip, IconButton } from "@/components/media";
+import { AudioClip } from "@/components/media";
 import {
   Select,
   SelectContent,
@@ -12,7 +12,7 @@ import {
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
-import React from "react";
+import { useCallback, useEffect, useReducer, useRef } from "react";
 
 const LINE_MATCH_IMAGE_TILE_CLASS = [
   "relative aspect-square min-h-[4rem] w-[4rem] overflow-hidden rounded-lg",
@@ -67,241 +67,249 @@ const buildRound = (config = {}) => {
   return { sampledItems, wordBank };
 };
 
-export class LineMatch extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.desktopStageRef = React.createRef();
-    this.resizeObserver = null;
-    this.measureFrame = null;
-    this.recoilFrame = null;
-    this.sourceNodeMap = new Map();
-    this.targetNodeMap = new Map();
-    this.state = {
-      ...buildRound(props.config),
-      activeSourceId: null,
-      activeTargetId: null,
-      checkedResults: {},
-      connectorLayout: null,
-      desktopConnections: {},
-      hasChecked: false,
-      isDesktopViewport: false,
-      mobileValues: {},
-      nCorrect: 0,
-      recoilProgress: 1,
-      recoilingConnections: [],
-      usedShowAnswer: false,
-    };
-  }
+// Full reset payload (was constructor state + componentDidUpdate config reset).
+// Lazy-init seed for useReducer and the config-identity reset effect.
+const getResetState = (config = {}) => ({
+  ...buildRound(config),
+  activeSourceId: null,
+  activeTargetId: null,
+  checkedResults: {},
+  connectorLayout: null,
+  desktopConnections: {},
+  hasChecked: false,
+  isDesktopViewport: false,
+  mobileValues: {},
+  nCorrect: 0,
+  recoilProgress: 1,
+  recoilingConnections: [],
+  usedShowAnswer: false,
+});
 
-  componentDidMount() {
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", this.handleWindowResize);
-    }
+// Merge reducer: each dispatch is a partial state patch (12 interdependent
+// fields). A function patch receives the latest state (used by handlers that
+// read previous state). A patch that resolves to null/undefined is a no-op:
+// the reducer returns the SAME state reference so useReducer bails out of the
+// re-render — this preserves the class's `setState(prev => null)` behaviour used
+// by the viewport and connector-layout measurements (without it, the
+// measure-after-every-render effect would loop forever).
+const reducer = (state, patch) => {
+  const update = typeof patch === "function" ? patch(state) : patch;
+  return update ? { ...state, ...update } : state;
+};
 
-    if (typeof ResizeObserver !== "undefined" && this.desktopStageRef.current) {
-      this.resizeObserver = new ResizeObserver(() => {
-        this.scheduleConnectorMeasurement();
-      });
-      this.resizeObserver.observe(this.desktopStageRef.current);
-    }
+const getItemKey = (item, index) => item.id || item.label || `item-${index}`;
 
-    this.updateViewportMode();
-    this.scheduleConnectorMeasurement();
-  }
+const getIsDesktopViewport = () =>
+  typeof window !== "undefined" && window.innerWidth >= LINE_MATCH_DESKTOP_BREAKPOINT;
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.config !== this.props.config) {
-      this.setState({
-        ...buildRound(this.props.config),
-        activeSourceId: null,
-        activeTargetId: null,
-        checkedResults: {},
-        connectorLayout: null,
-        desktopConnections: {},
-        hasChecked: false,
-        isDesktopViewport: this.getIsDesktopViewport(),
-        mobileValues: {},
-        nCorrect: 0,
-        recoilProgress: 1,
-        recoilingConnections: [],
-        usedShowAnswer: false,
-      });
-      this.stopRecoilAnimation();
-      return;
-    }
+const getCorrectCount = (checkedResults = {}) =>
+  Object.values(checkedResults).filter(Boolean).length;
 
-    this.scheduleConnectorMeasurement();
-  }
+const invalidateCheckedResultForSources = (sources = [], prevState) => {
+  if (!prevState.hasChecked || sources.length === 0) return null;
 
-  componentWillUnmount() {
-    if (typeof window !== "undefined") {
-      window.removeEventListener("resize", this.handleWindowResize);
-    }
-
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect();
-    }
-
-    if (typeof window !== "undefined" && this.measureFrame) {
-      window.cancelAnimationFrame(this.measureFrame);
-    }
-
-    this.stopRecoilAnimation();
-  }
-
-  getItemKey = (item, index) => item.id || item.label || `item-${index}`;
-
-  getIsDesktopViewport = () =>
-    typeof window !== "undefined" && window.innerWidth >= LINE_MATCH_DESKTOP_BREAKPOINT;
-
-  getCorrectCount = (checkedResults = {}) =>
-    Object.values(checkedResults).filter(Boolean).length;
-
-  updateViewportMode = () => {
-    const isDesktopViewport = this.getIsDesktopViewport();
-    this.setState((prevState) =>
-      prevState.isDesktopViewport === isDesktopViewport
-        ? null
-        : { isDesktopViewport },
-    );
+  const checkedResults = {
+    ...prevState.checkedResults,
   };
+  let changed = false;
 
-  handleWindowResize = () => {
-    this.updateViewportMode();
-    this.scheduleConnectorMeasurement();
+  sources.forEach((sourceId) => {
+    if (Object.prototype.hasOwnProperty.call(checkedResults, sourceId)) {
+      delete checkedResults[sourceId];
+      changed = true;
+    }
+  });
+
+  if (!changed) return null;
+
+  return {
+    checkedResults,
+    hasChecked: true,
+    nCorrect: getCorrectCount(checkedResults),
+    usedShowAnswer: false,
   };
+};
 
-  invalidateCheckedResultForSources = (sources = [], prevState) => {
-    if (!prevState.hasChecked || sources.length === 0) return null;
+const buildConnectionUpdate = (sourceId, targetId, prevState) => {
+  const nextConnections = { ...prevState.desktopConnections };
+  const affectedSources = [sourceId];
 
-    const checkedResults = {
-      ...prevState.checkedResults,
-    };
-    let changed = false;
+  Object.keys(nextConnections).forEach((existingSourceId) => {
+    if (nextConnections[existingSourceId] === targetId && existingSourceId !== sourceId) {
+      delete nextConnections[existingSourceId];
+      affectedSources.push(existingSourceId);
+    }
+  });
 
-    sources.forEach((sourceId) => {
-      if (Object.prototype.hasOwnProperty.call(checkedResults, sourceId)) {
-        delete checkedResults[sourceId];
-        changed = true;
-      }
-    });
+  nextConnections[sourceId] = targetId;
+  const invalidated = invalidateCheckedResultForSources(affectedSources, prevState);
 
-    if (!changed) return null;
-
-    return {
-      checkedResults,
-      hasChecked: true,
-      nCorrect: this.getCorrectCount(checkedResults),
-      usedShowAnswer: false,
-    };
+  return {
+    activeSourceId: null,
+    activeTargetId: null,
+    desktopConnections: nextConnections,
+    ...(invalidated || {}),
   };
+};
 
-  handleMobileValueChange = (itemKey, value) => {
-    this.setState((prevState) => {
-      const mobileValues = {
-        ...prevState.mobileValues,
-        [itemKey]: value,
-      };
-      const invalidated = this.invalidateCheckedResultForSources([itemKey], prevState);
+const buildTargetSourceMap = (desktopConnections) =>
+  Object.entries(desktopConnections).reduce((accumulator, [sourceId, targetId]) => {
+    accumulator[targetId] = sourceId;
+    return accumulator;
+  }, {});
 
+const buildConnectorPath = (sourcePoint, targetPoint) => {
+  const horizontalDistance = Math.max(48, Math.abs(targetPoint.x - sourcePoint.x) * 0.36);
+  return [
+    `M ${sourcePoint.x} ${sourcePoint.y}`,
+    `C ${sourcePoint.x + horizontalDistance} ${sourcePoint.y},`,
+    `${targetPoint.x - horizontalDistance} ${targetPoint.y},`,
+    `${targetPoint.x} ${targetPoint.y}`,
+  ].join(" ");
+};
+
+const renderDesktopConnectors = (
+  connectorLayout,
+  desktopConnections,
+  checkedResults,
+  recoilingConnections,
+  recoilProgress,
+) => {
+  if (!connectorLayout) return null;
+
+  const paths = Object.entries(desktopConnections)
+    .map(([sourceId, targetId]) => {
+      const sourcePoint = connectorLayout.sourcePoints[sourceId];
+      const targetPoint = connectorLayout.targetPoints[targetId];
+      if (!sourcePoint || !targetPoint) return null;
+      const isCorrect = checkedResults[sourceId] === true;
       return {
-        mobileValues,
-        ...(invalidated || {}),
+        d: buildConnectorPath(sourcePoint, targetPoint),
+        id: `${sourceId}-${targetId}`,
+        isCorrect,
       };
-    });
-  };
+    })
+    .filter(Boolean);
 
-  handleSourceActivate = (sourceId) => {
-    this.setState((prevState) => {
-      if (prevState.activeTargetId) {
-        return this.buildConnectionUpdate(sourceId, prevState.activeTargetId, prevState);
-      }
-
+  const recoilPaths = recoilingConnections
+    .map(({ sourceId, targetId }) => {
+      const sourcePoint = connectorLayout.sourcePoints[sourceId];
+      const targetPoint = connectorLayout.targetPoints[targetId];
+      if (!sourcePoint || !targetPoint) return null;
+      const animatedTargetPoint = {
+        x: targetPoint.x + ((sourcePoint.x - targetPoint.x) * recoilProgress),
+        y: targetPoint.y + ((sourcePoint.y - targetPoint.y) * recoilProgress),
+      };
       return {
-        activeSourceId: prevState.activeSourceId === sourceId ? null : sourceId,
-        activeTargetId: null,
+        d: buildConnectorPath(sourcePoint, animatedTargetPoint),
+        id: `${sourceId}-${targetId}`,
       };
-    });
-  };
+    })
+    .filter(Boolean);
 
-  handleTargetActivate = (targetId) => {
-    this.setState((prevState) => {
-      const { activeSourceId } = prevState;
-      if (activeSourceId) {
-        return this.buildConnectionUpdate(activeSourceId, targetId, prevState);
-      }
+  if (paths.length === 0 && recoilPaths.length === 0) return null;
 
-      return {
-        activeSourceId: null,
-        activeTargetId: prevState.activeTargetId === targetId ? null : targetId,
-      };
-    });
-  };
+  return (
+    <svg
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+      height={connectorLayout.height}
+      viewBox={`0 0 ${connectorLayout.width} ${connectorLayout.height}`}
+      width={connectorLayout.width}
+    >
+      {paths.map((path) => (
+        <g key={`line-match-connector-${path.id}`}>
+          <path
+            d={path.d}
+            fill="none"
+            stroke={path.isCorrect ? LINE_MATCH_CORRECT_GLOW : LINE_MATCH_CONNECTOR_GLOW}
+            strokeLinecap="round"
+            strokeWidth="9"
+          />
+          <path
+            d={path.d}
+            fill="none"
+            stroke={path.isCorrect ? LINE_MATCH_CORRECT_STROKE : LINE_MATCH_CONNECTOR_STROKE}
+            strokeLinecap="round"
+            strokeWidth="4"
+          />
+        </g>
+      ))}
+      {recoilPaths.map((path) => (
+        <g key={`line-match-recoil-${path.id}`}>
+          <path
+            d={path.d}
+            fill="none"
+            stroke={LINE_MATCH_RECOIL_GLOW}
+            strokeLinecap="round"
+            strokeWidth="9"
+          />
+          <path
+            d={path.d}
+            fill="none"
+            stroke={LINE_MATCH_RECOIL_STROKE}
+            strokeLinecap="round"
+            strokeWidth="4"
+          />
+        </g>
+      ))}
+    </svg>
+  );
+};
 
-  buildConnectionUpdate = (sourceId, targetId, prevState) => {
-    const nextConnections = { ...prevState.desktopConnections };
-    const affectedSources = [sourceId];
+export function LineMatch({ config = {}, suppressInfo = false }) {
+  const [state, dispatch] = useReducer(reducer, config, getResetState);
+  const {
+    activeSourceId,
+    activeTargetId,
+    checkedResults,
+    connectorLayout,
+    desktopConnections,
+    hasChecked,
+    isDesktopViewport,
+    sampledItems,
+    wordBank,
+    mobileValues,
+    nCorrect,
+    recoilProgress,
+    recoilingConnections,
+  } = state;
 
-    Object.keys(nextConnections).forEach((existingSourceId) => {
-      if (nextConnections[existingSourceId] === targetId && existingSourceId !== sourceId) {
-        delete nextConnections[existingSourceId];
-        affectedSources.push(existingSourceId);
-      }
-    });
+  // Instance fields that do not drive rendering → refs.
+  const desktopStageRef = useRef(null);
+  const resizeObserverRef = useRef(null);
+  const measureFrameRef = useRef(null);
+  const recoilFrameRef = useRef(null);
+  const sourceNodeMapRef = useRef(null);
+  if (sourceNodeMapRef.current === null) sourceNodeMapRef.current = new Map();
+  const targetNodeMapRef = useRef(null);
+  if (targetNodeMapRef.current === null) targetNodeMapRef.current = new Map();
 
-    nextConnections[sourceId] = targetId;
-    const invalidated = this.invalidateCheckedResultForSources(affectedSources, prevState);
-
-    return {
-      activeSourceId: null,
-      activeTargetId: null,
-      desktopConnections: nextConnections,
-      ...(invalidated || {}),
-    };
-  };
-
-  buildTargetSourceMap = (desktopConnections) =>
-    Object.entries(desktopConnections).reduce((accumulator, [sourceId, targetId]) => {
-      accumulator[targetId] = sourceId;
-      return accumulator;
-    }, {});
-
-  setSourceNode = (itemKey, node) => {
+  const setSourceNode = (itemKey, node) => {
     if (node) {
-      this.sourceNodeMap.set(itemKey, node);
+      sourceNodeMapRef.current.set(itemKey, node);
     } else {
-      this.sourceNodeMap.delete(itemKey);
+      sourceNodeMapRef.current.delete(itemKey);
     }
   };
 
-  setTargetNode = (itemKey, node) => {
+  const setTargetNode = (itemKey, node) => {
     if (node) {
-      this.targetNodeMap.set(itemKey, node);
+      targetNodeMapRef.current.set(itemKey, node);
     } else {
-      this.targetNodeMap.delete(itemKey);
+      targetNodeMapRef.current.delete(itemKey);
     }
   };
 
-  scheduleConnectorMeasurement = () => {
-    if (typeof window === "undefined") return;
-    if (this.measureFrame) {
-      window.cancelAnimationFrame(this.measureFrame);
-    }
-    this.measureFrame = window.requestAnimationFrame(() => {
-      this.measureFrame = null;
-      this.updateConnectorLayout();
-    });
-  };
-
-  updateConnectorLayout = () => {
-    const stage = this.desktopStageRef.current;
+  const updateConnectorLayout = useCallback(() => {
+    const stage = desktopStageRef.current;
     if (!stage) return;
 
     const stageRect = stage.getBoundingClientRect();
     const nextSourcePoints = {};
     const nextTargetPoints = {};
 
-    this.sourceNodeMap.forEach((node, itemKey) => {
+    sourceNodeMapRef.current.forEach((node, itemKey) => {
       const rect = node.getBoundingClientRect();
       nextSourcePoints[itemKey] = {
         x: Math.round((rect.left + rect.width / 2 - stageRect.left) * 10) / 10,
@@ -309,7 +317,7 @@ export class LineMatch extends React.PureComponent {
       };
     });
 
-    this.targetNodeMap.forEach((node, itemKey) => {
+    targetNodeMapRef.current.forEach((node, itemKey) => {
       const rect = node.getBoundingClientRect();
       nextTargetPoints[itemKey] = {
         x: Math.round((rect.left + rect.width / 2 - stageRect.left) * 10) / 10,
@@ -324,140 +332,238 @@ export class LineMatch extends React.PureComponent {
       width: Math.round(stageRect.width),
     };
 
-    this.setState((prevState) =>
+    dispatch((prevState) =>
       JSON.stringify(prevState.connectorLayout) === JSON.stringify(nextLayout)
         ? null
         : { connectorLayout: nextLayout },
     );
-  };
+  }, []);
 
-  buildConnectorPath = (sourcePoint, targetPoint) => {
-    const horizontalDistance = Math.max(48, Math.abs(targetPoint.x - sourcePoint.x) * 0.36);
-    return [
-      `M ${sourcePoint.x} ${sourcePoint.y}`,
-      `C ${sourcePoint.x + horizontalDistance} ${sourcePoint.y},`,
-      `${targetPoint.x - horizontalDistance} ${targetPoint.y},`,
-      `${targetPoint.x} ${targetPoint.y}`,
-    ].join(" ");
-  };
-
-  stopRecoilAnimation = () => {
-    if (typeof window !== "undefined" && this.recoilFrame) {
-      window.cancelAnimationFrame(this.recoilFrame);
-    }
-    this.recoilFrame = null;
-  };
-
-  startRecoilAnimation = () => {
+  const scheduleConnectorMeasurement = useCallback(() => {
     if (typeof window === "undefined") return;
-    this.stopRecoilAnimation();
+    if (measureFrameRef.current) {
+      window.cancelAnimationFrame(measureFrameRef.current);
+    }
+    measureFrameRef.current = window.requestAnimationFrame(() => {
+      measureFrameRef.current = null;
+      updateConnectorLayout();
+    });
+  }, [updateConnectorLayout]);
+
+  const updateViewportMode = useCallback(() => {
+    const nextIsDesktopViewport = getIsDesktopViewport();
+    dispatch((prevState) =>
+      prevState.isDesktopViewport === nextIsDesktopViewport
+        ? null
+        : { isDesktopViewport: nextIsDesktopViewport },
+    );
+  }, []);
+
+  const stopRecoilAnimation = useCallback(() => {
+    if (typeof window !== "undefined" && recoilFrameRef.current) {
+      window.cancelAnimationFrame(recoilFrameRef.current);
+    }
+    recoilFrameRef.current = null;
+  }, []);
+
+  const startRecoilAnimation = useCallback(() => {
+    if (typeof window === "undefined") return;
+    stopRecoilAnimation();
 
     const startedAt = window.performance.now();
     const step = (now) => {
       const elapsed = now - startedAt;
       const nextProgress = Math.min(1, elapsed / LINE_MATCH_RECOIL_DURATION_MS);
 
-      this.setState({
-        recoilProgress: nextProgress,
-      });
+      dispatch({ recoilProgress: nextProgress });
 
       if (nextProgress < 1) {
-        this.recoilFrame = window.requestAnimationFrame(step);
+        recoilFrameRef.current = window.requestAnimationFrame(step);
         return;
       }
 
-      this.recoilFrame = null;
-      this.setState({
+      recoilFrameRef.current = null;
+      dispatch({
         recoilProgress: 1,
         recoilingConnections: [],
       });
     };
 
-    this.recoilFrame = window.requestAnimationFrame(step);
-  };
+    recoilFrameRef.current = window.requestAnimationFrame(step);
+  }, [stopRecoilAnimation]);
 
-  handleCheckAnswers = () => {
-    let nextIncorrectConnections = [];
-    this.setState((prevState) => {
-      const checkedResults = {};
-      const nextDesktopConnections = {};
-      const nextMobileValues = { ...prevState.mobileValues };
-      nextIncorrectConnections = [];
+  // Mount/unmount (was componentDidMount + componentWillUnmount). StrictMode
+  // double-fires in dev: setup adds the listener/observer, cleanup removes them
+  // and cancels frames, so it is idempotent.
+  useEffect(() => {
+    const handleWindowResize = () => {
+      updateViewportMode();
+      scheduleConnectorMeasurement();
+    };
 
-      prevState.sampledItems.forEach((item, index) => {
-        const itemKey = this.getItemKey(item, index);
-        if (prevState.isDesktopViewport) {
-          const selectedTargetId = prevState.desktopConnections[itemKey];
-          if (!selectedTargetId) return;
-          const isCorrect = selectedTargetId === itemKey;
-          checkedResults[itemKey] = isCorrect;
-          if (isCorrect) {
-            nextDesktopConnections[itemKey] = selectedTargetId;
-          } else {
-            nextIncorrectConnections.push({
-              sourceId: itemKey,
-              targetId: selectedTargetId,
-            });
-          }
-        } else {
-          const selectedValue = prevState.mobileValues[itemKey];
-          if (!selectedValue) return;
-          const isCorrect = selectedValue === itemKey;
-          checkedResults[itemKey] = isCorrect;
-          if (!isCorrect) {
-            delete nextMobileValues[itemKey];
-          }
-        }
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleWindowResize);
+    }
+
+    let observer = null;
+    if (typeof ResizeObserver !== "undefined" && desktopStageRef.current) {
+      observer = new ResizeObserver(() => {
+        scheduleConnectorMeasurement();
       });
+      observer.observe(desktopStageRef.current);
+      resizeObserverRef.current = observer;
+    }
+
+    updateViewportMode();
+    scheduleConnectorMeasurement();
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleWindowResize);
+      }
+      if (observer) {
+        observer.disconnect();
+      }
+      resizeObserverRef.current = null;
+      if (typeof window !== "undefined" && measureFrameRef.current) {
+        window.cancelAnimationFrame(measureFrameRef.current);
+      }
+      stopRecoilAnimation();
+    };
+  }, [scheduleConnectorMeasurement, updateViewportMode, stopRecoilAnimation]);
+
+  // Config-identity reset (was the componentDidUpdate config branch). Key-based
+  // remount is the Phase 6 consolidation; the ref compare keeps the mount-time
+  // effect a no-op on the first render.
+  const prevConfigRef = useRef(config);
+  useEffect(() => {
+    if (prevConfigRef.current !== config) {
+      prevConfigRef.current = config;
+      stopRecoilAnimation();
+      dispatch({
+        ...getResetState(config),
+        isDesktopViewport: getIsDesktopViewport(),
+      });
+    }
+  }, [config, stopRecoilAnimation]);
+
+  // Re-measure connectors after every committed render (was the
+  // componentDidUpdate fall-through). No dep array on purpose: any layout-
+  // affecting state change must trigger a re-measure. The no-op reducer bail-out
+  // above stops this from looping once the layout is stable.
+  useEffect(() => {
+    scheduleConnectorMeasurement();
+  });
+
+  const handleMobileValueChange = (itemKey, value) => {
+    dispatch((prevState) => {
+      const nextMobileValues = {
+        ...prevState.mobileValues,
+        [itemKey]: value,
+      };
+      const invalidated = invalidateCheckedResultForSources([itemKey], prevState);
 
       return {
-        activeSourceId: null,
-        activeTargetId: null,
-        checkedResults,
-        desktopConnections: prevState.isDesktopViewport ? nextDesktopConnections : prevState.desktopConnections,
-        hasChecked: true,
-        mobileValues: prevState.isDesktopViewport ? prevState.mobileValues : nextMobileValues,
-        nCorrect: this.getCorrectCount(checkedResults),
-        recoilProgress: nextIncorrectConnections.length > 0 ? 0 : 1,
-        recoilingConnections: prevState.isDesktopViewport ? nextIncorrectConnections : [],
-        usedShowAnswer: false,
+        mobileValues: nextMobileValues,
+        ...(invalidated || {}),
       };
-    }, () => {
-      if (nextIncorrectConnections.length > 0 && this.state.isDesktopViewport) {
-        this.startRecoilAnimation();
-      }
     });
   };
 
-  handleReset = () => {
-    this.stopRecoilAnimation();
-    this.setState((prevState) => ({
-      ...buildRound(this.props.config),
+  const handleSourceActivate = (sourceId) => {
+    dispatch((prevState) => {
+      if (prevState.activeTargetId) {
+        return buildConnectionUpdate(sourceId, prevState.activeTargetId, prevState);
+      }
+
+      return {
+        activeSourceId: prevState.activeSourceId === sourceId ? null : sourceId,
+        activeTargetId: null,
+      };
+    });
+  };
+
+  const handleTargetActivate = (targetId) => {
+    dispatch((prevState) => {
+      if (prevState.activeSourceId) {
+        return buildConnectionUpdate(prevState.activeSourceId, targetId, prevState);
+      }
+
+      return {
+        activeSourceId: null,
+        activeTargetId: prevState.activeTargetId === targetId ? null : targetId,
+      };
+    });
+  };
+
+  const handleCheckAnswers = () => {
+    const nextCheckedResults = {};
+    const nextDesktopConnections = {};
+    const nextMobileValues = { ...mobileValues };
+    const nextIncorrectConnections = [];
+
+    sampledItems.forEach((item, index) => {
+      const itemKey = getItemKey(item, index);
+      if (isDesktopViewport) {
+        const selectedTargetId = desktopConnections[itemKey];
+        if (!selectedTargetId) return;
+        const isCorrect = selectedTargetId === itemKey;
+        nextCheckedResults[itemKey] = isCorrect;
+        if (isCorrect) {
+          nextDesktopConnections[itemKey] = selectedTargetId;
+        } else {
+          nextIncorrectConnections.push({
+            sourceId: itemKey,
+            targetId: selectedTargetId,
+          });
+        }
+      } else {
+        const selectedValue = mobileValues[itemKey];
+        if (!selectedValue) return;
+        const isCorrect = selectedValue === itemKey;
+        nextCheckedResults[itemKey] = isCorrect;
+        if (!isCorrect) {
+          delete nextMobileValues[itemKey];
+        }
+      }
+    });
+
+    dispatch({
       activeSourceId: null,
       activeTargetId: null,
-      checkedResults: {},
-      connectorLayout: null,
-      desktopConnections: {},
-      hasChecked: false,
-      mobileValues: {},
-      nCorrect: 0,
-      recoilProgress: 1,
-      recoilingConnections: [],
+      checkedResults: nextCheckedResults,
+      desktopConnections: isDesktopViewport ? nextDesktopConnections : desktopConnections,
+      hasChecked: true,
+      mobileValues: isDesktopViewport ? mobileValues : nextMobileValues,
+      nCorrect: getCorrectCount(nextCheckedResults),
+      recoilProgress: nextIncorrectConnections.length > 0 ? 0 : 1,
+      recoilingConnections: isDesktopViewport ? nextIncorrectConnections : [],
       usedShowAnswer: false,
+    });
+
+    if (nextIncorrectConnections.length > 0 && isDesktopViewport) {
+      startRecoilAnimation();
+    }
+  };
+
+  const handleReset = () => {
+    stopRecoilAnimation();
+    dispatch((prevState) => ({
+      ...getResetState(config),
       isDesktopViewport: prevState.isDesktopViewport,
     }));
   };
 
-  handleShowAnswers = () => {
-    this.stopRecoilAnimation();
-    this.setState((prevState) => {
-      const checkedResults = {};
+  const handleShowAnswers = () => {
+    stopRecoilAnimation();
+    dispatch((prevState) => {
+      const nextCheckedResults = {};
       const nextDesktopConnections = {};
       const nextMobileValues = {};
 
       prevState.sampledItems.forEach((item, index) => {
-        const itemKey = this.getItemKey(item, index);
-        checkedResults[itemKey] = true;
+        const itemKey = getItemKey(item, index);
+        nextCheckedResults[itemKey] = true;
         nextDesktopConnections[itemKey] = itemKey;
         nextMobileValues[itemKey] = itemKey;
       });
@@ -465,7 +571,7 @@ export class LineMatch extends React.PureComponent {
       return {
         activeSourceId: null,
         activeTargetId: null,
-        checkedResults,
+        checkedResults: nextCheckedResults,
         desktopConnections: nextDesktopConnections,
         hasChecked: true,
         mobileValues: nextMobileValues,
@@ -477,196 +583,207 @@ export class LineMatch extends React.PureComponent {
     });
   };
 
-  renderDesktopConnectors = (
-    connectorLayout,
-    desktopConnections,
-    checkedResults,
-    recoilingConnections,
-    recoilProgress,
-  ) => {
-    if (!connectorLayout) return null;
+  const {
+    cheatText = "Show answer",
+    informationText,
+    informationTextHTML,
+    instructionsText,
+    instructionsTextHTML,
+  } = config;
+  const resolvedInfoTextHTML = informationTextHTML || instructionsTextHTML;
+  const resolvedInfoText = informationText || instructionsText;
 
-    const paths = Object.entries(desktopConnections)
-      .map(([sourceId, targetId]) => {
-        const sourcePoint = connectorLayout.sourcePoints[sourceId];
-        const targetPoint = connectorLayout.targetPoints[targetId];
-        if (!sourcePoint || !targetPoint) return null;
-        const isCorrect = checkedResults[sourceId] === true;
-        return {
-          d: this.buildConnectorPath(sourcePoint, targetPoint),
-          id: `${sourceId}-${targetId}`,
-          isCorrect,
-        };
-      })
-      .filter(Boolean);
+  const connectedSourcesByTarget = buildTargetSourceMap(desktopConnections);
+  const totalItems = sampledItems.length;
+  const answeredCount = isDesktopViewport
+    ? Object.keys(desktopConnections).length
+    : Object.keys(mobileValues).length;
+  const canCheck = answeredCount > 0;
+  const showReset = answeredCount > 0 || hasChecked;
+  const hasAnyIncorrect = hasChecked && nCorrect < totalItems;
 
-    const recoilPaths = recoilingConnections
-      .map(({ sourceId, targetId }) => {
-        const sourcePoint = connectorLayout.sourcePoints[sourceId];
-        const targetPoint = connectorLayout.targetPoints[targetId];
-        if (!sourcePoint || !targetPoint) return null;
-        const animatedTargetPoint = {
-          x: targetPoint.x + ((sourcePoint.x - targetPoint.x) * recoilProgress),
-          y: targetPoint.y + ((sourcePoint.y - targetPoint.y) * recoilProgress),
-        };
-        return {
-          d: this.buildConnectorPath(sourcePoint, animatedTargetPoint),
-          id: `${sourceId}-${targetId}`,
-        };
-      })
-      .filter(Boolean);
+  if (sampledItems.length === 0) {
+    return <div>No configuration provided for LineMatch.</div>;
+  }
 
-    if (paths.length === 0 && recoilPaths.length === 0) return null;
+  return (
+    <div className="space-y-4">
+      {!suppressInfo && (resolvedInfoText || resolvedInfoTextHTML) ? (
+        <Info informationText={resolvedInfoText} informationTextHTML={resolvedInfoTextHTML} />
+      ) : null}
 
-    return (
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
-        height={connectorLayout.height}
-        viewBox={`0 0 ${connectorLayout.width} ${connectorLayout.height}`}
-        width={connectorLayout.width}
-      >
-        {paths.map((path) => (
-          <g key={`line-match-connector-${path.id}`}>
-            <path
-              d={path.d}
-              fill="none"
-              stroke={path.isCorrect ? LINE_MATCH_CORRECT_GLOW : LINE_MATCH_CONNECTOR_GLOW}
-              strokeLinecap="round"
-              strokeWidth="9"
-            />
-            <path
-              d={path.d}
-              fill="none"
-              stroke={path.isCorrect ? LINE_MATCH_CORRECT_STROKE : LINE_MATCH_CONNECTOR_STROKE}
-              strokeLinecap="round"
-              strokeWidth="4"
-            />
-          </g>
-        ))}
-        {recoilPaths.map((path) => (
-          <g key={`line-match-recoil-${path.id}`}>
-            <path
-              d={path.d}
-              fill="none"
-              stroke={LINE_MATCH_RECOIL_GLOW}
-              strokeLinecap="round"
-              strokeWidth="9"
-            />
-            <path
-              d={path.d}
-              fill="none"
-              stroke={LINE_MATCH_RECOIL_STROKE}
-              strokeLinecap="round"
-              strokeWidth="4"
-            />
-          </g>
-        ))}
-      </svg>
-    );
-  };
+      <div className="rounded-xl border border-border/70 bg-card p-4">
+        <div className="space-y-5 min-[980px]:hidden">
+          <section className="space-y-3">
+            <ol className="space-y-4">
+              {sampledItems.map((item, index) => {
+                const itemKey = getItemKey(item, index);
+                const rowHasResult = hasChecked && Object.prototype.hasOwnProperty.call(checkedResults, itemKey);
+                const rowIsCorrect = checkedResults[itemKey] === true;
+                return (
+                  <li className="rounded-xl border border-border/70 bg-background/55 p-3" key={`line-match-mobile-picture-${itemKey}`}>
+                    <div className="flex items-center gap-3">
+                      <div className="shrink-0">
+                        {item.audio ? (
+                          <AudioClip className="link" soundFile={item.audio}>
+                            <span className="sr-only">Listen to {item.label}</span>
+                          </AudioClip>
+                        ) : null}
+                      </div>
+                      <div className={LINE_MATCH_IMAGE_TILE_CLASS}>
+                        <img
+                          alt={item.alt || item.localLanguage || "" /* see IMAGE ALT TEXT POLICY at top of file */}
+                          className="h-full w-full object-contain"
+                          loading="lazy"
+                          src={resolveAsset(item.image)}
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <Select
+                          onValueChange={(value) => handleMobileValueChange(itemKey, value)}
+                          value={mobileValues[itemKey] || ""}
+                        >
+                          <SelectTrigger className={LINE_MATCH_SELECT_TRIGGER_CLASS}>
+                            <SelectValue placeholder="Choose the matching word" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {wordBank.map((option, optionIndex) => {
+                              const optionKey = getItemKey(option, optionIndex);
+                              return (
+                                <SelectItem
+                                  key={`line-match-mobile-option-${optionKey}`}
+                                  value={optionKey}
+                                >
+                                  {option.label}
+                                </SelectItem>
+                              );
+                            })}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        className={`inline-flex min-h-10 w-10 shrink-0 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
+                      >
+                        {<ResultIcon isCorrect={rowIsCorrect} size="sm" />}
+                      </span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        </div>
 
-  render = () => {
-    const { config = {} } = this.props;
-    const { suppressInfo = false } = this.props;
-    const {
-      cheatText = "Show answer",
-      informationText,
-      informationTextHTML,
-      instructionsText,
-      instructionsTextHTML,
-    } = config;
-    const resolvedInfoTextHTML = informationTextHTML || instructionsTextHTML;
-    const resolvedInfoText = informationText || instructionsText;
-    const {
-      activeSourceId,
-      activeTargetId,
-      checkedResults,
-      connectorLayout,
-      desktopConnections,
-      hasChecked,
-      isDesktopViewport,
-      sampledItems,
-      wordBank,
-      mobileValues,
-      nCorrect,
-      recoilProgress,
-      recoilingConnections,
-    } = this.state;
-    const connectedSourcesByTarget = this.buildTargetSourceMap(desktopConnections);
-    const totalItems = sampledItems.length;
-    const answeredCount = isDesktopViewport
-      ? Object.keys(desktopConnections).length
-      : Object.keys(mobileValues).length;
-    const canCheck = answeredCount > 0;
-    const showReset = answeredCount > 0 || hasChecked;
-    const hasAnyIncorrect = hasChecked && nCorrect < totalItems;
+        <div className="relative hidden min-[980px]:block" ref={desktopStageRef}>
+          {renderDesktopConnectors(
+            connectorLayout,
+            desktopConnections,
+            checkedResults,
+            recoilingConnections,
+            recoilProgress,
+          )}
 
-    if (sampledItems.length === 0) {
-      return <div>No configuration provided for LineMatch.</div>;
-    }
-
-    return (
-      <div className="space-y-4">
-        {!suppressInfo && (resolvedInfoText || resolvedInfoTextHTML) ? (
-          <Info informationText={resolvedInfoText} informationTextHTML={resolvedInfoTextHTML} />
-        ) : null}
-
-        <div className="rounded-xl border border-border/70 bg-card p-4">
-          <div className="space-y-5 min-[980px]:hidden">
-            <section className="space-y-3">
-              <ol className="space-y-4">
+          <div className="space-y-4 min-[980px]:grid min-[980px]:grid-cols-[minmax(0,1fr)_minmax(16rem,18rem)] min-[980px]:gap-6 min-[980px]:space-y-0">
+            <section className="relative z-10 space-y-3">
+              <ol className="space-y-3">
                 {sampledItems.map((item, index) => {
-                  const itemKey = this.getItemKey(item, index);
-                  const rowHasResult = hasChecked && Object.prototype.hasOwnProperty.call(checkedResults, itemKey);
-                  const rowIsCorrect = checkedResults[itemKey] === true;
+                  const itemKey = getItemKey(item, index);
+                  const isActive = activeSourceId === itemKey;
+                  const connectedTargetId = desktopConnections[itemKey];
+                  const isCorrect = checkedResults[itemKey] === true;
+                  const pictureStatusText = isCorrect
+                    ? "Matched"
+                    : connectedTargetId
+                      ? "Connected"
+                      : isActive
+                        ? "Selected"
+                        : item.localLanguage || "";
+                  const pictureCardLayoutClass = pictureStatusText
+                    ? "min-w-[10.5rem] justify-end"
+                    : "justify-center";
                   return (
-                    <li className="rounded-xl border border-border/70 bg-background/55 p-3" key={`line-match-mobile-picture-${itemKey}`}>
-                      <div className="flex items-center gap-3">
-                        <div className="shrink-0">
-                          {item.audio ? (
-                            <AudioClip className="link" soundFile={item.audio}>
-                              <span className="sr-only">Listen to {item.label}</span>
-                            </AudioClip>
-                          ) : null}
-                        </div>
-                        <div className={LINE_MATCH_IMAGE_TILE_CLASS}>
+                    <li className="flex items-center" key={`line-match-picture-${itemKey}`}>
+                      <div
+                        className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} ${pictureCardLayoutClass} cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_12%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--ex-active)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--edu-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[color-mix(in_oklab,var(--brand-primary)_12%,transparent)]"}`}
+                        onClick={() => handleSourceActivate(itemKey)}
+                      >
+                        {pictureStatusText ? (
+                          <div className="min-w-[4.5rem] text-right text-xs leading-tight text-muted-foreground">
+                            {pictureStatusText}
+                          </div>
+                        ) : null}
+                        <button
+                          className={`${LINE_MATCH_IMAGE_TILE_CLASS} cursor-pointer transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_color-mix(in_oklab,var(--ex-neutral)_22%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_oklab,var(--ex-active)_44%,transparent)] ${isCorrect ? "border-[var(--edu-affirm)]" : isActive ? "border-[color-mix(in_oklab,var(--ex-active)_54%,var(--foreground))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))]" : ""}`}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            handleSourceActivate(itemKey);
+                          }}
+                          type="button"
+                        >
                           <img
                             alt={item.alt || item.localLanguage || "" /* see IMAGE ALT TEXT POLICY at top of file */}
                             className="h-full w-full object-contain"
                             loading="lazy"
                             src={resolveAsset(item.image)}
                           />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <Select
-                            onValueChange={(value) => this.handleMobileValueChange(itemKey, value)}
-                            value={mobileValues[itemKey] || ""}
-                          >
-                            <SelectTrigger className={LINE_MATCH_SELECT_TRIGGER_CLASS}>
-                              <SelectValue placeholder="Choose the matching word" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {wordBank.map((option, optionIndex) => {
-                                const optionKey = this.getItemKey(option, optionIndex);
-                                return (
-                                  <SelectItem
-                                    key={`line-match-mobile-option-${optionKey}`}
-                                    value={optionKey}
-                                  >
-                                    {option.label}
-                                  </SelectItem>
-                                );
-                              })}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <span
-                          aria-hidden="true"
-                          className={`inline-flex min-h-10 w-10 shrink-0 items-center justify-center ${rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"}`}
-                        >
-                          {<ResultIcon isCorrect={rowIsCorrect} size="sm" />}
-                        </span>
+                        </button>
+                        <button
+                          aria-label={`Select picture ${index + 1} as connection source`}
+                          className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[var(--edu-affirm)] ring-2 ring-[color-mix(in_oklab,var(--edu-affirm)_28%,transparent)]" : isActive ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--ex-active)_40%,transparent)]" : connectedTargetId ? "border-[var(--edu-warn)] bg-[var(--edu-warn)]" : "border-[color-mix(in_oklab,var(--ex-neutral)_72%,var(--foreground))] bg-background"}`}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            handleSourceActivate(itemKey);
+                          }}
+                          ref={(node) => setSourceNode(itemKey, node)}
+                          type="button"
+                        />
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+
+            <section className="relative z-10 space-y-3">
+              <ol className="space-y-3">
+                {wordBank.map((item, index) => {
+                  const targetId = getItemKey(item, index);
+                  const connectedSourceId = connectedSourcesByTarget[targetId];
+                  const isCorrect = connectedSourceId && checkedResults[connectedSourceId] === true;
+                  const isActiveTarget = activeTargetId === targetId;
+                  return (
+                    <li
+                      className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} cursor-pointer items-center gap-3 rounded-lg border px-3 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_16%,var(--card))]" : isActiveTarget ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--card))]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[color-mix(in_oklab,var(--edu-warn)_12%,var(--card))]" : "border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)] bg-[color-mix(in_oklab,var(--brand-primary)_25%,var(--card))]"}`}
+                      key={`line-match-word-${targetId}`}
+                      onClick={() => handleTargetActivate(targetId)}
+                    >
+                      <button
+                        aria-label={`Connect selected picture to ${item.label}`}
+                        className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[var(--edu-affirm)]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[var(--edu-warn)]" : isActiveTarget ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--ex-active)_40%,transparent)]" : activeSourceId ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_20%,var(--background))]" : "border-[color-mix(in_oklab,var(--ex-neutral)_72%,var(--foreground))] bg-background"}`}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleTargetActivate(targetId);
+                        }}
+                        ref={(node) => setTargetNode(targetId, node)}
+                        type="button"
+                      />
+                      <div
+                        className="min-w-0 text-left"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                        }}
+                      >
+                        {item.audio ? (
+                          <AudioClip className="link" soundFile={item.audio}>
+                            <strong>{item.label}</strong>
+                          </AudioClip>
+                        ) : (
+                          <strong>{item.label}</strong>
+                        )}
+                      </div>
+                      <div className="ml-auto min-w-[3rem] text-right text-xs leading-tight text-muted-foreground">
+                        {isCorrect ? "Matched" : connectedSourceId ? "Connected" : isActiveTarget ? "Selected" : ""}
                       </div>
                     </li>
                   );
@@ -674,140 +791,22 @@ export class LineMatch extends React.PureComponent {
               </ol>
             </section>
           </div>
-
-          <div className="relative hidden min-[980px]:block" ref={this.desktopStageRef}>
-            {this.renderDesktopConnectors(
-              connectorLayout,
-              desktopConnections,
-              checkedResults,
-              recoilingConnections,
-              recoilProgress,
-            )}
-
-            <div className="space-y-4 min-[980px]:grid min-[980px]:grid-cols-[minmax(0,1fr)_minmax(16rem,18rem)] min-[980px]:gap-6 min-[980px]:space-y-0">
-              <section className="relative z-10 space-y-3">
-                <ol className="space-y-3">
-                  {sampledItems.map((item, index) => {
-                    const itemKey = this.getItemKey(item, index);
-                    const isActive = activeSourceId === itemKey;
-                    const connectedTargetId = desktopConnections[itemKey];
-                    const isCorrect = checkedResults[itemKey] === true;
-                    const pictureStatusText = isCorrect
-                      ? "Matched"
-                      : connectedTargetId
-                        ? "Connected"
-                        : isActive
-                          ? "Selected"
-                          : item.localLanguage || "";
-                    const pictureCardLayoutClass = pictureStatusText
-                      ? "min-w-[10.5rem] justify-end"
-                      : "justify-center";
-                    return (
-                      <li className="flex items-center" key={`line-match-picture-${itemKey}`}>
-                        <div
-                          className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} ${pictureCardLayoutClass} cursor-pointer items-center gap-3 rounded-xl border px-3 py-2 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_12%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_10%,var(--background))]" : isActive ? "border-[color-mix(in_oklab,var(--ex-active)_54%,var(--foreground))] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--background))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))] bg-[color-mix(in_oklab,var(--edu-warn)_8%,var(--background))]" : "border-border/70 bg-background/60 hover:bg-[color-mix(in_oklab,var(--brand-primary)_12%,transparent)]"}`}
-                          onClick={() => this.handleSourceActivate(itemKey)}
-                        >
-                          {pictureStatusText ? (
-                            <div className="min-w-[4.5rem] text-right text-xs leading-tight text-muted-foreground">
-                              {pictureStatusText}
-                            </div>
-                          ) : null}
-                          <button
-                            className={`${LINE_MATCH_IMAGE_TILE_CLASS} cursor-pointer transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_color-mix(in_oklab,var(--ex-neutral)_22%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_oklab,var(--ex-active)_44%,transparent)] ${isCorrect ? "border-[var(--edu-affirm)]" : isActive ? "border-[color-mix(in_oklab,var(--ex-active)_54%,var(--foreground))]" : connectedTargetId ? "border-[color-mix(in_oklab,var(--edu-warn)_42%,var(--foreground))]" : ""}`}
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              this.handleSourceActivate(itemKey);
-                            }}
-                            type="button"
-                          >
-                            <img
-                              alt={item.alt || item.localLanguage || "" /* see IMAGE ALT TEXT POLICY at top of file */}
-                              className="h-full w-full object-contain"
-                              loading="lazy"
-                              src={resolveAsset(item.image)}
-                            />
-                          </button>
-                          <button
-                            aria-label={`Select picture ${index + 1} as connection source`}
-                            className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[var(--edu-affirm)] ring-2 ring-[color-mix(in_oklab,var(--edu-affirm)_28%,transparent)]" : isActive ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--ex-active)_40%,transparent)]" : connectedTargetId ? "border-[var(--edu-warn)] bg-[var(--edu-warn)]" : "border-[color-mix(in_oklab,var(--ex-neutral)_72%,var(--foreground))] bg-background"}`}
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              this.handleSourceActivate(itemKey);
-                            }}
-                            ref={(node) => this.setSourceNode(itemKey, node)}
-                            type="button"
-                          />
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </section>
-
-              <section className="relative z-10 space-y-3">
-                <ol className="space-y-3">
-                  {wordBank.map((item, index) => {
-                    const targetId = this.getItemKey(item, index);
-                    const connectedSourceId = connectedSourcesByTarget[targetId];
-                    const isCorrect = connectedSourceId && checkedResults[connectedSourceId] === true;
-                    const isActiveTarget = activeTargetId === targetId;
-                    return (
-                      <li
-                        className={`flex ${LINE_MATCH_DESKTOP_ROW_HEIGHT_CLASS} cursor-pointer items-center gap-3 rounded-lg border px-3 shadow-[0_2px_6px_color-mix(in_oklab,var(--ex-neutral)_14%,transparent)] transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[color-mix(in_oklab,var(--edu-affirm)_16%,var(--card))]" : isActiveTarget ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_10%,var(--card))]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[color-mix(in_oklab,var(--edu-warn)_12%,var(--card))]" : "border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)] bg-[color-mix(in_oklab,var(--brand-primary)_25%,var(--card))]"}`}
-                        key={`line-match-word-${targetId}`}
-                        onClick={() => this.handleTargetActivate(targetId)}
-                      >
-                        <button
-                          aria-label={`Connect selected picture to ${item.label}`}
-                          className={`inline-flex h-5 w-5 shrink-0 rounded-full border-2 transition ${isCorrect ? "border-[var(--edu-affirm)] bg-[var(--edu-affirm)]" : connectedSourceId ? "border-[var(--edu-warn)] bg-[var(--edu-warn)]" : isActiveTarget ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_28%,var(--background))] ring-2 ring-[color-mix(in_oklab,var(--ex-active)_40%,transparent)]" : activeSourceId ? "border-[var(--ex-active)] bg-[color-mix(in_oklab,var(--ex-active)_20%,var(--background))]" : "border-[color-mix(in_oklab,var(--ex-neutral)_72%,var(--foreground))] bg-background"}`}
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            this.handleTargetActivate(targetId);
-                          }}
-                          ref={(node) => this.setTargetNode(targetId, node)}
-                          type="button"
-                        />
-                        <div
-                          className="min-w-0 text-left"
-                          onClick={(event) => {
-                            event.stopPropagation();
-                          }}
-                        >
-                          {item.audio ? (
-                            <AudioClip className="link" soundFile={item.audio}>
-                              <strong>{item.label}</strong>
-                            </AudioClip>
-                          ) : (
-                            <strong>{item.label}</strong>
-                          )}
-                        </div>
-                        <div className="ml-auto min-w-[3rem] text-right text-xs leading-tight text-muted-foreground">
-                          {isCorrect ? "Matched" : connectedSourceId ? "Connected" : isActiveTarget ? "Selected" : ""}
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </section>
-            </div>
-          </div>
-
-          <div className="exercise-divider" data-orientation="horizontal" role="none" />
-          <ProgressDots correct={nCorrect} total={totalItems} />
-          <div className="exercise-divider" data-orientation="horizontal" role="none" />
-
-          <ExerciseFooter
-            checkDisabled={!canCheck}
-            onCheck={this.handleCheckAnswers}
-            onReset={this.handleReset}
-            onShowAnswers={this.handleShowAnswers}
-            showAnswers={hasAnyIncorrect}
-            showAnswersLabel={cheatText}
-            showReset={showReset}
-          />
         </div>
+
+        <div className="exercise-divider" data-orientation="horizontal" role="none" />
+        <ProgressDots correct={nCorrect} total={totalItems} />
+        <div className="exercise-divider" data-orientation="horizontal" role="none" />
+
+        <ExerciseFooter
+          checkDisabled={!canCheck}
+          onCheck={handleCheckAnswers}
+          onReset={handleReset}
+          onShowAnswers={handleShowAnswers}
+          showAnswers={hasAnyIncorrect}
+          showAnswersLabel={cheatText}
+          showReset={showReset}
+        />
       </div>
-    );
-  };
+    </div>
+  );
 }
