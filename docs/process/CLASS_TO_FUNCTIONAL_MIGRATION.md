@@ -173,7 +173,11 @@ re-run the audio suite + manual playback check.
 Each must be grade-verified before/after. These share the config-reset + audio-state
 patterns; converting them unlocks `useExerciseAudio()`.
 
-- [ ] `RadioQuiz/RadioQuiz.jsx`
+- [x] `RadioQuiz/RadioQuiz.jsx` — useReducer merge + lazy init; config-reset via
+      prev-config ref effect (key-remount deferred to Phase 6); `setState`
+      callbacks → direct `onComplete`/`onReset` calls (no DOM dependency).
+      Grade-verified in browser (LO13 daily-routine): correct ✓ / wrong ✗ +
+      explanation / re-choose clears row result / reset / show-answers 12/12.
 - [ ] `SelectExercise/SelectExercise.jsx`
 - [ ] `InlineChoiceGroup/InlineChoiceGroup.jsx`
 - [ ] `InlineTypedGapExercise/InlineTypedGapExercise.jsx`
