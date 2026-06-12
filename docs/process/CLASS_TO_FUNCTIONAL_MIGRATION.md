@@ -218,7 +218,23 @@ patterns; converting them unlocks `useExerciseAudio()`.
       recoil animates then clears / show-answers / re-match steals target +
       invalidates both rows; mobile 375px (Select): all-correct 6/6 / flip one
       wrong 5/6 — zero console errors. PR #11.
-- [ ] `WordOrderExercise/WordOrderExercise.jsx`
+- [x] `WordOrderExercise/WordOrderExercise.jsx` — useReducer merge + lazy
+      init (`getInitialState`); reducer carries the LineMatch function-patch +
+      null/undefined bail-out (returns same state ref). `this.cardRefs` Map →
+      `useRef(null)` seeded to a `Map`. **No `componentDidMount/DidUpdate/
+      WillUnmount`** → no config-reset effect added (WordSpot-style exception).
+      FLIP: the three `setState(updater, callback)` handlers (drop, reset,
+      show-answer) stash `{ before, options }` in a `pendingFlipRef` and
+      dispatch; a `useLayoutEffect` keyed on `userTokens` reads it post-commit
+      (pre-paint), calls `playFlipAnimation`, then clears it — the
+      `MemoryMatchGame.jsx` pattern. `handleDrop` computes the swap from
+      committed state so the pending FLIP is stashed only when `userTokens`
+      actually changes (avoids a stale `before` on no-op drops). Scoring
+      (sequence-equality, identity match) + render markup unchanged; no util
+      extracted. Grade-verified in browser (`first-contact`, listeningOrder1/2):
+      correct order 8/8 complete / wrong order 1/8 partial + `failedChecks`
+      increments / reset reshuffles / show-answer snaps to expected — FLIP
+      smooth, zero console errors. PR #12.
 - [ ] `PhraseReorderExercise/PhraseReorderExercise.jsx`
 - [ ] `DraggableFillGaps/DraggableFillGapsRuntime.jsx`
 - [ ] `DictationExercise/DictationExercise.jsx`

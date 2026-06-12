@@ -12,10 +12,10 @@
 
 - **Phases 1–4** merged to `main`: 12 leaf (PR #3), 26 content (PR #4), audio infra +
   `App.jsx` (PR #5, #6), 2 non-scoring exercises WordSpot + MemoryMatch (PR #7, `6d92367`).
-- **Phase 5 progress: 4/12 done** — RadioQuiz (PR #8, `aec43a7`),
-  SelectExercise (PR #9, `abc4abe`), InlineChoiceGroup (PR #10) and
-  LineMatch (PR #11, `4dc2382`) converted + squash-merged. Conversion notes
-  in the migration tracker checkboxes.
+- **Phase 5 progress: 5/12 done** — RadioQuiz (PR #8, `aec43a7`),
+  SelectExercise (PR #9, `abc4abe`), InlineChoiceGroup (PR #10),
+  LineMatch (PR #11, `4dc2382`) and WordOrderExercise (PR #12) converted +
+  squash-merged. Conversion notes in the migration tracker checkboxes.
 - `main` clean + green: `yarn lint` 0 errors, `yarn test:run` 39/39.
 - **9 class components remain** (`grep -rln "extends React" src/`):
   - **8 scoring exercises** = remaining Phase 5 scope (below).
@@ -43,10 +43,17 @@ pattern, then the parse-heavy ones):
    viewport/connector measurements; `ResizeObserver` + rAF measurement in a
    StrictMode-safe mount effect; `componentDidUpdate` measure fall-through → a
    no-dep effect; recoil rAF animation triggered imperatively after dispatch.
-5. `WordOrderExercise/WordOrderExercise.jsx` — reorder; DnD + sequence check. **← NEXT**
+5. ~~`WordOrderExercise/WordOrderExercise.jsx`~~ — **DONE** (PR #12). reorder;
+   DnD + sequence check. Adds to the pattern: three `setState(updater, callback)`
+   FLIP handlers (drop/reset/show-answer) → `pendingFlipRef` (`{ before, options }`)
+   + a `useLayoutEffect` keyed on `userTokens`; `handleDrop` computes the swap
+   from committed state so the pending FLIP is only stashed on a real reorder.
+   NO `componentDidUpdate` → no config-reset effect (WordSpot-style exception).
 6. `PhraseReorderExercise/PhraseReorderExercise.jsx` — reorder; shares FLIP anim
-   (`reorderAnimation.js`) with MemoryMatch — reuse the `useLayoutEffect`+`pendingFlipRef`
-   pattern from `MemoryMatchGame.jsx` (Phase 4) for the `setState(callback)` animation.
+   (`reorderAnimation.js`) with MemoryMatch + WordOrder — reuse the
+   `useLayoutEffect`+`pendingFlipRef` pattern (WordOrder PR #12 is the direct
+   reference; `MemoryMatchGame.jsx` Phase 4 too) for the `setState(callback)`
+   animation. **← NEXT**
 7. `DraggableFillGaps/DraggableFillGapsRuntime.jsx` — DnD into gaps; `blanksMeta`
    instance field → `useRef`.
 8. `InlineTypedGapExercise/InlineTypedGapExercise.jsx` — typed gaps; routes through
