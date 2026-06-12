@@ -1,8 +1,11 @@
 # Class → Functional Component Migration
 
-> **Status:** Not started. This is a standalone initiative, not part of the DRY pass
-> that produced AudioManager, `parseSentence`, `answerNormalize`, `ExerciseFooter`,
-> and `ResultIcon`. Those are done. This document plans the larger follow-on work.
+> **Status:** Phases 1–3 done (merged to `main`). All leaf/presentational + content
+> components, the audio infrastructure, and the root `App.jsx` are now functional.
+> **16 class components remain** — Phase 4 (non-scoring exercises), Phase 5 (scoring
+> exercises), and Phase 6 (consolidate). This is a standalone initiative, not part of
+> the DRY pass that produced AudioManager, `parseSentence`, `answerNormalize`,
+> `ExerciseFooter`, and `ResultIcon` (those were done earlier).
 
 ## Why
 
@@ -125,12 +128,20 @@ Convert in batches by LO; verify each LO page renders.
 Already route through AudioManager; covered by `AudioManager.test.js`. Convert and
 re-run the audio suite + manual playback check.
 
-- [ ] `AudioClip/AudioClip.jsx` (class hierarchy: AudioClip → CircularAudioProgress →
-      CircularAudioProgressAnimatedSpeaker / LinkAudioProgress — convert the inheritance
-      chain to composition + a hook; this is the trickiest non-scoring one)
-- [ ] `SequenceAudioController/SequenceAudioController.jsx`
-- [ ] `PhraseTable/PhraseTable.jsx`
-- [ ] `App.jsx` (root — do carefully, affects everything)
+- [x] `AudioClip/AudioClip.jsx` (class hierarchy: AudioClip → CircularAudioProgress →
+      CircularAudioProgressAnimatedSpeaker / LinkAudioProgress — converted the inheritance
+      chain to composition + a `useAudioClip` hook)
+- [x] `SequenceAudioController/SequenceAudioController.jsx`
+- [x] `PhraseTable/PhraseTable.jsx`
+- [x] `App.jsx` (root — converted last; routing/config-load/modal-link delegation/dark
+      → effects + refs; render tree byte-identical)
+
+> **Phase 3 done.** Targets 1–3 (AudioClip chain + `useAudioClip`, PhraseTable,
+> SequenceAudioController) merged via PR #5 (squash `ade14ea`); root `App.jsx` merged
+> via PR #6 (squash `12c0472`). Gates each step: `yarn lint` 0 errors, `yarn test:run`
+> 39/39, all 15 LO routes browser-verified (routing, `?lo`, URL normalize, modal-link
+> dialog, deep-link, dark + persistence, tabs, PhraseTable + audio). No class components
+> remain in the audio infra or root — the 16 left are all Phase 4/5/6 exercises + debug.
 
 ### Phase 4 — Exercises WITHOUT scoring (medium risk)
 - [ ] `WordSpotExercise/WordSpotExercise.jsx` (reveal-only)

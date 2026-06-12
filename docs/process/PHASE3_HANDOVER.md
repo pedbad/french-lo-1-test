@@ -18,9 +18,17 @@ Branch `refactor/phase3-audio-infra` (PR open). Targets 1–3 done + verified:
 - ✅ **SequenceAudioController** (`b4c19c2`) — `forwardRef` fn; 9 state →
   `useReducer` merge; refs for off-DOM audio/durations/isScrubbing +
   `stateRef`/`propsRef` mirrors; `toggle`/`playItem` via `useImperativeHandle`.
-- ⏳ **App.jsx** — REMAINING. Deliberately deferred to a fresh focused session
-  (root, 1478 lines, ~96 `this.`, 3 lifecycle methods, doc-level modal-link
-  delegation; "verify ALL LOs"). See scope below.
+- ✅ **App.jsx** (`12c0472`, PR #6) — root class → function component. State →
+  `useReducer` (merge reducer); instance fields → refs (`autoComponentIdCounter`
+  render-reset, delegation flag + handlers, `sharedSettings`, + `mountedRef`/
+  `prevConfigRef`/`configRef` guards); 3 lifecycle methods → mount effect (`[]`,
+  cleanup removes delegated listeners), no-dep modal-link re-scan, `config`-keyed
+  deep-link; pure helpers hoisted to module scope; dead `selectLearningObject`
+  removed. Render tree byte-identical. All 15 LOs browser-verified, 0 console errors.
+
+> **Phase 3 COMPLETE** — all 4 targets merged to `main`. Class-to-functional
+> migration Phases 1–3 done; Phases 4–6 (exercises + consolidate) remain. See
+> [`CLASS_TO_FUNCTIONAL_MIGRATION.md`](./CLASS_TO_FUNCTIONAL_MIGRATION.md).
 
 Each step: `yarn lint` 0 errors, `yarn test:run` 39/39, browser-verified.
 
