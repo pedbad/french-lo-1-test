@@ -4,12 +4,32 @@
 > Plan/checklist: [`CLASS_TO_FUNCTIONAL_MIGRATION.md`](./CLASS_TO_FUNCTIONAL_MIGRATION.md).
 > Phases 1 & 2 done + merged to `main`. This doc scopes Phase 3.
 
+## Progress (Phase 3)
+
+Branch `refactor/phase3-audio-infra` (PR open). Targets 1–3 done + verified:
+
+- ✅ **AudioClip chain** (`d48cbf3`) — flattened to composition + `useAudioClip`
+  hook (`src/components/AudioClip/useAudioClip.js`); `CircularAudioProgress`,
+  `CircularAudioProgressAnimatedSpeaker`, `LinkAudioProgress` now thin
+  functional components; `AudioClip` is a dispatcher; native `<audio>` paths →
+  internal `NativeAudioClip`.
+- ✅ **PhraseTable** (`00bf701`) — `tableSort`→`useState`, `originalPhrases`→
+  `useMemo`, sort helpers → module-level, config read from props.
+- ✅ **SequenceAudioController** (`b4c19c2`) — `forwardRef` fn; 9 state →
+  `useReducer` merge; refs for off-DOM audio/durations/isScrubbing +
+  `stateRef`/`propsRef` mirrors; `toggle`/`playItem` via `useImperativeHandle`.
+- ⏳ **App.jsx** — REMAINING. Deliberately deferred to a fresh focused session
+  (root, 1478 lines, ~96 `this.`, 3 lifecycle methods, doc-level modal-link
+  delegation; "verify ALL LOs"). See scope below.
+
+Each step: `yarn lint` 0 errors, `yarn test:run` 39/39, browser-verified.
+
 ## Current state (verified)
 
 - **Phase 1** (12 leaf/presentational) — merged, PR #3.
 - **Phase 2** (26 grammar/pronunciation content components) — merged, PR #4, squash commit `4324729`.
 - `main` is clean and green: `yarn lint` 0 errors, `yarn test:run` 39/39 pass.
-- Start Phase 3 from a fresh branch off `main`: `refactor/phase3-audio-infra`.
+- Targets 1–3 above on branch `refactor/phase3-audio-infra`.
 
 ## Phase 3 scope (4 targets, medium risk)
 
