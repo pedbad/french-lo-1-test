@@ -235,7 +235,25 @@ patterns; converting them unlocks `useExerciseAudio()`.
       correct order 8/8 complete / wrong order 1/8 partial + `failedChecks`
       increments / reset reshuffles / show-answer snaps to expected — FLIP
       smooth, zero console errors. PR #12.
-- [ ] `PhraseReorderExercise/PhraseReorderExercise.jsx`
+- [x] `PhraseReorderExercise/PhraseReorderExercise.jsx` — reorder phrase rows
+      (HTML5 drag + touch-pointer reorder + FLIP). `useReducer` merge + lazy
+      init (`getInitialState`); reducer carries the function-patch + null
+      bail-out. `getInitialLang2` / `swapById` hoisted to pure module-scope
+      helpers (used by lazy init, `reset`, `autoSolve`, and the config-reset
+      effect). `this.cardRefs` Map → `useRef(null)` seeded to a `Map`;
+      `this.pointerId` → `useRef`. FLIP: single `pendingFlipRef` +
+      `useLayoutEffect` keyed on `lang2Items`; **only `reset` and `autoSolve`
+      stash** a pending FLIP — `handleDrop`/`handlePointerUp` reorder without
+      stashing so the effect bails (matches the class, no `setState` callback
+      there). **HAS `componentDidUpdate` config-reset** (unlike WordOrder) →
+      `prevConfigRef` compare effect (RadioQuiz/LineMatch pattern), re-seeds +
+      clears on `config` identity change. Scoring (sequence-equality, identity
+      match) + render markup unchanged; no util extracted; dropped never-wired
+      dead `shuffleLang2`. Grade-verified in browser (`first-contact`,
+      listeningOrder3, single-column): correct 4/4 complete / wrong 1/4 partial
+      + `failCount` increments / 2 fails → Show answers / autoSolve snaps +
+      FLIP (no leftover transforms) / reset reshuffles — zero console errors.
+      PR #13.
 - [ ] `DraggableFillGaps/DraggableFillGapsRuntime.jsx`
 - [ ] `DictationExercise/DictationExercise.jsx`
 - [ ] `ClozeTypingExercise/ClozeTypingExercise.jsx`
