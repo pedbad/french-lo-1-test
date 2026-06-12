@@ -1,5 +1,8 @@
 # Phase 4 Handover — Non-Scoring Exercises
 
+> ✅ **DONE + merged** (PR #7, `6d92367`). Historical reference only. Next:
+> [`PHASE5_HANDOVER.md`](./PHASE5_HANDOVER.md).
+
 > **For a fresh Claude Code session.** Class → functional migration, Phase 4.
 > Plan/checklist: [`CLASS_TO_FUNCTIONAL_MIGRATION.md`](./CLASS_TO_FUNCTIONAL_MIGRATION.md).
 > Phases 1–3 done + merged to `main`. This doc scopes Phase 4 (2 components).
@@ -78,8 +81,9 @@ Branch `refactor/phase4-nonscoring-exercises` off `main`.
 
 ## After Phase 4
 
-14 class components remain — Phase 5 (13 scoring exercises) + `ExerciseShowcase`
+13 class components remain — Phase 5 (12 scoring exercises) + `ExerciseShowcase`
 (debug). **Phase 5 is HIGH risk: one component per PR, grade-verify before/after each.**
+See [`PHASE5_HANDOVER.md`](./PHASE5_HANDOVER.md).
 
 ## Cost note
 

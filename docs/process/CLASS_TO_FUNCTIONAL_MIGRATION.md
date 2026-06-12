@@ -3,7 +3,7 @@
 > **Status:** Phases 1–4 done (Phases 1–3 merged to `main`; Phase 4 on
 > `refactor/phase4-nonscoring-exercises`). All leaf/presentational + content
 > components, the audio infrastructure, the root `App.jsx`, and the two non-scoring
-> exercises are now functional. **14 class components remain** — Phase 5 (13 scoring
+> exercises are now functional. **13 class components remain** — Phase 5 (12 scoring
 > exercises) + `debug/ExerciseShowcase.jsx`, and Phase 6 (consolidate). This is a standalone initiative, not part of
 > the DRY pass that produced AudioManager, `parseSentence`, `answerNormalize`,
 > `ExerciseFooter`, and `ResultIcon` (those were done earlier).
@@ -167,6 +167,9 @@ re-run the audio suite + manual playback check.
 > reset. Zero console errors.
 
 ### Phase 5 — Scoring exercises (HIGH risk — one per PR, browser-verify grades)
+> 12 class components left to convert (the `nasal-rhyme` entry below is already
+> functional). `debug/ExerciseShowcase.jsx` is a 13th remaining class but is
+> debug-only — convert opportunistically, not part of Phase 5 scoring scope.
 Each must be grade-verified before/after. These share the config-reset + audio-state
 patterns; converting them unlocks `useExerciseAudio()`.
 
@@ -182,7 +185,8 @@ patterns; converting them unlocks `useExerciseAudio()`.
 - [ ] `DictationExercise/DictationExercise.jsx`
 - [ ] `ClozeTypingExercise/ClozeTypingExercise.jsx`
 - [ ] `TypedTransformExercise/TypedTransformExercise.jsx`
-- [ ] `current-location/nasal-rhyme-exercise.jsx`
+- [x] `exercises/current-location/nasal-rhyme-exercise.jsx` — already functional
+      (converted earlier; was wrongly listed under `custom/`). Not class-based.
 
 ### Phase 6 — Consolidate (the payoff)
 Once exercises are functional:
@@ -213,8 +217,8 @@ Once exercises are functional:
 | 1 Leaf/presentational | 12 | 0.5–1 day |
 | 2 Content (grammar/pron) | 26 | 1–2 days (batched, repetitive) |
 | 3 Audio infra | 4 | 1 day (AudioClip hierarchy is fiddly) |
-| 4 Non-scoring exercises | 2 | 0.5 day |
-| 5 Scoring exercises | 13 | 3–5 days (one-per-PR + grade verify) |
+| 4 Non-scoring exercises | 2 | 0.5 day ✓ |
+| 5 Scoring exercises | 12 | 3–5 days (one-per-PR + grade verify) |
 | 6 Consolidate (hook + key reset) | — | 1 day |
 | **Total** | **~57** | **7–10 days** |
 
