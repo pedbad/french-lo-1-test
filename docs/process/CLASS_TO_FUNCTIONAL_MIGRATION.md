@@ -201,7 +201,23 @@ patterns; converting them unlocks `useExerciseAudio()`.
       row audio — all match class baseline, zero console errors. PR #10.
 - [ ] `InlineTypedGapExercise/InlineTypedGapExercise.jsx`
 - [ ] `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
-- [ ] `LineMatch/LineMatch.jsx`
+- [x] `LineMatch/LineMatch.jsx` — useReducer merge + lazy init
+      (`getResetState`); reducer **bails out (returns same state ref) on a
+      null/undefined patch** to preserve the class's `setState(prev => null)`
+      no-op for the viewport + connector-layout measurements — without it the
+      measure-after-every-render effect would loop forever. Config-reset via
+      prev-config ref effect; instance fields → refs (`desktopStageRef`,
+      `resizeObserver`, measure/recoil rAF ids, source/target node `Map`s);
+      mount/unmount → one StrictMode-safe effect (resize listener +
+      `ResizeObserver`); `componentDidUpdate` measure fall-through → no-dep
+      effect (converges via the bail-out); recoil `setState(updater, callback)`
+      → imperative `startRecoilAnimation` after dispatch; pure helpers hoisted
+      to module scope; unused `IconButton` import dropped. Grading unchanged
+      (identity match). Grade-verified in browser — desktop 1440px
+      (connectors/refs/recoil): correct 6/6 + green connectors / wrong 0/6 +
+      recoil animates then clears / show-answers / re-match steals target +
+      invalidates both rows; mobile 375px (Select): all-correct 6/6 / flip one
+      wrong 5/6 — zero console errors. PR #11.
 - [ ] `WordOrderExercise/WordOrderExercise.jsx`
 - [ ] `PhraseReorderExercise/PhraseReorderExercise.jsx`
 - [ ] `DraggableFillGaps/DraggableFillGapsRuntime.jsx`
