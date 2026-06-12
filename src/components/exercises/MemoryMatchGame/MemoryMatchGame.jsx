@@ -3,18 +3,19 @@ import { Card } from "@/components/exercises/MemoryMatchGame/Card";
 import { ProgressDots } from "@/components/exercises/ProgressDots/ProgressDots";
 import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { Info } from "@/components/content";
-import { IconButton } from "@/components/media";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
 import DOMPurify from "dompurify";
-import React from "react";
+import { useLayoutEffect, useEffect, useReducer, useRef } from "react";
 import { resolveAsset } from "@/utils/assets";
 import AudioManager from "@/audio/AudioManager";
 import { MEMORY_CARD_TRANSITION_TIME_MS } from "@/constants/layout";
 
+const FINISH_UP_FALLBACK_MS = 2000; // Chrome doesn't fire onended — fallback timer.
+
 const toMemoryCardSlug = (value = "") =>
   String(value)
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
@@ -56,225 +57,209 @@ const getResetState = (cards, nPairsToPlay) => ({
   timeReport: '',
 });
 
-export class MemoryMatchGame extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    const {
-      cards,
-      nPairsToPlay,
-    } = this.props.config;
+const getSolvedCards = (cards = []) => {
+  const pairMap = new Map();
+  cards.forEach((card) => {
+    const pairId = card.id.slice(0, -1);
+    const existing = pairMap.get(pairId) || {};
+    if (card.id.endsWith('a')) existing.text = card;
+    if (card.id.endsWith('b')) existing.image = card;
+    pairMap.set(pairId, existing);
+  });
 
-    this.state = ({
-      ...this.props.config,
-      beenFlipped:[], // To have shade animations if/when flipping back
-      cards: getShuffledDeck(cards, nPairsToPlay),
-      flipped: [],
-      matched: [],
-      nPairs: 0,
-      nTries: 0,
-    });
-    this.cardRefs = new Map();
+  const orderedPairs = Array.from(pairMap.entries())
+    .sort(([pairA], [pairB]) => Number(pairA) - Number(pairB))
+    .map(([, pair]) => pair)
+    .filter((pair) => pair.text && pair.image);
+
+  const solved = [];
+  for (let index = 0; index < orderedPairs.length; index += 2) {
+    const leftPair = orderedPairs[index];
+    const rightPair = orderedPairs[index + 1];
+
+    solved.push(leftPair.text, leftPair.image);
+    if (rightPair) solved.push(rightPair.image, rightPair.text);
   }
 
-  setCardRef = (cardId, element) => {
-    if (!cardId) return;
-    if (element) this.cardRefs.set(cardId, element);
-    else this.cardRefs.delete(cardId);
-  };
+  return solved;
+};
 
-  getSolvedCards = (cards = []) => {
-    const pairMap = new Map();
-    cards.forEach((card) => {
-      const pairId = card.id.slice(0, -1);
-      const existing = pairMap.get(pairId) || {};
-      if (card.id.endsWith('a')) existing.text = card;
-      if (card.id.endsWith('b')) existing.image = card;
-      pairMap.set(pairId, existing);
+// Merge reducer: each dispatch is a partial state patch (8+ interdependent
+// fields, so useReducer over many useState calls per the migration plan).
+const reducer = (state, patch) => ({ ...state, ...patch });
+
+export function MemoryMatchGame({ config = {}, suppressInfo = false }) {
+  const { htmlContent, id } = config;
+
+  // Lazy initializer: getShuffledDeck runs ONCE per mount, not every render.
+  const [state, dispatch] = useReducer(reducer, config, (cfg) => ({
+    beenFlipped: [], // To have shade animations if/when flipping back
+    cards: getShuffledDeck(cfg.cards, cfg.nPairsToPlay),
+    flipped: [],
+    matched: [],
+    nPairs: 0,
+    nTries: 0,
+    startTime: undefined,
+    timeReport: '',
+  }));
+  const { beenFlipped, cards, flipped, matched, nPairs, nTries } = state;
+
+  const cardRefs = useRef(null);
+  if (cardRefs.current === null) cardRefs.current = new Map();
+
+  // Unmount safety for the deferred setState in handleClick (StrictMode-safe).
+  const mountedRef = useRef(true);
+  const timersRef = useRef([]);
+  // FLIP positions captured in handleShowAnswers, played after the DOM reorders.
+  const pendingFlipRef = useRef(null);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    const timers = timersRef;
+    return () => {
+      mountedRef.current = false;
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
+    };
+  }, []);
+
+  // Runs after the show-answers reorder commits — equivalent to the old
+  // setState(callback) timing. Guarded so it only fires for a pending FLIP.
+  useLayoutEffect(() => {
+    if (!pendingFlipRef.current) return;
+    const before = pendingFlipRef.current;
+    pendingFlipRef.current = null;
+    playFlipAnimation({
+      before,
+      duration: 620,
+      easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+      getElement: (cardId) => cardRefs.current.get(cardId),
+      ids: cards.map((card) => card.id),
+      stagger: 18,
     });
+  }, [cards]);
 
-    const orderedPairs = Array.from(pairMap.entries())
-      .sort(([pairA], [pairB]) => Number(pairA) - Number(pairB))
-      .map(([, pair]) => pair)
-      .filter((pair) => pair.text && pair.image);
-
-    const solved = [];
-    for (let index = 0; index < orderedPairs.length; index += 2) {
-      const leftPair = orderedPairs[index];
-      const rightPair = orderedPairs[index + 1];
-
-      solved.push(leftPair.text, leftPair.image);
-      if (rightPair) solved.push(rightPair.image, rightPair.text);
-    }
-
-    return solved;
+  const setCardRef = (cardId, element) => {
+    if (!cardId) return;
+    if (element) cardRefs.current.set(cardId, element);
+    else cardRefs.current.delete(cardId);
   };
 
-  handleClick = (card) => {
-    const {
-      beenFlipped,
-      cards,
-      flipped,
-      matched,
-    } = this.state;
-    let{
-      nPairs,
-      nTries,
-      startTime,
-    } = this.state;
-    if (!startTime)	startTime = new Date();
-
+  const handleClick = (card) => {
     if (flipped.length === 2 || flipped.includes(card.id) || matched.includes(card.id)) return;
 
+    const startTime = state.startTime || new Date();
     const newFlipped = [...flipped, card.id];
-    beenFlipped.push(card.id);
-    const memoryCardTransitionTime = MEMORY_CARD_TRANSITION_TIME_MS;
-    this.setState({
-      beenFlipped: beenFlipped,
+    dispatch({
+      beenFlipped: [...beenFlipped, card.id],
       flipped: newFlipped,
-      startTime: startTime,
-    }, () => {
-      if (newFlipped.length === 2) {
-        nTries++;
-        const [first, second] = newFlipped;
-        const firstCard = cards.find(c => c.id === first);
-        const secondCard = cards.find(c => c.id === second);
-
-        if (firstCard.match === secondCard.content) {
-          const { audio: soundFile } = { ...firstCard, ...secondCard };
-          nPairs++;
-          let timeReport = '';
-          let finishedUp = false;
-          const finishUp = () => {
-            // console.log("Finish up");
-            if (finishedUp) return;
-            finishedUp = true;
-            if (nPairs === cards.length / 2) {
-              const endTime = new Date();
-              const diffMs = endTime - startTime; // milliseconds
-              const totalSeconds = Math.floor(diffMs / 1000);
-              const minutes = Math.floor(totalSeconds / 60);
-              const seconds = totalSeconds % 60;
-              if (minutes !== 0) {
-                timeReport = ` Completed in ${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds > 1 ? 's' : ''}.`;
-              } else {
-                timeReport = ` Completed in ${seconds} second${seconds > 1 ? 's' : ''}.`;
-              }
-              this.setState({
-                timeReport: timeReport,
-              });
-            }
-          };
-          AudioManager.play(resolveAsset(`${soundFile}`), { onEnded: finishUp });
-          setTimeout(finishUp, 2000); // Fallback as Chrome doesn't fire onended event :-()
-          matched.push(firstCard.id, secondCard.id);
-          this.setState({
-            matched: matched,
-            nPairs,
-            nTries,
-          });
-        }
-        setTimeout(() =>
-          this.setState({
-            flipped: [],
-            nTries: nTries,
-          }), memoryCardTransitionTime);
-      }
+      startTime,
     });
+
+    if (newFlipped.length !== 2) return;
+
+    const nextTries = nTries + 1;
+    const [first, second] = newFlipped;
+    const firstCard = cards.find((c) => c.id === first);
+    const secondCard = cards.find((c) => c.id === second);
+
+    if (firstCard.match === secondCard.content) {
+      const { audio: soundFile } = { ...firstCard, ...secondCard };
+      const nextPairs = nPairs + 1;
+      let finishedUp = false;
+      const finishUp = () => {
+        if (finishedUp || !mountedRef.current) return;
+        finishedUp = true;
+        if (nextPairs === cards.length / 2) {
+          const diffMs = new Date() - startTime; // milliseconds
+          const totalSeconds = Math.floor(diffMs / 1000);
+          const minutes = Math.floor(totalSeconds / 60);
+          const seconds = totalSeconds % 60;
+          const timeReport = minutes !== 0
+            ? ` Completed in ${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds > 1 ? 's' : ''}.`
+            : ` Completed in ${seconds} second${seconds > 1 ? 's' : ''}.`;
+          dispatch({ timeReport });
+        }
+      };
+      AudioManager.play(resolveAsset(`${soundFile}`), { onEnded: finishUp });
+      timersRef.current.push(setTimeout(finishUp, FINISH_UP_FALLBACK_MS));
+      dispatch({
+        matched: [...matched, firstCard.id, secondCard.id],
+        nPairs: nextPairs,
+        nTries: nextTries,
+      });
+    }
+
+    timersRef.current.push(setTimeout(() => {
+      if (!mountedRef.current) return;
+      dispatch({ flipped: [], nTries: nextTries });
+    }, MEMORY_CARD_TRANSITION_TIME_MS));
   };
 
-  handleReset = () => {
-    const {
-      cards,
-      nPairsToPlay,
-    } = this.props.config;
-
-    this.setState(getResetState(cards, nPairsToPlay));
+  const handleReset = () => {
+    dispatch(getResetState(config.cards, config.nPairsToPlay));
   };
 
-  handleShowAnswers = () => {
-    const { cards } = this.state;
+  const handleShowAnswers = () => {
     const idsBefore = cards.map((card) => card.id);
-    const before = captureFlipPositions(idsBefore, (id) => this.cardRefs.get(id));
-    const solvedCards = this.getSolvedCards(cards);
-    const matched = solvedCards.map((card) => card.id);
+    const before = captureFlipPositions(idsBefore, (cardId) => cardRefs.current.get(cardId));
+    const solvedCards = getSolvedCards(cards);
+    const solvedIds = solvedCards.map((card) => card.id);
 
-    this.setState({
-      beenFlipped: matched,
+    pendingFlipRef.current = before;
+    dispatch({
+      beenFlipped: solvedIds,
       cards: solvedCards,
       flipped: [],
-      matched,
+      matched: solvedIds,
       nPairs: solvedCards.length / 2,
       startTime: undefined,
       timeReport: '',
-    }, () => {
-      playFlipAnimation({
-        before,
-        duration: 620,
-        easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-        getElement: (id) => this.cardRefs.get(id),
-        ids: this.state.cards.map((card) => card.id),
-        stagger: 18,
-      });
     });
   };
 
-  render = () => {
-    const { config = {}, suppressInfo = false } = this.props;
-    const {
-      beenFlipped,
-      cards,
-      flipped,
-      htmlContent,
-      id,
-      // instructionsText,
-      // instructionsTextHTML,
-      matched,
-      nPairs,
-      nTries,
-    } = this.state;
-    const {
-      informationText,
-      informationTextHTML,
-      instructionsText,
-      instructionsTextHTML,
-    } = config;
-    const resolvedInfoTextHTML = informationTextHTML || instructionsTextHTML;
-    const resolvedInfoText = informationText || instructionsText;
-    const hasInstructionContent = Boolean(resolvedInfoText || resolvedInfoTextHTML);
-    const hasInfo = !suppressInfo && hasInstructionContent;
-    return (
-      <div className="memory-match-game-container relative" id={`${id}`}>
-        {hasInfo ? (
-          <Info informationText={resolvedInfoText} informationTextHTML={resolvedInfoTextHTML} />
-        ) : null}
-        {htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
+  const {
+    informationText,
+    informationTextHTML,
+    instructionsText,
+    instructionsTextHTML,
+  } = config;
+  const resolvedInfoTextHTML = informationTextHTML || instructionsTextHTML;
+  const resolvedInfoText = informationText || instructionsText;
+  const hasInstructionContent = Boolean(resolvedInfoText || resolvedInfoTextHTML);
+  const hasInfo = !suppressInfo && hasInstructionContent;
+  return (
+    <div className="memory-match-game-container relative" id={`${id}`}>
+      {hasInfo ? (
+        <Info informationText={resolvedInfoText} informationTextHTML={resolvedInfoTextHTML} />
+      ) : null}
+      {htmlContent ? <div className={`html-content`} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-        <div className={`memory-match-game flex flex-col items-center ${hasInstructionContent ? "pt-8" : ""}`}>
-          <div className={`memory-map-container num${cards.length}cards w-full`}>
-            <div className="cards mx-auto grid w-full max-w-[30.24rem] grid-cols-2 gap-3 text-[length:calc(var(--font-size-sm)*0.8)] md:max-w-[31.68rem] md:grid-cols-4 xl:max-w-[37.44rem] xl:text-[length:calc(var(--font-size-sm)*0.9)] 2xl:text-sm">
-              {cards.map(card => (
-                <Card
-                  card={card}
-                  cardRef={(element) => this.setCardRef(card.id, element)}
-                  className={`${card.classNameSlug || ""} ${beenFlipped.includes(card.id) || matched.includes(card.id) ? 'been-flipped' : ''} ${flipped.includes(card.id) || matched.includes(card.id) ? 'flipped' : ''} ${matched.includes(card.id) ? 'matched' : ''}`}
-                  handleClick={this.handleClick}
-                  key={`card${card.id}`}
-                />
-              ))}
-            </div>
+      <div className={`memory-match-game flex flex-col items-center ${hasInstructionContent ? "pt-8" : ""}`}>
+        <div className={`memory-map-container num${cards.length}cards w-full`}>
+          <div className="cards mx-auto grid w-full max-w-[30.24rem] grid-cols-2 gap-3 text-[length:calc(var(--font-size-sm)*0.8)] md:max-w-[31.68rem] md:grid-cols-4 xl:max-w-[37.44rem] xl:text-[length:calc(var(--font-size-sm)*0.9)] 2xl:text-sm">
+            {cards.map(card => (
+              <Card
+                card={card}
+                cardRef={(element) => setCardRef(card.id, element)}
+                className={`${card.classNameSlug || ""} ${beenFlipped.includes(card.id) || matched.includes(card.id) ? 'been-flipped' : ''} ${flipped.includes(card.id) || matched.includes(card.id) ? 'flipped' : ''} ${matched.includes(card.id) ? 'matched' : ''}`}
+                handleClick={handleClick}
+                key={`card${card.id}`}
+              />
+            ))}
           </div>
         </div>
-        <div className="exercise-divider mt-6" data-orientation="horizontal" role="none" />
-        <ProgressDots correct={nPairs} total={cards.length / 2} />
-        <div className="exercise-divider mt-4" data-orientation="horizontal" role="none" />
-        <ExerciseFooter
-          onReset={this.handleReset}
-          onShowAnswers={this.handleShowAnswers}
-          showAnswers={(nTries - nPairs) >= 2}
-          showAnswersLabel="Show answer"
-          showReset={nTries >= 1}
-        />
       </div>
-    );
-  };
+      <div className="exercise-divider mt-6" data-orientation="horizontal" role="none" />
+      <ProgressDots correct={nPairs} total={cards.length / 2} />
+      <div className="exercise-divider mt-4" data-orientation="horizontal" role="none" />
+      <ExerciseFooter
+        onReset={handleReset}
+        onShowAnswers={handleShowAnswers}
+        showAnswers={(nTries - nPairs) >= 2}
+        showAnswersLabel="Show answer"
+        showReset={nTries >= 1}
+      />
+    </div>
+  );
 }
