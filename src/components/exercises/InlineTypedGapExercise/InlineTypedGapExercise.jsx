@@ -1,11 +1,11 @@
 import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
 import { SequenceAudioController } from "@/components/SequenceAudioController";
-import { AudioClip, CircularAudioProgressAnimatedSpeakerDisplay, IconButton } from "@/components/media";
+import { AudioClip, CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/media";
 import { Input } from "@/components/ui/input";
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
-import React from "react";
+import { Fragment, useEffect, useReducer, useRef } from "react";
 import { resolveAsset } from "@/utils/assets";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { parseInputBlank, parseSentence } from "@/utils/exerciseParsing";
@@ -16,56 +16,57 @@ import { highlightTextDiff } from "@/utils/exerciseDiff";
 const INLINE_TYPED_INPUT_BASE_CLASS =
 	"mx-1 inline-flex h-9 min-h-9 rounded-lg border bg-background px-2.5 py-1 align-middle text-sm font-medium leading-[var(--line-height-app)] shadow-sm transition-[border-color,background-color,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:h-10 md:min-h-10 md:text-base";
 
-export class InlineTypedGapExercise extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...props.config,
-      activeRowIndex: -1,
-      checkedResults: {},
-      diffResults: {},
-      hasChecked: false,
-      masterPlayState: "stopped",
-      nCorrect: 0,
-      rowAudioStatus: {},
-      rowProgress: {},
-      values: {},
-    };
-
-    this.blanksMeta = [];
-    this.nToSolve = 0;
-    this.rowAudioRefs = {};
-    this.sequenceRef = React.createRef();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.config !== this.props.config) {
-      this.setState({
-        ...this.props.config,
-        activeRowIndex: -1,
-        checkedResults: {},
-        diffResults: {},
-        hasChecked: false,
-        masterPlayState: "stopped",
-        nCorrect: 0,
-        rowAudioStatus: {},
-        rowProgress: {},
-        values: {},
-      });
-      this.blanksMeta = [];
-      this.nToSolve = 0;
-      this.rowAudioRefs = {};
-    }
-  }
-
-
-  isAnswerCorrect = (userValue = "", expected = "") => {
-    return normalizeAnswer(userValue) === normalizeAnswer(expected);
+// Full reset: re-spread config + clear all check/audio/value state.
+// Used for both lazy init and the prevConfig-change reset effect.
+function getResetState(config) {
+  return {
+    ...config,
+    activeRowIndex: -1,
+    checkedResults: {},
+    diffResults: {},
+    hasChecked: false,
+    masterPlayState: "stopped",
+    nCorrect: 0,
+    rowAudioStatus: {},
+    rowProgress: {},
+    values: {},
   };
+}
 
+// Merge reducer. Function patches read the latest state; null/undefined patches
+// bail out to the same state ref (preserves setState(prev => null) no-ops).
+function reducer(state, patch) {
+  const next = typeof patch === "function" ? patch(state) : patch;
+  if (next === null || next === undefined) return state;
+  return { ...state, ...next };
+}
 
-  handleInputChange = (blankIndex, userValue) => {
-    this.setState((prevState) => {
+function isAnswerCorrect(userValue = "", expected = "") {
+  return normalizeAnswer(userValue) === normalizeAnswer(expected);
+}
+
+export function InlineTypedGapExercise({ config }) {
+  const [state, dispatch] = useReducer(reducer, config, getResetState);
+
+  // blanksMeta / nToSolve are render-derived (rebuilt every render in the body)
+  // but ALSO read by handlers — mirror into refs so handlers see the latest.
+  const blanksMetaRef = useRef([]);
+  const nToSolveRef = useRef(0);
+  const rowAudioRefs = useRef({});
+  const sequenceRef = useRef(null);
+  const prevConfigRef = useRef(config);
+
+  // Full reset when the parent swaps the config object (matches componentDidUpdate).
+  useEffect(() => {
+    if (prevConfigRef.current !== config) {
+      prevConfigRef.current = config;
+      rowAudioRefs.current = {};
+      dispatch(getResetState(config));
+    }
+  }, [config]);
+
+  const handleInputChange = (blankIndex, userValue) => {
+    dispatch((prevState) => {
       const values = {
         ...prevState.values,
         [blankIndex]: userValue,
@@ -91,12 +92,12 @@ export class InlineTypedGapExercise extends React.PureComponent {
     });
   };
 
-  handleInputKeyDown = (event, blankIndex) => {
+  const handleInputKeyDown = (event, blankIndex) => {
     if (event.key !== "Enter" && event.key !== "NumpadEnter") return;
     // Enter advances to the next blank instead of submitting the whole exercise.
     // (Submitting on Enter caused accidental early reveal of all answers.)
     event.preventDefault();
-    const { id = "" } = this.state;
+    const id = state.id || "";
     const nextInput = document.getElementById(`${id}-inline-typed-gap-${blankIndex + 1}`);
     if (nextInput) {
       nextInput.focus();
@@ -105,17 +106,19 @@ export class InlineTypedGapExercise extends React.PureComponent {
     }
   };
 
-  handleCheckAnswers = () => {
-    const { values = {} } = this.state;
+  const handleCheckAnswers = () => {
+    const values = state.values || {};
     const checkedResults = {};
     const diffResults = {};
+    const nToSolve = nToSolveRef.current;
+    const blanksMeta = blanksMetaRef.current;
 
-    for (let i = 0; i < this.nToSolve; i += 1) {
+    for (let i = 0; i < nToSolve; i += 1) {
       const userValue = values[i] || "";
       // Only assess blanks the student actually filled in; leave empties unmarked.
       if (userValue.trim() === "") continue;
-      const expected = this.blanksMeta[i]?.expected || "";
-      checkedResults[i] = this.isAnswerCorrect(userValue, expected);
+      const expected = blanksMeta[i]?.expected || "";
+      checkedResults[i] = isAnswerCorrect(userValue, expected);
       diffResults[i] = highlightTextDiff(
         normalizeAnswer(userValue),
         normalizeAnswer(expected),
@@ -124,7 +127,7 @@ export class InlineTypedGapExercise extends React.PureComponent {
       );
     }
 
-    this.setState({
+    dispatch({
       checkedResults,
       diffResults,
       hasChecked: true,
@@ -132,23 +135,25 @@ export class InlineTypedGapExercise extends React.PureComponent {
     });
   };
 
-  handleShowAnswers = () => {
+  const handleShowAnswers = () => {
     const values = {};
     const checkedResults = {};
     const diffResults = {};
+    const nToSolve = nToSolveRef.current;
+    const blanksMeta = blanksMetaRef.current;
 
-    for (let i = 0; i < this.nToSolve; i += 1) {
-      values[i] = this.blanksMeta[i]?.expected || "";
+    for (let i = 0; i < nToSolve; i += 1) {
+      values[i] = blanksMeta[i]?.expected || "";
       checkedResults[i] = true;
       diffResults[i] = highlightTextDiff(
-        this.blanksMeta[i]?.expected || "",
-        this.blanksMeta[i]?.expected || "",
+        blanksMeta[i]?.expected || "",
+        blanksMeta[i]?.expected || "",
         () => {},
         false,
       );
     }
 
-    this.setState({
+    dispatch({
       values,
       checkedResults,
       diffResults,
@@ -157,9 +162,9 @@ export class InlineTypedGapExercise extends React.PureComponent {
     });
   };
 
-  handleReset = () => {
+  const handleReset = () => {
     AudioManager.stopAll();
-    this.setState({
+    dispatch({
       activeRowIndex: -1,
       checkedResults: {},
       diffResults: {},
@@ -172,39 +177,39 @@ export class InlineTypedGapExercise extends React.PureComponent {
     });
   };
 
-  setAudioTriggerRef = (rowIndex, node) => {
+  const setAudioTriggerRef = (rowIndex, node) => {
     if (!node) {
-      delete this.rowAudioRefs[rowIndex];
+      delete rowAudioRefs.current[rowIndex];
       return;
     }
 
-    this.rowAudioRefs[rowIndex] = node;
+    rowAudioRefs.current[rowIndex] = node;
   };
 
-  handlePromptAudioClick = (rowIndex, playlistIndex, event) => {
+  const handlePromptAudioClick = (rowIndex, playlistIndex, event) => {
     event.preventDefault();
     event.stopPropagation();
 
     if (playlistIndex !== undefined) {
-      if (this.state.activeRowIndex === rowIndex) {
-        this.sequenceRef.current?.toggle();
+      if (state.activeRowIndex === rowIndex) {
+        sequenceRef.current?.toggle();
         return;
       }
 
-      this.sequenceRef.current?.playItem(playlistIndex, {
+      sequenceRef.current?.playItem(playlistIndex, {
         playSequence: false,
       });
       return;
     }
 
-    const rowAudioHost = this.rowAudioRefs[rowIndex];
+    const rowAudioHost = rowAudioRefs.current[rowIndex];
     const buttonEl = rowAudioHost?.querySelector("button.audio-container, button.audio-link");
     if (!buttonEl) return;
     buttonEl.click();
   };
 
-  handleRowAudioStatusChange = (rowIndex, nextStatus) => {
-    this.setState((prevState) => ({
+  const handleRowAudioStatusChange = (rowIndex, nextStatus) => {
+    dispatch((prevState) => ({
       rowAudioStatus: {
         ...prevState.rowAudioStatus,
         [rowIndex]: nextStatus,
@@ -212,33 +217,33 @@ export class InlineTypedGapExercise extends React.PureComponent {
     }));
   };
 
-  handleMasterPlayStateChange = (nextState) => {
-    this.setState({
+  const handleMasterPlayStateChange = (nextState) => {
+    dispatch({
       masterPlayState: nextState,
     });
   };
 
-  handleMasterTrackChange = (playlistIndex, playlist) => {
+  const handleMasterTrackChange = (playlistIndex, playlist) => {
     const rowIndex = playlist[playlistIndex]?.rowIndex;
     if (rowIndex === undefined) return;
-    this.setState({
+    dispatch({
       activeRowIndex: rowIndex,
     });
   };
 
-  handleMasterStopped = (playlistIndex, playlist) => {
+  const handleMasterStopped = (playlistIndex, playlist) => {
     const rowIndex = playlist[playlistIndex]?.rowIndex;
     if (rowIndex === undefined) return;
-    this.setState((prevState) => ({
+    dispatch((prevState) => ({
       activeRowIndex: prevState.activeRowIndex === rowIndex ? -1 : prevState.activeRowIndex,
     }));
   };
 
-  handleMasterTime = (playlistIndex, clipTime, clipDuration, playlist) => {
+  const handleMasterTime = (playlistIndex, clipTime, clipDuration, playlist) => {
     const rowIndex = playlist[playlistIndex]?.rowIndex;
     if (rowIndex === undefined) return;
 
-    this.setState((prevState) => ({
+    dispatch((prevState) => ({
       rowProgress: {
         ...prevState.rowProgress,
         [rowIndex]: {
@@ -249,9 +254,9 @@ export class InlineTypedGapExercise extends React.PureComponent {
     }));
   };
 
-  renderInlineInput = (blankIndex) => {
-    const { checkedResults = {}, diffResults = {}, hasChecked = false, id = "", values = {} } = this.state;
-    const meta = this.blanksMeta[blankIndex];
+  const renderInlineInput = (blankIndex) => {
+    const { checkedResults = {}, diffResults = {}, hasChecked = false, id = "", values = {} } = state;
+    const meta = blanksMetaRef.current[blankIndex];
     if (!meta) return null;
 
     const value = values[blankIndex] ?? "";
@@ -276,8 +281,8 @@ export class InlineTypedGapExercise extends React.PureComponent {
           aria-label={`Type answer ${blankIndex + 1}`}
           className={`${INLINE_TYPED_INPUT_BASE_CLASS} ${stateClassName}`}
           id={`${id}-inline-typed-gap-${blankIndex}`}
-          onChange={(event) => this.handleInputChange(blankIndex, event.target.value)}
-          onKeyDown={(event) => this.handleInputKeyDown(event, blankIndex)}
+          onChange={(event) => handleInputChange(blankIndex, event.target.value)}
+          onKeyDown={(event) => handleInputKeyDown(event, blankIndex)}
           placeholder="Type your answer"
           style={{ width: `${meta.widthCh}ch`, maxWidth: "100%" }}
           type="text"
@@ -293,21 +298,21 @@ export class InlineTypedGapExercise extends React.PureComponent {
     );
   };
 
-  renderSentence = (segments) => {
+  const renderSentence = (segments) => {
     const rendered = [];
     for (let i = 0; i < segments.length; i++) {
       const segment = segments[i];
       if (segment.type === "input") {
         rendered.push(
-          <React.Fragment key={segment.key}>
-            {this.renderInlineInput(segment.blankIndex)}
-          </React.Fragment>
+          <Fragment key={segment.key}>
+            {renderInlineInput(segment.blankIndex)}
+          </Fragment>
         );
-        const meta = this.blanksMeta[segment.blankIndex];
+        const meta = blanksMetaRef.current[segment.blankIndex];
         if (meta?.placeholder) {
           const next = segments[i + 1];
           if (next?.type === "text") {
-            rendered.push(<React.Fragment key={next.key}>{next.value}</React.Fragment>);
+            rendered.push(<Fragment key={next.key}>{next.value}</Fragment>);
             i++;
           }
           rendered.push(
@@ -315,224 +320,224 @@ export class InlineTypedGapExercise extends React.PureComponent {
           );
         }
       } else {
-        rendered.push(<React.Fragment key={segment.key}>{segment.value}</React.Fragment>);
+        rendered.push(<Fragment key={segment.key}>{segment.value}</Fragment>);
       }
     }
     return rendered;
   };
 
-  render = () => {
-    const {
-      cheatText = "Show answers",
-      footnote,
-      footnoteHTML,
-      htmlContent = "",
-      id = "",
-      items = [],
-      listenDescriptionText,
-      nCorrect = 0,
-      rowAudioStatus = {},
-      soundFile,
-      useSequenceAudioController = false,
-      values = {},
-    } = this.state;
+  const {
+    cheatText = "Show answers",
+    footnote,
+    footnoteHTML,
+    htmlContent = "",
+    id = "",
+    items = [],
+    listenDescriptionText,
+    nCorrect = 0,
+    rowAudioStatus = {},
+    soundFile,
+    useSequenceAudioController = false,
+    values = {},
+  } = state;
 
-    this.blanksMeta = [];
-    this.nToSolve = 0;
+  // Render-derived: rebuilt every render, mirrored into refs for handlers.
+  const blanksMeta = [];
+  blanksMetaRef.current = blanksMeta;
 
-    const playlist = items
-      .map((item, index) => ({
-        rowIndex: index,
-        src: item?.audio ? resolveAsset(item.audio) : null,
-      }))
-      .filter((entry) => Boolean(entry.src));
+  const playlist = items
+    .map((item, index) => ({
+      rowIndex: index,
+      src: item?.audio ? resolveAsset(item.audio) : null,
+    }))
+    .filter((entry) => Boolean(entry.src));
 
-    const rowToPlaylistIndex = {};
-    playlist.forEach((entry, index) => {
-      rowToPlaylistIndex[entry.rowIndex] = index;
+  const rowToPlaylistIndex = {};
+  playlist.forEach((entry, index) => {
+    rowToPlaylistIndex[entry.rowIndex] = index;
+  });
+
+  const rows = [];
+  let blankCursor = 0;
+  for (let i = 0; i < items.length; i += 1) {
+    const item = items[i];
+    const phraseText = item?.text || "";
+    if (!phraseText) continue;
+
+    const { nextBlankIndex, segments } = parseSentence(phraseText, {
+      startBlankIndex: blankCursor,
+      blanksMeta,
+      parseBlank: parseInputBlank,
     });
+    const rowBlankIndices = segments
+      .filter((segment) => segment.type === "input")
+      .map((segment) => segment.blankIndex);
+    const rowWidthCh = Math.max(
+      18,
+      ...rowBlankIndices.map((blankIndex) => blanksMeta[blankIndex]?.widthCh || 0),
+    );
+    rowBlankIndices.forEach((blankIndex) => {
+      if (blanksMeta[blankIndex]) {
+        blanksMeta[blankIndex].widthCh = rowWidthCh;
+      }
+    });
+    blankCursor = nextBlankIndex;
 
-    const rows = [];
-    let blankCursor = 0;
-    for (let i = 0; i < items.length; i += 1) {
-      const item = items[i];
-      const phraseText = item?.text || "";
-      if (!phraseText) continue;
-
-      const { nextBlankIndex, segments } = parseSentence(phraseText, {
-        startBlankIndex: blankCursor,
-        blanksMeta: this.blanksMeta,
-        parseBlank: parseInputBlank,
-      });
-      const rowBlankIndices = segments
-        .filter((segment) => segment.type === "input")
-        .map((segment) => segment.blankIndex);
-      const rowWidthCh = Math.max(
-        18,
-        ...rowBlankIndices.map((blankIndex) => this.blanksMeta[blankIndex]?.widthCh || 0),
-      );
-      rowBlankIndices.forEach((blankIndex) => {
-        if (this.blanksMeta[blankIndex]) {
-          this.blanksMeta[blankIndex].widthCh = rowWidthCh;
-        }
-      });
-      blankCursor = nextBlankIndex;
-
-      const rowHasResult =
-				this.state.hasChecked &&
+    const rowHasResult =
+				state.hasChecked &&
 				rowBlankIndices.length > 0 &&
-				rowBlankIndices.every((idx) => typeof this.state.checkedResults[idx] === "boolean");
-      const rowIsCorrect = rowHasResult && rowBlankIndices.every((idx) => this.state.checkedResults[idx] === true);
-      const playlistIndex = rowToPlaylistIndex[i];
-      const useMasterRowAudio = useSequenceAudioController && playlistIndex !== undefined;
-      const isActive = this.state.activeRowIndex === i;
-      const status = isActive
-        ? (this.state.masterPlayState === "playing" ? "playing" : "stopped")
-        : "stopped";
-      const prog = this.state.rowProgress[i] || { currentTime: 0, duration: 0 };
-      const promptText = decodeHtmlEntities(item?.prompt || "");
+				rowBlankIndices.every((idx) => typeof state.checkedResults[idx] === "boolean");
+    const rowIsCorrect = rowHasResult && rowBlankIndices.every((idx) => state.checkedResults[idx] === true);
+    const playlistIndex = rowToPlaylistIndex[i];
+    const useMasterRowAudio = useSequenceAudioController && playlistIndex !== undefined;
+    const isActive = state.activeRowIndex === i;
+    const status = isActive
+      ? (state.masterPlayState === "playing" ? "playing" : "stopped")
+      : "stopped";
+    const prog = state.rowProgress[i] || { currentTime: 0, duration: 0 };
+    const promptText = decodeHtmlEntities(item?.prompt || "");
 
-      rows.push(
-        <div
-          className={`rounded-xl border border-border/70 bg-card/60 p-3 shadow-sm md:p-4 ${
-            isActive ? "text-[var(--edu-affirm)]" : ""
-          }`}
-          key={`inline-typed-gap-row-${id}-${i}`}
-        >
-          <div className="flex items-start gap-3">
-            {item?.audio ? (
-              <span
-                className="shrink-0 pt-0.5"
-                ref={(node) => this.setAudioTriggerRef(i, node)}
-              >
-                {useMasterRowAudio ? (
-                  <CircularAudioProgressAnimatedSpeakerDisplay
-                    className="super-compact-speaker shrink-0"
-                    duration={prog.duration}
-                    handleClick={(event) => this.handlePromptAudioClick(i, playlistIndex, event)}
-                    progress={prog.currentTime}
-                    status={status}
-                    title={isActive ? "Click to pause" : "Click to play"}
-                  />
-                ) : (
-                  <AudioClip
-                    className="super-compact-speaker shrink-0"
-                    id={`inlineTypedGapRowAudio-${i}`}
-                    onStatusChange={(nextStatus) => this.handleRowAudioStatusChange(i, nextStatus)}
-                    soundFile={resolveAsset(item.audio)}
-                  />
-                )}
-              </span>
+    rows.push(
+      <div
+        className={`rounded-xl border border-border/70 bg-card/60 p-3 shadow-sm md:p-4 ${
+          isActive ? "text-[var(--edu-affirm)]" : ""
+        }`}
+        key={`inline-typed-gap-row-${id}-${i}`}
+      >
+        <div className="flex items-start gap-3">
+          {item?.audio ? (
+            <span
+              className="shrink-0 pt-0.5"
+              ref={(node) => setAudioTriggerRef(i, node)}
+            >
+              {useMasterRowAudio ? (
+                <CircularAudioProgressAnimatedSpeakerDisplay
+                  className="super-compact-speaker shrink-0"
+                  duration={prog.duration}
+                  handleClick={(event) => handlePromptAudioClick(i, playlistIndex, event)}
+                  progress={prog.currentTime}
+                  status={status}
+                  title={isActive ? "Click to pause" : "Click to play"}
+                />
+              ) : (
+                <AudioClip
+                  className="super-compact-speaker shrink-0"
+                  id={`inlineTypedGapRowAudio-${i}`}
+                  onStatusChange={(nextStatus) => handleRowAudioStatusChange(i, nextStatus)}
+                  soundFile={resolveAsset(item.audio)}
+                />
+              )}
+            </span>
+          ) : null}
+
+          <div className="min-w-0 flex-1">
+            {promptText ? (
+              item?.audio ? (
+                <button
+                  className={`m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-sm leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${
+                    isActive || rowAudioStatus[i] === "playing"
+                      ? "text-[var(--edu-affirm)]"
+                      : "text-foreground hover:text-[var(--edu-affirm)]"
+                  }`}
+                  onClick={(event) => handlePromptAudioClick(i, playlistIndex, event)}
+                  type="button"
+                >
+                  {promptText}
+                </button>
+              ) : (
+                <p className="m-0 text-sm leading-[var(--line-height-app)] text-foreground md:text-base">
+                  {promptText}
+                </p>
+              )
             ) : null}
 
-            <div className="min-w-0 flex-1">
-              {promptText ? (
-                item?.audio ? (
-                  <button
-                    className={`m-0 cursor-pointer border-0 bg-transparent p-0 text-left text-sm leading-[var(--line-height-app)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 md:text-base ${
-                      isActive || rowAudioStatus[i] === "playing"
-                        ? "text-[var(--edu-affirm)]"
-                        : "text-foreground hover:text-[var(--edu-affirm)]"
-                    }`}
-                    onClick={(event) => this.handlePromptAudioClick(i, playlistIndex, event)}
-                    type="button"
-                  >
-                    {promptText}
-                  </button>
-                ) : (
-                  <p className="m-0 text-sm leading-[var(--line-height-app)] text-foreground md:text-base">
-                    {promptText}
-                  </p>
-                )
-              ) : null}
-
-              <div className="mt-2 grid grid-cols-[minmax(0,1fr)_2.75rem] items-start gap-x-3">
-                <div className="min-w-0 text-sm leading-[var(--line-height-app)] text-foreground md:text-base">
-                  {this.renderSentence(segments)}
-                </div>
-                <span
-                  aria-hidden="true"
-                  className={`inline-flex min-h-10 w-11 items-center justify-center ${
-                    rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"
-                  }`}
-                >
-                  {<ResultIcon isCorrect={rowIsCorrect} />}
-                </span>
+            <div className="mt-2 grid grid-cols-[minmax(0,1fr)_2.75rem] items-start gap-x-3">
+              <div className="min-w-0 text-sm leading-[var(--line-height-app)] text-foreground md:text-base">
+                {renderSentence(segments)}
               </div>
+              <span
+                aria-hidden="true"
+                className={`inline-flex min-h-10 w-11 items-center justify-center ${
+                  rowHasResult ? (rowIsCorrect ? "text-[var(--edu-affirm)]" : "text-[var(--destructive)]") : "invisible"
+                }`}
+              >
+                {<ResultIcon isCorrect={rowIsCorrect} />}
+              </span>
             </div>
           </div>
         </div>
-      );
-    }
-
-    this.nToSolve = blankCursor;
-    const hasAnyAttempt = Object.keys(values).some((key) => `${values[key]}`.trim() !== "");
-    const hasAnyIncorrect = this.state.hasChecked && nCorrect < this.nToSolve;
-
-    return (
-      <div
-        className="inline-typed-gap-exercise-container container"
-        id={id || undefined}
-        key={`${id}InlineTypedGapExercise`}
-      >
-        {htmlContent ? (
-          <div
-            className="html-content"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
-          />
-        ) : null}
-
-        {useSequenceAudioController && playlist.length > 0 ? (
-          <SequenceAudioController
-            ref={this.sequenceRef}
-            onPlayStateChange={this.handleMasterPlayStateChange}
-            onStopped={(playlistIndex) => this.handleMasterStopped(playlistIndex, playlist)}
-            onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
-              this.handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
-            }
-            onTrackChange={(playlistIndex) => this.handleMasterTrackChange(playlistIndex, playlist)}
-            pauseSeconds={0.5}
-            sources={playlist.map((entry) => entry.src)}
-          />
-        ) : null}
-
-        {listenDescriptionText && soundFile && !(useSequenceAudioController && playlist.length > 0) ? (
-          useSequenceAudioController ? (
-            <div className="space-y-1">
-              <SequenceAudioController sources={[resolveAsset(soundFile)]} />
-            </div>
-          ) : (
-            <AudioClip
-              id={`listen-${id}`}
-              listenText={listenDescriptionText}
-              soundFile={soundFile}
-            />
-          )
-        ) : null}
-
-        <div className="space-y-3">{rows}</div>
-
-        <div className="exercise-divider" data-orientation="horizontal" role="none" />
-        <ProgressDots correct={nCorrect} total={this.nToSolve} />
-        <div className="exercise-divider" data-orientation="horizontal" role="none" />
-
-        <ExerciseFooter
-          onCheck={this.handleCheckAnswers}
-          onReset={this.handleReset}
-          onShowAnswers={this.handleShowAnswers}
-          showAnswers={hasAnyIncorrect}
-          showAnswersLabel={cheatText}
-          showReset={hasAnyAttempt || this.state.hasChecked}
-        />
-
-        {footnote ? <p className="footnote">{footnote}</p> : null}
-        {footnoteHTML ? (
-          <p
-            className="footNote"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(footnoteHTML) }}
-          />
-        ) : null}
       </div>
     );
-  };
+  }
+
+  nToSolveRef.current = blankCursor;
+  const nToSolve = blankCursor;
+  const hasAnyAttempt = Object.keys(values).some((key) => `${values[key]}`.trim() !== "");
+  const hasAnyIncorrect = state.hasChecked && nCorrect < nToSolve;
+
+  return (
+    <div
+      className="inline-typed-gap-exercise-container container"
+      id={id || undefined}
+      key={`${id}InlineTypedGapExercise`}
+    >
+      {htmlContent ? (
+        <div
+          className="html-content"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }}
+        />
+      ) : null}
+
+      {useSequenceAudioController && playlist.length > 0 ? (
+        <SequenceAudioController
+          ref={sequenceRef}
+          onPlayStateChange={handleMasterPlayStateChange}
+          onStopped={(playlistIndex) => handleMasterStopped(playlistIndex, playlist)}
+          onTimeUpdate={(playlistIndex, clipTime, clipDuration) =>
+            handleMasterTime(playlistIndex, clipTime, clipDuration, playlist)
+          }
+          onTrackChange={(playlistIndex) => handleMasterTrackChange(playlistIndex, playlist)}
+          pauseSeconds={0.5}
+          sources={playlist.map((entry) => entry.src)}
+        />
+      ) : null}
+
+      {listenDescriptionText && soundFile && !(useSequenceAudioController && playlist.length > 0) ? (
+        useSequenceAudioController ? (
+          <div className="space-y-1">
+            <SequenceAudioController sources={[resolveAsset(soundFile)]} />
+          </div>
+        ) : (
+          <AudioClip
+            id={`listen-${id}`}
+            listenText={listenDescriptionText}
+            soundFile={soundFile}
+          />
+        )
+      ) : null}
+
+      <div className="space-y-3">{rows}</div>
+
+      <div className="exercise-divider" data-orientation="horizontal" role="none" />
+      <ProgressDots correct={nCorrect} total={nToSolve} />
+      <div className="exercise-divider" data-orientation="horizontal" role="none" />
+
+      <ExerciseFooter
+        onCheck={handleCheckAnswers}
+        onReset={handleReset}
+        onShowAnswers={handleShowAnswers}
+        showAnswers={hasAnyIncorrect}
+        showAnswersLabel={cheatText}
+        showReset={hasAnyAttempt || state.hasChecked}
+      />
+
+      {footnote ? <p className="footnote">{footnote}</p> : null}
+      {footnoteHTML ? (
+        <p
+          className="footNote"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(footnoteHTML) }}
+        />
+      ) : null}
+    </div>
+  );
 }
