@@ -355,8 +355,14 @@ Once exercises are functional:
           wrong → `--destructive`, zero console errors. No production LO sets
           `useSequenceAudioController` for it, so the master path is exercised by
           the hook unit tests + the identical SelectExercise adoption.
-    - [ ] `DraggableFillGapsRuntime` — has ONLY the 3 master fields (NO
-          `rowAudioStatus`); verify the missing field doesn't break.
+    - [x] `DraggableFillGapsRuntime` (PR #24, `c7ffa70`) — −44/+14; had ONLY the
+          3 master fields (NO `rowAudioStatus`), so the whole audio block moved to
+          the hook cleanly. Grade-verified (`first-contact`, `#draggableFillGaps2`
+          phrases): 3 rows + 3 speakers + SequenceAudioController render, row-speaker
+          click drives the active-row highlight via the hook handlers, zero console
+          errors. Note: the hook's `stoppedPatch` snaps the stopped row's progress
+          bar to full on stop where the inline handler reset it to 0 — deliberate
+          normalization to the shared behavior; cosmetic, grading unaffected.
     - [ ] `InlineTypedGapExercise` — OUTLIER: per-row TOGGLE model, NOT the
           master-player handler set. Inspect first; likely does NOT fit — decide
           + document, don't force.
