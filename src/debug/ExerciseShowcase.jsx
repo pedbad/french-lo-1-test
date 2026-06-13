@@ -24,7 +24,6 @@ import {
   PhraseReorderExercise,
   TypedTransformExercise,
   WordSpotExercise,
-  ClozeTypingExercise,
 } from '@/components/exercises';
 
 // ---------------------------------------------------------------------------
@@ -201,17 +200,6 @@ const WORD_SPOT_CONFIG = {
   titleText: 'WordSpotExercise',
 };
 
-const CLOZE_CONFIG = {
-  id: 'showcase-cloze',
-  informationText: 'Type the missing word(s) to complete each sentence.',
-  phrases: [
-    ["Je [m'appelle] Marie.", "[m'appelle]", A('short-a.mp3')],
-    ['Tu [vas] à Paris ?',    '[vas]',       A('short-b.mp3')],
-    ['Il [fait] beau.',       '[fait]',      A('short-c.mp3')],
-  ],
-  titleText: 'ClozeTypingExercise',
-};
-
 // ---------------------------------------------------------------------------
 // Showcase entry (label + component)
 // ---------------------------------------------------------------------------
@@ -281,11 +269,6 @@ const EXERCISES = [
     label: 'WordSpotExercise',
     description: 'Click on bracketed phonetic segments within words to identify target sounds.',
     render: () => <WordSpotExercise config={WORD_SPOT_CONFIG} />,
-  },
-  {
-    label: 'ClozeTypingExercise',
-    description: 'Type missing words per-gap (cloze) — differs from DictationExercise in scoring scope.',
-    render: () => <ClozeTypingExercise config={CLOZE_CONFIG} />,
   },
 ];
 
