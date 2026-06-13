@@ -343,14 +343,6 @@
 		padding: 5px 4px;
 	}
 
-	.radio-quiz-container .radio-quiz-table td span.inline-typed-answer {
-		white-space: nowrap;
-	}
-
-	.radio-quiz-container .radio-quiz-table td span.inline-typed-answer .typed-answer-field-container {
-		display: inline-flex;
-	}
-
 	.radio-quiz-container .radio-quiz-table tbody,
 	.radio-quiz-container .radio-quiz-table tr {
 		border: none;
@@ -1146,83 +1138,7 @@
 		}
 	}
 
-	/* TypedAnswerField shell + comparison styling extracted from TypedAnswerField. */
-	.typed-answer-field-container {
-		padding: 20px;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		position: relative;
-	}
-
-	.typed-answer-field-container.compact {
-		padding: 8px 12px;
-	}
-
-	.typed-answer-field-container.compact form {
-		display: flex;
-		justify-content: space-between;
-		column-gap: 20px;
-	}
-
-	.typed-answer-field-container textarea,
-	.typed-answer-field-container .comparison-result {
-		min-height: 30vh;
-		white-space: break-spaces;
-		overflow-wrap: anywhere;
-		word-break: normal;
-	}
-
-	.typed-answer-field-container textarea span,
-	.typed-answer-field-container .comparison-result span {
-		display: inline;
-	}
-
-	.typed-answer-field-container div.comparison-result {
-		background-color: var(--card);
-		line-height: calc(var(--font-size-sm) * 2);
-	}
-
-	.typed-answer-field-container div.comparison-result span {
-		vertical-align: bottom;
-		padding: 4px;
-		min-width: 12px;
-		min-height: 24px;
-		border: 1px solid transparent;
-	}
-
-	.typed-answer-field-container div.comparison-result .deleted,
-	.typed-answer-field-container div.comparison-result .inserted {
-		cursor: pointer;
-	}
-
-	.typed-answer-field-container div.comparison-result .deleted {
-		border: 1px solid var(--destructive);
-		background: color-mix(in oklab, var(--destructive) 20%, transparent);
-		text-decoration: line-through;
-	}
-
-	.typed-answer-field-container div.comparison-result .inserted {
-		background-color: color-mix(in oklab, var(--edu-affirm) 20%, transparent);
-		border: 1px solid var(--edu-affirm);
-	}
-
-	.typed-answer-field-container .comparison-result {
-		border-radius: 8px;
-		padding: 2px 4px;
-		border-color: var(--border);
-		box-shadow: 0 1px 2px color-mix(in oklab, var(--foreground) 20%, transparent);
-	}
-
-	.typed-answer-field-container.compact .comparison-result {
-		margin: auto 0;
-		min-width: auto;
-		width: auto;
-		min-height: auto;
-		background-color: var(--card);
-	}
-
-	/* Typed transform global-check diff blocks (outside TypedAnswerField container). */
+	/* Typed transform global-check diff blocks. */
 	.answer-table-container .comparison-result {
 		border-radius: 8px;
 		padding: 2px 4px;

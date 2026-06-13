@@ -63,53 +63,6 @@ These three components share a single runtime (`TextEntryExerciseRuntime`) and d
 }
 ```
 
----
-
-### `ClozeTypingExercise`
-
-**What the learner does:** Reads a sentence with one or more gaps and types the missing word(s) directly into the inline input field(s).
-
-**Pedagogical purpose:** Sentence-completion (gap-fill) in context. The surrounding sentence provides meaning cues; the learner recalls or applies the target form.
-
-**Key behaviour:**
-- Gaps marked with `[answer]` brackets in the phrase string
-- Comparison is strict (exact trim match)
-- Each gap renders as an inline `TypedAnswerField` input within the row
-- No global controls bar — each row manages its own check independently
-- Future: partial credit, multi-gap scoring (see `TODO(component-split)` in source)
-
-**Config example:**
-```json
-{
-  "component": "ClozeTypingExercise",
-  "id": "clozeTypingExercise1",
-  "phrases": [
-    ["Je [suis] étudiant.", ""]
-  ]
-}
-```
-
----
-
-### `TypedAnswerField`
-**Location:** `src/components/TypedAnswerField/`
-
-**What the learner does:** Types a response into an input field (compact inline mode) or a textarea (standalone mode).
-
-**Pedagogical purpose:** A low-level typed-input primitive used in two contexts:
-1. **Compact/inline** — used internally by `ClozeTypingExercise` (via `TextEntryExerciseRuntime`) to render `[answer]` gap fields inside exercise rows.
-2. **Standalone** — a self-contained listen-and-type exercise: learner hears audio, types into a textarea, and checks their answer.
-
-**Key behaviour:**
-- `compact: true` — renders a single-line `<Input>` + Check button; no audio
-- `compact: false` — renders `<AudioClip>` + `<Textarea>` + Check/Reset buttons
-- Diff highlighting on check (inserted/deleted markup)
-- Internal component — not typically authored directly in LO config; used programmatically
-
-> **Previous name:** `Monologue` (renamed for clarity — the old name suggested audio content, not a typed input field)
-
----
-
 ## Choice / selection exercises
 
 ---
