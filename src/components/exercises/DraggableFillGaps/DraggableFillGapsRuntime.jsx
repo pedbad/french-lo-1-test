@@ -23,6 +23,7 @@ import DOMPurify from "dompurify";
 import { CircleAlert } from "lucide-react";
 import { useCallback, useEffect, useReducer, useRef } from "react";
 import { Switch } from "@/components/ui/switch";
+import { useExerciseAudio } from "@/hooks/useExerciseAudio";
 
 const BLANKS_TARGET_BOARD_TEXT_CLASS = "text-[length:calc(var(--font-size-sm)*1.2)] font-bold";
 const BLANKS_TARGET_TABLE_TEXT_CLASS = "text-base";
@@ -143,10 +144,6 @@ const getInitialState = (config = {}) => {
     slotWidthPx: null,
     wordTiles,
     words,
-
-    activeRowIndex: -1,
-    masterPlayState: "stopped",
-    rowProgress: {},
   };
 };
 
@@ -162,6 +159,19 @@ const reducer = (state, patch) => {
 
 export function DraggableFillGapsRuntime({ config = {}, suppressInfo = false }) {
   const [state, dispatch] = useReducer(reducer, config, getInitialState);
+
+  // Master-player audio (activeRowIndex / masterPlayState / rowProgress + the four
+  // handleMaster* handlers) is owned by the shared hook (Phase 6). The per-row
+  // click path is not used by this component (no rowAudioStatus).
+  const {
+    activeRowIndex,
+    masterPlayState,
+    rowProgress,
+    handleMasterTrackChange,
+    handleMasterPlayStateChange,
+    handleMasterTime,
+    handleMasterStopped,
+  } = useExerciseAudio(config);
 
   // Instance fields → refs (mutable, non-render).
   // Original "home" positions per tile, keyed by "word{index}" (geometry cache).
@@ -429,43 +439,6 @@ export function DraggableFillGapsRuntime({ config = {}, suppressInfo = false }) 
 
   const handleToggle = (value) => {
     dispatch({ showHints: value });
-  };
-
-  const handleMasterStopped = (playlistIndex, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-
-    dispatch((prev) => ({
-      activeRowIndex: -1,
-      masterPlayState: "stopped",
-      rowProgress: rowIndex >= 0 ? {
-        ...prev.rowProgress,
-        [rowIndex]: {
-          currentTime: 0,
-          duration: prev.rowProgress[rowIndex]?.duration || 0
-        },
-      } : prev.rowProgress
-    }));
-  };
-
-  const handleMasterPlayStateChange = (playState) => {
-    dispatch({ masterPlayState: playState });
-  };
-
-  const handleMasterTrackChange = (playlistIndex, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    dispatch({ activeRowIndex: rowIndex });
-  };
-
-  const handleMasterTime = (playlistIndex, currentTime, duration, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex;
-    if (rowIndex === undefined) return;
-
-    dispatch((prev) => ({
-      rowProgress: {
-        ...prev.rowProgress,
-        [rowIndex]: { currentTime, duration },
-      },
-    }));
   };
 
   // ---------- Drag handling (now in words-container coordinate space) ----------
@@ -855,7 +828,6 @@ export function DraggableFillGapsRuntime({ config = {}, suppressInfo = false }) 
 
   const {
     assignedCount = 0,
-    activeRowIndex,
     answers,
     blanksType = 'phrases',
     cheatText,
@@ -866,12 +838,10 @@ export function DraggableFillGapsRuntime({ config = {}, suppressInfo = false }) 
     id = '',
     items,
     listenDescriptionText,
-    masterPlayState,
     nPlaced = 0,
     nToPlace,
     pictures,
     questions,
-    rowProgress,
     showHints,
     showHintsText,
     showInvalidDropHint = false,
