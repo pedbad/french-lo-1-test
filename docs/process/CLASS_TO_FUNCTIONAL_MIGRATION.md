@@ -313,7 +313,14 @@ patterns; converting them unlocks `useExerciseAudio()`.
       clears assignments / hints toggle — zero console errors. PR #14.
 - [ ] `DictationExercise/DictationExercise.jsx` — thin wrapper around the
       (now functional, single-path) runtime; trivial class→function swap.
-- [ ] `TypedTransformExercise/TypedTransformExercise.jsx` — thin wrapper; trivial swap.
+- [x] `TypedTransformExercise/TypedTransformExercise.jsx` — thin wrapper; trivial
+      swap. `React.PureComponent` + `render = () =>` → plain function spreading
+      props to `TextEntryExerciseRuntime` (fixed `audioClipClassName` /
+      `audioColumnPosition`). No state/lifecycle/refs; React default import dropped.
+      Grade behaviour lives in the functional runtime (PR #16) — grade-verified in
+      browser (`origins-and-languages`, `#typedTransformExercise3`): exact correct →
+      `--edu-affirm` / trailing-space correct → `--edu-affirm` (strict trims) / wrong
+      → `--destructive`; zero console errors. PR #20.
 - [x] ~~`ClozeTypingExercise/ClozeTypingExercise.jsx`~~ — **REMOVED** (PR #17),
       not converted: dead in production (zero LO configs). Was a thin wrapper.
 - [x] `exercises/current-location/nasal-rhyme-exercise.jsx` — already functional
