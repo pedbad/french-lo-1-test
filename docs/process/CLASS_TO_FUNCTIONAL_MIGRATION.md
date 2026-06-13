@@ -199,7 +199,19 @@ patterns; converting them unlocks `useExerciseAudio()`.
       shuffleItems): correct ✓ / wrong ✗ / show-answers / reset re-samples /
       re-choose-after-check invalidates only edited blank / keyboard nav /
       row audio — all match class baseline, zero console errors. PR #10.
-- [ ] `InlineTypedGapExercise/InlineTypedGapExercise.jsx`
+- [x] `InlineTypedGapExercise/InlineTypedGapExercise.jsx` — typed gaps. Plain
+      function (caller renders uniformly `<Component config={value} />`, no
+      unstable props, no memo). useReducer merge + lazy init (`getResetState`);
+      `componentDidUpdate` config-reset → prev-config ref effect (full reset +
+      clear `rowAudioRefs`); render-derived `blanksMeta`/`nToSolve` rebuilt each
+      render + mirrored into refs for handlers (SelectExercise #9 pattern);
+      `rowAudioRefs`/`sequenceRef` → refs; audio handlers → reducer
+      function-patches; `React.Fragment` → named `Fragment`, no React default
+      import. Scoring unchanged (`normalizeAnswer` / `parseSentence` +
+      `parseInputBlank` / `highlightTextDiff`). Grade-verified in browser
+      (inlineTypedGapExercise2): correct ✓ / wrong ✗ + diff / trailing-space
+      tolerated, case+accents strict / edit-after-check clears that blank /
+      reset / show-answers fills all + marks correct, zero console errors. PR #15.
 - [ ] `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
 - [x] `LineMatch/LineMatch.jsx` — useReducer merge + lazy init
       (`getResetState`); reducer **bails out (returns same state ref) on a
