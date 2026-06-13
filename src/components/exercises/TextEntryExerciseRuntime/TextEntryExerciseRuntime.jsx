@@ -1,6 +1,5 @@
 import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { ProgressDots } from "@/components/exercises/ProgressDots";
-import { TypedAnswerField } from "@/components/content";
 import { AudioClip } from "@/components/media";
 import { Input } from "@/components/ui/input";
 import {
@@ -23,13 +22,9 @@ import { normalizeForDictation } from "@/utils/answerNormalize";
 import { highlightTextDiff } from "@/utils/exerciseDiff";
 
 // Shared runtime for typed-response table exercises.
-// This is the compatibility layer used by:
-// - TypedTransformExercise (semantic, useGlobalActions=true)
-// - DictationExercise (semantic, useGlobalActions=true)
-//
-// NOTE: the useGlobalActions=false inline-gap branch (per-row TypedAnswerField,
-// no shared footer) has no live caller after ClozeTypingExercise was removed.
-// Kept for now; a candidate for Phase 6 cleanup.
+// Used by TypedTransformExercise and DictationExercise — both render a graded
+// table: per-row Input + diff + shared ExerciseFooter (Check / Reset /
+// Show answers) + ProgressDots.
 //
 // TODO(component-split): once TypedTransformExercise and DictationExercise
 // have distinct scoring/normalization rules, move shared UI-only parts into a
@@ -69,7 +64,6 @@ export function TextEntryExerciseRuntime({
   comparisonOptions = undefined,
   audioClipClassName = "compact",
   audioColumnPosition = "right",
-  useGlobalActions = false,
 }) {
   const [state, dispatch] = useReducer(reducer, config, getResetState);
   // DOM node map for prompt-audio click delegation (no audio state).
@@ -277,7 +271,7 @@ export function TextEntryExerciseRuntime({
     values = {},
   } = state;
   const hasNonEmptyPromptColumn = phrases.some((phrase) => `${phrase?.[0] || ""}`.trim() !== "");
-  const shouldInlineAudioWithPrompt = useGlobalActions && hasNonEmptyPromptColumn;
+  const shouldInlineAudioWithPrompt = hasNonEmptyPromptColumn;
 
   const expectedByRow = phrases.map((phrase) => extractExpectedAnswer(phrase?.[1] || ""));
   const nPhrases = expectedByRow.filter(Boolean).length;
@@ -343,13 +337,11 @@ export function TextEntryExerciseRuntime({
     }
 
     if (phrase[0] !== "") {
-      const promptCellClassName = useGlobalActions
-        ? (shouldInlineAudioWithPrompt ? "align-top w-[34%]" : "align-top")
-        : undefined;
+      const promptCellClassName = shouldInlineAudioWithPrompt ? "align-top w-[34%]" : "align-top";
       const promptContent = renderPromptText(phrase[0], soundFile, i);
       cells.push(
         <TableCell className={promptCellClassName} key={`row${i}cell0`}>
-          {(shouldInlineAudioWithPrompt || (!useGlobalActions && soundFile)) && soundFile ? (
+          {shouldInlineAudioWithPrompt && soundFile ? (
             <div className="inline-flex items-center gap-2">
               <span ref={(node) => setAudioTriggerRef(i, node)}>
                 <AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
@@ -363,44 +355,7 @@ export function TextEntryExerciseRuntime({
       );
     }
 
-    if (phrase[1] !== "" && !useGlobalActions) {
-      const parts = [];
-      const regex = /\[([^\]]+)\]/g;
-      let lastIndex = 0;
-      let match;
-      let typedAnswerFieldIndex = 0;
-
-      while ((match = regex.exec(phrase[1])) !== null) {
-        if (match.index > lastIndex) {
-          parts.push(phrase[1].slice(lastIndex, match.index));
-        }
-
-        parts.push(
-          <TypedAnswerField
-            key={`TypedAnswerField${i}-${typedAnswerFieldIndex}`}
-            compact={true}
-            comparisonOptions={comparisonOptions}
-            id={`TypedAnswerField${i}-${typedAnswerFieldIndex}`}
-            content={match[1]}
-          />
-        );
-
-        typedAnswerFieldIndex += 1;
-        ({ lastIndex } = regex);
-      }
-
-      if (lastIndex < phrase[1].length) {
-        parts.push(phrase[1].slice(lastIndex));
-      }
-
-      cells.push(
-        <TableCell key={`row${i}cell1`}>
-          <span className="inline-typed-answer">{parts}</span>
-        </TableCell>
-      );
-    }
-
-    if (phrase[1] !== "" && useGlobalActions) {
+    if (phrase[1] !== "") {
       const rowHasResult = hasChecked && Object.prototype.hasOwnProperty.call(checkedResults, i);
       const rowHasDiff = hasChecked && Object.prototype.hasOwnProperty.call(diffResults, i);
       const rowIsCorrect = rowHasResult && checkedResults[i] === true;
@@ -413,9 +368,7 @@ export function TextEntryExerciseRuntime({
         : userValue
           ? "border-[var(--ex-neutral)] bg-[color-mix(in_oklab,var(--ex-neutral)_10%,transparent)]"
           : "border-border";
-      const answerCellClassName = useGlobalActions
-        ? (shouldInlineAudioWithPrompt ? "align-top w-[66%]" : "align-top")
-        : undefined;
+      const answerCellClassName = shouldInlineAudioWithPrompt ? "align-top w-[66%]" : "align-top";
 
       cells.push(
         <TableCell className={answerCellClassName} key={`row${i}cell1`}>
@@ -454,10 +407,10 @@ export function TextEntryExerciseRuntime({
     if (longestRow > 2 && !shouldInlineAudioWithPrompt && soundFile) {
       const audioCell = (
         <TableCell
-          className={useGlobalActions ? "align-top w-14" : undefined}
+          className="align-top w-14"
           key={`row${i}cell${soundCellIndex}`}
         >
-          <div className={useGlobalActions ? "flex min-h-10 items-center" : undefined}>
+          <div className="flex min-h-10 items-center">
             <span ref={(node) => setAudioTriggerRef(i, node)}>
               <AudioClip className={audioClipClassName} label="" soundFile={soundFile} />
             </span>
@@ -490,7 +443,7 @@ export function TextEntryExerciseRuntime({
     >
       {htmlContent ? <div className="html-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlContent) }} /> : null}
 
-      <Table className={useGlobalActions ? "table-fixed" : undefined}>
+      <Table className="table-fixed">
         {!header && (
         /* colgroup sets column widths for table-fixed independently of any header row */
           <colgroup>
@@ -520,23 +473,17 @@ export function TextEntryExerciseRuntime({
         <TableBody>{rows}</TableBody>
       </Table>
 
-      {useGlobalActions ? (
-        <>
-          <div className="exercise-divider" data-orientation="horizontal" role="none" />
-          <ProgressDots correct={nCorrect} total={nPhrases} />
-          <div className="exercise-divider" data-orientation="horizontal" role="none" />
-          <ExerciseFooter
-            onCheck={handleCheckAnswers}
-            onReset={handleReset}
-            onShowAnswers={handleShowAnswers}
-            showAnswers={hasAnyIncorrect}
-            showAnswersLabel={cheatText}
-            showReset={hasAnyAttempt || hasChecked}
-          />
-        </>
-      ) : (
-        <p>{nCorrect} correct out of {nPhrases}.</p>
-      )}
+      <div className="exercise-divider" data-orientation="horizontal" role="none" />
+      <ProgressDots correct={nCorrect} total={nPhrases} />
+      <div className="exercise-divider" data-orientation="horizontal" role="none" />
+      <ExerciseFooter
+        onCheck={handleCheckAnswers}
+        onReset={handleReset}
+        onShowAnswers={handleShowAnswers}
+        showAnswers={hasAnyIncorrect}
+        showAnswersLabel={cheatText}
+        showReset={hasAnyAttempt || hasChecked}
+      />
     </div>
   );
 }
