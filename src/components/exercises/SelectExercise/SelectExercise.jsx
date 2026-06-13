@@ -17,6 +17,7 @@ import { shuffleArray } from "@/utils/collections";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { parseChoiceBlank, parseSentence } from "@/utils/exerciseParsing";
 import { resolveAsset } from "@/utils/assets";
+import { useExerciseAudio } from "@/hooks/useExerciseAudio";
 
 const SELECT_EXERCISE_TRIGGER_CLASS = "w-full min-h-10 text-sm md:text-base";
 const SELECT_EXERCISE_INLINE_TRIGGER_CLASS = "inline-flex min-h-9 w-auto max-w-full align-middle text-sm md:text-base";
@@ -99,21 +100,18 @@ const getInlinePassageLineStyle = (accentKey) => {
 };
 
 const getResetState = (config = {}) => ({
-  activeRowIndex: -1,
   checkedResults: {},
   hasChecked: false,
-  masterPlayState: "stopped",
   nCorrect: 0,
   rowAudioStatus: {},
-  rowProgress: {},
   shuffledItems: buildPreparedItems(config?.items || [], config),
   values: {},
 });
 
-// Merge reducer: each dispatch is a partial state patch (9 interdependent
+// Merge reducer: each dispatch is a partial state patch (interdependent answer
 // fields, so useReducer over many useState calls per the migration plan).
-// A function patch receives the latest state — used by the audio progress
-// handlers, which can fire faster than renders flush.
+// A function patch receives the latest state. (Master-player audio state moved
+// to the shared useExerciseAudio hook in Phase 6.)
 const reducer = (state, patch) => ({
   ...state,
   ...(typeof patch === "function" ? patch(state) : patch),
@@ -136,6 +134,17 @@ export function SelectExercise({ config = {} }) {
 
   const [state, dispatch] = useReducer(reducer, config, getResetState);
   const { hasChecked, rowAudioStatus, shuffledItems, values } = state;
+
+  // Master-player audio state (SequenceAudioController) lives in a shared hook.
+  const {
+    activeRowIndex,
+    masterPlayState,
+    rowProgress,
+    handleMasterTrackChange,
+    handleMasterPlayStateChange,
+    handleMasterTime,
+    handleMasterStopped,
+  } = useExerciseAudio(config);
 
   const blanksMetaRef = useRef([]);
   const nToSolveRef = useRef(0);
@@ -293,44 +302,6 @@ export function SelectExercise({ config = {} }) {
     });
   };
 
-  const handleMasterStopped = (playlistIndex, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    dispatch((prev) => ({
-      activeRowIndex: -1,
-      masterPlayState: "stopped",
-      rowProgress: rowIndex >= 0 ? {
-        ...prev.rowProgress,
-        [rowIndex]: {
-          currentTime: prev.rowProgress[rowIndex]?.duration || 0,
-          duration: prev.rowProgress[rowIndex]?.duration || 0,
-        },
-      } : prev.rowProgress,
-    }));
-  };
-
-  const handleMasterPlayStateChange = (playState) => {
-    dispatch({ masterPlayState: playState });
-  };
-
-  const handleMasterTrackChange = (playlistIndex, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    dispatch({ activeRowIndex: rowIndex });
-  };
-
-  const handleMasterTime = (playlistIndex, currentTime, duration, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    if (rowIndex < 0) return;
-    dispatch((prev) => ({
-      rowProgress: {
-        ...prev.rowProgress,
-        [rowIndex]: {
-          currentTime,
-          duration,
-        },
-      },
-    }));
-  };
-
   const renderInlineSelect = (blankIndex, localIndex, rowBlankIndices, triggerClassName = SELECT_EXERCISE_INLINE_TRIGGER_CLASS) => {
     const selectId = `${id}-select-${blankIndex}`;
     const meta = blanksMetaRef.current[blankIndex];
@@ -394,11 +365,11 @@ export function SelectExercise({ config = {} }) {
     if (!phraseText) continue;
     const playlistIndex = rowToPlaylistIndex[i];
     const useMasterRowAudio = useSequenceAudioController && playlistIndex !== undefined;
-    const isActive = state.activeRowIndex === i;
+    const isActive = activeRowIndex === i;
     const status = isActive
-      ? (state.masterPlayState === "playing" ? "playing" : "stopped")
+      ? (masterPlayState === "playing" ? "playing" : "stopped")
       : "stopped";
-    const prog = state.rowProgress[i] || { currentTime: 0, duration: 0 };
+    const prog = rowProgress[i] || { currentTime: 0, duration: 0 };
 
     const { nextBlankIndex, segments } = parseSentence(phraseText, {
       startBlankIndex: blankCursor,
