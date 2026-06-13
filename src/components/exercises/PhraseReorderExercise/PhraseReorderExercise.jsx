@@ -6,7 +6,7 @@ import { AudioClip, IconButton } from "@/components/media";
 import { SortableWordCard } from "@/components/exercises/SortableWordCard/SortableWordCard";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
 import { shuffleArray } from "@/utils/collections";
-import { useEffect, useLayoutEffect, useReducer, useRef } from "react";
+import { useLayoutEffect, useReducer, useRef } from "react";
 
 // Map config.phrases -> [{ lang2, id }], shuffled unless shuffleOnLoad === false.
 // Pure module fn (was the getInitialLang2 instance method). Used by the lazy
@@ -116,17 +116,6 @@ export function PhraseReorderExercise({ config = {}, suppressInfo = false }) {
       ...options,
     });
   }, [lang2Items]);
-
-  // Config-identity reset (was the componentDidUpdate config branch). The ref
-  // compare keeps this a no-op on first render; key-based remount is the
-  // Phase 6 consolidation.
-  const prevConfigRef = useRef(config);
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      dispatch(getInitialState(config));
-    }
-  }, [config]);
 
   const setCardRef = (itemId, element) => {
     if (itemId === undefined || itemId === null) return;

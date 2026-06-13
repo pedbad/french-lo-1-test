@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useReducer } from "react";
 
 /**
  * Shared master-player audio state for exercises driven by SequenceAudioController.
@@ -10,8 +10,9 @@ import { useEffect, useReducer, useRef } from "react";
  * is a DIFFERENT concern and stays in each caller — only the master-player
  * (sequence controller) state lives here.
  *
- * Owns its own config-identity reset so callers can drop the master fields from
- * their reset state. Phase 6b key-based remount will make that reset redundant.
+ * State reset on config change is handled by the App-level key-based remount
+ * (Phase 6b): the host re-keys each exercise on every config load, so this hook
+ * carries no internal config-identity reset.
  */
 
 export const INITIAL_AUDIO_STATE = {
@@ -77,18 +78,8 @@ export const stoppedPatch = (playlistIndex, playlist) => {
   });
 };
 
-export function useExerciseAudio(config) {
+export function useExerciseAudio() {
   const [audio, dispatch] = useReducer(audioReducer, INITIAL_AUDIO_STATE);
-
-  // Config-identity reset (replaces the master-field portion of each caller's
-  // prevConfigRef/componentDidUpdate reset). Mount is a no-op via the ref compare.
-  const prevConfigRef = useRef(config);
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      dispatch(INITIAL_AUDIO_STATE);
-    }
-  }, [config]);
 
   const handleMasterTrackChange = (playlistIndex, playlist) => {
     dispatch(trackChangePatch(playlistIndex, playlist));

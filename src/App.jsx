@@ -375,6 +375,9 @@ const INITIAL_STATE = {
   modalLinkDialogTitle: "",
   modalLinkDialogContentHTML: "",
   modalLinkDialogContent: null,
+  // Bumped on every config load (same OR different LO) so the exercise host can
+  // remount via its key — see configGenRef / loadConfig.
+  configGen: 0,
 };
 
 export default function App() {
@@ -396,6 +399,11 @@ export default function App() {
 
   // Tracks previous config so the deep-link effect fires only on falsy→truthy.
   const prevConfigRef = useRef(null);
+
+  // Monotonic config-load counter. Incremented on every loadConfig (same OR
+  // different LO) and woven into the exercise host key, so a fresh config object
+  // remounts each exercise — replaces the per-component config-reset effects.
+  const configGenRef = useRef(0);
 
   // Live mirror of config for the once-attached delegated click handler, which
   // would otherwise close over a stale config captured at mount.
@@ -596,11 +604,13 @@ export default function App() {
           const currentLearningObject = learningObjectConfigFile;
 
           if (mountedRef.current) {
+            configGenRef.current += 1;
             setState({
               config: { ...normalizedConfig },
               currentLearningObject: currentLearningObject,
               settings: { ...mergedSettings },
               targetLanguageCode,
+              configGen: configGenRef.current,
             });
           }
           resolve({ targetLanguageCode });
@@ -868,13 +878,14 @@ export default function App() {
     const tabInformationTextHTML = value.informationTextHTML || infoTextHTML;
     const id = getResolvedComponentId(valueId, component);
 
-    const { languageCode } = state;
+    const { languageCode, configGen } = state;
 
     // Registry dispatch: exercises rendered bare in a tab. Special cases
-    // (Explanation, PhraseTable, custom) fall through to the switch.
+    // (Explanation, PhraseTable, custom) fall through to the switch. The
+    // configGen-keyed remount replaces the old per-component config-reset effect.
     const RegisteredExercise = EXERCISE_REGISTRY[component];
     if (RegisteredExercise) {
-      return <RegisteredExercise config={value} />;
+      return <RegisteredExercise key={`${id}-${configGen}`} config={value} />;
     }
 
     switch (component) {
@@ -938,7 +949,7 @@ export default function App() {
     const { expandable = true } = value;
     const { autoExpandSingleAccordion = false } = renderContext;
 
-    const { currentLearningObject, languageCode } = state;
+    const { currentLearningObject, languageCode, configGen } = state;
     const id = getResolvedComponentId(valueId, component);
     const targetId = forcedTargetId || id;
     const topLevelSemanticAs = forcedTargetId ? "div" : "section";
@@ -958,7 +969,7 @@ export default function App() {
           title={titleText}
           titleHTML={titleTextHTML}
         >
-          <RegisteredExercise config={value} />
+          <RegisteredExercise key={`${compoundID}-${configGen}`} config={value} />
         </AccordionArticle>,
       );
       return;

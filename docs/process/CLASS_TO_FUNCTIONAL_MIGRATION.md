@@ -10,10 +10,13 @@
 > was deleted as dead code (PR #17) rather than converted, so the live scope was 11.
 > A late-found `PureComponent`, `CurrentLocationNasalRhymeExercise`, missed by the
 > original `grep extends React`, was converted in PR #25.)
-> **Phase 6 — Consolidate:** 6a DONE (`useExerciseAudio()` extracted PR #22 + adopted
-> in SelectExercise PR #22, InlineChoiceGroup PR #23, DraggableFillGaps PR #24;
-> InlineTypedGap inspected — does NOT fit, left as-is). **Only Phase 6b (key-based
-> remount) remains** — see the Phase 6 section for the worked design.
+> **Phase 6 — Consolidate: COMPLETE.** 6a DONE (`useExerciseAudio()` extracted PR #22
+> + adopted in SelectExercise PR #22, InlineChoiceGroup PR #23, DraggableFillGaps
+> PR #24; InlineTypedGap inspected — does NOT fit, left as-is). 6b DONE (key-based
+> remount, PR #26): a monotonic `configGen` counter in App state, bumped inside the
+> single `loadConfig` setState, woven into the `<RegisteredExercise>` key at both
+> mount sites — replaces the 8 per-component config-reset effects + the hook's
+> internal reset. **Phase 6 done → the whole class→functional initiative is COMPLETE.**
 > This is a standalone initiative, not part of the DRY pass that produced
 > AudioManager, `parseSentence`, `answerNormalize`, `ExerciseFooter`, and
 > `ResultIcon` (those were done earlier).
@@ -394,9 +397,37 @@ Once exercises are functional:
              manual reset, so adopting it would stop the Reset button from clearing
              the master-audio state. Forcing the hook here would regress the
              stopped-handler semantics and the Reset path; not worth it.
-- [ ] Replace config-reset `componentDidUpdate` with `key`-based remount on the
-      exercise host, deleting the 8 reset blocks (retire the hook's internal
-      config reset at the same time).
+- [x] **Phase 6b — key-based remount (PR #26).** Replaced the 8 per-component
+      config-reset effects (`prevConfigRef` + reset `useEffect`) with a key-based
+      remount on the exercise host. App state gains a monotonic `configGen` counter
+      (`configGenRef`, bumped inside the single `loadConfig` setState that swaps the
+      `config` object), woven into the `<RegisteredExercise>` key at both mount
+      sites: tab path `key={`${id}-${configGen}`}` (App.jsx ~881) and accordion path
+      `key={`${compoundID}-${configGen}`}` (App.jsx ~961). **Why a counter, not a
+      plain `config`-id key:** `loadConfig` swaps the `config` object but keeps
+      `currentLearningObject`, so on a SAME-LO reload `compoundID` is unchanged — a
+      compoundID-only key would NOT remount and stale answers/shuffles would persist
+      (silent grade regression). `configGen` changes on EVERY config load (same OR
+      different LO), exactly matching the old effect trigger (config identity).
+      Deleted the reset blocks in RadioQuiz, SelectExercise, PhraseReorderExercise,
+      LineMatch, DraggableFillGapsRuntime, TextEntryExerciseRuntime,
+      InlineChoiceGroup, InlineTypedGapExercise, and retired `useExerciseAudio`'s
+      internal config-identity reset (dropped its now-unused `config` param + the 3
+      call sites). 7/8 reset effects did a full state reset (== remount);
+      DraggableFillGaps was geometry-only (remount is a clean superset). WordSpot /
+      MemoryMatch never had a reset effect — the generic key only changes when a
+      config actually loads (same as a real LO nav, which already remounts them via
+      the `AccordionArticle` key), so no behavior change for them. Verified: lint 0
+      errors, test:run 49/49, build clean; in-browser the live exercise React key
+      read back as `LO13-selectExercise1-2` (configGen woven in; =2 after the
+      StrictMode dev double-load = one bump per `loadConfig`); SelectExercise grades
+      correct→`--edu-affirm` / wrong→`--destructive` and the Reset button still
+      clears; LineMatch connector measurement still fires on fresh mount; zero
+      console errors. NOTE: this codebase has no user-facing same-LO reload gesture
+      today (LO switches are full-page nav, nav links are in-page scrolls) — the
+      only runtime same-LO config-identity change is the StrictMode dev double-load,
+      which `configGen` handles; the counter also future-proofs any later
+      reload/settings feature.
 - [ ] Extract any remaining shared exercise state (`useExerciseScoring`?) if a clean
       seam appears once components are hooks.
 
@@ -412,11 +443,14 @@ Once exercises are functional:
       (the latter caught the missed `CurrentLocationNasalRhymeExercise`, now converted
       in PR #25). The `ExerciseShowcase()` host page itself is functional.
       **Class→functional migration COMPLETE.**
-- [ ] `yarn lint` clean, `yarn test:run` green throughout (no phase left red).
-- [ ] Every scoring exercise grade-verified in-browser after its conversion.
-- [ ] `useExerciseAudio()` extracted; config-reset duplication removed.
-- [ ] No visual or behavioural regressions across the LO set (320/768/1024/1440 +
-      light/dark per `rules/web/testing.md`).
+- [x] `yarn lint` clean, `yarn test:run` green throughout (no phase left red).
+- [x] Every scoring exercise grade-verified in-browser after its conversion.
+- [x] `useExerciseAudio()` extracted; config-reset duplication removed (Phase 6b
+      replaced the 8 per-component reset effects + the hook's internal reset with the
+      App-level `configGen` key-remount).
+- [x] No visual or behavioural regressions across the LO set (320/768/1024/1440 +
+      light/dark per `rules/web/testing.md`) — verified incrementally per phase;
+      Phase 6b is pure remount-key plumbing with no layout/visual change.
 
 ## Effort estimate (rough)
 

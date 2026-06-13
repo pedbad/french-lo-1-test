@@ -13,7 +13,7 @@ import {
 import DOMPurify from "dompurify";
 import { Mars, Venus } from "lucide-react";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
-import { useEffect, useReducer, useRef } from "react";
+import { useReducer, useRef } from "react";
 import {
   resolveAsset,
 } from "@/utils/assets";
@@ -68,16 +68,6 @@ export function TextEntryExerciseRuntime({
   const [state, dispatch] = useReducer(reducer, config, getResetState);
   // DOM node map for prompt-audio click delegation (no audio state).
   const audioTriggerRefs = useRef({});
-  const prevConfigRef = useRef(config);
-
-  // Config-reset: full state reset when the config prop identity changes.
-  // (Matches the class componentDidUpdate — does NOT clear audioTriggerRefs.)
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      dispatch(getResetState(config));
-    }
-  }, [config]);
 
   const isAnswerCorrect = (userValue = "", expected = "") => {
     const { comparisonMode = "strict" } = comparisonOptions || {};
