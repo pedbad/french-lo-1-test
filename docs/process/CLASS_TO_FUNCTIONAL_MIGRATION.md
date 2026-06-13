@@ -4,8 +4,10 @@
 > `refactor/phase4-nonscoring-exercises`). All leaf/presentational + content
 > components, the audio infrastructure, the root `App.jsx`, and the two non-scoring
 > exercises are now functional. **Phase 5 COMPLETE (11/11)** — all scoring wrappers
-> functional. **1 class component remains:** `debug/ExerciseShowcase.jsx` (debug-only,
-> not Phase 5 scope) + Phase 6 (consolidate). (Phase 5 was originally 12 targets;
+> functional. **Migration effectively complete** — the only remaining class is
+> `ExerciseErrorBoundary` in `debug/ExerciseShowcase.jsx`, a React error boundary that
+> intentionally stays a class (no functional equivalent; the showcase page itself is
+> functional). Remaining work is Phase 6 (consolidate). (Phase 5 was originally 12 targets;
 > `ClozeTypingExercise` was deleted as dead code (PR #17) rather than converted, so
 > the live scope was 11, all done.) This is a standalone initiative, not part of
 > the DRY pass that produced AudioManager, `parseSentence`, `answerNormalize`,
@@ -174,9 +176,10 @@ re-run the audio suite + manual playback check.
 ### Phase 5 — Scoring exercises (HIGH risk — one per PR, browser-verify grades)
 > **✅ COMPLETE — all 11 scoring exercises converted (PR #8–#21).** Scope was
 > originally 12; `ClozeTypingExercise` was deleted (PR #17) rather than converted.
-> The `nasal-rhyme` entry below was already functional. `debug/ExerciseShowcase.jsx`
-> is the only remaining class — debug-only, not Phase 5 scope, convert
-> opportunistically.
+> The `nasal-rhyme` entry below was already functional. The only remaining class in the
+> codebase is `ExerciseErrorBoundary` inside `debug/ExerciseShowcase.jsx` — a React
+> error boundary (`getDerivedStateFromError`), which has no functional/hook equivalent
+> and stays a class by design. **Not pending conversion.**
 Each was grade-verified before/after. These share the config-reset + audio-state
 patterns; converting them unlocks `useExerciseAudio()` (Phase 6).
 

@@ -12,17 +12,17 @@ import { Switch } from '@/components/ui/switch';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { BackToTopButton } from '@/components/layout/page-shell/BackToTopButton';
 import {
-  SelectExercise,
-  WordOrderExercise,
-  DraggableFillGaps,
-  RadioQuiz,
-  LineMatch,
-  MemoryMatchGame,
   DictationExercise,
+  DraggableFillGaps,
   InlineChoiceGroup,
   InlineTypedGapExercise,
+  LineMatch,
+  MemoryMatchGame,
   PhraseReorderExercise,
+  RadioQuiz,
+  SelectExercise,
   TypedTransformExercise,
+  WordOrderExercise,
   WordSpotExercise,
 } from '@/components/exercises';
 
@@ -39,9 +39,9 @@ const SELECT_CONFIG = {
   renderInlineChoices: false,
   shuffleItems: false,
   items: [
-    { text: 'Je [*vais|vas|va|allons] à Paris.',         audio: A('short-b.mp3') },
-    { text: 'Tu [vais|*vas|va|allons] au cinéma ?',      audio: A('short-a.mp3') },
-    { text: "Elle [vais|vas|*va|allons] à l'école.",     audio: A('short-c.mp3') },
+    { text: 'Je [*vais|vas|va|allons] à Paris.', audio: A('short-b.mp3') },
+    { text: 'Tu [vais|*vas|va|allons] au cinéma ?', audio: A('short-a.mp3') },
+    { text: "Elle [vais|vas|*va|allons] à l'école.", audio: A('short-c.mp3') },
   ],
   titleText: 'SelectExercise',
 };
@@ -101,12 +101,12 @@ const LINE_MATCH_CONFIG = {
   cheatText: 'Show answer',
   sampleSize: 4,
   items: [
-    { id: 'bonjour',        label: 'bonjour',         image: IMG, audio: A('short-a.mp3') },
-    { id: 'merci',          label: 'merci',           image: IMG, audio: A('short-b.mp3') },
-    { id: 'au-revoir',      label: 'au revoir',       image: IMG, audio: A('short-c.mp3') },
+    { id: 'bonjour', label: 'bonjour', image: IMG, audio: A('short-a.mp3') },
+    { id: 'merci', label: 'merci', image: IMG, audio: A('short-b.mp3') },
+    { id: 'au-revoir', label: 'au revoir', image: IMG, audio: A('short-c.mp3') },
     { id: 'sil-vous-plait', label: "s'il vous plaît", image: IMG, audio: A('short-a.mp3') },
-    { id: 'excusez-moi',    label: 'excusez-moi',     image: IMG, audio: A('short-b.mp3') },
-    { id: 'oui',            label: 'oui',             image: IMG, audio: A('short-c.mp3') },
+    { id: 'excusez-moi', label: 'excusez-moi', image: IMG, audio: A('short-b.mp3') },
+    { id: 'oui', label: 'oui', image: IMG, audio: A('short-c.mp3') },
   ],
   titleText: 'LineMatch',
 };
@@ -116,9 +116,9 @@ const MEMORY_MATCH_CONFIG = {
   informationTextHTML: 'Match each French word to the correct English translation.',
   nPairsToPlay: 4,
   cards: [
-    { foreignLanguage: 'la fleur',    localLanguage: 'flower',         image: IMG, audio: A('short-a.mp3') },
-    { foreignLanguage: 'la forêt',    localLanguage: 'forest',         image: IMG, audio: A('short-b.mp3') },
-    { foreignLanguage: "l'arbre",     localLanguage: 'tree',           image: IMG, audio: A('short-c.mp3') },
+    { foreignLanguage: 'la fleur', localLanguage: 'flower', image: IMG, audio: A('short-a.mp3') },
+    { foreignLanguage: 'la forêt', localLanguage: 'forest', image: IMG, audio: A('short-b.mp3') },
+    { foreignLanguage: "l'arbre", localLanguage: 'tree', image: IMG, audio: A('short-c.mp3') },
     { foreignLanguage: 'le babyfoot', localLanguage: 'table football', image: IMG, audio: A('short-a.mp3') },
   ],
   titleText: 'MemoryMatchGame',
@@ -128,8 +128,8 @@ const DICTATION_CONFIG = {
   id: 'showcase-dictation',
   informationText: 'Listen and type what you hear.',
   phrases: [
-    ['', '[Salut, ça va ?]',      A('short-a.mp3')],
-    ['', '[Ça va, merci !]',      A('short-b.mp3')],
+    ['', '[Salut, ça va ?]', A('short-a.mp3')],
+    ['', '[Ça va, merci !]', A('short-b.mp3')],
     ['', '[Je m\'appelle Camille.]', A('short-c.mp3')],
   ],
   titleText: 'DictationExercise',
@@ -171,9 +171,9 @@ const PHRASE_REORDER_CONFIG = {
   shuffleOnLoad: true,
   informationText: 'Listen to each audio clip, then drag the matching word into the correct position.',
   phrases: [
-    ['', 'homme',    A('short-a.mp3')],
-    ['', 'hôtel',    A('short-b.mp3')],
-    ['', 'hôpital',  A('short-c.mp3')],
+    ['', 'homme', A('short-a.mp3')],
+    ['', 'hôtel', A('short-b.mp3')],
+    ['', 'hôpital', A('short-c.mp3')],
     ['', 'horrible', A('short-a.mp3')],
   ],
   titleText: 'PhraseReorderExercise',
@@ -183,7 +183,7 @@ const TYPED_TRANSFORM_CONFIG = {
   id: 'showcase-typedtransform',
   informationText: 'Listen and write what you hear.',
   phrases: [
-    ['', '[Salut, ça va ?]',          A('short-a.mp3')],
+    ['', '[Salut, ça va ?]', A('short-a.mp3')],
     ['', '[Salut ! Ça va ! Et toi ?]', A('short-b.mp3')],
   ],
   titleText: 'TypedTransformExercise',
@@ -193,9 +193,9 @@ const WORD_SPOT_CONFIG = {
   id: 'showcase-wordspot',
   informationText: 'Select the part of each word that contains the target sound.',
   items: [
-    { text: 'b[on]j[ou][r] m[on] ché[r]i',    audio: A('short-a.mp3') },
-    { text: 'b[on]s[oi][r] m[on] am[ou][r]',   audio: A('short-b.mp3') },
-    { text: 'au [r]ev[oi][r] ma ché[r]ie',      audio: A('short-c.mp3') },
+    { text: 'b[on]j[ou][r] m[on] ché[r]i', audio: A('short-a.mp3') },
+    { text: 'b[on]s[oi][r] m[on] am[ou][r]', audio: A('short-b.mp3') },
+    { text: 'au [r]ev[oi][r] ma ché[r]ie', audio: A('short-c.mp3') },
   ],
   titleText: 'WordSpotExercise',
 };
@@ -382,6 +382,11 @@ export function ExerciseShowcase() {
 // Error boundary — one broken fixture never crashes the whole page
 // ---------------------------------------------------------------------------
 
+// Intentionally a class: React error boundaries (getDerivedStateFromError /
+// componentDidCatch) have no functional/hook equivalent (React 19 included). This is
+// the sole remaining class component in the codebase — a deliberate exception to the
+// class→functional migration, NOT pending conversion. See
+// docs/process/CLASS_TO_FUNCTIONAL_MIGRATION.md.
 class ExerciseErrorBoundary extends React.Component {
   constructor(props) {
     super(props);

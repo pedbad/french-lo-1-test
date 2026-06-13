@@ -2,9 +2,11 @@
 
 > **✅ PHASE 5 COMPLETE (11/11)** — all scoring wrappers are now functional
 > (`DictationExercise` finished in PR #21, `d213dd8`). Kept for history + the recipe.
-> **Last remaining class component:** `src/debug/ExerciseShowcase.jsx` (debug-only,
-> never part of Phase 5 scoring scope — convert opportunistically). Next up: **Phase 6
-> — Consolidate** (see end of this doc).
+> **Migration effectively complete.** The only remaining class is
+> `ExerciseErrorBoundary` inside `src/debug/ExerciseShowcase.jsx` — a React **error
+> boundary** (`getDerivedStateFromError`), which has **no functional/hook equivalent**
+> and MUST stay a class (the host page `ExerciseShowcase()` is already functional). Do
+> NOT try to convert it. Next up: **Phase 6 — Consolidate** (see end of this doc).
 >
 > **For a fresh Claude Code session.** Class → functional migration, Phase 5.
 > Plan/checklist: [`CLASS_TO_FUNCTIONAL_MIGRATION.md`](./CLASS_TO_FUNCTIONAL_MIGRATION.md).
@@ -28,9 +30,11 @@
   TypedTransformExercise (PR #20, `3f3ef52`) and DictationExercise (PR #21, `d213dd8`)
   converted + squash-merged. Conversion notes in the migration tracker checkboxes.
 - `main` clean + green: `yarn lint` 0 errors, `yarn test:run` 39/39.
-- **1 class component remains** (`grep -rln "extends React" src/`):
-  - **`src/debug/ExerciseShowcase.jsx`** — debug-only, NOT part of Phase 5 scoring
-    scope. Convert opportunistically (the last class in the codebase).
+- **1 class remains** (`grep -rln "extends React" src/`):
+  - **`src/debug/ExerciseShowcase.jsx`** — the single `extends React` hit is
+    `ExerciseErrorBoundary` (React error boundary). The showcase page itself is
+    already functional. Error boundaries have **no functional/hook equivalent** — it
+    stays a class by design. **Not pending work; do not convert.**
 - `exercises/current-location/nasal-rhyme-exercise.jsx` is **already functional** —
   the migration doc previously listed it under `custom/` as pending; corrected.
 
@@ -169,7 +173,9 @@ Read the whole component first; list `this.state`, instance fields, lifecycle me
 
 ## After Phase 5
 
-`ExerciseShowcase.jsx` (debug) is the last class. Then **Phase 6 — Consolidate** (the
+The only remaining class is `ExerciseErrorBoundary` in `ExerciseShowcase.jsx` (debug) —
+a React error boundary, intentionally NOT convertible (no functional equivalent). Then
+**Phase 6 — Consolidate** (the
 payoff): extract `useExerciseAudio()` (shared `activeRowIndex` / `masterPlayState` /
 `rowAudioStatus` / `rowProgress` + `handleMaster*` across 5+ callers — only possible
 once these are functional), and replace the 8 config-reset `componentDidUpdate` blocks
