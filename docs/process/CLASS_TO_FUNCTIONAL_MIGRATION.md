@@ -3,11 +3,11 @@
 > **Status:** Phases 1–4 done (Phases 1–3 merged to `main`; Phase 4 on
 > `refactor/phase4-nonscoring-exercises`). All leaf/presentational + content
 > components, the audio infrastructure, the root `App.jsx`, and the two non-scoring
-> exercises are now functional. **3 class components remain** — Phase 5 (2 scoring
-> wrappers: `TypedTransformExercise` + `DictationExercise`) + `debug/ExerciseShowcase.jsx`,
-> and Phase 6 (consolidate). (Phase 5 was originally 12 targets; `ClozeTypingExercise`
-> was deleted as dead code (PR #17) rather than converted, so the live scope is now
-> 11, of which 9 are done.) This is a standalone initiative, not part of
+> exercises are now functional. **Phase 5 COMPLETE (11/11)** — all scoring wrappers
+> functional. **1 class component remains:** `debug/ExerciseShowcase.jsx` (debug-only,
+> not Phase 5 scope) + Phase 6 (consolidate). (Phase 5 was originally 12 targets;
+> `ClozeTypingExercise` was deleted as dead code (PR #17) rather than converted, so
+> the live scope was 11, all done.) This is a standalone initiative, not part of
 > the DRY pass that produced AudioManager, `parseSentence`, `answerNormalize`,
 > `ExerciseFooter`, and `ResultIcon` (those were done earlier).
 
@@ -172,11 +172,13 @@ re-run the audio suite + manual playback check.
 > reset. Zero console errors.
 
 ### Phase 5 — Scoring exercises (HIGH risk — one per PR, browser-verify grades)
-> 12 class components left to convert (the `nasal-rhyme` entry below is already
-> functional). `debug/ExerciseShowcase.jsx` is a 13th remaining class but is
-> debug-only — convert opportunistically, not part of Phase 5 scoring scope.
-Each must be grade-verified before/after. These share the config-reset + audio-state
-patterns; converting them unlocks `useExerciseAudio()`.
+> **✅ COMPLETE — all 11 scoring exercises converted (PR #8–#21).** Scope was
+> originally 12; `ClozeTypingExercise` was deleted (PR #17) rather than converted.
+> The `nasal-rhyme` entry below was already functional. `debug/ExerciseShowcase.jsx`
+> is the only remaining class — debug-only, not Phase 5 scope, convert
+> opportunistically.
+Each was grade-verified before/after. These share the config-reset + audio-state
+patterns; converting them unlocks `useExerciseAudio()` (Phase 6).
 
 - [x] `RadioQuiz/RadioQuiz.jsx` — useReducer merge + lazy init; config-reset via
       prev-config ref effect (key-remount deferred to Phase 6); `setState`
@@ -311,8 +313,18 @@ patterns; converting them unlocks `useExerciseAudio()`.
       hint-mode wrong drop → rejected + invalid-drop hint / 2 fails → Show answer →
       autoSolve snaps tiles to targets + complete / reset returns tiles home +
       clears assignments / hints toggle — zero console errors. PR #14.
-- [ ] `DictationExercise/DictationExercise.jsx` — thin wrapper around the
+- [x] `DictationExercise/DictationExercise.jsx` — thin wrapper around the
       (now functional, single-path) runtime; trivial class→function swap.
+      `React.PureComponent` + `render = () =>` → plain function spreading props to
+      `TextEntryExerciseRuntime` (`audioClipClassName="super-compact-speaker"`,
+      `audioColumnPosition="left"`, `comparisonOptions={{ comparisonMode: "dictation" }}`).
+      No state/lifecycle/refs; React default import dropped; `TODO(component-split)`
+      preserved. Grade-verified in browser (`origins-and-languages`,
+      `#dictationExercise5`): correct answer **without trailing period** → `--edu-affirm`
+      (dictation routes through `normalizeForDictation` — punctuation/quote-insensitive,
+      accent-sensitive; distinct from TypedTransform's strict trim path) / wrong →
+      `--destructive`; zero console errors. **Final Phase 5 wrapper → 11/11, Phase 5
+      COMPLETE.** PR #21.
 - [x] `TypedTransformExercise/TypedTransformExercise.jsx` — thin wrapper; trivial
       swap. `React.PureComponent` + `render = () =>` → plain function spreading
       props to `TextEntryExerciseRuntime` (fixed `audioClipClassName` /
