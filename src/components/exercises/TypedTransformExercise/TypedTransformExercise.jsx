@@ -11,7 +11,6 @@ export class TypedTransformExercise extends React.PureComponent {
       {...this.props}
       audioClipClassName="super-compact-speaker"
       audioColumnPosition="left"
-      useGlobalActions={true}
     />
   );
 }

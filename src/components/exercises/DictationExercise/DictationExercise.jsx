@@ -12,7 +12,6 @@ export class DictationExercise extends React.PureComponent {
       audioClipClassName="super-compact-speaker"
       audioColumnPosition="left"
       comparisonOptions={{ comparisonMode: "dictation" }}
-      useGlobalActions={true}
     />
   );
 }
