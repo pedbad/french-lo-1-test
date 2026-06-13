@@ -24,9 +24,12 @@ import { highlightTextDiff } from "@/utils/exerciseDiff";
 
 // Shared runtime for typed-response table exercises.
 // This is the compatibility layer used by:
-// - TypedTransformExercise (semantic)
-// - DictationExercise (semantic)
-// - ClozeTypingExercise (semantic, useGlobalActions=false inline path)
+// - TypedTransformExercise (semantic, useGlobalActions=true)
+// - DictationExercise (semantic, useGlobalActions=true)
+//
+// NOTE: the useGlobalActions=false inline-gap branch (per-row TypedAnswerField,
+// no shared footer) has no live caller after ClozeTypingExercise was removed.
+// Kept for now; a candidate for Phase 6 cleanup.
 //
 // TODO(component-split): once TypedTransformExercise and DictationExercise
 // have distinct scoring/normalization rules, move shared UI-only parts into a

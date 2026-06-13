@@ -8,7 +8,6 @@ import {
 } from "@/components/content";
 
 import {
-  ClozeTypingExercise,
   DictationExercise,
   DraggableFillGaps,
   InlineChoiceGroup,
@@ -43,7 +42,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // AccordionArticle; renderComponentForTab returns it bare for tabs.
 // To add another such exercise, register it here — no new switch case.
 const EXERCISE_REGISTRY = {
-  ClozeTypingExercise,
   TypedTransformExercise,
   DictationExercise,
   DraggableFillGaps,
