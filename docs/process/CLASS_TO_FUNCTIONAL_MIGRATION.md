@@ -1,17 +1,22 @@
 # Class → Functional Component Migration
 
-> **Status:** Phases 1–4 done (Phases 1–3 merged to `main`; Phase 4 on
-> `refactor/phase4-nonscoring-exercises`). All leaf/presentational + content
-> components, the audio infrastructure, the root `App.jsx`, and the two non-scoring
-> exercises are now functional. **Phase 5 COMPLETE (11/11)** — all scoring wrappers
-> functional. **Migration effectively complete** — the only remaining class is
-> `ExerciseErrorBoundary` in `debug/ExerciseShowcase.jsx`, a React error boundary that
-> intentionally stays a class (no functional equivalent; the showcase page itself is
-> functional). Remaining work is Phase 6 (consolidate). (Phase 5 was originally 12 targets;
-> `ClozeTypingExercise` was deleted as dead code (PR #17) rather than converted, so
-> the live scope was 11, all done.) This is a standalone initiative, not part of
-> the DRY pass that produced AudioManager, `parseSentence`, `answerNormalize`,
-> `ExerciseFooter`, and `ResultIcon` (those were done earlier).
+> **Status:** Phases 1–5 done and merged to `main`. All leaf/presentational +
+> content components, the audio infrastructure, the root `App.jsx`, the two
+> non-scoring exercises, and **Phase 5 (11/11 scoring wrappers)** are functional.
+> **Class→functional conversion is COMPLETE** — the only class left is
+> `ExerciseErrorBoundary` in `debug/ExerciseShowcase.jsx`, a React error boundary
+> that intentionally stays a class (no functional equivalent; the showcase page
+> itself is functional). (Phase 5 was originally 12 targets; `ClozeTypingExercise`
+> was deleted as dead code (PR #17) rather than converted, so the live scope was 11.
+> A late-found `PureComponent`, `CurrentLocationNasalRhymeExercise`, missed by the
+> original `grep extends React`, was converted in PR #25.)
+> **Phase 6 — Consolidate:** 6a DONE (`useExerciseAudio()` extracted PR #22 + adopted
+> in SelectExercise PR #22, InlineChoiceGroup PR #23, DraggableFillGaps PR #24;
+> InlineTypedGap inspected — does NOT fit, left as-is). **Only Phase 6b (key-based
+> remount) remains** — see the Phase 6 section for the worked design.
+> This is a standalone initiative, not part of the DRY pass that produced
+> AudioManager, `parseSentence`, `answerNormalize`, `ExerciseFooter`, and
+> `ResultIcon` (those were done earlier).
 
 ## Why
 
