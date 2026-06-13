@@ -212,7 +212,26 @@ patterns; converting them unlocks `useExerciseAudio()`.
       (inlineTypedGapExercise2): correct ✓ / wrong ✗ + diff / trailing-space
       tolerated, case+accents strict / edit-after-check clears that blank /
       reset / show-answers fills all + marks correct, zero console errors. PR #15.
-- [ ] `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`
+- [x] `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx` — shared
+      typed-response **table** runtime; not registered directly, rendered via JSX
+      by three wrappers (`TypedTransformExercise`, `DictationExercise`,
+      `ClozeTypingExercise`), all unchanged. Plain function; useReducer merge
+      (function-patch + null/undefined bail-out) + lazy `getResetState(config)`
+      seeding `...config` + check fields; `componentDidUpdate` config-reset →
+      prev-config ref effect (full reset, does **not** clear `audioTriggerRefs`,
+      matching the class). `audioTriggerRefs` instance field → `useRef({})` —
+      no audio state, no listeners, no timers, no render-time ref mirroring
+      (handlers read `state.phrases` directly). `reducer`/`getResetState`/
+      `extractExpectedAnswer` hoisted to module scope; `isAnswerCorrect` kept
+      in-body (reads `comparisonOptions`). Scoring unchanged: strict = plain
+      `trim()` compare; dictation routes through `normalizeForDictation`; diff
+      via `highlightTextDiff` — no util work (field extraction ≠
+      grade-normalization). Unused `IconButton` import dropped; named hook
+      imports only. Grade-verified in browser (origins-and-languages): strict
+      (typedTransformExercise3) correct ✓ / wrong ✗ + diff + nCorrect /
+      edit-after-check clears that row's checkedResult, keeps diff; dictation
+      (dictationExercise5) punctuation-insignificant ✓ / accent-strict ✗ /
+      show-answers fills all 8/8 / reset clears, zero console errors. PR #16.
 - [x] `LineMatch/LineMatch.jsx` — useReducer merge + lazy init
       (`getResetState`); reducer **bails out (returns same state ref) on a
       null/undefined patch** to preserve the class's `setState(prev => null)`

@@ -12,15 +12,16 @@
 
 - **Phases 1–4** merged to `main`: 12 leaf (PR #3), 26 content (PR #4), audio infra +
   `App.jsx` (PR #5, #6), 2 non-scoring exercises WordSpot + MemoryMatch (PR #7, `6d92367`).
-- **Phase 5 progress: 8/12 done** — RadioQuiz (PR #8, `aec43a7`),
+- **Phase 5 progress: 9/12 done** — RadioQuiz (PR #8, `aec43a7`),
   SelectExercise (PR #9, `abc4abe`), InlineChoiceGroup (PR #10),
   LineMatch (PR #11, `4dc2382`), WordOrderExercise (PR #12, `a3033a5`),
-  PhraseReorderExercise (PR #13), DraggableFillGaps (PR #14) and
-  InlineTypedGapExercise (PR #15, `30f9654`) converted + squash-merged.
+  PhraseReorderExercise (PR #13), DraggableFillGaps (PR #14),
+  InlineTypedGapExercise (PR #15, `30f9654`) and
+  TextEntryExerciseRuntime (PR #16, `62c24e0`) converted + squash-merged.
   Conversion notes in the migration tracker checkboxes.
 - `main` clean + green: `yarn lint` 0 errors, `yarn test:run` 39/39.
-- **8 class components remain** (`grep -rln "extends React" src/`):
-  - **7 scoring exercises** = remaining Phase 5 scope (below).
+- **4 class components remain** (`grep -rln "extends React" src/`):
+  - **3 scoring exercises** = remaining Phase 5 scope (below).
   - **`src/debug/ExerciseShowcase.jsx`** — debug-only, NOT part of Phase 5 scoring
     scope. Convert opportunistically.
 - `exercises/current-location/nasal-rhyme-exercise.jsx` is **already functional** —
@@ -70,11 +71,24 @@ pattern, then the parse-heavy ones):
    lazy `getResetState`; render-derived `blanksMeta`/`nToSolve` mirrored to refs;
    `componentDidUpdate` config-reset → prev-config ref effect; audio handlers →
    reducer function-patches.
-9. `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx` — free text entry.
-   **← NEXT** (VERIFY its scoring utils before converting.)
+9. ~~`TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx`~~ — **DONE** (PR #16,
+   `62c24e0`). Shared typed-response table runtime (the three wrappers below all
+   render it via JSX). Plain function; useReducer merge + lazy `getResetState`;
+   `componentDidUpdate` config-reset → prev-config ref effect (no
+   `audioTriggerRefs` clear); `audioTriggerRefs` → `useRef({})`, no audio state /
+   listeners. Strict grading = plain trim-compare; dictation routes through
+   `normalizeForDictation` — no util work. Unused `IconButton` dropped.
 10. `ClozeTypingExercise/ClozeTypingExercise.jsx` — cloze typing.
+    **← NEXT.** Now a thin wrapper around the (functional) runtime —
+    `render = () => <TextEntryExerciseRuntime {...props} useGlobalActions={false} />`.
+    Converting it is a trivial class→function swap (no state/lifecycle); it renders
+    the `useGlobalActions=false` inline `TypedAnswerField` path (NOT the scoring
+    footer — that path was already exercised by the runtime tests but grade
+    behavior lives in `TypedAnswerField`). VERIFY before converting.
 11. `TypedTransformExercise/TypedTransformExercise.jsx` — typed transform.
-12. `DictationExercise/DictationExercise.jsx` — audio dictation; audio-state heavy.
+    Also a thin wrapper; trivial swap (verified working via runtime PR #16 strict path).
+12. `DictationExercise/DictationExercise.jsx` — audio dictation. Thin wrapper;
+    trivial swap (verified working via runtime PR #16 dictation path).
 
 > Confirm count + order against `grep -rln "extends React" src/` at session start;
 > some may already share the audio-state pattern that Phase 6 will hoist.
