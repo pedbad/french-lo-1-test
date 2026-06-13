@@ -344,10 +344,25 @@ patterns; converting them unlocks `useExerciseAudio()` (Phase 6).
 ### Phase 6 — Consolidate (the payoff)
 Once exercises are functional:
 
-- [ ] Extract `useExerciseAudio()` — shared `activeRowIndex` / `masterPlayState` /
-      `rowAudioStatus` / `rowProgress` state + `handleMaster*` handlers (5+ callers).
+- [x] **Extract `useExerciseAudio()`** — shared `activeRowIndex` / `masterPlayState` /
+      `rowProgress` state + 4 `handleMaster*` handlers + pure patch-builders, with
+      10 unit tests (PR #22). NOTE: `rowAudioStatus` (per-row click path) is a
+      SEPARATE concern and intentionally stays in each caller, NOT in the hook.
+  - Adoption (one caller per session, mechanical mirror of PR #22):
+    - [x] `SelectExercise` (PR #22, `6c04514`).
+    - [x] `InlineChoiceGroup` (PR #23, `94c6171`) — −50/+15; grade-verified
+          (`family-friends`, `#inlineChoiceGroup2`): correct → `--edu-affirm`,
+          wrong → `--destructive`, zero console errors. No production LO sets
+          `useSequenceAudioController` for it, so the master path is exercised by
+          the hook unit tests + the identical SelectExercise adoption.
+    - [ ] `DraggableFillGapsRuntime` — has ONLY the 3 master fields (NO
+          `rowAudioStatus`); verify the missing field doesn't break.
+    - [ ] `InlineTypedGapExercise` — OUTLIER: per-row TOGGLE model, NOT the
+          master-player handler set. Inspect first; likely does NOT fit — decide
+          + document, don't force.
 - [ ] Replace config-reset `componentDidUpdate` with `key`-based remount on the
-      exercise host, deleting the 8 reset blocks.
+      exercise host, deleting the 8 reset blocks (retire the hook's internal
+      config reset at the same time).
 - [ ] Extract any remaining shared exercise state (`useExerciseScoring`?) if a clean
       seam appears once components are hooks.
 
