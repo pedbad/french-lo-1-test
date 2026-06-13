@@ -363,9 +363,23 @@ Once exercises are functional:
           errors. Note: the hook's `stoppedPatch` snaps the stopped row's progress
           bar to full on stop where the inline handler reset it to 0 — deliberate
           normalization to the shared behavior; cosmetic, grading unaffected.
-    - [ ] `InlineTypedGapExercise` — OUTLIER: per-row TOGGLE model, NOT the
-          master-player handler set. Inspect first; likely does NOT fit — decide
-          + document, don't force.
+    - [x] `InlineTypedGapExercise` — **DOES NOT FIT the hook; left as-is, no code
+          change** (inspected, decision documented). Three divergences from the
+          shared hook make adoption a behavior change, not a mechanical refactor:
+          1. `handleMasterStopped` does a *conditional* clear
+             (`activeRowIndex === rowIndex ? -1 : prev`) keyed on whether the
+             stopped row is still active, and it neither writes `masterPlayState`
+             nor snaps `rowProgress` to full — whereas the hook's `stoppedPatch`
+             does all three unconditionally.
+          2. `handleMasterTrackChange` no-ops when `rowIndex` is undefined; the
+             hook falls back to `activeRowIndex: -1`.
+          3. The master fields (`activeRowIndex`/`masterPlayState`/`rowProgress`)
+             are reset *jointly* with the scoring/`values`/`rowAudioStatus` state
+             in both `getResetState` and the manual `handleReset` (the Reset
+             button). The hook only self-resets on config identity and exposes no
+             manual reset, so adopting it would stop the Reset button from clearing
+             the master-audio state. Forcing the hook here would regress the
+             stopped-handler semantics and the Reset path; not worth it.
 - [ ] Replace config-reset `componentDidUpdate` with `key`-based remount on the
       exercise host, deleting the 8 reset blocks (retire the hook's internal
       config reset at the same time).
