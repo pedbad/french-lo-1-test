@@ -5,7 +5,7 @@ import { AudioClip, IconButton } from "@/components/media";
 import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioClip";
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
-import { Fragment, useEffect, useReducer, useRef } from "react";
+import { Fragment, useReducer, useRef } from "react";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
 import { parseChoiceBlank, parseSentence } from "@/utils/exerciseParsing";
@@ -86,25 +86,12 @@ export function InlineChoiceGroup({ config = {} }) {
     handleMasterPlayStateChange,
     handleMasterTime,
     handleMasterStopped,
-  } = useExerciseAudio(config);
+  } = useExerciseAudio();
 
   const blanksMetaRef = useRef([]);
   const nToSolveRef = useRef(0);
   const rowAudioRefs = useRef({});
   const sequenceRef = useRef(null);
-
-  // Config-identity reset (was componentDidUpdate). Key-based remount is the
-  // Phase 6 consolidation; the ref compare keeps the mount-time effect a no-op.
-  const prevConfigRef = useRef(config);
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      blanksMetaRef.current = [];
-      nToSolveRef.current = 0;
-      rowAudioRefs.current = {};
-      dispatch(getResetState(config));
-    }
-  }, [config]);
 
   const handleChoiceChange = (blankIndex, value) => {
     dispatch((prevState) => {

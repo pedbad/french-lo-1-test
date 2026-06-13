@@ -171,7 +171,7 @@ export function DraggableFillGapsRuntime({ config = {}, suppressInfo = false }) 
     handleMasterPlayStateChange,
     handleMasterTime,
     handleMasterStopped,
-  } = useExerciseAudio(config);
+  } = useExerciseAudio();
 
   // Instance fields → refs (mutable, non-render).
   // Original "home" positions per tile, keyed by "word{index}" (geometry cache).
@@ -245,18 +245,6 @@ export function DraggableFillGapsRuntime({ config = {}, suppressInfo = false }) 
       if (slotMeasureRafRef.current) cancelAnimationFrame(slotMeasureRafRef.current);
     };
   }, [scheduleSlotWidthMeasure]);
-
-  // Config-identity reset (was the componentDidUpdate config branch). EXACTLY the
-  // class behaviour: clear the geometry cache + re-measure, nothing more (it does
-  // NOT reset the full answer state). Key-based remount is the Phase 6 payoff.
-  const prevConfigRef = useRef(config);
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      tileHomePositionsRef.current = {};
-      scheduleSlotWidthMeasure();
-    }
-  }, [config, scheduleSlotWidthMeasure]);
 
   // ---------- Helpers ----------
 

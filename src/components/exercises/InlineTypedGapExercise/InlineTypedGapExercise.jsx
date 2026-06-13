@@ -5,7 +5,7 @@ import { AudioClip, CircularAudioProgressAnimatedSpeakerDisplay } from "@/compon
 import { Input } from "@/components/ui/input";
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
-import { Fragment, useEffect, useReducer, useRef } from "react";
+import { Fragment, useReducer, useRef } from "react";
 import { resolveAsset } from "@/utils/assets";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { parseInputBlank, parseSentence } from "@/utils/exerciseParsing";
@@ -54,16 +54,6 @@ export function InlineTypedGapExercise({ config }) {
   const nToSolveRef = useRef(0);
   const rowAudioRefs = useRef({});
   const sequenceRef = useRef(null);
-  const prevConfigRef = useRef(config);
-
-  // Full reset when the parent swaps the config object (matches componentDidUpdate).
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      rowAudioRefs.current = {};
-      dispatch(getResetState(config));
-    }
-  }, [config]);
 
   const handleInputChange = (blankIndex, userValue) => {
     dispatch((prevState) => {

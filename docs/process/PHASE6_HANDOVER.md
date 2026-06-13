@@ -6,8 +6,8 @@
 
 Continue the class→functional migration (branch: `main`).
 
-> **SESSION UPDATE (2026-06-13):** Items **1, 2, 4 DONE**; only **item 3 (Phase 6b
-> key-remount) remains**, deferred to its own session. Done this session:
+> **SESSION UPDATE (2026-06-14):** ALL ITEMS DONE — **Phase 6 COMPLETE.** Item 3
+> (Phase 6b key-remount) shipped in PR #26; items 1, 2, 4 landed earlier. Recap:
 > - **1.** `DraggableFillGapsRuntime` adopted `useExerciseAudio()` — PR #24 (`c7ffa70`).
 > - **2.** `InlineTypedGapExercise` — inspected, **does NOT fit** the hook (conditional
 >   `handleMasterStopped`, no-op `handleMasterTrackChange`, joint reset with scoring
@@ -16,17 +16,27 @@ Continue the class→functional migration (branch: `main`).
 >   `CurrentLocationNasalRhymeExercise` (a `PureComponent`, bare import). Converted to
 >   a function — PR #25 (`ab544c5`). `ExerciseErrorBoundary` is now genuinely the sole
 >   remaining class; migration marked COMPLETE in the tracker (error-boundary exception).
-> - **3. STILL OPEN.** Design fully worked out — see the item-3 notes in
->   `CLASS_TO_FUNCTIONAL_MIGRATION.md` Phase 6 section. KEY INSIGHT: a plain
->   `key={config-id}` will NOT catch same-LO reloads (config object swaps but
->   `currentLearningObject`/`compoundID` stays the same in `loadConfig`, App.jsx ~599);
->   needs a **config-generation counter** in App state, bumped per `loadConfig`, woven
->   into the `key` on `<RegisteredExercise>` at BOTH sites (App.jsx ~877 tab, ~961
->   accordion). Then delete the 8 `prevConfigRef` reset blocks + retire the hook's
->   internal reset (`useExerciseAudio.js` ~85-91). 7/8 effects do a full reset
->   (== remount); DraggableFillGaps is partial geometry-only (remount is a clean
->   superset). WordSpot/MemoryMatch have NO reset effect — the generic key is safe.
->   Grade-verify: answer an exercise, reload the SAME LO, confirm state resets.
+> - **3. DONE (PR #26).** Added a monotonic `configGen` counter to App state
+>   (`configGenRef`), bumped inside the single `loadConfig` setState (the one that
+>   swaps the `config` object), woven into the `<RegisteredExercise>` key at both
+>   sites (App.jsx ~881 tab `${id}-${configGen}`, ~961 accordion
+>   `${compoundID}-${configGen}`). A plain `key={compoundID}` would NOT catch a
+>   same-LO reload (config object swaps but `currentLearningObject`/`compoundID`
+>   stays the same) — the counter changes on EVERY load, matching the old effect
+>   trigger. Deleted the 8 `prevConfigRef` reset blocks and retired the hook's
+>   internal reset (dropped its now-unused `config` param + the 3 call sites). 7/8
+>   effects did a full reset (== remount); DraggableFillGaps was partial
+>   geometry-only (remount is a clean superset). WordSpot/MemoryMatch had no reset
+>   effect — the generic key is safe (only changes when a config actually loads).
+>   Gates green (lint 0 / test 49 / build clean). Browser: read the live React key
+>   back as `LO13-selectExercise1-2` (configGen woven in, =2 after the StrictMode
+>   dev double-load = one bump per loadConfig); SelectExercise grades
+>   `--edu-affirm`/`--destructive` + Reset still clears; LineMatch mount measurement
+>   still fires; zero console errors. NOTE: there is no user-facing same-LO reload
+>   gesture in the app today (LO switches are full-page nav, nav links are in-page
+>   scrolls) — the StrictMode dev double-load is the only runtime same-LO
+>   config-identity change, which `configGen` handles; the counter also future-proofs
+>   any later reload/settings/language feature.
 
 **READ FIRST:** `PHASE5_HANDOVER.md` (recipe/gotchas/gates — still apply) +
 `CLASS_TO_FUNCTIONAL_MIGRATION.md` (Phase 6 section). Then: `git pull --ff-only`.

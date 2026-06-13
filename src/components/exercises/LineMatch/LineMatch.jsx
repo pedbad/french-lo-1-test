@@ -432,21 +432,6 @@ export function LineMatch({ config = {}, suppressInfo = false }) {
     };
   }, [scheduleConnectorMeasurement, updateViewportMode, stopRecoilAnimation]);
 
-  // Config-identity reset (was the componentDidUpdate config branch). Key-based
-  // remount is the Phase 6 consolidation; the ref compare keeps the mount-time
-  // effect a no-op on the first render.
-  const prevConfigRef = useRef(config);
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      stopRecoilAnimation();
-      dispatch({
-        ...getResetState(config),
-        isDesktopViewport: getIsDesktopViewport(),
-      });
-    }
-  }, [config, stopRecoilAnimation]);
-
   // Re-measure connectors after every committed render (was the
   // componentDidUpdate fall-through). No dep array on purpose: any layout-
   // affecting state change must trigger a re-measure. The no-op reducer bail-out

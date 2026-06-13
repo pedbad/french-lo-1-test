@@ -5,7 +5,7 @@ import { SequenceAudioController } from "@/components/SequenceAudioController";
 import { resolveAsset } from "@/utils/assets";
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
-import { useEffect, useReducer, useRef } from "react";
+import { useReducer } from "react";
 
 const getResetState = (phrases = []) => ({
   checkedResults: {},
@@ -33,16 +33,6 @@ export function RadioQuiz({ config = {}, onComplete = () => {}, onReset = () => 
 
   const [state, dispatch] = useReducer(reducer, phrases, getResetState);
   const { checkedResults, hasChecked, nCorrect, selectedOptions, showExplanation } = state;
-
-  // Config-identity reset (was componentDidUpdate). Key-based remount is the
-  // Phase 6 consolidation; the ref compare keeps the mount-time effect a no-op.
-  const prevConfigRef = useRef(config);
-  useEffect(() => {
-    if (prevConfigRef.current !== config) {
-      prevConfigRef.current = config;
-      dispatch(getResetState(config.phrases));
-    }
-  }, [config]);
 
   const handleChoiceChange = (rowNum, optionIndex) => {
     const nextSelectedOptions = [...(selectedOptions || [])];
