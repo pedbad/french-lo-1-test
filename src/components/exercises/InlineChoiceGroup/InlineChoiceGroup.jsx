@@ -9,6 +9,7 @@ import { Fragment, useEffect, useReducer, useRef } from "react";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
 import { parseChoiceBlank, parseSentence } from "@/utils/exerciseParsing";
+import { useExerciseAudio } from "@/hooks/useExerciseAudio";
 
 const INLINE_CHOICE_TABLE_TEXT_CLASS = "text-sm md:text-base";
 
@@ -36,21 +37,19 @@ const prepareExerciseItems = (items = [], options = {}) => {
 };
 
 const getResetState = (config = {}) => ({
-  activeRowIndex: -1,
   activeItems: prepareExerciseItems(config?.items || [], config),
   checkedResults: {},
   hasChecked: false,
-  masterPlayState: "stopped",
   nCorrect: 0,
   rowAudioStatus: {},
-  rowProgress: {},
   values: {},
 });
 
-// Merge reducer: each dispatch is a partial state patch (9 interdependent
+// Merge reducer: each dispatch is a partial state patch (interdependent answer
 // fields, so useReducer over many useState calls per the migration plan).
 // A function patch receives the latest state — used by handlers that read
-// previous state (choice edits, reset, audio status/progress).
+// previous state (choice edits, reset, row-audio status). (Master-player audio
+// state moved to the shared useExerciseAudio hook in Phase 6.)
 const reducer = (state, patch) => ({
   ...state,
   ...(typeof patch === "function" ? patch(state) : patch),
@@ -71,15 +70,23 @@ export function InlineChoiceGroup({ config = {} }) {
   const [state, dispatch] = useReducer(reducer, config, getResetState);
   const {
     activeItems = [],
-    activeRowIndex,
     checkedResults = {},
     hasChecked = false,
-    masterPlayState,
     nCorrect = 0,
     rowAudioStatus = {},
-    rowProgress,
     values = {},
   } = state;
+
+  // Master-player audio state (SequenceAudioController) lives in a shared hook.
+  const {
+    activeRowIndex,
+    masterPlayState,
+    rowProgress,
+    handleMasterTrackChange,
+    handleMasterPlayStateChange,
+    handleMasterTime,
+    handleMasterStopped,
+  } = useExerciseAudio(config);
 
   const blanksMetaRef = useRef([]);
   const nToSolveRef = useRef(0);
@@ -179,16 +186,13 @@ export function InlineChoiceGroup({ config = {} }) {
       const shouldRefreshItemSet = Boolean(config?.shuffleItems) || (hasSampleSize && sampleOnReset);
 
       return {
-        activeRowIndex: -1,
         activeItems: shouldRefreshItemSet
           ? prepareExerciseItems(sourceItems, config)
           : (prevState.activeItems || []),
         checkedResults: {},
         hasChecked: false,
-        masterPlayState: "stopped",
         nCorrect: 0,
         rowAudioStatus: {},
-        rowProgress: {},
         values: {},
       };
     });
@@ -251,45 +255,6 @@ export function InlineChoiceGroup({ config = {} }) {
     }
 
     triggerRowAudio(rowIndex);
-  };
-
-  const handleMasterStopped = (playlistIndex, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    dispatch((prevState) => ({
-      activeRowIndex: -1,
-      masterPlayState: "stopped",
-      rowProgress: rowIndex >= 0 ? {
-        ...prevState.rowProgress,
-        [rowIndex]: {
-          currentTime: prevState.rowProgress[rowIndex]?.duration || 0,
-          duration: prevState.rowProgress[rowIndex]?.duration || 0,
-        },
-      } : prevState.rowProgress,
-    }));
-  };
-
-  const handleMasterPlayStateChange = (playState) => {
-    dispatch({ masterPlayState: playState });
-  };
-
-  const handleMasterTrackChange = (playlistIndex, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    dispatch({ activeRowIndex: rowIndex });
-  };
-
-  const handleMasterTime = (playlistIndex, currentTime, duration, playlist) => {
-    const rowIndex = playlist[playlistIndex]?.rowIndex ?? -1;
-    if (rowIndex < 0) return;
-
-    dispatch((prevState) => ({
-      rowProgress: {
-        ...prevState.rowProgress,
-        [rowIndex]: {
-          currentTime,
-          duration,
-        },
-      },
-    }));
   };
 
   const renderChoiceGroup = (blankIndex) => {
