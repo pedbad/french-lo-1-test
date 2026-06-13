@@ -249,7 +249,7 @@ Alias for `WordSpotExercise`. Do not use in new config — use `WordSpotExercise
 ### `TextEntryExerciseRuntime`
 **Location:** `src/components/exercises/TextEntryExerciseRuntime/`
 
-The shared runtime used by `DictationExercise`, `TypedTransformExercise`, and `ClozeTypingExercise`. Contains all common logic: input state, check/show/reset handlers, diff highlighting, audio column positioning, progress dots, header rendering, and Enter-key submit. Not used directly in config.
+The shared runtime used by `DictationExercise` and `TypedTransformExercise`. Contains all common logic: input state, check/show/reset handlers, diff highlighting, audio column positioning, progress dots, header rendering, and Enter-key submit. Not used directly in config. (Formerly also served `ClozeTypingExercise` via a `useGlobalActions=false` inline-gap branch; both removed — PRs #17/#18.)
 
 ### `ProgressDots`
 Visual progress indicator (dot row). Used across multiple exercise types to show correct/total counts.

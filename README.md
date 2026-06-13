@@ -394,7 +394,7 @@ Manual migration policy (status):
 - LO2 pilot is complete on `SelectExercise`.
 - FR config migration is now complete:
   - `DropDowns` -> `SelectExercise`
-  - `AnswerTable` -> `TypedTransformExercise`, `DictationExercise`, or `ClozeTypingExercise` (based on activity type — see three-layer architecture below)
+  - `AnswerTable` -> `TypedTransformExercise` or `DictationExercise` (based on activity type — see two-wrapper architecture below)
 - Runtime legacy aliases for `DropDowns` and `AnswerTable` have now been removed from `App.jsx`.
 - Zero `AnswerTable` usages remain across all LO JSON configs.
 
@@ -503,19 +503,19 @@ Latest applied step:
     - trimmed leading/trailing whitespace on check
     - stable row layout (fixed status slot and non-jittering input width)
 
-### Typed-response exercise architecture (three-layer pattern)
+### Typed-response exercise architecture (two-layer pattern)
 
-Typed-response exercises use a three-layer DRY architecture. All shared logic lives in one place; each semantic exercise type is a thin wrapper that declares its intent via props.
+Typed-response exercises use a DRY architecture. All shared logic lives in one place; each semantic exercise type is a thin wrapper that declares its intent via props. (A third wrapper, `ClozeTypingExercise`, once existed but was removed as dead code — see CHANGELOG / PR #17.)
 
 ```
-┌─────────────────────┐  ┌───────────────────────┐  ┌──────────────────────┐
-│  DictationExercise  │  │ TypedTransformExercise │  │ ClozeTypingExercise  │
-│  ─────────────────  │  │  ───────────────────── │  │  ──────────────────  │
-│  listen + transcribe│  │  prompt → target form  │  │  fill sentence gaps  │
-└────────┬────────────┘  └──────────┬────────────┘  └──────────┬───────────┘
-         │                          │                           │
-         └──────────────────────────┴───────────────────────────┘
-                                    │
+┌─────────────────────┐  ┌───────────────────────┐
+│  DictationExercise  │  │ TypedTransformExercise │
+│  ─────────────────  │  │  ───────────────────── │
+│  listen + transcribe│  │  prompt → target form  │
+└────────┬────────────┘  └──────────┬────────────┘
+         │                          │
+         └──────────────────────────┘
+                     │
                     ┌───────────────▼────────────────┐
                     │     TextEntryExerciseRuntime    │
                     │  ─────────────────────────────  │
@@ -536,11 +536,12 @@ Typed-response exercises use a three-layer DRY architecture. All shared logic li
 
 **What each wrapper configures:**
 
-| Component | `comparisonMode` | `audioColumnPosition` | `useGlobalActions` |
-|---|---|---|---|
-| `DictationExercise` | `"dictation"` (punctuation/spacing tolerant) | `"left"` | `true` |
-| `TypedTransformExercise` | `"strict"` (exact trim match) | `"left"` | `true` |
-| `ClozeTypingExercise` | `"strict"` | — | `false` (inline gaps) |
+| Component | `comparisonMode` | `audioColumnPosition` |
+|---|---|---|
+| `DictationExercise` | `"dictation"` (punctuation/spacing tolerant) | `"left"` |
+| `TypedTransformExercise` | `"strict"` (exact trim match) | `"left"` |
+
+The runtime renders a single graded-table path (per-row input + shared footer + progress dots); the former `useGlobalActions={false}` inline-gap branch was removed with `ClozeTypingExercise` (PR #18).
 
 **Adding future behaviour without coupling:**
 Each wrapper has a `TODO(component-split)` comment marking where type-specific logic should go. For example, `DictationExercise` can add its own accent normalisation rules without affecting `TypedTransformExercise`. The wrappers are the isolation boundary.
@@ -548,7 +549,6 @@ Each wrapper has a `TODO(component-split)` comment marking where type-specific l
 **Files:**
 - `src/components/exercises/DictationExercise/DictationExercise.jsx`
 - `src/components/exercises/TypedTransformExercise/TypedTransformExercise.jsx`
-- `src/components/exercises/ClozeTypingExercise/ClozeTypingExercise.jsx`
 - `src/components/exercises/TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx` (shared runtime)
 - legacy `Blanks` activities across FR configs (`LO1-LO15` + `demo`) now use semantic `DraggableFillGaps`.
 - runtime compatibility alias has now been removed from `App`; use `DraggableFillGaps` as canonical naming.

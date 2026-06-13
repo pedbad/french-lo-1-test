@@ -3,8 +3,11 @@
 > **Status:** Phases 1–4 done (Phases 1–3 merged to `main`; Phase 4 on
 > `refactor/phase4-nonscoring-exercises`). All leaf/presentational + content
 > components, the audio infrastructure, the root `App.jsx`, and the two non-scoring
-> exercises are now functional. **13 class components remain** — Phase 5 (12 scoring
-> exercises) + `debug/ExerciseShowcase.jsx`, and Phase 6 (consolidate). This is a standalone initiative, not part of
+> exercises are now functional. **3 class components remain** — Phase 5 (2 scoring
+> wrappers: `TypedTransformExercise` + `DictationExercise`) + `debug/ExerciseShowcase.jsx`,
+> and Phase 6 (consolidate). (Phase 5 was originally 12 targets; `ClozeTypingExercise`
+> was deleted as dead code (PR #17) rather than converted, so the live scope is now
+> 11, of which 9 are done.) This is a standalone initiative, not part of
 > the DRY pass that produced AudioManager, `parseSentence`, `answerNormalize`,
 > `ExerciseFooter`, and `ResultIcon` (those were done earlier).
 
@@ -104,7 +107,9 @@ Pure display or simple-state; convert first to build confidence + patterns.
 - [x] `AudioClip/CircularAudioProgressAnimatedSpeakerDisplay.jsx`
 - [x] `MemoryMatchGame/Card/Card.jsx`
 - [x] `DraggableFillGaps/DraggableWordTile/DraggableWordTile.jsx`
-- [x] `TypedAnswerField/TypedAnswerField.jsx`
+- [x] ~~`TypedAnswerField/TypedAnswerField.jsx`~~ — converted earlier, then **deleted
+      as dead code** (PR #19): its only mount was the runtime `useGlobalActions=false`
+      branch, removed once `ClozeTypingExercise` was gone.
 - [x] `layout/page-shell/Footer/Footer.jsx`
 - [x] `layout/page-shell/MainMenu/MainMenu.jsx`
 - [x] `debug/components/LearningObjectMenu.jsx`
@@ -214,8 +219,10 @@ patterns; converting them unlocks `useExerciseAudio()`.
       reset / show-answers fills all + marks correct, zero console errors. PR #15.
 - [x] `TextEntryExerciseRuntime/TextEntryExerciseRuntime.jsx` — shared
       typed-response **table** runtime; not registered directly, rendered via JSX
-      by three wrappers (`TypedTransformExercise`, `DictationExercise`,
-      `ClozeTypingExercise`), all unchanged. Plain function; useReducer merge
+      by its wrappers. (At conversion there were three — `TypedTransformExercise`,
+      `DictationExercise`, `ClozeTypingExercise`; Cloze was later removed (PR #17)
+      and the now-dead `useGlobalActions=false` branch stripped (PR #18), leaving
+      two live wrappers + a single graded-table path.) Plain function; useReducer merge
       (function-patch + null/undefined bail-out) + lazy `getResetState(config)`
       seeding `...config` + check fields; `componentDidUpdate` config-reset →
       prev-config ref effect (full reset, does **not** clear `audioTriggerRefs`,
@@ -304,9 +311,11 @@ patterns; converting them unlocks `useExerciseAudio()`.
       hint-mode wrong drop → rejected + invalid-drop hint / 2 fails → Show answer →
       autoSolve snaps tiles to targets + complete / reset returns tiles home +
       clears assignments / hints toggle — zero console errors. PR #14.
-- [ ] `DictationExercise/DictationExercise.jsx`
-- [ ] `ClozeTypingExercise/ClozeTypingExercise.jsx`
-- [ ] `TypedTransformExercise/TypedTransformExercise.jsx`
+- [ ] `DictationExercise/DictationExercise.jsx` — thin wrapper around the
+      (now functional, single-path) runtime; trivial class→function swap.
+- [ ] `TypedTransformExercise/TypedTransformExercise.jsx` — thin wrapper; trivial swap.
+- [x] ~~`ClozeTypingExercise/ClozeTypingExercise.jsx`~~ — **REMOVED** (PR #17),
+      not converted: dead in production (zero LO configs). Was a thin wrapper.
 - [x] `exercises/current-location/nasal-rhyme-exercise.jsx` — already functional
       (converted earlier; was wrongly listed under `custom/`). Not class-based.
 
