@@ -176,10 +176,13 @@ re-run the audio suite + manual playback check.
 ### Phase 5 — Scoring exercises (HIGH risk — one per PR, browser-verify grades)
 > **✅ COMPLETE — all 11 scoring exercises converted (PR #8–#21).** Scope was
 > originally 12; `ClozeTypingExercise` was deleted (PR #17) rather than converted.
-> The `nasal-rhyme` entry below was already functional. The only remaining class in the
-> codebase is `ExerciseErrorBoundary` inside `debug/ExerciseShowcase.jsx` — a React
-> error boundary (`getDerivedStateFromError`), which has no functional/hook equivalent
-> and stays a class by design. **Not pending conversion.**
+> The `nasal-rhyme` entry below was wrongly recorded as already functional; it was a
+> `PureComponent` (it imported `PureComponent` by name, so `grep extends React` missed
+> it) and was converted in PR #25. The only remaining class in the codebase is now
+> `ExerciseErrorBoundary` inside `debug/ExerciseShowcase.jsx` — a React error boundary
+> (`getDerivedStateFromError`), which has no functional/hook equivalent and stays a
+> class by design. **Not pending conversion.** Confirm with both
+> `grep -rn "extends React" src/` AND `grep -rn "extends \(Pure\)\?Component" src/`.
 Each was grade-verified before/after. These share the config-reset + audio-state
 patterns; converting them unlocks `useExerciseAudio()` (Phase 6).
 
@@ -338,8 +341,14 @@ patterns; converting them unlocks `useExerciseAudio()` (Phase 6).
       → `--destructive`; zero console errors. PR #20.
 - [x] ~~`ClozeTypingExercise/ClozeTypingExercise.jsx`~~ — **REMOVED** (PR #17),
       not converted: dead in production (zero LO configs). Was a thin wrapper.
-- [x] `exercises/current-location/nasal-rhyme-exercise.jsx` — already functional
-      (converted earlier; was wrongly listed under `custom/`). Not class-based.
+- [x] `exercises/current-location/nasal-rhyme-exercise.jsx` — **converted** (PR #25,
+      `ab544c5`). CORRECTION: this was previously recorded here as "already
+      functional", but it was in fact a `PureComponent` (single `showNasalHighlights`
+      toggle). It evaded the `grep extends React` discovery because it imported
+      `PureComponent` by name rather than `React.PureComponent`. Converted to a
+      function with `useState`; grade-verified (`current-location`,
+      `#currentLocationNasalRhymeExercise`): Show/Hide answer flips `aria-pressed` +
+      the `[&_strong]` highlight classes + the label; zero console errors.
 
 ### Phase 6 — Consolidate (the payoff)
 Once exercises are functional:
@@ -390,8 +399,14 @@ Once exercises are functional:
 
 ## Acceptance criteria
 
-- [ ] No `extends React.Component` / `PureComponent` remain in `src/` (except where a
-      class is genuinely required, e.g. an Error Boundary — document any exception).
+- [x] No `extends React.Component` / `PureComponent` remain in `src/` **except the one
+      documented exception**: `ExerciseErrorBoundary` in `debug/ExerciseShowcase.jsx`,
+      a React error boundary (`getDerivedStateFromError`) with no functional/hook
+      equivalent — it stays a class by design. Verified with BOTH
+      `grep -rn "extends React" src/` and `grep -rn "extends \(Pure\)\?Component" src/`
+      (the latter caught the missed `CurrentLocationNasalRhymeExercise`, now converted
+      in PR #25). The `ExerciseShowcase()` host page itself is functional.
+      **Class→functional migration COMPLETE.**
 - [ ] `yarn lint` clean, `yarn test:run` green throughout (no phase left red).
 - [ ] Every scoring exercise grade-verified in-browser after its conversion.
 - [ ] `useExerciseAudio()` extracted; config-reset duplication removed.
