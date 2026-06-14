@@ -1,108 +1,112 @@
-# Next session handover — Bundle splitting (JS 950 KB → smaller initial load)
+# Next session handover
 
 Continue work in `/Users/ped/Sites/french/french-lo-1-test` (branch: main).
 
-TASK: Reduce the initial JS bundle. `yarn build` currently emits
-`dist/src/main.js` at **950.37 KB (gzip 254.65 KB)** and warns "Some chunks are
-larger than 500 kB". Goal: kill that warning and cut initial-load JS via vendor
-chunk-splitting and/or route/component lazy-loading. ONE PR (next # is 34), then
-stop.
-
-RENDER-CRITICAL: this changes how the app loads. **Browser verify is required**
-(preview tools) — not optional. Build + tests + lint are necessary but not
-sufficient.
-
 READ FIRST: `git status && git pull --ff-only`. Confirm "up to date with
-origin/main" (NOT "ahead N") before branching. Branch e.g. `perf/bundle-split`.
+origin/main" (NOT "ahead N") before branching.
 
 ## STATE (verify with git)
-- main green: PR #33 merged (squash `fe28cdb`, ESLint 42→0 warnings).
-- `yarn lint` → 0 errors / 0 warnings. `yarn test:run` → 95/95. `yarn build` →
-  clean except the >500 KB chunk advisory (that advisory IS the target).
-- Build output today: `dist/src/main.js` 950.37 KB (gzip 254.65),
-  `dist/src/main.css` 268.89 KB (gzip 38.66), `dist/index.html` 2.15 KB.
-- App.jsx is 868 lines and holds `renderComponent` / `wrapInShell` /
-  `EXERCISE_REGISTRY` — the natural code-split seam for lazy exercises.
 
-## KEY FACTS FROM vite.config.js (already read — don't re-derive)
-- `build.rollupOptions.output` is ALREADY customized with FIXED filenames (no
-  content hash): `entryFileNames`/`chunkFileNames` = `src/[name].js`,
-  `assetFileNames` = `src/[name].[ext]`. → `manualChunks` goes inside this
-  existing `output` block. New vendor chunks will be emitted as `src/<name>.js`.
-  NOTE the no-hash scheme is intentional (server-embedded deploy); keep it.
-  Watch for chunk-name collisions when adding many manualChunks (give explicit
-  stable names).
-- `base` is env-driven: `VITE_BASE_PATH || './'`. Prod server builds use
-  `build:server` (`/projects/french-basic/`) and `build:live`
-  (`/french/french-basic/`). Lazy/dynamic-import chunk URLs resolve against
-  `base` — VERIFY lazy chunks load under a non-root base, not just `./`.
-- Debug pages (`debug-sandbox.html` etc.) are ALREADY excluded from prod unless
-  `VITE_INCLUDE_DEBUG=true`. So the 950 KB is the real app — debug is NOT the
-  culprit. Don't chase it.
-- A `generateSlugRoutes` closeBundle plugin copies `dist/index.html` into each
-  LO slug dir. Whatever the entry HTML references (modulepreload + entry) must
-  stay correct after splitting — re-check `dist/index.html` after build.
+- main green at `f199d38`. Two PRs merged THIS session:
+  - **#34** (`2b98ac3`) — bundle split: vendor `manualChunks` + `React.lazy`
+    exercises/custom. Entry `main.js` **950.37 KB → 474.69 KB** (gzip 254.65 →
+    103.11). The ">500 kB chunk" warning is GONE. No circular-chunk warning.
+  - **#35** (`f199d38`) — fixed `fetch("/shared-settings.json")` →
+    `fetch(resolveAsset("/shared-settings.json"))` so it resolves under the
+    per-project base instead of 404ing at domain root.
+- `yarn lint` → 0/0. `yarn test:run` → 95/95. `yarn build` → clean (no chunk
+  warning). All verified at session end.
+- App.jsx is now ~915 lines (lazy registries + Suspense helpers added). Still
+  > 800 — the render-module extraction backlog item (below) is the only thing
+  that gets it back under 800.
 
-## HEAVY DEPENDENCIES (candidates — confirm before splitting)
-react 19 + react-dom · `motion` ^12 (large; framer-motion successor) ·
-10× `@radix-ui/react-*` · `dompurify` ^3 · `lucide-react` · `@headlessui/react`
-· `class-variance-authority` / `clsx` / `tailwind-merge`.
+## WHAT THE BUNDLE SPLIT LOOKS LIKE NOW (don't re-derive)
 
-## RECOMMENDED APPROACH (smallest-risk first)
-0. **MEASURE FIRST — do not guess.** Add `rollup-plugin-visualizer` as a
-   devDep, wire it into the build temporarily (or run a one-off), open the
-   treemap, and identify the actual top contributors. Remove the temp wiring
-   before the PR (or gate it behind an env flag). Reason: `motion`/radix sizes
-   are assumptions until measured.
-1. **manualChunks vendor split (low risk, no app-code change).** In
-   `rollupOptions.output.manualChunks`, peel react/react-dom, radix, motion,
-   dompurify into named chunks. This parallelizes loading + improves caching and
-   usually clears the >500 KB warning, but does NOT reduce total eager bytes.
-2. **Lazy-load real byte savings (higher value).** `React.lazy` +
-   `<Suspense>` for exercise components keyed off `EXERCISE_REGISTRY` so a given
-   learning object only downloads the exercise types it uses. Dynamically
-   `import()` `motion` / animation-heavy code paths if they aren't needed on
-   first paint. This is where initial JS actually drops.
-   - Cleaner if App.jsx render module is extracted to `src/render/` first
-     (backlog item B in FUTURE_PROJECTS) — OPTIONAL, decide based on churn.
-3. Re-run `yarn build`; confirm warning gone and main entry chunk shrunk.
+- `vite.config.js` → `build.rollupOptions.output`:
+  - `manualChunks(id)`: React + Radix + floating-ui + their deps go to ONE
+    `react-vendor` chunk (kept together ON PURPOSE — splitting React from Radix
+    produced a `Circular chunk` warning). `dompurify`, `lucide-react` (`icons`),
+    and `clsx`/`cva`/`tailwind-merge` (`ui-utils`) are separate; everything else
+    → `vendor`.
+  - `chunkFileNames` is a FUNCTION (not a string): names code-split chunks after
+    their parent directory (`src/DraggableFillGaps.js`, `src/custom.js`) so they
+    don't collide on `index.js` under the hash-free scheme. Keep filenames
+    hash-free (server-embedded deploy) — do not reintroduce `[hash]`.
+- `src/App.jsx`: `EXERCISE_REGISTRY` entries are `lazyExercise(() => import(...))`;
+  custom components resolve via `getLazyCustomComponent(name)` (one lazy
+  `@/components/custom` chunk, memoised per key). Both render through
+  `withLazyBoundary(node, key)` = per-component `<Suspense>` with
+  `<LazyComponentFallback/>`. `motion` is a dependency but UNUSED in the bundle —
+  do not waste time splitting it.
+- Per-LO behaviour confirmed in browser: an LO downloads ONLY the exercise types
+  it renders (LO1 pulled `DraggableFillGaps.js` + `WordOrderExercise.js`, not all
+  twelve). `custom.js` loads on demand.
 
-## GOTCHAS (from prior sessions)
-- **config-protection hook**: it BLOCKED editing `eslint.config.js` last session
-  ("fix source instead of weakening config"). It MAY also block `vite.config.js`.
-  Adding `manualChunks` is a LEGITIMATE build-config change — if blocked, the
-  hook's own message sanctions: "disable the config-protection hook temporarily."
-  Do that only for the vite.config.js edit; don't weaken lint config.
+## BACKLOG — ranked by ROI (none mandated; pick per budget)
+
+1. **Perf is mostly done.** The big wins are merged. Remaining items are
+   maintainability/safety, not user-facing speed.
+2. **Render-path test coverage** (MEDIUM value). `renderComponent` /
+   `renderComponentForTab` / the lazy+Suspense dispatch in App.jsx have no unit
+   tests, and #34 changed them. Add tests asserting: registry exercise →
+   accordion-wrapped lazy element under Suspense; custom key → lazy resolve;
+   `HIDE*` → nothing; missing key → "not implemented". Vitest + jsdom already
+   configured (`src/**/*.{test,spec}.{js,jsx}`).
+3. **App.jsx render-module extraction** (MEDIUM effort, maintainability only).
+   Pull `renderComponent` / `renderComponentForTab` / `wrapInShell` /
+   `EXERCISE_REGISTRY` / lazy helpers into `src/render/`. Only this gets App.jsx
+   back under the 800-line ceiling. Render-critical → browser verify required.
+4. **Per-topic custom split** (LOW ROI — skip unless asked). `custom.js` is one
+   chunk for all grammar+pronunciation topics, but it's only ~7.5 KB and already
+   deferred off initial load. Splitting per-topic needs an explicit
+   key→loader map (enumeration churn + drift risk vs the current `import *`
+   registry). Marginal win.
+5. CSS cascade-layer migration (~321 unlayered rules; big/risky). See
+   `docs/process/FUTURE_PROJECTS.md`.
+
+## KEY FACTS / GOTCHAS (carried forward)
+
+- **Base + assets**: `base` is env-driven (`VITE_BASE_PATH || './'`). Prod builds:
+  `build:server` = `/projects/french-basic/`, `build:live` =
+  `/french/french-basic/`. ALWAYS fetch runtime assets through
+  `resolveAsset(...)` (`src/utils/assets.js`) — a root-absolute fetch 404s under
+  the non-root deploy bases (that was bug #35). `index-fr.json`,
+  `lo-config/*.json` (via `viteStaticCopy`) and `shared-settings.json` (via
+  `public/`) all live UNDER the base.
+- **`vite preview` quirk (not a bug)**: under the default `./` base, the slug URL
+  rewrite (`normalizeLearningObjectUrl` → `replaceState` to `/<slug>/`) makes
+  `resolveAsset`'s relative `./src/...` resolve against `/<slug>/`, so config
+  fetches 404 → SPA-fallback HTML → "Unexpected token '<'" console errors. This
+  does NOT happen under the absolute server/live bases. To browser-verify a prod
+  build, use the `french-preview-server` launch config (serves with
+  `VITE_BASE_PATH=/projects/french-basic/`) and navigate to
+  `/projects/french-basic/?lo=1&skipCookieControl=1`. The dev server
+  (`french-dev`, port 5174) renders LOs natively and is the easiest functional
+  check.
+- **`.claude/launch.json` is gitignored** — the `french-preview` (4173) and
+  `french-preview-server` (4174) configs added this session are LOCAL only, not
+  committed. Recreate if needed (`yarn preview` /
+  `sh -c "VITE_BASE_PATH=... yarn preview"`).
 - **GateGuard fact-force**: fires on first Bash, first edit of EACH new file
   path, and doc edits. Present facts (importers via grep, public symbols, data
-  I/O, verbatim instruction), then RETRY the same op. It clears per-path on the
-  retry. Recovery: `ECC_GATEGUARD=off` or add
-  `pre:edit-write:gateguard-fact-force` to `ECC_DISABLED_HOOKS`.
-- Pre-commit guards (typography/color/a11y/SCSS/image) run on commit — pass on
-  clean code.
-- Attribution disabled (no Co-Authored-By) — matches repo history.
+  I/O field names, verbatim instruction), then RETRY the same op. Clears per-path
+  on retry. Recovery: `ECC_GATEGUARD=off`.
+- **config-protection hook**: may block `vite.config.js` / `eslint.config.js`
+  edits. Legitimate build-config changes are sanctioned by the hook's own
+  message ("disable the config-protection hook temporarily") — do that only for
+  the specific file, don't weaken lint config. (It did NOT block the #34
+  vite.config edits this session.)
+- **Pre-commit guards** (typography/color/a11y/SCSS/image) run on commit — pass
+  on clean code. Attribution disabled (no Co-Authored-By) — matches history.
+- **CI**: a single `quality` GitHub Action check runs on the PR (~50s). Wait for
+  it before `gh pr merge <n> --squash --delete-branch`.
 - Session may boot CAVEMAN MODE (terse replies); code/commits/PRs stay normal.
   "stop caveman" to disable.
 
-## GATES (this PR)
-- `yarn build` → no >500 KB chunk warning; main entry chunk meaningfully
-  smaller; `dist/index.html` still valid.
-- `yarn test:run` → 95/95. `yarn lint` → 0/0.
-- **Browser verify (required, render-critical):** preview_start, load the app,
-  confirm a learning object renders, exercises mount (Suspense fallback resolves,
-  no console errors / failed chunk requests), check network panel shows the new
-  chunks loading. Test under a non-root base if feasible.
-- Branch → commit → PR to main → squash-merge
-  (`gh pr merge 34 --squash --delete-branch`).
-
-## AFTER THIS / BACKLOG (none mandated) — docs/process/FUTURE_PROJECTS.md
-- B. App.jsx render module extraction → `src/render/` (~330 lines; only this
-  gets App.jsx under 800). Render-critical. May pair naturally with lazy split.
-- A. data-loading hook `useLearningObject`. Render-critical.
-- CSS cascade-layer migration (~321 unlayered rules; big/risky).
-- Render-path test coverage.
-
 ## COST NOTE
-Prior session (the #33 lint cleanup) ended at ~$89 with heavy context. START
-THIS IN A FRESH SESSION with this file as the opening prompt. Measure → split →
-verify → PR. Keep context lean.
+
+This session ran long (~$130, much of it the required render-critical browser
+verification across dev + two prod bases). START A FRESH SESSION for the next
+item. For render-critical changes, browser verify is REQUIRED — but verify
+functional render on the dev server (5174) and reserve the prod server-base
+preview (4174) for the final base-resolution check.
