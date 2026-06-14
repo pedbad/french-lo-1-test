@@ -61,8 +61,60 @@ export default defineConfig(() => {
         input: htmlInputs,
         output: {
           assetFileNames: `src/[name].[ext]`,
-          chunkFileNames: `src/[name].js`,
-          entryFileNames: `src/[name].js`
+          // Filenames stay hash-free (server-embedded deploy). Code-split
+          // exercise/custom chunks all have `index.js` entry points, which
+          // collide under a bare [name] scheme (Rollup renames them index2,
+          // index3, …). Name each after its parent directory instead so the
+          // chunks are stable and descriptive (src/DraggableFillGaps.js, …).
+          chunkFileNames: (chunkInfo) => {
+            const facadeId = chunkInfo.facadeModuleId;
+            if (facadeId) {
+              const match = facadeId.match(/[\\/]([^\\/]+)[\\/]index\.[jt]sx?$/);
+              if (match) return `src/${match[1]}.js`;
+            }
+            return `src/[name].js`;
+          },
+          entryFileNames: `src/[name].js`,
+          // Peel large, stable vendors into their own chunks so no single chunk
+          // trips the 500 kB warning and the framework/UI libs cache across
+          // deploys. App-code lazy chunks (exercises, custom components) are
+          // emitted automatically from the dynamic import() seams in App.jsx.
+          // NOTE: filenames stay hash-free (src/[name].js) by the scheme above —
+          // give each vendor chunk a unique, stable name to avoid collisions.
+          manualChunks(id) {
+            if (!id.includes('node_modules')) return undefined;
+            // React + Radix share a dependency cycle at the chunk boundary
+            // (Radix builds on React, React-DOM's reconciler re-enters shared
+            // helpers Radix also uses), so splitting them apart produces a
+            // circular-chunk warning. Keep the whole React/Radix UI runtime in
+            // one framework chunk — it changes rarely and caches well together.
+            if (
+              /[\\/]react-dom[\\/]/.test(id) ||
+              /[\\/]scheduler[\\/]/.test(id) ||
+              /[\\/]react[\\/]/.test(id) ||
+              id.includes('@radix-ui') ||
+              id.includes('@floating-ui') ||
+              id.includes('react-remove-scroll') ||
+              id.includes('react-style-singleton') ||
+              id.includes('use-sidecar') ||
+              id.includes('use-callback-ref') ||
+              id.includes('use-sync-external-store') ||
+              id.includes('aria-hidden') ||
+              id.includes('get-nonce')
+            ) {
+              return 'react-vendor';
+            }
+            if (id.includes('dompurify')) return 'dompurify';
+            if (id.includes('lucide-react')) return 'icons';
+            if (
+              id.includes('tailwind-merge') ||
+              id.includes('class-variance-authority') ||
+              id.includes('clsx')
+            ) {
+              return 'ui-utils';
+            }
+            return 'vendor';
+          }
         }
       }
     },

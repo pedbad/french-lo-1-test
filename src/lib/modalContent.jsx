@@ -1,9 +1,15 @@
 import { Info } from "@/components/content";
+// Import the three modal-link body components from their source topic barrels
+// rather than the aggregate "@/components/custom" registry. The registry builds
+// AllCustomComponentsFR by spreading every grammar/pronunciation export, so a
+// barrel import would pin the whole custom tree into the eager graph and defeat
+// the lazy custom-component split in App.jsx. These direct paths keep only the
+// two grammar topics this map needs eager; the rest of custom stays deferred.
 import {
-  AboutMeSubjectPronounsBody,
   Grammar1Body,
   Grammar2Body,
-} from "@/components/custom";
+} from "@/components/custom/grammar/first-contact-grammar";
+import { AboutMeSubjectPronounsBody } from "@/components/custom/grammar/about-me-grammar";
 
 // Static, LO-specific modal-link content keyed by modal target id. Each entry is
 // { title, content }, where `content` is a ready-to-render element. Lifted out of
