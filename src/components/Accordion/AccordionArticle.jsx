@@ -42,7 +42,7 @@ const renderSplitTitle = (rawTitle) => {
   const match = rawTitle.match(/\s*\(part\s*(\d+)\)$/i);
   if (!match) return rawTitle;
 
-  const partNumber = match[1];
+  const [, partNumber] = match;
   const partText = `(part ${partNumber})`;
   const baseText = rawTitle.replace(/\s*\(part\s*\d+\)$/i, "").trimEnd();
   return (
@@ -103,17 +103,17 @@ export function AccordionArticle({
   }, []);
 
   const headingContent =
-		titleHTML !== "" ? (
-		  <>
-		    <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }} />
-		    {info ? <Info infoMessage={info.infoMessage} infoTitle={info.infoTitle} /> : null}
-		  </>
-		) : (
-		  <>
-		    {renderSplitTitle(title)}
-		    {info ? <Info infoMessage={info.infoMessage} infoTitle={info.infoTitle} /> : null}
-		  </>
-		);
+    titleHTML !== "" ? (
+      <>
+        <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(titleHTML) }} />
+        {info ? <Info infoMessage={info.infoMessage} infoTitle={info.infoTitle} /> : null}
+      </>
+    ) : (
+      <>
+        {renderSplitTitle(title)}
+        {info ? <Info infoMessage={info.infoMessage} infoTitle={info.infoTitle} /> : null}
+      </>
+    );
 
   const contentId = `${id}-content`;
   const headingId = target ? `${target}-heading` : `section-title-${id}`;

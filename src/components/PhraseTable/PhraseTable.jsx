@@ -123,7 +123,7 @@ export function PhraseTable({ config = {}, targetLanguageCode }) {
     for (let i = 0; i < header.length; i++) {
       // Empty header cell (e.g. audio speaker column) — WAVE flags empty <th>;
       // provide sr-only text so the cell has an accessible name.
-      const content = header[i] === "" || header[i] == null
+      const content = header[i] === "" || header[i] === null || header[i] === undefined
         ? <span className="sr-only">Audio</span>
         : header[i];
       headerCells.push(

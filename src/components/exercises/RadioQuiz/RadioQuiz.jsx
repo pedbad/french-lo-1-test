@@ -61,7 +61,7 @@ export function RadioQuiz({ config = {}, onComplete = () => {}, onReset = () => 
     const nextShowExplanation = {};
 
     for (let i = 0; i < phrases.length; i += 1) {
-      const answerIndex = phrases[i][1];
+      const [, answerIndex] = phrases[i];
       const selectedOption = selectedOptions[i];
       if (selectedOption === null || selectedOption === undefined) {
         continue;
@@ -110,10 +110,7 @@ export function RadioQuiz({ config = {}, onComplete = () => {}, onReset = () => 
   };
 
   const rows = phrases.map((phraseRow, rowIndex) => {
-    const phrase = phraseRow[0];
-    const answerIndex = phraseRow[1];
-    const explanation = phraseRow[2];
-    const soundFile = phraseRow[3];
+    const [phrase, answerIndex, explanation, soundFile] = phraseRow;
     const selectedOption = selectedOptions[rowIndex];
     const rowResult = checkedResults[rowIndex];
     const rowHasResult = typeof rowResult === "boolean";

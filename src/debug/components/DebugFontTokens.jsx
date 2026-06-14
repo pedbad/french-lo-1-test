@@ -36,7 +36,7 @@ function getTokenUsageCounts(tokens) {
     tokenReferencePattern.lastIndex = 0;
     let match = tokenReferencePattern.exec(sourceText);
     while (match) {
-      const token = match[1];
+      const [, token] = match;
       if (counts.has(token)) {
         counts.set(token, (counts.get(token) || 0) + 1);
       }
@@ -48,7 +48,7 @@ function getTokenUsageCounts(tokens) {
 }
 
 function parseFontFaceFamilies() {
-  const fontsCssRaw = Object.values(FONTS_CSS_MODULE)[0];
+  const [fontsCssRaw] = Object.values(FONTS_CSS_MODULE);
   if (typeof fontsCssRaw !== 'string') return [];
 
   const families = [];

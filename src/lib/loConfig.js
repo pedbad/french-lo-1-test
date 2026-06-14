@@ -62,8 +62,8 @@ const normaliseContentItems = (content = []) => {
       const keys = Object.keys(item);
       const values = Object.values(item);
       if (keys.length === 1 && values.length === 1 && values[0]?.component) {
-        const cfg = values[0];
-        if (!cfg.id) cfg.id = keys[0];
+        const [cfg] = values;
+        if (!cfg.id) [cfg.id] = keys;
         return cfg;
       }
 

@@ -147,7 +147,7 @@ function getTokenUsageCounts(tokenNames) {
     tokenReferencePattern.lastIndex = 0;
     let match = tokenReferencePattern.exec(sourceText);
     while (match) {
-      const token = match[1];
+      const [, token] = match;
       if (counts.has(token)) {
         counts.set(token, (counts.get(token) || 0) + 1);
       }

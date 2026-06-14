@@ -8,7 +8,8 @@ import {
 } from '..';
 import { Separator } from "@/components/ui/separator";
 import DOMPurify from "dompurify";
-import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "./instructions-media";
+import { InstructionsMedia } from "./instructions-media";
+import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS } from "./instructionTypography";
 
 const splitDisplayTitle = (value) => {
   if (typeof value !== "string") return null;

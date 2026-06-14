@@ -3,7 +3,8 @@ import { Info, InstructionCallout } from "@/components/content";
 import { BackToTopButton } from "@/components/layout";
 import DOMPurify from "dompurify";
 import React from "react";
-import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS, InstructionsMedia } from "@/components/Section/instructions-media";
+import { InstructionsMedia } from "@/components/Section/instructions-media";
+import { applyInstructionTypographyToHTML, INSTRUCTION_TEXT_CLASS } from "@/components/Section/instructionTypography";
 import { resolveAsset } from "@/utils/assets";
 import { Separator } from "@/components/ui/separator";
 

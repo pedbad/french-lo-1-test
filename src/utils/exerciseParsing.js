@@ -48,7 +48,7 @@ export function parseSentence(text, { startBlankIndex = 0, blanksMeta, parseBlan
     segments.push(segment);
 
     blankIndex += 1;
-    lastIndex = regex.lastIndex;
+    ({ lastIndex } = regex);
   }
 
   if (lastIndex < text.length) {

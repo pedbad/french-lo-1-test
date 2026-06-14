@@ -8,9 +8,9 @@
  */
 import { describe, expect, it } from 'vitest';
 import {
-  parseSentence,
   parseChoiceBlank,
   parseInputBlank,
+  parseSentence,
 } from './exerciseParsing';
 
 describe('parseSentence — segment structure', () => {

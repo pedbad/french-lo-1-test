@@ -343,9 +343,9 @@ export function PhoningInFranceRegionsMap() {
   }, [activeRegionCode]);
 
   const activeRegion =
-		activeRegionCode && REGION_DETAILS[activeRegionCode]
-		  ? REGION_DETAILS[activeRegionCode]
-		  : null;
+    activeRegionCode && REGION_DETAILS[activeRegionCode]
+      ? REGION_DETAILS[activeRegionCode]
+      : null;
 
   return (
     <figure className="regional-telephone-map">

@@ -5,7 +5,7 @@ import { ExerciseFooter } from "@/components/exercises/shared/ExerciseFooter";
 import { Info } from "@/components/content";
 import { captureFlipPositions, playFlipAnimation } from "@/utils/reorderAnimation";
 import DOMPurify from "dompurify";
-import { useLayoutEffect, useEffect, useReducer, useRef } from "react";
+import { useEffect, useLayoutEffect, useReducer, useRef } from "react";
 import { resolveAsset } from "@/utils/assets";
 import AudioManager from "@/audio/AudioManager";
 import { MEMORY_CARD_TRANSITION_TIME_MS } from "@/constants/layout";
