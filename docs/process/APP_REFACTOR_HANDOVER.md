@@ -7,10 +7,17 @@
 
 ## Task (done)
 
-Refactored `src/App.jsx` (now **960 lines**, was 1495) for DRY + modularity —
-untangled the mixed concerns and de-duplicated the render-wrapper block,
-behavior-preserving. Still above the 800-line guideline; any further split is a
-fresh initiative, not part of this series.
+Refactored `src/App.jsx` (was 1495; **960 lines** at the end of this series) for
+DRY + modularity — untangled the mixed concerns and de-duplicated the
+render-wrapper block, behavior-preserving. Still above the 800-line guideline at
+that point; further split was a fresh initiative, not part of this series.
+
+> **Update (2026-06, PRs #36/#37):** that fresh initiative happened. The lazy
+> code-split registry and the whole `renderComponent`/`renderComponentForTab`
+> dispatch + `wrapInShell` were extracted to `src/render/lazyRegistry.jsx` and
+> `src/render/renderLearningObject.jsx` (`createRenderer(ctx)` factory), bringing
+> `App.jsx` to ~450 lines — under 800. See `docs/process/NEXT_SESSION.md` for the
+> current architecture.
 
 ## Read first
 

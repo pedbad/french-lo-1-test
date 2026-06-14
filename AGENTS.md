@@ -1,16 +1,20 @@
 # AGENTS.md
 
 ## Project overview
+
 This is a React + Vite French learning object app. It uses React 19, Vite 6, Tailwind CSS, and a set of UI utilities (Radix UI, Headless UI, shadcn).
 
 ## Key scripts
+
 - `yarn dev` / `yarn start`: run the dev server
 - `yarn build`: build for production
 - `yarn preview`: preview production build
 - `yarn lint`: run ESLint
 
 ## Repo layout
-- `src/App.jsx`: main app component
+
+- `src/App.jsx`: app shell / composition root (data load + page chrome + render wiring)
+- `src/render/`: lazy code-split registry (`lazyRegistry.jsx`) + config-driven LO render dispatch (`renderLearningObject.jsx`, `createRenderer`)
 - `src/main.jsx`: app entry point
 - `src/components/`: UI components (lowercase for Linux-safe imports)
 - `src/styles/`: styling assets
@@ -19,15 +23,18 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 - `public/`: static assets
 
 ## Learning object configuration
+
 - `src/index-fr.json` references the configuration files in `src/lo-config/`.
 - Configuration files in `src/lo-config/` define component layout and phrases.
 
 ## Tooling
+
 - Vite + React SWC plugin
 - Tailwind CSS v4
 - ESLint
 
 ## Notes
+
 - Yarn is the expected package manager.
 - Styling single source of truth lives in `src/index.css` via shadcn tokens + custom theme tokens (`--page-background`, `--hero-title-color`, `--footer-background`).
 - Tailwind utilities consume these tokens via `tailwind.config.js`; shadcn components live in `src/components/ui/`.
@@ -83,4 +90,4 @@ This is a React + Vite French learning object app. It uses React 19, Vite 6, Tai
 
 ## Imported Claude Cowork project instructions
 
-Please examine this fo;der, its a REact taulwing application i am working with, please do NOT amend any files, I just want you to check the MD files and familiarise yourself with the the code right now, do you understand?
+Please examine this folder, its a React schadcn tailwind application i am working with, please do NOT amend any files, I just want you to check the MD files and familiarise yourself with the the code right now, do you understand?
