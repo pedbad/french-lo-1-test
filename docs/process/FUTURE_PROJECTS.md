@@ -208,6 +208,28 @@ Config-driven content apps (a JSON schema naming components to render) must map 
 
 **If refactoring an existing switch:** use the strangler pattern — add the registry alongside the switch, migrate one type per commit (registry entry + delete that `case`), verify each step against a visual baseline (Playwright screenshots) and unit tests where logic is extractable, then delete the empty switch last. App stays working after every commit.
 
+**Proven outcome (French LO, 2026-06):** this architecture was reverse-engineered onto a legacy class component. `App.jsx` went 1495 → 868 lines across PRs #27–#32 (pure helpers → `lib/`, dead branches removed, render-shell helper, modal map + hook → `lib/`+`hooks/`, page-chrome → presentational components), one PR per session, each behaviour-preserving and browser-verified. No regressions. The remaining ~330-line render switch and the data-loading effect are the last two extractions — but the app shell is already a thin-enough composition root that further splitting is optional, not urgent. **Lesson: build the registry + thin shell from day one; retrofitting it is many careful PRs.**
+
+### Config Schema as Component Spec (Carry Forward)
+
+The companion to the registry rule above: the **content JSON is a typed, nested component spec**, and the renderer is a generic interpreter with zero per-page logic. A new "page" (learning object, lesson, article…) is *pure data* — a JSON tree + any new custom components registered in the registry. This is what makes the content authorable without touching code.
+
+**The contract (carry forward verbatim):**
+
+1. **Every node carries a `component` string** — the single dispatch key. The renderer resolves it: registry hit → uniform `<Cmp config={node} />`; a few structural types (`Group`, `Section`) handled explicitly; else look up a per-project custom-component map; unknown → a visible "not implemented" placeholder (never a silent blank); a reserved prefix (e.g. `HIDE…`) → skip.
+
+2. **Container nodes nest via `content[]`, and the renderer recurses.** A `Group`/`Section` node holds `content: [ { "uniqueKey": node }, … ]` — each child is wrapped in a throwaway key so JSON keeps children *ordered and named*. Normalise (strip the wrapper key to the inner node) before mapping. The JSON tree maps 1:1 to the React tree.
+
+3. **One container, two layouts via a flag.** `Group` renders its children stacked (sub-accordions/sections) by default, or as **tabs** when `displayAsTabs: true`. Same data, presentation flag decides. Keep presentation switches as boolean/enum fields on the node, not as separate component types.
+
+4. **Top-level config = an ordered object of sections**, iterated in key order. A reserved `settings` key (peeled off before iteration) holds page-level settings that merge over global shared-settings (page overrides global). Everything else is a section.
+
+5. **Per-node knobs the interpreter honours** (name them once, reuse everywhere): `id` (drives DOM id + accordion key + `#hash` deep link — **stable, never regenerate**), `expandable` (accordion vs static shell), a hero flag (which shell wraps it), `displayAsTabs`, `titleText`/`titleTextHTML`, `menuText` (tab/nav label), an instruction/info field (callout above content), and an `instructionsLayout` (intro paragraph + image). Component-specific payload (`phrases`, `items`, `words`, `soundFile`, etc.) is read only by that component.
+
+6. **Inline rich-text HTML carries cross-cutting behaviour the renderer never parses.** Authored fields embed `<a class='modal-link' data-modal-target='…'>` (see Modal-Link Authoring Rule below). The renderer outputs the HTML as-is; a single document-level capture-phase click delegation (one hook) resolves `.modal-link` clicks to a dialog. Keep this out of every component — one global listener, not per-render wiring.
+
+**App-shell split that pairs with this (French LO, PR #32):** keep the shell's render body thin by extracting page **chrome** — hero banner, page title, intro block, empty-state notice — into pure presentational components that take data as props. The shell keeps only the *when-to-show* guards (e.g. `currentLearningObject !== -1 ? <HeroBanner …/> : null`); the components stay pure and free of conditionals. Same principle as the container/presentational split, applied to the composition root.
+
 ### CSS Cascade Layers (Carry Forward)
 
 > 📐 **Project-specific detail:** see [docs/process/TAILWIND_V4.md](./TAILWIND_V4.md) for the French LO debt table, all fixes applied, and the future-project checklist.
