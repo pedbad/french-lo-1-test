@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import { Fragment, useReducer, useRef } from "react";
+
+import { commitCheck, countCorrect, getInitialScoringState } from "@/utils/exerciseScoring";
 import { resolveAsset } from "@/utils/assets";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { parseInputBlank, parseSentence } from "@/utils/exerciseParsing";
@@ -21,12 +23,10 @@ const INLINE_TYPED_INPUT_BASE_CLASS =
 function getResetState(config) {
   return {
     ...config,
+    ...getInitialScoringState(),
     activeRowIndex: -1,
-    checkedResults: {},
     diffResults: {},
-    hasChecked: false,
     masterPlayState: "stopped",
-    nCorrect: 0,
     rowAudioStatus: {},
     rowProgress: {},
     values: {},
@@ -77,7 +77,7 @@ export function InlineTypedGapExercise({ config }) {
         values,
         checkedResults,
         diffResults,
-        nCorrect: Object.values(checkedResults).filter(Boolean).length,
+        nCorrect: countCorrect(checkedResults),
       };
     });
   };
@@ -118,10 +118,8 @@ export function InlineTypedGapExercise({ config }) {
     }
 
     dispatch({
-      checkedResults,
+      ...commitCheck(checkedResults),
       diffResults,
-      hasChecked: true,
-      nCorrect: Object.values(checkedResults).filter(Boolean).length,
     });
   };
 
@@ -145,22 +143,18 @@ export function InlineTypedGapExercise({ config }) {
 
     dispatch({
       values,
-      checkedResults,
+      ...commitCheck(checkedResults),
       diffResults,
-      hasChecked: true,
-      nCorrect: Object.values(checkedResults).filter(Boolean).length,
     });
   };
 
   const handleReset = () => {
     AudioManager.stopAll();
     dispatch({
+      ...getInitialScoringState(),
       activeRowIndex: -1,
-      checkedResults: {},
       diffResults: {},
-      hasChecked: false,
       masterPlayState: "stopped",
-      nCorrect: 0,
       rowAudioStatus: {},
       rowProgress: {},
       values: {},

@@ -428,8 +428,30 @@ Once exercises are functional:
       only runtime same-LO config-identity change is the StrictMode dev double-load,
       which `configGen` handles; the counter also future-proofs any later
       reload/settings feature.
-- [ ] Extract any remaining shared exercise state (`useExerciseScoring`?) if a clean
-      seam appears once components are hooks.
+- [x] **Shared scoring helpers (`exerciseScoring.js`, PR #27).** Evaluated the
+      `useExerciseScoring?` seam: a clean one exists for the SIX blank-grading
+      exercises (RadioQuiz, SelectExercise, InlineChoiceGroup, InlineTypedGap,
+      TextEntry, LineMatch), which all model grading as `checkedResults` +
+      `hasChecked` + a derived `nCorrect` with the identical
+      `Object.values(cr).filter(Boolean).length` count (LineMatch had already
+      localized it as `getCorrectCount`). The other three (WordOrder,
+      PhraseReorder, DraggableFillGaps) use a `failCount`/`complete` model and do
+      NOT fit. Extracted the genuinely-shared, pure pieces to
+      `src/utils/exerciseScoring.js`: `getInitialScoringState()` (a FACTORY, not a
+      shared constant, so each reset gets its own `checkedResults` map),
+      `countCorrect(checkedResults)`, and `commitCheck(checkedResults)` (the
+      `{ checkedResults, hasChecked: true, nCorrect }` check patch). 10 unit tests.
+      **Deliberately a pure-function module, NOT a stateful hook:** the scoring
+      fields must stay inside each exercise's single merge reducer so a check stays
+      atomic with `values`/`diffResults`/`showExplanation`; a separate hook store
+      would split those updates across renders and risk desync on grade-critical
+      code (a wrong abstraction is worse than the small duplication). The
+      per-exercise grading FUNCTION (option-index / normalized-typed / identity)
+      stays in each caller. Gates: lint 0, test:run 59/59, build clean;
+      grade-verified in browser (SelectExercise + InlineChoiceGroup + InlineTypedGap:
+      correct→`--edu-affirm`, wrong→`--destructive`, Reset clears, zero console
+      errors). RadioQuiz/TextEntry/LineMatch use the same helpers identically,
+      covered by the unit tests + the verified equivalents.
 
 ---
 
