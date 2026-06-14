@@ -21,7 +21,12 @@ import {
   WordOrderExercise,
   WordSpotExercise,
 } from "@/components/exercises";
-import { Footer, HeroSection, LandingPage, MainMenu } from "@/components/layout";
+import {
+  Footer,
+  HeroSection,
+  LandingPage,
+  MainMenu,
+} from "@/components/layout";
 import { resolveAsset } from "./utils/assets";
 import { handleResponse } from "./utils/network";
 import { handleModalLinkClick } from "./utils/dom";
@@ -65,6 +70,69 @@ const EXERCISE_REGISTRY = {
   WordOrderExercise,
   PhraseReorderExercise,
   WordSpotExercise,
+};
+
+// Shared render shell for renderComponent. Every branch wraps its content in
+// either an expandable AccordionArticle or a static Section/HeroSection with
+// identical prop wiring; this centralises that wrapper so it lives in one place.
+//
+// The id/key SUFFIX is passed in per call (-Accordion / -Section /
+// -Group-Accordion / -Group-Section / -Section-Section). Those ids drive
+// sessionStorage accordion open/closed state AND #hash deep links — a changed
+// id silently breaks persistence and links, so each call site states its exact
+// suffix rather than the helper inferring it.
+//
+// className / semanticAs are passed through verbatim: AccordionArticle and
+// Section both treat an undefined value as "use my default", so omitting them
+// (plain branches) and passing undefined are equivalent. HeroSection ignores
+// className entirely (its root class is hardcoded), matching prior behaviour.
+const wrapInShell = ({
+  value,
+  expandable,
+  autoExpandSingleAccordion,
+  target,
+  accordionId,
+  sectionId,
+  accordionSemanticAs,
+  sectionSemanticAs,
+  sectionComponent,
+  className,
+  title,
+  titleHTML,
+  children,
+}) => {
+  if (expandable) {
+    return (
+      <AccordionArticle
+        expandedByDefault={autoExpandSingleAccordion}
+        config={value}
+        className={className}
+        id={accordionId}
+        key={accordionId}
+        semanticAs={accordionSemanticAs}
+        target={target}
+        title={title}
+        titleHTML={titleHTML}
+      >
+        {children}
+      </AccordionArticle>
+    );
+  }
+  const SectionComponent = sectionComponent || Section;
+  return (
+    <SectionComponent
+      config={value}
+      className={className}
+      id={sectionId}
+      key={sectionId}
+      semanticAs={sectionSemanticAs}
+      target={target}
+      title={title}
+      titleHTML={titleHTML}
+    >
+      {children}
+    </SectionComponent>
+  );
 };
 
 const setDark = (dark) => {
@@ -192,25 +260,33 @@ export default function App() {
       "subject-pronouns-elle": {
         title: "3. Subject pronouns.",
         content: (
-          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-elle`} />
+          <AboutMeSubjectPronounsBody
+            highlightTarget={`subject-pronouns-elle`}
+          />
         ),
       },
       "subject-pronouns-ils": {
         title: "3. Subject pronouns.",
         content: (
-          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-ils`} />
+          <AboutMeSubjectPronounsBody
+            highlightTarget={`subject-pronouns-ils`}
+          />
         ),
       },
       "subject-pronouns-elles": {
         title: "3. Subject pronouns.",
         content: (
-          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-elles`} />
+          <AboutMeSubjectPronounsBody
+            highlightTarget={`subject-pronouns-elles`}
+          />
         ),
       },
       "subject-pronouns-iel": {
         title: "3. Subject pronouns.",
         content: (
-          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-iel`} />
+          <AboutMeSubjectPronounsBody
+            highlightTarget={`subject-pronouns-iel`}
+          />
         ),
       },
       "toilettes-note": {
@@ -325,10 +401,16 @@ export default function App() {
             normalizeInstructionSchemaNode(res),
             sharedSettingsRef.current,
           );
-          const normalizedSettings =
-            normalizeInstructionSchemaNode(settings);
-          const mergedSettings = { ...sharedSettingsRef.current, ...normalizedSettings };
-          const { class: configClass, targetLanguageCode, textDirection = "ltr" } = mergedSettings;
+          const normalizedSettings = normalizeInstructionSchemaNode(settings);
+          const mergedSettings = {
+            ...sharedSettingsRef.current,
+            ...normalizedSettings,
+          };
+          const {
+            class: configClass,
+            targetLanguageCode,
+            textDirection = "ltr",
+          } = mergedSettings;
           if (configClass)
             document.getElementsByTagName("html")[0].classList.add(configClass);
           document.documentElement.setAttribute("dir", textDirection);
@@ -457,38 +539,37 @@ export default function App() {
       .then((r) => r.json())
       .catch(() => ({}));
 
-    Promise.all([loadIndex(-1), sharedPromise]).then(([{ learningObjects = [] }, shared]) => {
-      if (!mountedRef.current) return;
-      sharedSettingsRef.current = shared;
-      const loPathRaw = getLearningObjectPathParam(learningObjects);
-      const loSelectorRaw = loPathRaw || loParamRaw;
-      const resolvedLo = resolveLearningObjectParam(
-        loSelectorRaw,
-        learningObjects,
-      );
-      if (!resolvedLo) {
-        setState({ currentLearningObject: -1, config: null });
-        return;
-      }
+    Promise.all([loadIndex(-1), sharedPromise]).then(
+      ([{ learningObjects = [] }, shared]) => {
+        if (!mountedRef.current) return;
+        sharedSettingsRef.current = shared;
+        const loPathRaw = getLearningObjectPathParam(learningObjects);
+        const loSelectorRaw = loPathRaw || loParamRaw;
+        const resolvedLo = resolveLearningObjectParam(
+          loSelectorRaw,
+          learningObjects,
+        );
+        if (!resolvedLo) {
+          setState({ currentLearningObject: -1, config: null });
+          return;
+        }
 
-      const { configKey, loId, slug, title, titleShort } = resolvedLo;
-      setState({
-        currentLearningObject: loId,
-        title,
-        titleShort: titleShort || "",
-      });
+        const { configKey, loId, slug, title, titleShort } = resolvedLo;
+        setState({
+          currentLearningObject: loId,
+          title,
+          titleShort: titleShort || "",
+        });
 
-      normalizeLearningObjectUrl({
-        currentLoPathRaw: loPathRaw,
-        learningObjects,
-        resolvedSlug: slug,
-      });
+        normalizeLearningObjectUrl({
+          currentLoPathRaw: loPathRaw,
+          learningObjects,
+          resolvedSlug: slug,
+        });
 
-      loadConfig(
-        `/src/lo-config/${configKey}.json`,
-        loId,
-      );
-    });
+        loadConfig(`/src/lo-config/${configKey}.json`, loId);
+      },
+    );
 
     if (sessionStorage.getItem(`dark`)) {
       const dark = JSON.parse(sessionStorage.getItem(`dark`));
@@ -628,18 +709,11 @@ export default function App() {
               informationText={tabInformationText}
               informationTextHTML={tabInformationTextHTML}
             />
-            <Explanation
-              config={value}
-            />
+            <Explanation config={value} />
           </>
         );
       case "PhraseTable":
-        return (
-          <PhraseTable
-            config={value}
-            languageCode={languageCode}
-          />
-        );
+        return <PhraseTable config={value} languageCode={languageCode} />;
       default: {
         const CustomComponent = AllCustomComponentsFR[component];
         if (CustomComponent) {
@@ -683,57 +757,43 @@ export default function App() {
     // accordion-wrapped template. Special cases fall through to the switch.
     const RegisteredExercise = EXERCISE_REGISTRY[component];
     if (RegisteredExercise) {
+      // Registry exercises are always accordion-wrapped (force expandable).
       articles.push(
-        <AccordionArticle
-          expandedByDefault={autoExpandSingleAccordion}
-          config={value}
-          id={`${compoundID}-Accordion`}
-          key={`${compoundID}-Accordion`}
-          target={targetId}
-          title={titleText}
-          titleHTML={titleTextHTML}
-        >
-          <RegisteredExercise key={`${compoundID}-${configGen}`} config={value} />
-        </AccordionArticle>,
+        wrapInShell({
+          value,
+          expandable: true,
+          autoExpandSingleAccordion,
+          target: targetId,
+          accordionId: `${compoundID}-Accordion`,
+          title: titleText,
+          titleHTML: titleTextHTML,
+          children: (
+            <RegisteredExercise
+              key={`${compoundID}-${configGen}`}
+              config={value}
+            />
+          ),
+        }),
       );
       return;
     }
 
     switch (component) {
       case "Explanation": {
-        if (expandable) {
-          articles.push(
-            <AccordionArticle
-              expandedByDefault={autoExpandSingleAccordion}
-              config={value}
-              id={`${compoundID}-Accordion`}
-              key={`${compoundID}-Accordion`}
-              target={targetId}
-              title={titleText}
-              titleHTML={titleTextHTML}
-            >
-              <Explanation
-                config={value}
-              />
-            </AccordionArticle>,
-          );
-        } else {
-          articles.push(
-            <Section
-              config={value}
-              id={`${compoundID}-Section`}
-              key={`${compoundID}-Section`}
-              semanticAs={topLevelSemanticAs}
-              target={targetId}
-              title={titleText}
-              titleHTML={titleTextHTML}
-            >
-              <Explanation
-                config={value}
-              />
-            </Section>,
-          );
-        }
+        articles.push(
+          wrapInShell({
+            value,
+            expandable,
+            autoExpandSingleAccordion,
+            target: targetId,
+            accordionId: `${compoundID}-Accordion`,
+            sectionId: `${compoundID}-Section`,
+            sectionSemanticAs: topLevelSemanticAs,
+            title: titleText,
+            titleHTML: titleTextHTML,
+            children: <Explanation config={value} />,
+          }),
+        );
         break;
       }
       case "Group": {
@@ -747,41 +807,23 @@ export default function App() {
             renderComponent(v, renderedGroupContent, null, renderContext);
           });
 
-          if (expandable) {
-            articles.push(
-              <AccordionArticle
-                expandedByDefault={autoExpandSingleAccordion}
-                config={value}
-                className={`group`}
-                id={`${compoundID}-Group-Accordion`}
-                key={`${compoundID}-Group-Accordion`}
-                semanticAs="section"
-                target={groupId}
-                title={titleText}
-                titleHTML={titleTextHTML}
-              >
-                {renderedGroupContent}
-              </AccordionArticle>,
-            );
-          } else {
-            const GroupSectionComponent = value.heroSection
-              ? HeroSection
-              : Section;
-            articles.push(
-              <GroupSectionComponent
-                config={value}
-                className={`group`}
-                id={`${compoundID}-Group-Section`}
-                key={`${compoundID}-Group-Section`}
-                semanticAs={topLevelSemanticAs}
-                target={groupId}
-                title={titleText}
-                titleHTML={titleTextHTML}
-              >
-                {renderedGroupContent}
-              </GroupSectionComponent>,
-            );
-          }
+          articles.push(
+            wrapInShell({
+              value,
+              expandable,
+              autoExpandSingleAccordion,
+              target: groupId,
+              accordionId: `${compoundID}-Group-Accordion`,
+              sectionId: `${compoundID}-Group-Section`,
+              accordionSemanticAs: "section",
+              sectionSemanticAs: topLevelSemanticAs,
+              sectionComponent: value.heroSection ? HeroSection : Section,
+              className: `group`,
+              title: titleText,
+              titleHTML: titleTextHTML,
+              children: renderedGroupContent,
+            }),
+          );
         } else {
           // children rendered as tabs
           const tabItems = [];
@@ -809,115 +851,73 @@ export default function App() {
             });
           });
 
-          const outerWrapper = (inner) =>
-            expandable ? (
-              <AccordionArticle
-                expandedByDefault={autoExpandSingleAccordion}
-                config={value}
-                className={`group`}
-                id={`${compoundID}-Group-Accordion`}
-                key={`${compoundID}-Group-Accordion`}
-                semanticAs="section"
-                target={groupId}
-                title={titleText}
-                titleHTML={titleTextHTML}
-              >
-                {inner}
-              </AccordionArticle>
-            ) : (
-              (() => {
-                const GroupSectionComponent = value.heroSection
-                  ? HeroSection
-                  : Section;
-                return (
-                  <GroupSectionComponent
-                    config={value}
-                    className={`group`}
-                    id={`${compoundID}-Group-Section`}
-                    key={`${compoundID}-Group-Section`}
-                    semanticAs={topLevelSemanticAs}
-                    target={groupId}
-                    title={titleText}
-                    titleHTML={titleTextHTML}
-                  >
-                    {inner}
-                  </GroupSectionComponent>
-                );
-              })()
-            );
-
           articles.push(
-            outerWrapper(
-              <Tabs
-                className="w-full overflow-hidden rounded-xl border border-border/45 bg-card/80"
-                defaultValue={
-                  defaultTabValue || (tabItems[0] && tabItems[0].value)
-                }
-              >
-                <TabsList className="flex h-auto w-full flex-col items-stretch justify-start gap-0 overflow-visible rounded-lg border border-[color-mix(in_oklab,var(--edu-affirm)_62%,var(--foreground))] bg-muted/20 p-1 min-[1170px]:flex-wrap min-[1170px]:flex-row min-[1170px]:gap-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:border-b-2 min-[1170px]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] min-[1170px]:bg-muted/35 min-[1170px]:p-0">
+            wrapInShell({
+              value,
+              expandable,
+              autoExpandSingleAccordion,
+              target: groupId,
+              accordionId: `${compoundID}-Group-Accordion`,
+              sectionId: `${compoundID}-Group-Section`,
+              accordionSemanticAs: "section",
+              sectionSemanticAs: topLevelSemanticAs,
+              sectionComponent: value.heroSection ? HeroSection : Section,
+              className: `group`,
+              title: titleText,
+              titleHTML: titleTextHTML,
+              children: (
+                <Tabs
+                  className="w-full overflow-hidden rounded-xl border border-border/45 bg-card/80"
+                  defaultValue={
+                    defaultTabValue || (tabItems[0] && tabItems[0].value)
+                  }
+                >
+                  <TabsList className="flex h-auto w-full flex-col items-stretch justify-start gap-0 overflow-visible rounded-lg border border-[color-mix(in_oklab,var(--edu-affirm)_62%,var(--foreground))] bg-muted/20 p-1 min-[1170px]:flex-wrap min-[1170px]:flex-row min-[1170px]:gap-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:border-b-2 min-[1170px]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] min-[1170px]:bg-muted/35 min-[1170px]:p-0">
+                    {tabItems.map((item) => (
+                      <TabsTrigger
+                        className="w-full cursor-pointer justify-start rounded-md border border-transparent !px-4 !py-2 text-left !text-[length:calc(var(--font-size-sm)*1.2)] !leading-tight font-medium text-foreground/90 transition-colors duration-[800ms] ease-in-out hover:bg-[var(--accordion-mist)] hover:text-[var(--accordion-hover-text)] data-[state=active]:bg-[var(--accordion-mist)] data-[state=active]:text-[var(--accordion-hover-text)] data-[state=active]:font-bold data-[state=active]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] data-[state=active]:border-l-[5px] data-[state=active]:border-l-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] data-[state=active]:rounded-none min-[1170px]:shrink-0 min-[1170px]:w-auto min-[1170px]:justify-center min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:border-r min-[1170px]:border-[color-mix(in_oklab,var(--edu-affirm)_62%,var(--foreground))] min-[1170px]:!min-h-[3.8rem] min-[1170px]:!px-6 min-[1170px]:!py-3 min-[1170px]:!text-[length:calc(var(--font-size-sm)*1.4)] min-[1170px]:text-center min-[1170px]:data-[state=active]:relative min-[1170px]:data-[state=active]:z-20 min-[1170px]:data-[state=active]:translate-y-[2px] min-[1170px]:data-[state=active]:bg-[var(--accordion-mist)] min-[1170px]:data-[state=active]:shadow-none min-[1170px]:data-[state=active]:rounded-t-[0.75rem] min-[1170px]:data-[state=active]:border-t-2 min-[1170px]:data-[state=active]:border-l-2 min-[1170px]:data-[state=active]:border-r-2 min-[1170px]:data-[state=active]:border-b-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] min-[1170px]:data-[state=active]:!border-b-[color-mix(in_oklab,var(--muted)_25%,var(--card))]"
+                        key={item.value}
+                        value={item.value}
+                      >
+                        {item.label}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
                   {tabItems.map((item) => (
-                    <TabsTrigger
-                      className="w-full cursor-pointer justify-start rounded-md border border-transparent !px-4 !py-2 text-left !text-[length:calc(var(--font-size-sm)*1.2)] !leading-tight font-medium text-foreground/90 transition-colors duration-[800ms] ease-in-out hover:bg-[var(--accordion-mist)] hover:text-[var(--accordion-hover-text)] data-[state=active]:bg-[var(--accordion-mist)] data-[state=active]:text-[var(--accordion-hover-text)] data-[state=active]:font-bold data-[state=active]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] data-[state=active]:border-l-[5px] data-[state=active]:border-l-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] data-[state=active]:rounded-none min-[1170px]:shrink-0 min-[1170px]:w-auto min-[1170px]:justify-center min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:border-r min-[1170px]:border-[color-mix(in_oklab,var(--edu-affirm)_62%,var(--foreground))] min-[1170px]:!min-h-[3.8rem] min-[1170px]:!px-6 min-[1170px]:!py-3 min-[1170px]:!text-[length:calc(var(--font-size-sm)*1.4)] min-[1170px]:text-center min-[1170px]:data-[state=active]:relative min-[1170px]:data-[state=active]:z-20 min-[1170px]:data-[state=active]:translate-y-[2px] min-[1170px]:data-[state=active]:bg-[var(--accordion-mist)] min-[1170px]:data-[state=active]:shadow-none min-[1170px]:data-[state=active]:rounded-t-[0.75rem] min-[1170px]:data-[state=active]:border-t-2 min-[1170px]:data-[state=active]:border-l-2 min-[1170px]:data-[state=active]:border-r-2 min-[1170px]:data-[state=active]:border-b-2 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] min-[1170px]:data-[state=active]:!border-b-[color-mix(in_oklab,var(--muted)_25%,var(--card))]"
+                    <TabsContent
+                      className="mt-2 rounded-lg border border-[color-mix(in_oklab,var(--edu-affirm)_62%,var(--foreground))] bg-muted/20 p-4 data-[state=inactive]:hidden data-[state=active]:block min-[1170px]:mt-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/25 min-[1170px]:data-[state=active]:rounded-b-[0.75rem] min-[1170px]:data-[state=active]:border-x-2 min-[1170px]:data-[state=active]:border-b-2 min-[1170px]:data-[state=active]:border-t-0 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))]"
                       key={item.value}
                       value={item.value}
+                      forceMount
                     >
-                      {item.label}
-                    </TabsTrigger>
+                      {item.content}
+                    </TabsContent>
                   ))}
-                </TabsList>
-                {tabItems.map((item) => (
-                  <TabsContent
-                    className="mt-2 rounded-lg border border-[color-mix(in_oklab,var(--edu-affirm)_62%,var(--foreground))] bg-muted/20 p-4 data-[state=inactive]:hidden data-[state=active]:block min-[1170px]:mt-0 min-[1170px]:rounded-none min-[1170px]:border-0 min-[1170px]:bg-muted/25 min-[1170px]:data-[state=active]:rounded-b-[0.75rem] min-[1170px]:data-[state=active]:border-x-2 min-[1170px]:data-[state=active]:border-b-2 min-[1170px]:data-[state=active]:border-t-0 min-[1170px]:data-[state=active]:border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))]"
-                    key={item.value}
-                    value={item.value}
-                    forceMount
-                  >
-                    {item.content}
-                  </TabsContent>
-                ))}
-              </Tabs>,
-            ),
+                </Tabs>
+              ),
+            }),
           );
         }
 
         break;
       }
       case "PhraseTable": {
-        if (expandable) {
-          articles.push(
-            <AccordionArticle
-              expandedByDefault={autoExpandSingleAccordion}
-              config={value}
-              id={`${compoundID}-Accordion`}
-              key={`${compoundID}-Accordion`}
-              target={targetId}
-              title={titleText}
-              titleHTML={titleTextHTML}
-            >
-              <PhraseTable
-                config={value}
-                languageCode={languageCode}
-              />
-            </AccordionArticle>,
-          );
-        } else {
-          articles.push(
-            <Section
-              config={value}
-              id={`${compoundID}-Section`}
-              key={`${compoundID}-Section`}
-              semanticAs={topLevelSemanticAs}
-              target={targetId}
-              title={titleText}
-              titleHTML={titleTextHTML}
-            >
-              <PhraseTable
-                config={value}
-                languageCode={languageCode}
-              />
-            </Section>,
-          );
-        }
+        articles.push(
+          wrapInShell({
+            value,
+            expandable,
+            autoExpandSingleAccordion,
+            target: targetId,
+            accordionId: `${compoundID}-Accordion`,
+            sectionId: `${compoundID}-Section`,
+            sectionSemanticAs: topLevelSemanticAs,
+            title: titleText,
+            titleHTML: titleTextHTML,
+            children: (
+              <PhraseTable config={value} languageCode={languageCode} />
+            ),
+          }),
+        );
         break;
       }
       case "Section": {
@@ -928,54 +928,40 @@ export default function App() {
           renderComponent(v, renderedSectionContent, null, renderContext);
         });
 
-        const SectionComponent = value.heroSection ? HeroSection : Section;
         articles.push(
-          <SectionComponent
-            config={value}
-            id={`${compoundID}-Section-Section`}
-            key={`${compoundID}-Section-Section`}
-            semanticAs={topLevelSemanticAs}
-            target={targetId}
-            title={titleText}
-            titleHTML={titleTextHTML}
-          >
-            {renderedSectionContent}
-          </SectionComponent>,
+          wrapInShell({
+            value,
+            // Section is never accordion-wrapped; force the static branch.
+            expandable: false,
+            target: targetId,
+            // Double suffix is intentional/legacy — preserved exactly.
+            sectionId: `${compoundID}-Section-Section`,
+            sectionSemanticAs: topLevelSemanticAs,
+            sectionComponent: value.heroSection ? HeroSection : Section,
+            title: titleText,
+            titleHTML: titleTextHTML,
+            children: renderedSectionContent,
+          }),
         );
         break;
       }
       default: {
         const CustomComponent = AllCustomComponentsFR[component];
         if (CustomComponent) {
-          if (expandable) {
-            articles.push(
-              <AccordionArticle
-                expandedByDefault={autoExpandSingleAccordion}
-                config={value}
-                id={`${compoundID}-Accordion`}
-                key={`${compoundID}-Accordion`}
-                target={targetId}
-                title={titleText}
-                titleHTML={titleTextHTML}
-              >
-                <CustomComponent config={value} id={id} />
-              </AccordionArticle>,
-            );
-          } else {
-            articles.push(
-              <Section
-                config={value}
-                id={`${compoundID}-Section`}
-                key={`${compoundID}-Section`}
-                semanticAs={topLevelSemanticAs}
-                target={targetId}
-                title={titleText}
-                titleHTML={titleTextHTML}
-              >
-                <CustomComponent config={value} id={id} />
-              </Section>,
-            );
-          }
+          articles.push(
+            wrapInShell({
+              value,
+              expandable,
+              autoExpandSingleAccordion,
+              target: targetId,
+              accordionId: `${compoundID}-Accordion`,
+              sectionId: `${compoundID}-Section`,
+              sectionSemanticAs: topLevelSemanticAs,
+              title: titleText,
+              titleHTML: titleTextHTML,
+              children: <CustomComponent config={value} id={id} />,
+            }),
+          );
         } else if (component.slice(0, 4) === "HIDE") {
           // do nothing
         } else {
@@ -1020,12 +1006,9 @@ export default function App() {
         // UX rule: if a section has exactly one accordion, show its content by default.
         // Existing sessionStorage state still has priority in AccordionArticle.
         const autoExpandSingleAccordion = sectionAccordionCount === 1;
-        renderComponent(
-          value,
-          renderedTopLevelContent,
-          semanticSectionId,
-          { autoExpandSingleAccordion },
-        );
+        renderComponent(value, renderedTopLevelContent, semanticSectionId, {
+          autoExpandSingleAccordion,
+        });
         const headingId = `${semanticSectionId}-heading`;
         topLevelSections.push(
           <section
@@ -1055,10 +1038,7 @@ export default function App() {
     <>
       {/* Provide Radix tooltips once at the app root for consistent behavior. */}
       <TooltipProvider delayDuration={300}>
-        <div
-          className={`app ${appLang}`}
-          key={`languageDiv`}
-        >
+        <div className={`app ${appLang}`} key={`languageDiv`}>
           <a className="skip-link" href="#content">
             Skip to main content
           </a>
@@ -1187,10 +1167,9 @@ export default function App() {
                 })()}
 
                 {currentLearningObject !== -1 ? topLevelSections : null}
-                {learningObjects.length > 0 &&
-                currentLearningObject === -1 ? (
-                    <LandingPage learningObjects={learningObjects} />
-                  ) : null}
+                {learningObjects.length > 0 && currentLearningObject === -1 ? (
+                  <LandingPage learningObjects={learningObjects} />
+                ) : null}
               </main>
             </>
           ) : (
@@ -1198,8 +1177,8 @@ export default function App() {
               <h1>No learning object selected</h1>
               <h2>{`${window.location.host}${window.location.pathname}first-contact/`}</h2>
               <p>
-                Open a learning object by slug path. If absent, the landing
-                page is shown.
+                Open a learning object by slug path. If absent, the landing page
+                is shown.
               </p>
             </div>
           )}
