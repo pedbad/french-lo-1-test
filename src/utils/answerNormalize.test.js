@@ -14,9 +14,9 @@ import { normalizeAnswer, normalizeForDictation } from './answerNormalize';
 
 describe('normalizeAnswer (light)', () => {
   it('normalizes curly/back apostrophes to straight', () => {
-    expect(normalizeAnswer("l’an")).toBe("l'an");   // right single quote
-    expect(normalizeAnswer('l`an')).toBe("l'an");          // backtick
-    expect(normalizeAnswer('l´an')).toBe("l'an");    // acute accent
+    expect(normalizeAnswer("l’an")).toBe("l'an"); // right single quote
+    expect(normalizeAnswer('l`an')).toBe("l'an"); // backtick
+    expect(normalizeAnswer('l´an')).toBe("l'an"); // acute accent
   });
 
   it('collapses internal whitespace and trims ends', () => {

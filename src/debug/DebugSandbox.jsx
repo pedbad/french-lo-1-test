@@ -5,7 +5,7 @@ import { Info } from '../components/Info';
 import { IconButton } from '../components/IconButton';
 import { InstructionCallout } from '../components/InstructionCallout';
 import { LearningObjectStructureSummary } from './components/LearningObjectStructureSummary';
-import { INSTRUCTION_TEXT_CLASS } from '../components/Section/instructions-media';
+import { INSTRUCTION_TEXT_CLASS } from '../components/Section/instructionTypography';
 import { exerciseActionButtonVariants } from "@/components/exercises/shared/exerciseActionButtonVariants";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";

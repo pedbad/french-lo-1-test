@@ -70,7 +70,7 @@ export function ExerciseFooter({
           <span className="exercise-icon-button-label">Reset</span>
         </IconButton>
 
-        {onCheck != null && (
+        {onCheck !== null && onCheck !== undefined && (
           <IconButton
             ariaLabel={checkLabel}
             className={exerciseActionButtonVariants({

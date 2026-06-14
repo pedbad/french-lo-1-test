@@ -12,7 +12,7 @@ export const splitTextByAudioCueKeyword = (value = "") => {
   if (typeof value !== "string") return null;
   const match = value.match(AUDIO_CUE_PATTERN);
   if (!match || typeof match.index !== "number") return null;
-  const keyword = match[0];
+  const [keyword] = match;
   const keywordStart = match.index;
   const keywordEnd = keywordStart + keyword.length;
   return {

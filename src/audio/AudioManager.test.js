@@ -63,7 +63,7 @@ describe('AudioManager.play', () => {
   it('stops the previous clip when a new one starts (exclusive mode default)', () => {
     // Arrange
     AudioManager.play('clip-a.mp3', { id: 'a' });
-    const first = FakeAudio.instances[0];
+    const [first] = FakeAudio.instances;
 
     // Act
     AudioManager.play('clip-b.mp3', { id: 'b' });
@@ -130,7 +130,7 @@ describe('AudioManager.pause / stop / resume', () => {
   it('pause only pauses when the id matches the active clip', () => {
     // Arrange
     AudioManager.play('a.mp3', { id: 'a' });
-    const audio = FakeAudio.instances[0];
+    const [audio] = FakeAudio.instances;
 
     // Act: wrong id -> no-op
     AudioManager.pause('other');
@@ -144,7 +144,7 @@ describe('AudioManager.pause / stop / resume', () => {
   it('stop pauses, resets currentTime, and clears active state', () => {
     // Arrange
     AudioManager.play('a.mp3', { id: 'a' });
-    const audio = FakeAudio.instances[0];
+    const [audio] = FakeAudio.instances;
     audio.currentTime = 12;
 
     // Act
@@ -159,7 +159,7 @@ describe('AudioManager.pause / stop / resume', () => {
   it('resume replays the active clip without creating a new Audio instance', () => {
     // Arrange
     AudioManager.play('a.mp3', { id: 'a' });
-    const audio = FakeAudio.instances[0];
+    const [audio] = FakeAudio.instances;
     AudioManager.pause('a');
     audio.play.mockClear();
 
@@ -176,7 +176,7 @@ describe('AudioManager.stopAll + registered elements', () => {
   it('pauses the active clip and all registered DOM elements', () => {
     // Arrange
     AudioManager.play('a.mp3', { id: 'a' });
-    const active = FakeAudio.instances[0];
+    const [active] = FakeAudio.instances;
     const el = { pause: vi.fn(), paused: false, ended: false, volume: 1 };
     AudioManager.registerElement(el);
 
@@ -233,7 +233,7 @@ describe('AudioManager.setVolume', () => {
   it('applies volume to the active clip and registered elements', () => {
     // Arrange
     AudioManager.play('a.mp3', { id: 'a' });
-    const active = FakeAudio.instances[0];
+    const [active] = FakeAudio.instances;
     const el = { pause: vi.fn(), paused: true, ended: false, volume: 1 };
     AudioManager.registerElement(el);
 

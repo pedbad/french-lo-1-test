@@ -1,3 +1,7 @@
+/* eslint-disable react-refresh/only-export-components --
+   shadcn/ui primitive: co-exports the cva variant helper alongside the
+   component by upstream convention. Known react-refresh false positive;
+   Fast Refresh is not relied on for these vendored primitives. */
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
