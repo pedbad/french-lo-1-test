@@ -449,7 +449,7 @@ export default function App() {
 
     // Always load the index so the menu/landing page can render.
     // Then resolve ?lo by numeric id OR slug, while keeping backward compatibility.
-    const sharedPromise = fetch("/shared-settings.json")
+    const sharedPromise = fetch(resolveAsset("/shared-settings.json"))
       .then((r) => r.json())
       .catch(() => ({}));
 
