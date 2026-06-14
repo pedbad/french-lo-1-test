@@ -1,14 +1,16 @@
 # App.jsx Refactor — Handover
 
-> **Status:** PRs #1 (loConfig), #2 (dead `languageCode` switch), and #3
-> (`wrapInShell` helper) MERGED. Only item #4 remains. Execute smallest-risk-first,
-> ONE PR each, each leaving `main` green. Don't batch. **This session = PR #4.**
+> **Status:** SERIES COMPLETE. PRs #1 (loConfig), #2 (dead `languageCode` switch),
+> #3 (`wrapInShell` helper), and #4 (`useModalLinks` hook + `modalContent` data
+> module) all MERGED. No remaining items. Each shipped as ONE PR leaving `main`
+> green.
 
-## Task
+## Task (done)
 
-Refactor `src/App.jsx` (now **1190 lines**, was 1495) for DRY + modularity. It
-mixes 4 concerns and repeats the same render-wrapper block across branches. Goal:
-shrink toward the 800-line rule and remove duplication, behavior-preserving.
+Refactored `src/App.jsx` (now **960 lines**, was 1495) for DRY + modularity —
+untangled the mixed concerns and de-duplicated the render-wrapper block,
+behavior-preserving. Still above the 800-line guideline; any further split is a
+fresh initiative, not part of this series.
 
 ## Read first
 
@@ -23,8 +25,8 @@ shrink toward the 800-line rule and remove duplication, behavior-preserving.
 
 - `main` green: `yarn lint` 0 errors (42 cosmetic warnings pre-existing),
   `yarn test:run` **95/95**, `yarn build` clean. Tree clean on `main`.
-- Last merged: **PR #30** "extract wrapInShell helper to collapse renderComponent
-  switch" (squash `baff813`). **Next PR # is 31.**
+- Last merged: **PR #31** "lift modalContentMap to data module + extract
+  useModalLinks hook" (squash `896dd70`). **Next PR # is 32** (no work queued).
 - `src/lib/loConfig.js` holds 10 pure config helpers + 36 unit tests
   (`src/lib/loConfig.test.js`). `App.jsx` imports 8 of them at lines ~40–49.
 - `configGen` counter is woven into the `<RegisteredExercise>` key at both mount
@@ -50,19 +52,25 @@ shrink toward the 800-line rule and remove duplication, behavior-preserving.
   errors). Note: no LO config triggers the `-Group-Accordion` branch (all Groups
   are tabs or `expandable: false`); that path is preserved exactly but never
   data-exercised.
+- **PR #31** (`896dd70`) — lift `modalContentMap` → `src/lib/modalContent.jsx`
+  (`MODAL_CONTENT_MAP`) + extract `src/hooks/useModalLinks.js` (owns
+  `findModalLinkContent`, `normalizeModalLinkAnchors`, and the capture-phase click
+  delegation; mirrors `config` into an internal ref). `App.jsx` now calls
+  `useModalLinks({ config: state.config, showModalLinkDialog })` and dropped
+  `configRef`, the 3 delegation refs, both helpers, and the per-render effect
+  (App.jsx −237 lines). Verified lint/test/build green + browser (static-map
+  dialogs open with correct title/content/highlight on about-me + first-contact,
+  anchor normalization runs, delegation fires, zero console errors). Note: every
+  current LO modal link resolves via the static map or is custom-component
+  rendered; `findModalLinkContent`'s config-scan / DOM-fallback branches are moved
+  verbatim but never data-exercised.
 
-## Remaining targets (current App.jsx line anchors)
+## Remaining targets
 
-### PR #4 — Lift `modalContentMap` → data module + `useModalLinks` hook (#5).
+None — the 4-PR series is complete. Anchors and gates below are retained as
+reference for any future App.jsx work.
 
-`findModalLinkContent` (**line ~231**, `modalContentMap` at ~233) hardcodes
-LO-specific JSX (`Grammar1Body`, subject-pronouns variants, `toilettes-note`
-`Info`). Move the map to a data module; extract the modal-link delegation effect
-(in the mount `useEffect`, ~582–640 region) + `findModalLinkContent` +
-`normalizeModalLinkAnchors` (**line ~366**) into a `useModalLinks` hook. Touches
-modal-link behavior on every LO — FULL browser verify after.
-
-## Gates (every PR)
+## Gates (reference for future App.jsx PRs)
 
 - `yarn eslint --fix` touched files; `yarn lint` → 0 errors; `yarn test:run` →
   95/95 (+ any new); `yarn build` clean (authoritative over dev console).
@@ -97,7 +105,7 @@ modal-link behavior on every LO — FULL browser verify after.
 
 ## Cost note
 
-Keep each session to ONE PR and stop. Don't batch. This session = PR #4.
+Series shipped one PR per item. Series now complete — no further PRs queued.
 
 ## Parked / optional (not this task)
 
