@@ -22,15 +22,13 @@ import { handleResponse } from "./utils/network";
 import { useModalLinks } from "@/hooks/useModalLinks";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import {
-  lazy,
-  Suspense,
-  useCallback,
-  useEffect,
-  useReducer,
-  useRef,
-} from "react";
+import { useCallback, useEffect, useReducer, useRef } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import {
+  EXERCISE_REGISTRY,
+  getLazyCustomComponent,
+  withLazyBoundary,
+} from "./render/lazyRegistry";
 
 import {
   countAccordionsInComponent,
@@ -41,108 +39,6 @@ import {
   normalizeLearningObjectUrl,
   resolveLearningObjectParam,
 } from "@/lib/loConfig";
-
-// Exercises rendered uniformly as <Component config={value} />.
-// Used by both render paths: renderComponent wraps each in an
-// AccordionArticle; renderComponentForTab returns it bare for tabs.
-// To add another such exercise, register it here — no new switch case.
-//
-// Each entry is code-split: React.lazy turns it into its own async chunk that
-// only downloads when a learning object actually renders that exercise type,
-// so the initial bundle no longer eagerly carries all twelve. The lazy types
-// are created once at module scope (stable identity) and resolve the matching
-// named export from each exercise's own entry point. Every render site wraps
-// them in <Suspense> (see withLazyBoundary).
-const lazyExercise = (loader, name) =>
-  lazy(() => loader().then((m) => ({ default: m[name] })));
-
-const EXERCISE_REGISTRY = {
-  TypedTransformExercise: lazyExercise(
-    () => import("@/components/exercises/TypedTransformExercise"),
-    "TypedTransformExercise",
-  ),
-  DictationExercise: lazyExercise(
-    () => import("@/components/exercises/DictationExercise"),
-    "DictationExercise",
-  ),
-  DraggableFillGaps: lazyExercise(
-    () => import("@/components/exercises/DraggableFillGaps"),
-    "DraggableFillGaps",
-  ),
-  SelectExercise: lazyExercise(
-    () => import("@/components/exercises/SelectExercise"),
-    "SelectExercise",
-  ),
-  InlineChoiceGroup: lazyExercise(
-    () => import("@/components/exercises/InlineChoiceGroup"),
-    "InlineChoiceGroup",
-  ),
-  InlineTypedGapExercise: lazyExercise(
-    () => import("@/components/exercises/InlineTypedGapExercise"),
-    "InlineTypedGapExercise",
-  ),
-  LineMatch: lazyExercise(
-    () => import("@/components/exercises/LineMatch"),
-    "LineMatch",
-  ),
-  MemoryMatchGame: lazyExercise(
-    () => import("@/components/exercises/MemoryMatchGame"),
-    "MemoryMatchGame",
-  ),
-  RadioQuiz: lazyExercise(
-    () => import("@/components/exercises/RadioQuiz"),
-    "RadioQuiz",
-  ),
-  WordOrderExercise: lazyExercise(
-    () => import("@/components/exercises/WordOrderExercise"),
-    "WordOrderExercise",
-  ),
-  PhraseReorderExercise: lazyExercise(
-    () => import("@/components/exercises/PhraseReorderExercise"),
-    "PhraseReorderExercise",
-  ),
-  WordSpotExercise: lazyExercise(
-    () => import("@/components/exercises/WordSpotExercise"),
-    "WordSpotExercise",
-  ),
-};
-
-// Custom (grammar / pronunciation) components are resolved by string key from LO
-// config. They are the single largest slice of app code, so the whole custom
-// registry is deferred into one async chunk loaded the first time any custom
-// component renders. getLazyCustomComponent memoises one React.lazy type per
-// key (stable identity); a missing key resolves to the same "not implemented"
-// notice the eager switch used to render synchronously.
-const lazyCustomComponentCache = {};
-const getLazyCustomComponent = (name) => {
-  if (!lazyCustomComponentCache[name]) {
-    lazyCustomComponentCache[name] = lazy(() =>
-      import("@/components/custom").then((m) => ({
-        default:
-          m.AllCustomComponentsFR[name] ||
-          (() => <p>Component {name} not implemented</p>),
-      })),
-    );
-  }
-  return lazyCustomComponentCache[name];
-};
-
-// Loading placeholder shown while a code-split exercise / custom component chunk
-// resolves. Boundaries are per-component, so only the resolving slot shows this
-// — the surrounding accordion headers and other sections stay in place.
-const LazyComponentFallback = () => (
-  <div className="lazy-component-loading" role="status" aria-live="polite">
-    <span className="sr-only">Loading…</span>
-  </div>
-);
-
-// Wrap a lazily-loaded element in its own Suspense boundary so a still-loading
-// chunk never blanks out neighbouring content.
-const withLazyBoundary = (node, key) => (
-  <Suspense fallback={<LazyComponentFallback />} key={key}>
-    {node}
-  </Suspense>
-);
 
 // Shared render shell for renderComponent. Every branch wraps its content in
 // either an expandable AccordionArticle or a static Section/HeroSection with
