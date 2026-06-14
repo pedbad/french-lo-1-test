@@ -641,15 +641,7 @@ export default function App() {
           />
         );
       default: {
-        let CustomComponent;
-        switch (languageCode) {
-          case "fr":
-            CustomComponent = AllCustomComponentsFR[component];
-            break;
-          default:
-            CustomComponent = AllCustomComponentsFR[component];
-            break;
-        }
+        const CustomComponent = AllCustomComponentsFR[component];
         if (CustomComponent) {
           return (
             <>
@@ -953,15 +945,7 @@ export default function App() {
         break;
       }
       default: {
-        let CustomComponent;
-        switch (languageCode) {
-          case "fr":
-            CustomComponent = AllCustomComponentsFR[component];
-            break;
-          default:
-            CustomComponent = AllCustomComponentsFR[component];
-            break;
-        }
+        const CustomComponent = AllCustomComponentsFR[component];
         if (CustomComponent) {
           if (expandable) {
             articles.push(
