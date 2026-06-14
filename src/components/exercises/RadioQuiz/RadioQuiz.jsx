@@ -7,10 +7,10 @@ import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import { useReducer } from "react";
 
+import { commitCheck, getInitialScoringState } from "@/utils/exerciseScoring";
+
 const getResetState = (phrases = []) => ({
-  checkedResults: {},
-  hasChecked: false,
-  nCorrect: 0,
+  ...getInitialScoringState(),
   selectedOptions: Array.from({ length: phrases.length }, () => null),
   showExplanation: {},
 });
@@ -50,9 +50,7 @@ export function RadioQuiz({ config = {}, onComplete = () => {}, onReset = () => 
     delete nextShowExplanation[rowNum];
 
     dispatch({
-      checkedResults: nextCheckedResults,
-      hasChecked: true,
-      nCorrect: Object.values(nextCheckedResults).filter(Boolean).length,
+      ...commitCheck(nextCheckedResults),
       selectedOptions: nextSelectedOptions,
       showExplanation: nextShowExplanation,
     });
@@ -76,13 +74,11 @@ export function RadioQuiz({ config = {}, onComplete = () => {}, onReset = () => 
       }
     }
 
-    const nextNCorrect = Object.values(nextCheckedResults).filter(Boolean).length;
-    const allCorrect = phrases.length > 0 && nextNCorrect === phrases.length;
+    const checkPatch = commitCheck(nextCheckedResults);
+    const allCorrect = phrases.length > 0 && checkPatch.nCorrect === phrases.length;
 
     dispatch({
-      checkedResults: nextCheckedResults,
-      hasChecked: true,
-      nCorrect: nextNCorrect,
+      ...checkPatch,
       showExplanation: nextShowExplanation,
     });
 

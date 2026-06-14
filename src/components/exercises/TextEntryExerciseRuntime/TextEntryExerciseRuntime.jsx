@@ -14,6 +14,8 @@ import DOMPurify from "dompurify";
 import { Mars, Venus } from "lucide-react";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import { useReducer, useRef } from "react";
+
+import { commitCheck, countCorrect, getInitialScoringState } from "@/utils/exerciseScoring";
 import {
   resolveAsset,
 } from "@/utils/assets";
@@ -43,10 +45,8 @@ function reducer(state, patch) {
 function getResetState(config) {
   return {
     ...config,
-    checkedResults: {},
+    ...getInitialScoringState(),
     diffResults: {},
-    hasChecked: false,
-    nCorrect: 0,
     values: {},
   };
 }
@@ -97,7 +97,7 @@ export function TextEntryExerciseRuntime({
         values,
         checkedResults,
         diffResults: prevState.diffResults,
-        nCorrect: Object.values(checkedResults).filter(Boolean).length,
+        nCorrect: countCorrect(checkedResults),
       };
     });
   };
@@ -132,10 +132,8 @@ export function TextEntryExerciseRuntime({
     }
 
     dispatch({
-      checkedResults,
+      ...commitCheck(checkedResults),
       diffResults,
-      hasChecked: true,
-      nCorrect: Object.values(checkedResults).filter(Boolean).length,
       values: nextValues,
     });
   };
@@ -184,10 +182,8 @@ export function TextEntryExerciseRuntime({
     }
 
     dispatch({
-      checkedResults,
+      ...commitCheck(checkedResults),
       diffResults,
-      hasChecked: true,
-      nCorrect: Object.values(checkedResults).filter(Boolean).length,
       values,
     });
   };
@@ -195,10 +191,8 @@ export function TextEntryExerciseRuntime({
   const handleReset = () => {
     AudioManager.stopAll();
     dispatch({
-      checkedResults: {},
+      ...getInitialScoringState(),
       diffResults: {},
-      hasChecked: false,
-      nCorrect: 0,
       values: {},
     });
   };

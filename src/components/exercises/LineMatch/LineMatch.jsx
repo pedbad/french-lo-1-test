@@ -14,6 +14,8 @@ import { shuffleArray } from "@/utils/collections";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import { useCallback, useEffect, useReducer, useRef } from "react";
 
+import { commitCheck, countCorrect, getInitialScoringState } from "@/utils/exerciseScoring";
+
 const LINE_MATCH_IMAGE_TILE_CLASS = [
   "relative aspect-square min-h-[4rem] w-[4rem] overflow-hidden rounded-lg",
   "border border-[oklch(from_var(--brand-primary)_l_c_h_/_0.92)]",
@@ -71,15 +73,13 @@ const buildRound = (config = {}) => {
 // Lazy-init seed for useReducer and the config-identity reset effect.
 const getResetState = (config = {}) => ({
   ...buildRound(config),
+  ...getInitialScoringState(),
   activeSourceId: null,
   activeTargetId: null,
-  checkedResults: {},
   connectorLayout: null,
   desktopConnections: {},
-  hasChecked: false,
   isDesktopViewport: false,
   mobileValues: {},
-  nCorrect: 0,
   recoilProgress: 1,
   recoilingConnections: [],
   usedShowAnswer: false,
@@ -102,9 +102,6 @@ const getItemKey = (item, index) => item.id || item.label || `item-${index}`;
 const getIsDesktopViewport = () =>
   typeof window !== "undefined" && window.innerWidth >= LINE_MATCH_DESKTOP_BREAKPOINT;
 
-const getCorrectCount = (checkedResults = {}) =>
-  Object.values(checkedResults).filter(Boolean).length;
-
 const invalidateCheckedResultForSources = (sources = [], prevState) => {
   if (!prevState.hasChecked || sources.length === 0) return null;
 
@@ -123,9 +120,7 @@ const invalidateCheckedResultForSources = (sources = [], prevState) => {
   if (!changed) return null;
 
   return {
-    checkedResults,
-    hasChecked: true,
-    nCorrect: getCorrectCount(checkedResults),
+    ...commitCheck(checkedResults),
     usedShowAnswer: false,
   };
 };
@@ -520,7 +515,7 @@ export function LineMatch({ config = {}, suppressInfo = false }) {
       desktopConnections: isDesktopViewport ? nextDesktopConnections : desktopConnections,
       hasChecked: true,
       mobileValues: isDesktopViewport ? mobileValues : nextMobileValues,
-      nCorrect: getCorrectCount(nextCheckedResults),
+      nCorrect: countCorrect(nextCheckedResults),
       recoilProgress: nextIncorrectConnections.length > 0 ? 0 : 1,
       recoilingConnections: isDesktopViewport ? nextIncorrectConnections : [],
       usedShowAnswer: false,

@@ -13,6 +13,8 @@ import {
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import { Fragment, useReducer, useRef } from "react";
+
+import { commitCheck, getInitialScoringState } from "@/utils/exerciseScoring";
 import { shuffleArray } from "@/utils/collections";
 import { decodeHtmlEntities } from "@/utils/htmlUtils";
 import { parseChoiceBlank, parseSentence } from "@/utils/exerciseParsing";
@@ -100,9 +102,7 @@ const getInlinePassageLineStyle = (accentKey) => {
 };
 
 const getResetState = (config = {}) => ({
-  checkedResults: {},
-  hasChecked: false,
-  nCorrect: 0,
+  ...getInitialScoringState(),
   rowAudioStatus: {},
   shuffledItems: buildPreparedItems(config?.items || [], config),
   values: {},
@@ -193,9 +193,7 @@ export function SelectExercise({ config = {} }) {
 
       return {
         values: nextValues,
-        checkedResults,
-        hasChecked: true,
-        nCorrect: Object.values(checkedResults).filter(Boolean).length,
+        ...commitCheck(checkedResults),
       };
     });
   };
@@ -209,18 +207,12 @@ export function SelectExercise({ config = {} }) {
       checkedResults[i] = parseInt(value, 10) === winner;
     }
 
-    dispatch({
-      checkedResults,
-      hasChecked: true,
-      nCorrect: Object.values(checkedResults).filter(Boolean).length,
-    });
+    dispatch(commitCheck(checkedResults));
   };
 
   const handleReset = () => {
     dispatch({
-      checkedResults: {},
-      hasChecked: false,
-      nCorrect: 0,
+      ...getInitialScoringState(),
       rowAudioStatus: {},
       shuffledItems: buildPreparedItems(config?.items || [], config),
       values: {},

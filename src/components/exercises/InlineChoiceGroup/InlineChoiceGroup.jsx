@@ -6,6 +6,8 @@ import { CircularAudioProgressAnimatedSpeakerDisplay } from "@/components/AudioC
 import DOMPurify from "dompurify";
 import { ResultIcon } from "@/components/exercises/shared/ResultIcon";
 import { Fragment, useReducer, useRef } from "react";
+
+import { commitCheck, getInitialScoringState } from "@/utils/exerciseScoring";
 import { resolveAsset } from "@/utils/assets";
 import { shuffleArray } from "@/utils/collections";
 import { parseChoiceBlank, parseSentence } from "@/utils/exerciseParsing";
@@ -37,10 +39,8 @@ const prepareExerciseItems = (items = [], options = {}) => {
 };
 
 const getResetState = (config = {}) => ({
+  ...getInitialScoringState(),
   activeItems: prepareExerciseItems(config?.items || [], config),
-  checkedResults: {},
-  hasChecked: false,
-  nCorrect: 0,
   rowAudioStatus: {},
   values: {},
 });
@@ -109,9 +109,7 @@ export function InlineChoiceGroup({ config = {} }) {
 
         return {
           values: nextValues,
-          hasChecked: true,
-          checkedResults: nextCheckedResults,
-          nCorrect: Object.values(nextCheckedResults).filter(Boolean).length,
+          ...commitCheck(nextCheckedResults),
         };
       }
 
@@ -157,11 +155,7 @@ export function InlineChoiceGroup({ config = {} }) {
       nextCheckedResults[i] = parseInt(values[i], 10) === winner;
     }
 
-    dispatch({
-      checkedResults: nextCheckedResults,
-      hasChecked: true,
-      nCorrect: Object.values(nextCheckedResults).filter(Boolean).length,
-    });
+    dispatch(commitCheck(nextCheckedResults));
   };
 
   const handleReset = () => {
@@ -176,9 +170,7 @@ export function InlineChoiceGroup({ config = {} }) {
         activeItems: shouldRefreshItemSet
           ? prepareExerciseItems(sourceItems, config)
           : (prevState.activeItems || []),
-        checkedResults: {},
-        hasChecked: false,
-        nCorrect: 0,
+        ...getInitialScoringState(),
         rowAudioStatus: {},
         values: {},
       };
