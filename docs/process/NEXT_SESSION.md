@@ -1,109 +1,108 @@
-# Next Session — Handover Prompt
+# Next session handover — Bundle splitting (JS 950 KB → smaller initial load)
 
-> Copy the block below into a new session. The App.jsx refactor series is
-> **complete** (PRs #27–#32). The next task is a small, cheap **ESLint warning
-> cleanup** (42 warnings → 0). NOT render-critical — no browser verify needed.
-> Full architecture record: [FUTURE_PROJECTS.md](./FUTURE_PROJECTS.md);
-> series record: [APP_REFACTOR_HANDOVER.md](./APP_REFACTOR_HANDOVER.md).
+Continue work in `/Users/ped/Sites/french/french-lo-1-test` (branch: main).
 
-```text
-Continue work in /Users/ped/Sites/french/french-lo-1-test (branch: main).
+TASK: Reduce the initial JS bundle. `yarn build` currently emits
+`dist/src/main.js` at **950.37 KB (gzip 254.65 KB)** and warns "Some chunks are
+larger than 500 kB". Goal: kill that warning and cut initial-load JS via vendor
+chunk-splitting and/or route/component lazy-loading. ONE PR (next # is 34), then
+stop.
 
-TASK: Fix the 42 ESLint warnings (currently 0 errors, 42 warnings) → 0 warnings.
-ONE PR, then stop. NOT render-critical (cosmetic/lint only) → NO browser verify
-needed; gates are lint/test/build only.
+RENDER-CRITICAL: this changes how the app loads. **Browser verify is required**
+(preview tools) — not optional. Build + tests + lint are necessary but not
+sufficient.
 
-READ FIRST: git status && git pull --ff-only. Confirm "up to date with
-origin/main" (NOT "ahead N") before branching.
-GIT HABIT: a past session bundled a local-only commit into a squash — if ahead,
-push first.
+READ FIRST: `git status && git pull --ff-only`. Confirm "up to date with
+origin/main" (NOT "ahead N") before branching. Branch e.g. `perf/bundle-split`.
 
-=== STATE (verify with git) ===
-- main green: PR #32 merged (squash bb22e60, page-JSX→components), docs commit
-  eb700d1 (FUTURE_PROJECTS carry-forward). App.jsx 868 lines.
-- yarn lint → 0 errors, 42 warnings. yarn test:run → 95/95. yarn build → clean.
-- A local branch `chore/fix-lint-warnings` may already exist (created empty off
-  main last session, no commits). Either `git switch` to it (then rebase on
-  latest main) or delete + recreate. NEXT PR # is 33.
+## STATE (verify with git)
+- main green: PR #33 merged (squash `fe28cdb`, ESLint 42→0 warnings).
+- `yarn lint` → 0 errors / 0 warnings. `yarn test:run` → 95/95. `yarn build` →
+  clean except the >500 KB chunk advisory (that advisory IS the target).
+- Build output today: `dist/src/main.js` 950.37 KB (gzip 254.65),
+  `dist/src/main.css` 268.89 KB (gzip 38.66), `dist/index.html` 2.15 KB.
+- App.jsx is 868 lines and holds `renderComponent` / `wrapInShell` /
+  `EXERCISE_REGISTRY` — the natural code-split seam for lazy exercises.
 
-=== THE 42 WARNINGS (breakdown) ===
-- prefer-destructuring (~19): AudioManager.test, AccordionArticle, RadioQuiz,
-  instructionCues, DebugColorTokens, DebugFontTokens, loConfig, exerciseParsing
-- no-mixed-spaces-and-tabs (10): AccordionArticle.jsx (8), regions-map.jsx (2)
-- react-refresh/only-export-components (5): ui/badge, ui/button,
-  ui/navigation-menu, ui/sidebar, Section/instructions-media
-- sort-imports (3): useAudio.js, MemoryMatchGame.jsx, exerciseParsing.test.js
-- no-multi-spaces (3): answerNormalize.test.js
-- eqeqeq (2): PhraseTable.jsx:126, ExerciseFooter.jsx:73
+## KEY FACTS FROM vite.config.js (already read — don't re-derive)
+- `build.rollupOptions.output` is ALREADY customized with FIXED filenames (no
+  content hash): `entryFileNames`/`chunkFileNames` = `src/[name].js`,
+  `assetFileNames` = `src/[name].[ext]`. → `manualChunks` goes inside this
+  existing `output` block. New vendor chunks will be emitted as `src/<name>.js`.
+  NOTE the no-hash scheme is intentional (server-embedded deploy); keep it.
+  Watch for chunk-name collisions when adding many manualChunks (give explicit
+  stable names).
+- `base` is env-driven: `VITE_BASE_PATH || './'`. Prod server builds use
+  `build:server` (`/projects/french-basic/`) and `build:live`
+  (`/french/french-basic/`). Lazy/dynamic-import chunk URLs resolve against
+  `base` — VERIFY lazy chunks load under a non-root base, not just `./`.
+- Debug pages (`debug-sandbox.html` etc.) are ALREADY excluded from prod unless
+  `VITE_INCLUDE_DEBUG=true`. So the 950 KB is the real app — debug is NOT the
+  culprit. Don't chase it.
+- A `generateSlugRoutes` closeBundle plugin copies `dist/index.html` into each
+  LO slug dir. Whatever the entry HTML references (modulepreload + entry) must
+  stay correct after splitting — re-check `dist/index.html` after build.
 
-=== FIX PLAN (smallest-risk order) ===
-1. eqeqeq FIRST, MANUALLY (do NOT blind --fix these — see GOTCHA):
-   - PhraseTable.jsx:126  `header[i] == null`
-       → `header[i] === null || header[i] === undefined`
-   - ExerciseFooter.jsx:73 `onCheck != null`
-       → `onCheck !== null && onCheck !== undefined`
-2. Then `yarn eslint --fix src/` — clears the auto-fixable bulk
-   (prefer-destructuring, sort-imports, no-multi-spaces, no-mixed-spaces; the
-   eqeqeq sites are already === after step 1 so --fix leaves them alone).
-   NOTE: --fix reindents the no-mixed-spaces lines (whitespace only) and may
-   reorder imports / reflow via prettier — re-check import lines after.
-3. react-refresh (5, NOT auto-fixable):
-   - 4 shadcn files (src/components/ui/badge|button|navigation-menu|sidebar):
-     the cva-variants-co-exported-with-component pattern is intentional shadcn
-     convention + a known false positive. Add an eslint.config.js override
-     disabling `react-refresh/only-export-components` for `src/components/ui/**`
-     (flat config — append a new block:
-     `{ files: ['src/components/ui/**'], rules:
-        { 'react-refresh/only-export-components': 'off' } }`).
-   - 1 app file (Section/instructions-media.jsx): exports 2 helpers
-     (INSTRUCTION_TEXT_CLASS, applyInstructionTypographyToHTML) + the
-     InstructionsMedia component. Helpers imported by 3 files
-     (Section.jsx, page-shell/HeroSection/HeroSection.jsx,
-     debug/DebugSandbox.jsx). Cleanest: move the 2 helpers to a sibling
-     non-component module (e.g. Section/instructionTypography.js) and update
-     those 3 imports + instructions-media's own use. (Alternative minimal-churn:
-     exempt the file via an eslint override — but prefer the move; it's the
-     real fix and the rule is legit here.)
+## HEAVY DEPENDENCIES (candidates — confirm before splitting)
+react 19 + react-dom · `motion` ^12 (large; framer-motion successor) ·
+10× `@radix-ui/react-*` · `dompurify` ^3 · `lucide-react` · `@headlessui/react`
+· `class-variance-authority` / `clsx` / `tailwind-merge`.
 
-=== GOTCHA (critical) ===
-- eqeqeq: both sites use the loose `== null` / `!= null` idiom that matches
-  BOTH null AND undefined. eslint --fix rewrites to `=== null` / `!== null`,
-  which DROPS the undefined case → behavior change (PhraseTable: undefined
-  header cells lose sr-only "Audio" text; ExerciseFooter: check button renders
-  even when onCheck is undefined). Expand explicitly (step 1) BEFORE --fix.
+## RECOMMENDED APPROACH (smallest-risk first)
+0. **MEASURE FIRST — do not guess.** Add `rollup-plugin-visualizer` as a
+   devDep, wire it into the build temporarily (or run a one-off), open the
+   treemap, and identify the actual top contributors. Remove the temp wiring
+   before the PR (or gate it behind an env flag). Reason: `motion`/radix sizes
+   are assumptions until measured.
+1. **manualChunks vendor split (low risk, no app-code change).** In
+   `rollupOptions.output.manualChunks`, peel react/react-dom, radix, motion,
+   dompurify into named chunks. This parallelizes loading + improves caching and
+   usually clears the >500 KB warning, but does NOT reduce total eager bytes.
+2. **Lazy-load real byte savings (higher value).** `React.lazy` +
+   `<Suspense>` for exercise components keyed off `EXERCISE_REGISTRY` so a given
+   learning object only downloads the exercise types it uses. Dynamically
+   `import()` `motion` / animation-heavy code paths if they aren't needed on
+   first paint. This is where initial JS actually drops.
+   - Cleaner if App.jsx render module is extracted to `src/render/` first
+     (backlog item B in FUTURE_PROJECTS) — OPTIONAL, decide based on churn.
+3. Re-run `yarn build`; confirm warning gone and main entry chunk shrunk.
 
-=== OTHER GOTCHAS (from prior sessions) ===
-- GateGuard fact-forces on: first Bash, first edit of EACH new file path, doc
-  edits. Present required facts (caller/importers, no-dup via glob, data I/O,
-  verbatim instruction), then RETRY the same op. Recovery: ECC_GATEGUARD=off.
-- no-unused-vars is ERROR (varsIgnorePattern ^[A-Z_]); destructured fn params
-  fall under args not vars.
-- sort-imports + --fix + prettier reflow imports — don't anchor later edits on
-  exact import strings; re-read after --fix.
-- Pre-commit hooks: typography/color/a11y/SCSS/image guards (pass on clean code).
+## GOTCHAS (from prior sessions)
+- **config-protection hook**: it BLOCKED editing `eslint.config.js` last session
+  ("fix source instead of weakening config"). It MAY also block `vite.config.js`.
+  Adding `manualChunks` is a LEGITIMATE build-config change — if blocked, the
+  hook's own message sanctions: "disable the config-protection hook temporarily."
+  Do that only for the vite.config.js edit; don't weaken lint config.
+- **GateGuard fact-force**: fires on first Bash, first edit of EACH new file
+  path, and doc edits. Present facts (importers via grep, public symbols, data
+  I/O, verbatim instruction), then RETRY the same op. It clears per-path on the
+  retry. Recovery: `ECC_GATEGUARD=off` or add
+  `pre:edit-write:gateguard-fact-force` to `ECC_DISABLED_HOOKS`.
+- Pre-commit guards (typography/color/a11y/SCSS/image) run on commit — pass on
+  clean code.
 - Attribution disabled (no Co-Authored-By) — matches repo history.
-- Session may boot CAVEMAN MODE (terse replies); code/commits/PRs still normal.
+- Session may boot CAVEMAN MODE (terse replies); code/commits/PRs stay normal.
   "stop caveman" to disable.
 
-=== GATES (this PR) ===
-- yarn eslint --fix <touched>; yarn lint → 0 errors AND 0 warnings (the goal);
-  yarn test:run → 95/95; yarn build → clean.
-- NO browser verify (not render-critical). Build is authoritative.
-- Branch per item; commit + PR to main; squash-merge
-  (gh pr merge N --squash --delete-branch). NEXT PR # is 33.
+## GATES (this PR)
+- `yarn build` → no >500 KB chunk warning; main entry chunk meaningfully
+  smaller; `dist/index.html` still valid.
+- `yarn test:run` → 95/95. `yarn lint` → 0/0.
+- **Browser verify (required, render-critical):** preview_start, load the app,
+  confirm a learning object renders, exercises mount (Suspense fallback resolves,
+  no console errors / failed chunk requests), check network panel shows the new
+  chunks loading. Test under a non-root base if feasible.
+- Branch → commit → PR to main → squash-merge
+  (`gh pr merge 34 --squash --delete-branch`).
 
-=== AFTER THIS / OPTIONAL FUTURE (none mandated) ===
-App.jsx refactor series COMPLETE (#27–#32). Remaining optional, each own PR:
-  A. data-loading hook (useLearningObject) — render-critical
-  B. render module (renderComponent/wrapInShell/EXERCISE_REGISTRY → src/render/,
-     ~330 lines, only this gets App.jsx under 800) — render-critical
-  Higher-value separate workstreams: bundle splitting (950 KB JS, build warns
-  >500 KB — best user impact), CSS cascade-layer migration (~321 unlayered
-  rules, big/risky), render-path test coverage.
-Full detail: docs/process/FUTURE_PROJECTS.md, docs/process/APP_REFACTOR_HANDOVER.md.
+## AFTER THIS / BACKLOG (none mandated) — docs/process/FUTURE_PROJECTS.md
+- B. App.jsx render module extraction → `src/render/` (~330 lines; only this
+  gets App.jsx under 800). Render-critical. May pair naturally with lazy split.
+- A. data-loading hook `useLearningObject`. Render-critical.
+- CSS cascade-layer migration (~321 unlayered rules; big/risky).
+- Render-path test coverage.
 
-=== COST ===
-This is the CHEAPEST item on the backlog — be efficient. One --fix pass +
-~3 manual edits (2 eqeqeq + config override) + optional helper-move + gates +
-PR. Should be well under $10 in a clean context. Don't over-investigate.
-```
+## COST NOTE
+Prior session (the #33 lint cleanup) ended at ~$89 with heavy context. START
+THIS IN A FRESH SESSION with this file as the opening prompt. Measure → split →
+verify → PR. Keep context lean.
