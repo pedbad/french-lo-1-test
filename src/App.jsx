@@ -23,9 +23,13 @@ import {
 } from "@/components/exercises";
 import {
   Footer,
+  HeroBanner,
   HeroSection,
+  IntroSection,
   LandingPage,
+  LearningObjectTitle,
   MainMenu,
+  NoConfigNotice,
 } from "@/components/layout";
 import { resolveAsset } from "./utils/assets";
 import { handleResponse } from "./utils/network";
@@ -45,7 +49,6 @@ import {
   normalizeInstructionSchemaNode,
   normalizeLearningObjectUrl,
   resolveLearningObjectParam,
-  splitDisplayTitle,
 } from "@/lib/loConfig";
 
 // Exercises rendered uniformly as <Component config={value} />.
@@ -835,106 +838,18 @@ export default function App() {
                   skip the hero (no "big hero" on landing) and avoid an
                   empty <h1>. */}
               {currentLearningObject !== -1 ? (
-                <div id="hero" aria-hidden="true">
-                  <img
-                    alt=""
-                    aria-hidden="true"
-                    className="hero-image"
-                    decoding="async"
-                    fetchPriority="high"
-                    loading="eager"
-                    src={resolveAsset("/img/common/branding/fr-banner.svg")}
-                  />
-                  <h2
-                    aria-hidden="true"
-                    className="hero-title text-stroke-neutral"
-                  >
-                    {siteTitle}
-                  </h2>
-                </div>
+                <HeroBanner siteTitle={siteTitle} />
               ) : null}
               <main id="content" key="content" tabIndex="-1">
                 {currentLearningObject !== -1 ? (
-                  <h1>
-                    {(() => {
-                      const parts = splitDisplayTitle(title);
-                      if (!parts) return title;
-
-                      return (
-                        <>
-                          <span className="title-main">{parts.main} —</span>
-                          <span className="title-sub">{parts.sub}</span>
-                        </>
-                      );
-                    })()}
-                  </h1>
+                  <LearningObjectTitle title={title} />
                 ) : null}
-                {(() => {
-                  const introLayout = introHTML
-                    ? { paragraphHTML: introHTML }
-                    : intro
-                      ? { paragraph: intro }
-                      : null;
-                  if (introLayout) {
-                    const resolvedIntroImage = (() => {
-                      // Config-first intro image contract:
-                      // - use settings.introImage when provided (string or {src, alt, caption})
-                      // - otherwise fall back to LO1 default artwork
-                      if (introImage && typeof introImage === "string") {
-                        return {
-                          src: introImage,
-                          alt: "Learning object introduction illustration",
-                        };
-                      }
-                      if (
-                        introImage &&
-                        typeof introImage === "object" &&
-                        introImage.src
-                      ) {
-                        return {
-                          src: introImage.src,
-                          alt:
-                            introImage.alt ||
-                            "Learning object introduction illustration",
-                          caption: introImage.caption,
-                        };
-                      }
-                      return {
-                        src: "img/lo1/first-contact.svg",
-                        alt: "Learners greeting illustration",
-                      };
-                    })();
-                    introLayout.image = {
-                      src: resolvedIntroImage.src,
-                      alt: resolvedIntroImage.alt,
-                      caption: resolvedIntroImage.caption,
-                    };
-                    introLayout.stackOnDesktop = true;
-                  }
-                  return introLayout || informationHTML ? (
-                    <section
-                      aria-labelledby="introduction-heading"
-                      className="lo-top-section"
-                      id="introduction"
-                    >
-                      <HeroSection
-                        config={{
-                          id: "intro-section",
-                          expandable: false,
-                          heroSection: true,
-                          transparentCard: true,
-                          instructionsLayout: introLayout || undefined,
-                          informationTextHTML: informationHTML,
-                          stackInfo: true,
-                        }}
-                        id="LO-intro-section"
-                        target="introduction"
-                        title="Introduction"
-                        semanticAs="div"
-                      />
-                    </section>
-                  ) : null;
-                })()}
+                <IntroSection
+                  intro={intro}
+                  introHTML={introHTML}
+                  informationHTML={informationHTML}
+                  introImage={introImage}
+                />
 
                 {currentLearningObject !== -1 ? topLevelSections : null}
                 {learningObjects.length > 0 && currentLearningObject === -1 ? (
@@ -943,14 +858,7 @@ export default function App() {
               </main>
             </>
           ) : (
-            <div className={`no-config`}>
-              <h1>No learning object selected</h1>
-              <h2>{`${window.location.host}${window.location.pathname}first-contact/`}</h2>
-              <p>
-                Open a learning object by slug path. If absent, the landing page
-                is shown.
-              </p>
-            </div>
+            <NoConfigNotice />
           )}
           <Footer />
         </div>
