@@ -29,15 +29,10 @@ import {
 } from "@/components/layout";
 import { resolveAsset } from "./utils/assets";
 import { handleResponse } from "./utils/network";
-import { handleModalLinkClick } from "./utils/dom";
+import { useModalLinks } from "@/hooks/useModalLinks";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import {
-  AboutMeSubjectPronounsBody,
-  AllCustomComponentsFR,
-  Grammar1Body,
-  Grammar2Body,
-} from "@/components/custom";
+import { AllCustomComponentsFR } from "@/components/custom";
 
 import { useCallback, useEffect, useReducer, useRef } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -186,11 +181,6 @@ export default function App() {
   // Render-pass id generator (reset to 0 at the top of each render below).
   const autoComponentIdCounterRef = useRef(0);
 
-  // Doc-level modal-link delegation: attach once on mount, remove on unmount.
-  const modalLinkDelegationSetupRef = useRef(false);
-  const handleDelegatedModalLinkClickRef = useRef(null);
-  const handleDelegatedModalTargetClickRef = useRef(null);
-
   // Settings shared across all learning objects (fetched once on mount).
   const sharedSettingsRef = useRef({});
 
@@ -204,11 +194,6 @@ export default function App() {
   // different LO) and woven into the exercise host key, so a fresh config object
   // remounts each exercise — replaces the per-component config-reset effects.
   const configGenRef = useRef(0);
-
-  // Live mirror of config for the once-attached delegated click handler, which
-  // would otherwise close over a stale config captured at mount.
-  const configRef = useRef(null);
-  configRef.current = state.config;
 
   const showModalLinkDialog = useCallback((title, contentHTML, content) => {
     setState({
@@ -228,158 +213,10 @@ export default function App() {
     });
   }, []);
 
-  const findModalLinkContent = useCallback((targetId) => {
-    const config = configRef.current;
-    const modalContentMap = {
-      madame: {
-        title: "1. Forms of address and politeness",
-        content: <Grammar1Body highlightIntro />,
-      },
-      mademoiselle: {
-        title: "1. Forms of address and politeness",
-        content: <Grammar1Body highlightIntro />,
-      },
-      tuvous: {
-        title: '2. The "tu" vs "vous" distinction',
-        content: <Grammar2Body highlightIntro />,
-      },
-      toi: {
-        title: '2. The "tu" vs "vous" distinction',
-        content: <Grammar2Body highlightIntro />,
-      },
-      "subject-pronouns": {
-        title: "3. Subject pronouns.",
-        content: <AboutMeSubjectPronounsBody />,
-      },
-      "subject-pronouns-il": {
-        title: "3. Subject pronouns.",
-        content: (
-          <AboutMeSubjectPronounsBody highlightTarget={`subject-pronouns-il`} />
-        ),
-      },
-      "subject-pronouns-elle": {
-        title: "3. Subject pronouns.",
-        content: (
-          <AboutMeSubjectPronounsBody
-            highlightTarget={`subject-pronouns-elle`}
-          />
-        ),
-      },
-      "subject-pronouns-ils": {
-        title: "3. Subject pronouns.",
-        content: (
-          <AboutMeSubjectPronounsBody
-            highlightTarget={`subject-pronouns-ils`}
-          />
-        ),
-      },
-      "subject-pronouns-elles": {
-        title: "3. Subject pronouns.",
-        content: (
-          <AboutMeSubjectPronounsBody
-            highlightTarget={`subject-pronouns-elles`}
-          />
-        ),
-      },
-      "subject-pronouns-iel": {
-        title: "3. Subject pronouns.",
-        content: (
-          <AboutMeSubjectPronounsBody
-            highlightTarget={`subject-pronouns-iel`}
-          />
-        ),
-      },
-      "toilettes-note": {
-        title: "Toilettes (fpl)",
-        content: (
-          <Info
-            variant="warning"
-            informationTextHTML="<p>In France the plural form is used even if there is just one facility. In other francophone countries, the singular <em>la toilette</em> occurs.</p>"
-          />
-        ),
-      },
-    };
-
-    if (modalContentMap[targetId]) return modalContentMap[targetId];
-    if (!config) {
-      return {
-        title: "Not found",
-        contentHTML: "<p>Content not loaded.</p>",
-      };
-    }
-
-    const entries = new Map();
-
-    const addEntry = (item) => {
-      if (!item || typeof item !== "object") return;
-      const { id } = item;
-      const contentHTML =
-        item.infoTextHTML ||
-        item.informationTextHTML ||
-        item.informationText ||
-        "";
-      if (!id || !contentHTML) return;
-      const rawTitle = item.titleText || item.titleTextHTML || "Explanation";
-      const title = rawTitle.replace(/<[^>]*>/g, "");
-      entries.set(id, { title, contentHTML });
-    };
-
-    Object.values(config).forEach((section) => {
-      if (!section || typeof section !== "object") return;
-      addEntry(section);
-      if (Array.isArray(section.content)) {
-        section.content.forEach((contentItem) => {
-          const componentConfig = contentItem
-            ? Object.values(contentItem)[0]
-            : null;
-          addEntry(componentConfig);
-        });
-      }
-    });
-
-    if (entries.has(targetId)) return entries.get(targetId);
-
-    const targetEl =
-      document.getElementById(targetId) ||
-      document.querySelector(
-        `.modal-link-target[data-modal-target="${targetId}"]`,
-      );
-    if (targetEl) {
-      const container =
-        targetEl.closest("p, li, article, section, div") || targetEl;
-      return {
-        title: targetId,
-        contentHTML: container.outerHTML,
-      };
-    }
-
-    return {
-      title: "Not found",
-      contentHTML: `<p>Explanation for "${targetId}" not found.</p>`,
-    };
-  }, []);
-
-  // Idempotent re-scan: normalize hash modal links so accessibility tooling does
-  // not flag them as broken same-page anchors. We keep the semantic target in
-  // `data-modal-target` and use `#content` as safe fallback href. Runs after
-  // every render so links created by child re-renders are always normalized.
-  const normalizeModalLinkAnchors = useCallback(() => {
-    document.querySelectorAll("a.modal-link").forEach((anchor) => {
-      const href = anchor.getAttribute("href") || "";
-      const explicitTarget = (
-        anchor.getAttribute("data-modal-target") || ""
-      ).trim();
-      const hashTarget = href.includes("#")
-        ? (href.split("#").pop() || "").replace(/^[.#]+/, "").trim()
-        : "";
-      const targetId = explicitTarget || hashTarget;
-      if (!targetId) return;
-      anchor.setAttribute("data-modal-target", targetId);
-      if (href.startsWith("#")) {
-        anchor.setAttribute("href", "#content");
-      }
-    });
-  }, []);
+  // Modal-link behavior (content resolution, a11y anchor normalization, and the
+  // once-attached document click delegation) lives in this hook. Pass live config
+  // so the delegated handler resolves against the current LO, not a mount snapshot.
+  useModalLinks({ config: state.config, showModalLinkDialog });
 
   const loadConfig = (configFile, learningObjectConfigFile) => {
     const headers = new Headers();
@@ -576,80 +413,13 @@ export default function App() {
       if (dark) setDark(true);
     }
 
-    // `modal-link` is reserved for content links that open the modal dialog.
-    // Main navigation uses `nav-scroll-link` and handles scroll behavior in MainMenu.
-    // Use delegated listeners so links created by child re-renders are always wired.
-    if (!modalLinkDelegationSetupRef.current) {
-      const onModalLinkClick = (e) => {
-        const targetElement =
-          e.target instanceof Element
-            ? e.target
-            : e.target && e.target.parentElement instanceof Element
-              ? e.target.parentElement
-              : null;
-        const anchor = targetElement
-          ? targetElement.closest("a.modal-link")
-          : null;
-        if (!anchor) return;
-
-        handleModalLinkClick(e, {
-          mode: "modal",
-          findModalLinkContent: findModalLinkContent,
-          linkEl: anchor,
-          showModalLinkDialog: showModalLinkDialog,
-        });
-      };
-
-      const onModalTargetClick = (e) => {
-        const targetElement =
-          e.target instanceof Element
-            ? e.target
-            : e.target && e.target.parentElement instanceof Element
-              ? e.target.parentElement
-              : null;
-        const targetAnchor = targetElement
-          ? targetElement.closest("a.modal-link-target")
-          : null;
-        if (!targetAnchor) return;
-        e.preventDefault();
-      };
-
-      handleDelegatedModalLinkClickRef.current = onModalLinkClick;
-      handleDelegatedModalTargetClickRef.current = onModalTargetClick;
-
-      // Use capture phase so modal links still work when nested components stop
-      // propagation during bubble phase (for example Section content wrappers).
-      document.addEventListener("click", onModalLinkClick, true);
-      document.addEventListener("click", onModalTargetClick, true);
-      modalLinkDelegationSetupRef.current = true;
-    }
-
     return () => {
       mountedRef.current = false;
-      if (modalLinkDelegationSetupRef.current) {
-        document.removeEventListener(
-          "click",
-          handleDelegatedModalLinkClickRef.current,
-          true,
-        );
-        document.removeEventListener(
-          "click",
-          handleDelegatedModalTargetClickRef.current,
-          true,
-        );
-        modalLinkDelegationSetupRef.current = false;
-      }
     };
     // Mount-only effect: the data-loading closures and stable callbacks it uses
     // are intentionally captured once. Re-running would re-fetch and re-route.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  // Re-scan modal-link anchors after every render so links produced by child
-  // re-renders stay normalized (matches the legacy componentDidUpdate call).
-  useEffect(() => {
-    normalizeModalLinkAnchors();
-  });
+  }, []);
 
   // When the LO config first loads, handle a hash deep link by opening the
   // matching accordion section and scrolling to it. Fire only on falsy→truthy.
