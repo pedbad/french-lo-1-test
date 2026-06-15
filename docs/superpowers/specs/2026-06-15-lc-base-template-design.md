@@ -1,0 +1,182 @@
+# LC Base Template — Design Spec
+
+**Date:** 2026-06-15
+**Status:** Approved (brainstorm output). Build session pending.
+**Author:** Pedram Badakhchani
+**Source:** Brainstorm session continuing parked work from `docs/process/FUTURE_PROJECTS.md` + `docs/process/LC_BASE_TEMPLATE_HANDOVER.md`.
+**Reference impl:** `french-lo-1` (proven, but NOT the template — carries content + naming tech-debt).
+
+---
+
+## 1. Goal
+
+A **public GitHub template repo** that acts as a **course factory**. A developer clicks "Use this template", gets a clean repo, and builds a new LTR-language course (Spanish, Portuguese, any LTR language) by:
+
+1. Editing CSS theme tokens (designer hands palette + fonts + sizes).
+2. Filling out one course-identity config.
+3. Dropping JSON files into `lo-config/` — one per Learning Object.
+4. Adding images + audio per LO.
+5. Picking from a menu of 13 ready exercise types; authoring new ones via a documented contract.
+
+The template ships with three dev tools (debug sandbox, exercise showcase, example LO) and a guard system that makes drift from the design architecture **impossible to merge**.
+
+**Non-goal (v1):** RTL languages (Arabic, Persian). RTL is a separate future template, forked off this one once stable.
+
+---
+
+## 2. Core Decisions (locked)
+
+| # | Decision | Choice |
+|---|----------|--------|
+| 1 | Template shape | **A — clonable empty-shell starter** (course factory). Not extract-package (B), not monorepo (C). |
+| 2 | Language/validation | **TypeScript + Zod.** Configs validated at load/compile. |
+| 3 | RTL | **Dropped from v1.** Separate future template forked off this base. |
+| 4 | Dev artifacts shipped | **Three:** debug sandbox + exercise showcase + example LO. All debug-flag-gated. |
+| 5 | Exercise engines | **All 13**, ported cluster-by-cluster, debt cleared per cluster. |
+| 6 | Guards | **All 6** (see §5). |
+| 7 | Enforcement gate | **Option C** — husky pre-commit (fast) + GitHub Actions CI (unbypassable backstop). |
+| 8 | Tooling | **Zero-touch:** Bun (pkg/runtime/test) + Vite (build) + Prettier + ESLint + Stylelint + husky + lint-staged. |
+| 9 | Docs | `CONTRIBUTING.md` (root) + sandbox renders it as HTML (single source). |
+| 10 | Routing | **Static pre-rendered** — one real `.html` per LO slug, build auto-discovers from `lo-config/`. |
+| 11 | Theming | **Single-theme-per-clone**, light + dark kept. Drop `theme-lc-[lang]` locale-naming fossil. |
+| 12 | Course identity | One Zod-validated `course.config.ts` — single source of course identity. |
+| 13 | UI-chrome strings | Global `ui-strings.ts` (complete, Zod-required) **+** optional per-exercise `labels` override (partial). Override wins. |
+| 14 | Repo home | **Public** GitHub template repo `lc-base-template`. "Use this template" flow. Collaborators gate template edits. |
+| 15 | License | **MIT for code + CC-BY-4.0 for content.** |
+
+---
+
+## 3. Stack
+
+**React + Vite + Bun + TypeScript + Zod + Tailwind + shadcn + Lucide.**
+
+- **Bun** = package manager, runtime, test runner (`bun test`). Setup = `git clone && bun install`.
+- **Vite** = dev server + bundler (react plugin, multi-page debug entries, static pre-render build). Bun is NOT the bundler.
+- **Husky** self-installs via the `prepare` script on `bun install`. Dev configures nothing.
+- `bun.lockb` committed.
+
+---
+
+## 4. Dev artifacts (shipped, debug-flag-gated)
+
+All three behind the debug flag (`VITE_INCLUDE_DEBUG=true`); production builds exclude them.
+
+1. **Debug sandbox — the design control panel.** Renders the live theme: palette swatches, font stack + sizes/scale, SVG/icon set, spacing tokens. Where the designer's handoff lands and is confirmed visually. Also renders `CONTRIBUTING.md` as HTML (single source — no hand-copied duplicate).
+2. **Exercise showcase.** Full catalog of all 13 exercise types in isolated fixtures. The menu a dev browses + the place a new exercise component is verified.
+3. **Example LO.** One complete, realistic, **Zod-valid** Learning Object: intro + grammar block + vocab block + an exercise section of **4 accordions** (4 exercise types, NOT all 13 — that's the showcase's job). The "copy me to start" artifact.
+
+---
+
+## 5. Guard system (the bulletproofing)
+
+Six checks. Each maps to a real bug that already hurt the prior project. All run at **both** gates (Option C: husky pre-commit + CI).
+
+| # | Guard | Enforces |
+|---|-------|----------|
+| a | **Config schema** (Zod) | Every `lo-config/*.json` validates. Catches key drift (`instructionsText` vs `informationText`), missing fields, wrong shapes. |
+| b | **Naming conventions** | `lo-01` not `lo1`; `images/` not `img/`; semantic audio folders (`01-fill-gaps/` not `draggableFillGaps1/`). |
+| c | **Asset-path discipline** | Runtime fetches via `resolveAsset()`; static `<head>` assets via `%BASE_URL%`. Block raw relative paths (bugs #35, #28). |
+| d | **Asset existence** | Every audio/image referenced in a config exists on disk. No runtime 404s. |
+| e | **Registry completeness** | Every exercise `type` in configs is registered in `lazyRegistry`; every registered type has a showcase fixture. |
+| f | **Theme-token integrity** | No hardcoded hex/px in components — colors/spacing pull from CSS tokens only (Stylelint). |
+
+**Enforcement (Option C):**
+- **Local:** husky pre-commit + lint-staged → instant feedback. Bypassable with `--no-verify`.
+- **CI:** GitHub Actions (`oven-sh/setup-bun`) re-runs all guards on push/PR → the unbypassable wall. A `--no-verify` commit still gets caught before merge.
+
+---
+
+## 6. Routing — static pre-rendered
+
+**Problem solved:** french-lo-1 was an SPA; lcitc has no mod_rewrite, so direct/refresh hits on `/some-lo` 404'd. DevOps patched it by manually creating a folder + blank `index.html` per LO — a fragile manual hack repeated per LO, no SEO, two sources of truth.
+
+**Template approach:**
+- Slug-only routing (rule #26, no `?lo=` resolver).
+- Build **auto-discovers** LOs by scanning `lo-config/*.json`.
+- Build emits **one real, content-full `.html` per LO slug**.
+- No mod_rewrite needed; works on dumb static hosting; best SEO; no manual folders.
+- The old devops shell hack becomes a build step the template owns. Drop a JSON → get a page. Can't forget, can't drift.
+
+---
+
+## 7. Theming — single theme per clone, light + dark
+
+- Each new language = its own clone = one look. No runtime brand/locale swap (YAGNI — never switch themes inside a running course).
+- **Keep light + dark** (orthogonal to brand-swap; user-facing preference). Tailwind v4 `.dark` variant.
+- Token split retained (palette / typography / spacing / theme), each holding light + dark values.
+- **Drop the `theme-lc-french.css` locale-naming fossil** → plain `theme.css`. french-lo-1 carries the *naming* of a multi-theme swap system with no `data-theme` machinery behind it; the template must not inherit that false promise.
+
+---
+
+## 8. Course identity — `course.config.ts`
+
+One Zod-validated file, the single source of course identity. Dev fills it out first. Feeds the static pre-render (titles, `<head>`, per-LO meta) and centralizes `%BASE_URL%` asset refs (kills favicon-on-subpath bug #28).
+
+Fields: `courseTitle`, `languageCode`, `basePath` (env-driven deploy subpath), `landingCopy`, `logo`/`favicon` paths, LO order.
+
+---
+
+## 9. UI-chrome strings — two-layer
+
+Exercise UI words ("Check", "Next", "Show answer", "Correct!") must not be hardcoded in components.
+
+- **Layer 1 — global `ui-strings.ts`.** Flat key→string map. Course-wide default/fallback. **Zod: all keys required** → build fails on any missing key (no half-translated chrome ships).
+- **Layer 2 — per-exercise `labels` override** in the LO JSON. Optional, partial. Lets one exercise say "See answer" while others fall back to global "Check". **Zod: validates keys are real + values are strings** (typo `chekc` → build fails).
+- **Resolution:** `config.labels?.check ?? uiStrings.check`. Override wins; global default always exists.
+- **Not** a runtime i18n framework — each clone is one language set once. One file + one schema check.
+
+New dev translates one file → whole course localized; never touches component code.
+
+---
+
+## 10. Exercise engines — all 13, cluster-by-cluster
+
+The 13 engines are not 13 independent ports — they cluster around shared runtimes. Port cluster-by-cluster; use each port as the moment to clear that cluster's known TODO debt so the template ships clean.
+
+**Known cluster:** the **TextEntry family** — `ClozeTyping`, `TypedTransform`, `Dictation` are semantic wrappers over a shared `TextEntryExerciseRuntime` (behavior split by flags). Port together. `TextEntryExerciseRuntime` carries a `TODO(component-split)` (planned split into UI-only base + behavior controllers). The template port is the moment to decide: port as-is or resolve the split — so the template doesn't inherit "compatibility layer" debt.
+
+ClozeTyping bugs from french-lo-1 (missing audio icon, unstyled check button, showcase fixture issues) were **resolved** (commit `fe86a8f`, Jun 11) — port the fixed version.
+
+---
+
+## 11. Documentation — `CONTRIBUTING.md`
+
+Root file, the onboarding manual + guard reference:
+- How to add an LO (copy example, edit JSON, Zod validates).
+- The exercise authoring contract (register in `lazyRegistry`, add showcase fixture, add Zod schema).
+- The 6 guards: what each enforces, what failure looks like, how to fix.
+- Naming rules (`lo-01`, `images/`, semantic audio folders).
+- Asset rules (`resolveAsset()`, `%BASE_URL%`).
+
+Sandbox renders this `.md` as HTML (single source of truth — docs can't drift from the file).
+
+---
+
+## 12. Repo & license
+
+- **Public** GitHub **template repo** `lc-base-template` ("Use this template" → fresh repo, clean history, no fork back-link).
+- Cloning/using = open to anyone. **Push access to the template itself = collaborators only** (gates who edits the base).
+- **License:** MIT for code + CC-BY-4.0 for content. Both stated in `LICENSE` + README.
+
+---
+
+## 13. Deploy reality (carry-forward constraints)
+
+- lcdev (dev) + lcitc (live) both served `/french/french-basic/` under a non-root base. Template needs an **env-driven base path** decided per course (in `course.config.ts`).
+- Two relative-path-under-non-root-base bugs bit french-lo-1: runtime fetch (#35) → fixed via `resolveAsset()`; favicon (#28) → fixed via `%BASE_URL%` for static `<head>` assets. Template uses both from day one (guard **c** enforces).
+
+---
+
+## 14. Explicitly deferred to BUILD session
+
+- File generation / scaffold commands.
+- Component extraction order + the per-cluster port sequence.
+- TextEntry split decision (port as-is vs resolve `TODO(component-split)`).
+- Exact `CONTRIBUTING.md` prose.
+- Exact Zod schema shapes per exercise type.
+
+---
+
+## 15. Open / not-yet-decided
+
+- None blocking. All 15 core decisions locked.
