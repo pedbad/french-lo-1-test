@@ -51,6 +51,7 @@ The template ships with three dev tools (debug sandbox, exercise showcase, examp
 | 21 | Documentation hub | 5 markdown docs (`README`, `CONTRIBUTING`, `DESIGNER`, `STRUCTURE`, `AGENTS`) = source of truth; debug-sandbox renders human-facing ones as HTML (single source, no duplication). `STRUCTURE.md` tree auto-generated. See §14. |
 | 22 | AGENTS.md | AI-agent instruction file at root — makes the AI assistant a drift guard at *authoring* time. Concise, rule-first, references CONTRIBUTING for depth. Optional `CLAUDE.md` symlink. See §16. |
 | 23 | Render-mirror naming | File structure mirrors rendered page: **ordinal + type, section-scoped** (content blocks `01-grammar…`; exercises restart `01-select…`). Applies to all block types (grammar, vocab, pronunciation, dialogue, monologue, exercises). Guard b enforces folder↔config match. See §15. |
+| 24 | W3C / a11y compliance | **Non-negotiable, CI-gated** (guard h). Semantic DOM: `header>nav` (one primary nav) → `main` → `section` landmarks → **`<article>` per accordion**; logical `h1`→`h2` order; accessible names on icon-only controls; `GrammarLabel` for short labels (no bare `<h4>`/`<p>`); semantic emphasis (`<strong>`/`<em>`); `<table>` only for tabular data. See §17. |
 
 ---
 
@@ -77,7 +78,7 @@ All three behind the debug flag (`VITE_INCLUDE_DEBUG=true`); production builds e
 
 ## 5. Guard system (the bulletproofing)
 
-Seven checks. Each maps to a real bug that already hurt the prior project. All run at **both** gates (Option C: husky pre-commit + CI).
+Eight checks. Each maps to a real bug that already hurt the prior project. All run at **both** gates (Option C: husky pre-commit + CI).
 
 | # | Guard | Enforces |
 |---|-------|----------|
@@ -88,6 +89,7 @@ Seven checks. Each maps to a real bug that already hurt the prior project. All r
 | e | **Registry completeness** | Every exercise `type` in configs is registered in `lazyRegistry`; every registered type has a showcase fixture. |
 | f | **Theme-token integrity** | No hardcoded hex/px in components — colors/spacing pull from CSS tokens only (Stylelint). |
 | g | **CSS layer discipline** | Build fails on any unlayered custom CSS rule and on stray `!important` (Stylelint). Prevents reintroducing the cascade debt (rules #27/#39). |
+| h | **W3C / accessibility** | `jsx-a11y` eslint + automated a11y check (axe/pa11y). **CI fails on the a11y gate** (mirrors FUTURE_PROJECTS `check:a11y:branch`). Enforces semantic landmarks, accessible names, no `<table>` for layout. See §17. |
 
 **Enforcement (Option C):**
 - **Local:** husky pre-commit + lint-staged → instant feedback. Bypassable with `--no-verify`.
@@ -263,14 +265,42 @@ Vendor-neutral AI-agent instruction file at repo root (read by Cursor/Codex/Clau
 
 ---
 
-## 17. Deploy reality (carry-forward constraints)
+## 17. Semantic markup & accessibility (W3C compliant)
+
+Accessibility is a **build requirement, not polish** (FUTURE_PROJECTS "Accessibility Is Non-Negotiable"). Enforced by **guard h** at both gates; CI fails on the a11y gate.
+
+**Semantic page DOM (carry-forward + the accordion decision):**
+```
+header > nav[aria-label]        ← exactly one primary nav landmark
+main
+  section (aria-labelledby)     ← real section landmarks, one per top-level content area
+    h2 …                        ← logical heading order: h1 (page) → section h2 → …
+    article                     ← one <article> per accordion (self-contained LO block / exercise)
+footer
+```
+- One `h1` per page; headings never skip levels (no `<h4>` used as a visual label).
+- **`<article>` per accordion** — each accordion wraps a self-contained block (a content section or an exercise), which is the correct semantic for `<article>`. *(New decision — not in FUTURE_PROJECTS, which specified `section` landmarks + reuse of the accordion wrapper; `<article>` is our refinement.)*
+
+**Carry-forward markup rules (from FUTURE_PROJECTS):**
+- **`GrammarLabel`** for short labels ("For example:", "Here are the forms:") — renders a token-sized `<div>`, never `<h4>`/`<p>`. Prevents heading-outline distortion + WAVE "possible heading" alerts.
+- **Semantic emphasis only** — `<strong>`/`<em>`, never `<b>`/`<i>`, in authored HTML/JSON content.
+- **`<table>` only for true tabular data** — never for visual layout (use flex/grid).
+- **Icon-only controls** must have an accessible name (`aria-label` / visually-hidden text); decorative icons `aria-hidden`.
+- **Native interactive elements first** (`button`, `a`, `input`) before ARIA role fallbacks.
+- Visible focus, full keyboard support, `prefers-reduced-motion` respected.
+
+**Tooling (guard h):** `eslint-plugin-jsx-a11y` + an automated checker (axe-core / pa11y) over the pre-rendered pages. CI fails on any gate violation (mirrors `bun run check:a11y:branch`).
+
+---
+
+## 18. Deploy reality (carry-forward constraints)
 
 - lcdev (dev) + lcitc (live) both served `/french/french-basic/` under a non-root base. Template needs an **env-driven base path** decided per course (in `course.config.ts`).
 - Two relative-path-under-non-root-base bugs bit french-lo-1: runtime fetch (#35) → fixed via `resolveAsset()`; favicon (#28) → fixed via `%BASE_URL%` for static `<head>` assets. Template uses both from day one (guard **c** enforces).
 
 ---
 
-## 18. Explicitly deferred to BUILD session
+## 19. Explicitly deferred to BUILD session
 
 - File generation / scaffold commands.
 - Component extraction order + the per-cluster port sequence.
@@ -280,6 +310,6 @@ Vendor-neutral AI-agent instruction file at repo root (read by Cursor/Codex/Clau
 
 ---
 
-## 19. Open / not-yet-decided
+## 20. Open / not-yet-decided
 
 - None blocking. All 15 core decisions locked.
