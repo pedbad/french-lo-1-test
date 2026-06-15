@@ -47,6 +47,10 @@ The template ships with three dev tools (debug sandbox, exercise showcase, examp
 | 17 | Out-of-box brand | Clone ships **pre-branded as a Cambridge course** — full Cambridge Slate palette + logos/imagery baked in. Designer rebrands later by editing token values (one place), not find-replace. |
 | 18 | Brand asset licensing | **Colours** baked in (not copyrightable). **Logos/imagery** baked in + trademark disclaimer. **Font:** Feijoa is commercial (Klim) → **NOT shipped**; git-ignored, local/deploy-only. Public default = **Open Sans** (Apache-2.0). Cascade falls back automatically. |
 | 19 | CSS cascade layers | **Fully layered from day one.** Every custom rule in `@layer base/components` or `@utility`. Zero unlayered CSS, zero `!important`. No legacy `index.css` debt inherited (rules #27/#39). |
+| 20 | Developer workflow | One-time setup (config, theme, ui-strings) → repeatable per-LO loop (copy example JSON, edit, add assets, commit) → guards backstop → static build + deploy. See §14. |
+| 21 | Documentation hub | 5 markdown docs (`README`, `CONTRIBUTING`, `DESIGNER`, `STRUCTURE`, `AGENTS`) = source of truth; debug-sandbox renders human-facing ones as HTML (single source, no duplication). `STRUCTURE.md` tree auto-generated. See §15. |
+| 22 | AGENTS.md | AI-agent instruction file at root — makes the AI assistant a drift guard at *authoring* time. Concise, rule-first, references CONTRIBUTING for depth. Optional `CLAUDE.md` symlink. See §17. |
+| 23 | Render-mirror naming | File structure mirrors rendered page: **ordinal + type, section-scoped** (content blocks `01-grammar…`; exercises restart `01-select…`). Applies to all block types (grammar, vocab, pronunciation, dialogue, monologue, exercises). Guard b enforces folder↔config match. See §16. |
 
 ---
 
@@ -78,7 +82,7 @@ Seven checks. Each maps to a real bug that already hurt the prior project. All r
 | # | Guard | Enforces |
 |---|-------|----------|
 | a | **Config schema** (Zod) | Every `lo-config/*.json` validates. Catches key drift (`instructionsText` vs `informationText`), missing fields, wrong shapes. |
-| b | **Naming conventions** | `lo-01` not `lo1`; `images/` not `img/`; semantic audio folders (`01-fill-gaps/` not `draggableFillGaps1/`). |
+| b | **Naming conventions + render-mirror** | `lo-01` not `lo1`; `images/` not `img/`; semantic ordinal+type folders (`01-fill-gaps/` not `draggableFillGaps1/`). **Extended:** every block's asset folder name (`03-line-match`) must match that block's **index + type in the LO config**, section-scoped (content blocks one sequence, exercises another). Reorder without rename → guard fails. Makes the file↔page mirror an enforced invariant. |
 | c | **Asset-path discipline** | Runtime fetches via `resolveAsset()`; static `<head>` assets via `%BASE_URL%`. Block raw relative paths (bugs #35, #28). |
 | d | **Asset existence** | Every audio/image referenced in a config exists on disk. No runtime 404s. |
 | e | **Registry completeness** | Every exercise `type` in configs is registered in `lazyRegistry`; every registered type has a showcase fixture. |
@@ -202,14 +206,84 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 14. Deploy reality (carry-forward constraints)
+## 14. Developer workflow
+
+**One-time setup (≈once per course):**
+1. "Use this template" → `bun install` (husky self-installs; nothing else to configure).
+2. Fill `course.config.ts` — title, `languageCode`, `basePath`, landing copy, logo/favicon.
+3. Apply designer's theme — edit primitive tokens in `palette.css`; confirm in sandbox. Drop licensed Feijoa in `public/fonts/feijoa/` if a Cambridge deploy (else Open Sans renders).
+4. Translate `ui-strings.ts` — Check/Next/etc → target language (Zod fails build on missing key).
+
+**Per-LO loop (the repeatable part):**
+5. Copy the example LO JSON → rename to `lo-NN-slug.json`.
+6. Edit content — intro, grammar, vocab, pronunciation, dialogue/monologue, exercises.
+7. Add assets — images to `media/images/lo-NN/<NN-type>/`, audio to `audio/lo-NN/<NN-type>/` (render-mirror naming, §16).
+8. Pick exercises from the showcase menu; paste the config shape, fill content.
+9. `bun run dev` → preview. Build auto-discovers the new JSON → pre-renders its page.
+10. Commit → guards fire (pre-commit + CI). Red = CONTRIBUTING.md gives the fix.
+
+**Deploy:**
+11. `bun run build` → static HTML per LO → push to lcdev/lcitc with the env base path.
+
+**Rare path — new exercise *type*** (not just using existing): the authoring contract — register in `lazyRegistry` + add showcase fixture + add Zod schema (guard e fails if any step skipped).
+
+---
+
+## 15. Documentation hub
+
+Five markdown docs are the **single source of truth**; the debug sandbox renders the human-facing ones as HTML pages (markdown→HTML at build / fetch+render). Edit the `.md` once → GitHub + sandbox both update. No hand-copied duplication.
+
+| File | Audience | Content |
+|------|----------|---------|
+| `README.md` | everyone (GitHub front door) | What this is, quickstart, links to the others, licence + brand disclaimer. |
+| `CONTRIBUTING.md` | developer | Per-LO loop, exercise authoring contract, the 7 guards (what fails + how to fix), naming/asset rules. |
+| `DESIGNER.md` | designer | Theme tokens, palette/font/spacing, how to read the sandbox, handoff format. |
+| `STRUCTURE.md` | developer | Annotated project tree — where LOs/images/audio go. **Tree auto-generated** (`bun run docs:tree`) above a hand-written "where things go" block; optional guard checks documented top-level dirs exist. |
+| `AGENTS.md` | AI agents | See §17. |
+
+Sandbox "Docs" hub = pages rendering `DESIGNER.md` (designer), `CONTRIBUTING.md` (developer), `STRUCTURE.md` (project tree). AGENTS.md may also surface for transparency.
+
+---
+
+## 16. Render-mirror naming convention
+
+File structure mirrors the rendered page so maintenance is "look at the page → go straight to the file."
+
+- **Scheme:** `<ordinal>-<type>` — ordinal = position on page, type = what it is. `01-grammar/`, `03-line-match/`.
+- **Scope: section-scoped (decision B).** Content blocks form one sequence; exercises restart their own:
+  ```
+  lo-config/lo-01-salutations.json
+  public/media/images/lo-01/02-vocabulary/
+  public/audio/lo-01/01-grammar/
+  public/audio/lo-01/03-pronunciation/
+  public/audio/lo-01/04-dialogue/
+  …exercise section restarts: audio/lo-01/exercises/01-select/  02-fill-gaps/ …
+  ```
+- **Applies to all block types** with assets: grammar, vocabulary, pronunciation, dialogue, monologue, exercises.
+- **Enforced (guard b):** each folder name must match that block's index + type in the LO config, per section. Reorder without rename → guard fails. The file↔page mirror is an invariant, not a hope.
+- Insert within a section renumbers only that section (smaller blast radius than global numbering).
+
+---
+
+## 17. AGENTS.md — AI as a drift guard
+
+Vendor-neutral AI-agent instruction file at repo root (read by Cursor/Codex/Claude Code etc.). Since most new devs will use an AI assistant, AGENTS.md makes the **AI a drift guard at *authoring* time** — violations get prevented before the commit-time guards even run.
+
+- **Audience:** machines. Concise, imperative, rule-first (contrast CONTRIBUTING.md = human prose).
+- **Content:** naming + render-mirror rules; "add LO = copy example, Zod must pass"; new exercise = authoring contract; tokens only (no raw hex/px); no unlayered CSS / `!important`; `resolveAsset()` runtime + `%BASE_URL%` static head; run `bun run guards` before done; "see CONTRIBUTING/DESIGNER/STRUCTURE for detail."
+- **Single source:** short, references canonical docs — does not restate them.
+- Optional `CLAUDE.md` → `AGENTS.md` symlink so Claude Code picks it up.
+
+---
+
+## 18. Deploy reality (carry-forward constraints)
 
 - lcdev (dev) + lcitc (live) both served `/french/french-basic/` under a non-root base. Template needs an **env-driven base path** decided per course (in `course.config.ts`).
 - Two relative-path-under-non-root-base bugs bit french-lo-1: runtime fetch (#35) → fixed via `resolveAsset()`; favicon (#28) → fixed via `%BASE_URL%` for static `<head>` assets. Template uses both from day one (guard **c** enforces).
 
 ---
 
-## 15. Explicitly deferred to BUILD session
+## 19. Explicitly deferred to BUILD session
 
 - File generation / scaffold commands.
 - Component extraction order + the per-cluster port sequence.
@@ -219,6 +293,6 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 16. Open / not-yet-decided
+## 20. Open / not-yet-decided
 
 - None blocking. All 15 core decisions locked.
