@@ -42,7 +42,7 @@ The template ships with three dev tools (debug sandbox, exercise showcase, examp
 | 12 | Course identity | One Zod-validated `course.config.ts` — single source of course identity. |
 | 13 | UI-chrome strings | Global `ui-strings.ts` (complete, Zod-required) **+** optional per-exercise `labels` override (partial). Override wins. |
 | 14 | Repo home | **Public** GitHub template repo `lc-base-template`. "Use this template" flow. Collaborators gate template edits. |
-| 15 | License | **MIT for code + CC-BY-4.0 for content** + brand/trademark disclaimer (see §16). |
+| 15 | License | **MIT for code + CC-BY-4.0 for content** + brand/trademark disclaimer (see §13). |
 | 16 | Designer role | **Hands-off.** Designer defines look (palette/type/spacing/icons); does not touch code/JSON/guards. Output = theme spec the dev applies. Confirmed visually in the debug sandbox. |
 | 17 | Out-of-box brand | Clone ships **pre-branded as a Cambridge course** — full Cambridge Slate palette + logos/imagery baked in. Designer rebrands later by editing token values (one place), not find-replace. |
 | 18 | Brand asset licensing | **Colours** baked in (not copyrightable). **Logos/imagery** baked in + trademark disclaimer. **Font:** Feijoa is commercial (Klim) → **NOT shipped**; git-ignored, local/deploy-only. Public default = **Open Sans** (Apache-2.0). Cascade falls back automatically. |
@@ -125,7 +125,7 @@ Change Slate 3 once → primitive → semantic → every button updates. Guard *
 
 - **Colours:** full Cambridge Slate palette (4 tones → semantic ramp: surface → muted → secondary → text), light + dark. Maps to the existing frenchLO 4-tone handoff.
 - **Fonts:** display token = `"Feijoa", "Open Sans", sans-serif`. Feijoa git-ignored (commercial, Klim) → fresh clones render Open Sans automatically via cascade; real Feijoa dropped in `public/fonts/feijoa/` per deploy.
-- **Logos / visual-language imagery:** baked in, covered by the §16 trademark disclaimer.
+- **Logos / visual-language imagery:** baked in, covered by the §13 trademark disclaimer.
 
 ---
 
@@ -181,7 +181,7 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 16. Designer workflow + brand asset licensing
+## 13. Designer workflow + brand asset licensing
 
 **Designer is hands-off.** Job = define the look; never touches code/JSON/guards.
 
@@ -202,14 +202,14 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 13. Deploy reality (carry-forward constraints)
+## 14. Deploy reality (carry-forward constraints)
 
 - lcdev (dev) + lcitc (live) both served `/french/french-basic/` under a non-root base. Template needs an **env-driven base path** decided per course (in `course.config.ts`).
 - Two relative-path-under-non-root-base bugs bit french-lo-1: runtime fetch (#35) → fixed via `resolveAsset()`; favicon (#28) → fixed via `%BASE_URL%` for static `<head>` assets. Template uses both from day one (guard **c** enforces).
 
 ---
 
-## 14. Explicitly deferred to BUILD session
+## 15. Explicitly deferred to BUILD session
 
 - File generation / scaffold commands.
 - Component extraction order + the per-cluster port sequence.
@@ -219,6 +219,6 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 15. Open / not-yet-decided
+## 16. Open / not-yet-decided
 
 - None blocking. All 15 core decisions locked.
