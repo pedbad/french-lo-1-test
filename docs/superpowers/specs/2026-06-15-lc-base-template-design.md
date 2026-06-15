@@ -42,7 +42,11 @@ The template ships with three dev tools (debug sandbox, exercise showcase, examp
 | 12 | Course identity | One Zod-validated `course.config.ts` — single source of course identity. |
 | 13 | UI-chrome strings | Global `ui-strings.ts` (complete, Zod-required) **+** optional per-exercise `labels` override (partial). Override wins. |
 | 14 | Repo home | **Public** GitHub template repo `lc-base-template`. "Use this template" flow. Collaborators gate template edits. |
-| 15 | License | **MIT for code + CC-BY-4.0 for content.** |
+| 15 | License | **MIT for code + CC-BY-4.0 for content** + brand/trademark disclaimer (see §16). |
+| 16 | Designer role | **Hands-off.** Designer defines look (palette/type/spacing/icons); does not touch code/JSON/guards. Output = theme spec the dev applies. Confirmed visually in the debug sandbox. |
+| 17 | Out-of-box brand | Clone ships **pre-branded as a Cambridge course** — full Cambridge Slate palette + logos/imagery baked in. Designer rebrands later by editing token values (one place), not find-replace. |
+| 18 | Brand asset licensing | **Colours** baked in (not copyrightable). **Logos/imagery** baked in + trademark disclaimer. **Font:** Feijoa is commercial (Klim) → **NOT shipped**; git-ignored, local/deploy-only. Public default = **Open Sans** (Apache-2.0). Cascade falls back automatically. |
+| 19 | CSS cascade layers | **Fully layered from day one.** Every custom rule in `@layer base/components` or `@utility`. Zero unlayered CSS, zero `!important`. No legacy `index.css` debt inherited (rules #27/#39). |
 
 ---
 
@@ -61,7 +65,7 @@ The template ships with three dev tools (debug sandbox, exercise showcase, examp
 
 All three behind the debug flag (`VITE_INCLUDE_DEBUG=true`); production builds exclude them.
 
-1. **Debug sandbox — the design control panel.** Renders the live theme: palette swatches, font stack + sizes/scale, SVG/icon set, spacing tokens. Where the designer's handoff lands and is confirmed visually. Also renders `CONTRIBUTING.md` as HTML (single source — no hand-copied duplicate).
+1. **Debug sandbox — the design control panel.** Renders the live theme across all three token layers (primitives, semantic roles, component tokens), light + dark: palette swatches, font ramp (Open Sans now / Feijoa when present), SVG/icon set, spacing tokens, **plus a live component preview** (real buttons + exercises rendered with the exact tokens). Where the designer's handoff is confirmed visually. Also renders `CONTRIBUTING.md` as HTML (single source — no hand-copied duplicate).
 2. **Exercise showcase.** Full catalog of all 13 exercise types in isolated fixtures. The menu a dev browses + the place a new exercise component is verified.
 3. **Example LO.** One complete, realistic, **Zod-valid** Learning Object: intro + grammar block + vocab block + an exercise section of **4 accordions** (4 exercise types, NOT all 13 — that's the showcase's job). The "copy me to start" artifact.
 
@@ -69,7 +73,7 @@ All three behind the debug flag (`VITE_INCLUDE_DEBUG=true`); production builds e
 
 ## 5. Guard system (the bulletproofing)
 
-Six checks. Each maps to a real bug that already hurt the prior project. All run at **both** gates (Option C: husky pre-commit + CI).
+Seven checks. Each maps to a real bug that already hurt the prior project. All run at **both** gates (Option C: husky pre-commit + CI).
 
 | # | Guard | Enforces |
 |---|-------|----------|
@@ -79,6 +83,7 @@ Six checks. Each maps to a real bug that already hurt the prior project. All run
 | d | **Asset existence** | Every audio/image referenced in a config exists on disk. No runtime 404s. |
 | e | **Registry completeness** | Every exercise `type` in configs is registered in `lazyRegistry`; every registered type has a showcase fixture. |
 | f | **Theme-token integrity** | No hardcoded hex/px in components — colors/spacing pull from CSS tokens only (Stylelint). |
+| g | **CSS layer discipline** | Build fails on any unlayered custom CSS rule and on stray `!important` (Stylelint). Prevents reintroducing the cascade debt (rules #27/#39). |
 
 **Enforcement (Option C):**
 - **Local:** husky pre-commit + lint-staged → instant feedback. Bypassable with `--no-verify`.
@@ -105,6 +110,22 @@ Six checks. Each maps to a real bug that already hurt the prior project. All run
 - **Keep light + dark** (orthogonal to brand-swap; user-facing preference). Tailwind v4 `.dark` variant.
 - Token split retained (palette / typography / spacing / theme), each holding light + dark values.
 - **Drop the `theme-lc-french.css` locale-naming fossil** → plain `theme.css`. french-lo-1 carries the *naming* of a multi-theme swap system with no `data-theme` machinery behind it; the template must not inherit that false promise.
+
+### 7.1 Token chain (single source → components)
+
+Three layers, each pointing at the one below. Designer's single edit point is the primitive layer.
+
+1. **Primitive tokens** (`palette.css`) — raw brand values: `--slate-1:#ECEEF1 … --slate-4:#232830`, font tokens.
+2. **Semantic tokens** (`tokens.css`) — roles mapped to primitives, light + dark: `--color-surface:var(--slate-1)`, `--color-text:var(--slate-4)`, `--color-primary:var(--slate-3)`.
+3. **Component tokens** — e.g. `--button-bg:var(--color-primary)`. Components read these, never raw hex.
+
+Change Slate 3 once → primitive → semantic → every button updates. Guard **f** forbids raw hex/px in components; guard **g** forbids unlayered rules. The chain cannot be bypassed.
+
+### 7.2 Out-of-box brand defaults
+
+- **Colours:** full Cambridge Slate palette (4 tones → semantic ramp: surface → muted → secondary → text), light + dark. Maps to the existing frenchLO 4-tone handoff.
+- **Fonts:** display token = `"Feijoa", "Open Sans", sans-serif`. Feijoa git-ignored (commercial, Klim) → fresh clones render Open Sans automatically via cascade; real Feijoa dropped in `public/fonts/feijoa/` per deploy.
+- **Logos / visual-language imagery:** baked in, covered by the §16 trademark disclaimer.
 
 ---
 
@@ -157,6 +178,27 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 - **Public** GitHub **template repo** `lc-base-template` ("Use this template" → fresh repo, clean history, no fork back-link).
 - Cloning/using = open to anyone. **Push access to the template itself = collaborators only** (gates who edits the base).
 - **License:** MIT for code + CC-BY-4.0 for content. Both stated in `LICENSE` + README.
+
+---
+
+## 16. Designer workflow + brand asset licensing
+
+**Designer is hands-off.** Job = define the look; never touches code/JSON/guards.
+
+- **Defines:** palette (light + dark), typography (families/sizes/scale/weights), spacing/rhythm/radius, iconography (Lucide + brand SVGs).
+- **Output:** a theme spec the developer types into the primitive token layer (§7.1).
+- **Confirms** visually in the debug sandbox (live component preview).
+- **Does not:** write exercise logic, edit LO JSON, touch routing/guards.
+
+**Brand asset licensing (public repo).** The repo is public + forkable, so what ships is constrained:
+
+| Asset | Ships in public repo? | Mitigation |
+|-------|----------------------|------------|
+| Colours (Slate hex) | ✅ yes | Not copyrightable. README note that they reflect Cambridge brand. |
+| Logos / wordmark / visual-language imagery | ✅ yes | **Trademark disclaimer** in README + LICENSE: marks are University property; remove/replace before reuse. Shifts responsibility to forker. |
+| Feijoa font file | ❌ no | Commercial (Klim Type Foundry). Git-ignored; never pushed. `@font-face` references `public/fonts/feijoa/` (local/deploy only). Public default = Open Sans (Apache-2.0). CONTRIBUTING.md documents the drop-in. |
+
+**README/LICENSE disclaimer (required):** "Cambridge branding (logos, marks, imagery) and the Feijoa typeface are the property of the University of Cambridge / Klim Type Foundry respectively, and are **not** licensed for reuse. Forks must remove or replace them. Code is MIT; learning content is CC-BY-4.0."
 
 ---
 
