@@ -42,15 +42,15 @@ The template ships with three dev tools (debug sandbox, exercise showcase, examp
 | 12 | Course identity | One Zod-validated `course.config.ts` — single source of course identity. |
 | 13 | UI-chrome strings | Global `ui-strings.ts` (complete, Zod-required) **+** optional per-exercise `labels` override (partial). Override wins. |
 | 14 | Repo home | **Public** GitHub template repo `lc-base-template`. "Use this template" flow. Collaborators gate template edits. |
-| 15 | License | **MIT for code + CC-BY-4.0 for content** + brand/trademark disclaimer (see §13). |
+| 15 | License | **MIT for code + CC-BY-4.0 for content** + brand/trademark disclaimer (see §12). |
 | 16 | Designer role | **Hands-off.** Designer defines look (palette/type/spacing/icons); does not touch code/JSON/guards. Output = theme spec the dev applies. Confirmed visually in the debug sandbox. |
 | 17 | Out-of-box brand | Clone ships **pre-branded as a Cambridge course** — full Cambridge Slate palette + logos/imagery baked in. Designer rebrands later by editing token values (one place), not find-replace. |
 | 18 | Brand asset licensing | **Colours** baked in (not copyrightable). **Logos/imagery** baked in + trademark disclaimer. **Font:** Feijoa is commercial (Klim) → **NOT shipped**; git-ignored, local/deploy-only. Public default = **Open Sans** (Apache-2.0). Cascade falls back automatically. |
 | 19 | CSS cascade layers | **Fully layered from day one.** Every custom rule in `@layer base/components` or `@utility`. Zero unlayered CSS, zero `!important`. No legacy `index.css` debt inherited (rules #27/#39). |
-| 20 | Developer workflow | One-time setup (config, theme, ui-strings) → repeatable per-LO loop (copy example JSON, edit, add assets, commit) → guards backstop → static build + deploy. See §14. |
-| 21 | Documentation hub | 5 markdown docs (`README`, `CONTRIBUTING`, `DESIGNER`, `STRUCTURE`, `AGENTS`) = source of truth; debug-sandbox renders human-facing ones as HTML (single source, no duplication). `STRUCTURE.md` tree auto-generated. See §15. |
-| 22 | AGENTS.md | AI-agent instruction file at root — makes the AI assistant a drift guard at *authoring* time. Concise, rule-first, references CONTRIBUTING for depth. Optional `CLAUDE.md` symlink. See §17. |
-| 23 | Render-mirror naming | File structure mirrors rendered page: **ordinal + type, section-scoped** (content blocks `01-grammar…`; exercises restart `01-select…`). Applies to all block types (grammar, vocab, pronunciation, dialogue, monologue, exercises). Guard b enforces folder↔config match. See §16. |
+| 20 | Developer workflow | One-time setup (config, theme, ui-strings) → repeatable per-LO loop (copy example JSON, edit, add assets, commit) → guards backstop → static build + deploy. See §13. |
+| 21 | Documentation hub | 5 markdown docs (`README`, `CONTRIBUTING`, `DESIGNER`, `STRUCTURE`, `AGENTS`) = source of truth; debug-sandbox renders human-facing ones as HTML (single source, no duplication). `STRUCTURE.md` tree auto-generated. See §14. |
+| 22 | AGENTS.md | AI-agent instruction file at root — makes the AI assistant a drift guard at *authoring* time. Concise, rule-first, references CONTRIBUTING for depth. Optional `CLAUDE.md` symlink. See §16. |
+| 23 | Render-mirror naming | File structure mirrors rendered page: **ordinal + type, section-scoped** (content blocks `01-grammar…`; exercises restart `01-select…`). Applies to all block types (grammar, vocab, pronunciation, dialogue, monologue, exercises). Guard b enforces folder↔config match. See §15. |
 
 ---
 
@@ -129,7 +129,7 @@ Change Slate 3 once → primitive → semantic → every button updates. Guard *
 
 - **Colours:** full Cambridge Slate palette (4 tones → semantic ramp: surface → muted → secondary → text), light + dark. Maps to the existing frenchLO 4-tone handoff.
 - **Fonts:** display token = `"Feijoa", "Open Sans", sans-serif`. Feijoa git-ignored (commercial, Klim) → fresh clones render Open Sans automatically via cascade; real Feijoa dropped in `public/fonts/feijoa/` per deploy.
-- **Logos / visual-language imagery:** baked in, covered by the §13 trademark disclaimer.
+- **Logos / visual-language imagery:** baked in, covered by the §12 trademark disclaimer.
 
 ---
 
@@ -164,20 +164,7 @@ ClozeTyping bugs from french-lo-1 (missing audio icon, unstyled check button, sh
 
 ---
 
-## 11. Documentation — `CONTRIBUTING.md`
-
-Root file, the onboarding manual + guard reference:
-- How to add an LO (copy example, edit JSON, Zod validates).
-- The exercise authoring contract (register in `lazyRegistry`, add showcase fixture, add Zod schema).
-- The 6 guards: what each enforces, what failure looks like, how to fix.
-- Naming rules (`lo-01`, `images/`, semantic audio folders).
-- Asset rules (`resolveAsset()`, `%BASE_URL%`).
-
-Sandbox renders this `.md` as HTML (single source of truth — docs can't drift from the file).
-
----
-
-## 12. Repo & license
+## 11. Repo & license
 
 - **Public** GitHub **template repo** `lc-base-template` ("Use this template" → fresh repo, clean history, no fork back-link).
 - Cloning/using = open to anyone. **Push access to the template itself = collaborators only** (gates who edits the base).
@@ -185,7 +172,7 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 13. Designer workflow + brand asset licensing
+## 12. Designer workflow + brand asset licensing
 
 **Designer is hands-off.** Job = define the look; never touches code/JSON/guards.
 
@@ -206,7 +193,7 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 14. Developer workflow
+## 13. Developer workflow
 
 **One-time setup (≈once per course):**
 1. "Use this template" → `bun install` (husky self-installs; nothing else to configure).
@@ -217,7 +204,7 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 **Per-LO loop (the repeatable part):**
 5. Copy the example LO JSON → rename to `lo-NN-slug.json`.
 6. Edit content — intro, grammar, vocab, pronunciation, dialogue/monologue, exercises.
-7. Add assets — images to `media/images/lo-NN/<NN-type>/`, audio to `audio/lo-NN/<NN-type>/` (render-mirror naming, §16).
+7. Add assets — images to `media/images/lo-NN/<NN-type>/`, audio to `audio/lo-NN/<NN-type>/` (render-mirror naming, §15).
 8. Pick exercises from the showcase menu; paste the config shape, fill content.
 9. `bun run dev` → preview. Build auto-discovers the new JSON → pre-renders its page.
 10. Commit → guards fire (pre-commit + CI). Red = CONTRIBUTING.md gives the fix.
@@ -229,7 +216,7 @@ Sandbox renders this `.md` as HTML (single source of truth — docs can't drift 
 
 ---
 
-## 15. Documentation hub
+## 14. Documentation hub
 
 Five markdown docs are the **single source of truth**; the debug sandbox renders the human-facing ones as HTML pages (markdown→HTML at build / fetch+render). Edit the `.md` once → GitHub + sandbox both update. No hand-copied duplication.
 
@@ -239,13 +226,13 @@ Five markdown docs are the **single source of truth**; the debug sandbox renders
 | `CONTRIBUTING.md` | developer | Per-LO loop, exercise authoring contract, the 7 guards (what fails + how to fix), naming/asset rules. |
 | `DESIGNER.md` | designer | Theme tokens, palette/font/spacing, how to read the sandbox, handoff format. |
 | `STRUCTURE.md` | developer | Annotated project tree — where LOs/images/audio go. **Tree auto-generated** (`bun run docs:tree`) above a hand-written "where things go" block; optional guard checks documented top-level dirs exist. |
-| `AGENTS.md` | AI agents | See §17. |
+| `AGENTS.md` | AI agents | See §16. |
 
 Sandbox "Docs" hub = pages rendering `DESIGNER.md` (designer), `CONTRIBUTING.md` (developer), `STRUCTURE.md` (project tree). AGENTS.md may also surface for transparency.
 
 ---
 
-## 16. Render-mirror naming convention
+## 15. Render-mirror naming convention
 
 File structure mirrors the rendered page so maintenance is "look at the page → go straight to the file."
 
@@ -265,7 +252,7 @@ File structure mirrors the rendered page so maintenance is "look at the page →
 
 ---
 
-## 17. AGENTS.md — AI as a drift guard
+## 16. AGENTS.md — AI as a drift guard
 
 Vendor-neutral AI-agent instruction file at repo root (read by Cursor/Codex/Claude Code etc.). Since most new devs will use an AI assistant, AGENTS.md makes the **AI a drift guard at *authoring* time** — violations get prevented before the commit-time guards even run.
 
@@ -276,14 +263,14 @@ Vendor-neutral AI-agent instruction file at repo root (read by Cursor/Codex/Clau
 
 ---
 
-## 18. Deploy reality (carry-forward constraints)
+## 17. Deploy reality (carry-forward constraints)
 
 - lcdev (dev) + lcitc (live) both served `/french/french-basic/` under a non-root base. Template needs an **env-driven base path** decided per course (in `course.config.ts`).
 - Two relative-path-under-non-root-base bugs bit french-lo-1: runtime fetch (#35) → fixed via `resolveAsset()`; favicon (#28) → fixed via `%BASE_URL%` for static `<head>` assets. Template uses both from day one (guard **c** enforces).
 
 ---
 
-## 19. Explicitly deferred to BUILD session
+## 18. Explicitly deferred to BUILD session
 
 - File generation / scaffold commands.
 - Component extraction order + the per-cluster port sequence.
@@ -293,6 +280,6 @@ Vendor-neutral AI-agent instruction file at repo root (read by Cursor/Codex/Clau
 
 ---
 
-## 20. Open / not-yet-decided
+## 19. Open / not-yet-decided
 
 - None blocking. All 15 core decisions locked.
