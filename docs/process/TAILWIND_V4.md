@@ -40,26 +40,46 @@ When a utility "doesn't work":
 | `!` band-aids × 5 in landing header | `LandingPage.jsx` | Replaced `id="hero"` / `.hero-title` with clean classes |
 | `!text-[var()]` / `!m-0` on card h3 | `LandingPage.jsx` | Removed — layered rules let utilities win cleanly |
 
+## Fixes Applied (session 2026-06-15)
+
+Targeted follow-up: the **bare-element rules nested inside a content class** —
+distinct from pure class rules, these still silently hijack a utility placed on
+that element (e.g. `<p className="text-…">` inside `.info-content`). Layered the
+ones in the primary content flow; pure class-scoped + exercise-internal rules
+left fix-on-demand per the guidance below.
+
+| Rule | Location | Fix |
+|---|---|---|
+| `#content .information .info-content` element defaults (`ul` / `:is(p,div,li,h3,h4)` / `ul li` / `::before`) | `src/index.css` | Wrapped cluster in `@layer base` |
+| `#content .intro h2` / `#content .intro p` | `src/index.css` | Wrapped in `@layer base` |
+| `#content .section h2` | `src/index.css` | Wrapped in `@layer base` |
+
+Net: unlayered `#content` rule-blocks **75 → 66**. Visual no-op (no current
+utility competes); verified on LO1 light + dark.
+
 ---
 
 ## Known Debt (not yet fixed)
 
 | Issue | Scale | Risk | Action |
 |---|---|---|---|
-| Unlayered `#content .<class>` rules | ~61 | **Low** — class-scoped, won't hijack arbitrary utilities | Layer on demand (only when you add a utility to that specific class and it loses) |
-| Unlayered bare-element rules | ✅ 0 | Fixed | `p/li/td`, `a`, `h1-h4` all layered |
+| Unlayered `#content .<class>` rules (pure class-scoped) | ~50 | **Low** — class selectors won't hijack arbitrary utilities | Layer on demand (only when you add a utility to that specific class and it loses) |
+| Unlayered global bare-element rules | ✅ 0 | Fixed | `p/li/td`, `a`, `h1-h4` all layered |
+| Unlayered bare-element-in-class rules | partial | Low | Primary-content ones (`.info-content`, `.intro`, `.section h2`) layered 2026-06-15; remaining are exercise/LO-internal (radio2, doubleLl, lo6-reference, word-spot) — layer when touching that component |
 | Hardcoded `px`/`rem` values | ~116 | Low | Consider `@theme` tokens only where values are reused |
 | `!list-none !p-0` in grammar custom components | 3 | Low | Find + layer the `ul` rule when editing those components |
 | ~~Type scale split between config and prefixed `@theme`~~ | — | — | ✅ **RESOLVED** — scale unified in CSS `@theme` (`--text-*` + line-height companions); `text-*` already mapped to project tokens via `@config`, so no prefix needed |
 | Tailwind v4 auto-scans `docs/*.md` and tries to compile the documented-broken `text-[var(--font-size-base)]` example → build warning `Unexpected token Delim('*')` | 3 docs | Low (not emitted to dist) | Add `@source not "docs/**"` (or fence examples so the scanner skips them) |
 
-### Why the 61 class-scoped rules are low risk
+### Why the remaining class-scoped rules are low risk
 
-The 3 rules we fixed (`#content :where(p,li,td)`, `#content a`, `#content h1-h4`) were dangerous because they targeted **bare HTML elements** — any utility on any `<p>` or `<h2>` anywhere inside `#content` silently lost.
+The global rules we fixed first (`#content :where(p,li,td)`, `#content a`, `#content h1-h4`) were dangerous because they targeted **bare HTML elements** — any utility on any `<p>` or `<h2>` anywhere inside `#content` silently lost.
 
-The remaining 61 target **specific component classes** (`.information`, `.inline-icon-*`, `.word-spot-container`, `.intro`, etc.). A utility on `<div className="text-brand">` won't match `#content .information` unless it also carries that class. So there's no silent utility loss unless you're adding utilities *to those specific classes* — in which case just layer that one rule at that moment.
+The remaining ~50 target **specific component classes** (`.inline-icon-*`, `.word-spot-container`, `.instruction-callout`, `.modal-link`, etc.). A utility on `<div className="text-brand">` won't match `#content .inline-icon` unless it also carries that class. So there's no silent utility loss unless you're adding utilities *to those specific classes* — in which case just layer that one rule at that moment.
 
-**The fix-on-demand rule:** if `yarn dev` + DevTools shows a utility losing, check if the winning rule is unlayered, wrap it. Don't pre-emptively layer all 61.
+A narrower middle category is **bare-element rules nested inside a class** (`.info-content p`, `.intro h2`, `.section h2`): a utility on that element *inside that container* does lose. The primary-content ones were layered 2026-06-15 (see Fixes Applied); the rest are exercise/LO-internal and rarely receive utilities, so they stay fix-on-demand.
+
+**The fix-on-demand rule:** if `yarn dev` + DevTools shows a utility losing, check if the winning rule is unlayered, wrap it. Don't pre-emptively layer the whole backlog.
 
 ### Future projects: how to avoid this debt entirely
 
