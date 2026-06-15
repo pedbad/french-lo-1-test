@@ -4157,45 +4157,52 @@ hr {
 #content .instructions.instructions-media {
   padding: 0;
 }
-#content .information .info-content ul {
-  margin: 0.8rem 0 0.15rem;
-  padding-left: 0;
-  list-style: none;
-}
-#content .information .info-content :is(p, div, li, h3, h4) {
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-body);
-}
-#content .information .info-content :is(p, h3, h4) {
-  margin-top: 0;
-}
-#content .information .info-content h3,
-#content .information .info-content h4 {
-  margin-bottom: 0.35rem;
-  font-weight: 600;
-}
-#content .information .info-content ul li {
-  position: relative;
-  margin-top: 0.45rem;
-  padding-left: 1.8rem;
-}
-#content .information .info-content ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.82em;
-  width: 0.95em;
-  height: 0.95em;
-  transform: translateY(-50%);
-  background-color: var(--ex-neutral);
-  -webkit-mask-image: url("/img/common/custom-icons/circle-check.svg");
-  mask-image: url("/img/common/custom-icons/circle-check.svg");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+/* In @layer base so Tailwind utilities win over these authored info-box
+   element defaults (bare p/div/li/h3/h4/ul inside .info-content). Authored
+   LO content carries no utilities, so it still inherits these defaults;
+   component UI using text or spacing utilities overrides cleanly.
+   See docs/process/TAILWIND_V4.md. */
+@layer base {
+  #content .information .info-content ul {
+    margin: 0.8rem 0 0.15rem;
+    padding-left: 0;
+    list-style: none;
+  }
+  #content .information .info-content :is(p, div, li, h3, h4) {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+  }
+  #content .information .info-content :is(p, h3, h4) {
+    margin-top: 0;
+  }
+  #content .information .info-content h3,
+  #content .information .info-content h4 {
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+  }
+  #content .information .info-content ul li {
+    position: relative;
+    margin-top: 0.45rem;
+    padding-left: 1.8rem;
+  }
+  #content .information .info-content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.82em;
+    width: 0.95em;
+    height: 0.95em;
+    transform: translateY(-50%);
+    background-color: var(--ex-neutral);
+    -webkit-mask-image: url("/img/common/custom-icons/circle-check.svg");
+    mask-image: url("/img/common/custom-icons/circle-check.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
 }
 /* Dark mode: replace vivid blue Info box with a muted teal ghost */
 .dark :is(#content, #debug-sandbox-page) .information {
@@ -4312,13 +4319,17 @@ hr {
      the landing header is a flat left-aligned slim bar, not an over-image banner. */
   font-size: clamp(var(--font-size-3xl), 7.25vw, var(--font-size-3xl) * 1.4375);
 }
-#content .intro h2 {
-  margin-bottom: 2rem;
-  font-size: var(--font-size-lg);
-}
-#content .intro p {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-body-loose);
+/* In @layer base so Tailwind text/spacing utilities win over these intro
+   heading/paragraph defaults. See docs/process/TAILWIND_V4.md. */
+@layer base {
+  #content .intro h2 {
+    margin-bottom: 2rem;
+    font-size: var(--font-size-lg);
+  }
+  #content .intro p {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-body-loose);
+  }
 }
 #content .hero-section .intro-split .intro-split-image {
   margin-top: -1.1rem;
@@ -4341,9 +4352,13 @@ hr {
   font-style: italic;
   line-height: 1.2;
 }
-#content .section h2 {
-  margin-top: 0;
-  margin-bottom: 0;
+/* In @layer base so Tailwind text/spacing utilities win over this section
+   heading default. See docs/process/TAILWIND_V4.md. */
+@layer base {
+  #content .section h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 #content .video {
   border-width: 5px;
