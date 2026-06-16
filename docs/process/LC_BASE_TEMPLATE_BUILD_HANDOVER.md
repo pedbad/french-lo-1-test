@@ -6,6 +6,20 @@
 
 ---
 
+## Concrete setup params (decided 2026-06-16)
+
+- **Repo name:** `lc-base-template`
+- **Disk path:** `/Users/ped/Sites/lc-base-template` (sibling of `french/`, directly under `Sites/`)
+- **GitHub:** new **PUBLIC** repo via `gh` (account `pedbad`, already authed). Use `gh repo create lc-base-template --public --source=. --remote=origin` after first local commit.
+- **Docs:** new repo is SELF-CONTAINED. As an early step, copy these from french-lo-1 into the new repo's `docs/`:
+  - `/Users/ped/Sites/french/french-lo-1/docs/superpowers/specs/2026-06-15-lc-base-template-design.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/process/FUTURE_PROJECTS.md`
+  - `/Users/ped/Sites/french/french-lo-1/docs/process/LC_BASE_TEMPLATE_BUILD_HANDOVER.md` (this file)
+- **Env confirmed ready:** Bun 1.3.3, Node 22.19, gh 2.93 (authed), git 2.50. Nothing to install.
+- **Audience = beginner.** Treat every step as a tutorial: explain WHAT each tool is and WHY before running. git, README, Bun, Vite, React, Tailwind, shadcn, Lucide all need a plain-English intro.
+
+---
+
 ## Paste-in prompt (new BUILD session)
 
 ```
