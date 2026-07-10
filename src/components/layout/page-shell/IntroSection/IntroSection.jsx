@@ -2,7 +2,7 @@ import { HeroSection } from "../HeroSection/HeroSection";
 
 // Fallback artwork when settings provides no introImage.
 const DEFAULT_INTRO_IMAGE = {
-  src: "img/lo1/first-contact.svg",
+  src: "img/lo1/first-contact.webp",
   alt: "Learners greeting illustration",
 };
 
