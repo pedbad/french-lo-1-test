@@ -1,35 +1,35 @@
 @font-face {
 	font-family: "Feijoa Bold";
-	src: url("/fonts/Feijoa-Bold.otf");
+	src: url("/fonts/Feijoa-Bold.woff2") format("woff2");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: "Feijoa Medium";
-	src: url("/fonts/Feijoa-Medium.otf");
+	src: url("/fonts/Feijoa-Medium.woff2") format("woff2");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: "Feijoa Medium Italic";
-	src: url("/fonts/Feijoa-MediumItalic.otf");
+	src: url("/fonts/Feijoa-MediumItalic.woff2") format("woff2");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: "OpenSans Bold";
-	src: url("/fonts/OpenSans-Bold.ttf");
+	src: url("/fonts/OpenSans-Bold.woff2") format("woff2");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: "OpenSans Regular";
-	src: url("/fonts/OpenSans-Regular.ttf");
+	src: url("/fonts/OpenSans-Regular.woff2") format("woff2");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: "OpenSans SemiBold";
-	src: url("/fonts/OpenSans-SemiBold.ttf");
+	src: url("/fonts/OpenSans-SemiBold.woff2") format("woff2");
 	font-display: swap;
 }
