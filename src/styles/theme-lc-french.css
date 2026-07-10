@@ -25,12 +25,19 @@
 		--brand-secondary:  oklch(0.976 0.023  90.7);   /* warm cream page bg      */
 		--brand-tertiary:   oklch(0.851 0.089 178.8);   /* muted teal footer       */
 		--brand-quaternary: oklch(0.44  0.10  165.0);   /* deep teal — spare slot  */
+
+		/* Accessible teal for text ON light surfaces. Brand teal (--brand-primary)
+		   only hits 3.5:1 on white and fails WCAG AA for body text; the deeper
+		   --brand-quaternary reaches 7.3:1. Dark mode overrides below. */
+		--brand-primary-text: var(--brand-quaternary);
 	}
 
 	.dark {
 		/* --brand-primary unchanged — LC teal reads well on dark backgrounds. */
 		--brand-secondary:  var(--background);   /* warm cream → dark base bg  */
 		--brand-tertiary:   var(--sidebar);      /* muted teal → dark sidebar  */
+		/* On dark surfaces the lighter brand teal is the readable one. */
+		--brand-primary-text: var(--brand-primary);
 		/* --brand-quaternary: deep teal also works on dark bg, no override needed */
 	}
 }
