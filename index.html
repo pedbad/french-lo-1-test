@@ -10,6 +10,14 @@
 	<link rel="manifest" href="%BASE_URL%site.webmanifest" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="University of Cambridge Language Centre Vite Prototype - Richard Bagnall" />
+	<!-- Preload above-the-fold fonts so they arrive before first paint. Without
+	     this the swap from fallback → Feijoa/Open Sans reflows every heading and
+	     card, driving Cumulative Layout Shift up. crossorigin is required: CSS
+	     @font-face always fetches in CORS mode, so the preload must match or the
+	     font is fetched twice. %BASE_URL% keeps paths correct under any deploy base. -->
+	<link rel="preload" href="%BASE_URL%fonts/Feijoa-Medium.otf" as="font" type="font/otf" crossorigin />
+	<link rel="preload" href="%BASE_URL%fonts/Feijoa-Bold.otf" as="font" type="font/otf" crossorigin />
+	<link rel="preload" href="%BASE_URL%fonts/OpenSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
 	<title>University of Cambridge Language Centre Vite Prototype - Richard Bagnall</title>
 </head>
 
