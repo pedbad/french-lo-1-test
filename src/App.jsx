@@ -392,6 +392,15 @@ export default function App() {
   // language class. Before config loads it stays "" (no LO open / landing).
   const appLang = settings ? settings.targetLanguageCode || "" : "";
 
+  // Route readiness gate. On mount currentLearningObject is `undefined`
+  // (index not yet fetched). Treating `undefined !== -1` as "an LO is open"
+  // made the first paint render the LO hero scaffold, which was then swapped
+  // for the LandingPage once the index resolved — a ~0.62 CLS on the landing.
+  // Gate the hero/LO scaffold on a REAL id (>= 1); show the landing only once
+  // the route resolves to -1. While unresolved, <main> stays empty.
+  const isLoOpen = currentLearningObject >= 1;
+  const isLanding = currentLearningObject === -1;
+
   return (
     <>
       {/* Provide Radix tooltips once at the app root for consistent behavior. */}
@@ -422,13 +431,9 @@ export default function App() {
                   LandingPage provides its own slim header + <h1>, so we
                   skip the hero (no "big hero" on landing) and avoid an
                   empty <h1>. */}
-              {currentLearningObject !== -1 ? (
-                <HeroBanner siteTitle={siteTitle} />
-              ) : null}
-              <main id="content" key="content" tabIndex="-1">
-                {currentLearningObject !== -1 ? (
-                  <LearningObjectTitle title={title} />
-                ) : null}
+              {isLoOpen ? <HeroBanner siteTitle={siteTitle} /> : null}
+              <main id="content" key="content" tabIndex="-1" className="min-h-screen">
+                {isLoOpen ? <LearningObjectTitle title={title} /> : null}
                 <IntroSection
                   intro={intro}
                   introHTML={introHTML}
@@ -436,8 +441,8 @@ export default function App() {
                   introImage={introImage}
                 />
 
-                {currentLearningObject !== -1 ? topLevelSections : null}
-                {learningObjects.length > 0 && currentLearningObject === -1 ? (
+                {isLoOpen ? topLevelSections : null}
+                {isLanding && learningObjects.length > 0 ? (
                   <LandingPage learningObjects={learningObjects} />
                 ) : null}
               </main>
