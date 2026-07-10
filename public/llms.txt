@@ -1,0 +1,7 @@
+# French Basic — University of Cambridge Language Centre
+
+> Small, independent French lessons for basic-level learners, usable as part of a course or for self-study. The lessons concentrate on learning to speak, read and write French.
+
+## Lessons
+
+- [French Basic lessons](https://lcitc.langcen.cam.ac.uk/french/french-basic/): Landing page listing all available basic-level French learning objects.

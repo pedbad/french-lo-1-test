@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lcitc.langcen.cam.ac.uk/french/french-basic/sitemap.xml
