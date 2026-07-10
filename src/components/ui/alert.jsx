@@ -9,13 +9,13 @@ const alertVariants = cva(
     variants: {
       variant: {
         default:
-          "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] text-[var(--brand-primary)]",
+          "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] text-[var(--brand-primary-text)]",
         info:
-          "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] text-[var(--brand-primary)]",
+          "border-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_12%,var(--card))] text-[var(--brand-primary-text)]",
         warning:
           "border-[color-mix(in_oklab,var(--ex-active)_78%,var(--foreground))] bg-[color-mix(in_oklab,var(--ex-active)_24%,var(--card))] text-[color-mix(in_oklab,var(--ex-active)_62%,var(--foreground))]",
         success:
-          "border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] bg-[color-mix(in_oklab,var(--edu-affirm)_24%,var(--card))] text-[color-mix(in_oklab,var(--edu-affirm)_62%,var(--foreground))]",
+          "border-[color-mix(in_oklab,var(--edu-affirm)_78%,var(--foreground))] bg-[color-mix(in_oklab,var(--edu-affirm)_24%,var(--card))] text-[var(--edu-affirm-text)]",
         danger:
           "border-[color-mix(in_oklab,var(--destructive)_72%,var(--foreground))] bg-[color-mix(in_oklab,var(--destructive)_14%,var(--card))] text-[var(--destructive)]",
       },

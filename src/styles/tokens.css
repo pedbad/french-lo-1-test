@@ -112,6 +112,11 @@
 		 * Never reference --chart-* (shadcn remapped chart-1 to blue in dark mode
 		 * without warning — that silently broke --edu-warn for one release). */
 		--edu-affirm:  oklch(0.6   0.118 184.704);  /* green  — correct / success        */
+		/* Accessible affirm-green for TEXT on light surfaces. --edu-affirm only
+		   hits ~3.6:1 on white / ~3.2:1 on the light-green alert fill and fails
+		   WCAG AA for body text; this deeper value reaches ≥5.4:1 on both.
+		   Use for text/label colour only — keep --edu-affirm for fills/borders. */
+		--edu-affirm-text: oklch(0.47  0.11  184.704);
 		--edu-warn:    oklch(0.646 0.222  41.116);  /* amber  — caution / hint            */
 		--edu-neg:     oklch(0.577 0.245  27.325);  /* red    — wrong / error             */
 		--edu-neutral: oklch(0.556 0       0);      /* grey   — secondary / inactive      */
@@ -234,6 +239,8 @@
 		 * All five values pinned here so dark mode is self-contained.
 		 * No edu token ever falls back to a shadcn --chart-* value. */
 		--edu-affirm:  oklch(0.696 0.17  162.48);   /* green  — slightly lighter in dark  */
+		/* On dark surfaces the lighter affirm-green is the readable text colour. */
+		--edu-affirm-text: var(--edu-affirm);
 		--edu-warn:    oklch(0.645 0.246  16.439);   /* amber-orange — warm, never blue    */
 		--edu-neg:     oklch(0.704 0.191  22.216);   /* red    — slightly lighter in dark  */
 		--edu-neutral: oklch(0.708 0       0);       /* grey   — lighter for dark bg       */

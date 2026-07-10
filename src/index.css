@@ -2774,12 +2774,12 @@
 		text-decoration: none !important;
 		--progress-width: 100%;
 		white-space: nowrap;
-		color: var(--edu-affirm);
+		color: var(--edu-affirm-text);
 		cursor: pointer;
 	}
 
 	.audio-link.playing {
-		color: var(--edu-affirm);
+		color: var(--edu-affirm-text);
 	}
 
 	.audio-link:hover {
@@ -2844,7 +2844,7 @@
 	}
 
 	.audio-container.playing {
-		color: var(--edu-affirm);
+		color: var(--edu-affirm-text);
 	}
 
 	.audio-container.inline {
@@ -3816,8 +3816,8 @@ html.debug .blanks-container .target-board .word.blank span {
 }
 
 .btn-ex-affirm {
-  background-color: var(--edu-affirm);
-  border-color: var(--edu-affirm);
+  background-color: var(--edu-affirm-text);
+  border-color: var(--edu-affirm-text);
   color: var(--primary-foreground);
 }
 

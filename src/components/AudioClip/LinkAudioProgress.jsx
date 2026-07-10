@@ -9,13 +9,20 @@ import { useAudioClip } from './useAudioClip';
 export function LinkAudioProgress({ children, className = '', id, size, soundFile, title }) {
   const { status, progress, duration, handleClick } = useAudioClip(soundFile, { id });
   const tooltipText = title || (status !== 'playing' ? 'Click to play' : 'Click to pause');
+  // WCAG 2.5.3 (label-in-name): when the button shows visible text, the
+  // accessible name must contain it — so speech-control users can activate it
+  // by the words they see. Fold the visible label into aria-label; fall back to
+  // the play/pause hint only for icon-only (no visible text) usage.
+  const hasTextLabel = typeof children === 'string' && children.trim().length > 0;
+  const accessibleLabel = hasTextLabel ? `${children.trim()}, ${tooltipText}` : tooltipText;
 
   return (
     <button
       type="button"
       className={`audio-link ${status} ${className}`.trim()}
       onClick={handleClick}
-      aria-label={tooltipText}>
+      title={tooltipText}
+      aria-label={accessibleLabel}>
       <CircularAudioProgressAnimatedSpeakerDisplay
         className={className}
         inline={true}
