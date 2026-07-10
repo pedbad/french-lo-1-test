@@ -91,6 +91,42 @@ Incognito. Prod `main.js` is ~474 KB minified (confirmed on live).
 - Feijoa-Medium/Bold .otf (228/175 KB) + OpenSans .ttf (128 KB), render-path.
   Convert to woff2 + subset for a smaller, faster font payload.
 
+## DONE (2026-07-10 session 3 — commit 843e2d5)
+
+### WebP conversion — 5.5 MB → 1.25 MB (finding #2 CLEARED)
+- `scripts/generate-card-webp.mjs` (sharp, density 300 → resize 800px → webp
+  q78) rasterizes the 15 intro SVGs to `.webp` siblings. Re-run: `yarn assets:webp`.
+- Repointed BOTH consumers: `src/index-fr.json` (landing cards) and
+  `src/lo-config/*.json` (LO-page hero via IntroSection), plus the lo1
+  `DEFAULT_INTRO_IMAGE` in `IntroSection.jsx`. Intro SVGs no longer fetched.
+- Verified on LOCAL PROD build (`yarn build` + `yarn preview` at :4199, root
+  base): all 15 `.webp` load, zero intro-`.svg` requests, no 404s, cards render
+  crisp (screenshot). Old SVGs kept in repo (debug view + regen source; unused
+  by prod path, harmless).
+
+### SEO title + meta description (repo ding CLEARED)
+- `index.html`: placeholder "…Vite Prototype - Richard Bagnall" replaced in
+  BOTH `<title>` and `<meta name=description>` with real course copy
+  ("Learn Basic French — University of Cambridge Language Centre" + 165-char
+  description). dist-confirmed.
+
+### ROOT CAUSE of live SEO 63 (local 100) — Raven SSO wall
+- `curl https://lcitc.langcen.cam.ac.uk/french/french-basic/` → **302** to
+  `shib.raven.cam.ac.uk/idp/...` (Shibboleth). `/robots.txt` also **302**s.
+- So an unauthenticated crawler/Lighthouse fetch hits a login redirect, and the
+  robots.txt we shipped is UNREACHABLE at the crawler level → `robots-txt` and
+  index/crawlability SEO audits fail LIVE regardless of repo state. This is the
+  dominant live-only SEO gap and is **server/devops**, not code.
+- ACTION for devops: decide policy — either (a) accept that an SSO-gated site is
+  non-indexable (SEO score is moot), or (b) allow-list `/robots.txt`, `/llms.txt`
+  and static SEO assets to bypass Shibboleth so crawlers can read them.
+- User must run the live DevTools Lighthouse from an AUTHENTICATED tab to get the
+  exact remaining SEO/BP failing-audit ids (agent cannot pass the SSO wall).
+
+### Devops asks still open (finding #3, unchanged)
+- Enable `Cache-Control`/mod_expires (all assets `Cache TTL: None`, 7,670 KiB
+  repeat-visit savings) + HTTP/2 on the Apache vhost.
+
 ## Guards (must pass before commit)
 - `yarn check:color:branch` — blocks hex/oklch/named-color literals outside allowlist (`src/index.css`, `DebugSandbox.jsx`, `tailwind.config.js`). `var(--token)` refs always allowed → prefer token references for any color change.
 - `yarn check:a11y:branch`, `yarn check:typography:branch`, `yarn check:scss:branch`.
