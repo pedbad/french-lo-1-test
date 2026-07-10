@@ -52,10 +52,44 @@ Branch in progress: `fix/a11y-contrast-landmark` (2 commits pushed, tree clean).
 - **Local desktop lighthouse now 100 across Accessibility / Best Practices /
   SEO / Agentic Browsing; CLS 0.00.**
 
-## REMAINING WORK (LIVE-ONLY — behind password, user must run)
+## LIVE AUDIT FINDINGS (2026-07-10 session 2 — real prod build)
+Audited `https://lcitc.langcen.cam.ac.uk/french/french-basic/` (the STALE
+pre-CLS/pre-SEO deploy): Perf **59**, A11y **96**, BP **96**, SEO **63**;
+FCP 3.4s, LCP 5.2s, TBT 0ms, **CLS 0.298**.
 
-### Best Practices 92 (live only)
-- Local is 100; live deducts 8. Needs live console/network inspection (behind password). User should run DevTools Lighthouse on live, or share the live console errors + the failing BP audit ids.
+CRITICAL AUDIT-TARGET LESSON: `localhost:5173` is the Vite DEV server —
+unminified, unbundled, 15 MB, LCP 60s+. NEVER audit it. Audit the prod build
+only: `localhost:4199` (preview) or live. Extensions also poison audits — use
+Incognito. Prod `main.js` is ~474 KB minified (confirmed on live).
+
+### 1. CLS 0.298 — ALREADY FIXED, needs redeploy
+- Live culprit = footer `<div class="footer-container">` (0.298), pushed down
+  by late-arriving landing content. The `min-h-screen` on <main> (commit
+  f98070a) fixes it — local prod trace verified CLS 0.00. Redeploy to ship it.
+
+### 2. ~6 MB oversized LO SVGs — BIGGEST REMAINING LEVER (deferred)
+- The 15 card illustrations are 200–700 KB each (~6 MB). svgo lossless pass
+  (commit eb11382) only recovered 6.5% — they are heavy detailed vectors.
+- REAL FIX: rasterize to WebP at rendered size (~600px, cards are aspect-[3/2]
+  object-cover). Expect ~6 MB → ~0.5 MB, the dominant LCP/payload win. Needs
+  `sharp` + an asset/build step + updating the img `src` refs. Not yet done.
+
+### 3. No cache headers + HTTP/1.1 — SERVER/DEVOPS, not code
+- Every asset shows `Cache TTL: None` → 7,670 KiB of repeat-visit savings.
+  Enable `Cache-Control`/mod_expires on the Mythic Beasts Apache vhost.
+- Site is served over HTTP/1.1 (no multiplexing). Enable HTTP/2. Both are
+  Apache config on the server, outside this repo.
+
+### 4. Best Practices 92 / image-dimension audit (low value)
+- BP 96 live (was noted 92) — minor; run DevTools Lighthouse on live for the
+  exact failing ids if chasing 100.
+- "Image elements without width/height" is UNSCORED and landing cards already
+  reserve space via aspect-[3/2]; footer/hero dims skipped (cosmetic, risks
+  distorting CSS-sized logos).
+
+### 5. Fonts — future
+- Feijoa-Medium/Bold .otf (228/175 KB) + OpenSans .ttf (128 KB), render-path.
+  Convert to woff2 + subset for a smaller, faster font payload.
 
 ## Guards (must pass before commit)
 - `yarn check:color:branch` — blocks hex/oklch/named-color literals outside allowlist (`src/index.css`, `DebugSandbox.jsx`, `tailwind.config.js`). `var(--token)` refs always allowed → prefer token references for any color change.
@@ -66,9 +100,10 @@ Branch in progress: `fix/a11y-contrast-landmark` (2 commits pushed, tree clean).
 - Token sources: `src/styles/tokens.css` (shadcn light/dark), `src/styles/theme-lc-french.css` (brand teal). `--muted-foreground` light = `oklch(0.556 0 0)` = 4.73:1 on white at full opacity.
 - Contrast math node snippet (oklch→sRGB→WCAG ratio) was used this session; recompute if changing tokens.
 
-## Next session
-All local audits are 100 and CLS is 0. Only live-only items remain (Best
-Practices 92 on the password-protected server). User must run DevTools
-Lighthouse on the live URL and paste the failing audit ids + console errors,
-then the fixes can be scoped from there. Consider opening a PR for
-`fix/a11y-contrast-landmark` → `main`.
+## Next session — priority order
+1. REDEPLOY (`./2.deploy-lcitc-remote.sh`) so the CLS fix + robots.txt +
+   llms.txt reach live, then re-audit the PROD build (4199 or live) in
+   Incognito. Expect Perf ~90, SEO/Agentic 100, CLS 0.
+2. WebP conversion of the 15 LO card SVGs (finding #2) — biggest perf lever.
+3. Hand devops the cache-header + HTTP/2 asks (finding #3).
+4. Optional: font woff2/subset (#5).
