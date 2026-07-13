@@ -11,6 +11,10 @@ export const MainMenuMobilePanel = ({
     role="region"
     aria-label="Main navigation mobile"
     aria-hidden={!mobileOpen}
+    // When closed the panel is aria-hidden; `inert` also pulls its links out of
+    // the tab order and the AT tree, so focusable descendants can't be reached
+    // (fixes axe "aria-hidden element contains focusable descendents").
+    inert={!mobileOpen}
   >
     <ul className="mobile-menu-list">
       {navEntries.map((item) => {
