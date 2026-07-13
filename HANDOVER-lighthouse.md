@@ -91,6 +91,39 @@ Incognito. Prod `main.js` is ~474 KB minified (confirmed on live).
 - Feijoa-Medium/Bold .otf (228/175 KB) + OpenSans .ttf (128 KB), render-path.
   Convert to woff2 + subset for a smaller, faster font payload.
 
+## DONE (2026-07-13 session 4)
+
+### Mobile-nav a11y fix — all 15 LO pages A11y 100 (commit 5b29be6)
+- axe "aria-hidden element contains focusable descendents": the closed mobile
+  nav panel (`#main-navigation-mobile-panel`) was `aria-hidden` but its `<a>`
+  links stayed focusable. Fix: `inert={!mobileOpen}` in
+  `MainMenuMobilePanel.jsx` (React 19 boolean inert) — closed subtree leaves tab
+  order + AT tree. Shared shell → one fix covers all 15 LO pages.
+
+### Lighthouse CLI batch harness (commit 210b687)
+- `scripts/lighthouse-lo-batch.mjs` + `lighthouse`/`chrome-launcher` devDeps.
+  Runs headless Lighthouse (accessibility) against every `?lo=<slug>` preview
+  URL, prints per-LO score table + shared-failure summary, writes per-page JSON.
+  LOCAL COMPUTE, near-zero token cost, repeatable. Run:
+  `yarn build && yarn preview --port 4199 --strictPort` then
+  `node scripts/lighthouse-lo-batch.mjs http://localhost:4199/ <outdir>`.
+- **LO pages are addressed by `?lo=<slug>` query param** (App.jsx line 267), NOT
+  path `/slug/`. `/slug/` renders blank locally. The 15 slugs are in
+  `src/index-fr.json`.
+- POST-FIX batch result: all 15 LO pages **A11y 100, zero failing audits**.
+
+### ⚠ RECONCILE — batch may under-report (parallel session found 97)
+- A parallel session shipped `a0324b0 fix(a11y): resolve LO color-contrast +
+  label-in-name failures (97→100)` and `b7d1f96 perf(fonts): woff2 (957→325KB)`.
+  Both rebased in + pushed. index.html now has BOTH the SEO copy AND woff2
+  preloads.
+- BUT my batch scored all LOs 100 on a build that did NOT include a0324b0 — i.e.
+  it did NOT catch the contrast/label-in-name failures that session found.
+  Likely because the batch runs **headless desktop, light theme, default page
+  state only**. Lighthouse catches ~40% of WCAG. NEXT SESSION MUST widen the net:
+  dark theme, mobile emulation, and exercise-interacted states, plus axe
+  DevTools on live. Do not trust "all 100" as full coverage.
+
 ## DONE (2026-07-10 session 3 — commit 843e2d5)
 
 ### WebP conversion — 5.5 MB → 1.25 MB (finding #2 CLEARED)
