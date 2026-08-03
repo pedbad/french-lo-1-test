@@ -4,6 +4,8 @@ This is a React + Vite app for French learning objects. It uses Tailwind CSS v4 
 
 # 🚀 Getting Started
 
+> **Running accessibility / SEO audits?** See [Automated audit harnesses](#automated-audit-harnesses-all-15-lo-pages) for what to run and where results are written.
+
 ## Install Node + Yarn
 
 - Install Node: https://nodejs.org/en/download/
