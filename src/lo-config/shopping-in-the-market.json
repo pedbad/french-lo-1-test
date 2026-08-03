@@ -434,27 +434,27 @@
           "items": [
             {
               "text": "trois bouteilles [*de|d'|du|de la|de l'|des] vin rouge",
-              "audio": "audio/lo12/exercises/01-select/013-trois-bouteilles-de-vin-rouge.mp3"
+              "audio": "audio/lo12/exercises/02-select/001-trois-bouteilles-de-vin-rouge.mp3"
             },
             {
               "text": "cinq bouteilles [de|*d'|du|de la|de l'|des] eau minérale",
-              "audio": "audio/lo12/exercises/01-select/014-cinq-bouteilles-deau-minerale.mp3"
+              "audio": "audio/lo12/exercises/02-select/002-cinq-bouteilles-deau-minerale.mp3"
             },
             {
               "text": "300 grammes [*de|d'|du|de la|de l'|des] fromage",
-              "audio": "audio/lo12/exercises/01-select/015-300-grammes-de-fromage.mp3"
+              "audio": "audio/lo12/exercises/02-select/003-300-grammes-de-fromage.mp3"
             },
             {
               "text": "200 grammes [*de|d'|du|de la|de l'|des] jambon",
-              "audio": "audio/lo12/exercises/01-select/016-200-grammes-de-jambon.mp3"
+              "audio": "audio/lo12/exercises/02-select/004-200-grammes-de-jambon.mp3"
             },
             {
               "text": "une barquette [*de|d'|du|de la|de l'|des] framboises",
-              "audio": "audio/lo12/exercises/01-select/017-une-barquette-de-framboises.mp3"
+              "audio": "audio/lo12/exercises/02-select/005-une-barquette-de-framboises.mp3"
             },
             {
               "text": "une bouteille [de|*d'|du|de la|de l'|des] huile [de|*d'|du|de la|de l'|des] olives",
-              "audio": "audio/lo12/exercises/01-select/018-une-bouteille-dhuile-dolives.mp3"
+              "audio": "audio/lo12/exercises/02-select/006-une-bouteille-dhuile-dolives.mp3"
             }
           ],
           "titleText": "2. Marion's shopping list",
@@ -471,23 +471,23 @@
           "items": [
             {
               "text": "[de|d'|du|*de la|de l'|des] salade",
-              "audio": "audio/lo12/exercises/01-select/019-de-la-salade.mp3"
+              "audio": "audio/lo12/exercises/03-select/001-de-la-salade.mp3"
             },
             {
               "text": "[de|d'|du|de la|de l'|*des] oignons",
-              "audio": "audio/lo12/exercises/01-select/020-des-oignons.mp3"
+              "audio": "audio/lo12/exercises/03-select/002-des-oignons.mp3"
             },
             {
               "text": "[de|d'|*du|de la|de l'|des] lait",
-              "audio": "audio/lo12/exercises/01-select/021-du-lait.mp3"
+              "audio": "audio/lo12/exercises/03-select/003-du-lait.mp3"
             },
             {
               "text": "[de|d'|*du|de la|de l'|des] café",
-              "audio": "audio/lo12/exercises/01-select/022-du-cafe.mp3"
+              "audio": "audio/lo12/exercises/03-select/004-du-cafe.mp3"
             },
             {
               "text": "[de|d'|*du|de la|de l'|des] jus [de|*d'|du|de la|de l'|des] orange",
-              "audio": "audio/lo12/exercises/01-select/023-du-jus-dorange.mp3"
+              "audio": "audio/lo12/exercises/03-select/005-du-jus-dorange.mp3"
             }
           ],
           "titleText": "3. Yves' shopping list",
@@ -503,7 +503,7 @@
             [
               "",
               "[Je voudrais un kilo de pommes de terre et un demi-kilo de carottes.]",
-              "audio/lo12/exercises/02-dictation/024-je-voudrais-un-kilo-de-pommes-de-terre-et-un-demi-kilo-de-carottes.mp3"
+              "audio/lo12/exercises/04-dictation/001-je-voudrais-un-kilo-de-pommes-de-terre-et-un-demi-kilo-de-carottes.mp3"
             ],
             [
               "",
@@ -513,47 +513,47 @@
             [
               "",
               "[200 grammes d'abricots, s'il vous plaît.]",
-              "audio/lo12/exercises/02-dictation/025-200-grammes-dabricots-sil-vous-plait.mp3"
+              "audio/lo12/exercises/04-dictation/002-200-grammes-dabricots-sil-vous-plait.mp3"
             ],
             [
               "",
               "[D'accord.]",
-              "audio/lo12/exercises/02-dictation/026-daccord.mp3"
+              "audio/lo12/exercises/04-dictation/003-daccord.mp3"
             ],
             [
               "",
               "[Et une barquette de cerises.]",
-              "audio/lo12/exercises/02-dictation/027-et-une-barquette-de-cerises.mp3"
+              "audio/lo12/exercises/04-dictation/004-et-une-barquette-de-cerises.mp3"
             ],
             [
               "",
               "[C'est tout ?]",
-              "audio/lo12/exercises/02-dictation/028-cest-tout.mp3"
+              "audio/lo12/exercises/04-dictation/005-cest-tout.mp3"
             ],
             [
               "",
               "[Non, donnez-moi trois poireaux et un poivron rouge.]",
-              "audio/lo12/exercises/02-dictation/029-non-donnez-moi-trois-poireaux-et-un-poivron-rouge.mp3"
+              "audio/lo12/exercises/04-dictation/006-non-donnez-moi-trois-poireaux-et-un-poivron-rouge.mp3"
             ],
             [
               "",
               "[Voilà !]",
-              "audio/lo12/exercises/02-dictation/030-voila-male.mp3"
+              "audio/lo12/exercises/04-dictation/007-voila-male.mp3"
             ],
             [
               "",
               "[Les melons, c'est combien la pièce ?]",
-              "audio/lo12/exercises/02-dictation/031-les-melons-cest-combien-la-piece.mp3"
+              "audio/lo12/exercises/04-dictation/008-les-melons-cest-combien-la-piece.mp3"
             ],
             [
               "",
               "[2€50 la pièce Madame.]",
-              "audio/lo12/exercises/02-dictation/032-2euros50-la-piece-madame.mp3"
+              "audio/lo12/exercises/04-dictation/009-2euros50-la-piece-madame.mp3"
             ],
             [
               "",
               "[Un melon, s'il vous plaît.]",
-              "audio/lo12/exercises/02-dictation/033-un-melon-sil-vous-plait.mp3"
+              "audio/lo12/exercises/04-dictation/010-un-melon-sil-vous-plait.mp3"
             ],
             [
               "",
@@ -563,7 +563,7 @@
             [
               "",
               "[C'est tout merci !]",
-              "audio/lo12/exercises/02-dictation/034-cest-tout-merci.mp3"
+              "audio/lo12/exercises/04-dictation/011-cest-tout-merci.mp3"
             ]
           ],
           "titleText": "4. Type what you hear",
@@ -578,35 +578,35 @@
           "items": [
             {
               "text": "[rue|*roue]",
-              "audio": "audio/lo12/exercises/043-roue.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/001-roue.mp3"
             },
             {
               "text": "[*nu|nous]",
-              "audio": "audio/lo12/pronunciation/009-nu.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/002-nu.mp3"
             },
             {
               "text": "[*tu|tout]",
-              "audio": "audio/lo12/pronunciation/001-tu.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/003-tu.mp3"
             },
             {
               "text": "[pur|*pour]",
-              "audio": "audio/lo12/pronunciation/011-pour.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/004-pour.mp3"
             },
             {
               "text": "[*du|doux]",
-              "audio": "audio/lo12/grammar/018-du.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/005-du.mp3"
             },
             {
               "text": "[vue|*vous]",
-              "audio": "audio/lo12/pronunciation/010-vous.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/006-vous.mp3"
             },
             {
               "text": "[*pull|poule]",
-              "audio": "audio/lo12/pronunciation/014-pull.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/007-pull.mp3"
             },
             {
               "text": "[bu|*bout]",
-              "audio": "audio/lo12/exercises/041-bout.mp3"
+              "audio": "audio/lo12/exercises/05-inline-choice/008-bout.mp3"
             }
           ],
           "titleTextHTML": "5. Which word do you hear?",
