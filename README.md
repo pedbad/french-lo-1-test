@@ -370,6 +370,30 @@ Validator triage guidance:
 - Usually noise in dev-source validation: Vite-injected `style type="text/css"` warnings, extension-injected scripts, and some `var(--token)` color parsing errors.
 - Always re-check on production output (`yarn build && yarn preview`) in a clean browser profile.
 
+### Automated audit harnesses (all 15 LO pages)
+
+Three headless-Chrome scripts audit every learning-object page (`?lo=<slug>`) against the local prod preview. All are **local compute only** — no data leaves the machine. Run against a running preview:
+
+```bash
+yarn build
+yarn preview --port 4199 --strictPort   # in one shell
+# then, in another shell:
+node scripts/axe-lo-batch.mjs            # deep WCAG (axe-core)
+node scripts/lighthouse-lo-matrix.mjs    # scores + SEO (Lighthouse, wide matrix)
+```
+
+| Script | Tool | Coverage | Output |
+|--------|------|----------|--------|
+| `scripts/axe-lo-batch.mjs` | axe-core | 15 pages × light/dark/interacted; full WCAG 2.0/2.1/2.2 AA + best-practice rules | `<outDir>/_axe-summary.json` (default `/tmp/axe-lo`) |
+| `scripts/lighthouse-lo-matrix.mjs` | Lighthouse | 15 pages × 5 scenarios (desktop/mobile × light/dark + interacted); accessibility, SEO, best-practices scores | `<outDir>/_summary.json` (default `/tmp/lh-lo-matrix`) |
+| `scripts/lighthouse-lo-batch.mjs` | Lighthouse | Narrow: desktop / light / default-state accessibility only. **Superseded by `-matrix`** — kept for reference. | `<outDir>/_summary.json` |
+
+Notes:
+- axe-core covers more WCAG rules than Lighthouse's a11y subset; Lighthouse adds numeric scores + SEO. Complementary — run both.
+- Both accept optional args: `node scripts/<script>.mjs [baseURL] [outDir]`.
+- Default output dirs are under `/tmp` (ephemeral). Redirect to a durable path if you want to keep results: `node scripts/axe-lo-batch.mjs http://localhost:4199/ docs/audits/axe`.
+- Deps (`puppeteer-core`, `axe-core`, `chrome-launcher`, `lighthouse`) are pinned devDependencies.
+
 ## SelectExercise Migration Status
 
 - Legacy `DropDowns` usage has been fully migrated in active FR configs.
