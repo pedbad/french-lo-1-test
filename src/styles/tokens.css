@@ -24,8 +24,8 @@
 
 		/* Font families */
 		--font-sans:         'OpenSans Regular', sans-serif;
-		--font-heading:      'Feijoa Medium', serif;
-		--font-heading-bold: 'Feijoa Bold', serif;
+		--font-heading:      'Feijoa Medium', 'OpenSans SemiBold', sans-serif;
+		--font-heading-bold: 'Feijoa Bold', 'OpenSans Bold', sans-serif;
 		--font-mono:         'JetBrains Mono', monospace;
 
 		/* Typography scale */
