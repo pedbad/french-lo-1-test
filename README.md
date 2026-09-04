@@ -1142,7 +1142,24 @@ LO1 listening exercises were refactored for consistency, clearer naming, and saf
   - `public/audio/lo1/exercises/listeningOrder3/004-horrible.mp3`
 - Filenames for this activity are ASCII-safe to avoid accented-path issues.
 
+## License
+
+Dual-licensed — see [`LICENSE`](LICENSE) for the full text and the file-by-file
+breakdown. Copyright in both rests with **The Language Centre, University of Cambridge**.
+
+- **Code** (`src/` components, hooks, lib, render, utils, styles; `scripts/`, `.githooks/`,
+  tooling config) — MIT.
+- **Learning content** (`src/lo-config/`, `src/index-fr.json`, `public/audio/`, `public/img/`,
+  `docs/`) — CC BY-NC 4.0: reuse it anywhere, including on your own servers, as long as you
+  credit the Language Centre and the use is **non-commercial**. For commercial use, ask the
+  Language Centre.
+
+Cambridge branding and the Feijoa typeface are **not** licensed for reuse; forks must
+remove or replace them.
+
 ## Badges
 
 ![Node](https://img.shields.io/badge/node-20.x-brightgreen)
 ![Vite](https://img.shields.io/badge/built%20with-vite-646cff.svg?logo=vite)
+![License](https://img.shields.io/badge/code-MIT-yellow)
+![Content License](https://img.shields.io/badge/content-CC--BY--NC--4.0-lightgrey)

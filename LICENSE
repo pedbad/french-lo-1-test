@@ -1,0 +1,125 @@
+# License
+
+`French-Basic-2026` is dual-licensed: **the code is MIT, the learning content is
+CC BY-NC 4.0.** Brand assets and the Feijoa typeface are licensed under neither
+— see "Brand assets and typeface" below.
+
+Copyright holder for both licenses:
+**The Language Centre, University of Cambridge.**
+
+---
+
+## Which license covers what
+
+| Part of the repo                                                                                                    | License                 |
+| ------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `src/components/`, `src/render/`, `src/hooks/`, `src/lib/`, `src/utils/`, `src/constants/`, `src/debug/`, `src/test/` | MIT                     |
+| `src/audio/` — audio playback engine (`AudioManager.js`, `useAudio.js`)                                             | MIT                     |
+| `src/App.jsx`, `src/main.jsx`, `src/index.css`, `src/styles/`                                                       | MIT                     |
+| `scripts/`, `.githooks/` — build tooling and quality guards                                                         | MIT                     |
+| `vite.config.js`, `eslint.config.js`, `svgo.config.js`, `jsconfig.json`, `components.json`, `.github/workflows/`    | MIT                     |
+| `src/lo-config/` — Learning Object manifests, blocks, exercises, modals                                             | CC BY-NC 4.0            |
+| `src/index-fr.json` — Learning Object menu index                                                                    | CC BY-NC 4.0            |
+| `public/audio/` — authored learning audio                                                                           | CC BY-NC 4.0            |
+| `public/img/` — authored learning imagery (except the marks listed below)                                           | CC BY-NC 4.0            |
+| `src/assets/lo9/` — authored learning graphics                                                                      | CC BY-NC 4.0            |
+| `docs/`, `CHANGES.md`, `AGENTS.md`, `README.md` — specs, handovers, process notes                                   | CC BY-NC 4.0            |
+| `public/img/common/footer/lc-logo-*.svg`, `cc-logo-*.svg`, `elearning-logo-*.svg`                                   | **neither** — see below |
+| Cambridge logos, wordmarks and visual-language imagery wherever they appear                                         | **neither** — see below |
+| `public/fonts/Feijoa-*.woff2`, `src/assets/fonts-src/Feijoa-*.otf`                                                  | **neither** — see below |
+
+Third-party dependencies are covered by their own licenses. Open Sans, the
+public default typeface, is Apache-2.0 — this covers both
+`public/fonts/OpenSans-*.woff2` and `src/assets/fonts-src/OpenSans-*.ttf`.
+
+---
+
+## Code — MIT License
+
+Copyright (c) 2026 The Language Centre, University of Cambridge
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Learning content — Creative Commons Attribution-NonCommercial 4.0 International
+
+Learning content in this repository © 2026 The Language Centre, University of
+Cambridge, and is licensed under CC BY-NC 4.0.
+
+Full license text: <https://creativecommons.org/licenses/by-nc/4.0/legalcode>
+Plain-language summary: <https://creativecommons.org/licenses/by-nc/4.0/>
+
+**You are free to** share the content (copy and redistribute it in any medium
+or format, including on your own servers) and adapt it (remix, transform and
+build upon it) — **for non-commercial purposes only.**
+
+**Two conditions.**
+
+1. **Attribution.** You must give appropriate credit to The Language Centre,
+   University of Cambridge, provide a link to this license, and indicate if you
+   made changes. You may do so in any reasonable manner, but not in any way
+   that suggests the Language Centre endorses you or your use.
+2. **NonCommercial.** You may not use the content for commercial purposes. In
+   the words of the license, a commercial use is one "primarily intended for or
+   directed toward commercial advantage or monetary compensation."
+
+Attribution is satisfied by, for example:
+
+> Learning content from `French-Basic-2026` © The Language Centre, University of
+> Cambridge, licensed under
+> [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+> Modified from the original.
+
+**If you want to use the content commercially,** the NonCommercial term does
+not forbid it outright — it means you need separate permission. Ask The Language
+Centre, University of Cambridge.
+
+CC BY-NC 4.0 does **not** transfer ownership. Copyright in the content remains
+with The Language Centre, University of Cambridge.
+
+Note that the **code is MIT**, which does permit commercial use. The
+NonCommercial term applies to the learning content, not to the application
+machinery that renders it.
+
+---
+
+## Brand assets and typeface — not licensed for reuse
+
+Cambridge branding (logos, marks, imagery) and the Feijoa typeface are the
+property of the University of Cambridge and Klim Type Foundry respectively, and
+are **not** licensed for reuse. Forks must remove or replace them. Code is MIT;
+learning content is CC BY-NC 4.0.
+
+Notes on how this repository handles them:
+
+- **Colours.** The palette reflects the Cambridge brand. Colour values
+  themselves are not copyrightable and ship as tokens in `src/index.css` and
+  `src/styles/`, but re-theming is expected.
+- **Feijoa.** A commercial typeface from Klim Type Foundry. It is **not**
+  licensed for reuse or redistribution under either license above, and no
+  permission to copy it is granted by this file. A deploy that holds a valid
+  Klim license may supply the font files locally; without them, the heading
+  cascade falls back to a system face and Open Sans (Apache-2.0) carries the
+  body text.
+- **Logos and wordmarks.** The Language Centre, Cambridge and eLearning marks
+  under `public/img/common/footer/` ship for use by the University only, and are
+  covered by the disclaimer above.
+
+Nothing in this file grants any trademark rights.
